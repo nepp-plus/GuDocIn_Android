@@ -7,7 +7,7 @@ import com.neppplus.gudocin_android.databinding.ActivityMainBinding
 
 class MainActivity : BaseActivity() {
 
-//    메인화면 - 김민성이 작업합니다.
+//    메인화면 - 김민성이 작업합니다..
 
     lateinit var binding: ActivityMainBinding
 
