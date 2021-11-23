@@ -7,6 +7,8 @@ import com.neppplus.gudocin_android.databinding.ActivityMainBinding
 
 class MainActivity : BaseActivity() {
 
+//    메인화면 - 조경진이 작업합니다.
+
     lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
