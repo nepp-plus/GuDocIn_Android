@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil
 import com.neppplus.gudocin_android.databinding.ActivityMainBinding
 
 class MainActivity : BaseActivity() {
+//    이아현 메인작업
 
     lateinit var binding: ActivityMainBinding
 
