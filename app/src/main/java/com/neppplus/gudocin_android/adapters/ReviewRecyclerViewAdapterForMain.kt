@@ -23,10 +23,7 @@ class ReviewRecyclerViewAdapterForMain
         val txtReviewerNickName   = itemView.findViewById<TextView>(R.id.txtReviewerNickName)
 
         fun bind(data: ReviewData ){
-//상품 데이터 파싱 필요
-//            txtProductPrice.text = data.title
-//            txtProductName.text = data.content
-//            txtReviewerNickName.text = data.content
+            txtProductName.text =data.content
 
 
         }
@@ -48,4 +45,3 @@ class ReviewRecyclerViewAdapterForMain
     override fun getItemCount()= mList.size
 
     }
-}
