@@ -18,6 +18,10 @@ class ReviewActivity : BaseActivity() {
 
     override fun setupEvents() {
 
+        binding.btnCancleReview.setOnClickListener {
+            finish()
+        }
+
     }
 
     override fun setValues() {
