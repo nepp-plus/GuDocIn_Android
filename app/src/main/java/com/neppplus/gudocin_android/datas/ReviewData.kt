@@ -10,8 +10,9 @@ class ReviewData(
     var title : String,
     var content : String,
     var score : Double,
-    @SerializedName("created_at")
-    var createdAt : Date,
+
+    var product : ProductData,
+    var user: UserData,
 
 
     ) : Serializable{

@@ -23,7 +23,11 @@ class ReviewRecyclerViewAdapterForMain
         val txtReviewerNickName   = itemView.findViewById<TextView>(R.id.txtReviewerNickName)
 
         fun bind(data: ReviewData ){
-            txtProductName.text =data.content
+            txtProductName.text =data.product.name
+            txtProductPrice.text=data.product.price.toString()
+            txtReviewerNickName.text=data.user.nickname
+
+
 
 
         }

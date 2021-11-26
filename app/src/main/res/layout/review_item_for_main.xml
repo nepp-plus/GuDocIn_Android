@@ -14,13 +14,14 @@
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp">
 
-        <de.hdodenhof.circleimageview.CircleImageView
+        <ImageView
             android:id="@+id/imgReviewerImage"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@mipmap/ic_launcher"
             android:layout_marginLeft="5dp"/>
 
+<!--            서클 이미지뷰 설치 했는데 사용이 안됩니다...-->
 
         <TextView
             android:id="@+id/txtReviewerNickName"
