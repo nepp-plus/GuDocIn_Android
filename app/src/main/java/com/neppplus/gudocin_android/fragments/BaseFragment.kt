@@ -1,27 +1,29 @@
-package com.neppplus.gudocin_android
+package com.neppplus.gudocin_android.fragments
 
 import android.content.Context
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.neppplus.gudocin_android.api.ServerAPI
 import com.neppplus.gudocin_android.api.ServerAPIInterface
 
-abstract class BaseActivity : AppCompatActivity() {
+abstract class BaseFragment : Fragment() {
 
-    lateinit var mContext: Context
+    lateinit var mContext : Context
 
     lateinit var apiService: ServerAPIInterface
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        mContext = this
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        mContext = requireContext()
 
         val retrofit = ServerAPI.getRetrofit()
         apiService = retrofit.create(ServerAPIInterface::class.java)
 
     }
 
+
     abstract fun setupEvents()
     abstract fun setValues()
+
 
 }
