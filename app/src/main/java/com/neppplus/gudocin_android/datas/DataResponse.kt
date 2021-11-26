@@ -1,0 +1,7 @@
+package com.neppplus.gudocin_android.datas
+
+class DataResponse(
+
+    var reviews : List<ReviewData>,
+) {
+}
