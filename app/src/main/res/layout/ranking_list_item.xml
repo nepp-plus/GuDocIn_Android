@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:padding="15dp"
+    android:layout_height="wrap_content">
+
+   <TextView
+       android:layout_width="1dp"
+       android:layout_height="30dp"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:text="오늘의 인기 리뷰 상품"/>
+
+        <TextView
+            android:id="@+id/rankingNickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1위 : 닉네임자리"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:padding="10dp"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="150dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher"
+            android:layout_height="160dp"/>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
