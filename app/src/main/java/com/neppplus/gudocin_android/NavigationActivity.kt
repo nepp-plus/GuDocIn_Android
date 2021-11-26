@@ -1,7 +1,6 @@
 package com.neppplus.gudocin_android
 
 import android.os.Bundle
-import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
@@ -12,7 +11,7 @@ import com.neppplus.gudocin_android.fragments.HomeFragment
 import com.neppplus.gudocin_android.fragments.MyProfileFragment
 import com.neppplus.gudocin_android.fragments.RankingFragment
 
-class MainActivity : AppCompatActivity() {
+class NavigationActivity : AppCompatActivity() {
 
 //    메인화면 - 김준기가 작업합니다.
 
@@ -26,10 +25,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_navigation)
 
         viewPager.apply {
-            adapter = ViewPagerAdapter(this@MainActivity)
+            adapter = ViewPagerAdapter(this@NavigationActivity)
             registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
                 override fun onPageSelected(position: Int) {
                     super.onPageSelected(position)
