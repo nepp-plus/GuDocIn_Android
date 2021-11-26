@@ -30,7 +30,7 @@ class ReviewRecyclerViewAdapterForMain
         val btnGotoReviewDetail1 = itemview.findViewById<LinearLayout>(R.id.btnGotoReviewDetail1)
         val btnGotoReviewDetail2 = itemview.findViewById<LinearLayout>(R.id.btnGotoReviewDetail2)
         val btnOpenPreview = itemview.findViewById<LinearLayout>(R.id.btnOpenPreview)
-        val txtCheckedContents = itemview.findViewById<ImageView>(R.id.txtCheckedContents)
+        val txtCheckedContents = itemview.findViewById<TextView>(R.id.txtCheckedContents)
 
         fun bind(data: ReviewData) {
             txtProductName.text = data.product.name
@@ -40,10 +40,10 @@ class ReviewRecyclerViewAdapterForMain
             Glide.with(mContext).load(data.user.profileImageURL).into(imgReviewerImage)
 
             btnGotoReviewDetail1.setOnClickListener {
-//               리뷰 상세 페이지용 인텐트 추가 필요 (Activity명 나오면 추가 예정)
+//               리뷰 상세 페이지로 넘어가는 인텐트 추가 필요 (Activity명 나오면 추가 예정)
             }
             btnGotoReviewDetail2.setOnClickListener {
-//               리뷰 상세 페이지용 인텐트 추가 필요 (Activity명 나오면 추가 예정)
+//               리뷰 상세 페이지로 넘어가는 인텐트 추가 필요 (Activity명 나오면 추가 예정)
             }
             btnOpenPreview.setOnClickListener {
                 txtCheckedContents.visibility = View.VISIBLE
