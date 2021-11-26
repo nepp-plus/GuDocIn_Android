@@ -32,13 +32,21 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:padding="10dp"
+        android:orientation="vertical"
         android:layout_height="wrap_content">
 
         <ImageView
             android:layout_width="150dp"
             android:scaleType="centerCrop"
             android:src="@mipmap/ic_launcher"
-            android:layout_height="160dp"/>
+            android:layout_height="140dp"/>
+
+        <TextView
+            android:id="@+id/txtReviewTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:text="리뷰 제목 자리"/>
 
 
     </LinearLayout>
