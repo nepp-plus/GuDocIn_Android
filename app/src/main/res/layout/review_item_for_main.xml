@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+     android:gravity="center|top">
+
+    <LinearLayout
+        android:id="@+id/btnGotoReviewWriterDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imgReviewerImage"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@mipmap/ic_launcher"
+            android:layout_marginLeft="5dp"/>
+
+
+        <TextView
+            android:id="@+id/txtReviewerNickName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:layout_marginLeft="5dp"
+            android:textSize="14sp"
+            android:text="리뷰어 이름"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/btnGotoReviewDetail1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/imgReviewSomeNail"
+            android:layout_width="400dp"
+            android:layout_height="400dp"
+            android:src="@drawable/review_image_flower"
+            android:scaleType="centerCrop"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/btnGotoReviewDetail2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:layout_margin="5dp">
+
+        <TextView
+            android:id="@+id/txtProductName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            android:text="상품명"/>
+
+        <TextView
+            android:id="@+id/txtProductPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="11sp"
+            android:text="가격"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/btnOpenPreview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:orientation="vertical"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            android:layout_marginTop="5dp"
+            android:text="더보기"/>
+
+    </LinearLayout>
+
+
+
+
+
+
+
+
+</LinearLayout>

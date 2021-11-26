@@ -8,6 +8,14 @@
         android:orientation="vertical"
         tools:context=".MainActivity">
 
+        <fragment
+            android:id="@+id/reviewFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            class="com.neppplus.gudocin_android.fragments.ReviewListFragment"
+            />
+
+
 
     </LinearLayout>
 </layout>
