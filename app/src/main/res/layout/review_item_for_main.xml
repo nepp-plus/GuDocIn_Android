@@ -14,14 +14,13 @@
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imgReviewerImage"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@mipmap/ic_launcher"
             android:layout_marginLeft="5dp"/>
 
-<!--            서클 이미지뷰 설치 했는데 사용이 안됩니다...-->
 
         <TextView
             android:id="@+id/txtReviewerNickName"
@@ -94,6 +93,13 @@
             android:textSize="13sp"
             android:layout_marginTop="5dp"
             android:text="더보기"/>
+
+        <TextView
+            android:id="@+id/txtCheckedContents"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text="선택된 체크박스 내용 자리"/>
 
     </LinearLayout>
 
