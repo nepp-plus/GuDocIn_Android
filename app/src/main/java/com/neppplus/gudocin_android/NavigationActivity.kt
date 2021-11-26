@@ -10,6 +10,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.neppplus.gudocin_android.fragments.HomeFragment
 import com.neppplus.gudocin_android.fragments.MyProfileFragment
 import com.neppplus.gudocin_android.fragments.RankingFragment
+import com.neppplus.gudocin_android.fragments.ReviewListFragment
 
 class NavigationActivity : AppCompatActivity() {
 
@@ -60,7 +61,7 @@ class NavigationActivity : AppCompatActivity() {
 
         override fun createFragment(position: Int): Fragment {
             return when (position) {
-                0 -> HomeFragment()
+                0 -> ReviewListFragment()
                 1 -> RankingFragment()
                 else -> MyProfileFragment()
             }

@@ -15,11 +15,7 @@
             android:name=".ReviewActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
             android:name=".LoginActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SplashActivity"
             android:exported="false" />
         <activity
             android:name=".NavigationActivity"
