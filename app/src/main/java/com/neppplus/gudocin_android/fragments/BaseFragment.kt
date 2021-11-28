@@ -8,7 +8,7 @@ import com.neppplus.gudocin_android.api.ServerAPIInterface
 
 abstract class BaseFragment : Fragment() {
 
-    lateinit var mContext : Context
+    lateinit var mContext: Context
 
     lateinit var apiService: ServerAPIInterface
 
@@ -16,15 +16,12 @@ abstract class BaseFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         mContext = requireContext()
 
-
         val retrofit = ServerAPI.getRetrofit()
         apiService = retrofit.create(ServerAPIInterface::class.java)
 
     }
 
-
     abstract fun setupEvents()
     abstract fun setValues()
-
 
 }
