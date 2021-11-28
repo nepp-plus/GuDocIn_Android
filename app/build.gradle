@@ -42,6 +42,7 @@ dependencies {
 
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'com.dev.hieupt:android-standalone-scroll-bar:1.1.2'
+    implementation 'com.airbnb.android:lottie:4.2.0'
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'androidx.core:core-ktx:1.7.0'

@@ -5,16 +5,16 @@
         android:id="@+id/naviHome"
         android:enabled="true"
         android:icon="@drawable/navi_home"
-        android:title="" />
+        android:title="홈" />
     <item
         android:id="@+id/naviRanking"
         android:icon="@drawable/navi_ranking"
-        android:title="" />
+        android:title="랭킹" />
     <item
         android:id="@+id/naviMyProfile"
         android:enabled="true"
         android:icon="@drawable/navi_my_profile"
-        android:title="" />
+        android:title="내 정보" />
 
 
 </menu>
