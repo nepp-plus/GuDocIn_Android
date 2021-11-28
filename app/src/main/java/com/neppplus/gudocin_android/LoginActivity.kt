@@ -14,6 +14,8 @@ import com.facebook.login.LoginResult
 import com.kakao.sdk.user.UserApiClient
 import com.neppplus.gudocin_android.databinding.ActivityLoginBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
+import com.neppplus.gudocin_android.datas.GlobalData
+import com.neppplus.gudocin_android.utils.ContextUtil
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -110,6 +112,10 @@ class LoginActivity : BaseActivity() {
                         Toast.makeText(mContext, "${userNickname}님, 환영합니다!!!", Toast.LENGTH_SHORT)
                             .show()
 
+                        ContextUtil.setToken(mContext, basicResponse.data.token)
+
+                        GlobalData.loginUser = basicResponse.data.user
+
                         val myIntent = Intent(mContext, NavigationActivity::class.java)
                         startActivity(myIntent)
 
@@ -174,6 +180,10 @@ class LoginActivity : BaseActivity() {
                                                 "${br.data.user.nickname}님, 환영합니다!",
                                                 Toast.LENGTH_SHORT
                                             ).show()
+
+                                            ContextUtil.setToken(mContext, br.data.token)
+
+                                            GlobalData.loginUser = br.data.user
 
                                             val myIntent =
                                                 Intent(mContext, NavigationActivity::class.java)
@@ -268,6 +278,10 @@ class LoginActivity : BaseActivity() {
                                 "${br.data.user.nickname}님, 환영합니다!",
                                 Toast.LENGTH_SHORT
                             ).show()
+
+                            ContextUtil.setToken(mContext, br.data.token)
+
+                            GlobalData.loginUser = br.data.user
 
                             val myIntent = Intent(mContext, NavigationActivity::class.java)
                             startActivity(myIntent)

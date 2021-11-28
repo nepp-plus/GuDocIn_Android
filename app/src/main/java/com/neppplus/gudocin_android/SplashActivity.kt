@@ -7,7 +7,13 @@ import android.os.Handler
 import android.os.Looper
 import androidx.databinding.DataBindingUtil
 import com.neppplus.gudocin_android.databinding.ActivitySplashBinding
+import com.neppplus.gudocin_android.datas.BasicResponse
+import com.neppplus.gudocin_android.datas.GlobalData
+import com.neppplus.gudocin_android.datas.UserData
 import com.neppplus.gudocin_android.utils.ContextUtil
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class SplashActivity : BaseActivity() {
 
@@ -26,13 +32,30 @@ class SplashActivity : BaseActivity() {
 
     override fun setValues() {
 
+        apiService.getRequestMyInfo().enqueue(object : Callback<BasicResponse> {
+            override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
+
+                if (response.isSuccessful) {
+
+                    GlobalData.loginUser = response.body()!!.data.user
+
+                }
+
+            }
+
+            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+
+            }
+
+        })
+
         val myHandler = Handler(Looper.getMainLooper())
 
         myHandler.postDelayed({
 
             val myIntent: Intent
 
-            if (ContextUtil.getToken(mContext) != "") {
+            if (GlobalData.loginUser != null) {
                 myIntent = Intent(mContext, NavigationActivity::class.java)
             } else {
                 myIntent = Intent(mContext, LoginActivity::class.java)

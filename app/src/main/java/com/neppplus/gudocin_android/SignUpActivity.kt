@@ -49,7 +49,7 @@ class SignUpActivity : BaseActivity() {
 
         }
 
-        binding.edtEmail.addTextChangedListener {
+        binding.edtNickname.addTextChangedListener {
 
             binding.txtNicknameCheckResult.text = "닉네임 중복검사를 해주세요."
             isDuplOk = false

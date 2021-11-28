@@ -44,10 +44,14 @@ interface ServerAPIInterface {
         @Field("nick_name") name: String,
     ): Call<BasicResponse>
 
+//    내 정보 조회 - GET / 토큰값 (임시방안)
+
+    @GET("/user")
+    fun getRequestMyInfo(): Call<BasicResponse>
+
 //    상품목록 받아오기
     @GET("/product")
     fun getRequestProductList(): Call<BasicResponse>
-
 
 //    전체 리뷰 목록 가져오기
     @GET("/review")
