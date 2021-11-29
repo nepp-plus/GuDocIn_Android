@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_marginTop="80dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="적립금 세부 내역"/>
+
+        <TextView
+            android:layout_marginTop="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="현재 사용 가능한 적립금"/>
+
+        <TextView
+            android:id="@+id/txtSavedmoney"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="30,000원"/>
+
+        <TextView
+            android:layout_width="340dp"
+            android:layout_height="1dp"
+            android:background="#808080"/>
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
+
+</layout>
