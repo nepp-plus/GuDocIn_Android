@@ -26,10 +26,12 @@ class HomeFragment : BaseFragment() {
 
     lateinit var binding: FragmentHomeBinding
 
-    lateinit var mvpa: BannerViewPagerAdapter
+    lateinit var mBannerViewPagerAdapter: BannerViewPagerAdapter
+
     val mBannerList = ArrayList<String>()
 
     val mReviewList = ArrayList<ReviewData>()
+
     lateinit var mReviewRecyclerViewAdapterForMain: ReviewRecyclerViewAdapterForMain
 
     override fun onCreateView(
@@ -56,10 +58,10 @@ class HomeFragment : BaseFragment() {
 
     override fun setValues() {
 
-        getBannerImgFromServer()
+//        getBannerImgFromServer()
 
-        mvpa = BannerViewPagerAdapter (childFragmentManager,mBannerList)
-        binding.mainBannerViewPager.adapter = mvpa
+        mBannerViewPagerAdapter = BannerViewPagerAdapter (childFragmentManager,mBannerList)
+        binding.mainBannerViewPager.adapter = mBannerViewPagerAdapter
 
 
         getReviewListFromServer()
@@ -71,31 +73,31 @@ class HomeFragment : BaseFragment() {
 
     }
 
-    fun getBannerImgFromServer(){
-
-        apiService.getRequestProductList(object :Callback<BasicResponse>{
-            override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
-
-                if (response.isSuccessful){
-                    var br = response.body()!!
-                    mBannerList.clear()
-
-                    for (products in  br.data.products){
-                        mBannerList.add(products.imageUrl)
-                    }
-                    mvpa.notifyDataSetChanged()
-
-
-                }
-
-            }
-
-            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-
-            }
-
-        })
-                }
+//    fun getBannerImgFromServer(){
+//
+//        apiService.getRequestProductList(object :Callback<BasicResponse>{
+//            override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
+//
+//                if (response.isSuccessful){
+//                    var br = response.body()!!
+//                    mBannerList.clear()
+//
+//                    for (products in  br.data.products){
+//                        mBannerList.add(products.imageUrl)
+//                    }
+//                    mBannerViewPagerAdapter.notifyDataSetChanged()
+//
+//
+//                }
+//
+//            }
+//
+//            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+//
+//            }
+//
+//        })
+//                }
 
 
 

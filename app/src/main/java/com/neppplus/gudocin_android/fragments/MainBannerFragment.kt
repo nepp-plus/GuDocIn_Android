@@ -20,7 +20,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MainBannerFragment(val imgBanner : String) : BaseFragment() {
+class MainBannerFragment(val imgBanner :String) : BaseFragment() {
 
     lateinit var binding: FragmentBannerListBinding
 
@@ -51,7 +51,6 @@ class MainBannerFragment(val imgBanner : String) : BaseFragment() {
     }
 
     override fun setValues() {
-
 
         Glide.with(mContext).load(imgBanner).into(binding.imgMainBanner)
 
