@@ -82,7 +82,7 @@ class SplashActivity : BaseActivity() {
             if (GlobalData.loginUser != null) {
                 myIntent = Intent(mContext, NavigationActivity::class.java)
             } else {
-                myIntent = Intent(mContext, LoginActivity::class.java)
+                myIntent = Intent(mContext, ApproachActivity::class.java)
             }
 
             startActivity(myIntent)
