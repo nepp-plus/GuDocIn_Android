@@ -67,7 +67,7 @@ class NavigationActivity : AppCompatActivity() {
 
         override fun createFragment(position: Int): Fragment {
             return when (position) {
-                0 -> ReviewListFragment()
+                0 -> HomeFragment()
                 1 -> RankingFragment()
                 else -> MyProfileFragment()
             }
