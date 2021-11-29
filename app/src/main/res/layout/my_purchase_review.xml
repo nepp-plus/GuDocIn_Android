@@ -5,27 +5,30 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="구매내역"/>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/myPurchaseList"
-        android:layout_width="match_parent"
-        android:layout_height="350dp"/>
 
 
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="리뷰내역"/>
+        android:text="상품구매내역"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/myReivewList"
+        android:id="@+id/myPunrchaseList"
         android:layout_width="match_parent"
         android:layout_height="350dp"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="상품리뷰내역"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/myReviewList"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"/>
+
 
 
 

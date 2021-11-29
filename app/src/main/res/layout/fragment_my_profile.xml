@@ -54,12 +54,7 @@
             android:text="내역확인"
             />
 
-                <Button
-                    android:id="@+id/btnGoReview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:text="리뷰 작성"/>
+
 
         </LinearLayout>
 

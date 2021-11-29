@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_marginStart="15dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/backbutton"/>
+
+
+        <TextView
+
+            android:layout_marginStart="130dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="상품구매 내역" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@mipmap/ic_launcher"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="장바구니"
+                android:textSize="8dp"/>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@mipmap/ic_launcher"/>
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="알림"
+                android:textSize="8dp"/>
+
+
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <TextView
+        android:layout_marginTop="7dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#808080"/>
+
+    <TextView
+        android:textSize="20dp"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="방우진님의 구매내역"/>
+
+
+
+
+
+
+
+
+
+
+</LinearLayout>
