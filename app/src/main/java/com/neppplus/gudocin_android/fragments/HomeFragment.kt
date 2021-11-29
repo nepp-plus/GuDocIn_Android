@@ -1,6 +1,8 @@
 package com.neppplus.gudocin_android.fragments
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,8 +14,13 @@ import com.neppplus.gudocin_android.databinding.BannerItemForMainBinding
 
 class HomeFragment : BaseFragment() {
 
+    val handler=Handler(Looper.getMainLooper()){
+        true
+    }
+
     lateinit var binding: BannerItemForMainBinding
 
+    lateinit var mvpa: BannerViewPagerAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,6 +45,8 @@ class HomeFragment : BaseFragment() {
     }
 
     override fun setValues() {
+
+        mvpa = BannerViewPagerAdapter(childFragmentManager)
 
 
     }

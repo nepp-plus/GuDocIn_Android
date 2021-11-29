@@ -11,13 +11,12 @@
             android:layout_height="wrap_content"
             android:text="이 아래로 배너 나와야 함"/>
 
-        <fragment
-            android:id="@+id/BannerFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            class="com.neppplus.gudocin_android.fragments.MainBannerFragment"
-            android:layout_weight="1"
-            />
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/mainBannerViewPager"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_weight="1"/>
+
 
         <TextView
             android:layout_width="wrap_content"
