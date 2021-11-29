@@ -2,6 +2,7 @@ package com.neppplus.gudocin_android.api
 
 import com.neppplus.gudocin_android.datas.BasicResponse
 import retrofit2.Call
+import retrofit2.Callback
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
@@ -55,7 +56,7 @@ interface ServerAPIInterface {
 
 //    상품목록 받아오기
     @GET("/product")
-    fun getRequestProductList(): Call<BasicResponse>
+    fun getRequestProductList(param: Callback<BasicResponse>): Call<BasicResponse>
 
 //    전체 리뷰 목록 가져오기
     @GET("/review")

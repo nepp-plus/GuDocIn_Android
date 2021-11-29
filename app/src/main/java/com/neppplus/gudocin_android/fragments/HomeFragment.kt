@@ -7,13 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.bumptech.glide.Glide
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.adapters.BannerViewPagerAdapter
 import com.neppplus.gudocin_android.adapters.ReviewRecyclerViewAdapterForMain
-import com.neppplus.gudocin_android.databinding.BannerItemForMainBinding
 import com.neppplus.gudocin_android.databinding.FragmentHomeBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.ReviewData
@@ -76,30 +73,31 @@ class HomeFragment : BaseFragment() {
 
     fun getBannerImgFromServer(){
 
-            mvpa.getItemPosition(object :Callback<BasicResponse>{
-                override fun onResponse(
-                    call: Call<BasicResponse>,
-                    response: Response<BasicResponse>
-                ) {
+        apiService.getRequestProductList(object :Callback<BasicResponse>{
+            override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
 
-                    if (response.isSuccessful){
-                        var br = response.body()!!
-                        mBannerList.clear()
-                        mBannerList.addAll(br.data.product.imgUrl)
-                        mvpa.notifyDataSetChanged()
+                if (response.isSuccessful){
+                    var br = response.body()!!
+                    mBannerList.clear()
 
-                        Glide.with(mContext).load(data.store.imgUrl).into(imgBanner)
+                    for (products in  br.data.products){
+                        mBannerList.add(products.imageUrl)
                     }
+                    mvpa.notifyDataSetChanged()
+
 
                 }
 
-                override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+            }
 
+            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+
+            }
+
+        })
                 }
 
-            })
 
-    }
 
 
     fun getReviewListFromServer() {

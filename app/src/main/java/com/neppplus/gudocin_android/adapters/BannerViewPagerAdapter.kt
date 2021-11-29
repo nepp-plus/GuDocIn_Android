@@ -13,13 +13,12 @@ import com.neppplus.gudocin_android.fragments.MainBannerFragment
 
 class BannerViewPagerAdapter(fm : FragmentManager , val imageList: ArrayList<String>) : FragmentPagerAdapter(fm){
 
-    val bannerImg = ArrayList<String>()
 
-    override fun getCount()= bannerImg.size
+    override fun getCount()= imageList.size
 
     override fun getItem(position: Int): Fragment {
 
-        return MainBannerFragment(bannerImg[position])
+        return MainBannerFragment(imageList[position])
 
 
     }
