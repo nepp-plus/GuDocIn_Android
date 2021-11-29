@@ -8,8 +8,8 @@ class UserData(
 
     var id: Int,
     var email: String,
-    var provider : String,
-    var uid : String?,
+    var provider: String,
+    var uid: String?,
 
     @SerializedName("nick_name")
     var nickname: String,
@@ -17,7 +17,5 @@ class UserData(
     @SerializedName("profile_img")
     var profileImageURL: String
 
-
-
-) :Serializable {
+) : Serializable {
 }

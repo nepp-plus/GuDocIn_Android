@@ -14,6 +14,5 @@ class ReviewData(
     var product : ProductData,
     var user: UserData,
 
-
     ) : Serializable{
 }
