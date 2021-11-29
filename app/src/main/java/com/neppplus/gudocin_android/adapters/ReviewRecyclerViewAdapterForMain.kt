@@ -2,6 +2,7 @@ package com.neppplus.gudocin_android.adapters
 
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,7 +33,8 @@ class ReviewRecyclerViewAdapterForMain
         val btnGotoReviewDetail2 = itemview.findViewById<LinearLayout>(R.id.btnGotoReviewDetail2)
         val btnOpenPreview = itemview.findViewById<LinearLayout>(R.id.btnOpenPreview)
         val txtCheckedContents = itemview.findViewById<TextView>(R.id.txtCheckedContents)
-        val btnEditReview = itemview.findViewById<TextView>(R.id.btnEditReview)
+        val btnReviewEdit = itemview.findViewById<TextView>(R.id.btnReviewEdit)
+
 
 
         fun bind(data: ReviewData) {
@@ -50,6 +52,12 @@ class ReviewRecyclerViewAdapterForMain
             }
             btnOpenPreview.setOnClickListener {
                 txtCheckedContents.visibility = View.VISIBLE
+            }
+            btnReviewEdit.setOnClickListener {
+                val myIntent = Intent(mContext, ReviewActivity::class.java)
+                myIntent.putExtra("product",data)
+                mContext.startActivity(myIntent)
+
             }
 
         }

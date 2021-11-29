@@ -13,7 +13,9 @@ import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.ProductData
 import com.neppplus.gudocin_android.utils.ContextUtil
 import com.neppplus.gudocin_android.utils.GlobalData
+import retrofit2.Call
 import retrofit2.Callback
+import retrofit2.Response
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
@@ -66,17 +68,26 @@ class ReviewActivity : BaseActivity() {
 
             binding.btnUploadReview.setOnClickListener {
 
-                for (tag in mInputTagList){
-                    Log.d("입력태그", tag)
-                }
-                return@setOnClickListener
-
                 val inputTitle = binding.edtReviewTitle.text.toString()
                 val inputContent = binding.edtReviewContent.text.toString()
 
                 val rating = binding.ratingBar.rating.toInt()
                 Log.d("평점 점수", rating.toString())
 
+                apiService.postRequestReviewContent(mProductData.id,inputTitle,inputContent, rating).enqueue(object : Callback<BasicResponse>{
+                    override fun onResponse(
+                        call: Call<BasicResponse>,
+                        response: Response<BasicResponse>
+                    ) {
+
+                    }
+
+                    override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+
+                    }
+
+
+                } )
 
 
             }
