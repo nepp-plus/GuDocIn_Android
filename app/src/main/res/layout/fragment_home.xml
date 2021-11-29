@@ -6,12 +6,59 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이 아래로 배너 나와야 함"/>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/mainBannerViewPager"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_weight="1"/>
+
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Home"
-            android:textSize="17sp" />
+            android:text="이 아래로 카테고리 프레그먼트 나와야 함"/>
+
+
+        <fragment
+            android:id="@+id/categoriesFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            class="com.neppplus.gudocin_android.fragments.CategoriesFragment"
+            android:layout_weight="1"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이 아래로  리뷰 리스트 나와야 함"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2">
+
+            <fragment
+                android:id="@+id/reviewFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                class="com.neppplus.gudocin_android.fragments.ReviewListFragment"
+                />
+
+
+        </ScrollView>
+
+
+
+
+
+
+
 
     </LinearLayout>
 

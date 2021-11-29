@@ -77,6 +77,14 @@ interface ServerAPIInterface {
     @GET("/review/check_list")
     fun getRequestRankingList() : Call<BasicResponse>
 
+    //    카테고리 목록 가져오기
+    @GET("/category")
+    fun getRequestCategory(): Call<BasicResponse>
+
+    //    전체 작은 카테고리 목록 가져오기
+    @GET("/category/small")
+    fun getRequestSmallCategory(): Call<BasicResponse>
+
 
     @FormUrlEncoded
     @PATCH("/user")
