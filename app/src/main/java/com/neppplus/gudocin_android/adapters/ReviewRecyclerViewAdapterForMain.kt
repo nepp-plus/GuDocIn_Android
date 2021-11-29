@@ -33,7 +33,6 @@ class ReviewRecyclerViewAdapterForMain
         val btnGotoReviewDetail2 = itemview.findViewById<LinearLayout>(R.id.btnGotoReviewDetail2)
         val btnOpenPreview = itemview.findViewById<LinearLayout>(R.id.btnOpenPreview)
         val txtCheckedContents = itemview.findViewById<TextView>(R.id.txtCheckedContents)
-        val btnReviewEdit = itemview.findViewById<TextView>(R.id.btnReviewEdit)
 
 
 
@@ -52,12 +51,6 @@ class ReviewRecyclerViewAdapterForMain
             }
             btnOpenPreview.setOnClickListener {
                 txtCheckedContents.visibility = View.VISIBLE
-            }
-            btnReviewEdit.setOnClickListener {
-                val myIntent = Intent(mContext, ReviewActivity::class.java)
-                myIntent.putExtra("product",data)
-                mContext.startActivity(myIntent)
-
             }
 
         }
