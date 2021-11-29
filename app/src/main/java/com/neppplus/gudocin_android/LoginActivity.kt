@@ -64,6 +64,28 @@ class LoginActivity : BaseActivity() {
 
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        callbackManager.onActivityResult(requestCode, resultCode, data)
+        super.onActivityResult(requestCode, resultCode, data)
+
+
+        if (resultCode == Activity.RESULT_OK && requestCode == RESULT_CODE) {
+            val result = Auth.GoogleSignInApi.getSignInResultFromIntent(data)
+
+            result?.let {
+                if (it.isSuccess) {
+                    it.signInAccount?.displayName //이름
+                    it.signInAccount?.email //이메일
+                    Log.e("Value", it.signInAccount?.email!!)
+                    // 기타 등등
+                } else {
+                    Log.e("Value", "error")
+                    // 에러 처리
+                }
+            }
+        }
+    }
+
     override fun setupEvents() {
 
         binding.btnKakaoLogin.setOnClickListener {
@@ -266,28 +288,6 @@ class LoginActivity : BaseActivity() {
 //        }
 //
 //    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        callbackManager.onActivityResult(requestCode, resultCode, data)
-        super.onActivityResult(requestCode, resultCode, data)
-
-
-        if (resultCode == Activity.RESULT_OK && requestCode == RESULT_CODE) {
-            val result = Auth.GoogleSignInApi.getSignInResultFromIntent(data)
-
-            result?.let {
-                if (it.isSuccess) {
-                    it.signInAccount?.displayName //이름
-                    it.signInAccount?.email //이메일
-                    Log.e("Value", it.signInAccount?.email!!)
-                    // 기타 등등
-                } else {
-                    Log.e("Value", "error")
-                    // 에러 처리
-                }
-            }
-        }
-    }
 
     fun getMyInfoFromKakao() {
 

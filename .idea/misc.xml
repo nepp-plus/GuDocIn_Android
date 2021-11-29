@@ -3,19 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_google_login.xml" value="0.34739583333333335" />
-        <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_login.xml" value="0.1935185185185185" />
-        <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_main.xml" value="0.1935185185185185" />
-        <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_navigation.xml" value="0.3619791666666667" />
-        <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_review.xml" value="0.3619791666666667" />
-        <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_sign_up.xml" value="0.3619791666666667" />
-        <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_splash.xml" value="0.1935185185185185" />
-        <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/fragment_banner_list.xml" value="0.3619791666666667" />
-        <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/fragment_user_edit.xml" value="0.3619791666666667" />
-        <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/review_item_for_main.xml" value="0.3619791666666667" />
+        <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_navigation.xml" value="0.3351851851851852" />
+        <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_sign_up.xml" value="0.3351851851851852" />
         <entry key="..\:/Users/NePPPlus_Teacher_01/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_main.xml" value="0.3515625" />
+        <entry key="..\:/Users/NePPPlus_Teacher_01/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_navigation.xml" value="0.3425925925925926" />
         <entry key="..\:/Users/NePPPlus_Teacher_01/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_review.xml" value="0.2046875" />
+        <entry key="..\:/Users/NePPPlus_Teacher_01/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_splash.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/NePPPlus_Teacher_01/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/banner_item_for_main.xml" value="0.2046875" />
+        <entry key="..\:/Users/NePPPlus_Teacher_01/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/fragment_banner_list.xml" value="0.2375" />
+        <entry key="..\:/Users/NePPPlus_Teacher_01/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/fragment_categories.xml" value="0.2375" />
+        <entry key="..\:/Users/NePPPlus_Teacher_01/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/fragment_home.xml" value="0.33" />
         <entry key="..\:/Users/NePPPlus_Teacher_01/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/fragment_my_profile.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/NePPPlus_Teacher_01/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/fragment_ranking.xml" value="0.2046875" />
         <entry key="..\:/Users/NePPPlus_Teacher_01/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/fragment_review_list.xml" value="0.36614583333333334" />
