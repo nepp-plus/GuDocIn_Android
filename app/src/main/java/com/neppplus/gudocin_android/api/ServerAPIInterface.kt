@@ -24,7 +24,7 @@ interface ServerAPIInterface {
 
 //    리뷰 등록
     @FormUrlEncoded
-    @POST
+    @POST("/review")
     fun postRequestReviewContent(
     @Field("X-Http-Token") xHttpToken: String,
     @Field("product_id ") productId: Int,
@@ -34,6 +34,9 @@ interface ServerAPIInterface {
     @Field("tag_list") tagList: String,
     ) : Call<BasicResponse>
 
+//    리뷰 목록 랭킹순
+    @GET("/review/check_list")
+    fun getRequestRankingList() : Call<BasicResponse>
 
 
 
