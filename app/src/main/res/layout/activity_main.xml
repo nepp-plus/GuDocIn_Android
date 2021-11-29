@@ -8,6 +8,9 @@
         android:orientation="vertical"
         tools:context=".MainActivity">
 
+<!--            여기 있던 리뷰 리스트는 Home프레그먼트로 옮겼습니다.-->
+
+
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/mainBannerViewPager"
             android:layout_width="match_parent"

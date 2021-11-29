@@ -7,11 +7,24 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <fragment
+            android:id="@+id/BannerFragment"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Home"
-            android:textSize="17sp" />
+            class="com.neppplus.gudocin_android.fragments.MainBannerFragment"
+            />
+
+        <fragment
+        android:id="@+id/reviewFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        class="com.neppplus.gudocin_android.fragments.ReviewListFragment"
+        />
+
+
+
+
+
 
     </LinearLayout>
 
