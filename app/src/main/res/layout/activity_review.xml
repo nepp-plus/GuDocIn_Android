@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -90,6 +90,7 @@
             android:id="@+id/ratingBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:rating="3"
             android:layout_gravity="center"/>
 
         <TextView
@@ -245,18 +246,35 @@
             android:layout_gravity="end"
             android:text="사진추가"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="15sp"
-            android:text="# 키워드 입력하기"/>
-
-        <EditText
-            android:id="@+id/edtKeyword"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="13sp"
-            android:hint="스페이스바를 띄우면 자동으로 하나의 키워드가 됩니다."/>
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:text="# 키워드 입력하기"/>
+
+            <EditText
+                android:id="@+id/edtKeyword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="스페이스바를 띄우면 자동으로 하나의 키워드가 됩니다."
+                android:textSize="13sp" />
+
+            <com.nex3z.flowlayout.FlowLayout
+                android:id="@+id/tagListLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:flRowSpacing="5dp">
+
+
+            </com.nex3z.flowlayout.FlowLayout>
+
+        </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"

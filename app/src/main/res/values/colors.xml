@@ -8,5 +8,6 @@
     <color name="main_blue_dark">#052878</color>
     <color name="highlight_red">#F5222D</color>
     <color name="highlight_yellow">#FCBF24</color>
+    <color name="red">#FF0000</color>
 
 </resources>
