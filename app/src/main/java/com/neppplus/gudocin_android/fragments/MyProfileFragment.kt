@@ -18,10 +18,9 @@ class MyProfileFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_my_profile, container, false)
+        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_my_profile,container,false)
         return binding.root
     }
-
     override fun setupEvents() {
 
     }
