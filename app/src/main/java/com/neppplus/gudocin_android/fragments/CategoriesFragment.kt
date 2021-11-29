@@ -12,6 +12,7 @@ import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.adapters.BannerViewPagerAdapter
 import com.neppplus.gudocin_android.adapters.ReviewRecyclerViewAdapterForMain
 import com.neppplus.gudocin_android.databinding.BannerItemForMainBinding
+import com.neppplus.gudocin_android.databinding.FragmentCategoriesBinding
 import com.neppplus.gudocin_android.databinding.FragmentReviewListBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.ReviewData
@@ -21,7 +22,10 @@ import retrofit2.Response
 
 class CategoriesFragment : BaseFragment() {
 
-    lateinit var binding: BannerItemForMainBinding
+    lateinit var binding: FragmentCategoriesBinding
+
+    var isCategoryClicked = true
+
 
 
     override fun onCreateView(
@@ -43,6 +47,15 @@ class CategoriesFragment : BaseFragment() {
     }
 
     override fun setupEvents() {
+
+        binding.btnCategriesEat.setOnClickListener {
+             val tempSmallcategories = ArrayList<CategoriesData>
+
+//    val tagBox = LayoutInflater.from(mContext).inflate(R.layout.tag_list_item,null)
+//                val txtTag = tagBox.findViewById<TextView>(R.id.txtTag)
+//                txtTag.text = "#${tag}"
+
+        }
 
 
 
