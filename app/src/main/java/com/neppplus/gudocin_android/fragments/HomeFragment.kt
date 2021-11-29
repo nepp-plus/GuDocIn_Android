@@ -74,6 +74,33 @@ class HomeFragment : BaseFragment() {
 
     }
 
+    fun getBannerImgFromServer(){
+
+            mvpa.getItemPosition(object :Callback<BasicResponse>{
+                override fun onResponse(
+                    call: Call<BasicResponse>,
+                    response: Response<BasicResponse>
+                ) {
+
+                    if (response.isSuccessful){
+                        var br = response.body()!!
+                        mBannerList.clear()
+                        mBannerList.addAll(br.data.product.imgUrl)
+                        mvpa.notifyDataSetChanged()
+
+                        Glide.with(mContext).load(data.store.imgUrl).into(imgBanner)
+                    }
+
+                }
+
+                override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+
+                }
+
+            })
+
+    }
+
 
     fun getReviewListFromServer() {
 
@@ -98,28 +125,7 @@ class HomeFragment : BaseFragment() {
 
     }
 
-    fun getBannerImgFromServer(){
 
-        apiService.getRequestProductList().enqueue(object :Callback<BasicResponse>{
-            override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
-                if (response.isSuccessful){
-
-                    var br = response.body()!!
-                    mBannerList.clear()
-                    mBannerList.addAll(br.data.product.imgUrl)
-                    mvpa.notifyDataSetChanged()
-                }
-
-            }
-
-            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-
-            }
-
-
-        })
-
-    }
 
 
 

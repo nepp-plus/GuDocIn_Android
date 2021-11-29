@@ -57,5 +57,7 @@ class MainBannerFragment(imgBanner : String) : BaseFragment() {
 
     }
 
+
+
 }
 
