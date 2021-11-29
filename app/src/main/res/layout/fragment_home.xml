@@ -12,14 +12,33 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             class="com.neppplus.gudocin_android.fragments.MainBannerFragment"
+            android:layout_weight="1"
             />
 
+
         <fragment
-        android:id="@+id/reviewFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        class="com.neppplus.gudocin_android.fragments.ReviewListFragment"
-        />
+            android:id="@+id/categoriesFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            class="com.neppplus.gudocin_android.fragments.CategoriesFragment"
+            android:layout_weight="1"
+            />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2">
+
+            <fragment
+                android:id="@+id/reviewFragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                class="com.neppplus.gudocin_android.fragments.ReviewListFragment"
+                />
+
+
+        </ScrollView>
+
+
 
 
 
