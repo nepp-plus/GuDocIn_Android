@@ -6,6 +6,8 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical">
+
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -38,20 +40,23 @@
             android:layout_height="wrap_content"
             android:text="이 아래로  리뷰 리스트 나와야 함"/>
 
-        <ScrollView
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/reviewListRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="2">
+            android:layout_height="wrap_content">
 
-            <fragment
-                android:id="@+id/reviewFragment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                class="com.neppplus.gudocin_android.fragments.ReviewListFragment"
-                />
+        </androidx.recyclerview.widget.RecyclerView>
 
 
-        </ScrollView>
+
+
+
+
+
+
+
 
 
 
