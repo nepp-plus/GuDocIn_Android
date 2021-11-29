@@ -39,6 +39,7 @@ android {
 
 dependencies {
 
+    implementation 'com.google.android.gms:play-services-auth:19.2.0'
     implementation 'com.facebook.android:facebook-android-sdk:[4,5)'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'com.dev.hieupt:android-standalone-scroll-bar:1.1.2'
