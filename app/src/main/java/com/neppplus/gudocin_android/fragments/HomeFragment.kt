@@ -8,7 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.adapters.BannerViewPagerAdapter
 import com.neppplus.gudocin_android.adapters.ReviewRecyclerViewAdapterForMain
@@ -22,16 +24,19 @@ import retrofit2.Response
 
 class HomeFragment : BaseFragment() {
 
+    lateinit var binding: FragmentHomeBinding
+
     val handler = Handler(Looper.getMainLooper()) {
         true
     }
 
-    lateinit var binding: FragmentHomeBinding
 
     lateinit var mvpa: BannerViewPagerAdapter
+    val mBannerList = ArrayList<String>()
 
     val mReviewList = ArrayList<ReviewData>()
     lateinit var mReviewRecyclerViewAdapterForMain: ReviewRecyclerViewAdapterForMain
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -57,6 +62,12 @@ class HomeFragment : BaseFragment() {
 
     override fun setValues() {
 
+        getBannerImgFromServer()
+
+        mvpa = BannerViewPagerAdapter (childFragmentManager,mBannerList)
+        binding.mainBannerViewPager.adapter = mvpa
+
+
         getReviewListFromServer()
 
         mReviewRecyclerViewAdapterForMain = ReviewRecyclerViewAdapterForMain(mContext, mReviewList)
@@ -74,9 +85,9 @@ class HomeFragment : BaseFragment() {
                 if (response.isSuccessful){
 
                     var br = response.body()!!
-                    mReviewList.clear()
-                    mReviewList.addAll(br.data.reviews)
-                    mReviewRecyclerViewAdapterForMain.notifyDataSetChanged()
+                    mBannerList.clear()
+                    mBannerList.addAll(br.data.product.imgUrl)
+                    mvpa.notifyDataSetChanged()
                 }
 
             }
@@ -89,5 +100,31 @@ class HomeFragment : BaseFragment() {
 
 
     }
+
+    fun getBannerImgFromServer(){
+
+        apiService.getRequestProductList().enqueue(object :Callback<BasicResponse>{
+            override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
+                if (response.isSuccessful){
+
+                    var br = response.body()!!
+                    mReviewList.clear()
+                    mReviewList.addAll(br.data.reviews)
+                    mReviewRecyclerViewAdapterForMain.notifyDataSetChanged()
+                }
+
+            }
+
+            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+
+            }
+
+
+        })
+
+    }
+
+
+
 
 }
