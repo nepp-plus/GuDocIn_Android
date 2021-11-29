@@ -1,5 +1,6 @@
 package com.neppplus.gudocin_android
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.viewpager.widget.ViewPager
@@ -26,6 +27,20 @@ class ApproachActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
+
+        binding.btnLogin.setOnClickListener {
+
+            val myIntent = Intent(mContext, LoginActivity::class.java)
+            startActivity(myIntent)
+
+            binding.btnSignUp.setOnClickListener {
+
+                val myIntent = Intent(mContext, SignUpActivity::class.java)
+                startActivity(myIntent)
+
+            }
+
+        }
 
     }
 

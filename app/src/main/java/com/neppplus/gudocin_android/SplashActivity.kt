@@ -77,16 +77,8 @@ class SplashActivity : BaseActivity() {
 
         myHandler.postDelayed({
 
-            val myIntent: Intent
-
-            if (GlobalData.loginUser != null) {
-                myIntent = Intent(mContext, NavigationActivity::class.java)
-            } else {
-                myIntent = Intent(mContext, ApproachActivity::class.java)
-            }
-
+            val myIntent = Intent(this, ApproachActivity::class.java)
             startActivity(myIntent)
-
             finish()
 
         }, 2500)
