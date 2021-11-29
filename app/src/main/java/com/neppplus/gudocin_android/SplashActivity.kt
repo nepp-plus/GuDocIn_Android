@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import androidx.databinding.DataBindingUtil
+import com.google.firebase.messaging.FirebaseMessaging
 import com.neppplus.gudocin_android.databinding.ActivitySplashBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.GlobalData
@@ -30,7 +32,31 @@ class SplashActivity : BaseActivity() {
 
     }
 
+    fun setFirebaseToken() {
+
+        FirebaseMessaging.getInstance().token.addOnCompleteListener {
+
+//            토큰을 잘 받아왔다면
+            if (it.isSuccessful) {
+
+                val deviceToken = it.result
+
+                Log.d("FCM토큰", deviceToken!!)
+                ContextUtil.setDeviceToken(mContext, deviceToken)
+
+                GlobalData.loginUser?.let {
+
+                    apiService.patchRequestUpdateUserInfo("android_device_token", ContextUtil.getToken(mContext))
+                }
+
+            }
+
+        }
+    }
+
     override fun setValues() {
+
+        setFirebaseToken()
 
         apiService.getRequestMyInfo().enqueue(object : Callback<BasicResponse> {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {

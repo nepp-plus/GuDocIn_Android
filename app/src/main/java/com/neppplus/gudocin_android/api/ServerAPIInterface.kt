@@ -57,4 +57,11 @@ interface ServerAPIInterface {
     @GET("/review")
     fun getRequestReviewList(): Call<BasicResponse>
 
+    @FormUrlEncoded
+    @PATCH("/user")
+    fun patchRequestUpdateUserInfo(
+        @Field("field") field: String,
+        @Field("value") value: String,
+    ): Call<BasicResponse>
+
 }
