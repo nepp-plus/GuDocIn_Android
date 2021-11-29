@@ -3,14 +3,17 @@
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:orientation="vertical"
         >
 
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/mainBannerViewPager"
+        <ImageView
+            android:id="@+id/imgMainBanner"
             android:layout_width="match_parent"
-            android:layout_height="100dp"/>
+            android:layout_height="match_parent"
+            android:src="@mipmap/ic_launcher"
+            android:scaleType="centerCrop"
+            />
 
 
 

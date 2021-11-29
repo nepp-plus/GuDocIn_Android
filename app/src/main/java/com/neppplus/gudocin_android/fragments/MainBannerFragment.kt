@@ -12,6 +12,7 @@ import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.adapters.BannerViewPagerAdapter
 import com.neppplus.gudocin_android.adapters.ReviewRecyclerViewAdapterForMain
 import com.neppplus.gudocin_android.databinding.BannerItemForMainBinding
+import com.neppplus.gudocin_android.databinding.FragmentBannerListBinding
 import com.neppplus.gudocin_android.databinding.FragmentReviewListBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.ReviewData
@@ -19,9 +20,9 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MainBannerFragment : BaseFragment() {
+class MainBannerFragment(val imgBanner :String) : BaseFragment() {
 
-    lateinit var binding: BannerItemForMainBinding
+    lateinit var binding: FragmentBannerListBinding
 
 
 
@@ -50,32 +51,14 @@ class MainBannerFragment : BaseFragment() {
     }
 
     override fun setValues() {
-        getBannerImgFromServer()
+
+        Glide.with(mContext).load(imgBanner).into(binding.imgMainBanner)
 
 
-    }
-    fun getBannerImgFromServer(){
-
-        apiService.getRequestProductList().enqueue(object :Callback<BasicResponse>{
-            override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
-
-
-                if (response.isSuccessful){
-
-                    val br = response.body()!!
-                    Glide.with(mContext).load(br.data.products).into(binding.imgMainBanner)
-//Glide.with(mContext).load(br.data.products.imgUrl).into(binding.imgMainBanner) -> 이걸로 써야하는데 오류 남
-                }
-
-            }
-
-            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-
-            }
-
-
-        })
 
     }
+
+
+
 }
 
