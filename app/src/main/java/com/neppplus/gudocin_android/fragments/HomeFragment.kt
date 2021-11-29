@@ -20,7 +20,7 @@ class HomeFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_home,container,false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
         return binding.root
 
     }
@@ -40,6 +40,6 @@ class HomeFragment : BaseFragment() {
     override fun setValues() {
 
 
-
+    }
 
 }
