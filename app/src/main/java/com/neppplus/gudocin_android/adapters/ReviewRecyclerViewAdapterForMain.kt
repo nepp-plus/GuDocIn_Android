@@ -51,11 +51,6 @@ class ReviewRecyclerViewAdapterForMain
             btnOpenPreview.setOnClickListener {
                 txtCheckedContents.visibility = View.VISIBLE
             }
-            btnEditReview.setOnClickListener {
-                val myIntent = Intent(mContext, ReviewActivity::class.java)
-                mContext.startActivity(myIntent)
-
-            }
 
         }
 
