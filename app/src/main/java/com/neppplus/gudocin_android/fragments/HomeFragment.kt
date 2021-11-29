@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.adapters.BannerViewPagerAdapter
 import com.neppplus.gudocin_android.databinding.BannerItemForMainBinding
+import com.neppplus.gudocin_android.databinding.FragmentHomeBinding
 
 class HomeFragment : BaseFragment() {
 
@@ -18,7 +19,7 @@ class HomeFragment : BaseFragment() {
         true
     }
 
-    lateinit var binding: BannerItemForMainBinding
+    lateinit var binding: FragmentHomeBinding
 
     lateinit var mvpa: BannerViewPagerAdapter
 
@@ -46,8 +47,6 @@ class HomeFragment : BaseFragment() {
 
     override fun setValues() {
 
-        mvpa = BannerViewPagerAdapter(childFragmentManager)
-        binding.mainBannerViewPager.a
 
 
     }

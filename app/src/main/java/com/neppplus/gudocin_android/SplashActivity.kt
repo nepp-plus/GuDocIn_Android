@@ -10,6 +10,7 @@ import com.google.firebase.messaging.FirebaseMessaging
 import com.neppplus.gudocin_android.databinding.ActivitySplashBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.GlobalData
+import com.neppplus.gudocin_android.utils.ContextUtil
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

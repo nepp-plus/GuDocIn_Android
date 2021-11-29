@@ -5,9 +5,6 @@ class DataResponse(
     var token: String,
     var reviews: List<ReviewData>,
     var products: List<ProductData>,
-
-    var reviews : List<ReviewData>,
-    var products : List<ProductData>,
     var categiries :List<CategoriesData>,
 ) {
 }

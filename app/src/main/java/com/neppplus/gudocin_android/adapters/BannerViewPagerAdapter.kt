@@ -28,23 +28,4 @@ class BannerViewPagerAdapter(fm : FragmentManager) : FragmentPagerAdapter(fm){
 
     }
 
-    override fun instantiateItem(container: ViewGroup, position: Int): Any {
-
-        val view =LayoutInflater.from(container.context).inflate(R.layout.banner_item_for_main,container,false)
-
-
-        view.findViewById<ImageView>(position).setImageResource(bannerImg[position].getBannerImgFromServer())
-
-        container.addView(view)
-          return view
-    }
-
-    override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
-        super.destroyItem(container, position, `object`)
-    }
-
-    override fun isViewFromObject(view: View, `object`: Any): Boolean {
-        return view == `object`
-    }
-
 }
