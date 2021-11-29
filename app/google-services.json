@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "627080655507",
+    "project_id": "gudocin-android",
+    "storage_bucket": "gudocin-android.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:627080655507:android:ffc4643099fa651c8a5366",
+        "android_client_info": {
+          "package_name": "com.neppplus.gudocin_android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "627080655507-uli43i8sa6f37dp37krtulokut0ongph.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDbdYmXah_RnxBghZl9DN1UVQN1T16Lb7k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "627080655507-uli43i8sa6f37dp37krtulokut0ongph.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
