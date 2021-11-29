@@ -17,6 +17,7 @@ import retrofit2.Response
 
 class ReviewListFragment : BaseFragment() {
 
+
     lateinit var binding: FragmentReviewListBinding
     val mReviewList = ArrayList<ReviewData>()
     lateinit var mReviewRecyclerViewAdapterForMain: ReviewRecyclerViewAdapterForMain
@@ -59,23 +60,7 @@ class ReviewListFragment : BaseFragment() {
 
     fun getReviewListFromServer(){
 
-        apiService.getRequestReviewList().enqueue(object : Callback<BasicResponse> {
-            override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
 
-                if (response.isSuccessful){
-
-                    var br = response.body()!!
-                    mReviewList.clear()
-                    mReviewList.addAll(br.data.reviews)
-                    mReviewRecyclerViewAdapterForMain.notifyDataSetChanged()
-                }
-            }
-
-            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-
-            }
-
-        })
 
 
 
