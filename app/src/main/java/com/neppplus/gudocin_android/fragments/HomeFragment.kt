@@ -47,6 +47,7 @@ class HomeFragment : BaseFragment() {
     override fun setValues() {
 
         mvpa = BannerViewPagerAdapter(childFragmentManager)
+        binding.mainBannerViewPager.a
 
 
     }
