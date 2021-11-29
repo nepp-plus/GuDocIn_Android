@@ -1,5 +1,6 @@
 package com.neppplus.gudocin_android
 
+import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +12,9 @@ import androidx.databinding.DataBindingUtil
 import com.facebook.*
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
+import com.google.android.gms.auth.api.Auth
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.kakao.sdk.user.UserApiClient
 import com.neppplus.gudocin_android.databinding.ActivityLoginBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
@@ -29,11 +33,57 @@ class LoginActivity : BaseActivity() {
 
     lateinit var callbackManager: CallbackManager
 
+    private val googleSignInIntent by lazy {
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_client_id)).requestEmail().build()
+        GoogleSignIn.getClient(this, gso).signInIntent
+    }
+
+    companion object {
+
+        const val RESULT_CODE = 10
+
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
         setupEvents()
         setValues()
+
+        binding.btnGoogleLogin.setOnClickListener {
+
+            startActivityForResult(googleSignInIntent, RESULT_CODE)
+
+            val myIntent = Intent(mContext, NavigationActivity::class.java)
+            startActivity(myIntent)
+
+            finish()
+
+        }
+
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        callbackManager.onActivityResult(requestCode, resultCode, data)
+        super.onActivityResult(requestCode, resultCode, data)
+
+
+        if (resultCode == Activity.RESULT_OK && requestCode == RESULT_CODE) {
+            val result = Auth.GoogleSignInApi.getSignInResultFromIntent(data)
+
+            result?.let {
+                if (it.isSuccess) {
+                    it.signInAccount?.displayName //이름
+                    it.signInAccount?.email //이메일
+                    Log.e("Value", it.signInAccount?.email!!)
+                    // 기타 등등
+                } else {
+                    Log.e("Value", "error")
+                    // 에러 처리
+                }
+            }
+        }
     }
 
     override fun setupEvents() {
@@ -238,12 +288,6 @@ class LoginActivity : BaseActivity() {
 //        }
 //
 //    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        callbackManager.onActivityResult(requestCode, resultCode, data)
-        super.onActivityResult(requestCode, resultCode, data)
-
-    }
 
     fun getMyInfoFromKakao() {
 

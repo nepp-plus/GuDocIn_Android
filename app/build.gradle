@@ -40,10 +40,10 @@ android {
 
 dependencies {
 
-    implementation "com.kakao.sdk:v2-user:2.8.3" // 카카오 로그인
     implementation 'com.google.android.gms:play-services-auth:19.2.0'
-    implementation 'com.facebook.android:facebook-android-sdk:[4,5)'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+    implementation 'com.google.firebase:firebase-auth:19.3.2'
+    implementation platform('com.google.firebase:firebase-bom:29.0.0')
     implementation "com.kakao.sdk:v2-user:2.8.3" // 카카오 로그인
     implementation 'com.facebook.android:facebook-android-sdk:[4,5)'
     implementation 'com.dev.hieupt:android-standalone-scroll-bar:1.1.2'
@@ -64,3 +64,6 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 }
+
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'

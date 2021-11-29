@@ -1,33 +1,141 @@
 package com.neppplus.gudocin_android
 
+import android.app.Activity
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
+import com.facebook.*
+import com.facebook.login.LoginManager
+import com.facebook.login.LoginResult
+import com.google.android.gms.auth.api.Auth
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.kakao.sdk.user.UserApiClient
 import com.neppplus.gudocin_android.databinding.ActivitySignUpBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
+import com.neppplus.gudocin_android.datas.GlobalData
+import com.neppplus.gudocin_android.utils.ContextUtil
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.*
 
 class SignUpActivity : BaseActivity() {
 
     lateinit var binding: ActivitySignUpBinding
 
+    lateinit var callbackManager: CallbackManager
+
     var isDuplOk = false
     var isPasswordLengthOk = false
     var isPasswordSame = false
+
+    private val googleSignInIntent by lazy {
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_client_id)).requestEmail().build()
+        GoogleSignIn.getClient(this, gso).signInIntent
+    }
+
+    companion object {
+
+        const val RESULT_CODE = 10
+
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_sign_up)
         setupEvents()
         setValues()
+
+        binding.btnGoogleLogin.setOnClickListener {
+
+            startActivityForResult(googleSignInIntent, LoginActivity.RESULT_CODE)
+
+            val myIntent = Intent(mContext, NavigationActivity::class.java)
+            startActivity(myIntent)
+
+            finish()
+
+        }
+
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        callbackManager.onActivityResult(requestCode, resultCode, data)
+        super.onActivityResult(requestCode, resultCode, data)
+
+
+        if (resultCode == Activity.RESULT_OK && requestCode == LoginActivity.RESULT_CODE) {
+            val result = Auth.GoogleSignInApi.getSignInResultFromIntent(data)
+
+            result?.let {
+                if (it.isSuccess) {
+                    it.signInAccount?.displayName //이름
+                    it.signInAccount?.email //이메일
+                    Log.e("Value", it.signInAccount?.email!!)
+                    // 기타 등등
+                } else {
+                    Log.e("Value", "error")
+                    // 에러 처리
+                }
+            }
+        }
     }
 
     override fun setupEvents() {
+
+        binding.btnKakaoLogin.setOnClickListener {
+
+            if (UserApiClient.instance.isKakaoTalkLoginAvailable(mContext)) {
+
+                UserApiClient.instance.loginWithKakaoTalk(mContext) { token, error ->
+
+                    if (error != null) {
+                        Log.e("카톡로그인", "로그인 실패")
+                    } else if (token != null) {
+
+                        Log.e("카톡로그인", "로그인 성공")
+                        Log.e("카톡로그인", token.accessToken)
+
+                        getMyInfoFromKakao()
+
+                    }
+
+                }
+
+            } else {
+
+                UserApiClient.instance.loginWithKakaoAccount(mContext) { token, error ->
+
+                    if (error != null) {
+                        Log.e("카톡로그인", "로그인 실패")
+                    } else if (token != null) {
+
+                        Log.e("카톡로그인", "로그인 성공")
+                        Log.e("카톡로그인", token.accessToken)
+
+                        getMyInfoFromKakao()
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        binding.btnFacebookLogin.setOnClickListener {
+
+            LoginManager.getInstance()
+                .logInWithReadPermissions(this, Arrays.asList("public_profile"))
+
+        }
 
         binding.edtPassword.addTextChangedListener {
 
@@ -163,6 +271,158 @@ class SignUpActivity : BaseActivity() {
     }
 
     override fun setValues() {
+
+        callbackManager = CallbackManager.Factory.create()
+
+        LoginManager.getInstance().registerCallback(callbackManager, object :
+            FacebookCallback<LoginResult> {
+            override fun onSuccess(result: LoginResult?) {
+
+                Log.d("페북 로그인", result!!.accessToken.token)
+
+                val graphApiRequest = GraphRequest.newMeRequest(
+                    result.accessToken,
+                    object : GraphRequest.GraphJSONObjectCallback {
+                        override fun onCompleted(jsonObj: JSONObject?, response: GraphResponse?) {
+
+                            Log.d("내 정보 요청", jsonObj.toString())
+
+                            val name = jsonObj!!.getString("name")
+                            val id = jsonObj.getString("id")
+
+                            apiService.postRequestSocialLogin("facebook", id, name)
+                                .enqueue(object : Callback<BasicResponse> {
+                                    override fun onResponse(
+                                        call: Call<BasicResponse>,
+                                        response: Response<BasicResponse>
+                                    ) {
+
+                                        if (response.isSuccessful) {
+
+                                            val br = response.body()!!
+
+                                            Toast.makeText(
+                                                mContext,
+                                                "${br.data.user.nickname}님, 환영합니다!",
+                                                Toast.LENGTH_SHORT
+                                            ).show()
+
+                                            ContextUtil.setToken(mContext, br.data.token)
+
+                                            GlobalData.loginUser = br.data.user
+
+                                            val myIntent =
+                                                Intent(mContext, NavigationActivity::class.java)
+                                            startActivity(myIntent)
+
+                                            finish()
+
+                                        }
+
+                                    }
+
+                                    override fun onFailure(
+                                        call: Call<BasicResponse>,
+                                        t: Throwable
+                                    ) {
+
+                                    }
+
+                                })
+
+                        }
+
+                    })
+
+                graphApiRequest.executeAsync()
+
+            }
+
+            override fun onCancel() {
+
+            }
+
+            override fun onError(error: FacebookException?) {
+
+            }
+
+        })
+
+//        getKeyHash()
+
+    }
+
+//    fun getKeyHash() {
+//        val info = packageManager.getPackageInfo(
+//            "com.neppplus.GuDocIn_Android",
+//            PackageManager.GET_SIGNATURES
+//        )
+//        for (signature in info.signatures) {
+//            val md: MessageDigest = MessageDigest.getInstance("SHA")
+//            md.update(signature.toByteArray())
+//            Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT))
+//        }
+//
+//    }
+
+    fun getMyInfoFromKakao() {
+
+        UserApiClient.instance.me { user, error ->
+
+            if (error != null) {
+                Log.e("카톡로그인", "사용자 정보 요청 실패", error)
+            } else if (user != null) {
+                Log.i(
+                    "카톡로그인", "사용자 정보 요청 성공" +
+                            "\n회원번호: ${user.id}" +
+                            "\n이메일: ${user.kakaoAccount?.email}" +
+                            "\n닉네임: ${user.kakaoAccount?.profile?.nickname}"
+                )
+
+                apiService.postRequestSocialLogin(
+                    "kakao",
+                    user.id.toString(),
+                    user.kakaoAccount?.profile?.nickname!!
+                ).enqueue(object : Callback<BasicResponse> {
+                    override fun onResponse(
+                        call: Call<BasicResponse>,
+                        response: Response<BasicResponse>
+                    ) {
+
+                        if (response.isSuccessful) {
+
+                            val br = response.body()!!
+
+                            Toast.makeText(
+                                mContext,
+                                "${br.data.user.nickname}님, 환영합니다!",
+                                Toast.LENGTH_SHORT
+                            ).show()
+
+                            ContextUtil.setToken(mContext, br.data.token)
+
+                            GlobalData.loginUser = br.data.user
+
+                            val myIntent = Intent(mContext, NavigationActivity::class.java)
+                            startActivity(myIntent)
+
+                            finish()
+
+                        }
+
+
+                    }
+
+                    override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+
+                    }
+
+                })
+
+            }
+
+        }
+
 
     }
 

@@ -13,7 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GuDocIn_Android"
         android:usesCleartextTraffic="true">
-
+        <activity
+            android:name=".PreActivity"
+            android:exported="false" />
         <activity
             android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
             android:exported="true">
@@ -29,7 +31,6 @@
                     android:scheme="kakao23bd4652c744e3f82017a4110f0040a2" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".SignUpActivity"
             android:exported="true" />
@@ -70,7 +71,8 @@
         <activity
             android:name="com.facebook.CustomTabActivity"
             android:exported="true">
-            <intent-filter><action android:name="android.intent.action.VIEW" />
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
@@ -78,7 +80,6 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>
