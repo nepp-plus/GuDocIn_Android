@@ -89,7 +89,7 @@ class NavigationActivity : BaseActivity() {
     fun getAndSendDeviceToken() {
 
         if (ContextUtil.getDeviceToken(mContext) != "") {
-            apiService.patchRequestUpdateUserInfo("android_device_token", ContextUtil.getToken(mContext)).enqueue(object : Callback<BasicResponse> {
+            apiService.patchRequestUpdateUserInfo("android_device_token", ContextUtil.getDeviceToken(mContext)).enqueue(object : Callback<BasicResponse> {
                 override fun onResponse(
                     call: Call<BasicResponse>,
                     response: Response<BasicResponse>

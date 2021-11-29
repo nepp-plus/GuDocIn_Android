@@ -44,7 +44,7 @@ class SplashActivity : BaseActivity() {
 
                 GlobalData.loginUser?.let {
 
-                    apiService.patchRequestUpdateUserInfo("android_device_token", ContextUtil.getToken(mContext))
+                    apiService.patchRequestUpdateUserInfo("android_device_token", ContextUtil.getDeviceToken(mContext))
                 }
 
             }
