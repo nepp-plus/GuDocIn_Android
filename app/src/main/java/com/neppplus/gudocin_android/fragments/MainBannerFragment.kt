@@ -22,15 +22,15 @@ import retrofit2.Response
 class MainBannerFragment : BaseFragment() {
 
     lateinit var binding: BannerItemForMainBinding
-    lateinit var mBannerImg : String
-    lateinit var mBannerViewPagerAdapter: BannerViewPagerAdapter
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater,R.layout.banner_item_for_main,container,false)
+        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_banner_list,container,false)
         return binding.root
 
     }
@@ -51,7 +51,7 @@ class MainBannerFragment : BaseFragment() {
 
     override fun setValues() {
         getBannerImgFromServer()
-//        mBannerViewPagerAdapter = BannerViewPagerAdapter(mContext,mBannerImg)
+
 
     }
     fun getBannerImgFromServer(){
@@ -61,10 +61,10 @@ class MainBannerFragment : BaseFragment() {
 
 
                 if (response.isSuccessful){
-//
-//                    val br = response.body()!!
-//                    Glide.with(mContext).load(data.products.imageURL).into(mBannerImg)
-//
+
+                    val br = response.body()!!
+                    Glide.with(mContext).load(br.data.products).into(binding.imgMainBanner)
+//Glide.with(mContext).load(br.data.products.imgUrl).into(binding.imgMainBanner) -> 이걸로 써야하는데 오류 남
                 }
 
             }

@@ -6,6 +6,10 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이 아래로 배너 나와야 함"/>
 
         <fragment
             android:id="@+id/BannerFragment"
@@ -15,6 +19,11 @@
             android:layout_weight="1"
             />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이 아래로 카테고리 프레그먼트 나와야 함"/>
+
 
         <fragment
             android:id="@+id/categoriesFragment"
@@ -23,6 +32,13 @@
             class="com.neppplus.gudocin_android.fragments.CategoriesFragment"
             android:layout_weight="1"
             />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이 아래로  리뷰 리스트 나와야 함"/>
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
