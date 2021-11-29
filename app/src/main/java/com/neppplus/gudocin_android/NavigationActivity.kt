@@ -1,6 +1,9 @@
 package com.neppplus.gudocin_android
 
+import android.content.pm.PackageManager
 import android.os.Bundle
+import android.util.Base64
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
@@ -11,6 +14,7 @@ import com.neppplus.gudocin_android.fragments.HomeFragment
 import com.neppplus.gudocin_android.fragments.MyProfileFragment
 import com.neppplus.gudocin_android.fragments.RankingFragment
 import com.neppplus.gudocin_android.fragments.ReviewListFragment
+import java.security.MessageDigest
 
 class NavigationActivity : AppCompatActivity() {
 
@@ -27,6 +31,8 @@ class NavigationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_navigation)
+
+        getKeyHash()
 
         viewPager.apply {
             adapter = ViewPagerAdapter(this@NavigationActivity)
@@ -68,6 +74,19 @@ class NavigationActivity : AppCompatActivity() {
 
         }
 
+    }
+
+
+    fun getKeyHash() {
+        val info = packageManager.getPackageInfo(
+            "com.neppplus.gudocin_android",
+            PackageManager.GET_SIGNATURES
+        )
+        for (signature in info.signatures) {
+            val md: MessageDigest = MessageDigest.getInstance("SHA")
+            md.update(signature.toByteArray())
+            Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT))
+        }
     }
 
 }
