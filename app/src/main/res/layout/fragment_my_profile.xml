@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -69,12 +69,11 @@
                 android:layout_height="wrap_content"
                 android:text="내 구독정보"/>
 
-            <ImageView
-                android:layout_marginTop="15dp"
+            <com.prolificinteractive.materialcalendarview.MaterialCalendarView
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:src="@drawable/diary"/>
-
+                android:layout_height="wrap_content"
+                app:mcv_showOtherDates="all"
+                app:mcv_selectionColor="#00F"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
