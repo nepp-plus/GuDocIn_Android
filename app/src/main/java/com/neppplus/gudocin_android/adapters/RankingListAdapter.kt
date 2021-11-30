@@ -6,11 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.neppplus.gudocin_android.R
+import com.neppplus.gudocin_android.datas.ReviewData
 import com.neppplus.gudocin_android.datas.ReviewRakingData
 
 class RankingListAdapter(
     val mContext: Context,
-    val mList: List<ReviewRakingData>) : RecyclerView.Adapter<RankingListAdapter.RakingViewHolder>() {
+    val mList: List<ReviewData>) : RecyclerView.Adapter<RankingListAdapter.RakingViewHolder>() {
 
     inner class RakingViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 

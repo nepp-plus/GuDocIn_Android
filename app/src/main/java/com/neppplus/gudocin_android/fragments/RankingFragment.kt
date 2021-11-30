@@ -19,7 +19,7 @@ class RankingFragment : BaseFragment() {
 
     lateinit var binding: FragmentRankingBinding
 
-    val mRankingList = ArrayList<ReviewRakingData>()
+    val mRankingList = ArrayList<ReviewData>()
 
 
 
