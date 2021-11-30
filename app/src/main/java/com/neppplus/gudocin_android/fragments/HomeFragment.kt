@@ -48,26 +48,6 @@ class HomeFragment : BaseFragment() {
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
 
-        getBannerImgFromServer()
-
-        binding.mainBannerViewPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
-        binding.mainBannerViewPager.setCurrentItem(bannerPosition, false)
-
-        binding.mainBannerViewPager.adapter = mBannerViewPagerAdapter
-
-        binding.mainBannerViewPager.apply {
-            registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-                override fun onPageScrollStateChanged(state: Int) {
-                    super.onPageScrollStateChanged(state)
-                    when (state) {
-                        ViewPager2.SCROLL_STATE_DRAGGING -> autoScrollStop()
-                        ViewPager2.SCROLL_STATE_IDLE -> autoScrollStart(intervalTime)
-                    }
-                }
-            })
-
-        }
-
         return binding.root
 
 
@@ -89,9 +69,25 @@ class HomeFragment : BaseFragment() {
 
     override fun setValues() {
 
+        getBannerImgFromServer()
 
+        binding.mainBannerViewPager.orientation = ViewPager2.ORIENTATION_HORIZONTAL
+        binding.mainBannerViewPager.setCurrentItem(bannerPosition, false)
 
+        binding.mainBannerViewPager.adapter = mBannerViewPagerAdapter
 
+        binding.mainBannerViewPager.apply {
+            registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+                override fun onPageScrollStateChanged(state: Int) {
+                    super.onPageScrollStateChanged(state)
+                    when (state) {
+                        ViewPager2.SCROLL_STATE_DRAGGING -> autoScrollStop()
+                        ViewPager2.SCROLL_STATE_IDLE -> autoScrollStart(intervalTime)
+                    }
+                }
+            })
+
+        }
 
 
 
@@ -134,7 +130,7 @@ class HomeFragment : BaseFragment() {
                     mBannerList.clear()
 
                     for (products in br.data.products) {
-                        mBannerList.add(products.imageUrl)
+                        mBannerList.add(products)
                     }
                     mBannerViewPagerAdapter.notifyDataSetChanged()
 
