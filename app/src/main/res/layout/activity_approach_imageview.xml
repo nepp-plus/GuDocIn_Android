@@ -7,7 +7,7 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <androidx.constraintlayout.utils.widget.ImageFilterView
+        <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="500dp"
