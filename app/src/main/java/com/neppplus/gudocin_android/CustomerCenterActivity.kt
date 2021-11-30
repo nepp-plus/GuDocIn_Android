@@ -6,7 +6,7 @@ import androidx.databinding.DataBindingUtil
 import com.neppplus.gudocin_android.databinding.ActivityCustomerCenterBinding
 
 
-class CustomerCenter : BaseActivity() {
+class CustomerCenterActivity : BaseActivity() {
 
     lateinit var binding : ActivityCustomerCenterBinding
 

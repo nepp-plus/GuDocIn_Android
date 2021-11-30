@@ -65,28 +65,28 @@ class MyProfileFragment : BaseFragment() {
 
         binding.txtguide.setOnClickListener {
 
-            val myIntent = Intent(mContext, CustomerCenter::class.java)
+            val myIntent = Intent(mContext, CustomerCenterActivity::class.java)
 
             startActivity(myIntent)
 
         }
         binding.txtnotice.setOnClickListener {
 
-            val myIntent = Intent(mContext, CustomerCenter::class.java)
+            val myIntent = Intent(mContext, CustomerCenterActivity::class.java)
 
             startActivity(myIntent)
         }
 
         binding.txtquestions.setOnClickListener {
 
-            val myIntent = Intent(mContext, CustomerCenter::class.java)
+            val myIntent = Intent(mContext, CustomerCenterActivity::class.java)
 
             startActivity(myIntent)
         }
 
         binding.txttermsofuse.setOnClickListener {
 
-            val myIntent = Intent(mContext, CustomerCenter::class.java)
+            val myIntent = Intent(mContext, CustomerCenterActivity::class.java)
 
             startActivity(myIntent)
 
