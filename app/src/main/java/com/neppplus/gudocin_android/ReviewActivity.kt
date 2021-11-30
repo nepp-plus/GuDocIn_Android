@@ -1,12 +1,9 @@
 package com.neppplus.gudocin_android
 
 import android.content.DialogInterface
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
-import android.widget.Button
-import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -16,9 +13,6 @@ import com.neppplus.gudocin_android.databinding.ActivityReviewBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.GlobalData
 import com.neppplus.gudocin_android.datas.ProductData
-import com.neppplus.gudocin_android.fragments.MyProfileFragment
-import com.neppplus.gudocin_android.utils.ContextUtil
-import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -112,8 +106,7 @@ class ReviewActivity : BaseActivity() {
             alert.setMessage("리뷰작성을 등록하시겠습니까?")
             alert.setPositiveButton("확인",DialogInterface.OnClickListener { dialog, i ->
 
-                val myIntent = Intent(mContext,MainActivity::class.java)
-                startActivity(myIntent)
+                finish()
 
                 Toast.makeText(mContext, "리뷰가 등록되었습니다..", Toast.LENGTH_SHORT).show()
 
