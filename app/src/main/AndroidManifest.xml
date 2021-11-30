@@ -18,8 +18,7 @@
 
             android:exported="true" >
 
-            <meta-data android:name="android.app.searchable"
-                android:resource="Sear" />
+
 
         </activity>
         <activity

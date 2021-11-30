@@ -19,6 +19,8 @@
             app:queryHint="생활에 필요한 구독을 검색하세요" />
 
 
+
+
     </LinearLayout>
 
 </layout>

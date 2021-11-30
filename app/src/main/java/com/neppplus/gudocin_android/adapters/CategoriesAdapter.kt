@@ -13,7 +13,7 @@ import com.neppplus.gudocin_android.datas.CategoriesData
 class CategoriesAdapter(
 
     val mContext: Context,
-    resId: List<CategoriesData>,
+    resId: Int,
     val mList:  List<CategoriesData>
 
 ) : ArrayAdapter<CategoriesData>(mContext, resId, mList) {
