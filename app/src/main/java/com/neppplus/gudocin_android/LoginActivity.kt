@@ -200,24 +200,6 @@ class LoginActivity : BaseActivity() {
 
     override fun setValues() {
 
-//        val myHandler = Handler(Looper.getMainLooper())
-//
-//        myHandler.postDelayed({
-//
-//            val myIntent: Intent
-//
-//            if (ContextUtil.getToken(mContext) != "") {
-//                myIntent = Intent(mContext, NavigationActivity::class.java)
-//            } else {
-//                myIntent = Intent(mContext, LoginActivity::class.java)
-//            }
-//
-//            startActivity(myIntent)
-//
-//            finish()
-//
-//        }, 0)
-
         callbackManager = CallbackManager.Factory.create()
 
         LoginManager.getInstance().registerCallback(callbackManager, object :

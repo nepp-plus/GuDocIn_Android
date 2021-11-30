@@ -67,8 +67,23 @@ class ApproachActivity : BaseActivity() {
 
         binding.btnLogin.setOnClickListener {
 
-            val myIntent = Intent(mContext, LoginActivity::class.java)
-            startActivity(myIntent)
+            val myHandler = Handler(Looper.getMainLooper())
+
+            myHandler.postDelayed({
+
+                val myIntent: Intent
+
+                if (ContextUtil.getToken(mContext) != "") {
+                    myIntent = Intent(mContext, NavigationActivity::class.java)
+                } else {
+                    myIntent = Intent(mContext, LoginActivity::class.java)
+                }
+
+                startActivity(myIntent)
+
+                finish()
+
+            }, 1000)
 
         }
 
