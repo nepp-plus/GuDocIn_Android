@@ -1,7 +1,5 @@
 package com.neppplus.gudocin_android
 
-import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,9 +8,8 @@ import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
 import com.neppplus.gudocin_android.databinding.ActivityReviewBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
+import com.neppplus.gudocin_android.datas.GlobalData
 import com.neppplus.gudocin_android.datas.ProductData
-import com.neppplus.gudocin_android.utils.ContextUtil
-import com.neppplus.gudocin_android.utils.GlobalData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

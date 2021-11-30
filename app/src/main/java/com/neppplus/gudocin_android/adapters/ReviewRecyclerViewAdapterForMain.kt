@@ -54,7 +54,7 @@ class ReviewRecyclerViewAdapterForMain
 
             btnWriteRivew.setOnClickListener {
                 val myIntent = Intent(mContext, ReviewActivity::class.java)
-                myIntent.putExtra("product", data)
+                myIntent.putExtra("product", data.product)
                 mContext.startActivity(myIntent)
 
 
