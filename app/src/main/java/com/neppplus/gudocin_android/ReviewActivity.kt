@@ -38,6 +38,7 @@ class ReviewActivity : BaseActivity() {
 
     override fun setupEvents() {
 
+
         binding.edtKeyword.addTextChangedListener {
 
             val nowText = it.toString()

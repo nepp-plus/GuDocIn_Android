@@ -2,7 +2,6 @@ package com.neppplus.gudocin_android.adapters
 
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +13,6 @@ import com.bumptech.glide.Glide
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.ReviewActivity
 import com.neppplus.gudocin_android.datas.ReviewData
-import java.text.SimpleDateFormat
 
 class ReviewRecyclerViewAdapterForMain
     (val mContext: Context, val mList: List<ReviewData>) :
@@ -33,6 +31,7 @@ class ReviewRecyclerViewAdapterForMain
         val btnGotoReviewDetail2 = itemview.findViewById<LinearLayout>(R.id.btnGotoReviewDetail2)
         val btnOpenPreview = itemview.findViewById<LinearLayout>(R.id.btnOpenPreview)
         val txtCheckedContents = itemview.findViewById<TextView>(R.id.txtCheckedContents)
+        val btnWriteRivew = itemview.findViewById<TextView>(R.id.btnWriteRivew)
 
 
 
@@ -52,6 +51,18 @@ class ReviewRecyclerViewAdapterForMain
             btnOpenPreview.setOnClickListener {
                 txtCheckedContents.visibility = View.VISIBLE
             }
+
+            btnWriteRivew.setOnClickListener {
+                val myIntent = Intent(mContext, ReviewActivity::class.java)
+                myIntent.putExtra("product", data)
+                mContext.startActivity(myIntent)
+
+
+            }
+
+
+
+
 
         }
 
