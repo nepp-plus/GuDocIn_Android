@@ -10,10 +10,11 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"/>
 
-        <fragment
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            class="com.neppplus.gudocin_android.fragments.CategoriesFragment"/>
+<!--        <fragment-->
+<!--            android:id="@+id/mainCategoryFragment"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="100dp"-->
+<!--            class="com.neppplus.gudocin_android.fragments.CategoriesFragment"/>-->
 
 
 

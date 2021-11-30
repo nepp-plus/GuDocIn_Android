@@ -5,39 +5,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentPagerAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.neppplus.gudocin_android.R
+import com.neppplus.gudocin_android.datas.BannerData
+import com.neppplus.gudocin_android.fragments.MainBannerFragment
 
-class BannerViewPagerAdapter(val imageList: ArrayList<String>, val mContext: Context) :
-    RecyclerView.Adapter<BannerViewPagerAdapter.CustomViewHolder>() {
+class BannerViewPagerAdapter(fm: FragmentManager, val mBannerList: List<BannerData>)
+    :FragmentPagerAdapter(fm) {
+    override fun getCount()= mBannerList.size
 
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): BannerViewPagerAdapter.CustomViewHolder {
-
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.banner_list, parent, false)
-        return CustomViewHolder(view).apply {
-            itemView.setOnClickListener {
-
-            }
-        }
+    override fun getItem(position: Int): Fragment {
+        return MainBannerFragment( mBannerList[position] )
     }
 
-    override fun onBindViewHolder(holder: BannerViewPagerAdapter.CustomViewHolder, position: Int) {
-
-    }
-
-    override fun getItemCount(): Int {
-
-        return Int.MAX_VALUE
-
-    }
-
-    class CustomViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val img: ImageView = itemView.findViewById(R.id.mainBannerViewPager)
-    }
 
 }
 

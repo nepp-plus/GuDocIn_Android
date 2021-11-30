@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.SearchActivity
 import com.neppplus.gudocin_android.adapters.BannerViewPagerAdapter
-import com.neppplus.gudocin_android.adapters.ReviewRecyclerViewAdapterForMain
+import com.neppplus.gudocin_android.adapters.RecyclerVewAdapterForMain
 import com.neppplus.gudocin_android.databinding.FragmentHomeBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.ProductData
@@ -23,18 +23,8 @@ class HomeFragment : BaseFragment() {
 
     lateinit var binding: FragmentHomeBinding
 
-
-    val bannerPosition = Int.MAX_VALUE / 2
-    private val intervalTime = 1500.toLong()
-
-    lateinit var mBannerViewPagerAdapter: BannerViewPagerAdapter
-//    activity?.let { HomeBannerAdapter(bannerList, it) }
-
-    val mBannerList = ArrayList<ProductData>()
-
     val mReviewList = ArrayList<ReviewData>()
-
-    lateinit var mReviewRecyclerViewAdapterForMain: ReviewRecyclerViewAdapterForMain
+    lateinit var mMainRecyclerAdapter : RecyclerVewAdapterForMain
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -70,13 +60,16 @@ class HomeFragment : BaseFragment() {
             startActivity(myIntent)
         }
 
-
-
         getReviewListFromServer()
+        getBannerListFromServer()
 
-        mReviewRecyclerViewAdapterForMain = ReviewRecyclerViewAdapterForMain(mContext, mReviewList)
-        binding.reviewListRecyclerView.adapter = mReviewRecyclerViewAdapterForMain
+
+        mMainRecyclerAdapter = RecyclerVewAdapterForMain(mContext, mReviewList)
+        binding.reviewListRecyclerView.adapter = mMainRecyclerAdapter
         binding.reviewListRecyclerView.layoutManager = LinearLayoutManager(mContext)
+
+
+
 
 
     }
@@ -93,7 +86,8 @@ class HomeFragment : BaseFragment() {
                     var br = response.body()!!
                     mReviewList.clear()
                     mReviewList.addAll(br.data.reviews)
-                    mReviewRecyclerViewAdapterForMain.notifyDataSetChanged()
+                    mMainRecyclerAdapter.notifyDataSetChanged()
+
                 }
 
             }
@@ -107,5 +101,30 @@ class HomeFragment : BaseFragment() {
 
     }
 
+    fun getBannerListFromServer(){
+        apiService.getRequestMainBanner().enqueue(  object : Callback<BasicResponse> {
+            override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
 
-}
+                if (response.isSuccessful) {
+
+                    val br = response.body()!!
+                    mMainRecyclerAdapter.mBannerList.clear()
+                    mMainRecyclerAdapter.mBannerList.addAll( br.data.banners )
+
+//                    (뷰페이저) 어댑터 새로고침
+                    mMainRecyclerAdapter.mBannerViewPagerAdapter.notifyDataSetChanged()
+
+                }
+
+            }
+
+            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+
+            }
+
+        } )
+    }
+
+    }
+
+

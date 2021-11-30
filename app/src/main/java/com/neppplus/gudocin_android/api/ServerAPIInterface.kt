@@ -92,4 +92,7 @@ interface ServerAPIInterface {
         @Field("value") value: String,
     ): Call<BasicResponse>
 
+    //    배너 가져오기
+    @GET("/main/banner")
+    fun getRequestMainBanner(): Call<BasicResponse>
 }
