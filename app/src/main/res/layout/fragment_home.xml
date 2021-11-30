@@ -1,47 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
 
+
+
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical">
 
-
-        <TextView
+        <Button
+            android:id="@+id/btnGotoSearch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="10dp"
-            android:text="이 아래로 배너 나와야 함"/>
-
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/mainBannerViewPager"
-            android:layout_width="450dp"
-            android:layout_height="100dp"
-            android:layout_weight="1"/>
-
-
-        <TextView
-            android:paddingTop="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="이 아래로 카테고리 프레그먼트 나와야 함"/>
-
-
-        <fragment
-            android:id="@+id/categoriesFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            class="com.neppplus.gudocin_android.fragments.CategoriesFragment"
-            android:layout_weight="1"
-            />
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingTop="10dp"
-            android:text="이 아래로  리뷰 리스트 나와야 함"/>
+            android:text="검색화면 이동(임시)"/>
 
 
 

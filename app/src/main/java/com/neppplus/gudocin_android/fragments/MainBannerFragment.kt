@@ -20,7 +20,7 @@ class MainBannerFragment(val imgBanner :String) : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_banner_list,container,false)
+        binding = DataBindingUtil.inflate(inflater,R.layout.banner_list,container,false)
         return binding.root
 
     }

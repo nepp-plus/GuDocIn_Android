@@ -5,12 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.neppplus.gudocin_android.R
-import com.neppplus.gudocin_android.binding
-import com.neppplus.gudocin_android.fragments.MainBannerFragment
 
 class BannerViewPagerAdapter(val imageList: ArrayList<String>, val mContext: Context) :
     RecyclerView.Adapter<BannerViewPagerAdapter.CustomViewHolder>() {
@@ -21,7 +17,7 @@ class BannerViewPagerAdapter(val imageList: ArrayList<String>, val mContext: Con
     ): BannerViewPagerAdapter.CustomViewHolder {
 
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.fragment_banner_list, parent, false)
+            .inflate(R.layout.banner_list, parent, false)
         return CustomViewHolder(view).apply {
             itemView.setOnClickListener {
 

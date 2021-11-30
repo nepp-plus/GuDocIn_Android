@@ -1,5 +1,6 @@
 package com.neppplus.gudocin_android.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.neppplus.gudocin_android.R
+import com.neppplus.gudocin_android.SearchActivity
 import com.neppplus.gudocin_android.adapters.BannerViewPagerAdapter
 import com.neppplus.gudocin_android.adapters.ReviewRecyclerViewAdapterForMain
 import com.neppplus.gudocin_android.databinding.FragmentHomeBinding
@@ -61,6 +63,12 @@ class HomeFragment : BaseFragment() {
     }
 
     override fun setValues() {
+
+        val btnGotoSearch = binding.btnGotoSearch
+        btnGotoSearch.setOnClickListener {
+            val myIntent = Intent(mContext,SearchActivity::class.java)
+            startActivity(myIntent)
+        }
 
 
 
