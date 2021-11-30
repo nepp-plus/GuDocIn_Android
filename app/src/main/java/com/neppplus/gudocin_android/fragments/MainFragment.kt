@@ -11,7 +11,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.adapters.MainRecyclerAdapter
 import com.neppplus.gudocin_android.databinding.FragmentMainBinding
+import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.ReviewData
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MainFragment : BaseFragment() {
 
@@ -45,6 +49,27 @@ class MainFragment : BaseFragment() {
         binding.mainRecyclerView.adapter = mMainRecyclerAdapter
         binding.mainRecyclerView.layoutManager = LinearLayoutManager(mContext)
 
+        getAllReviewData()
+    }
 
+
+
+    fun getAllReviewData() {
+        apiService.getRequestReviewList().enqueue(object : Callback<BasicResponse> {
+            override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
+
+                val br = response.body()!!
+
+                mReviewList.clear()
+                mReviewList.addAll(br.data.reviews)
+
+                mMainRecyclerAdapter.notifyDataSetChanged()
+            }
+
+            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+
+            }
+
+        })
     }
 }
