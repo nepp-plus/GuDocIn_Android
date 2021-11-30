@@ -2,7 +2,6 @@ package com.neppplus.gudocin_android
 
 import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -199,11 +198,6 @@ class SignUpActivity : BaseActivity() {
 
         binding.btnSignUp.setOnClickListener {
 
-            if (!isDuplOk) {
-                Toast.makeText(mContext, "닉네임 중복검사를 해주세요.", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-
             if (!isPasswordLengthOk) {
                 Toast.makeText(mContext, "비밀번호는 8글자 이상이어야 합니다.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
@@ -212,6 +206,11 @@ class SignUpActivity : BaseActivity() {
 
             if (!isPasswordSame) {
                 Toast.makeText(mContext, "두개의 비밀번호는 서로 같아야합니다.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            if (!isDuplOk) {
+                Toast.makeText(mContext, "닉네임 중복검사를 해주세요.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
@@ -233,15 +232,19 @@ class SignUpActivity : BaseActivity() {
                         Log.d("가입한 사람 토큰", br.data.token)
 
                         val signUpUserNickname = br.data.user.nickname
+
                         Toast.makeText(
                             mContext,
                             "${signUpUserNickname}님 가입을 축하합니다!",
                             Toast.LENGTH_SHORT
                         ).show()
 
-                        finish()
-
                     }
+
+                    val myIntent = Intent(mContext, NavigationActivity::class.java)
+                    startActivity(myIntent)
+
+                    finish()
 
                 }
 
@@ -348,22 +351,7 @@ class SignUpActivity : BaseActivity() {
 
         })
 
-//        getKeyHash()
-
     }
-
-//    fun getKeyHash() {
-//        val info = packageManager.getPackageInfo(
-//            "com.neppplus.GuDocIn_Android",
-//            PackageManager.GET_SIGNATURES
-//        )
-//        for (signature in info.signatures) {
-//            val md: MessageDigest = MessageDigest.getInstance("SHA")
-//            md.update(signature.toByteArray())
-//            Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT))
-//        }
-//
-//    }
 
     fun getMyInfoFromKakao() {
 

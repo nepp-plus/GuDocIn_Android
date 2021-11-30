@@ -73,15 +73,15 @@ class SplashActivity : BaseActivity() {
 
         })
 
-        val myHandler = Handler(Looper.getMainLooper())
-
-        myHandler.postDelayed({
-
-            val myIntent = Intent(this, ApproachActivity::class.java)
-            startActivity(myIntent)
-            finish()
-
-        }, 2500)
+//        val myHandler = Handler(Looper.getMainLooper())
+//
+//        myHandler.postDelayed({
+//
+//            val myIntent = Intent(this, ApproachActivity::class.java)
+//            startActivity(myIntent)
+//            finish()
+//
+//        }, 2500)
 
     }
 }
