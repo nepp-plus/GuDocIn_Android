@@ -1,9 +1,12 @@
 package com.neppplus.gudocin_android
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
 import com.neppplus.gudocin_android.databinding.ActivityReviewBinding
@@ -86,6 +89,23 @@ class ReviewActivity : BaseActivity() {
 
 
                 } )
+
+
+            }
+
+            binding.btnCancleReview.setOnClickListener {
+                val alert = AlertDialog.Builder(mContext)
+                alert.setTitle("리뷰 취소 알람")
+                alert.setMessage("리뷰작성을 취소하시겠습니까?")
+                alert.setPositiveButton("확인",DialogInterface.OnClickListener { dialog, i ->
+
+                    finish()
+                    Toast.makeText(mContext, "리뷰작성이 취소되었습니다.", Toast.LENGTH_SHORT).show()
+
+                })
+                alert.setNegativeButton("취소",null)
+
+                alert.show()
 
 
             }

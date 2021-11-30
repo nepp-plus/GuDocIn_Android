@@ -50,7 +50,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="18sp"
-                        android:text="작성일시"/>
+                        android:text="작성일시 : "/>
 
                     <TextView
                         android:id="@+id/txtReviewTime"
@@ -103,13 +103,6 @@
                         android:src="@mipmap/ic_launcher"/>
 
                 </LinearLayout>
-
-                <RatingBar
-                    android:id="@+id/ratingBar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:rating="0"
-                    android:layout_gravity="center"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -250,6 +243,14 @@
 
 
                 </LinearLayout>
+
+                <RatingBar
+                    android:id="@+id/ratingBar"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:rating="0" />
 
                 <EditText
                     android:id="@+id/edtReviewContent"
