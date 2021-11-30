@@ -58,6 +58,7 @@ class RankingFragment : BaseFragment() {
                     val br = response.body()!!
 
                     mRankingList.clear()
+                    mRankingList.addAll( br.data.reviews )
 
 
                 }
