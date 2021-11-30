@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
@@ -77,7 +78,7 @@ class RecyclerVewAdapterForMain
         val txtReviewerNickName = row.findViewById<TextView>(R.id.txtReviewerNickName)
         val txtProductName = row.findViewById<TextView>(R.id.txtProductName)
         val txtProductPrice = row.findViewById<TextView>(R.id.txtProductPrice)
-        val btnOpenPreview = row.findViewById<Button>(R.id.btnOpenPreview)
+        val btnOpenPreview = row.findViewById<LinearLayout>(R.id.btnOpenPreview)
         val imgReviewSomeNail = row.findViewById<ImageView>(R.id.imgReviewSomeNail)
         val imgReviewerImage = row.findViewById<ImageView>(R.id.imgReviewerImage)
 

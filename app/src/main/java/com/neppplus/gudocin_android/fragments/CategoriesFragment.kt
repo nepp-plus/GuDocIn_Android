@@ -47,44 +47,39 @@ class CategoriesFragment : BaseFragment() {
 
         binding.btnCategriesEat.setOnClickListener {
 
-            getCategoryListFromServer()
-
-            mSmallcateoriesAdapter = CategoriesAdapter(mContext,R.layout.small_categories_item,mSmallCategoriesList)
-            binding.smallcategoryList.adapter = mSmallcateoriesAdapter
-
-
-
         }
 
 
 
     }
 
-    fun getCategoryListFromServer(){
-        apiService.getRequestSmallCategory().enqueue(object :Callback<BasicResponse>{
-            override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
 
-                if (response.isSuccessful ){
-
-                    mSmallCategoriesList.clear()
-                    mSmallCategoriesList.addAll(response.body()!!.data.categiries)
-                    mSmallcateoriesAdapter.notifyDataSetChanged()
-
-                }
-            }
-
-            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-
-            }
-
-        })
-
-
-    }
 
     override fun setValues() {
-
+//        getCategoryListFromServer()
     }
+
+//    fun getCategoryListFromServer(){
+//        apiService.getRequestSmallCategory().enqueue(object :Callback<BasicResponse>{
+//            override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
+//
+//                if (response.isSuccessful ){
+//
+//                    mSmallCategoriesList.clear()
+//                    mSmallCategoriesList.addAll(response.body()!!.data.categiries)
+//                    mSmallcateoriesAdapter.notifyDataSetChanged()
+//
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+//
+//            }
+//
+//        })
+//
+//
+//    }
 
 
 }

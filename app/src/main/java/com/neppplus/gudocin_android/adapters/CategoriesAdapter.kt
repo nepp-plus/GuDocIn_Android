@@ -36,7 +36,7 @@ class CategoriesAdapter(
 
 
 
-//        txtSmallCategoryName.text = "(${data.largeCategory.toString()})"
+
 
         return row
 

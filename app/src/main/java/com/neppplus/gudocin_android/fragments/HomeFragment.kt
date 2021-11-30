@@ -60,6 +60,7 @@ class HomeFragment : BaseFragment() {
             startActivity(myIntent)
         }
 
+
         getReviewListFromServer()
         getBannerListFromServer()
 
