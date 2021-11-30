@@ -14,6 +14,9 @@
         android:theme="@style/Theme.GuDocIn_Android"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".SaveMonyMyActivity"
+            android:exported="true" />
+        <activity
             android:name=".PreActivity"
             android:exported="false" />
         <activity
