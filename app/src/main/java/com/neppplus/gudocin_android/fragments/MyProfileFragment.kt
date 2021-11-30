@@ -6,10 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import com.neppplus.gudocin_android.MyProductPurchaseListActivity
-import com.neppplus.gudocin_android.R
-import com.neppplus.gudocin_android.SaveMonyMyActivity
-import com.neppplus.gudocin_android.UserEditActivity
+import com.neppplus.gudocin_android.*
 import com.neppplus.gudocin_android.databinding.FragmentMyProfileBinding
 
 class MyProfileFragment : BaseFragment() {
@@ -64,6 +61,35 @@ class MyProfileFragment : BaseFragment() {
             val myIntent = Intent(mContext, MyProductPurchaseListActivity::class.java)
 
             startActivity(myIntent)
+        }
+
+        binding.txtguide.setOnClickListener {
+
+            val myIntent = Intent(mContext, CustomerCenter::class.java)
+
+            startActivity(myIntent)
+
+        }
+        binding.txtnotice.setOnClickListener {
+
+            val myIntent = Intent(mContext, CustomerCenter::class.java)
+
+            startActivity(myIntent)
+        }
+
+        binding.txtquestions.setOnClickListener {
+
+            val myIntent = Intent(mContext, CustomerCenter::class.java)
+
+            startActivity(myIntent)
+        }
+
+        binding.txttermsofuse.setOnClickListener {
+
+            val myIntent = Intent(mContext, CustomerCenter::class.java)
+
+            startActivity(myIntent)
+
         }
 
 
