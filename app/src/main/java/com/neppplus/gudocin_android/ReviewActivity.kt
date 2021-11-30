@@ -1,6 +1,7 @@
 package com.neppplus.gudocin_android
 
 import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -15,6 +16,7 @@ import com.neppplus.gudocin_android.databinding.ActivityReviewBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.GlobalData
 import com.neppplus.gudocin_android.datas.ProductData
+import com.neppplus.gudocin_android.fragments.MyProfileFragment
 import com.neppplus.gudocin_android.utils.ContextUtil
 import org.json.JSONObject
 import retrofit2.Call
@@ -71,72 +73,71 @@ class ReviewActivity : BaseActivity() {
 
             }
 
-            binding.btnUploadReview.setOnClickListener {
 
-                val alert = AlertDialog.Builder(mContext)
+        }
+        binding.btnCancleReview.setOnClickListener {
 
-                alert.setTitle("리뷰 등록")
+            val alert = AlertDialog.Builder(mContext)
+            alert.setTitle("리뷰 취소 알람")
+            alert.setMessage("리뷰작성을 취소하시겠습니까?")
+            alert.setPositiveButton("확인",DialogInterface.OnClickListener { dialog, i ->
 
-                val customView = LayoutInflater.from(mContext).inflate(R.layout.activity_review, null)
+                finish()
+                Toast.makeText(mContext, "리뷰작성이 취소되었습니다.", Toast.LENGTH_SHORT).show()
 
-                alert.setView(customView)
+            })
+            alert.setNegativeButton("취소",null)
 
-                val edtReview = customView.findViewById<Button>(R.id.btnUploadReview)
-
-                alert.setPositiveButton("확인", DialogInterface.OnClickListener { dialog, i ->
-
-                    val inputTitle = binding.edtReviewTitle.text.toString()
-                    val inputContent = binding.edtReviewContent.text.toString()
-                    val rating = binding.ratingBar.rating.toInt()
-
-                    apiService.postRequestReviewContent(mProductData.id,inputTitle,inputContent,rating).enqueue(object :Callback<BasicResponse>{
-                        override fun onResponse(
-                            call: Call<BasicResponse>,
-                            response: Response<BasicResponse>
-                        ) {
-                            if (response.isSuccessful){
-                                val br = response.body()!!
-                                br.data.reviews
-
-                                Toast.makeText(mContext, "리뷰를 등록했습니다.", Toast.LENGTH_SHORT).show()
-                            }
-                            else{
+            alert.show()
 
 
-
-                            }
-
-
-                        }
-
-                        override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-
-                        }
-
-                    })
-
-                })
+        }
+        binding.btnUploadReview.setOnClickListener {
 
 
+            val inputTile = binding.edtReviewTitle.text.toString()
+
+            if (inputTile.length < 1){
+                Toast.makeText(mContext, "제목을 입력해 주세요.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
             }
 
-            binding.btnCancleReview.setOnClickListener {
-
-                val alert = AlertDialog.Builder(mContext)
-                alert.setTitle("리뷰 취소 알람")
-                alert.setMessage("리뷰작성을 취소하시겠습니까?")
-                alert.setPositiveButton("확인",DialogInterface.OnClickListener { dialog, i ->
-
-                    finish()
-                    Toast.makeText(mContext, "리뷰작성이 취소되었습니다.", Toast.LENGTH_SHORT).show()
-
-                })
-                alert.setNegativeButton("취소",null)
-
-                alert.show()
-
-
+            val inputContent = binding.edtReviewContent.text.toString()
+            if (inputContent.length < 1){
+                Toast.makeText(mContext, "리뷰 내용을 입력해주세요.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
             }
+            val alert = AlertDialog.Builder(mContext)
+            alert.setTitle("리뷰 등록")
+            alert.setMessage("리뷰작성을 등록하시겠습니까?")
+            alert.setPositiveButton("확인",DialogInterface.OnClickListener { dialog, i ->
+
+                val myIntent = Intent(mContext,MainActivity::class.java)
+                startActivity(myIntent)
+
+                Toast.makeText(mContext, "리뷰가 등록되었습니다..", Toast.LENGTH_SHORT).show()
+
+            })
+            alert.setNegativeButton("취소",null)
+
+            alert.show()
+
+            val rating = binding.ratingBar.rating.toInt()
+
+            apiService.postRequestReviewContent(mProductData.id,inputContent,inputTile,rating).enqueue(object : Callback<BasicResponse>{
+                override fun onResponse(
+                    call: Call<BasicResponse>,
+                    response: Response<BasicResponse>
+                ) {
+
+                }
+
+                override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+
+                }
+
+
+            })
 
         }
 
