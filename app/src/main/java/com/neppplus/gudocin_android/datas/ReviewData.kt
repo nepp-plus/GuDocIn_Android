@@ -21,6 +21,8 @@ class ReviewData(
     var thumbNailImg : Boolean,
     @SerializedName("created_at")
     var createdAt : String,
+    @SerializedName("tag_list")
+    var tagList : String,
 
     var product : ProductData,
     var user: UserData,

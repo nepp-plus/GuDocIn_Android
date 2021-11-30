@@ -13,6 +13,7 @@ import com.neppplus.gudocin_android.databinding.ActivityReviewBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.GlobalData
 import com.neppplus.gudocin_android.datas.ProductData
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -69,26 +70,10 @@ class ReviewActivity : BaseActivity() {
 
 
         }
-        binding.btnCancleReview.setOnClickListener {
-
-            val alert = AlertDialog.Builder(mContext)
-            alert.setTitle("리뷰 취소 알람")
-            alert.setMessage("리뷰작성을 취소하시겠습니까?")
-            alert.setPositiveButton("확인",DialogInterface.OnClickListener { dialog, i ->
-
-                finish()
-                Toast.makeText(mContext, "리뷰작성이 취소되었습니다.", Toast.LENGTH_SHORT).show()
-
-            })
-            alert.setNegativeButton("취소",null)
-
-            alert.show()
-
-
-        }
         binding.btnUploadReview.setOnClickListener {
 
 
+            val inputTag = binding.edtKeyword.text.toString()
             val inputTile = binding.edtReviewTitle.text.toString()
 
             if (inputTile.length < 1){
@@ -106,33 +91,63 @@ class ReviewActivity : BaseActivity() {
             alert.setMessage("리뷰작성을 등록하시겠습니까?")
             alert.setPositiveButton("확인",DialogInterface.OnClickListener { dialog, i ->
 
-                finish()
+                val rating = binding.ratingBar.rating.toInt()
 
-                Toast.makeText(mContext, "리뷰가 등록되었습니다..", Toast.LENGTH_SHORT).show()
+                apiService.postRequestReviewContent(mProductData.id,inputContent,inputTile,rating,inputTag).enqueue(object : Callback<BasicResponse>{
+                    override fun onResponse(
+                        call: Call<BasicResponse>,
+                        response: Response<BasicResponse>
+                    ) {
+
+                        if (response.isSuccessful){
+
+                            finish()
+                            Toast.makeText(mContext, "리뷰가 등록되었습니다..", Toast.LENGTH_SHORT).show()
+
+                        }
+                        else {
+                            val jsonobj = JSONObject(response.errorBody()!!.string())
+                            Log.d("리뷰등록실패",jsonobj.toString())
+                        }
+
+                    }
+
+                    override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+
+                    }
+
+
+                })
+
+
+
 
             })
             alert.setNegativeButton("취소",null)
 
             alert.show()
 
-            val rating = binding.ratingBar.rating.toInt()
 
-            apiService.postRequestReviewContent(mProductData.id,inputContent,inputTile,rating).enqueue(object : Callback<BasicResponse>{
-                override fun onResponse(
-                    call: Call<BasicResponse>,
-                    response: Response<BasicResponse>
-                ) {
-
-                }
-
-                override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-
-                }
-
-
-            })
 
         }
+        binding.btnCancleReview.setOnClickListener {
+
+            val alert = AlertDialog.Builder(mContext)
+            alert.setTitle("리뷰 취소 알람")
+            alert.setMessage("리뷰작성을 취소하시겠습니까?")
+            alert.setPositiveButton("확인",DialogInterface.OnClickListener { dialog, i ->
+
+                finish()
+                Toast.makeText(mContext, "리뷰작성이 취소되었습니다.", Toast.LENGTH_SHORT).show()
+
+            })
+            alert.setNegativeButton("취소",null)
+
+            alert.show()
+
+
+        }
+
 
     }
 

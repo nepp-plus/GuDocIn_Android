@@ -66,10 +66,11 @@ interface ServerAPIInterface {
     @FormUrlEncoded
     @POST("/review")
     fun postRequestReviewContent(
-    @Field("product_id ") productId: Int,
+    @Field("product_id") productId: Int,
     @Field("title") title: String,
     @Field("content") content: String,
     @Field("score") rating: Int,
+    @Field("tag_list") tagList: String,
     ) : Call<BasicResponse>
 
 //    리뷰 목록 랭킹순
