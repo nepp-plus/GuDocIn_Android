@@ -69,7 +69,7 @@ interface ServerAPIInterface {
     @Field("product_id") productId: Int,
     @Field("title") title: String,
     @Field("content") content: String,
-    @Field("score") rating: Int,
+    @Field("score") rating: Double,
     @Field("tag_list") tagList: String,
     ) : Call<BasicResponse>
 

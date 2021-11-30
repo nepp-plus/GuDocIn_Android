@@ -91,7 +91,7 @@ class ReviewActivity : BaseActivity() {
             alert.setMessage("리뷰작성을 등록하시겠습니까?")
             alert.setPositiveButton("확인",DialogInterface.OnClickListener { dialog, i ->
 
-                val rating = binding.ratingBar.rating.toInt()
+                val rating = binding.ratingBar.rating.toDouble()
 
                 apiService.postRequestReviewContent(mProductData.id,inputContent,inputTile,rating,inputTag).enqueue(object : Callback<BasicResponse>{
                     override fun onResponse(
