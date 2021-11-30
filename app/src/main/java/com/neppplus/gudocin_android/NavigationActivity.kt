@@ -12,6 +12,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.neppplus.gudocin_android.databinding.ActivityNavigationBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.fragments.HomeFragment
+import com.neppplus.gudocin_android.fragments.MainFragment
 import com.neppplus.gudocin_android.fragments.MyProfileFragment
 import com.neppplus.gudocin_android.fragments.RankingFragment
 import com.neppplus.gudocin_android.utils.ContextUtil
@@ -77,7 +78,7 @@ class NavigationActivity : BaseActivity() {
 
         override fun createFragment(position: Int): Fragment {
             return when (position) {
-                0 -> HomeFragment()
+                0 -> MainFragment()
                 1 -> RankingFragment()
                 else -> MyProfileFragment()
             }
