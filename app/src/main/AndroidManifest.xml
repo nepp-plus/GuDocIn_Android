@@ -15,7 +15,13 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".SearchActivity"
-            android:exported="true" />
+
+            android:exported="true" >
+
+            <meta-data android:name="android.app.searchable"
+                android:resource="Sear" />
+
+        </activity>
         <activity
             android:name=".PreActivity"
             android:exported="false" />
