@@ -28,7 +28,7 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/reviewImg"
+        android:id="@+id/imgReviewPicture"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:src="@mipmap/ic_launcher"/>
@@ -39,13 +39,13 @@
         android:orientation="horizontal">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/userProfile"
+            android:id="@+id/imgUserProfile"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:src="@mipmap/ic_launcher"/>
 
         <TextView
-            android:id="@+id/reviwer"
+            android:id="@+id/txtReviwer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="유저 닉네임"/>
@@ -53,7 +53,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/reviewTitle"
+        android:id="@+id/txtReviewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="리뷰제목"/>

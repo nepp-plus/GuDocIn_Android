@@ -7,5 +7,6 @@ class DataResponse(
     var products: List<ProductData>,
     var categiries :List<CategoriesData>,
 
+
 ) {
 }
