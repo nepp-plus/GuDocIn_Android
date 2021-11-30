@@ -50,6 +50,7 @@ class RankingFragment : BaseFragment() {
 
         getRakingListFromServer()
 
+
         mReviewAdapter = RankingRecyclerViewListAdapter(mContext, mRankingList)
         binding.rankingRecyclerView.adapter = mReviewAdapter
         binding.rankingRecyclerView.layoutManager = StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
