@@ -66,7 +66,7 @@ class MyProfileFragment : BaseFragment() {
             startActivity(myIntent)
         }
 
-        binding.
+
 
     }
 

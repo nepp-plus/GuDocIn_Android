@@ -73,7 +73,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="<공지>회원 관련 안내_2021.11.29"/>
+            android:text="공지 - 회원 관련 안내_2021.11.29"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -82,7 +82,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="<공지>회원 관련 안내_2021.11.29"/>
+            android:text="공지회원 관련 안내_2021.11.29"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -92,7 +92,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="<공지>회원 관련 안내_2021.11.29"/>
+            android:text="공지회원 관련 안내_2021.11.29"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -109,7 +109,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="<질문> 입니다."/>
+            android:text="질문 입니다."/>
 
         <TextView
             android:layout_width="match_parent"
@@ -118,7 +118,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="<질문> 입니다."/>
+            android:text="질문 입니다."/>
 
         <TextView
             android:layout_width="match_parent"
@@ -128,7 +128,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="<질문> 입니다."/>
+            android:text="질문 입니다."/>
 
         <TextView
             android:layout_width="match_parent"
