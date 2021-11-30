@@ -11,10 +11,11 @@ import com.bumptech.glide.Glide
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.fragments.MainBannerFragment
 
-class BannerViewPagerAdapter(fm : FragmentManager , val imageList: ArrayList<String>) : FragmentPagerAdapter(fm){
+class BannerViewPagerAdapter(fm: FragmentManager, val imageList: ArrayList<String>) :
+    FragmentPagerAdapter(fm) {
 
 
-    override fun getCount()= imageList.size
+    override fun getCount() = imageList.size
 
     override fun getItem(position: Int): Fragment {
 
@@ -24,7 +25,5 @@ class BannerViewPagerAdapter(fm : FragmentManager , val imageList: ArrayList<Str
     }
 
 
-
-
-    }
+}
 

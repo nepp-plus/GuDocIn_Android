@@ -1,10 +1,13 @@
 package com.neppplus.gudocin_android.adapters
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager.widget.ViewPager
+import com.neppplus.gudocin_android.NavigationActivity
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.datas.ReviewData
 
@@ -14,6 +17,23 @@ class MainRecyclerAdapter(val mContext:Context, val mList:List<ReviewData>) : Re
     val TYPE_ITEM = 1
 
     inner class HeaderViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+
+        val bannerViewPager = view.findViewById<ViewPager>(R.id.bannerViewPager)
+        lateinit var mPagerAdapter : BannerViewPagerAdapter
+
+        fun bind() {
+
+            Log.d("뷰페이저객체", bannerViewPager.toString())
+
+            val tempList = arrayListOf(
+                "https://publy.imgix.net/images/2021/08/24/1629783164_071axFm8po8k4vUlxbRXCmi7NgMHCtyqQ880y1fd.jpeg?fm=pjpg",
+                "https://img1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/zZX/image/PoUmWOJMQg8DHzrn9PIuCIuwCwk",
+                "https://appservice-img.s3.amazonaws.com/apps/1y6qAY2wGRPrrCgZDbN9QB/KR/list/image?1543310731"
+            )
+
+            mPagerAdapter = BannerViewPagerAdapter( (mContext as NavigationActivity).supportFragmentManager, tempList )
+            bannerViewPager.adapter = mPagerAdapter
+        }
 
     }
 
@@ -34,11 +54,11 @@ class MainRecyclerAdapter(val mContext:Context, val mList:List<ReviewData>) : Re
 
             TYPE_HEADER -> {
                 val view = LayoutInflater.from(mContext).inflate(R.layout.main_top_view, parent, false)
-                return HeaderViewHolder(view)
+                HeaderViewHolder(view)
             }
             else -> {
                 val view = LayoutInflater.from(mContext).inflate(R.layout.main_review_list_item, parent, false)
-                return HeaderViewHolder(view)
+                ItemViewHolder(view)
             }
 
         }
@@ -48,7 +68,7 @@ class MainRecyclerAdapter(val mContext:Context, val mList:List<ReviewData>) : Re
 
         when (holder) {
             is HeaderViewHolder -> {
-
+                holder.bind()
             }
             is ItemViewHolder -> {
 
