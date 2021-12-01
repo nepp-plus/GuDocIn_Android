@@ -12,6 +12,6 @@ class CategoriesData (
    @SerializedName("large_category_id")
     var largeCategory : Int,
 
-//스몰 카테고리 추가 필요함
+
 
 ) : Serializable {}
