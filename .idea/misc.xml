@@ -44,6 +44,7 @@
         <entry key="..\:/Users/NePPPlus_017/AndroidStudioProjects/GuDocIn_Android_team/app/src/main/res/layout/activity_eat_category_list.xml" value="0.3794089609151573" />
         <entry key="..\:/Users/NePPPlus_017/AndroidStudioProjects/GuDocIn_Android_team/app/src/main/res/layout/activity_life_category_list.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/NePPPlus_017/AndroidStudioProjects/GuDocIn_Android_team/app/src/main/res/layout/activity_pre.xml" value="0.20572916666666666" />
+        <entry key="..\:/Users/NePPPlus_017/AndroidStudioProjects/GuDocIn_Android_team/app/src/main/res/layout/activity_product_item_detail.xml" value="0.43706777316735823" />
         <entry key="..\:/Users/NePPPlus_017/AndroidStudioProjects/GuDocIn_Android_team/app/src/main/res/layout/activity_purchase_list.xml" value="0.2046875" />
         <entry key="..\:/Users/NePPPlus_017/AndroidStudioProjects/GuDocIn_Android_team/app/src/main/res/layout/activity_review.xml" value="0.20572916666666666" />
         <entry key="..\:/Users/NePPPlus_017/AndroidStudioProjects/GuDocIn_Android_team/app/src/main/res/layout/activity_search.xml" value="0.365625" />
@@ -56,6 +57,7 @@
         <entry key="..\:/Users/NePPPlus_017/AndroidStudioProjects/GuDocIn_Android_team/app/src/main/res/layout/fragment_categories.xml" value="0.20572916666666666" />
         <entry key="..\:/Users/NePPPlus_017/AndroidStudioProjects/GuDocIn_Android_team/app/src/main/res/layout/fragment_home.xml" value="0.2796296296296296" />
         <entry key="..\:/Users/NePPPlus_017/AndroidStudioProjects/GuDocIn_Android_team/app/src/main/res/layout/fragment_my_carendar.xml" value="0.5" />
+        <entry key="..\:/Users/NePPPlus_017/AndroidStudioProjects/GuDocIn_Android_team/app/src/main/res/layout/fragment_my_profile.xml" value="0.1" />
         <entry key="..\:/Users/NePPPlus_017/AndroidStudioProjects/GuDocIn_Android_team/app/src/main/res/layout/fragment_my_punrchase_detail.xml" value="0.19375" />
         <entry key="..\:/Users/NePPPlus_017/AndroidStudioProjects/GuDocIn_Android_team/app/src/main/res/layout/fragment_my_review_list.xml" value="0.2046875" />
         <entry key="..\:/Users/NePPPlus_017/AndroidStudioProjects/GuDocIn_Android_team/app/src/main/res/layout/fragment_purchase_list.xml" value="0.2046875" />
@@ -68,6 +70,7 @@
         <entry key="..\:/Users/NePPPlus_017/AndroidStudioProjects/GuDocIn_Android_team/app/src/main/res/layout/ranking_list_item.xml" value="0.19375" />
         <entry key="..\:/Users/NePPPlus_017/AndroidStudioProjects/GuDocIn_Android_team/app/src/main/res/layout/review_item_for_main.xml" value="0.25" />
         <entry key="..\:/Users/NePPPlus_017/AndroidStudioProjects/GuDocIn_Android_team/app/src/main/res/layout/small_categories_item.xml" value="0.1" />
+        <entry key="..\:/Users/NePPPlus_017/AndroidStudioProjects/GuDocIn_Android_team/app/src/main/res/layout/tag_list_item.xml" value="0.203125" />
         <entry key="..\:/Users/NePPPlus_017/AndroidStudioProjects/GuDocIn_Android_team/app/src/main/res/menu/menu_bottom_navigation.xml" value="0.365625" />
         <entry key="..\:/Users/NePPPlus_017/AndroidStudioProjects/GuDocIn_Android_team/app/src/main/res/menu/search_menu.xml" value="0.365625" />
         <entry key="..\:/Users/NePPPlus_017/AndroidStudioProjects/GuDocIn_Android_team/app/src/main/res/xml/radius_box.xml" value="0.365625" />
