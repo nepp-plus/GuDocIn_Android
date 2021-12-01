@@ -14,6 +14,32 @@
         android:theme="@style/Theme.GuDocIn_Android"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".EatCategoryListActivity"
+            android:exported="true" />
+        <activity
+            android:name=".SearchActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
+        <activity
+            android:name=".CustomerCenterActivity"
+            android:exported="true" />
+        <activity
+            android:name=".MyProductPurchaseListActivity"
+            android:exported="true" />
+        <activity
+            android:name=".UserEditActivity"
+            android:exported="true" />
+        <activity
+            android:name=".SaveMonyMyActivity"
+            android:exported="true" />
+        <activity
             android:name=".terms.TermsActivity"
             android:exported="true" />
         <activity
@@ -37,7 +63,7 @@
                 <!-- Redirect URI: "kakao{NATIVE_APP_KEY}://oauth" -->
                 <data
                     android:host="oauth"
-                    android:scheme="kakao23bd4652c744e3f82017a4110f0040a2" />
+                    android:scheme="kakaoe01a6443a1c0ffc7bc1e1eb6633b56e2" />
             </intent-filter>
         </activity>
         <activity

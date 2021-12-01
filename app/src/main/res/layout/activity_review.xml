@@ -3,303 +3,336 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="20dp"
-        tools:context=".ReviewActivity">
-
-        <EditText
-            android:id="@+id/edtReviewTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="리뷰 제목을 입력해 주세요."
-            android:singleLine="true"
-            android:gravity="center"/>
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:layout_marginTop="4dp"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/txtUserNickName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="유저 닉네임"/>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"/>
-
-            <TextView
-                android:id="@+id/txtReviewTime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="작성일시 2021.11.26"/>
-
-        </LinearLayout>
-        
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/black"/>
-        
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_marginTop="8dp"
-            android:layout_gravity="center_vertical"
+            android:layout_height="match_parent"
             android:orientation="vertical">
-            
-            <TextView
-                android:id="@+id/txtPrductName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:text="구독상품"/>
-            
-            <TextView
-                android:id="@+id/txtProductTime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="15sp"
-                android:text="구독기간"/>
 
-            
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/imgThumPicture"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:scaleType="centerCrop"
-                android:src="@mipmap/ic_launcher"/>
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="20dp"
+                tools:context=".ReviewActivity">
+
+                <EditText
+                    android:id="@+id/edtReviewTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="리뷰 제목을 입력해 주세요."
+                    android:textSize="23sp"
+                    android:singleLine="true"
+                    android:gravity="center"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="4dp"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/txtUserNickName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="25sp"
+                        android:text="유저 닉네임"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:text="작성일시 : "/>
+
+                    <TextView
+                        android:id="@+id/txtReviewTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:text="작성일시 2021.11.26"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txtPrductName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="22sp"
+                        android:text="구독상품"/>
+
+                    <TextView
+                        android:id="@+id/txtProductTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="17sp"
+                        android:text="구독기간"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/imgThumPicture"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:scaleType="centerCrop"
+                        android:src="@mipmap/ic_launcher"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:text="배송"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center_vertical"
+                    android:layout_height="30dp">
+
+                    <CheckBox
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="1dp"
+                        android:textSize="20sp"
+                        android:text="만족"/>
+
+                    <CheckBox
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="1dp"
+                        android:textSize="20sp"
+                        android:text="보통"/>
+
+                    <CheckBox
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:layout_marginStart="1dp"
+                        android:text="불만족"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="품질"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center_vertical"
+                    android:layout_height="30dp">
+
+                    <CheckBox
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="1dp"
+                        android:textSize="20sp"
+                        android:text="만족"/>
+
+                    <CheckBox
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="1dp"
+                        android:textSize="20sp"
+                        android:text="보통"/>
+
+                    <CheckBox
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:layout_marginStart="1dp"
+                        android:text="불만족"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="가격"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center_vertical"
+                    android:layout_height="30dp">
+
+                    <CheckBox
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="1dp"
+                        android:textSize="20sp"
+                        android:text="만족"/>
+
+                    <CheckBox
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="1dp"
+                        android:textSize="20sp"
+                        android:text="보통"/>
+
+                    <CheckBox
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:layout_marginStart="1dp"
+                        android:text="불만족"/>
+
+
+                </LinearLayout>
+
+                <RatingBar
+                    android:id="@+id/ratingBar"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:rating="0" />
+
+                <EditText
+                    android:id="@+id/edtReviewContent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="23sp"
+                    android:minLines="3"
+                    android:hint="리뷰 내용을 작성해주세요."/>
+
+                <Button
+                    android:id="@+id/btnEddPicture"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:layout_gravity="end"
+                    android:text="사진추가"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:text="# 키워드 입력하기"/>
+
+                    <EditText
+                        android:id="@+id/edtKeyword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:hint="스페이스바 입력시 자동으로 하나의 키워드가 됩니다."
+                        android:textSize="15sp" />
+
+                    <com.nex3z.flowlayout.FlowLayout
+                        android:id="@+id/tagListLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:flRowSpacing="5dp">
+
+
+                    </com.nex3z.flowlayout.FlowLayout>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnCancleReview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="17sp"
+                        android:text="작성취소"/>
+
+                    <Button
+                        android:id="@+id/btnUploadReview"
+                        android:layout_marginStart="30dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="17sp"
+                        android:text="작성완료"/>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
 
         </LinearLayout>
 
-        <RatingBar
-            android:id="@+id/ratingBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:rating="3"
-            android:layout_gravity="center"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="배송"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:layout_gravity="center_vertical"
-            android:layout_height="30dp">
-
-            <CheckBox
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="1dp"
-                android:textSize="10sp"
-                android:text="만족"/>
-
-            <CheckBox
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="1dp"
-                android:textSize="10sp"
-                android:text="보통"/>
-
-            <CheckBox
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10sp"
-                android:layout_marginStart="1dp"
-                android:text="불만족"/>
-
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="품질"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:layout_gravity="center_vertical"
-            android:layout_height="30dp">
-
-            <CheckBox
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="1dp"
-                android:textSize="10sp"
-                android:text="만족"/>
-
-            <CheckBox
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="1dp"
-                android:textSize="10sp"
-                android:text="보통"/>
-
-            <CheckBox
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10sp"
-                android:layout_marginStart="1dp"
-                android:text="불만족"/>
-
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="가격"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:layout_gravity="center_vertical"
-            android:layout_height="30dp">
-
-            <CheckBox
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="1dp"
-                android:textSize="10sp"
-                android:text="만족"/>
-
-            <CheckBox
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="1dp"
-                android:textSize="10sp"
-                android:text="보통"/>
-
-            <CheckBox
-                android:layout_width="30dp"
-                android:layout_height="wrap_content"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10sp"
-                android:layout_marginStart="1dp"
-                android:text="불만족"/>
+    </ScrollView>
 
 
-        </LinearLayout>
-
-        <EditText
-            android:id="@+id/edtReviewContent"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="리뷰 내용을 작성해주세요."/>
-
-        <Button
-            android:id="@+id/btnEddPicture"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="10sp"
-            android:layout_gravity="end"
-            android:text="사진추가"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="vertical"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="15sp"
-                android:text="# 키워드 입력하기"/>
-
-            <EditText
-                android:id="@+id/edtKeyword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="스페이스바를 띄우면 자동으로 하나의 키워드가 됩니다."
-                android:textSize="13sp" />
-
-            <com.nex3z.flowlayout.FlowLayout
-                android:id="@+id/tagListLayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:flRowSpacing="5dp">
-
-
-            </com.nex3z.flowlayout.FlowLayout>
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btnCancleReview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="작성취소"/>
-
-            <Button
-                android:id="@+id/btnUploadReview"
-                android:layout_marginStart="30dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="작성완료"/>
-
-        </LinearLayout>
-
-
-    </LinearLayout>
 
 
 </layout>

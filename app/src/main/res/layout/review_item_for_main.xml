@@ -101,14 +101,15 @@
             android:visibility="gone"
             android:text="선택된 체크박스 내용 자리"/>
 
-        <Button
-            android:id="@+id/btnEditReview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="리뷰 작성"/>
 
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btnWriteRivew"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="리뷰 작성"/>
 
 
 

@@ -2,6 +2,7 @@ package com.neppplus.gudocin_android.api
 
 import com.neppplus.gudocin_android.datas.BasicResponse
 import retrofit2.Call
+import retrofit2.Callback
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
@@ -55,7 +56,7 @@ interface ServerAPIInterface {
 
 //    상품목록 받아오기
     @GET("/product")
-    fun getRequestProductList(): Call<BasicResponse>
+    fun getRequestProductList(param: Callback<BasicResponse>): Call<BasicResponse>
 
 //    전체 리뷰 목록 가져오기
     @GET("/review")
@@ -65,21 +66,28 @@ interface ServerAPIInterface {
     @FormUrlEncoded
     @POST("/review")
     fun postRequestReviewContent(
-    @Field("X-Http-Token") xHttpToken: String,
-    @Field("product_id ") productId: Int,
+    @Field("product_id") productId: Int,
     @Field("title") title: String,
     @Field("content") content: String,
-    @Field("score") rating: Int,
+    @Field("score") rating: Double,
     @Field("tag_list") tagList: String,
     ) : Call<BasicResponse>
 
 //    리뷰 목록 랭킹순
-    @GET("/review/check_list")
+    @GET("/review/ranking")
     fun getRequestRankingList() : Call<BasicResponse>
 
     //    카테고리 목록 가져오기
     @GET("/category")
     fun getRequestCategory(): Call<BasicResponse>
+
+    //    카테고리 목록 가져오기
+    @GET("/category/{large_category_id}")
+    fun getRequestlargeCategoryView(): Call<BasicResponse>
+
+    //    카테고리 목록 가져오기
+    @GET("/category/small")
+    fun getRequestCategorySmall(): Call<BasicResponse>
 
     //    전체 작은 카테고리 목록 가져오기
     @GET("/category/small")
@@ -93,4 +101,7 @@ interface ServerAPIInterface {
         @Field("value") value: String,
     ): Call<BasicResponse>
 
+    //    배너 가져오기
+    @GET("/main/banner")
+    fun getRequestMainBanner(): Call<BasicResponse>
 }
