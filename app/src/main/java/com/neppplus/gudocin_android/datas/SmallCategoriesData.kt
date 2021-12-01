@@ -7,7 +7,7 @@ import java.io.Serializable
 class SmallCategoriesData(
     var id: Int,
     var name: String,
-    @SerializedName("small_categories")
-    var smallCategory : Int,
+    @SerializedName("large_category_id")
+    var largeCategoryId : Int,
 ):Serializable {
 }

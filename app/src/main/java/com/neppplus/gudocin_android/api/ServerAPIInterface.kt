@@ -56,7 +56,7 @@ interface ServerAPIInterface {
 
 //    상품목록 받아오기
     @GET("/product")
-    fun getRequestProductList(param: Callback<BasicResponse>): Call<BasicResponse>
+    fun getRequestProductList(): Call<BasicResponse>
 
 //    전체 리뷰 목록 가져오기
     @GET("/review")
@@ -77,21 +77,25 @@ interface ServerAPIInterface {
     @GET("/review/ranking")
     fun getRequestRankingList() : Call<BasicResponse>
 
-    //    카테고리 목록 가져오기
+    //    모든 카테고리 조회
     @GET("/category")
     fun getRequestCategory(): Call<BasicResponse>
 
-    //    카테고리 목록 가져오기
+    //    특정 대분류 카테고리(내부의 소분류) 조회
     @GET("/category/{large_category_id}")
-    fun getRequestlargeCategoryView(): Call<BasicResponse>
+    fun getRequestSmallCategoryDependOnLarge(
+        @Path("large_category_id") id:Int,
+    ): Call<BasicResponse>
 
-    //    카테고리 목록 가져오기
+    //    모든 소분류 카테고리 조회
     @GET("/category/small")
     fun getRequestCategorySmall(): Call<BasicResponse>
 
-    //    전체 작은 카테고리 목록 가져오기
-    @GET("/category/small")
-    fun getRequestSmallCategory(): Call<BasicResponse>
+    //   특정 소분류 카테고리(내부의 상품목록) 조회
+    @GET("/category/small/{small_category_id}")
+    fun getRequestSmallCategorysItemList(
+        @Path("small_category_id") id:Int,
+    ): Call<BasicResponse>
 
 
     @FormUrlEncoded
