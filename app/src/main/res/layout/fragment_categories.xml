@@ -17,8 +17,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
-                android:background="@color/white"
                 android:layout_marginEnd="5dp"
+                android:backgroundTint="@color/white"
+                android:shadowColor="@color/black"
                 android:text="먹는 구독"/>
 
 
@@ -27,8 +28,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
-                android:background="@color/white"
                 android:layout_marginEnd="5dp"
+                android:backgroundTint="@color/white"
+                android:shadowColor="@color/black"
                 android:text="입는 구독"/>
 
             <Button
@@ -36,8 +38,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
-                android:background="@color/white"
                 android:layout_marginEnd="5dp"
+                android:backgroundTint="@color/white"
+                android:shadowColor="@color/black"
                 android:text="생활 구독"/>
 
 

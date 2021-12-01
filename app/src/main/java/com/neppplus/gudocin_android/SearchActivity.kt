@@ -61,6 +61,8 @@ class SearchActivity : BaseActivity() {
 
 
     }
+
+
     fun doMySearch(){
 
     }

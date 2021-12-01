@@ -19,10 +19,50 @@
             app:queryHint="생활에 필요한 구독을 검색하세요" />
 
 
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="30dp">
+
             <Button
+                android:id="@+id/btnCategriesEat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="버튼 보이나"/>
+                android:textColor="@color/black"
+                android:layout_marginEnd="5dp"
+                android:backgroundTint="@color/white"
+                android:shadowColor="@color/black"
+                android:text="먹는 구독"/>
+
+
+            <Button
+                android:id="@+id/btnCategriesWear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_marginEnd="5dp"
+                android:backgroundTint="@color/white"
+                android:shadowColor="@color/black"
+                android:text="입는 구독"/>
+
+            <Button
+                android:id="@+id/btnCategriesLife"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_marginEnd="5dp"
+                android:backgroundTint="@color/white"
+                android:shadowColor="@color/black"
+                android:text="생활 구독"/>
+
+
+        </LinearLayout>
+
+
+
 
     </LinearLayout>
 
