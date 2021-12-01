@@ -9,8 +9,8 @@ class CategoriesData (
 
     var id: Int,
     var name: String,
-   @SerializedName("large_category_id")
-    var largeCategory : Int,
+   @SerializedName("small_categories")
+    var smallCategories : SmallCategoriesData,
 
 
 
