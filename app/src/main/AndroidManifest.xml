@@ -17,6 +17,9 @@
             android:name=".MyPurchaseListActivity"
             android:exported="true" />
         <activity
+            android:name=".ReviewDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".EatCategoryListActivity"
             android:exported="true" />
         <activity

@@ -18,7 +18,7 @@ class ReviewData(
     @SerializedName("product_id")
     var productId : Int,
     @SerializedName("thumbnail_img")
-    var thumbNailImg : Boolean,
+    var thumbNailImg : String,
     @SerializedName("created_at")
     var createdAt : String,
     @SerializedName("tag_list")
@@ -26,6 +26,8 @@ class ReviewData(
 
     var product : ProductData,
     var user: UserData,
+    var images: List<ImageData>,
+    var tags: List<TagData>,
 
     ) : Serializable{
 }

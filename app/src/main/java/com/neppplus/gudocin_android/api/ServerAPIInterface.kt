@@ -104,4 +104,10 @@ interface ServerAPIInterface {
     //    배너 가져오기
     @GET("/main/banner")
     fun getRequestMainBanner(): Call<BasicResponse>
+
+//      특정 리뷰 상세보기
+    @GET("/review/{review_id}")
+    fun getRequestReviewDetail(
+    @Path("review_id") reviewId : Int,
+    ): Call<BasicResponse>
 }

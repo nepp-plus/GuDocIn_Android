@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.ReviewActivity
+import com.neppplus.gudocin_android.ReviewDetailActivity
 import com.neppplus.gudocin_android.datas.ReviewData
 
 class ReviewRecyclerViewAdapterForMain
@@ -31,7 +32,7 @@ class ReviewRecyclerViewAdapterForMain
         val btnGotoReviewDetail2 = itemview.findViewById<LinearLayout>(R.id.btnGotoReviewDetail2)
         val btnOpenPreview = itemview.findViewById<LinearLayout>(R.id.btnOpenPreview)
         val txtCheckedContents = itemview.findViewById<TextView>(R.id.txtCheckedContents)
-        val btnWriteRivew = itemview.findViewById<TextView>(R.id.btnWriteRivew)
+        val btnWriteReview = itemview.findViewById<TextView>(R.id.btnWriteReview)
 
 
 
@@ -44,15 +45,21 @@ class ReviewRecyclerViewAdapterForMain
 
             btnGotoReviewDetail1.setOnClickListener {
 //               리뷰 상세 페이지로 넘어가는 인텐트 추가 필요 (Activity명 나오면 추가 예정)
+                val myIntent = Intent(mContext, ReviewDetailActivity::class.java)
+                myIntent.putExtra("review",data)
+                mContext.startActivity(myIntent)
             }
             btnGotoReviewDetail2.setOnClickListener {
 //               리뷰 상세 페이지로 넘어가는 인텐트 추가 필요 (Activity명 나오면 추가 예정)
+                val myIntent = Intent(mContext, ReviewDetailActivity::class.java)
+                myIntent.putExtra("review",data)
+                mContext.startActivity(myIntent)
             }
             btnOpenPreview.setOnClickListener {
                 txtCheckedContents.visibility = View.VISIBLE
             }
 
-            btnWriteRivew.setOnClickListener {
+            btnWriteReview.setOnClickListener {
                 val myIntent = Intent(mContext, ReviewActivity::class.java)
                 myIntent.putExtra("product", data.product)
                 mContext.startActivity(myIntent)

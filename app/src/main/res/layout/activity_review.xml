@@ -38,7 +38,7 @@
                         android:id="@+id/txtUserNickName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="25sp"
+                        android:textSize="20sp"
                         android:text="유저 닉네임"/>
 
                     <TextView
@@ -49,14 +49,14 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="18sp"
+                        android:textSize="16sp"
                         android:text="작성일시 : "/>
 
                     <TextView
                         android:id="@+id/txtReviewTime"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="18sp"
+                        android:textSize="16sp"
                         android:text="작성일시 2021.11.26"/>
 
                 </LinearLayout>
@@ -78,6 +78,7 @@
                         android:id="@+id/txtPrductName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textStyle="bold"
                         android:textSize="22sp"
                         android:text="구독상품"/>
 
@@ -104,10 +105,13 @@
 
                 </LinearLayout>
 
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
+                    android:layout_marginTop="10dp"
+                    android:textStyle="bold"
                     android:text="배송"/>
 
                 <LinearLayout
@@ -154,6 +158,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
                     android:text="품질"/>
 
                 <LinearLayout
@@ -200,6 +206,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
                     android:text="가격"/>
 
                 <LinearLayout
@@ -243,6 +251,11 @@
 
 
                 </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black"/>
 
                 <RatingBar
                     android:id="@+id/ratingBar"

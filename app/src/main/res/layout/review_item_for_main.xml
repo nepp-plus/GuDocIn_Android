@@ -106,7 +106,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnWriteRivew"
+        android:id="@+id/btnWriteReview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="리뷰 작성"/>
