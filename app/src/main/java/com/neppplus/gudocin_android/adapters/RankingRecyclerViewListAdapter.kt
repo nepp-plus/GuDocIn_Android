@@ -34,6 +34,7 @@ class RankingRecyclerViewListAdapter(
             imgReviewPicture.setOnClickListener {
 
                 val myIntent = Intent(mContext, ReviewDetailActivity::class.java)
+                myIntent.putExtra("review",data)
                 mContext.startActivity(myIntent)
             }
 
