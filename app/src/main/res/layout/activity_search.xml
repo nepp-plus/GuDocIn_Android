@@ -19,7 +19,10 @@
             app:queryHint="생활에 필요한 구독을 검색하세요" />
 
 
-
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="버튼 보이나"/>
 
     </LinearLayout>
 

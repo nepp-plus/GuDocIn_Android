@@ -4,10 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.HorizontalScrollView
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.adapters.SmallCategoriesListAdapter
 import com.neppplus.gudocin_android.databinding.FragmentCategoriesBinding
@@ -50,12 +48,15 @@ class CategoriesFragment : BaseFragment() {
     override fun setupEvents() {
 
         binding.btnCategriesEat.setOnClickListener {
-            mLargeCategoryId = 1
+            getSmallCategoryListFromServer()
+            mLargeCategoryId = 2
+
 
 
         }
 
         binding.btnCategriesLife.setOnClickListener {
+            getSmallCategoryListFromServer()
             mLargeCategoryId = 3
 
 
@@ -63,7 +64,8 @@ class CategoriesFragment : BaseFragment() {
 
 
         binding.btnCategriesWear.setOnClickListener {
-            mLargeCategoryId = 2
+            getSmallCategoryListFromServer()
+            mLargeCategoryId = 1
 
 
         }
@@ -78,7 +80,7 @@ class CategoriesFragment : BaseFragment() {
         getSmallCategoryListFromServer()
         mSmallcateoriesListAdapter = SmallCategoriesListAdapter(mContext,mSmallCategoriesList)
         binding.smallcategoryRecyclerView.adapter = mSmallcateoriesListAdapter
-        binding.smallcategoryRecyclerView.layoutManager = LinearLayoutManager(mContext)
+        binding.smallcategoryRecyclerView.layoutManager = LinearLayoutManager(mContext,LinearLayoutManager.HORIZONTAL,false)
 
     }
 
