@@ -59,10 +59,51 @@ class LoginActivity : BaseActivity() {
 
             startActivityForResult(googleSignInIntent, RESULT_CODE)
 
-            val myIntent = Intent(mContext, NavigationActivity::class.java)
-            startActivity(myIntent)
+            val inputEmail = binding.edtEmail.text.toString()
+            val inputPw = binding.edtPassword.text.toString()
 
-            finish()
+            apiService.postRequestLogin(inputEmail, inputPw).enqueue(object :
+                Callback<BasicResponse> {
+                override fun onResponse(
+                    call: Call<BasicResponse>,
+                    response: Response<BasicResponse>
+                ) {
+
+                    if (response.isSuccessful) {
+                        val basicResponse = response.body()!!
+
+                        val userNickname = basicResponse.data.user.nickname
+
+                        Toast.makeText(mContext, "${userNickname}님, 환영합니다!!!", Toast.LENGTH_SHORT)
+                            .show()
+
+                        ContextUtil.setToken(mContext, basicResponse.data.token)
+
+                        GlobalData.loginUser = basicResponse.data.user
+
+                        val myIntent = Intent(mContext, NavigationActivity::class.java)
+                        startActivity(myIntent)
+
+                        finish()
+
+                    } else {
+
+                        val errorJson = JSONObject(response.errorBody()!!.string())
+                        Log.d("에러경우", errorJson.toString())
+
+                        val message = errorJson.getString("message")
+
+                        Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show()
+
+                    }
+
+                }
+
+                override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+
+                }
+
+            })
 
         }
 

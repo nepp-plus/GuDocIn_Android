@@ -1,6 +1,8 @@
 package com.neppplus.gudocin_android
 
 import android.app.Activity
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -17,6 +19,7 @@ import com.kakao.sdk.user.UserApiClient
 import com.neppplus.gudocin_android.databinding.ActivitySignUpBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.GlobalData
+import com.neppplus.gudocin_android.terms.TermsActivity
 import com.neppplus.gudocin_android.utils.ContextUtil
 import org.json.JSONObject
 import retrofit2.Call
@@ -88,6 +91,15 @@ class SignUpActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
+
+        binding.checkSignUpConfirm.setOnClickListener {
+
+            val myIntent = Intent(mContext, TermsActivity::class.java)
+            startActivity(myIntent)
+
+            finish()
+
+        }
 
         binding.btnKakaoLogin.setOnClickListener {
 

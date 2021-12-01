@@ -2,19 +2,16 @@
 <layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:orientation="vertical"
-        tools:context=".SplashActivity">
+        android:orientation="vertical">
 
-        <com.airbnb.lottie.LottieAnimationView
+        <com.prolificinteractive.materialcalendarview.MaterialCalendarView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/splash_ani" />
+            android:layout_height="wrap_content"
+            app:mcv_selectionColor="#00F"
+            app:mcv_showOtherDates="all" />
 
     </LinearLayout>
 
