@@ -16,7 +16,7 @@ class EatCategoryListActivity : BaseActivity() {
     lateinit var binding:ActivityEatCategoryListBinding
     val mProductList = ArrayList<ProductData>()
     lateinit var mProductRecyclerAdapter : ProductRecyclerViewAdapter
-    var mClickedSmallCategoryNum =1
+    var mClickedSmallCategoryNum =7
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -24,6 +24,7 @@
             android:layout_weight="1"
             android:orientation="vertical">
 
+
             <TextView
                 android:id="@+id/txtProductCompanyName"
                 android:layout_width="wrap_content"
@@ -37,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:text="상품명"
                 android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/txtProductPrice"
@@ -46,33 +47,37 @@
 
                 android:text="가격/1회당" />
 
+            <LinearLayout
+                android:id="@+id/btnMoreReview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="리뷰 더보기.."
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+
+
         </LinearLayout>
 
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/btnMoreReview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:text="리뷰 보기"
-            android:textColor="@color/black"
-            android:textStyle="bold" />
-
-    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="horizontal"
+        
+        android:outlineSpotShadowColor="@color/black"
         android:padding="10dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
