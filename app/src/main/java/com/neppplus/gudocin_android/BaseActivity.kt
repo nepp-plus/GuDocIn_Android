@@ -3,6 +3,7 @@ package com.neppplus.gudocin_android
 import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.viewpager.widget.PagerAdapter
 import com.neppplus.gudocin_android.api.ServerAPI
 import com.neppplus.gudocin_android.api.ServerAPIInterface
 
