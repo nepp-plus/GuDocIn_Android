@@ -68,7 +68,7 @@ class CategoriesFragment : BaseFragment() {
 
 
     fun getSmallCategoryListFromServer(){
-        apiService.getRequestSmallCategoryDependOnLarge().enqueue(object :Callback<BasicResponse>{
+        apiService.getRequestSmallCategoryDependOnLarge(id).enqueue(object :Callback<BasicResponse>{
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
 
                 if (response.isSuccessful ){

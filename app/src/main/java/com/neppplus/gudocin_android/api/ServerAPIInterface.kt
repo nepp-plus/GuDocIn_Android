@@ -83,7 +83,9 @@ interface ServerAPIInterface {
 
     //    특정 대분류 카테고리(내부의 소분류) 조회
     @GET("/category/{large_category_id}")
-    fun getRequestSmallCategoryDependOnLarge(): Call<BasicResponse>
+    fun getRequestSmallCategoryDependOnLarge(
+        @Path("large_category_id") id:Int,
+    ): Call<BasicResponse>
 
     //    모든 소분류 카테고리 조회
     @GET("/category/small")
