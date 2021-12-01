@@ -15,10 +15,11 @@ import com.neppplus.gudocin_android.ReviewActivity
 import com.neppplus.gudocin_android.ReviewDetailActivity
 import com.neppplus.gudocin_android.datas.ReviewData
 
-class ReviewRecyclerViewAdapterForMain
+class ReviewRecyclerViewAdapterForProductList
     (val mContext: Context, val mList: List<ReviewData>) :
-    RecyclerView.Adapter<ReviewRecyclerViewAdapterForMain.ReviewViewHolder>() {
+    RecyclerView.Adapter<ReviewRecyclerViewAdapterForProductList.ReviewViewHolder>() {
 
+//   이 어댑터는 상품 상세에서 돌리는 리뷰 리스트에 사용합니다.
 
     inner class ReviewViewHolder(itemview: View) : RecyclerView.ViewHolder(itemview) {
 

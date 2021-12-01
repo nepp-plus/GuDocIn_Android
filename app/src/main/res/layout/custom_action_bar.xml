@@ -14,7 +14,7 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:src="@drawable/back_icon"
-        android:layout_gravity="center_vertical"
+        android:layout_gravity="bottom"
         android:scaleType="centerCrop"/>
 
 
@@ -74,7 +74,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:layout_gravity="right">
+    android:layout_gravity="right|bottom">
 
     <ImageView
         android:id="@+id/btnBell"
@@ -89,7 +89,7 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:src="@drawable/basket_icon"
-        android:layout_gravity="center_vertical"
+        android:layout_gravity="right"
         android:layout_marginStart="3dp"
         android:scaleType="centerCrop"/>
 
