@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.ReviewActivity
+import com.neppplus.gudocin_android.ReviewDetailActivity
 import com.neppplus.gudocin_android.datas.ReviewData
 
 class ReviewRecyclerViewAdapterForMain
@@ -44,9 +45,13 @@ class ReviewRecyclerViewAdapterForMain
 
             btnGotoReviewDetail1.setOnClickListener {
 //               리뷰 상세 페이지로 넘어가는 인텐트 추가 필요 (Activity명 나오면 추가 예정)
+                val myIntent = Intent(mContext, ReviewDetailActivity::class.java)
+                mContext.startActivity(myIntent)
             }
             btnGotoReviewDetail2.setOnClickListener {
 //               리뷰 상세 페이지로 넘어가는 인텐트 추가 필요 (Activity명 나오면 추가 예정)
+                val myIntent = Intent(mContext, ReviewDetailActivity::class.java)
+                mContext.startActivity(myIntent)
             }
             btnOpenPreview.setOnClickListener {
                 txtCheckedContents.visibility = View.VISIBLE
