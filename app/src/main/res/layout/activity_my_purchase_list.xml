@@ -8,5 +8,36 @@
     android:orientation="vertical"
     tools:context=".MyPurchaseListActivity">
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="20dp">
+
+
+        <TextView
+            android:id="@+id/txtUserNickName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="~~님의 구매내역"/>
+
+
+    </LinearLayout>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/purchaseTabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/purchaseViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+
+
 </LinearLayout>
 </layout>
