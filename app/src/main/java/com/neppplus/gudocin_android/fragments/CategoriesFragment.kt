@@ -25,6 +25,7 @@ class CategoriesFragment : BaseFragment() {
 
     var mSmallCategoriesList = ArrayList<SmallCategoriesData>()
     lateinit var mSmallcateoriesListAdapter : SmallCategoriesListAdapter
+    var mLargeCategoryId = 1
 
 
 
@@ -49,6 +50,21 @@ class CategoriesFragment : BaseFragment() {
     override fun setupEvents() {
 
         binding.btnCategriesEat.setOnClickListener {
+            mLargeCategoryId = 1
+
+
+        }
+
+        binding.btnCategriesLife.setOnClickListener {
+            mLargeCategoryId = 3
+
+
+        }
+
+
+        binding.btnCategriesWear.setOnClickListener {
+            mLargeCategoryId = 2
+
 
         }
 
@@ -63,12 +79,12 @@ class CategoriesFragment : BaseFragment() {
         mSmallcateoriesListAdapter = SmallCategoriesListAdapter(mContext,mSmallCategoriesList)
         binding.smallcategoryRecyclerView.adapter = mSmallcateoriesListAdapter
         binding.smallcategoryRecyclerView.layoutManager = LinearLayoutManager(mContext)
-//
+
     }
 
 
     fun getSmallCategoryListFromServer(){
-        apiService.getRequestSmallCategoryDependOnLarge(id).enqueue(object :Callback<BasicResponse>{
+        apiService.getRequestSmallCategoryDependOnLarge(mLargeCategoryId).enqueue(object :Callback<BasicResponse>{
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
 
                 if (response.isSuccessful ){
