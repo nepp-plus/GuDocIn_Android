@@ -12,7 +12,7 @@ import retrofit2.Response
 
 class ReviewDetailActivity : BaseActivity() {
 
-    val mReviewList = ArrayList<ReviewData>()
+    lateinit var mReviewData: ReviewData
 
     lateinit var binding: ActivityReviewDetailBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,26 +28,22 @@ class ReviewDetailActivity : BaseActivity() {
 
     override fun setValues() {
 
+        mReviewData = intent.getSerializableExtra("review") as ReviewData
+
         getReviewDataFromSever()
 
     }
+
+
     fun getReviewDataFromSever() {
-        apiService.getRequestReviewList().enqueue(object : Callback<BasicResponse>{
+        apiService.getRequestReviewDetail(mReviewData.id).enqueue(object : Callback<BasicResponse>{
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
-
-                if(response.isSuccessful){
-                    val br = response.body()!!
-                    mReviewList.clear()
-                    mReviewList.addAll(br.data.reviews)
-
-                }
 
             }
 
             override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
 
             }
-
 
         })
 

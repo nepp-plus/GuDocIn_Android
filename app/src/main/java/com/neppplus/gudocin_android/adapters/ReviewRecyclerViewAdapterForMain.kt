@@ -46,6 +46,7 @@ class ReviewRecyclerViewAdapterForMain
             btnGotoReviewDetail1.setOnClickListener {
 //               리뷰 상세 페이지로 넘어가는 인텐트 추가 필요 (Activity명 나오면 추가 예정)
                 val myIntent = Intent(mContext, ReviewDetailActivity::class.java)
+                myIntent.putExtra("review",data)
                 mContext.startActivity(myIntent)
             }
             btnGotoReviewDetail2.setOnClickListener {
