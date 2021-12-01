@@ -41,8 +41,8 @@ class EatCategoryListActivity : BaseActivity() {
 
 
         getSmallCategoryListFromServer()
-        mSmallcateoriesListAdapter = SmallCategoriesListAdapter(mContext,mSmallCategoriesList)
-        binding.smallcategoryRecyclerView.adapter = mSmallcateoriesListAdapter
+        mSmallcategoryListAdapter = SmallCategoriesListAdapter(mContext,mSmallcategoryList)
+        binding.smallcategoryRecyclerView.adapter = mSmallcategoryListAdapter
         binding.smallcategoryRecyclerView.layoutManager = LinearLayoutManager(mContext,LinearLayoutManager.HORIZONTAL,false)
 
 
@@ -78,4 +78,27 @@ class EatCategoryListActivity : BaseActivity() {
 
 
     }
+
+    fun getSmallCategoryListFromServer(){
+        apiService.getRequestSmallCategoryDependOnLarge(mLargeCategoryId).enqueue(object :Callback<BasicResponse>{
+            override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
+
+                if (response.isSuccessful ){
+
+                    mSmallcategoryList.clear()
+                    mSmallcategoryList.addAll(response.body()!!.data.small_categories)
+                    mSmallcategoryListAdapter.notifyDataSetChanged()
+
+                }
+            }
+
+            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+
+            }
+
+        })
+
+
+    }
+
 }
