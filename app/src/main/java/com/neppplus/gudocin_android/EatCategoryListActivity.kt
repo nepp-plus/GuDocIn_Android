@@ -4,9 +4,11 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.neppplus.gudocin_android.adapters.ProductRecyclerViewAdapter
+import com.neppplus.gudocin_android.adapters.SmallCategoriesListAdapter
 import com.neppplus.gudocin_android.databinding.ActivityEatCategoryListBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.ProductData
+import com.neppplus.gudocin_android.datas.SmallCategoriesData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -14,9 +16,15 @@ import retrofit2.Response
 class EatCategoryListActivity : BaseActivity() {
 
     lateinit var binding:ActivityEatCategoryListBinding
+
+    val mSmallcategoryList = ArrayList<SmallCategoriesData>()
+    lateinit var mSmallcategoryListAdapter : SmallCategoriesListAdapter
+    var mLargeCategoryId = 1
+    var mClickedSmallCategoryNum =7
+
     val mProductList = ArrayList<ProductData>()
     lateinit var mProductRecyclerAdapter : ProductRecyclerViewAdapter
-    var mClickedSmallCategoryNum =7
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +38,14 @@ class EatCategoryListActivity : BaseActivity() {
     }
 
     override fun setValues() {
+
+
+        getSmallCategoryListFromServer()
+        mSmallcateoriesListAdapter = SmallCategoriesListAdapter(mContext,mSmallCategoriesList)
+        binding.smallcategoryRecyclerView.adapter = mSmallcateoriesListAdapter
+        binding.smallcategoryRecyclerView.layoutManager = LinearLayoutManager(mContext,LinearLayoutManager.HORIZONTAL,false)
+
+
 
         getProductListInSmallCategoryFromServer()
 
