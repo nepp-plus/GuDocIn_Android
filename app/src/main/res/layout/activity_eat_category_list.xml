@@ -6,7 +6,31 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".EatCategoryListActivity">
+        tools:context=".EatCategoryListActivity"
+        android:paddingTop="30dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:text="선택한 대분류 카테고리 이름"/>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/smallcategoryRecyclerView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/productListRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
 
     </LinearLayout>
+
+
 </layout>
