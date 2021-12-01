@@ -28,6 +28,20 @@ class SearchActivity : BaseActivity() {
 
     override fun setupEvents() {
 
+        binding.btnCategriesEat.setOnClickListener {
+            val myIntent = Intent(mContext,EatCategoryListActivity::class.java)
+            startActivity(myIntent)
+        }
+
+        binding.btnCategriesWear.setOnClickListener {
+            val myIntent = Intent(mContext,WearCategoryListActivity::class.java)
+            startActivity(myIntent)
+        }
+
+        binding.btnCategriesLife.setOnClickListener {
+            val myIntent = Intent(mContext,LifeCategoryListActivity::class.java)
+            startActivity(myIntent)
+        }
     }
 
     override fun setValues() {
