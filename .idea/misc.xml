@@ -16,7 +16,7 @@
         <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_login.xml" value="0.20833333333333334" />
         <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_navigation.xml" value="0.20833333333333334" />
         <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_notice.xml" value="0.25" />
-        <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_sign_up.xml" value="0.25" />
+        <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_sign_up.xml" value="0.33" />
         <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_terms.xml" value="0.5" />
         <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/basket_action_bar.xml" value="0.33" />
         <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/fragment_home.xml" value="0.13796296296296295" />
@@ -24,6 +24,7 @@
         <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/fragment_my_profile.xml" value="0.33" />
         <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/holder_terms.xml" value="0.13796296296296295" />
         <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/notice_action_bar.xml" value="0.33" />
+        <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/notice_calendar.xml" value="0.3541666666666667" />
         <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/menu/menu_bottom_navigation.xml" value="0.20833333333333334" />
         <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/menu/search_menu.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/NePPPlus_013/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/drawable/tag_box.xml" value="0.3537037037037037" />
