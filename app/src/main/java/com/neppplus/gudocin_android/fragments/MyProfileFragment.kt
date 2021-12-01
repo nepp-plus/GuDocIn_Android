@@ -6,9 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
-import com.neppplus.gudocin_android.R
-import com.neppplus.gudocin_android.SaveMoneyMyActivity
+import com.neppplus.gudocin_android.*
 import com.neppplus.gudocin_android.databinding.FragmentMyProfileBinding
 
 class MyProfileFragment : BaseFragment() {
@@ -22,15 +20,79 @@ class MyProfileFragment : BaseFragment() {
     ): View? {
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_my_profile,container,false)
         return binding.root
+
+
     }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        setValues()
+        setupEvents()
+
+    }
+
     override fun setupEvents() {
 
         binding.btnSaveMoney.setOnClickListener {
 
-            val myIntent =  Intent( mContext, SaveMoneyMyActivity::class.java )
+            val myIntent =  Intent( mContext, SaveMonyMyActivity::class.java )
+
             startActivity(myIntent)
 
         }
+
+        binding.txtEditUserInfo.setOnClickListener {
+
+            val myIntent = Intent(mContext, UserEditActivity::class.java)
+
+            startActivity(myIntent)
+        }
+
+        binding.txtUserPointDetails.setOnClickListener {
+
+            val myIntent =  Intent( mContext, SaveMonyMyActivity::class.java )
+
+            startActivity(myIntent)
+
+        }
+        binding.txtMyProductPurnchaseList.setOnClickListener {
+
+            val myIntent = Intent(mContext, MyProductPurchaseListActivity::class.java)
+
+            startActivity(myIntent)
+        }
+
+        binding.txtguide.setOnClickListener {
+
+            val myIntent = Intent(mContext, CustomerCenterActivity::class.java)
+
+            startActivity(myIntent)
+
+        }
+        binding.txtnotice.setOnClickListener {
+
+            val myIntent = Intent(mContext, CustomerCenterActivity::class.java)
+
+            startActivity(myIntent)
+        }
+
+        binding.txtquestions.setOnClickListener {
+
+            val myIntent = Intent(mContext, CustomerCenterActivity::class.java)
+
+            startActivity(myIntent)
+        }
+
+        binding.txttermsofuse.setOnClickListener {
+
+            val myIntent = Intent(mContext, CustomerCenterActivity::class.java)
+
+            startActivity(myIntent)
+
+        }
+
+
 
     }
 

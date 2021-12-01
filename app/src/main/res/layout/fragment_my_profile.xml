@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto">
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -10,7 +11,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -60,6 +61,7 @@
 
 
         <LinearLayout
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -67,16 +69,16 @@
 
             <TextView
 
-                android:layout_marginTop="25dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="내 구독정보"/>
+                android:layout_marginTop="25dp"
+                android:text="내 구독정보" />
 
             <com.prolificinteractive.materialcalendarview.MaterialCalendarView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:mcv_showOtherDates="all"
-                app:mcv_selectionColor="#00F"/>
+                app:mcv_selectionColor="#00F"
+                app:mcv_showOtherDates="all" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -84,145 +86,138 @@
 
 
                 <ImageView
-                    android:layout_marginTop="20dp"
                     android:layout_width="200dp"
                     android:layout_height="80dp"
-                    android:src="@drawable/mygudoclist"/>
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/mygudoclist" />
 
                 <ImageView
-                    android:layout_marginTop="20dp"
                     android:layout_width="200dp"
                     android:layout_height="80dp"
-                    android:src="@drawable/review"/>
-
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/review" />
 
 
             </LinearLayout>
-                <TextView
-                    android:layout_marginTop="20dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="회원정보"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="회원정보" />
 
             <TextView
                 android:id="@+id/txtEditUserInfo"
-                android:layout_marginTop="10dp"
-                android:textSize="15sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="회원정보 수정"/>
+                android:layout_marginTop="10dp"
+                android:text="회원정보 수정"
+                android:textSize="15sp" />
 
             <TextView
 
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#808080"/>
+                android:background="#808080" />
 
 
             <TextView
 
-                android:layout_marginTop="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="적립금"/>
+                android:layout_marginTop="20dp"
+                android:text="적립금" />
 
             <TextView
                 android:id="@+id/txtUserPointDetails"
-                android:layout_marginTop="10dp"
-                android:textSize="17sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="적립금 세부내역"/>
+                android:layout_marginTop="10dp"
+                android:text="적립금 세부내역"
+                android:textSize="17sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#808080"/>
+                android:background="#808080" />
 
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="정기구독 상품"/>
+                android:text="정기구독 상품" />
 
             <TextView
-                android:id="@+id/txtUserProductpurchasedetails"
-                android:layout_marginTop="10dp"
-                android:textSize="15sp"
+                android:id="@+id/txtMyProductPurnchaseList"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="정기구독 상품 구매 내역"/>
+                android:layout_marginTop="10dp"
+                android:text="정기구독 상품 구매 내역"
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#808080"/>
+                android:background="#808080" />
 
             <TextView
-                android:layout_marginTop="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="고객센터"/>
+                android:layout_marginTop="20dp"
+                android:text="고객센터" />
 
             <TextView
                 android:id="@+id/txtguide"
-                android:layout_marginTop="10dp"
-                android:textSize="15sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="이용가이드"/>
+                android:layout_marginTop="10dp"
+                android:text="이용가이드"
+                android:textSize="15sp" />
 
             <TextView
 
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#808080"/>
+                android:background="#808080" />
 
             <TextView
                 android:id="@+id/txtnotice"
-                android:layout_marginTop="10dp"
-                android:textSize="15sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="공지사항"/>
+                android:layout_marginTop="10dp"
+                android:text="공지사항"
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#808080"/>
+                android:background="#808080" />
 
             <TextView
                 android:id="@+id/txtquestions"
-                android:layout_marginTop="10dp"
-                android:textSize="15sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="자주 묻는 질문"/>
+                android:layout_marginTop="10dp"
+                android:text="자주 묻는 질문"
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#808080"/>
+                android:background="#808080" />
 
             <TextView
                 android:id="@+id/txttermsofuse"
-                android:layout_marginTop="10dp"
-                android:textSize="15sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="서비스 이용약관"/>
+                android:layout_marginTop="10dp"
+                android:text="서비스 이용약관"
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#808080"/>
-
-
-
-
-
-
-
+                android:background="#808080" />
 
 
         </LinearLayout>
