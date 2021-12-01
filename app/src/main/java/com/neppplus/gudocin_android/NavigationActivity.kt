@@ -107,7 +107,6 @@ class NavigationActivity : BaseActivity() {
 
     }
 
-
     fun getKeyHash() {
         val info = packageManager.getPackageInfo(
             "com.neppplus.gudocin_android",
@@ -118,6 +117,7 @@ class NavigationActivity : BaseActivity() {
             md.update(signature.toByteArray())
             Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT))
         }
+
     }
 
 }

@@ -14,7 +14,9 @@ import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
 import com.google.android.gms.auth.api.Auth
 import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.firebase.auth.GoogleAuthProvider
 import com.kakao.sdk.user.UserApiClient
 import com.neppplus.gudocin_android.databinding.ActivitySignUpBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
@@ -56,7 +58,6 @@ class SignUpActivity : BaseActivity() {
         setValues()
 
         binding.btnGoogleLogin.setOnClickListener {
-
             startActivityForResult(googleSignInIntent, LoginActivity.RESULT_CODE)
 
             val myIntent = Intent(mContext, NavigationActivity::class.java)
@@ -71,7 +72,6 @@ class SignUpActivity : BaseActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         callbackManager.onActivityResult(requestCode, resultCode, data)
         super.onActivityResult(requestCode, resultCode, data)
-
 
         if (resultCode == Activity.RESULT_OK && requestCode == LoginActivity.RESULT_CODE) {
             val result = Auth.GoogleSignInApi.getSignInResultFromIntent(data)
