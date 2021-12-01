@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
+
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -8,6 +9,7 @@
         android:layout_height="match_parent"
         tools:context=".ProductItemDetailActivity"
         android:orientation="vertical">
+
 
         <ImageView
             android:layout_width="match_parent"
@@ -54,7 +56,6 @@
         </LinearLayout>
 
 
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -62,22 +63,24 @@
             android:layout_marginTop="5dp"/>
 
 <!--        이 리사이클러 뷰는 호리젠탈-->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/reviewRecyclerViewForProduct"
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/reviewRecyclerViewForProduct"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="100dp"/>-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="여기서부터 상품 상세"/>
+
+        <com.google.android.material.tabs.TabLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
 
-
-        <TextView
+        <androidx.viewpager.widget.ViewPager
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="업체가 제공하는 상세 페이지"/>
-
-
-
-
-
+            android:layout_height="wrap_content"/>
 
 
     </LinearLayout>
