@@ -16,6 +16,7 @@ class EatCategoryListActivity : BaseActivity() {
     lateinit var binding:ActivityEatCategoryListBinding
     val mProductList = ArrayList<ProductData>()
     lateinit var mProductRecyclerAdapter : ProductRecyclerViewAdapter
+    var mClickedSmallCategoryNum =1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +42,7 @@ class EatCategoryListActivity : BaseActivity() {
 
     fun getProductListInSmallCategoryFromServer(){
 
-        apiService.getRequestSmallCategorysItemList(1).enqueue(object : Callback<BasicResponse> {
+        apiService.getRequestSmallCategorysItemList(mClickedSmallCategoryNum).enqueue(object : Callback<BasicResponse> {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
 
                 if (response.isSuccessful ){
