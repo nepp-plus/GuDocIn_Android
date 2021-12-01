@@ -19,37 +19,38 @@
 
 
 
-<LinearLayout
-    android:id="@+id/txtCategoryNameInActionBar"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_gravity="bottom"
-    android:layout_marginBottom="10dp">
+
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/txtCategoryNameInActionBar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="center"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="10dp"
         android:text="카테고리명" />
-
-</LinearLayout>
 
 
     <LinearLayout
         android:id="@+id/SearchBoxInActionBar"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center"
-        android:visibility="invisible">
+        android:layout_gravity="bottom"
+        android:visibility="invisible"
+        android:layout_marginStart="20dp">
 
       <EditText
+          android:id="@+id/edtSearch"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_gravity="center_vertical"
           android:layout_weight="1"
           android:gravity="center"
           android:hint="구독상품 검색하기"
+          android:textColor="@color/black"
+          android:textColorHint="@color/black"
+          android:shadowColor="@color/black"
           android:textSize="10sp"/>
 
         <ImageView

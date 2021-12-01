@@ -1,8 +1,11 @@
 package com.neppplus.gudocin_android
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -18,6 +21,8 @@ abstract class BaseActivity() : AppCompatActivity() {
     lateinit var btnBack : ImageView
     lateinit var btnBell : ImageView
     lateinit var btnBasket : ImageView
+    lateinit var SearchBoxInActionBar : LinearLayout
+    lateinit var txtCategoryNameInActionBar : TextView
 
 
 
@@ -30,13 +35,8 @@ abstract class BaseActivity() : AppCompatActivity() {
         apiService = retrofit.create(ServerAPIInterface::class.java)
 
         supportActionBar?.let {
-
-//            supportActionBar 이 변수가 null 아닐때만 해달라는 코드.
             setCustomActionBar()
-
-
         }
-
 
     }
 
@@ -60,16 +60,22 @@ abstract class BaseActivity() : AppCompatActivity() {
         btnBack = defActionBar.customView.findViewById(R.id.btnBack)
         btnBell = defActionBar.customView.findViewById(R.id.btnBell)
         btnBasket = defActionBar.customView.findViewById(R.id.btnBasket)
+        SearchBoxInActionBar = defActionBar.customView.findViewById(R.id.SearchBoxInActionBar)
+        txtCategoryNameInActionBar = defActionBar.customView.findViewById(R.id.txtCategoryNameInActionBar)
 
-//        모든 화면 공통 이벤트처리
+
         btnBack.setOnClickListener {
-
-//            뒤로가기 : 무조건 지금 화면 종료
             finish()
         }
 
-//        프로필 설정 화면 이동
+        btnBell.setOnClickListener {
 
+
+        }
+        btnBasket.setOnClickListener {
+
+
+        }
 
 
 
