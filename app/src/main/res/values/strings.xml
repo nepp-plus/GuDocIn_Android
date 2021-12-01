@@ -5,4 +5,9 @@
     <string name="facebook_app_id">924221281631968</string>
     <string name="fb_login_protocol_scheme">fb924221281631968</string>
     <string name="default_client_id" translatable="false">332422269877-p7k08q2clt8umke6c43hs3v7jtpmd4ue.apps.googleusercontent.com</string>
+    <string name="title">이용약관</string>
+    <string name="all_agree_text">전체 동의하기</string>
+    <string name="complete_text">완료</string>
+    <string name="terms_title_required_true">(필수) %s</string>
+    <string name="terms_title_required_false">(선택) %s</string>
 </resources>

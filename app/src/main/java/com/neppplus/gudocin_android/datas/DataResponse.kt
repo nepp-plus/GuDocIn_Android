@@ -6,7 +6,6 @@ class DataResponse(
     var reviews: List<ReviewData>,
     var products: List<ProductData>,
     var categiries :List<CategoriesData>,
-
-
+    val banners : List<BannerData>,
 ) {
 }

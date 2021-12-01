@@ -5,7 +5,11 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Base64
+import android.util.Base64.DEFAULT
+import android.util.Base64.encodeToString
 import android.util.Log
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
@@ -272,22 +276,7 @@ class LoginActivity : BaseActivity() {
 
         })
 
-//        getKeyHash()
-
     }
-
-//    fun getKeyHash() {
-//        val info = packageManager.getPackageInfo(
-//            "com.neppplus.GuDocIn_Android",
-//            PackageManager.GET_SIGNATURES
-//        )
-//        for (signature in info.signatures) {
-//            val md: MessageDigest = MessageDigest.getInstance("SHA")
-//            md.update(signature.toByteArray())
-//            Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT))
-//        }
-//
-//    }
 
     fun getMyInfoFromKakao() {
 

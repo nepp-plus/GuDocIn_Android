@@ -1,37 +1,27 @@
 package com.neppplus.gudocin_android.fragments
 
-import android.media.Image
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.neppplus.gudocin_android.R
-import com.neppplus.gudocin_android.adapters.BannerViewPagerAdapter
-import com.neppplus.gudocin_android.adapters.ReviewRecyclerViewAdapterForMain
-import com.neppplus.gudocin_android.databinding.BannerItemForMainBinding
-import com.neppplus.gudocin_android.databinding.FragmentBannerListBinding
-import com.neppplus.gudocin_android.databinding.FragmentReviewListBinding
-import com.neppplus.gudocin_android.datas.BasicResponse
-import com.neppplus.gudocin_android.datas.ReviewData
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import com.neppplus.gudocin_android.databinding.BannerListBinding
+import com.neppplus.gudocin_android.datas.BannerData
 
-class MainBannerFragment(val imgBanner :String) : BaseFragment() {
+class MainBannerFragment(val mBannerData: BannerData) : BaseFragment() {
 
-    lateinit var binding: FragmentBannerListBinding
-
-
+    lateinit var binding: BannerListBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_banner_list,container,false)
+        binding = DataBindingUtil.inflate(inflater,R.layout.banner_list,container,false)
         return binding.root
 
     }
@@ -46,19 +36,24 @@ class MainBannerFragment(val imgBanner :String) : BaseFragment() {
 
     override fun setupEvents() {
 
+        binding.imgMainBanner.setOnClickListener {
+            val myUri = Uri.parse(mBannerData.clickUrl)
+            val myIntent = Intent( Intent.ACTION_VIEW, myUri )
+            startActivity(myIntent)
 
 
-    }
+        }
+
+        }
 
     override fun setValues() {
 
-        Glide.with(mContext).load(imgBanner).into(binding.imgMainBanner)
-
-
-
+        Glide.with(mContext).load(mBannerData.displayImageUrl).into(binding.imgMainBanner)
     }
 
 
-
 }
+
+
+
 

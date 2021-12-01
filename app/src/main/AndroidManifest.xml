@@ -14,8 +14,43 @@
         android:theme="@style/Theme.GuDocIn_Android"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".PreActivity"
-            android:exported="false" />
+            android:name=".EatCategoryListActivity"
+            android:exported="true" />
+        <activity
+            android:name=".SearchActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
+        <activity
+            android:name=".CustomerCenterActivity"
+            android:exported="true" />
+        <activity
+            android:name=".MyProductPurchaseListActivity"
+            android:exported="true" />
+        <activity
+            android:name=".UserEditActivity"
+            android:exported="true" />
+        <activity
+            android:name=".SaveMonyMyActivity"
+            android:exported="true" />
+        <activity
+            android:name=".terms.TermsActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ApproachActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
             android:exported="true">

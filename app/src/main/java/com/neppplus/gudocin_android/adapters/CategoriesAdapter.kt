@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
-import com.bumptech.glide.Glide
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.datas.CategoriesData
 
@@ -37,7 +36,7 @@ class CategoriesAdapter(
 
 
 
-//        txtSmallCategoryName.text = "(${data.largeCategory.toString()})"
+
 
         return row
 

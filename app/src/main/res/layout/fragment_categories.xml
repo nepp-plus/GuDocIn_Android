@@ -49,8 +49,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <ListView
-                    android:id="@+id/smallcategoryList"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/smallcategoryRecyclerView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 

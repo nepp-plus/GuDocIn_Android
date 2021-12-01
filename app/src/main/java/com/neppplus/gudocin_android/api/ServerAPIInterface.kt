@@ -81,6 +81,14 @@ interface ServerAPIInterface {
     @GET("/category")
     fun getRequestCategory(): Call<BasicResponse>
 
+    //    카테고리 목록 가져오기
+    @GET("/category/{large_category_id}")
+    fun getRequestlargeCategoryView(): Call<BasicResponse>
+
+    //    카테고리 목록 가져오기
+    @GET("/category/small")
+    fun getRequestCategorySmall(): Call<BasicResponse>
+
     //    전체 작은 카테고리 목록 가져오기
     @GET("/category/small")
     fun getRequestSmallCategory(): Call<BasicResponse>
@@ -93,4 +101,7 @@ interface ServerAPIInterface {
         @Field("value") value: String,
     ): Call<BasicResponse>
 
+    //    배너 가져오기
+    @GET("/main/banner")
+    fun getRequestMainBanner(): Call<BasicResponse>
 }
