@@ -29,5 +29,7 @@ class MyPurchaseListActivity : BaseActivity() {
         mAdapter = PurchaseViewPagerAdapter(supportFragmentManager)
         binding.purchaseViewPager.adapter = mAdapter
 
+        binding.purchaseTabLayout.setupWithViewPager(binding.purchaseViewPager)
+
     }
 }
