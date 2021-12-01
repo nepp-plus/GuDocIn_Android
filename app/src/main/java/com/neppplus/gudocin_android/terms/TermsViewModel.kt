@@ -7,12 +7,10 @@ import androidx.lifecycle.ViewModel
 class TermsViewModel : ViewModel() {
 
     val termsList = arrayListOf(
-        TermsData(1, "이용약관1", true, "이용약관1"),
-        TermsData(2, "이용약관2", true, "이용약관2"),
-        TermsData(3, "이용약관3", true, "이용약관3"),
-        TermsData(4, "이용약관4", true, "이용약관4"),
-        TermsData(5, "이용약관5", false, "이용약관5"),
-        TermsData(6, "이용약관6", false, "이용약관6")
+        TermsData(1, "GuDocIn 이용약관", true, "이용약관1"),
+        TermsData(2, "개인정보 수집 및 이용 동의", true, "이용약관2"),
+        TermsData(3, "개인정보 제3자 제공 동의(인증 이용기관 제공)", true, "이용약관3"),
+        TermsData(4, "개인정보 제3자 제공 동의(GuDocIn)", true, "이용약관4"),
     )
 
 
