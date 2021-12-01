@@ -6,8 +6,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import androidx.databinding.DataBindingUtil
 import androidx.viewpager.widget.ViewPager
+import com.google.firebase.messaging.FirebaseMessaging
 import com.neppplus.gudocin_android.adapters.ApproachViewPagerAdapter
 import com.neppplus.gudocin_android.databinding.ActivityApproachBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
@@ -63,6 +65,28 @@ class ApproachActivity : BaseActivity() {
         }
     }
 
+    fun setFirebaseToken() {
+
+        FirebaseMessaging.getInstance().token.addOnCompleteListener {
+
+//            토큰을 잘 받아왔다면
+            if (it.isSuccessful) {
+
+                val deviceToken = it.result
+
+                Log.d("FCM토큰", deviceToken!!)
+                ContextUtil.setDeviceToken(mContext, deviceToken)
+
+                GlobalData.loginUser?.let {
+
+                    apiService.patchRequestUpdateUserInfo("android_device_token", ContextUtil.getDeviceToken(mContext))
+                }
+
+            }
+
+        }
+    }
+
     override fun setupEvents() {
 
         binding.btnLogin.setOnClickListener {
@@ -114,6 +138,25 @@ class ApproachActivity : BaseActivity() {
     }
 
     override fun setValues() {
+
+        setFirebaseToken()
+
+        apiService.getRequestMyInfo().enqueue(object : Callback<BasicResponse> {
+            override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
+
+                if (response.isSuccessful) {
+
+                    GlobalData.loginUser = response.body()!!.data.user
+
+                }
+
+            }
+
+            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+
+            }
+
+        })
 
         apiService.getRequestMyInfo().enqueue(object : Callback<BasicResponse> {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {

@@ -73,6 +73,7 @@
             app:termsItems="@{viewModel.termsList}" />
 
         <Button
+            android:id="@+id/btnComplete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:enabled="@{viewModel.btnEnable}"
