@@ -66,14 +66,15 @@ interface ServerAPIInterface {
     @FormUrlEncoded
     @POST("/review")
     fun postRequestReviewContent(
-    @Field("product_id ") productId: Int,
+    @Field("product_id") productId: Int,
     @Field("title") title: String,
     @Field("content") content: String,
-    @Field("score") rating: Int,
+    @Field("score") rating: Double,
+    @Field("tag_list") tagList: String,
     ) : Call<BasicResponse>
 
 //    리뷰 목록 랭킹순
-    @GET("/review/check_list")
+    @GET("/review/ranking")
     fun getRequestRankingList() : Call<BasicResponse>
 
     //    카테고리 목록 가져오기

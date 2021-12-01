@@ -1,5 +1,6 @@
 package com.neppplus.gudocin_android
 
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Base64
@@ -105,6 +106,7 @@ class NavigationActivity : BaseActivity() {
         }
 
     }
+
 
     fun getKeyHash() {
         val info = packageManager.getPackageInfo(
