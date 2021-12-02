@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -11,23 +11,24 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:orientation="vertical"
-            android:padding="20dp"
-            android:gravity="center">
+            android:padding="20dp">
 
             <TextView
                 android:id="@+id/txtUserNickname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
-                android:text="~~님의 구매내역" />
+                android:text="~~님의 구매내역"
+                android:textColor="@color/black" />
 
         </LinearLayout>
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/purchaseTabLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            app:tabMode="scrollable" />
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/purchaseViewPager"
