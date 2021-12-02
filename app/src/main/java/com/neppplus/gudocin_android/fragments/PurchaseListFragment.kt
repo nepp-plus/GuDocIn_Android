@@ -8,9 +8,9 @@ import androidx.databinding.DataBindingUtil
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.FragmentPurchaseListBinding
 
-class PurchaseListFragment : BaseFragment() {
+class PurchastListFragment : BaseFragment() {
 
-    lateinit var binding : FragmentPurchaseListBinding
+    lateinit var binding: FragmentPurchaseListBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -18,20 +18,17 @@ class PurchaseListFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View? {
 //        데이터 바인딩을 같이 활용 -> xml도 지정
-
-        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_purchase_list,container,false)
+        binding =
+            DataBindingUtil.inflate(inflater, R.layout.fragment_purchase_list, container, false)
         return binding.root
     }
-
-
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         setupEvents()
         setValues()
-
-
     }
+
     override fun setupEvents() {
 
     }
@@ -39,4 +36,5 @@ class PurchaseListFragment : BaseFragment() {
     override fun setValues() {
 
     }
+
 }
