@@ -93,9 +93,17 @@ class ReviewActivity : BaseActivity() {
 
                 val rating = binding.ratingBar.rating.toDouble()
 
-                
+                var tagStr = ""
 
-                apiService.postRequestReviewContent(mProductData.id,inputContent,inputTile,rating,inputTag).enqueue(object : Callback<BasicResponse>{
+                for(tag in mInputTagList){
+                    Log.d("첨부할 태그", tag)
+                    tagStr += tag
+                    tagStr += ","
+                }
+                tagStr = tagStr.substring(0,tagStr.length -1)
+                Log.d("완성된String",tagStr)
+
+                apiService.postRequestReviewContent(mProductData.id,inputContent,inputTile,rating,tagStr).enqueue(object : Callback<BasicResponse>{
                     override fun onResponse(
                         call: Call<BasicResponse>,
                         response: Response<BasicResponse>
