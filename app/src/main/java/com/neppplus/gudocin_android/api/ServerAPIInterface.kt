@@ -135,12 +135,21 @@ interface ServerAPIInterface {
 
     ) : Call<BasicResponse>
 
+    @FormUrlEncoded
     @PATCH("/user")
     fun patchRequestEditMyPassword(
         @Field("field") field: String,
         @Field("value") value: String,
         @Field("current_password") password: String,
 
+
+        ) : Call<BasicResponse>
+
+    @FormUrlEncoded
+    @PATCH("/user")
+    fun patchRequestEditMyName(
+        @Field("field") field: String,
+        @Field("value") value: String,
 
         ) : Call<BasicResponse>
 

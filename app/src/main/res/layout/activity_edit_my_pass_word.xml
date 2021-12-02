@@ -9,21 +9,6 @@
     android:orientation="vertical"
     tools:context=".EditMyPassWordActivity">
 
-    <TextView
-        android:layout_marginTop="50dp"
-        android:layout_gravity="center"
-        android:textStyle="bold"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="현재비빌번호"
-        android:textSize="20sp"/>
-
-    <EditText
-        android:id="@+id/edtCurrentPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="현재사용중인 비밀번호를 입력하세요."/>
-
 
     <TextView
         android:layout_marginTop="50dp"
@@ -33,6 +18,23 @@
         android:layout_height="wrap_content"
         android:text="비밀번호 변경"
         android:textSize="20sp"/>
+    <TextView
+
+
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="현재비빌번호"
+        />
+
+    <EditText
+        android:id="@+id/edtCurrentPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="현재사용중인 비밀번호를 입력하세요."/>
+
+
+
 
     <TextView
         android:layout_marginTop="30dp"
