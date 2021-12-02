@@ -114,4 +114,10 @@ interface ServerAPIInterface {
     fun getRequestReviewDetail(
     @Path("review_id") reviewId : Int,
     ): Call<BasicResponse>
+
+//    특정 리뷰의 댓글 모아보기
+    @GET("review/{review_id}/reply")
+    fun getRequestReviewReply(
+    @Path("review_id") reveiwReply : Int,
+    ): Call<BasicResponse>
 }
