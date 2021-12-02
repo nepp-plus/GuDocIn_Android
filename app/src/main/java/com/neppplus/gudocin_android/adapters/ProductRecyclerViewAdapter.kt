@@ -11,6 +11,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.neppplus.gudocin_android.ProductItemDetailActivity
 import com.neppplus.gudocin_android.R
+import com.neppplus.gudocin_android.ReviewDetailActivity
 import com.neppplus.gudocin_android.datas.ProductData
 
 class ProductRecyclerViewAdapter(val mContext: Context, val mList: List<ProductData>) :
@@ -34,8 +35,13 @@ class ProductRecyclerViewAdapter(val mContext: Context, val mList: List<ProductD
         fun bind(data: ProductData) {
             txtProductName.text = data.name
             txtProductPrice.text = data.getFormatedPrice()
-            txtReviewWriterName.text = data.review.
-            txtReviewTitle.text =
+//            txtReviewWriterName.text = data.review.user.nickname
+
+            btnGotoReviewDetail.setOnClickListener {
+                val myIntent = Intent(mContext, ReviewDetailActivity::class.java)
+//                myIntent.putExtra("review",data.review.id) // 넘어갈 때 review id 들려 보내야 함
+                mContext.startActivity(myIntent)
+            }
 
 
             rootLayout.setOnClickListener {

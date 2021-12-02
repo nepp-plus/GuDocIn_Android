@@ -14,7 +14,6 @@ class ProductData(
     var imageUrl: String,
     var store : StoreData,
     var reviews : List<ReviewData>,
-    var review : ReviewData,
 
 ) : Serializable {
 
