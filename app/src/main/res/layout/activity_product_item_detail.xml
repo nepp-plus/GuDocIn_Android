@@ -1,99 +1,128 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
 
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ProductItemDetailActivity"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:context=".ProductItemDetailActivity">
 
-
-        <ImageView
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="410dp"
-            android:src="@mipmap/ic_launcher"
-            android:scaleType="centerCrop"/>
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="410dp"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/ic_launcher" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/txtProductName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="상품명"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/txtProductPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="가격/1회당" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+
+                <TextView
+                    android:id="@+id/txtProductCompanyName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="회사명"
+                    android:textColor="@color/black" />
+
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/black" />
+
+            <!--        이 리사이클러 뷰는 호리젠탈-->
+            <!--        <androidx.recyclerview.widget.RecyclerView-->
+            <!--            android:id="@+id/reviewRecyclerViewForProduct"-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="100dp"/>-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="여기서부터 상품 상세" />
+
+            <!--        <fragment-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="wrap_content"/>-->
+            <!--        fragment product item detal 들어가야 함-->
+
+        </ScrollView>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:padding="10dp">
+            android:gravity="center"
+            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/txtProductName"
+            <LinearLayout
+                android:id="@+id/btnAddCart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="상품명"
-                android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:layout_marginStart="20dp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/txtProductPrice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/basket_icon" />
 
-                android:text="가격/1회당" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="장바구니"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"/>
-
-
-            <TextView
-                android:id="@+id/txtProductCompanyName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="회사명"
-                android:textColor="@color/black" />
-
-
-        </LinearLayout>
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/black"
-            android:layout_marginTop="5dp"/>
-
-<!--        이 리사이클러 뷰는 호리젠탈-->
-<!--        <androidx.recyclerview.widget.RecyclerView-->
-<!--            android:id="@+id/reviewRecyclerViewForProduct"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="100dp"/>-->
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="여기서부터 상품 상세"/>
-
-        <fragment
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-<!--        fragment product item detal 들어가야 함-->
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/gray3"
-            android:gravity="center"
-            android:orientation="horizontal">
+                android:layout_weight="1" />
 
             <Button
                 android:id="@+id/btnBuyProduct"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_marginEnd="30dp"
                 android:background="@drawable/button_line"
-                android:gravity="center_vertical"
-                android:text="        구독하기        "
+                android:text="    구독하기    "
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 
