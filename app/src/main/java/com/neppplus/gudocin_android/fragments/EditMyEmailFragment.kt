@@ -17,12 +17,13 @@ class EditMyEmailFragment: BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(R.layout.fragment_edit_my_email,container,false)
+        binding = DataBindingUtil.inflate(inflater,  R.layout.fragment_edit_my_email,container,false)
         return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
         setupEvents()
         setValues()
     }
