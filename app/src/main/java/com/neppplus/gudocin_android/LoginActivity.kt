@@ -59,10 +59,10 @@ class LoginActivity : BaseActivity() {
 
             startActivityForResult(googleSignInIntent, RESULT_CODE)
 
-            val myIntent = Intent(mContext, NavigationActivity::class.java)
-            startActivity(myIntent)
-
-            finish()
+//            val myIntent = Intent(mContext, NavigationActivity::class.java)
+//            startActivity(myIntent)
+//
+//            finish()
         }
 
     }
@@ -85,8 +85,51 @@ class LoginActivity : BaseActivity() {
                     Log.e("Value", "error")
                     // 에러 처리
                 }
+
+                apiService.postRequestSocialLogin(
+                    "google",
+                    it.signInAccount.id.toString(),
+                    it.signInAccount.displayName
+                ).enqueue(object : Callback<BasicResponse> {
+                    override fun onResponse(
+                        call: Call<BasicResponse>,
+                        response: Response<BasicResponse>
+                    ) {
+
+                        if (response.isSuccessful) {
+
+                            val br = response.body()!!
+
+                            Toast.makeText(
+                                mContext,
+                                "${br.data.user.nickname}님, 환영합니다!",
+                                Toast.LENGTH_SHORT
+                            ).show()
+
+                            ContextUtil.setToken(mContext, br.data.token)
+
+                            GlobalData.loginUser = br.data.user
+
+                            val myIntent = Intent(mContext, NavigationActivity::class.java)
+                            startActivity(myIntent)
+
+                            finish()
+
+                        }
+
+
+                    }
+
+                    override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+                        TODO("Not yet implemented")
+                    }
+
+                })
+
             }
+
         }
+
     }
 
     override fun setupEvents() {

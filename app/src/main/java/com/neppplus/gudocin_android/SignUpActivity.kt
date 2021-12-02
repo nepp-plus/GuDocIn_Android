@@ -94,10 +94,10 @@ class SignUpActivity : BaseActivity() {
 
         binding.checkSignUpConfirm.setOnClickListener {
 
-            val myIntent = Intent(mContext, TermsActivity::class.java)
-            startActivity(myIntent)
+                val myIntent = Intent(mContext, TermsActivity::class.java)
+                startActivity(myIntent)
 
-            finish()
+                finish()
 
         }
 
