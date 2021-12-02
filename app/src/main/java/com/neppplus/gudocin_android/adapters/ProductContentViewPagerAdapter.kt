@@ -18,4 +18,11 @@ class ProductContentViewPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter
         }
 
     }
+
+    override fun getPageTitle(position: Int): CharSequence? {
+        return when(position){
+            0 -> "상품 상세 설명"
+            else -> "판매자 정보"
+        }
+    }
 }

@@ -4,8 +4,8 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
+import com.neppplus.gudocin_android.adapters.ProductContentViewPagerAdapter
 import com.neppplus.gudocin_android.adapters.ReviewRecyclerViewAdapterForProductList
-import com.neppplus.gudocin_android.adapters.SmallCategoriesListAdapter
 import com.neppplus.gudocin_android.databinding.ActivityProductItemDetailBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.ReviewData
@@ -19,6 +19,7 @@ class ProductItemDetailActivity : BaseActivity() {
     var selectedItemFromList = 1
     val mReviewList = ArrayList<ReviewData>()
     lateinit var mReviewRecyclerViewAdapterForProductList : ReviewRecyclerViewAdapterForProductList
+    lateinit var mProductContentViewPagerAdapter : ProductContentViewPagerAdapter
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,6 +40,12 @@ class ProductItemDetailActivity : BaseActivity() {
 
         getProductItemDetailFromServer()
 
+        //제품 상세 content 와 상점 상세 content 의 ViewPager 용 어댑터 연결
+        mProductContentViewPagerAdapter = ProductContentViewPagerAdapter(supportFragmentManager)
+        binding.ProductContentViewPager.adapter= mProductContentViewPagerAdapter
+        binding.ProductContentTabLayout.setupWithViewPager( binding.ProductContentViewPager )
+
+        //리뷰 리스트 Recycler View 용 어댑터 연결
         mReviewRecyclerViewAdapterForProductList = ReviewRecyclerViewAdapterForProductList(mContext,mReviewList)
         binding.reviewRecyclerViewForProduct.adapter = mReviewRecyclerViewAdapterForProductList
         binding.reviewRecyclerViewForProduct.layoutManager = LinearLayoutManager(mContext,

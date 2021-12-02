@@ -11,7 +11,8 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
 
             <LinearLayout
@@ -94,18 +95,25 @@
                     android:layout_marginBottom="5dp"
                     android:background="@color/black" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="여기서부터 상품 상세" />
 
-                <fragment
-                    class="com.neppplus.gudocin_android.fragments.ProductDetailFragment"
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/ProductContentTabLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:tabGravity="start"
+                    app:tabIndicatorColor="@color/black"
+                    app:tabIndicatorHeight="1dp"
+                    app:tabSelectedTextColor="@color/black"
+                    app:tabTextColor="@color/dark_gray7" />
+
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/ProductContentViewPager"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
 
             </LinearLayout>
+
         </ScrollView>
 
         <LinearLayout

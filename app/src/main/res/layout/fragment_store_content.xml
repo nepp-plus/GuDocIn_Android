@@ -2,14 +2,15 @@
 <layout>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="여기는 상점의 상세 내역이 나옴"/>
+            android:text="여기는 상점의 상세 내역이 나옴"
+            android:layout_margin="50dp"/>
 
     </LinearLayout>
 </layout>
