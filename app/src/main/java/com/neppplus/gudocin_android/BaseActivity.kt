@@ -70,10 +70,14 @@ abstract class BaseActivity() : AppCompatActivity() {
 
         btnBell.setOnClickListener {
 
+            val myIntent = Intent(mContext, NoticeActivity::class.java)
+            startActivity(myIntent)
 
         }
         btnBasket.setOnClickListener {
 
+            val myIntent = Intent(mContext, BasketActivity::class.java)
+            startActivity(myIntent)
 
         }
 

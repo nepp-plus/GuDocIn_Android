@@ -48,9 +48,16 @@
         <entry key="..\:/Users/NePPPlus_006/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/my_savedmoney.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/NePPPlus_006/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/ranking_list_item.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/NePPPlus_006/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/review_item_for_main.xml" value="0.17604166666666668" />
+        <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_basket.xml" value="0.3541666666666667" />
         <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_navigation.xml" value="0.3351851851851852" />
+        <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_notice.xml" value="0.23148148148148148" />
         <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_pre.xml" value="0.25" />
         <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_sign_up.xml" value="0.3351851851851852" />
+        <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/basket_action_bar.xml" value="0.3487179487179487" />
+        <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/custom_action_bar.xml" value="0.3541666666666667" />
+        <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/notice_action_bar.xml" value="0.22870370370370371" />
+        <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/menu/menu_bottom_navigation.xml" value="0.23148148148148148" />
+        <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/menu/search_menu.xml" value="0.3541666666666667" />
         <entry key="..\:/Users/NePPPlus_Teacher_01/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_main.xml" value="0.3515625" />
         <entry key="..\:/Users/NePPPlus_Teacher_01/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_navigation.xml" value="0.3425925925925926" />
         <entry key="..\:/Users/NePPPlus_Teacher_01/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_review.xml" value="0.2046875" />
@@ -63,12 +70,10 @@
         <entry key="..\:/Users/NePPPlus_Teacher_01/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/fragment_ranking.xml" value="0.2046875" />
         <entry key="..\:/Users/NePPPlus_Teacher_01/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/fragment_review_list.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/NePPPlus_Teacher_01/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/fragment_user_edit.xml" value="0.36614583333333334" />
-        <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/layout/activity_login.xml" value="0.19907407407407407" />
-        <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/layout/activity_sign_up.xml" value="0.22" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

@@ -1,45 +1,31 @@
 package com.neppplus.gudocin_android
 
 import android.os.Bundle
-import android.widget.ImageView
-import androidx.appcompat.app.ActionBar
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
+import android.view.View
+import androidx.databinding.DataBindingUtil
+import com.neppplus.gudocin_android.databinding.ActivityNoticeBinding
 
-class NoticeActivity : AppCompatActivity() {
+class NoticeActivity : BaseActivity() {
 
-    lateinit var imgBack: ImageView
+    lateinit var binding: ActivityNoticeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_notice)
+        setupEvents()
+        setValues()
+    }
 
-        supportActionBar?.let {
-
-            setCustomActionBar()
-
-        }
+    override fun setupEvents() {
 
     }
 
-    fun setCustomActionBar() {
+    override fun setValues() {
 
-        val defActionBar = supportActionBar!!
-
-        defActionBar.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
-
-        defActionBar.setCustomView(R.layout.notice_action_bar)
-
-        val toolBar = defActionBar.customView.parent as Toolbar
-        toolBar.setContentInsetsAbsolute(0, 0)
-
-        imgBack = defActionBar.customView.findViewById(R.id.imgBack)
-
-        imgBack.setOnClickListener {
-
-            finish()
-        }
+        btnBell.visibility = View.GONE
 
     }
 
 }
+
 
