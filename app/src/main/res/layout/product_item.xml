@@ -56,6 +56,7 @@
                 android:layout_marginTop="5dp">
 
                 <TextView
+                    android:id="@+id/txtOpenReview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="리뷰 더보기.."
@@ -74,6 +75,7 @@
 
 
     <LinearLayout
+        android:id="@+id/reviewItemLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
@@ -115,6 +117,7 @@
 
 
         <ImageView
+            android:id="@+id/btnGotoReviewDetail"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:scaleType="centerCrop"

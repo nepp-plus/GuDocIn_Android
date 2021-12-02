@@ -1,6 +1,8 @@
 package com.neppplus.gudocin_android
 
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.neppplus.gudocin_android.adapters.ProductRecyclerViewAdapter
@@ -22,10 +24,13 @@ class EatCategoryListActivity : BaseActivity() {
     val mSmallcategoryList = ArrayList<SmallCategoriesData>()
     lateinit var mSmallcategoryListAdapter : SmallCategoriesListAdapter
     var mLargeCategoryId = 1
+//    var mLargeCategoryId = intent.getIntExtra("Large_category_id")
     var mClickedSmallCategoryNum = 7
 
     val mProductList = ArrayList<ProductData>()
     lateinit var mProductRecyclerAdapter : ProductRecyclerViewAdapter
+
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,8 +49,8 @@ class EatCategoryListActivity : BaseActivity() {
 
         getSmallCategoryListFromServer()
         mSmallcategoryListAdapter = SmallCategoriesListAdapter(mContext,mSmallcategoryList)
-        binding.smallcategoryRecyclerView.adapter = mSmallcategoryListAdapter
-        binding.smallcategoryRecyclerView.layoutManager = LinearLayoutManager(mContext,LinearLayoutManager.HORIZONTAL,false)
+//        binding.smallcategoryRecyclerView.adapter = mSmallcategoryListAdapter
+//        binding.smallcategoryRecyclerView.layoutManager = LinearLayoutManager(mContext,LinearLayoutManager.HORIZONTAL,false)
 
 
 
@@ -88,10 +93,22 @@ class EatCategoryListActivity : BaseActivity() {
 
                 if (response.isSuccessful ){
 
-                    mSmallcategoryList.clear()
-                    mSmallcategoryList.addAll(response.body()!!.data.small_categories)
-                    mSmallcategoryListAdapter.notifyDataSetChanged()
+//                    mSmallcategoryList.clear()
+//                    mSmallcategoryList.addAll(response.body()!!.data.small_categories)
+//                    mSmallcategoryListAdapter.notifyDataSetChanged()
 
+                    for (sc in mSmallcategoryList){
+                        val view = LayoutInflater.from(mContext).inflate(R.layout.small_categories_item,null)
+                        val txtSmallCategoryName = view.findViewById<TextView>(R.id.txtSmallCategoryName)
+
+                        txtSmallCategoryName.text = sc.name
+
+                        view.setOnClickListener {
+                            mClickedSmallCategoryNum = sc.id
+                            getProductListInSmallCategoryFromServer()
+                        }
+
+                    }
                 }
             }
 

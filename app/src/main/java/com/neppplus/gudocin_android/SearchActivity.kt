@@ -11,8 +11,7 @@ import retrofit2.http.Query
 class SearchActivity : BaseActivity() {
 
     lateinit var binding: ActivitySearchBinding
-//    val mSearchView = binding.searchView
-//    val CharSequence = mSearchView.getQuery()
+    val selectedLargeCategoryNum = 1
 
 
 
@@ -30,16 +29,19 @@ class SearchActivity : BaseActivity() {
 
         binding.btnCategriesEat.setOnClickListener {
             val myIntent = Intent(mContext,EatCategoryListActivity::class.java)
+
             startActivity(myIntent)
         }
 
         binding.btnCategriesWear.setOnClickListener {
             val myIntent = Intent(mContext,WearCategoryListActivity::class.java)
+            myIntent.putExtra("Large_category_id",1)
             startActivity(myIntent)
         }
 
         binding.btnCategriesLife.setOnClickListener {
             val myIntent = Intent(mContext,LifeCategoryListActivity::class.java)
+
             startActivity(myIntent)
         }
     }
@@ -49,7 +51,7 @@ class SearchActivity : BaseActivity() {
 
         if (Intent.ACTION_SEARCH == intent.action) {
             intent.getStringExtra(SearchManager.QUERY)?.also { query ->
-//                doMySearch(query)
+
             }
         }
 
