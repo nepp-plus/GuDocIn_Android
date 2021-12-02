@@ -93,6 +93,8 @@ class ReviewActivity : BaseActivity() {
 
                 val rating = binding.ratingBar.rating.toDouble()
 
+                
+
                 apiService.postRequestReviewContent(mProductData.id,inputContent,inputTile,rating,inputTag).enqueue(object : Callback<BasicResponse>{
                     override fun onResponse(
                         call: Call<BasicResponse>,

@@ -79,7 +79,8 @@ class ReviewDetailActivity : BaseActivity() {
         binding.txtUserNickName.text = mReviewData.user.nickname
         binding.txtReviewContent.text = mReviewData.content
         Glide.with(mContext).load(mReviewData.thumbNailImg).into(binding.thumNailImg)
-        binding.ratingBar.setOnRatingBarChangeListener(binding.ratingBar.findViewById<>(R.id.ratingBar))
+        binding.ratingBar.rating = mReviewData.score.toFloat()
+
 
         val now = Calendar.getInstance()
 
