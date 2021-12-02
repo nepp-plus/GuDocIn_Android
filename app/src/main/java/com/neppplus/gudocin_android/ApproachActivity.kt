@@ -124,15 +124,10 @@ class ApproachActivity : BaseActivity() {
             alert.setTitle("나가기 확인")
             alert.setMessage("정말 나가시겠습니까?")
             alert.setPositiveButton("확인", DialogInterface.OnClickListener { dialogInterface, i ->
-
                 finish()
-
             })
-
             alert.setNegativeButton("취소", null)
-
             alert.show()
-
         }
 
     }

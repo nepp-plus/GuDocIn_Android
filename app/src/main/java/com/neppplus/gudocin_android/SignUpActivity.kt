@@ -1,6 +1,8 @@
 package com.neppplus.gudocin_android
 
 import android.app.Activity
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -124,11 +126,10 @@ class SignUpActivity : BaseActivity() {
 
         binding.checkSignUpConfirm.setOnClickListener {
 
-            val myIntent = Intent(mContext, TermsActivity::class.java)
-            startActivity(myIntent)
-
-            finish()
-
+            if (binding.checkSignUpConfirm.isChecked) {
+                val myIntent = Intent(mContext, TermsActivity::class.java)
+                startActivity(myIntent)
+            }
         }
 
         binding.btnKakaoLogin.setOnClickListener {
@@ -256,6 +257,11 @@ class SignUpActivity : BaseActivity() {
                 return@setOnClickListener
             }
 
+            if (!binding.checkSignUpConfirm.isChecked) {
+                Toast.makeText(mContext, "회원약관 동의를 해주세요.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             val email = binding.edtEmail.text.toString()
             val password = binding.edtPassword.text.toString()
             val nickname = binding.edtNickname.text.toString()
@@ -267,7 +273,6 @@ class SignUpActivity : BaseActivity() {
                     call: Call<BasicResponse>,
                     response: Response<BasicResponse>
                 ) {
-
                     if (response.isSuccessful) {
 
                         val br = response.body()!!
@@ -296,6 +301,22 @@ class SignUpActivity : BaseActivity() {
                 }
 
             })
+
+        }
+
+        binding.checkMarketingConfirm.setOnClickListener {
+
+            if (binding.checkMarketingConfirm.isChecked) {
+                val alert = AlertDialog.Builder(mContext)
+                alert.setTitle("마케팅 정보 수신 동의")
+                alert.setMessage("신상품 소식, 이벤트 안내, 고객 혜택 등 다양한 정보를 제공합니다.")
+                alert.setPositiveButton(
+                    "확인",
+                    DialogInterface.OnClickListener { dialogInterface, i ->
+                        Toast.makeText(mContext, "마케팅 정보 수신 동의하였습니다.", Toast.LENGTH_SHORT).show()
+                    })
+                alert.show()
+            }
 
         }
 
