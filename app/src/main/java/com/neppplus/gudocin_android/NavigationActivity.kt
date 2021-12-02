@@ -5,6 +5,7 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Base64
 import android.util.Log
+import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
@@ -53,6 +54,10 @@ class NavigationActivity : BaseActivity() {
     }
 
     override fun setValues() {
+
+        btnBack.visibility = View.INVISIBLE
+        txtCategoryNameInActionBar.visibility = View.INVISIBLE
+        SearchBoxInActionBar.visibility = View.VISIBLE
 
         binding.viewPager.apply {
             adapter = ViewPagerAdapter(this@NavigationActivity)

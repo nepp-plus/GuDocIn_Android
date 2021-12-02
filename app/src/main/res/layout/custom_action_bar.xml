@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:gravity="center_vertical"
+    android:padding="10dp"
+    android:orientation="horizontal"
+    android:id="@+id/customActionBar">
+
+
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/back_icon"
+        android:layout_gravity="center_vertical"
+        android:scaleType="centerCrop"/>
+
+
+
+
+
+    <TextView
+        android:id="@+id/txtCategoryNameInActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="10dp"
+        android:text="카테고리명" />
+
+
+    <LinearLayout
+        android:id="@+id/SearchBoxInActionBar"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:visibility="invisible"
+        android:layout_marginStart="20dp">
+
+      <EditText
+          android:id="@+id/edtSearch"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_gravity="center_vertical"
+          android:layout_weight="1"
+          android:gravity="center"
+          android:hint="구독상품 검색하기"
+          android:textColor="@color/black"
+          android:textColorHint="@color/black"
+          android:shadowColor="@color/black"
+          android:textSize="10sp"/>
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/search_icon"
+            android:scaleType="centerCrop"
+            android:layout_gravity="center_vertical"/>
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+<LinearLayout
+
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_gravity="right">
+
+    <ImageView
+        android:id="@+id/btnBell"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/bell_icon"
+        android:layout_gravity="right"
+        android:scaleType="centerCrop"/>
+
+    <ImageView
+        android:id="@+id/btnBasket"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/basket_icon"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="3dp"
+        android:scaleType="centerCrop"/>
+
+</LinearLayout>
+
+
+
+</FrameLayout>

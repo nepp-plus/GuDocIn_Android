@@ -37,6 +37,8 @@ class HomeFragment : BaseFragment() {
 
 
 
+
+
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -54,6 +56,8 @@ class HomeFragment : BaseFragment() {
     }
 
     override fun setValues() {
+
+
 
         val btnGotoSearch = binding.btnGotoSearch
         btnGotoSearch.setOnClickListener {

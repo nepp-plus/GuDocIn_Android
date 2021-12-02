@@ -3,15 +3,17 @@ package com.neppplus.gudocin_android
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
-import com.neppplus.gudocin_android.databinding.ActivityMyProductPurchaseListBinding
+import com.neppplus.gudocin_android.databinding.ActivityProductItemDetailBinding
 
-class MyProductPurchaseListActivity : BaseActivity() {
+class ProductItemDetailActivity : BaseActivity() {
 
-    lateinit var binding : ActivityMyProductPurchaseListBinding
-
+    lateinit var binding: ActivityProductItemDetailBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-       binding = DataBindingUtil.setContentView(this,R.layout.activity_my_product_purchase_list)
+        binding=DataBindingUtil.setContentView(this, R.layout.activity_product_item_detail)
+
+        setupEvents()
+        setValues()
     }
 
     override fun setupEvents() {
