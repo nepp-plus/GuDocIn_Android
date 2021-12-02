@@ -2,9 +2,13 @@ package com.neppplus.gudocin_android
 
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
+import com.neppplus.gudocin_android.adapters.ReviewRecyclerViewAdapterForProductList
+import com.neppplus.gudocin_android.adapters.SmallCategoriesListAdapter
 import com.neppplus.gudocin_android.databinding.ActivityProductItemDetailBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
+import com.neppplus.gudocin_android.datas.ReviewData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -13,6 +17,8 @@ class ProductItemDetailActivity : BaseActivity() {
 
     lateinit var binding: ActivityProductItemDetailBinding
     var selectedItemFromList = 1
+    val mReviewList = ArrayList<ReviewData>()
+    lateinit var mReviewRecyclerViewAdapterForProductList : ReviewRecyclerViewAdapterForProductList
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,7 +39,10 @@ class ProductItemDetailActivity : BaseActivity() {
 
         getProductItemDetailFromServer()
 
-
+        mReviewRecyclerViewAdapterForProductList = ReviewRecyclerViewAdapterForProductList(mContext,mReviewList)
+        binding.reviewRecyclerViewForProduct.adapter = mReviewRecyclerViewAdapterForProductList
+        binding.reviewRecyclerViewForProduct.layoutManager = LinearLayoutManager(mContext,
+            LinearLayoutManager.HORIZONTAL,false)
 
     }
 
@@ -47,6 +56,7 @@ class ProductItemDetailActivity : BaseActivity() {
                     binding.txtProductPrice.text = br.data.product.getFormatedPrice()
                     binding.txtProductCompanyName.text = br.data.product.store.name
                     Glide.with(mContext).load(br.data.product.imageUrl).into(binding.imgProduct)
+//                   추가된 reviews 내용 추가
 
 
                 }

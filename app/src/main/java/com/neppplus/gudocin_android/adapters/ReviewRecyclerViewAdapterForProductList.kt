@@ -2,6 +2,7 @@ package com.neppplus.gudocin_android.adapters
 
 import android.content.Context
 import android.content.Intent
+import android.text.Layout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,52 +25,25 @@ class ReviewRecyclerViewAdapterForProductList
     inner class ReviewViewHolder(itemview: View) : RecyclerView.ViewHolder(itemview) {
 
 
-        val txtProductPrice = itemView.findViewById<TextView>(R.id.txtProductPrice)
-        val txtProductName = itemView.findViewById<TextView>(R.id.txtProductName)
-        val txtReviewerNickName = itemView.findViewById<TextView>(R.id.txtReviewerNickName)
-        val imgReviewSomeNail = itemview.findViewById<ImageView>(R.id.imgReviewSomeNail)
-        val imgReviewerImage = itemview.findViewById<ImageView>(R.id.imgReviewerImage)
-        val btnGotoReviewDetail1 = itemview.findViewById<LinearLayout>(R.id.btnGotoReviewDetail1)
-        val btnGotoReviewDetail2 = itemview.findViewById<LinearLayout>(R.id.btnGotoReviewDetail2)
-        val btnOpenPreview = itemview.findViewById<LinearLayout>(R.id.btnOpenPreview)
-        val txtCheckedContents = itemview.findViewById<TextView>(R.id.txtCheckedContents)
-        val btnWriteReview = itemview.findViewById<TextView>(R.id.btnWriteReview)
 
+        val txtReviewerNickName = itemView.findViewById<TextView>(R.id.txtReviewerNickName)
+        val imgReviewerImage = itemview.findViewById<ImageView>(R.id.imgReviewerImage)
+        val txtReviewTitle = itemView.findViewById<TextView>(R.id.txtReviewTitle)
+        val btnGotoReviewDetail = itemview.findViewById<LinearLayout>(R.id.btnGotoReviewDetail)
 
 
         fun bind(data: ReviewData) {
-            txtProductName.text = data.product.name
-            txtProductPrice.text = data.product.price.toString()
             txtReviewerNickName.text = data.user.nickname
-            Glide.with(mContext).load(data.product.imageUrl).into(imgReviewSomeNail)
+            txtReviewTitle.text = data.title
             Glide.with(mContext).load(data.user.profileImageURL).into(imgReviewerImage)
 
-            btnGotoReviewDetail1.setOnClickListener {
+
+            btnGotoReviewDetail.setOnClickListener {
 //               리뷰 상세 페이지로 넘어가는 인텐트 추가 필요 (Activity명 나오면 추가 예정)
                 val myIntent = Intent(mContext, ReviewDetailActivity::class.java)
                 myIntent.putExtra("review",data)
                 mContext.startActivity(myIntent)
             }
-            btnGotoReviewDetail2.setOnClickListener {
-//               리뷰 상세 페이지로 넘어가는 인텐트 추가 필요 (Activity명 나오면 추가 예정)
-                val myIntent = Intent(mContext, ReviewDetailActivity::class.java)
-                myIntent.putExtra("review",data)
-                mContext.startActivity(myIntent)
-            }
-            btnOpenPreview.setOnClickListener {
-                txtCheckedContents.visibility = View.VISIBLE
-            }
-
-            btnWriteReview.setOnClickListener {
-                val myIntent = Intent(mContext, ReviewActivity::class.java)
-                myIntent.putExtra("product", data.product)
-                mContext.startActivity(myIntent)
-
-
-            }
-
-
-
 
 
         }
@@ -78,9 +52,8 @@ class ReviewRecyclerViewAdapterForProductList
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReviewViewHolder {
 
-
         val row =
-            LayoutInflater.from(mContext).inflate(R.layout.review_item_for_main, parent, false)
+            LayoutInflater.from(mContext).inflate(R.layout.review_item_for_product_detail, parent, false)
         return ReviewViewHolder(row)
 
     }
