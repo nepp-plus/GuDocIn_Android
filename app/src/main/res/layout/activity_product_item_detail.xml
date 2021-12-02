@@ -116,54 +116,56 @@
 
         </ScrollView>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:shadowColor="@color/black"
-            android:shadowDy="2"
-            android:shadowRadius="3">
+
 
             <LinearLayout
-                android:id="@+id/btnAddCart"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:shadowColor="@color/black"
+                android:shadowDy="2"
+                android:shadowRadius="3">
 
-                <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/basket_icon" />
-
-                <TextView
+                <LinearLayout
+                    android:id="@+id/btnAddCart"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="장바구니"
-                    android:textSize="10sp" />
+                    android:layout_marginStart="20dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/basket_icon" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="장바구니"
+                        android:textSize="10sp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/btnBuyProduct"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="30dp"
+                    android:background="@drawable/button_line"
+                    android:text="    구독하기    "
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
 
             </LinearLayout>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <Button
-                android:id="@+id/btnBuyProduct"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="30dp"
-                android:background="@drawable/button_line"
-                android:text="    구독하기    "
-                android:textColor="@color/black"
-                android:textSize="20sp" />
-
-
-        </LinearLayout>
 
 
     </LinearLayout>

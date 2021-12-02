@@ -63,6 +63,9 @@ class EatCategoryListActivity : BaseActivity() {
 
                 if (response.isSuccessful ){
 
+                    val br = response.body()!!
+
+                    binding.txtSelectedCategoryName.text= br.data.categories.name
 
                     mProductList.clear()
                     mProductList.addAll(response.body()!!.data.products)
