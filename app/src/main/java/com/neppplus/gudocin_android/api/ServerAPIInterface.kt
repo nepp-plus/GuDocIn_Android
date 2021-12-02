@@ -120,4 +120,11 @@ interface ServerAPIInterface {
     fun getRequestReviewReply(
     @Path("review_id") reveiwReply : Int,
     ): Call<BasicResponse>
+
+//    리뷰에 댓글 작성
+    @POST("review/{review_id}/reply")
+    fun postRequestReviewReply(
+    @Path("review_id") reviewReply: Int,
+    @Field("content") content: String,
+    ): Call<BasicResponse>
 }
