@@ -31,19 +31,6 @@
         android:layout_height="wrap_content"
         android:hint="변경할 비밀번호를 입력하세요."/>
 
-    <TextView
-        android:layout_marginTop="30dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="비밀번호 변경 확인"
-        android:textStyle="bold"/>
-
-    <EditText
-        android:id="@+id/edtReInputPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="변경할 비밀번호를 확인해주세요."/>
-
     <Button
         android:id="@+id/btnMyInfoSave"
         android:layout_marginTop="100dp"
