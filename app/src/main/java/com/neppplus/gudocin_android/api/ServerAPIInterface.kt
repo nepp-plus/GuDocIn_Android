@@ -137,8 +137,14 @@ interface ServerAPIInterface {
 
     @PATCH("/user")
     fun patchRequestEditMyPassword(
+        @Field("field") field: String,
+        @Field("value") value: String,
+        @Field("current_password") password: Int,
 
 
-    )
+        ) : Call<BasicResponse>
+
+
+
 
 }

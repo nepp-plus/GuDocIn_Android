@@ -12,9 +12,31 @@ class EditMyPassWordActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
        binding = DataBindingUtil.setContentView(this,R.layout.activity_edit_my_pass_word)
+
+        setupEvents()
+        setValues()
     }
 
     override fun setupEvents() {
+        binding.btnMyInfoSave.setOnClickListener {
+
+        }
+
+            val inputPassword = binding.edtPassword.toString()
+            val inputPasswordRe = binding.edtReInputPassword.toString()
+
+
+        if( inputPassword == inputPasswordRe) {
+
+            apiService.patchRequestEditMyPassword(
+                "password","inputPassword","",
+
+            ).enqueue(object
+
+
+        }
+
+
 
     }
 

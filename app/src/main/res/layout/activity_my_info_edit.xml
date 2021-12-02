@@ -101,7 +101,7 @@
             android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="전화번호 병경하기->"/>
+            android:text="전화번호 변경하기->"/>
     </LinearLayout>
 
 

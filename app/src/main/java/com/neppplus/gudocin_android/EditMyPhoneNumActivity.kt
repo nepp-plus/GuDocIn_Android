@@ -15,6 +15,8 @@ class EditMyPhoneNumActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
       binding = DataBindingUtil.setContentView(this, R.layout.activity_edit_my_phone_num)
+        setupEvents()
+        setValues()
     }
 
     override fun setupEvents() {
