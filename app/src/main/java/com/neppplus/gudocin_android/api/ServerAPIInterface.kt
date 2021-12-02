@@ -114,4 +114,31 @@ interface ServerAPIInterface {
     fun getRequestReviewDetail(
     @Path("review_id") reviewId : Int,
     ): Call<BasicResponse>
+
+
+
+    @FormUrlEncoded
+    @PATCH("/user")
+    fun patchRequestEditUserInfo(
+        @Field("field") field: String,
+        @Field("value") value: String,
+
+
+    ) : Call<BasicResponse>
+
+
+    @FormUrlEncoded
+    @PATCH("/user")
+    fun patchRequestEditMyNumber(
+        @Field("field") field: String,
+        @Field("value") value: String,
+
+    ) : Call<BasicResponse>
+
+    @PATCH("/user")
+    fun patchRequestEditMyPassword(
+
+
+    )
+
 }

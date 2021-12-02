@@ -33,6 +33,13 @@ class MyInfoEditActivity : BaseActivity() {
             startActivity(myIntent)
         }
 
+        binding.txtEditPhonNum.setOnClickListener {
+
+            val myIntent = Intent(mContext,EditMyPhoneNumActivity::class.java)
+
+            startActivity(myIntent)
+        }
+
 
     }
 
