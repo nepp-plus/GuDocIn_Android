@@ -1,8 +1,13 @@
 package com.neppplus.gudocin_android
 
+import android.media.Rating
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.ContactsContract
 import android.util.Log
+import android.widget.ImageView
+import android.widget.RatingBar
+import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
 import com.neppplus.gudocin_android.databinding.ActivityReviewDetailBinding
@@ -25,6 +30,16 @@ class ReviewDetailActivity : BaseActivity() {
         binding = DataBindingUtil.setContentView(this,R.layout.activity_review_detail)
         setupEvents()
         setValues()
+
+        val reviewContentImg = binding.reviewContentImg
+        if (reviewContentImg == null){
+
+
+
+        }else{
+
+        }
+
     }
 
     override fun setupEvents() {
@@ -49,6 +64,8 @@ class ReviewDetailActivity : BaseActivity() {
 
     override fun setValues() {
 
+
+
         mReviewData = intent.getSerializableExtra("review") as ReviewData
 
        setReviewDataToUI()
@@ -62,6 +79,7 @@ class ReviewDetailActivity : BaseActivity() {
         binding.txtUserNickName.text = mReviewData.user.nickname
         binding.txtReviewContent.text = mReviewData.content
         Glide.with(mContext).load(mReviewData.thumbNailImg).into(binding.thumNailImg)
+        binding.ratingBar.setOnRatingBarChangeListener(binding.ratingBar.findViewById<>(R.id.ratingBar))
 
         val now = Calendar.getInstance()
 
@@ -72,6 +90,7 @@ class ReviewDetailActivity : BaseActivity() {
 
 
     }
+
 
 
     fun getReviewDataFromSever() {

@@ -33,10 +33,12 @@ class ReviewRecyclerViewAdapterForMain
         val btnOpenPreview = itemview.findViewById<LinearLayout>(R.id.btnOpenPreview)
         val txtCheckedContents = itemview.findViewById<TextView>(R.id.txtCheckedContents)
         val btnWriteReview = itemview.findViewById<TextView>(R.id.btnWriteReview)
+        val txtTag = itemview.findViewById<TextView>(R.id.txtTag)
 
 
 
         fun bind(data: ReviewData) {
+            txtTag.text = data.tags.toString()
             txtProductName.text = data.product.name
             txtProductPrice.text = data.product.price.toString()
             txtReviewerNickName.text = data.user.nickname
