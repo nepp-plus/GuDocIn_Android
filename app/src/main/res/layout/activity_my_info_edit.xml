@@ -71,12 +71,13 @@
 
     <LinearLayout
         android:layout_marginLeft="120dp"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="100dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/txtEdtMyPassWord"
         android:layout_marginLeft="125dp"
         android:textStyle="bold"
         android:layout_width="wrap_content"

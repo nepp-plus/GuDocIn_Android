@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="20dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".EditMyPassWordActivity">
 
     <TextView
         android:layout_marginTop="50dp"
@@ -12,21 +15,34 @@
         android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="이메일 주소 변경"
+        android:text="비밀번호 변경"
         android:textSize="20sp"/>
 
     <TextView
         android:layout_marginTop="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="이메일 주소 변경"
+        android:text="비밀번호 변경"
         android:textStyle="bold"/>
 
     <EditText
-        android:id="@+id/edtEmail"
+        android:id="@+id/edtPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="아이디는 기존의 이메일 주소가 유지됩니다."/>
+        android:hint="변경할 비밀번호를 입력하세요."/>
+
+    <TextView
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="비밀번호 변경 확인"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/edtRePassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="변경할 비밀번호를 확인해주세요."/>
 
     <Button
         android:id="@+id/btnMyInfoSave"
@@ -36,4 +52,5 @@
         android:text="회원정보 저장하기"/>
 
 </LinearLayout>
+
 </layout>

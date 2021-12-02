@@ -14,6 +14,12 @@
         android:theme="@style/Theme.GuDocIn_Android"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".EditMyPassWordActivity"
+            android:exported="true" />
+        <activity
+            android:name=".EditMyEmailActivity"
+            android:exported="true" />
+        <activity
             android:name=".MyInfoEditActivity"
             android:exported="true" />
         <activity
