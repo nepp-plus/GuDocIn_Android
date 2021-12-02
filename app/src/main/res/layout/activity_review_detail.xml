@@ -46,7 +46,7 @@
                 </LinearLayout>
 
                 <ImageView
-                    android:id="@+id/mainPicture"
+                    android:id="@+id/thumNailImg"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:layout_marginTop="5dp"
@@ -191,7 +191,7 @@
 
                     <ImageView
                         android:id="@+id/imgButtonProduct"
-                        android:layout_width="wrap_content"
+                        android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:src="@drawable/bottom_icon" />
 
@@ -247,6 +247,7 @@
             android:background="@color/gray3"
             android:gravity="center"
             android:orientation="horizontal">
+
 
             <Button
                 android:id="@+id/btnBuyProduct"

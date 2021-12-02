@@ -12,6 +12,8 @@ import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.SimpleDateFormat
+import java.util.*
 
 class ReviewDetailActivity : BaseActivity() {
 
@@ -50,8 +52,6 @@ class ReviewDetailActivity : BaseActivity() {
         mReviewData = intent.getSerializableExtra("review") as ReviewData
 
        setReviewDataToUI()
-
-
         getReviewDataFromSever()
 
     }
@@ -61,6 +61,14 @@ class ReviewDetailActivity : BaseActivity() {
         binding.txtProductName.text = mReviewData.product.name
         binding.txtUserNickName.text = mReviewData.user.nickname
         binding.txtReviewContent.text = mReviewData.content
+        Glide.with(mContext).load(mReviewData.thumbNailImg).into(binding.thumNailImg)
+
+        val now = Calendar.getInstance()
+
+        val sdf = SimpleDateFormat("yyyy.MM.dd")
+        val nowString = sdf.format(now.time)
+
+        binding.txtReviewTime.text = nowString
 
 
     }
