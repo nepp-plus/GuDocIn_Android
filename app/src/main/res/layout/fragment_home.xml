@@ -9,12 +9,6 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <Button
-            android:id="@+id/btnGotoSearch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="검색화면 이동(임시)"/>
-
 
 
         <androidx.recyclerview.widget.RecyclerView

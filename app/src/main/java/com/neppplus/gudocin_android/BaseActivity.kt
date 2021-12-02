@@ -81,6 +81,11 @@ abstract class BaseActivity() : AppCompatActivity() {
 
         }
 
+        SearchBoxInActionBar.setOnClickListener {
+                val myIntent = Intent(mContext,SearchActivity::class.java)
+                startActivity(myIntent)
+        }
+
 
 
     }

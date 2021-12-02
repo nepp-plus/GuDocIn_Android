@@ -59,11 +59,6 @@ class HomeFragment : BaseFragment() {
 
 
 
-        val btnGotoSearch = binding.btnGotoSearch
-        btnGotoSearch.setOnClickListener {
-            val myIntent = Intent(mContext,SearchActivity::class.java)
-            startActivity(myIntent)
-        }
 
 
         getReviewListFromServer()

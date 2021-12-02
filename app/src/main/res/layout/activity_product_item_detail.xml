@@ -73,14 +73,32 @@
                 android:layout_height="wrap_content"
                 android:text="여기서부터 상품 상세"/>
 
-        <com.google.android.material.tabs.TabLayout
+        <fragment
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+<!--        fragment product item detal 들어가야 함-->
 
 
-        <androidx.viewpager.widget.ViewPager
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:background="@color/gray3"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnBuyProduct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/button_line"
+                android:gravity="center_vertical"
+                android:text="        구독하기        "
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+
+        </LinearLayout>
 
 
     </LinearLayout>
