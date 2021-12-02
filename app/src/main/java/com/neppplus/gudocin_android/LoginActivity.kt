@@ -56,55 +56,7 @@ class LoginActivity : BaseActivity() {
         setValues()
 
         binding.btnGoogleLogin.setOnClickListener {
-
             startActivityForResult(googleSignInIntent, RESULT_CODE)
-
-            val inputEmail = binding.edtEmail.text.toString()
-            val inputPw = binding.edtPassword.text.toString()
-
-            apiService.postRequestLogin(inputEmail, inputPw).enqueue(object :
-                Callback<BasicResponse> {
-                override fun onResponse(
-                    call: Call<BasicResponse>,
-                    response: Response<BasicResponse>
-                ) {
-
-                    if (response.isSuccessful) {
-                        val basicResponse = response.body()!!
-
-                        val userNickname = basicResponse.data.user.nickname
-
-                        Toast.makeText(mContext, "${userNickname}님, 환영합니다!!!", Toast.LENGTH_SHORT)
-                            .show()
-
-                        ContextUtil.setToken(mContext, basicResponse.data.token)
-
-                        GlobalData.loginUser = basicResponse.data.user
-
-                        val myIntent = Intent(mContext, NavigationActivity::class.java)
-                        startActivity(myIntent)
-
-                        finish()
-
-                    } else {
-
-                        val errorJson = JSONObject(response.errorBody()!!.string())
-                        Log.d("에러경우", errorJson.toString())
-
-                        val message = errorJson.getString("message")
-
-                        Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show()
-
-                    }
-
-                }
-
-                override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-
-                }
-
-            })
-
         }
 
     }
@@ -112,7 +64,6 @@ class LoginActivity : BaseActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         callbackManager.onActivityResult(requestCode, resultCode, data)
         super.onActivityResult(requestCode, resultCode, data)
-
 
         if (resultCode == Activity.RESULT_OK && requestCode == RESULT_CODE) {
             val result = Auth.GoogleSignInApi.getSignInResultFromIntent(data)
@@ -127,11 +78,61 @@ class LoginActivity : BaseActivity() {
                     Log.e("Value", "error")
                     // 에러 처리
                 }
+
+                apiService.postRequestSocialLogin(
+                    "google",
+                    it.signInAccount.id.toString(),
+                    it.signInAccount.displayName
+                ).enqueue(object : Callback<BasicResponse> {
+                    override fun onResponse(
+                        call: Call<BasicResponse>,
+                        response: Response<BasicResponse>
+                    ) {
+
+                        if (response.isSuccessful) {
+
+                            val br = response.body()!!
+
+                            Toast.makeText(
+                                mContext,
+                                "${br.data.user.nickname}님, 환영합니다!",
+                                Toast.LENGTH_SHORT
+                            ).show()
+
+                            ContextUtil.setToken(mContext, br.data.token)
+
+                            GlobalData.loginUser = br.data.user
+
+                            val myIntent = Intent(mContext, NavigationActivity::class.java)
+                            startActivity(myIntent)
+
+                            finish()
+
+                        }
+
+                    }
+
+                    override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+                    }
+
+                })
+
             }
+
         }
+
     }
 
     override fun setupEvents() {
+
+        binding.txtFindAccount.setOnClickListener {
+
+            val myIntent = Intent(mContext, FindAccountActivity::class.java)
+            startActivity(myIntent)
+
+            finish()
+
+        }
 
         binding.btnKakaoLogin.setOnClickListener {
 

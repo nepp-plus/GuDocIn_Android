@@ -1,6 +1,5 @@
 package com.neppplus.gudocin_android
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import com.neppplus.gudocin_android.adapters.PurchaseViewPagerAdapter

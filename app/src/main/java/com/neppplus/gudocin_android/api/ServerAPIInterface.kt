@@ -30,6 +30,7 @@ interface ServerAPIInterface {
         @Field("email") email: String,
         @Field("password") pw: String,
         @Field("nick_name") nick: String,
+        @Field("phone") phone: String,
     ): Call<BasicResponse>
 
 //    중복 확인 기능  - GET
@@ -176,5 +177,21 @@ interface ServerAPIInterface {
 
 
 
+
+
+//      회원 아이디 찾기
+    @GET("/user/find/email")
+    fun getRequestEmail(
+    @Query("nick_name") name: String,
+    @Query("phone") phone: String,
+    ) : Call<BasicResponse>
+
+//    회원 비밀번호 찾기
+    @FormUrlEncoded
+    @POST("/user/find/password")
+    fun postRequestPassword(
+    @Field("email") email: String,
+    @Field("nick_name") name: String,
+    ) : Call<BasicResponse>
 
 }

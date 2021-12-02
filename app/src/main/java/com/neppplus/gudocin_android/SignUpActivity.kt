@@ -56,14 +56,7 @@ class SignUpActivity : BaseActivity() {
         setValues()
 
         binding.btnGoogleLogin.setOnClickListener {
-
             startActivityForResult(googleSignInIntent, LoginActivity.RESULT_CODE)
-
-            val myIntent = Intent(mContext, NavigationActivity::class.java)
-            startActivity(myIntent)
-
-            finish()
-
         }
 
     }
@@ -71,7 +64,6 @@ class SignUpActivity : BaseActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         callbackManager.onActivityResult(requestCode, resultCode, data)
         super.onActivityResult(requestCode, resultCode, data)
-
 
         if (resultCode == Activity.RESULT_OK && requestCode == LoginActivity.RESULT_CODE) {
             val result = Auth.GoogleSignInApi.getSignInResultFromIntent(data)
@@ -86,7 +78,47 @@ class SignUpActivity : BaseActivity() {
                     Log.e("Value", "error")
                     // 에러 처리
                 }
+
+                apiService.postRequestSocialLogin(
+                    "google",
+                    it.signInAccount.id.toString(),
+                    it.signInAccount.displayName
+                ).enqueue(object : Callback<BasicResponse> {
+                    override fun onResponse(
+                        call: Call<BasicResponse>,
+                        response: Response<BasicResponse>
+                    ) {
+
+                        if (response.isSuccessful) {
+
+                            val br = response.body()!!
+
+                            Toast.makeText(
+                                mContext,
+                                "${br.data.user.nickname}님, 환영합니다!",
+                                Toast.LENGTH_SHORT
+                            ).show()
+
+                            ContextUtil.setToken(mContext, br.data.token)
+
+                            GlobalData.loginUser = br.data.user
+
+                            val myIntent = Intent(mContext, NavigationActivity::class.java)
+                            startActivity(myIntent)
+
+                            finish()
+
+                        }
+
+                    }
+
+                    override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+                    }
+
+                })
+
             }
+
         }
     }
 
@@ -94,11 +126,10 @@ class SignUpActivity : BaseActivity() {
 
         binding.checkSignUpConfirm.setOnClickListener {
 
-            val myIntent = Intent(mContext, TermsActivity::class.java)
-            startActivity(myIntent)
-
-            finish()
-
+            if (binding.checkSignUpConfirm.isChecked) {
+                val myIntent = Intent(mContext, TermsActivity::class.java)
+                startActivity(myIntent)
+            }
         }
 
         binding.btnKakaoLogin.setOnClickListener {
@@ -226,17 +257,22 @@ class SignUpActivity : BaseActivity() {
                 return@setOnClickListener
             }
 
+            if (!binding.checkSignUpConfirm.isChecked) {
+                Toast.makeText(mContext, "회원약관 동의를 해주세요.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             val email = binding.edtEmail.text.toString()
             val password = binding.edtPassword.text.toString()
             val nickname = binding.edtNickname.text.toString()
+            val phone = binding.edtPhone.text.toString()
 
-            apiService.putRequestSignUp(email, password, nickname).enqueue(object :
+            apiService.putRequestSignUp(email, password, nickname, phone).enqueue(object :
                 Callback<BasicResponse> {
                 override fun onResponse(
                     call: Call<BasicResponse>,
                     response: Response<BasicResponse>
                 ) {
-
                     if (response.isSuccessful) {
 
                         val br = response.body()!!
@@ -265,6 +301,22 @@ class SignUpActivity : BaseActivity() {
                 }
 
             })
+
+        }
+
+        binding.checkMarketingConfirm.setOnClickListener {
+
+            if (binding.checkMarketingConfirm.isChecked) {
+                val alert = AlertDialog.Builder(mContext)
+                alert.setTitle("마케팅 정보 수신 동의")
+                alert.setMessage("신상품 소식, 이벤트 안내, 고객 혜택 등 다양한 정보를 제공합니다.")
+                alert.setPositiveButton(
+                    "확인",
+                    DialogInterface.OnClickListener { dialogInterface, i ->
+                        Toast.makeText(mContext, "마케팅 정보 수신 동의하였습니다.", Toast.LENGTH_SHORT).show()
+                    })
+                alert.show()
+            }
 
         }
 

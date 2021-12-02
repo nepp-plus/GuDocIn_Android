@@ -20,8 +20,6 @@ class TermsActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-//        setToolbar()
-
         binding= DataBindingUtil.setContentView(this, R.layout.activity_terms)
 
         binding.viewModel = termsViewModel
@@ -30,20 +28,9 @@ class TermsActivity : AppCompatActivity(){
         binding.lifecycleOwner = this
 
         binding.btnComplete.setOnClickListener {
-
-            val myIntent = Intent(this, SignUpActivity::class.java)
-            startActivity(myIntent)
-
             finish()
-
         }
 
     }
-
-
-
-//    private fun setToolbar() {
-//        setSupportActionBar(toolbar)
-//    }
 
 }
