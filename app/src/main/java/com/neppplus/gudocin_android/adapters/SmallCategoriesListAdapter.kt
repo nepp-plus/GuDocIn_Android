@@ -1,12 +1,15 @@
 package com.neppplus.gudocin_android.adapters
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.neppplus.gudocin_android.ProductItemDetailActivity
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.datas.SmallCategoriesData
 
@@ -17,9 +20,19 @@ class SmallCategoriesListAdapter(val mContext: Context, val mList:  List<SmallCa
 
     inner class SmallCategoryViewHolder(view: View): RecyclerView.ViewHolder(view){
         val txtSmallCategoryName = view.findViewById<TextView>(R.id.txtSmallCategoryName)
+        val btnRefreshListOfSmallCategory = view.findViewById<LinearLayout>(R.id.btnRefreshListOfSmallCategory)
 
         fun bind(data: SmallCategoriesData){
             txtSmallCategoryName.text = data.name
+
+            btnRefreshListOfSmallCategory.setOnClickListener{
+
+                val SelectedSmallCategoryNum = data.id
+
+            }
+
+
+
         }
 
 

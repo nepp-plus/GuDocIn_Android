@@ -29,7 +29,6 @@ class RecyclerVewAdapterForMain
     inner class HeaderViewHolder(row: View) : RecyclerView.ViewHolder(row) {
 
 //     카테고리 부분 작성
-//        val mainCategoryFragment = row.findViewById<Fragment>(R.id.mainCategoryFragment)
 
         val bannerViewPager = row.findViewById<ViewPager>(R.id.bannerViewPager)
 

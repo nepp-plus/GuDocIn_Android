@@ -15,12 +15,14 @@ import retrofit2.Response
 
 class EatCategoryListActivity : BaseActivity() {
 
+
+
     lateinit var binding:ActivityEatCategoryListBinding
 
     val mSmallcategoryList = ArrayList<SmallCategoriesData>()
     lateinit var mSmallcategoryListAdapter : SmallCategoriesListAdapter
     var mLargeCategoryId = 1
-    var mClickedSmallCategoryNum =7
+    var mClickedSmallCategoryNum = 7
 
     val mProductList = ArrayList<ProductData>()
     lateinit var mProductRecyclerAdapter : ProductRecyclerViewAdapter
@@ -63,9 +65,6 @@ class EatCategoryListActivity : BaseActivity() {
 
                 if (response.isSuccessful ){
 
-                    val br = response.body()!!
-
-                    binding.txtSelectedCategoryName.text= br.data.categories.name
 
                     mProductList.clear()
                     mProductList.addAll(response.body()!!.data.products)

@@ -71,9 +71,6 @@ class HomeFragment : BaseFragment() {
 
     }
 
-
-
-
     fun getReviewListFromServer() {
 
         apiService.getRequestReviewList().enqueue(object : Callback<BasicResponse> {
