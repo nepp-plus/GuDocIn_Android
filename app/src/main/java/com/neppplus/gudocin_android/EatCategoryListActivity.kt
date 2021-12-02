@@ -63,6 +63,7 @@ class EatCategoryListActivity : BaseActivity() {
 
                 if (response.isSuccessful ){
 
+
                     mProductList.clear()
                     mProductList.addAll(response.body()!!.data.products)
                     mProductRecyclerAdapter.notifyDataSetChanged()

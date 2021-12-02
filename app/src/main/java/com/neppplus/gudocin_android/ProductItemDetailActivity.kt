@@ -56,9 +56,11 @@ class ProductItemDetailActivity : BaseActivity() {
                     binding.txtProductPrice.text = br.data.product.getFormatedPrice()
                     binding.txtProductCompanyName.text = br.data.product.store.name
                     Glide.with(mContext).load(br.data.product.imageUrl).into(binding.imgProduct)
-//                   추가된 reviews 내용 추가
 
-
+                    mReviewList.clear()
+                    mReviewList.addAll(response.body()!!.data.reviews)
+                    mReviewRecyclerViewAdapterForProductList.notifyDataSetChanged()
+                    
                 }
 
             }
