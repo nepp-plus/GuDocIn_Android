@@ -27,6 +27,7 @@ class ReviewActivity : BaseActivity() {
 
     lateinit var mProductData : ProductData
 
+    val mRaidoList = ArrayList<String>()
 
     val mInputTagList = ArrayList<String>()
 
@@ -75,6 +76,7 @@ class ReviewActivity : BaseActivity() {
 
             val inputTag = binding.edtKeyword.text.toString()
             val inputTile = binding.edtReviewTitle.text.toString()
+
 
             if (inputTile.length < 1){
                 Toast.makeText(mContext, "제목을 입력해 주세요.", Toast.LENGTH_SHORT).show()

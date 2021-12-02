@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -23,71 +23,71 @@
                     android:id="@+id/edtReviewTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:hint="리뷰 제목을 입력해 주세요."
-                    android:textSize="23sp"
                     android:singleLine="true"
-                    android:gravity="center"/>
+                    android:textSize="23sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:orientation="horizontal"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:layout_height="wrap_content">
+                    android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/txtUserNickName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="20sp"
-                        android:text="유저 닉네임"/>
+                        android:text="유저 닉네임"
+                        android:textSize="20sp" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"/>
+                        android:layout_weight="1" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="16sp"
-                        android:text="작성일시 : "/>
+                        android:text="작성일시 : "
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/txtReviewTime"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="16sp"
-                        android:text="작성일시 2021.11.26"/>
+                        android:text="작성일시 2021.11.26"
+                        android:textSize="16sp" />
 
                 </LinearLayout>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/black"/>
+                    android:background="@color/black" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_marginTop="8dp"
                     android:layout_gravity="center_vertical"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/txtPrductName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textStyle="bold"
+                        android:text="구독상품"
                         android:textSize="22sp"
-                        android:text="구독상품"/>
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/txtProductTime"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="17sp"
-                        android:text="구독기간"/>
+                        android:text="구독기간"
+                        android:textSize="17sp" />
 
 
                 </LinearLayout>
@@ -101,7 +101,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
                         android:scaleType="centerCrop"
-                        android:src="@mipmap/ic_launcher"/>
+                        android:src="@mipmap/ic_launcher" />
 
                 </LinearLayout>
 
@@ -109,146 +109,161 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="17sp"
                     android:layout_marginTop="10dp"
-                    android:textStyle="bold"
-                    android:text="배송"/>
+                    android:text="배송"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:orientation="horizontal"
+                    android:layout_height="30dp"
                     android:layout_gravity="center_vertical"
-                    android:layout_height="30dp">
+                    android:orientation="horizontal">
 
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:text="만족"
-                        android:textSize="15sp"
-                        android:layout_height="wrap_content"/>
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:text="보통"
-                        android:textSize="15sp"
-                        android:layout_height="wrap_content"/>
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:text="불만족"
-                        android:textSize="15sp"
-                        android:layout_height="wrap_content"/>
+                    <RadioGroup
+                        android:id="@+id/radioOptionDelivery"
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_height="30dp">
+
+                        <RadioButton
+                            android:id="@+id/radioBtnDelivery1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="만족" />
+
+                        <RadioButton
+                            android:id="@+id/radioBtnDelivery2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="보통" />
+
+                        <RadioButton
+                            android:id="@+id/radioBtnDelivery3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="불만족" />
+
+                    </RadioGroup>
+
 
                 </LinearLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
+                    android:text="품질"
                     android:textSize="17sp"
-                    android:text="품질"/>
+                    android:textStyle="bold" />
 
-                <LinearLayout
+                <RadioGroup
+                    android:id="@+id/radioOptionQuality"
                     android:layout_width="match_parent"
                     android:orientation="horizontal"
-                    android:layout_gravity="center_vertical"
                     android:layout_height="30dp">
 
-                    <CheckBox
+                    <RadioButton
+                        android:id="@+id/radioBtnQuality1"
                         android:layout_width="wrap_content"
-                        android:text="만족"
-                        android:textSize="15sp"
-                        android:layout_height="wrap_content"/>
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:text="보통"
-                        android:textSize="15sp"
-                        android:layout_height="wrap_content"/>
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:text="불만족"
-                        android:textSize="15sp"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:text="만족" />
 
-                </LinearLayout>
+                    <RadioButton
+                        android:id="@+id/radioBtnQuality2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="보통" />
 
+                    <RadioButton
+                        android:id="@+id/radioBtnQuality3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="불만족" />
+
+                </RadioGroup>
 
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
+                    android:text="가격"
                     android:textSize="17sp"
-                    android:text="가격"/>
+                    android:textStyle="bold" />
 
-                <LinearLayout
+                <RadioGroup
+                    android:id="@+id/radioOptionPrice"
                     android:layout_width="match_parent"
                     android:orientation="horizontal"
-                    android:layout_gravity="center_vertical"
                     android:layout_height="30dp">
 
-                    <CheckBox
+                    <RadioButton
+                        android:id="@+id/radioBtnPrice1"
                         android:layout_width="wrap_content"
-                        android:text="만족"
-                        android:textSize="15sp"
-                        android:layout_height="wrap_content"/>
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:text="보통"
-                        android:textSize="15sp"
-                        android:layout_height="wrap_content"/>
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:text="불만족"
-                        android:textSize="15sp"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:text="만족" />
 
-                </LinearLayout>
+                    <RadioButton
+                        android:id="@+id/radioBtnPrice2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="보통" />
+
+                    <RadioButton
+                        android:id="@+id/radioBtnPrice3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="불만족" />
+
+                </RadioGroup>
 
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/black"/>
+                    android:layout_marginTop="3dp"
+                    android:background="@color/black" />
 
                 <RatingBar
                     android:id="@+id/ratingBar"
-                    android:layout_marginTop="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
                     android:rating="0" />
 
                 <EditText
                     android:id="@+id/edtReviewContent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="23sp"
+                    android:hint="리뷰 내용을 작성해주세요."
                     android:minLines="3"
-                    android:hint="리뷰 내용을 작성해주세요."/>
+                    android:textSize="23sp" />
 
                 <Button
                     android:id="@+id/btnEddPicture"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="15sp"
                     android:layout_gravity="end"
-                    android:text="사진추가"/>
+                    android:text="사진추가"
+                    android:textSize="15sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:orientation="vertical"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="20sp"
-                        android:text="# 키워드 입력하기"/>
+                        android:text="# 키워드 입력하기"
+                        android:textSize="20sp" />
 
                     <EditText
                         android:id="@+id/edtKeyword"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:singleLine="true"
                         android:hint="스페이스바 입력시 자동으로 하나의 키워드가 됩니다."
+                        android:singleLine="true"
                         android:textSize="15sp" />
 
                     <com.nex3z.flowlayout.FlowLayout
@@ -266,24 +281,24 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
                     android:layout_gravity="center_vertical"
+                    android:gravity="center"
                     android:orientation="horizontal">
 
                     <Button
                         android:id="@+id/btnCancleReview"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="17sp"
-                        android:text="작성취소"/>
+                        android:text="작성취소"
+                        android:textSize="17sp" />
 
                     <Button
                         android:id="@+id/btnUploadReview"
-                        android:layout_marginStart="30dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="17sp"
-                        android:text="작성완료"/>
+                        android:layout_marginStart="30dp"
+                        android:text="작성완료"
+                        android:textSize="17sp" />
 
                 </LinearLayout>
 
@@ -291,12 +306,9 @@
             </LinearLayout>
 
 
-
         </LinearLayout>
 
     </ScrollView>
-
-
 
 
 </layout>
