@@ -116,11 +116,19 @@ interface ServerAPIInterface {
     @Path("review_id") reviewId : Int,
     ): Call<BasicResponse>
 
-//      사용자 아이디 찾기
+//      회원 아이디 찾기
     @GET("/user/find/email")
     fun getRequestEmail(
     @Query("nick_name") name: String,
     @Query("phone") phone: String,
+    ) : Call<BasicResponse>
+
+//    회원 비밀번호 찾기
+    @FormUrlEncoded
+    @POST("/user/find/password")
+    fun postRequestPassword(
+    @Field("email") email: String,
+    @Field("nick_name") name: String,
     ) : Call<BasicResponse>
 
 }
