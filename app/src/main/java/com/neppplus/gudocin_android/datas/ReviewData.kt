@@ -2,7 +2,6 @@ package com.neppplus.gudocin_android.datas
 
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
-import java.util.*
 
 class ReviewData(
 

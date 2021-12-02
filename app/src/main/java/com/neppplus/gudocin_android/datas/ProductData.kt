@@ -12,6 +12,7 @@ class ProductData(
     var price: Int,
     @SerializedName("image_url")
     var imageUrl: String,
+    var store : StoreData,
 ) : Serializable {
 
     fun getFormatedPrice(): String {

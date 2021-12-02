@@ -1,6 +1,5 @@
 package com.neppplus.gudocin_android.fragments
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,12 +7,9 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.neppplus.gudocin_android.R
-import com.neppplus.gudocin_android.SearchActivity
-import com.neppplus.gudocin_android.adapters.BannerViewPagerAdapter
 import com.neppplus.gudocin_android.adapters.RecyclerVewAdapterForMain
 import com.neppplus.gudocin_android.databinding.FragmentHomeBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
-import com.neppplus.gudocin_android.datas.ProductData
 import com.neppplus.gudocin_android.datas.ReviewData
 import retrofit2.Call
 import retrofit2.Callback

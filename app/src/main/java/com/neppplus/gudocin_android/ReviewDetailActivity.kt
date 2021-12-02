@@ -1,10 +1,8 @@
 package com.neppplus.gudocin_android
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.databinding.DataBindingUtil
-import com.bumptech.glide.Glide
 import com.neppplus.gudocin_android.databinding.ActivityReviewDetailBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.ReviewData
