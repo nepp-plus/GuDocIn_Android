@@ -114,4 +114,12 @@ interface ServerAPIInterface {
     fun getRequestReviewDetail(
     @Path("review_id") reviewId : Int,
     ): Call<BasicResponse>
+
+    //      특정 상품 상세보기
+    @GET("/product/{product_id}")
+    fun getRequestProductDetail(
+        @Path("product_id") reviewId : Int,
+    ): Call<BasicResponse>
+
+
 }
