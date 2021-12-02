@@ -13,7 +13,7 @@ class ProductData(
     @SerializedName("image_url")
     var imageUrl: String,
     var store : StoreData,
-    var reviews : ReviewData,
+    var reviews : List<ReviewData>,
 
 ) : Serializable {
 

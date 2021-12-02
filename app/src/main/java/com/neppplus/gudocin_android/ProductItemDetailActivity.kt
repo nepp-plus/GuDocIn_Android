@@ -58,9 +58,8 @@ class ProductItemDetailActivity : BaseActivity() {
                     Glide.with(mContext).load(br.data.product.imageUrl).into(binding.imgProduct)
 
                     mReviewList.clear()
-                    mReviewList.addAll(response.body()!!.data.reviews)
+                    mReviewList.addAll(response.body()!!.data.product.reviews)
                     mReviewRecyclerViewAdapterForProductList.notifyDataSetChanged()
-                    
                 }
 
             }
