@@ -34,6 +34,14 @@ class MyProfileFragment : BaseFragment() {
 
     override fun setupEvents() {
 
+
+        binding.txtEditMyInfo.setOnClickListener {
+
+            val myIntent = Intent(mContext,MyInfoEditActivity::class.java)
+
+            startActivity(myIntent)
+        }
+
         binding.btnSaveMoney.setOnClickListener {
 
             val myIntent =  Intent( mContext, SaveMonyMyActivity::class.java )
@@ -49,12 +57,6 @@ class MyProfileFragment : BaseFragment() {
 
         }
 
-        binding.txtEditUserInfo.setOnClickListener {
-
-            val myIntent = Intent(mContext, UserEditActivity::class.java)
-
-            startActivity(myIntent)
-        }
 
         binding.txtUserPointDetails.setOnClickListener {
 
