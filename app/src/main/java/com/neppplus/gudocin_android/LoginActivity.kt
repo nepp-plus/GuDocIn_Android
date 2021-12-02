@@ -110,11 +110,9 @@ class LoginActivity : BaseActivity() {
 
                         }
 
-
                     }
 
                     override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-                        TODO("Not yet implemented")
                     }
 
                 })
@@ -126,6 +124,15 @@ class LoginActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
+
+        binding.txtFindAccount.setOnClickListener {
+
+            val myIntent = Intent(mContext, FindAccountActivity::class.java)
+            startActivity(myIntent)
+
+            finish()
+
+        }
 
         binding.btnKakaoLogin.setOnClickListener {
 

@@ -1,8 +1,6 @@
 package com.neppplus.gudocin_android
 
 import android.app.Activity
-import android.app.AlertDialog
-import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -14,9 +12,7 @@ import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
 import com.google.android.gms.auth.api.Auth
 import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.firebase.auth.GoogleAuthProvider
 import com.kakao.sdk.user.UserApiClient
 import com.neppplus.gudocin_android.databinding.ActivitySignUpBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
@@ -112,11 +108,9 @@ class SignUpActivity : BaseActivity() {
 
                         }
 
-
                     }
 
                     override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-                        TODO("Not yet implemented")
                     }
 
                 })
@@ -265,8 +259,9 @@ class SignUpActivity : BaseActivity() {
             val email = binding.edtEmail.text.toString()
             val password = binding.edtPassword.text.toString()
             val nickname = binding.edtNickname.text.toString()
+            val phone = binding.edtPhone.text.toString()
 
-            apiService.putRequestSignUp(email, password, nickname).enqueue(object :
+            apiService.putRequestSignUp(email, password, nickname, phone).enqueue(object :
                 Callback<BasicResponse> {
                 override fun onResponse(
                     call: Call<BasicResponse>,
