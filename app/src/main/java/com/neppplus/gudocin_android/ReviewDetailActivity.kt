@@ -26,6 +26,22 @@ class ReviewDetailActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
+        binding.txtProductDetail.setOnClickListener {
+//            제품 상세페이지 인텐트
+        }
+        binding.txtGoReply.setOnClickListener {
+//            댓글 페이지로 인텐트
+        }
+        binding.imgButtonProduct.setOnClickListener {
+//            제품 상세페이지 인텐트
+        }
+        binding.imgButtonReply.setOnClickListener {
+//            댓글 페이지로 인텐트
+        }
+        binding.btnBuyProduct.setOnClickListener {
+//            결제 페이지로 인텐트
+        }
+
 
     }
 

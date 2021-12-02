@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -178,6 +178,7 @@
                     android:orientation="horizontal">
 
                     <TextView
+                        android:id="@+id/txtProductDetail"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="리뷰 상품 상세보기"
@@ -189,8 +190,8 @@
                         android:layout_weight="1" />
 
                     <ImageView
-                        android:id="@+id/imgButton1"
-                        android:layout_width="20dp"
+                        android:id="@+id/imgButtonProduct"
+                        android:layout_width="wrap_content"
                         android:layout_height="20dp"
                         android:src="@drawable/bottom_icon" />
 
@@ -209,6 +210,7 @@
                     android:orientation="horizontal">
 
                     <TextView
+                        android:id="@+id/txtGoReply"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="리뷰 상품 댓글보기"
@@ -220,13 +222,18 @@
                         android:layout_weight="1" />
 
                     <ImageView
-                        android:id="@+id/imgButton2"
+                        android:id="@+id/imgButtonReply"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:src="@drawable/bottom_icon" />
 
 
                 </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/black" />
+
 
 
             </LinearLayout>
