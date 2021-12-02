@@ -56,13 +56,7 @@ class LoginActivity : BaseActivity() {
         setValues()
 
         binding.btnGoogleLogin.setOnClickListener {
-
             startActivityForResult(googleSignInIntent, RESULT_CODE)
-
-//            val myIntent = Intent(mContext, NavigationActivity::class.java)
-//            startActivity(myIntent)
-//
-//            finish()
         }
 
     }
@@ -70,7 +64,6 @@ class LoginActivity : BaseActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         callbackManager.onActivityResult(requestCode, resultCode, data)
         super.onActivityResult(requestCode, resultCode, data)
-
 
         if (resultCode == Activity.RESULT_OK && requestCode == RESULT_CODE) {
             val result = Auth.GoogleSignInApi.getSignInResultFromIntent(data)
