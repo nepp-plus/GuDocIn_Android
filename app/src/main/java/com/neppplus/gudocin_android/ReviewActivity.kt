@@ -27,6 +27,7 @@ class ReviewActivity : BaseActivity() {
 
     lateinit var mProductData : ProductData
 
+    val mRaidoList = ArrayList<String>()
 
     val mInputTagList = ArrayList<String>()
 
@@ -76,6 +77,7 @@ class ReviewActivity : BaseActivity() {
             val inputTag = binding.edtKeyword.text.toString()
             val inputTile = binding.edtReviewTitle.text.toString()
 
+
             if (inputTile.length < 1){
                 Toast.makeText(mContext, "제목을 입력해 주세요.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
@@ -93,7 +95,17 @@ class ReviewActivity : BaseActivity() {
 
                 val rating = binding.ratingBar.rating.toDouble()
 
-                apiService.postRequestReviewContent(mProductData.id,inputContent,inputTile,rating,inputTag).enqueue(object : Callback<BasicResponse>{
+                var tagStr = ""
+
+                for(tag in mInputTagList){
+                    Log.d("첨부할 태그", tag)
+                    tagStr += tag
+                    tagStr += ","
+                }
+                tagStr = tagStr.substring(0,tagStr.length -1)
+                Log.d("완성된String",tagStr)
+
+                apiService.postRequestReviewContent(mProductData.id,inputContent,inputTile,rating,tagStr).enqueue(object : Callback<BasicResponse>{
                     override fun onResponse(
                         call: Call<BasicResponse>,
                         response: Response<BasicResponse>

@@ -1,8 +1,16 @@
 package com.neppplus.gudocin_android
 
+import android.content.Intent
+import android.media.Rating
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.ContactsContract
 import android.util.Log
+import android.widget.ImageView
+import android.widget.RatingBar
+import android.widget.TextView
 import androidx.databinding.DataBindingUtil
+import com.bumptech.glide.Glide
 import com.neppplus.gudocin_android.databinding.ActivityReviewDetailBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.ReviewData
@@ -10,6 +18,8 @@ import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.SimpleDateFormat
+import java.util.*
 
 class ReviewDetailActivity : BaseActivity() {
 
@@ -21,19 +31,49 @@ class ReviewDetailActivity : BaseActivity() {
         binding = DataBindingUtil.setContentView(this,R.layout.activity_review_detail)
         setupEvents()
         setValues()
+
+        val reviewContentImg = binding.reviewContentImg
+        if (reviewContentImg == null){
+
+
+
+        }else{
+
+        }
+
     }
 
     override fun setupEvents() {
+        binding.txtProductDetail.setOnClickListener {
+//            제품 상세페이지 인텐트
+        }
+        binding.txtGoReply.setOnClickListener {
+//            댓글 페이지로 인텐트
+            val myIntent = Intent(mContext, ReplyActivity::class.java)
+            mContext.startActivity(myIntent)
+        }
+        binding.imgButtonProduct.setOnClickListener {
+//            제품 상세페이지 인텐트
+        }
+        binding.imgButtonReply.setOnClickListener {
+//            댓글 페이지로 인텐트
+            val myIntent = Intent(mContext, ReplyActivity::class.java)
+            mContext.startActivity(myIntent)
+        }
+        binding.btnBuyProduct.setOnClickListener {
+//            결제 페이지로 인텐트
+        }
+
 
     }
 
     override fun setValues() {
 
+
+
         mReviewData = intent.getSerializableExtra("review") as ReviewData
 
        setReviewDataToUI()
-
-
         getReviewDataFromSever()
 
     }
@@ -43,9 +83,20 @@ class ReviewDetailActivity : BaseActivity() {
         binding.txtProductName.text = mReviewData.product.name
         binding.txtUserNickName.text = mReviewData.user.nickname
         binding.txtReviewContent.text = mReviewData.content
+        Glide.with(mContext).load(mReviewData.thumbNailImg).into(binding.thumNailImg)
+        binding.ratingBar.rating = mReviewData.score.toFloat()
+
+
+        val now = Calendar.getInstance()
+
+        val sdf = SimpleDateFormat("yyyy.MM.dd")
+        val nowString = sdf.format(now.time)
+
+        binding.txtReviewTime.text = nowString
 
 
     }
+
 
 
     fun getReviewDataFromSever() {
