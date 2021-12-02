@@ -107,11 +107,25 @@
                 android:text="회원정보" />
 
             <TextView
-                android:id="@+id/txtEditUserInfo"
+                android:id="@+id/txtEditMyInfo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="회원정보 수정"
+                android:textSize="15sp" />
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#808080" />
+
+            <TextView
+                android:id="@+id/txtLogOut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="로그아웃"
                 android:textSize="15sp" />
 
             <TextView

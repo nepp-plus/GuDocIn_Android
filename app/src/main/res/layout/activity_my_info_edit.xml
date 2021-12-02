@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".MyInfoEditActivity">
+
+    <TextView
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="회원정보 수정"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:layout_marginTop="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="내 아이디"/>
+
+    <TextView
+        android:id="@+id/txtMyEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="qkddnwls14@gmail.com"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#808080"/>
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="이름 변경"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/editMyName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="이름을 입력하세요"/>
+
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="휴대폰 번호 변경"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/editMyPhonNum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="휴대폰 번호를 입력하세요"/>
+
+    <Button
+        android:id="@+id/btnMyInfoSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="회원정보 저장하기"/>
+
+    <LinearLayout
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="250dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <TextView
+        android:layout_marginLeft="125dp"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="비밀번호 변경하기->"/>
+
+    <TextView
+
+        android:id="@+id/txtIfEditEmail"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="다른 이메일 주소를 사용하고 싶으시다면->"/>
+    </LinearLayout>
+
+
+
+
+</LinearLayout>
+</layout>
