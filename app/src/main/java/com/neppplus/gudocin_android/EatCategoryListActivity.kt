@@ -6,6 +6,7 @@ import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.neppplus.gudocin_android.adapters.ProductRecyclerViewAdapter
+import com.neppplus.gudocin_android.adapters.ReviewRecyclerViewAdapterForProductList
 import com.neppplus.gudocin_android.adapters.SmallCategoriesListAdapter
 import com.neppplus.gudocin_android.databinding.ActivityEatCategoryListBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
@@ -31,6 +32,7 @@ class EatCategoryListActivity : BaseActivity() {
     val mProductList = ArrayList<ProductData>()
     val mReviewsList = ArrayList<ReviewData>()
     lateinit var mProductRecyclerAdapter : ProductRecyclerViewAdapter
+    lateinit var mReviewRecyclerViewAdapterForProductList : ReviewRecyclerViewAdapterForProductList
 
 
 
@@ -60,6 +62,9 @@ class EatCategoryListActivity : BaseActivity() {
         binding.productListRecyclerView.adapter = mProductRecyclerAdapter
         binding.productListRecyclerView.layoutManager = LinearLayoutManager(mContext)
 
+        //리뷰 리스트 Recycler View 용 어댑터 연결
+        mReviewRecyclerViewAdapterForProductList = ReviewRecyclerViewAdapterForProductList(mContext,mReviewsList)
+
 
     }
 
@@ -69,10 +74,23 @@ class EatCategoryListActivity : BaseActivity() {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
 
                 if (response.isSuccessful ){
+                    val br = response.body()!!
+
                     mProductList.clear()
-                    mProductList.addAll(response.body()!!.data.products)
+                    mProductList.addAll(br.data.products)
                     mProductRecyclerAdapter.notifyDataSetChanged()
 
+
+                    mReviewsList.clear()
+                    mReviewsList.addAll(br.data.reviews)
+                    mReviewRecyclerViewAdapterForProductList.notifyDataSetChanged()
+
+                    for (sc in mReviewsList){
+                        val view = LayoutInflater.from(mContext).inflate(R.layout.review_item_for_product_detail,null)
+//                        val txtSmallCategoryName = view.findViewById<TextView>(R.id.txtSmallCategoryName)
+
+//                        binding.reviewItemLayout.addView(view)
+                    }
                 }
             }
 
@@ -96,6 +114,7 @@ class EatCategoryListActivity : BaseActivity() {
 
                     mSmallcategoryList.clear()
                     mSmallcategoryList.addAll(br.data.small_categories)
+
 
 //                    추가한 카테고리 하나하나에 대한 view 생성
 
