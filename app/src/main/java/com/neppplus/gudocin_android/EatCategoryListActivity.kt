@@ -10,6 +10,7 @@ import com.neppplus.gudocin_android.adapters.SmallCategoriesListAdapter
 import com.neppplus.gudocin_android.databinding.ActivityEatCategoryListBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.ProductData
+import com.neppplus.gudocin_android.datas.ReviewData
 import com.neppplus.gudocin_android.datas.SmallCategoriesData
 import retrofit2.Call
 import retrofit2.Callback
@@ -25,10 +26,10 @@ class EatCategoryListActivity : BaseActivity() {
     lateinit var mSmallcategoryListAdapter : SmallCategoriesListAdapter
     var mLargeCategoryId = 2
 
-    //   eatCategoryId = 2 / wearCategoryId = 1 / lifeCategoryId =3
     var mClickedSmallCategoryNum = 7
 
     val mProductList = ArrayList<ProductData>()
+    val mReviewsList = ArrayList<ReviewData>()
     lateinit var mProductRecyclerAdapter : ProductRecyclerViewAdapter
 
 
@@ -47,20 +48,18 @@ class EatCategoryListActivity : BaseActivity() {
 
     override fun setValues() {
 
+        binding.txtSelectedCategoryName.text = "먹는 구독"
+
 
         getSmallCategoryListFromServer()
         mSmallcategoryListAdapter = SmallCategoriesListAdapter(mContext,mSmallcategoryList)
-//        binding.smallcategoryRecyclerView.adapter = mSmallcategoryListAdapter
-//        binding.smallcategoryRecyclerView.layoutManager = LinearLayoutManager(mContext,LinearLayoutManager.HORIZONTAL,false)
-
 
 
         getProductListInSmallCategoryFromServer()
-
         mProductRecyclerAdapter = ProductRecyclerViewAdapter(mContext,mProductList)
         binding.productListRecyclerView.adapter = mProductRecyclerAdapter
         binding.productListRecyclerView.layoutManager = LinearLayoutManager(mContext)
-//
+
 
     }
 
@@ -91,9 +90,14 @@ class EatCategoryListActivity : BaseActivity() {
 
                 if (response.isSuccessful ){
 
-//                    mSmallcategoryList.clear()
-//                    mSmallcategoryList.addAll(response.body()!!.data.small_categories)
-//                    mSmallcategoryListAdapter.notifyDataSetChanged()
+                    binding.smalllCategoryList.removeAllViews()
+
+                    val br = response.body()!!
+
+                    mSmallcategoryList.clear()
+                    mSmallcategoryList.addAll(br.data.small_categories)
+
+//                    추가한 카테고리 하나하나에 대한 view 생성
 
                     for (sc in mSmallcategoryList){
                         val view = LayoutInflater.from(mContext).inflate(R.layout.small_categories_item,null)
@@ -105,6 +109,8 @@ class EatCategoryListActivity : BaseActivity() {
                             mClickedSmallCategoryNum = sc.id
                             getProductListInSmallCategoryFromServer()
                         }
+
+                        binding.smalllCategoryList.addView(view)
 
                     }
                 }

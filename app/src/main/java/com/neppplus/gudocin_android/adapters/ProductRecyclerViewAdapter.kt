@@ -23,6 +23,7 @@ class ProductRecyclerViewAdapter(val mContext: Context, val mList: List<ProductD
         val rootLayout = view.findViewById<LinearLayout>(R.id.rootLayout)
         val txtProductName = view.findViewById<TextView>(R.id.txtProductName)
         val txtProductPrice = view.findViewById<TextView>(R.id.txtProductPrice)
+        val txtProductCompanyName = view.findViewById<TextView>(R.id.txtProductCompanyName)
         val reviewItemLayout = view.findViewById<LinearLayout>(R.id.reviewItemLayout)
         val btnMoreReview = view.findViewById<LinearLayout>(R.id.btnMoreReview)
         val txtOpenReview = view.findViewById<TextView>(R.id.txtOpenReview)
@@ -35,7 +36,8 @@ class ProductRecyclerViewAdapter(val mContext: Context, val mList: List<ProductD
         fun bind(data: ProductData) {
             txtProductName.text = data.name
             txtProductPrice.text = data.getFormatedPrice()
-//            txtReviewWriterName.text = data.review.user.nickname
+            txtProductCompanyName.text = data.store.name
+//            txtReviewTitle.text = data.
 
             btnGotoReviewDetail.setOnClickListener {
                 val myIntent = Intent(mContext, ReviewDetailActivity::class.java)
