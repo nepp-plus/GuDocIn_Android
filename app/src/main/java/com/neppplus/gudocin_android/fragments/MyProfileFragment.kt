@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.neppplus.gudocin_android.*
 import com.neppplus.gudocin_android.databinding.FragmentMyProfileBinding
+import com.neppplus.gudocin_android.datas.GlobalData
 
 //      BaseFragment 상속
 class MyProfileFragment : BaseFragment() {
@@ -125,6 +126,8 @@ class MyProfileFragment : BaseFragment() {
     }
 
     override fun setValues() {
+
+        binding.txtUserName.text = GlobalData.loginUser!!.nickname
 
     }
 }

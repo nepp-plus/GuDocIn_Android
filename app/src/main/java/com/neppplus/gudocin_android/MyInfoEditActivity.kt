@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.neppplus.gudocin_android.databinding.ActivityMyInfoEditBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
+import com.neppplus.gudocin_android.datas.GlobalData
 import okhttp3.Request
 import retrofit2.Call
 import retrofit2.Callback
@@ -97,6 +98,8 @@ class MyInfoEditActivity : BaseActivity() {
     }
 
     override fun setValues() {
+
+        binding.txtMyEmail.text =GlobalData.loginUser!!.email
 
     }
 }

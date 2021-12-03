@@ -7,10 +7,10 @@
     android:gravity="center"
     android:padding="20dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="여기는 적립금 지급내역 화면입니다"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/mySaveMoneyPaymentRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </LinearLayout>
 </layout>
