@@ -1,30 +1,20 @@
 package com.neppplus.gudocin_android
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import androidx.databinding.DataBindingUtil
-import com.neppplus.gudocin_android.databinding.ActivityBasketBinding
+import androidx.appcompat.app.AppCompatActivity
+import com.neppplus.gudocin_android.adapters.BasketListAdapter
+import com.neppplus.gudocin_android.basket.Basket
 
-class BasketActivity : BaseActivity() {
+class BasketActivity : AppCompatActivity() {
 
-    lateinit var binding: ActivityBasketBinding
+    var basketList = arrayListOf<Basket>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_basket)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_basket)
-        setupEvents()
-        setValues()
-    }
 
-    override fun setupEvents() {
-
-    }
-
-    override fun setValues() {
-
-        btnBasket.visibility = View.GONE
+        val basketAdapter = BasketListAdapter(this, basketList)
+//        basketListView.adapter = basketAdapter
 
     }
 
