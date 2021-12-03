@@ -23,9 +23,9 @@ import kotlin.collections.ArrayList
 
 class ReviewActivity : BaseActivity() {
 
-    lateinit var binding : ActivityReviewBinding
+    lateinit var binding: ActivityReviewBinding
 
-    lateinit var mProductData : ProductData
+    lateinit var mProductData: ProductData
 
     val mRaidoList = ArrayList<String>()
 
@@ -33,7 +33,7 @@ class ReviewActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_review)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_review)
         setupEvents()
         setValues()
     }
@@ -41,18 +41,20 @@ class ReviewActivity : BaseActivity() {
     override fun setupEvents() {
 
 
+//        지금들어오는 텍스트가 무엇인지 확인하는 함수
         binding.edtKeyword.addTextChangedListener {
 
             val nowText = it.toString()
 
-            if (nowText == ""){
+            if (nowText == "") {
 
                 return@addTextChangedListener
             }
 
+//            입력한 값이 스페이스바가 들어오게 되면 태그가 되게하는 함수
             Log.d("입력값", nowText)
 
-            if (nowText.last() == ' '){
+            if (nowText.last() == ' ') {
                 Log.d("입력값", "스페이스바가 들어옴")
 
                 val tag = nowText.replace(" ", "")
@@ -64,62 +66,68 @@ class ReviewActivity : BaseActivity() {
                 txtTag.text = "#${tag}"
 
                 binding.tagListLayout.addView(tagBox)
-
                 binding.edtKeyword.setText("")
 
             }
-
-
         }
-        binding.btnUploadReview.setOnClickListener {
 
+        binding.btnUploadReview.setOnClickListener {
 
             val inputTag = binding.edtKeyword.text.toString()
             val inputTile = binding.edtReviewTitle.text.toString()
 
 
-            if (inputTile.length < 1){
+//            제목이 입력되지않으면 버튼이 눌리지않도록 하는 함수
+            if (inputTile.length < 1) {
                 Toast.makeText(mContext, "제목을 입력해 주세요.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
+//            리뷰내용이 입력되지않으면 버튼이 눌리지않도록 하는 함수
             val inputContent = binding.edtReviewContent.text.toString()
-            if (inputContent.length < 1){
+            if (inputContent.length < 1) {
                 Toast.makeText(mContext, "리뷰 내용을 입력해주세요.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
+
             val alert = AlertDialog.Builder(mContext)
             alert.setTitle("리뷰 등록")
             alert.setMessage("리뷰작성을 등록하시겠습니까?")
-            alert.setPositiveButton("확인",DialogInterface.OnClickListener { dialog, i ->
+            alert.setPositiveButton("확인", DialogInterface.OnClickListener { dialog, i ->
 
                 val rating = binding.ratingBar.rating.toDouble()
 
                 var tagStr = ""
 
-                for(tag in mInputTagList){
+                for (tag in mInputTagList) {
                     Log.d("첨부할 태그", tag)
                     tagStr += tag
                     tagStr += ","
-                }
-                tagStr = tagStr.substring(0,tagStr.length -1)
-                Log.d("완성된String",tagStr)
 
-                apiService.postRequestReviewContent(mProductData.id,inputContent,inputTile,rating,tagStr).enqueue(object : Callback<BasicResponse>{
+                }
+                tagStr = tagStr.substring(0, tagStr.length - 1)
+                Log.d("완성된String", tagStr)
+
+                apiService.postRequestReviewContent(
+                    mProductData.id,
+                    inputContent,
+                    inputTile,
+                    rating,
+                    tagStr
+                ).enqueue(object : Callback<BasicResponse> {
                     override fun onResponse(
                         call: Call<BasicResponse>,
                         response: Response<BasicResponse>
                     ) {
 
-                        if (response.isSuccessful){
+                        if (response.isSuccessful) {
 
                             finish()
                             Toast.makeText(mContext, "리뷰가 등록되었습니다..", Toast.LENGTH_SHORT).show()
 
-                        }
-                        else {
+                        } else {
                             val jsonobj = JSONObject(response.errorBody()!!.string())
-                            Log.d("리뷰등록실패",jsonobj.toString())
+                            Log.d("리뷰등록실패", jsonobj.toString())
                         }
 
                     }
@@ -128,32 +136,27 @@ class ReviewActivity : BaseActivity() {
 
                     }
 
-
                 })
 
-
-
-
             })
-            alert.setNegativeButton("취소",null)
+            alert.setNegativeButton("취소", null)
 
             alert.show()
 
-
-
         }
+
         binding.btnCancleReview.setOnClickListener {
 
             val alert = AlertDialog.Builder(mContext)
             alert.setTitle("리뷰 취소 알람")
             alert.setMessage("리뷰작성을 취소하시겠습니까?")
-            alert.setPositiveButton("확인",DialogInterface.OnClickListener { dialog, i ->
+            alert.setPositiveButton("확인", DialogInterface.OnClickListener { dialog, i ->
 
                 finish()
                 Toast.makeText(mContext, "리뷰작성이 취소되었습니다.", Toast.LENGTH_SHORT).show()
 
             })
-            alert.setNegativeButton("취소",null)
+            alert.setNegativeButton("취소", null)
 
             alert.show()
 

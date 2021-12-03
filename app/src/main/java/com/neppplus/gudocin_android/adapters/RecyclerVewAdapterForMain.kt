@@ -84,6 +84,7 @@ class RecyclerVewAdapterForMain
         val btnWriteReview = row.findViewById<TextView>(R.id.btnWriteReview)
 
 
+
         fun bind(data: ReviewData) {
 
             txtReviewerNickName.text = data.user.nickname

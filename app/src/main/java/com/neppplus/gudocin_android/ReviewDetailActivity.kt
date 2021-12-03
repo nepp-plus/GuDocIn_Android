@@ -84,14 +84,15 @@ class ReviewDetailActivity : BaseActivity() {
         binding.txtUserNickName.text = mReviewData.user.nickname
         binding.txtReviewContent.text = mReviewData.content
         Glide.with(mContext).load(mReviewData.thumbNailImg).into(binding.thumNailImg)
+
+//        평점을 레이팅바에 가져오는 바인딩함수(Int -> Float으로 변환)
         binding.ratingBar.rating = mReviewData.score.toFloat()
 
 
+//        이화면에서 쓸 날짜를 알맞은 양식으로 변환
         val now = Calendar.getInstance()
-
         val sdf = SimpleDateFormat("yyyy.MM.dd")
         val nowString = sdf.format(now.time)
-
         binding.txtReviewTime.text = nowString
 
 
@@ -100,6 +101,8 @@ class ReviewDetailActivity : BaseActivity() {
 
 
     fun getReviewDataFromSever() {
+
+//        리뷰데이터 API서버에서 파싱
         apiService.getRequestReviewDetail(mReviewData.id).enqueue(object : Callback<BasicResponse>{
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
                 if (response.isSuccessful){
