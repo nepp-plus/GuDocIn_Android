@@ -37,13 +37,7 @@ class RecyclerVewAdapterForMain
 
     inner class HeaderViewHolder(row: View) : RecyclerView.ViewHolder(row) {
 
-        // 카테고리 보여주기 위한 것
-        var mSmallCategoriesList = ArrayList<SmallCategoriesData>()
-        var mLargeCategoryId = 2
-        val btnCategriesWear = row.findViewById<ImageView>(R.id.btnCategriesWear)
-        val btnCategriesEat = row.findViewById<ImageView>(R.id.btnCategriesEat)
-        val btnCategriesLife = row.findViewById<ImageView>(R.id.btnCategriesLife)
-//        //여기까지
+
 
         val bannerViewPager = row.findViewById<ViewPager>(R.id.bannerViewPager)
 
@@ -82,30 +76,6 @@ class RecyclerVewAdapterForMain
             }, 2000, 2000)
 
 
-//            여기서부터 카테고리 부분 작성
-
-
-
-            btnCategriesEat.setOnClickListener {
-                mLargeCategoryId = 2
-
-
-            }
-
-            btnCategriesLife.setOnClickListener {
-                mLargeCategoryId = 3
-
-
-            }
-
-
-            btnCategriesWear.setOnClickListener {
-                mLargeCategoryId = 1
-
-
-            }
-
-//
 
 
         }

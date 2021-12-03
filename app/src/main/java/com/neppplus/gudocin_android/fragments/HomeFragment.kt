@@ -25,10 +25,7 @@ class HomeFragment : BaseFragment() {
     val mReviewList = ArrayList<ReviewData>()
     lateinit var mMainRecyclerAdapter : RecyclerVewAdapterForMain
 
-    val mSmallcategoryList = ArrayList<SmallCategoriesData>()
-    lateinit var mSmallcategoryListAdapter : SmallCategoriesListAdapter
-    var mLargeCategoryId = 2
-    var mClickedSmallCategoryNum = 7
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -59,10 +56,7 @@ class HomeFragment : BaseFragment() {
 
         getReviewListFromServer()
         getBannerListFromServer()
-        getSmallCategoryListFromServer()
 
-
-        mSmallcategoryListAdapter = SmallCategoriesListAdapter(mContext,mSmallcategoryList)
 
         mMainRecyclerAdapter = RecyclerVewAdapterForMain(mContext, mReviewList)
         binding.reviewListRecyclerView.adapter = mMainRecyclerAdapter
@@ -123,47 +117,7 @@ class HomeFragment : BaseFragment() {
         } )
     }
 
-    fun getSmallCategoryListFromServer(){
-        apiService.getRequestSmallCategoryDependOnLarge(mLargeCategoryId).enqueue(object :Callback<BasicResponse>{
-            override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
 
-                if (response.isSuccessful ){
-
-                    //binding.smalllCategoryList.removeAllViews()
-
-                    val br = response.body()!!
-
-                    mSmallcategoryList.clear()
-                    mSmallcategoryList.addAll(br.data.small_categories)
-
-
-//                    추가한 카테고리 하나하나에 대한 view 생성
-
-                    for (sc in mSmallcategoryList){
-                        val view = LayoutInflater.from(mContext).inflate(R.layout.small_categories_item,null)
-                        val txtSmallCategoryName = view.findViewById<TextView>(R.id.txtSmallCategoryName)
-
-                        txtSmallCategoryName.text = sc.name
-
-                        view.setOnClickListener {
-                            mClickedSmallCategoryNum = sc.id
-                           // getProductListInSmallCategoryFromServer()
-                        }
-
-                    //    binding.smalllCategoryList.addView(view)
-
-                    }
-                }
-            }
-
-            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-
-            }
-
-        })
-
-
-    }
 
 
 
