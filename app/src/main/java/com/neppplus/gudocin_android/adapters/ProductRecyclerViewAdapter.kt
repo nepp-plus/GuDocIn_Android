@@ -55,7 +55,7 @@ class ProductRecyclerViewAdapter(val mContext: Context, val mList: List<ProductD
 
                 btnGotoReviewDetail.setOnClickListener {
                     val myIntent = Intent(mContext, ReviewDetailActivity::class.java)
-                    myIntent.putExtra("reviewId",firstReview.id)
+                    myIntent.putExtra("review",firstReview)
                     mContext.startActivity(myIntent)
                 }
 

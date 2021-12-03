@@ -124,7 +124,7 @@ class RecyclerVewAdapterForMain
             btnGotoReviewDetail.setOnClickListener {
 
                 val myIntent = Intent(mContext, ReviewDetailActivity::class.java)
-                myIntent.putExtra("reviewId",data.id)
+                myIntent.putExtra("review",data)
                 mContext.startActivity(myIntent)
 
             }
