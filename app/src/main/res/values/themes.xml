@@ -15,7 +15,7 @@
 
     </style>
 
-    <style name="Theme.GuDocIn_Android.NoActionBar" parent="Theme.AppCompat.DayNight.NoActionBar">
+    <style name="Theme.GuDocIn_Android.NoActionBar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
 
         <!-- Primary brand color. -->
         <item name="colorPrimary">@android:color/transparent</item>
