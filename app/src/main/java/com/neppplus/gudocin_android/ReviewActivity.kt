@@ -3,14 +3,17 @@ package com.neppplus.gudocin_android
 import android.Manifest
 import android.content.DialogInterface
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
+import com.bumptech.glide.Glide
 import com.gun0912.tedpermission.PermissionListener
 import com.gun0912.tedpermission.normal.TedPermission
 import com.neppplus.gudocin_android.databinding.ActivityReviewBinding
@@ -29,6 +32,8 @@ class ReviewActivity : BaseActivity() {
 
     val REQ_FOR_GALLERY = 1004
 
+    var mSelectedThumbnailUri : Uri? = null
+
     lateinit var binding : ActivityReviewBinding
 
     lateinit var mProductData : ProductData
@@ -46,8 +51,7 @@ class ReviewActivity : BaseActivity() {
 
     override fun setupEvents() {
 
-        binding.imgThumPicture.setOnClickListener {
-
+        val ocl = View.OnClickListener {
             val pl = object : PermissionListener {
                 override fun onPermissionGranted() {
 
@@ -70,8 +74,10 @@ class ReviewActivity : BaseActivity() {
                 .setPermissionListener(pl)
                 .setPermissions(Manifest.permission.READ_EXTERNAL_STORAGE)
                 .check()
-
         }
+
+        binding.selectImgLayout.setOnClickListener(ocl)
+        binding.imgThumPicture.setOnClickListener(ocl)
 
 
         binding.edtKeyword.addTextChangedListener {
@@ -200,6 +206,13 @@ class ReviewActivity : BaseActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQ_FOR_GALLERY) {
             if (resultCode == RESULT_OK) {
+
+                mSelectedThumbnailUri = data!!.data
+
+                binding.selectImgLayout.visibility = View.GONE
+                binding.imgThumPicture.visibility = View.VISIBLE
+
+                Glide.with(mContext).load(mSelectedThumbnailUri).into(binding.imgThumPicture)
 
             }
         }
