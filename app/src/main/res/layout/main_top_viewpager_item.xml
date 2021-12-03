@@ -10,13 +10,72 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"/>
 
-
-
-        <fragment
-            android:id="@+id/mainCategoryFragment"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            class="com.neppplus.gudocin_android.fragments.CategoriesFragment"/>
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnCategriesEat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:backgroundTint="@color/white"
+                android:shadowColor="@color/black"
+                android:text="먹는 구독"
+                android:textColor="@color/black" />
+
+
+            <Button
+                android:id="@+id/btnCategriesWear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:backgroundTint="@color/white"
+                android:shadowColor="@color/black"
+                android:text="입는 구독"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/btnCategriesLife"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:backgroundTint="@color/white"
+                android:shadowColor="@color/black"
+                android:text="생활 구독"
+                android:textColor="@color/black" />
+
+
+        </LinearLayout>
+
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:overScrollMode="never">
+
+
+            <LinearLayout
+                android:id="@+id/smalllCategoryList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+
+
+<!--        <fragment-->
+<!--            android:id="@+id/mainCategoryFragment"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            class="com.neppplus.gudocin_android.fragments.CategoriesFragment"/>-->
 
 
 

@@ -19,8 +19,6 @@ class CategoriesFragment : BaseFragment() {
 
     lateinit var binding: FragmentCategoriesBinding
 
-//    var mIsCategoryClicked = true
-
     var mSmallCategoriesList = ArrayList<SmallCategoriesData>()
     lateinit var mSmallcateoriesListAdapter : SmallCategoriesListAdapter
     var mLargeCategoryId = 2

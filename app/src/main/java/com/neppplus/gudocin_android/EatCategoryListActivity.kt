@@ -18,19 +18,16 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class EatCategoryListActivity : BaseActivity() {
-
-
-
     lateinit var binding:ActivityEatCategoryListBinding
+
 
     val mSmallcategoryList = ArrayList<SmallCategoriesData>()
     lateinit var mSmallcategoryListAdapter : SmallCategoriesListAdapter
     var mLargeCategoryId = 2
-
     var mClickedSmallCategoryNum = 7
 
-    val mProductList = ArrayList<ProductData>()
 
+    val mProductList = ArrayList<ProductData>()
     lateinit var mProductRecyclerAdapter : ProductRecyclerViewAdapter
 
 
