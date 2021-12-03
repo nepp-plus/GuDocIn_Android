@@ -35,11 +35,11 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/btnGotoReviewDetail1"
+        android:id="@+id/btnGotoReviewDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center_vertical">
 
         <ImageView
             android:id="@+id/imgReviewSomeNail"
@@ -48,16 +48,6 @@
             android:src="@drawable/review_image_flower"
             android:scaleType="centerCrop"/>
 
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/btnGotoReviewDetail2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center_vertical"
-        android:layout_margin="5dp">
 
         <TextView
             android:id="@+id/txtProductName"

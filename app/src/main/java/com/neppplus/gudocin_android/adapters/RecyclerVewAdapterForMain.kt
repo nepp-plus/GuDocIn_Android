@@ -16,6 +16,7 @@ import com.bumptech.glide.Glide
 import com.neppplus.gudocin_android.NavigationActivity
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.ReviewActivity
+import com.neppplus.gudocin_android.ReviewDetailActivity
 import com.neppplus.gudocin_android.datas.BannerData
 import com.neppplus.gudocin_android.datas.ReviewData
 import java.util.*
@@ -84,7 +85,10 @@ class RecyclerVewAdapterForMain
         val btnWriteReview = row.findViewById<TextView>(R.id.btnWriteReview)
         val txtOpenPreView = row.findViewById<TextView>(R.id.txtOpenPreView)
         val preViewLayout = row.findViewById<LinearLayout>(R.id.preViewLayout)
+        val btnGotoReviewDetail = row.findViewById<LinearLayout>(R.id.btnGotoReviewDetail)
         var isPreViewOpen = false
+
+
 
 
         fun bind(data: ReviewData) {
@@ -117,10 +121,13 @@ class RecyclerVewAdapterForMain
                 }
             }
 
+            btnGotoReviewDetail.setOnClickListener {
 
+                val myIntent = Intent(mContext, ReviewDetailActivity::class.java)
+                myIntent.putExtra("reviewId",data.id)
+                mContext.startActivity(myIntent)
 
-
-
+            }
         }
     }
 
