@@ -73,7 +73,7 @@ class ReviewDetailActivity : BaseActivity() {
 
         mReviewData = intent.getSerializableExtra("review") as ReviewData
 
-       setReviewDataToUI()
+        setReviewDataToUI()
         getReviewDataFromSever()
 
     }
