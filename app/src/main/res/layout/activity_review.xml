@@ -240,13 +240,15 @@
                     android:layout_marginTop="3dp"
                     android:background="@color/black" />
 
-                <RatingBar
+                <com.willy.ratingbar.ScaleRatingBar
                     android:id="@+id/ratingBar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:rating="0" />
+                    android:isIndicator="false"
+                    app:srb_stepSize="0.5"
+                    android:max="5"
+                    android:layout_marginTop="5dp" />
 
                 <EditText
                     android:id="@+id/edtReviewContent"

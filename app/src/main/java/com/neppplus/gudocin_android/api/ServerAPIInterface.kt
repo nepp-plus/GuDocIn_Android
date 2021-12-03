@@ -1,6 +1,7 @@
 package com.neppplus.gudocin_android.api
 
 import com.neppplus.gudocin_android.datas.BasicResponse
+import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.http.Field
@@ -63,15 +64,11 @@ interface ServerAPIInterface {
     @GET("/review")
     fun getRequestReviewList(): Call<BasicResponse>
 
-//    리뷰 등록
-    @FormUrlEncoded
+//    리뷰 등록 - 멀티파트로 파일도 같이 첨부
+    @Multipart
     @POST("/review")
     fun postRequestReviewContent(
-    @Field("product_id") productId: Int,
-    @Field("title") title: String,
-    @Field("content") content: String,
-    @Field("score") rating: Double,
-    @Field("tag_list") tagList: String,
+    @PartMap params: Map<String, RequestBody>
     ) : Call<BasicResponse>
 
 //    리뷰 목록 랭킹순
