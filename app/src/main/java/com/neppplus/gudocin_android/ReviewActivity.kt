@@ -164,7 +164,7 @@ class ReviewActivity : BaseActivity() {
 
                 val file = File( URIPathHelper().getPath(mContext, mSelectedThumbnailUri!!) )
                 val fileReqBody =  RequestBody.create(MediaType.get("image/*"), file)
-                val thumbNailImagebody = MultipartBody.Part.createFormData("profile_image", "myFile.jpg", fileReqBody)
+                val thumbNailImagebody = MultipartBody.Part.createFormData("thumbnail_img", "myFile.jpg", fileReqBody)
 
                 val param = HashMap<String, RequestBody>()
 
@@ -176,7 +176,8 @@ class ReviewActivity : BaseActivity() {
 //                param.put("thumbnail_img", fileReqBody)
 
                 apiService.postRequestReviewContent(
-                    param
+                    param,
+                    thumbNailImagebody,
                 ).enqueue(object : Callback<BasicResponse> {
                     override fun onResponse(
                         call: Call<BasicResponse>,

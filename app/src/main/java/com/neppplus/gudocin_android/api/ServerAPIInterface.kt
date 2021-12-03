@@ -1,6 +1,7 @@
 package com.neppplus.gudocin_android.api
 
 import com.neppplus.gudocin_android.datas.BasicResponse
+import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Callback
@@ -68,7 +69,9 @@ interface ServerAPIInterface {
     @Multipart
     @POST("/review")
     fun postRequestReviewContent(
-    @PartMap params: HashMap<String, RequestBody>
+        @PartMap params: HashMap<String, RequestBody>,
+        @Part img: MultipartBody.Part
+
     ) : Call<BasicResponse>
 
 //    리뷰 목록 랭킹순
