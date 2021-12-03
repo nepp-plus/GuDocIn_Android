@@ -3,6 +3,7 @@ package com.neppplus.gudocin_android
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
+import com.neppplus.gudocin_android.adapters.ReplyAdapter
 import com.neppplus.gudocin_android.databinding.ActivityReplyBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.ReplyData
@@ -17,7 +18,9 @@ class ReplyActivity : BaseActivity() {
 
     lateinit var mReviewData : ReviewData
 
-    val mReplyList = ArrayList<String>()
+    lateinit var mReplyAdapter : ReplyAdapter
+
+    val mReplyList = ArrayList<ReviewData>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +30,26 @@ class ReplyActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
+
+        binding.btnEditReply.setOnClickListener {
+            val inputContent = binding.edtReply.text.toString()
+
+            apiService.postRequestReviewReply(mReviewData.id,inputContent).enqueue(object :Callback<BasicResponse>{
+                override fun onResponse(
+                    call: Call<BasicResponse>,
+                    response: Response<BasicResponse>
+                ) {
+
+                }
+
+                override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+
+                }
+
+
+            })
+
+        }
 
 
     }
@@ -45,6 +68,8 @@ class ReplyActivity : BaseActivity() {
 
 
         })
+        mReplyAdapter = ReplyAdapter(mContext,R.layout.reply_list_item,mReplyList)
+        binding.reviewReplyListview.adapter = mReplyAdapter
 
     }
 
