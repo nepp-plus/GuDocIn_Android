@@ -67,6 +67,7 @@
                     android:id="@+id/checkAutoLogin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:buttonTint="@color/black"
                     android:text="자동 로그인"
                     android:textStyle="bold" />
 
