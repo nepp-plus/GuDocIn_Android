@@ -25,6 +25,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="로그인"
+                    android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -81,6 +82,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="아이디/비밀번호 찾기"
+                    android:textColor="@color/black"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -122,6 +124,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="회원가입하기"
+                android:textColor="@color/black"
                 android:textStyle="bold" />
 
         </LinearLayout>
