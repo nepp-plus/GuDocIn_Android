@@ -68,7 +68,7 @@ interface ServerAPIInterface {
     @Multipart
     @POST("/review")
     fun postRequestReviewContent(
-    @PartMap params: Map<String, RequestBody>
+    @PartMap params: HashMap<String, RequestBody>
     ) : Call<BasicResponse>
 
 //    리뷰 목록 랭킹순

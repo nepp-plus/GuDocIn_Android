@@ -173,7 +173,7 @@ class ReviewActivity : BaseActivity() {
                 param.put("title", inputTitleBody)
                 param.put("score", ratingBody)
                 param.put("tag_list", tagStrBody)
-                param.put("thumbnail_img", fileReqBody)
+//                param.put("thumbnail_img", fileReqBody)
 
                 apiService.postRequestReviewContent(
                     param
