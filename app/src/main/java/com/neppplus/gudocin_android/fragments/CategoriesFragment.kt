@@ -23,8 +23,9 @@ class CategoriesFragment : BaseFragment() {
 
     var mSmallCategoriesList = ArrayList<SmallCategoriesData>()
     lateinit var mSmallcateoriesListAdapter : SmallCategoriesListAdapter
-    var mLargeCategoryId = 1
+    var mLargeCategoryId = 2
 
+//   eatCategoryId = 2 / wearCategoryId = 1 / lifeCategoryId =3
 
 
     override fun onCreateView(
@@ -48,25 +49,21 @@ class CategoriesFragment : BaseFragment() {
     override fun setupEvents() {
 
         binding.btnCategriesEat.setOnClickListener {
-            getSmallCategoryListFromServer()
             mLargeCategoryId = 2
-
-
+            getSmallCategoryListFromServer()
 
         }
 
         binding.btnCategriesLife.setOnClickListener {
-            getSmallCategoryListFromServer()
             mLargeCategoryId = 3
-
+            getSmallCategoryListFromServer()
 
         }
 
 
         binding.btnCategriesWear.setOnClickListener {
-            getSmallCategoryListFromServer()
             mLargeCategoryId = 1
-
+            getSmallCategoryListFromServer()
 
         }
 

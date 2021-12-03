@@ -31,10 +31,6 @@ class HomeFragment : BaseFragment() {
 
         return binding.root
 
-
-
-
-
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -53,10 +49,6 @@ class HomeFragment : BaseFragment() {
 
     override fun setValues() {
 
-
-
-
-
         getReviewListFromServer()
         getBannerListFromServer()
 
@@ -64,8 +56,6 @@ class HomeFragment : BaseFragment() {
         mMainRecyclerAdapter = RecyclerVewAdapterForMain(mContext, mReviewList)
         binding.reviewListRecyclerView.adapter = mMainRecyclerAdapter
         binding.reviewListRecyclerView.layoutManager = LinearLayoutManager(mContext)
-
-
 
 
 

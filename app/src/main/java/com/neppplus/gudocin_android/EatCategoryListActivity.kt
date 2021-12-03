@@ -23,8 +23,9 @@ class EatCategoryListActivity : BaseActivity() {
 
     val mSmallcategoryList = ArrayList<SmallCategoriesData>()
     lateinit var mSmallcategoryListAdapter : SmallCategoriesListAdapter
-    var mLargeCategoryId = 1
-//    var mLargeCategoryId = intent.getIntExtra("Large_category_id")
+    var mLargeCategoryId = 2
+
+    //   eatCategoryId = 2 / wearCategoryId = 1 / lifeCategoryId =3
     var mClickedSmallCategoryNum = 7
 
     val mProductList = ArrayList<ProductData>()
@@ -69,8 +70,6 @@ class EatCategoryListActivity : BaseActivity() {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
 
                 if (response.isSuccessful ){
-
-
                     mProductList.clear()
                     mProductList.addAll(response.body()!!.data.products)
                     mProductRecyclerAdapter.notifyDataSetChanged()
@@ -83,7 +82,6 @@ class EatCategoryListActivity : BaseActivity() {
             }
 
         })
-
 
     }
 

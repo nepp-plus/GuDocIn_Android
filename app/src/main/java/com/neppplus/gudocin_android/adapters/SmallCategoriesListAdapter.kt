@@ -13,6 +13,7 @@ import com.neppplus.gudocin_android.EatCategoryListActivity
 import com.neppplus.gudocin_android.ProductItemDetailActivity
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.datas.SmallCategoriesData
+import com.neppplus.gudocin_android.fragments.HomeFragment
 
 
 class SmallCategoriesListAdapter(val mContext: Context, val mList:  List<SmallCategoriesData>
@@ -20,6 +21,7 @@ class SmallCategoriesListAdapter(val mContext: Context, val mList:  List<SmallCa
 ) : RecyclerView.Adapter<SmallCategoriesListAdapter.SmallCategoryViewHolder>() {
 
     inner class SmallCategoryViewHolder(view: View): RecyclerView.ViewHolder(view){
+
         val txtSmallCategoryName = view.findViewById<TextView>(R.id.txtSmallCategoryName)
         val btnRefreshListOfSmallCategory = view.findViewById<LinearLayout>(R.id.btnRefreshListOfSmallCategory)
 
@@ -28,15 +30,12 @@ class SmallCategoriesListAdapter(val mContext: Context, val mList:  List<SmallCa
 
             btnRefreshListOfSmallCategory.setOnClickListener{
 
-
                 val selectedSmallCategoryNum = data.id
+//                (mContext as HomeFragment).
 
                 (mContext as EatCategoryListActivity).mClickedSmallCategoryNum = selectedSmallCategoryNum
 
-
             }
-
-
 
         }
 
@@ -52,8 +51,6 @@ class SmallCategoriesListAdapter(val mContext: Context, val mList:  List<SmallCa
         val data = mList[position]
 
         holder.bind(data)
-
-
     }
 
     override fun getItemCount()= mList.size
