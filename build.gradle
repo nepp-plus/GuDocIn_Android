@@ -4,6 +4,8 @@ buildscript {
         google()
         maven { url 'https://devrepo.kakao.com/nexus/content/groups/public/'}
         mavenCentral()
+
+//        카렌터뷰 세팅
         maven { url 'https://jitpack.io' }
     }
     dependencies {

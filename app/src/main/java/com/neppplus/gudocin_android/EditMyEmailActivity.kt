@@ -30,7 +30,7 @@ class EditMyEmailActivity : BaseActivity() {
 
             val inputEamil = binding.edtEmail.text.toString()
 
-            apiService.patchRequestEditUserInfo(
+            apiService.patchRequestEditMyEmail(
                 "receive_email",
                 inputEamil
             ).enqueue( object : Callback<BasicResponse>{

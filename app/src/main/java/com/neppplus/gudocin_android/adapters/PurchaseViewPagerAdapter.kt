@@ -7,6 +7,7 @@ import com.neppplus.gudocin_android.fragments.MyMyReviewListFragment
 import com.neppplus.gudocin_android.fragments.PurchaseListFragment
 
 class PurchaseViewPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm){
+
     override fun getCount( )= 2
 
     override fun getPageTitle(position: Int): CharSequence? {
