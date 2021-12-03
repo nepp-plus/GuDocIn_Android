@@ -87,6 +87,7 @@
         android:gravity="center_vertical">
 
         <TextView
+            android:id="@+id/txtOpenPreView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/black"
@@ -94,16 +95,30 @@
             android:layout_marginTop="5dp"
             android:text="더보기"/>
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/preViewLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
         <TextView
-            android:id="@+id/txtCheckedContents"
+            android:id="@+id/txtCheckedContents1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone"
             android:text="선택된 체크박스 내용 자리"/>
 
-
+        <TextView
+            android:id="@+id/txtCheckedContents2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="선택된 체크박스 내용 자리"/>
 
     </LinearLayout>
+
+
 
     <Button
         android:id="@+id/btnWriteReview"

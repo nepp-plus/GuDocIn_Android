@@ -82,6 +82,9 @@ class RecyclerVewAdapterForMain
         val imgReviewSomeNail = row.findViewById<ImageView>(R.id.imgReviewSomeNail)
         val imgReviewerImage = row.findViewById<ImageView>(R.id.imgReviewerImage)
         val btnWriteReview = row.findViewById<TextView>(R.id.btnWriteReview)
+        val txtOpenPreView = row.findViewById<TextView>(R.id.txtOpenPreView)
+        val preViewLayout = row.findViewById<LinearLayout>(R.id.preViewLayout)
+        var isPreViewOpen = false
 
 
         fun bind(data: ReviewData) {
@@ -96,6 +99,26 @@ class RecyclerVewAdapterForMain
                 myIntent.putExtra("product", data.product)
                 mContext.startActivity(myIntent)
             }
+
+            if (isPreViewOpen==false){
+                btnOpenPreview.setOnClickListener {
+                    preViewLayout.visibility = View.VISIBLE
+                    txtOpenPreView.text= "닫기"
+                    isPreViewOpen =true
+                    notifyDataSetChanged()
+                }
+            }
+            else{
+                btnOpenPreview.setOnClickListener {
+                    preViewLayout.visibility = View.GONE
+                    txtOpenPreView.text= "더보기.."
+                    isPreViewOpen =false
+                    notifyDataSetChanged()
+                }
+            }
+
+
+
 
 
         }

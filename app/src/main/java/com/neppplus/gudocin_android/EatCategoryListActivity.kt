@@ -30,10 +30,8 @@ class EatCategoryListActivity : BaseActivity() {
     var mClickedSmallCategoryNum = 7
 
     val mProductList = ArrayList<ProductData>()
-    val mReviewsList = ArrayList<ReviewData>()
-    lateinit var mProductRecyclerAdapter : ProductRecyclerViewAdapter
-    lateinit var mReviewRecyclerViewAdapterForProductList : ReviewRecyclerViewAdapterForProductList
 
+    lateinit var mProductRecyclerAdapter : ProductRecyclerViewAdapter
 
 
 
@@ -62,8 +60,6 @@ class EatCategoryListActivity : BaseActivity() {
         binding.productListRecyclerView.adapter = mProductRecyclerAdapter
         binding.productListRecyclerView.layoutManager = LinearLayoutManager(mContext)
 
-        //리뷰 리스트 Recycler View 용 어댑터 연결
-        mReviewRecyclerViewAdapterForProductList = ReviewRecyclerViewAdapterForProductList(mContext,mReviewsList)
 
 
     }
@@ -81,16 +77,6 @@ class EatCategoryListActivity : BaseActivity() {
                     mProductRecyclerAdapter.notifyDataSetChanged()
 
 
-                    mReviewsList.clear()
-                    mReviewsList.addAll(br.data.reviews)
-                    mReviewRecyclerViewAdapterForProductList.notifyDataSetChanged()
-
-                    for (sc in mReviewsList){
-                        val view = LayoutInflater.from(mContext).inflate(R.layout.review_item_for_product_detail,null)
-//                        val txtSmallCategoryName = view.findViewById<TextView>(R.id.txtSmallCategoryName)
-
-//                        binding.reviewItemLayout.addView(view)
-                    }
                 }
             }
 
