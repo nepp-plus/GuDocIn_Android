@@ -1,6 +1,8 @@
 package com.neppplus.gudocin_android
 
+import android.Manifest
 import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,6 +11,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
+import com.gun0912.tedpermission.PermissionListener
+import com.gun0912.tedpermission.normal.TedPermission
 import com.neppplus.gudocin_android.databinding.ActivityReviewBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.GlobalData
@@ -22,6 +26,8 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 class ReviewActivity : BaseActivity() {
+
+    val REQ_FOR_GALLERY = 1004
 
     lateinit var binding : ActivityReviewBinding
 
@@ -39,6 +45,33 @@ class ReviewActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
+
+        binding.imgThumPicture.setOnClickListener {
+
+            val pl = object : PermissionListener {
+                override fun onPermissionGranted() {
+
+                    val myIntent = Intent()
+                    myIntent.action = Intent.ACTION_PICK
+                    myIntent.type = android.provider.MediaStore.Images.Media.CONTENT_TYPE
+                    startActivityForResult( myIntent, REQ_FOR_GALLERY )
+
+                }
+
+                override fun onPermissionDenied(deniedPermissions: MutableList<String>?) {
+
+                    Toast.makeText(mContext, "갤러리 조회 권한이 없습니다.", Toast.LENGTH_SHORT).show()
+
+                }
+
+            }
+
+            TedPermission.create()
+                .setPermissionListener(pl)
+                .setPermissions(Manifest.permission.READ_EXTERNAL_STORAGE)
+                .check()
+
+        }
 
 
         binding.edtKeyword.addTextChangedListener {
@@ -161,6 +194,15 @@ class ReviewActivity : BaseActivity() {
         }
 
 
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == REQ_FOR_GALLERY) {
+            if (resultCode == RESULT_OK) {
+
+            }
+        }
     }
 
     override fun setValues() {
