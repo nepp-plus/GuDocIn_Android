@@ -23,7 +23,7 @@ class CategoriesFragment : BaseFragment() {
     lateinit var mSmallcateoriesListAdapter : SmallCategoriesListAdapter
     var mLargeCategoryId = 2
 
-//    ///여기에 래이아웃 만들어서 스몰 카테고리 만드는 코드 추가되어야 함
+//    ///여기에 래이아웃 만들어서 스몰 카테고리 만드는 코드 추가되어야 함   -> 아래 리뷰 리스트 리프레시 하는 코드도 추가되어야 함
 
 //   eatCategoryId = 2 / wearCategoryId = 1 / lifeCategoryId =3
 
