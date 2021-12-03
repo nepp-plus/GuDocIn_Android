@@ -125,6 +125,14 @@ class LoginActivity : BaseActivity() {
 
     override fun setupEvents() {
 
+        binding.checkAutoLogin.setOnCheckedChangeListener { compoundButton, isChecked ->
+
+            Log.d("체크박스 변경", isChecked.toString())
+
+            ContextUtil.setAutoLogin(mContext, isChecked)
+
+        }
+
         binding.txtFindAccount.setOnClickListener {
 
             val myIntent = Intent(mContext, FindAccountActivity::class.java)
@@ -241,6 +249,8 @@ class LoginActivity : BaseActivity() {
     }
 
     override fun setValues() {
+
+        binding.checkAutoLogin.isChecked = ContextUtil.getAutoLogin(mContext)
 
         callbackManager = CallbackManager.Factory.create()
 

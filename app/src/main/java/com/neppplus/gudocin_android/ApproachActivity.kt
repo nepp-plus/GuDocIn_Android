@@ -97,7 +97,7 @@ class ApproachActivity : BaseActivity() {
 
                 val myIntent: Intent
 
-                if (ContextUtil.getToken(mContext) != "") {
+                if (ContextUtil.getAutoLogin(mContext) && ContextUtil.getToken(mContext) != "") {
                     myIntent = Intent(mContext, NavigationActivity::class.java)
                 } else {
                     myIntent = Intent(mContext, LoginActivity::class.java)
