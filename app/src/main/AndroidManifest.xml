@@ -70,9 +70,6 @@
             android:name=".CustomerCenterActivity"
             android:exported="true" />
         <activity
-            android:name=".MyProductPurchaseListActivity"
-            android:exported="true" />
-        <activity
             android:name=".UserEditActivity"
             android:exported="true" />
         <activity
@@ -86,8 +83,8 @@
             android:exported="true" />
         <activity
             android:name=".ApproachActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -111,13 +108,15 @@
         </activity>
         <activity
             android:name=".SignUpActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".ReviewActivity"
             android:exported="true" />
         <activity
             android:name=".LoginActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".NavigationActivity"
             android:exported="true">
