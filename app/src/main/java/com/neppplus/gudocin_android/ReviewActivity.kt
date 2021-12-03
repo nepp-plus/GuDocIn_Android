@@ -86,6 +86,7 @@ class ReviewActivity : BaseActivity() {
         binding.imgThumPicture.setOnClickListener(ocl)
 
 
+//        지금들어오는 텍스트가 무엇인지 확인하는 함수
         binding.edtKeyword.addTextChangedListener {
 
             val nowText = it.toString()
@@ -95,6 +96,7 @@ class ReviewActivity : BaseActivity() {
                 return@addTextChangedListener
             }
 
+//            입력한 값이 스페이스바가 들어오게 되면 태그가 되게하는 함수
             Log.d("입력값", nowText)
 
             if (nowText.last() == ' ') {
@@ -109,23 +111,24 @@ class ReviewActivity : BaseActivity() {
                 txtTag.text = "#${tag}"
 
                 binding.tagListLayout.addView(tagBox)
-
                 binding.edtKeyword.setText("")
 
             }
-
-
         }
+
         binding.btnUploadReview.setOnClickListener {
 
+            val inputTag = binding.edtKeyword.text.toString()
             val inputTile = binding.edtReviewTitle.text.toString()
 
 
+//            제목이 입력되지않으면 버튼이 눌리지않도록 하는 함수
             if (inputTile.length < 1) {
                 Toast.makeText(mContext, "제목을 입력해 주세요.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
+//            리뷰내용이 입력되지않으면 버튼이 눌리지않도록 하는 함수
             val inputContent = binding.edtReviewContent.text.toString()
             if (inputContent.length < 1) {
                 Toast.makeText(mContext, "리뷰 내용을 입력해주세요.", Toast.LENGTH_SHORT).show()
@@ -151,6 +154,7 @@ class ReviewActivity : BaseActivity() {
                     Log.d("첨부할 태그", tag)
                     tagStr += tag
                     tagStr += ","
+
                 }
                 tagStr = tagStr.substring(0, tagStr.length - 1)
                 Log.d("완성된String", tagStr)
@@ -200,17 +204,15 @@ class ReviewActivity : BaseActivity() {
 
                     }
 
-
                 })
-
 
             })
             alert.setNegativeButton("취소", null)
 
             alert.show()
 
-
         }
+
         binding.btnCancleReview.setOnClickListener {
 
             val alert = AlertDialog.Builder(mContext)

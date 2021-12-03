@@ -9,26 +9,19 @@
         android:orientation="vertical"
         tools:context=".ReplyActivity">
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport="true">
-
             <ListView
                 android:id="@+id/reviewReplyListview"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
+                android:layout_height="0dp"
+                android:layout_weight="1">
 
             </ListView>
-
-
-        </ScrollView>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:gravity="center"
             android:padding="5dp">
 
             <de.hdodenhof.circleimageview.CircleImageView
@@ -39,11 +32,18 @@
 
             <EditText
                 android:id="@+id/edtReply"
-                android:layout_width="wrap_content"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:inputType="text"
                 android:hint="댓글을 달아주세요..."/>
 
+            <Button
+                android:id="@+id/btnEditReply"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/text_box"
+                android:textColor="@color/black"
+                android:text="전송"/>
 
         </LinearLayout>
 
