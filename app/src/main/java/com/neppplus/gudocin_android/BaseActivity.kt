@@ -3,6 +3,7 @@ package com.neppplus.gudocin_android
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -13,7 +14,7 @@ import androidx.appcompat.widget.Toolbar
 import com.neppplus.gudocin_android.api.ServerAPI
 import com.neppplus.gudocin_android.api.ServerAPIInterface
 
-abstract class BaseActivity() : AppCompatActivity() {
+abstract class BaseActivity : AppCompatActivity() {
 
     lateinit var mContext: Context
 
@@ -45,6 +46,8 @@ abstract class BaseActivity() : AppCompatActivity() {
 
 //        기본 액션바 가져오기 -> 액션바는 무조건 있다고 전제.
         val defActionBar = supportActionBar!!
+
+        Log.d("액션바", "설정으로 들어옴")
 
 //        이 액션바를 커스텀 모드로 변경
         defActionBar.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM

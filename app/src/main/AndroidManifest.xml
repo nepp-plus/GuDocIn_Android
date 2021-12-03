@@ -70,9 +70,6 @@
             android:name=".CustomerCenterActivity"
             android:exported="true" />
         <activity
-            android:name=".MyProductPurchaseListActivity"
-            android:exported="true" />
-        <activity
             android:name=".UserEditActivity"
             android:exported="true" />
         <activity
@@ -86,6 +83,7 @@
             android:exported="true" />
         <activity
             android:name=".ApproachActivity"
+            android:theme="@style/Theme.GuDocIn_Android.NoActionBar"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -120,11 +118,6 @@
         <activity
             android:name=".NavigationActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <meta-data
