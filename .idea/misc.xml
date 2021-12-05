@@ -101,9 +101,24 @@
         <entry key="..\:/Users/NePPPlus_Teacher_01/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/product_item.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/NePPPlus_Teacher_01/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/ranking_list_item.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/layout/activity_basket.xml" value="0.22" />
+        <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/layout/activity_eat_category_list.xml" value="0.3572916666666667" />
+        <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/layout/activity_notice.xml" value="0.3572916666666667" />
+        <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/layout/activity_reply.xml" value="0.3572916666666667" />
+        <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/layout/activity_review.xml" value="0.3572916666666667" />
+        <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/layout/activity_review_detail.xml" value="0.3572916666666667" />
+        <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/layout/banner_list.xml" value="0.3572916666666667" />
         <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/layout/basket_action_bar.xml" value="0.2518518518518518" />
-        <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/layout/basket_list_item.xml" value="0.5" />
+        <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/layout/basket_list_item.xml" value="0.5961538461538461" />
         <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/layout/custom_action_bar.xml" value="0.67" />
+        <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/layout/fragment_basket_list.xml" value="0.3572916666666667" />
+        <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/layout/fragment_categories.xml" value="0.3572916666666667" />
+        <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/layout/fragment_home.xml" value="0.3037037037037037" />
+        <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/layout/fragment_review_list.xml" value="0.3037037037037037" />
+        <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/layout/ranking_list_item.xml" value="0.3572916666666667" />
+        <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/layout/reply_list_item.xml" value="0.3572916666666667" />
+        <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/layout/review_item_for_main.xml" value="0.24351851851851852" />
+        <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/layout/small_categories_item.xml" value="0.3572916666666667" />
+        <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/layout/tag_list_item.xml" value="0.3572916666666667" />
       </map>
     </option>
   </component>

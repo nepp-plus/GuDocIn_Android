@@ -37,14 +37,22 @@
         tools:text="상품명" />
 
     <TextView
-        android:id="@+id/txtBasketProductPrice"
+        android:id="@+id/txtBasketProductPrice1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="@+id/txtBasketProductName"
         app:layout_constraintTop_toBottomOf="@+id/txtBasketProductName"
-        tools:text="가격" />
+        tools:text="가격 : " />
+
+    <TextView
+        android:id="@+id/txtBasketProductPrice2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@+id/txtBasketProductPrice1"
+        app:layout_constraintTop_toTopOf="@id/txtBasketProductPrice1"
+        android:text=" 10,000원" />
 
     <TextView
         android:id="@+id/txtBasketProductOption"

@@ -2,11 +2,6 @@ package com.neppplus.gudocin_android.api
 
 import com.neppplus.gudocin_android.datas.BasicResponse
 import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.GET
-import retrofit2.http.POST
 import retrofit2.http.*
 
 interface ServerAPIInterface {
@@ -175,10 +170,6 @@ interface ServerAPIInterface {
 
         ) : Call<BasicResponse>
 
-
-
-
-
 //      회원 아이디 찾기
     @GET("/user/find/email")
     fun getRequestEmail(
@@ -194,4 +185,9 @@ interface ServerAPIInterface {
     @Field("nick_name") name: String,
     ) : Call<BasicResponse>
 
+//    장바구니 조회
+    @GET("/cart")
+    fun getRequestBasketList(
+    @Header("X-Http-Token")  token: String,
+    ) : Call<BasicResponse>
 }
