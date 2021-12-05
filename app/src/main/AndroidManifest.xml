@@ -14,12 +14,12 @@
         android:theme="@style/Theme.GuDocIn_Android"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".BasketActivity"
+            android:exported="false" />
+        <activity
             android:name=".FindAccountActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
-        <activity
-            android:name=".BasketActivity"
-            android:exported="true" />
         <activity
             android:name=".EditMyPhoneNumActivity"
             android:exported="true" />
