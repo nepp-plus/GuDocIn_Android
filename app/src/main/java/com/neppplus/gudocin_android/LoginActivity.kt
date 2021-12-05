@@ -65,6 +65,8 @@ class LoginActivity : BaseActivity() {
         callbackManager.onActivityResult(requestCode, resultCode, data)
         super.onActivityResult(requestCode, resultCode, data)
 
+        binding.checkAutoLogin.isChecked = ContextUtil.getAutoLogin(mContext)
+
         if (resultCode == Activity.RESULT_OK && requestCode == RESULT_CODE) {
             val result = Auth.GoogleSignInApi.getSignInResultFromIntent(data)
 
@@ -331,6 +333,8 @@ class LoginActivity : BaseActivity() {
     }
 
     fun getMyInfoFromKakao() {
+
+        binding.checkAutoLogin.isChecked = ContextUtil.getAutoLogin(mContext)
 
         UserApiClient.instance.me { user, error ->
 
