@@ -70,6 +70,7 @@ class ProductItemDetailActivity : BaseActivity() {
 
                     if (mProductData.reviews.size == 0){
                         binding.txtViewReview.text = "아직 등록된 리뷰가 없습니다."
+
                     }
                     else{
                         mReviewList.clear()
