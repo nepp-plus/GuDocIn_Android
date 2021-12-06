@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.datas.ReplyData
 import com.neppplus.gudocin_android.datas.ReviewData
@@ -27,12 +28,16 @@ class ReplyAdapter(
         }
 
         val row = tempRow!!
-        return row
 
-        val imgUserProfile = row.findViewById<ImageView>(R.id.imgUserProfile)
+
+        val data = mList[position]
+
         val txtUserNickName = row.findViewById<TextView>(R.id.txtUserNickName)
         val txtReplyTime = row.findViewById<TextView>(R.id.txtReplyTime)
         val txtReviewReply = row.findViewById<TextView>(R.id.txtReviewReply)
+        val imgUserProfile = row.findViewById<ImageView>(R.id.imgUserProfile)
+
+        return row
 
     }
 }

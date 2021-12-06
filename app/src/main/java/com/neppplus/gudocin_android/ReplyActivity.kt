@@ -1,6 +1,7 @@
 package com.neppplus.gudocin_android
 
 import android.os.Bundle
+import android.util.Log
 import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
 import com.neppplus.gudocin_android.adapters.ReplyAdapter
@@ -50,6 +51,8 @@ class ReplyActivity : BaseActivity() {
 
 
 
+
+
                         }
 
                     }
@@ -80,9 +83,7 @@ class ReplyActivity : BaseActivity() {
                 if (response.isSuccessful){
                     val br = response.body()!!
 
-
-
-
+                    Log.d("잘불러옴","불러옴")
 
                 }
 
