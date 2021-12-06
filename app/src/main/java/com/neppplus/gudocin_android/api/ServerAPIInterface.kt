@@ -200,4 +200,12 @@ interface ServerAPIInterface {
     @Field("nick_name") name: String,
     ) : Call<BasicResponse>
 
+
+    //   장바구니에 상품 등록
+    @FormUrlEncoded
+    @POST("/cart")
+    fun postRequestAddItemToCart(
+        @Field("product_id") productId: Int,
+
+    ) : Call<BasicResponse>
 }
