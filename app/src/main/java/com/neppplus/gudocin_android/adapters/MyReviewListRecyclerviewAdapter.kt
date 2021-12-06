@@ -43,13 +43,13 @@ class MyReviewListRecyclerviewAdapter (
         }
 
     }
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ??? {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyReviewViewHolder {
 
         val row = LayoutInflater.from(mContext).inflate(R.layout.mymy_review_recyclerview_list_item, parent, false)
         return MyReviewViewHolder(row)
     }
 
-    override fun onBindViewHolder(holder: ???, position: Int) {
+    override fun onBindViewHolder(holder: MyReviewViewHolder, position: Int) {
 
     }
 
