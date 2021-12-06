@@ -1,5 +1,6 @@
 package com.neppplus.gudocin_android
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.databinding.DataBindingUtil
@@ -18,6 +19,7 @@ import retrofit2.Response
 class ProductItemDetailActivity : BaseActivity() {
 
     lateinit var binding: ActivityProductItemDetailBinding
+
     val mReviewList = ArrayList<ReviewData>()
     lateinit var mProductData :ProductData
     lateinit var mReviewRecyclerViewAdapterForProductList : ReviewRecyclerViewAdapterForProductList
@@ -40,9 +42,23 @@ class ProductItemDetailActivity : BaseActivity() {
 
     override fun setValues() {
 
-        mProductData = intent.getSerializableExtra("product_id") as ProductData
+        binding.btnBuyProduct.setOnClickListener {
+           val myIntent = Intent(mContext,  ::class.java )
+            myIntent.putExtra("product_id",mProductData.id)
+            startActivity(myIntent)
+        }
+
+        binding.btnAddCart.setOnClickListener {
+            val myIntent = Intent(mContext, MyPurchaseListActivity ::class.java)
+            myIntent.putExtra("product_id",mProductData.id)
+            startActivity(myIntent)
+
+        }
 
         getProductItemDetailFromServer()
+
+        mProductData = intent.getSerializableExtra("product_id") as ProductData
+
 
         //제품 상세 content 와 상점 상세 content 의 ViewPager 용 어댑터 연결
         mProductContentViewPagerAdapter = ProductContentViewPagerAdapter(supportFragmentManager)
