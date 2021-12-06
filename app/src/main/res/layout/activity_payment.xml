@@ -94,7 +94,7 @@
                 android:id="@+id/txtSubscribeCycle2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" 1년 주기"
+                android:text=" 1년"
                 app:layout_constraintStart_toEndOf="@+id/txtSubscribeCycle1"
                 app:layout_constraintTop_toTopOf="@id/txtSubscribeCycle1" />
 
@@ -133,6 +133,7 @@
                 app:layout_constraintTop_toBottomOf="@id/txtConsumerInfo" />
 
             <TextView
+                android:id="@+id/txtConsumerName1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" 이아현"
@@ -149,6 +150,7 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
+                android:id="@+id/txtConsumerPhoneNum1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" 010-0000-0000"
@@ -156,6 +158,7 @@
                 app:layout_constraintTop_toTopOf="@id/txtConsumerPhone1" />
 
             <Button
+                android:id="@+id/btnRevise1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="180dp"
@@ -174,6 +177,7 @@
                 app:layout_constraintTop_toBottomOf="@id/txtConsumerPhone1" />
 
             <TextView
+                android:id="@+id/txtConsumerAccount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" nepp@gmail.com"
@@ -203,6 +207,7 @@
                 app:layout_constraintTop_toBottomOf="@id/txtDeliveryInfo" />
 
             <TextView
+                android:id="@+id/txtConsumerName2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" 이아현"
@@ -219,6 +224,7 @@
                 app:layout_constraintTop_toBottomOf="@id/txtReceiver" />
 
             <TextView
+                android:id="@+id/txtConsumerPhoneNum2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" 010-0000-0000"
@@ -235,6 +241,7 @@
                 app:layout_constraintTop_toBottomOf="@id/txtConsumerPhone2" />
 
             <TextView
+                android:id="@+id/txtDeliveryAddress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="서울특별시 동대문구 경동시장로 12길 51(제기동)"
@@ -242,6 +249,7 @@
                 app:layout_constraintTop_toTopOf="@id/txtDelivery" />
 
             <Button
+                android:id="@+id/btnRevise2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="200dp"
@@ -274,6 +282,7 @@
                 app:layout_constraintVertical_bias="0.1" />
 
             <ImageView
+                android:id="@+id/imgCardSelect"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="220dp"
@@ -307,6 +316,7 @@
                 app:layout_constraintVertical_bias="0.1" />
 
             <TextView
+                android:id="@+id/txtProductCost"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" 10,000원"
@@ -325,6 +335,7 @@
                 app:layout_constraintVertical_bias="0.1" />
 
             <TextView
+                android:id="@+id/txtDeliveryCost"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" 10,000원"
@@ -342,6 +353,7 @@
                 app:layout_constraintTop_toBottomOf="@id/txtDeliveryPrice" />
 
             <TextView
+                android:id="@+id/txtTotalCost"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" 10,000원"
