@@ -34,7 +34,5 @@ class ReplyAdapter(
         val txtReplyTime = row.findViewById<TextView>(R.id.txtReplyTime)
         val txtReviewReply = row.findViewById<TextView>(R.id.txtReviewReply)
 
-
-
     }
 }

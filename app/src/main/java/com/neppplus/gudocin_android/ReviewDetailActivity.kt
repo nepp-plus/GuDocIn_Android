@@ -46,6 +46,8 @@ class ReviewDetailActivity : BaseActivity() {
     override fun setupEvents() {
         binding.txtProductDetail.setOnClickListener {
 //            제품 상세페이지 인텐트
+            val myIntent = Intent(mContext, ProductItemDetailActivity::class.java)
+            mContext.startActivity(myIntent)
         }
         binding.txtGoReply.setOnClickListener {
 //            댓글 페이지로 인텐트
@@ -54,6 +56,8 @@ class ReviewDetailActivity : BaseActivity() {
         }
         binding.imgButtonProduct.setOnClickListener {
 //            제품 상세페이지 인텐트
+            val myIntent = Intent(mContext, ProductItemDetailActivity::class.java)
+            mContext.startActivity(myIntent)
         }
         binding.imgButtonReply.setOnClickListener {
 //            댓글 페이지로 인텐트

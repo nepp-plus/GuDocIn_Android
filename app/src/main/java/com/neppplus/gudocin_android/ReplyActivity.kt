@@ -1,12 +1,10 @@
 package com.neppplus.gudocin_android
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import com.neppplus.gudocin_android.adapters.ReplyAdapter
 import com.neppplus.gudocin_android.databinding.ActivityReplyBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
-import com.neppplus.gudocin_android.datas.ReplyData
 import com.neppplus.gudocin_android.datas.ReviewData
 import retrofit2.Call
 import retrofit2.Callback
@@ -16,15 +14,16 @@ class ReplyActivity : BaseActivity() {
 
     lateinit var binding: ActivityReplyBinding
 
-    lateinit var mReviewData : ReviewData
+    lateinit var mReviewData: ReviewData
 
-    lateinit var mReplyAdapter : ReplyAdapter
+    lateinit var mReplyAdapter: ReplyAdapter
+
 
     val mReplyList = ArrayList<ReviewData>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_reply)
+        binding = DataBindingUtil.setContentView(this, R.layout.reply_list_item)
         setupEvents()
         setValues()
     }
@@ -34,20 +33,21 @@ class ReplyActivity : BaseActivity() {
         binding.btnEditReply.setOnClickListener {
             val inputContent = binding.edtReply.text.toString()
 
-            apiService.postRequestReviewReply(mReviewData.id,inputContent).enqueue(object :Callback<BasicResponse>{
-                override fun onResponse(
-                    call: Call<BasicResponse>,
-                    response: Response<BasicResponse>
-                ) {
+            apiService.postRequestReviewReply(mReviewData.id, inputContent)
+                .enqueue(object : Callback<BasicResponse> {
+                    override fun onResponse(
+                        call: Call<BasicResponse>,
+                        response: Response<BasicResponse>
+                    ) {
 
-                }
+                    }
 
-                override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+                    override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
 
-                }
+                    }
 
 
-            })
+                })
 
         }
 
@@ -55,9 +55,10 @@ class ReplyActivity : BaseActivity() {
     }
 
     override fun setValues() {
-        val intputReply = binding.edtReply.text.toString()
 
-        apiService.getRequestReviewReply(mReviewData.id).enqueue(object : Callback<BasicResponse>{
+
+
+        apiService.getRequestReviewReply(mReviewData.id).enqueue(object : Callback<BasicResponse> {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
 
             }
@@ -68,7 +69,7 @@ class ReplyActivity : BaseActivity() {
 
 
         })
-        mReplyAdapter = ReplyAdapter(mContext,R.layout.reply_list_item,mReplyList)
+        mReplyAdapter = ReplyAdapter(mContext, R.layout.reply_list_item, mReplyList)
         binding.reviewReplyListview.adapter = mReplyAdapter
 
     }
