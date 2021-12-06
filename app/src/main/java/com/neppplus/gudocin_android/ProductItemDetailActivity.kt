@@ -93,6 +93,7 @@ class ProductItemDetailActivity : BaseActivity() {
                         mReviewList.clear()
                         mReviewList.addAll(response.body()!!.data.product.reviews)
                         mReviewRecyclerViewAdapterForProductList.notifyDataSetChanged()
+
                     }
 
                 }
