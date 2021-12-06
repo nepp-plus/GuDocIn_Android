@@ -22,7 +22,6 @@ class SearchActivity : BaseActivity() {
     var mSugestList = arrayOf( "간식", "다이어트 용품")
 
     lateinit var mSugestListAdapter : SuggestListAdapter
-//    = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,mSugestList)
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,6 +57,8 @@ class SearchActivity : BaseActivity() {
 
     override fun setValues() {
 
+//        mSugestListAdapter = SuggestListAdapter(this,R.layout.simple_list_item_1,mSugestList)
+//        어댑터 연결부터 다시하자
         searchResultListView.visibility = View.INVISIBLE
 
 
