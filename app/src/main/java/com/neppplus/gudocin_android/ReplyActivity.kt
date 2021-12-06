@@ -6,6 +6,7 @@ import com.bumptech.glide.Glide
 import com.neppplus.gudocin_android.adapters.ReplyAdapter
 import com.neppplus.gudocin_android.databinding.ActivityReplyBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
+import com.neppplus.gudocin_android.datas.ReplyData
 import com.neppplus.gudocin_android.datas.ReviewData
 import retrofit2.Call
 import retrofit2.Callback
@@ -18,6 +19,8 @@ class ReplyActivity : BaseActivity() {
     lateinit var mReviewData: ReviewData
 
     lateinit var mReplyAdapter: ReplyAdapter
+
+    lateinit var mReplyData: ReplyData
 
 
     val mReplyList = ArrayList<ReviewData>()
@@ -46,6 +49,7 @@ class ReplyActivity : BaseActivity() {
                             val br = response.body()!!
 
 
+
                         }
 
                     }
@@ -70,14 +74,14 @@ class ReplyActivity : BaseActivity() {
 
     }
     fun getRequestReviewFromServer() {
-        apiService.getRequestReviewReply(mReviewData.id).enqueue(object : Callback<BasicResponse> {
+        apiService.getRequestReviewReply(mReplyData.id).enqueue(object : Callback<BasicResponse> {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
 
                 if (response.isSuccessful){
                     val br = response.body()!!
 
-                    mReplyList.clear()
-                    mReplyList.addAll(br.data.replies.user)
+
+
 
 
                 }
