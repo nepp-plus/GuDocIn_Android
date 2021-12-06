@@ -146,9 +146,7 @@
                 android:layout_marginStart="10dp"
                 android:text="연락처 : "
                 app:layout_constraintBottom_toTopOf="@id/txtConsumerEmail"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="txtConsumer" />
-
+                app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -201,7 +199,6 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="15dp"
                 android:text="받는분 : "
-                app:layout_constraintBottom_toTopOf="txtConsumerPhone2"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/txtDeliveryInfo" />
 
@@ -218,7 +215,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:text="연락처 : "
-                app:layout_constraintBottom_toTopOf="txtDelivery"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/txtReceiver" />
 

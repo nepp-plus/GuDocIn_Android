@@ -13,20 +13,6 @@
         <entry key="..\:/GuDocIn_Android_1/app/src/main/res/layout/fragment_user_edit.xml" value="0.25364583333333335" />
         <entry key="..\:/GuDocIn_Android_1/app/src/main/res/layout/my_purchase_review.xml" value="0.25364583333333335" />
         <entry key="..\:/GuDocIn_Android_1/app/src/main/res/layout/my_savedmoney.xml" value="0.4" />
-        <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_basket.xml" value="0.275" />
-        <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_basket_list.xml" value="0.36614583333333334" />
-        <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_eat_category_list.xml" value="0.36614583333333334" />
-        <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_login.xml" value="0.21666666666666667" />
-        <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_order.xml" value="0.33" />
-        <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/basket_list_item.xml" value="0.275" />
-        <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/fragment_banner_list.xml" value="0.36614583333333334" />
-        <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/fragment_basket_list.xml" value="0.19154929577464788" />
-        <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/fragment_basket_list_item.xml" value="0.36614583333333334" />
-        <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/fragment_categories.xml" value="0.36614583333333334" />
-        <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/fragment_home.xml" value="0.36614583333333334" />
-        <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/main_top_viewpager_item.xml" value="0.36614583333333334" />
-        <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/notice_action_bar.xml" value="0.17222222222222222" />
-        <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/notice_calendar.xml" value="0.17222222222222222" />
         <entry key="..\:/Users/NePPPlus_013/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/drawable/tag_box.xml" value="0.3537037037037037" />
         <entry key="..\:/Users/NePPPlus_013/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_login.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/NePPPlus_013/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_main.xml" value="0.3287037037037037" />
@@ -114,6 +100,12 @@
         <entry key="..\:/Users/NePPPlus_Teacher_01/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/fragment_ranking.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/NePPPlus_Teacher_01/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/product_item.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/NePPPlus_Teacher_01/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/ranking_list_item.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/layout/activity_basket_list.xml" value="0.22" />
+        <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/layout/activity_payment.xml" value="0.22" />
+        <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/layout/basket_action_bar.xml" value="0.1" />
+        <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/layout/basket_list_item.xml" value="0.25" />
+        <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/layout/fragment_basket_list.xml" value="0.1" />
+        <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/layout/product_item.xml" value="0.28125" />
       </map>
     </option>
   </component>
