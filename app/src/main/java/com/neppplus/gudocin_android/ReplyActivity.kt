@@ -28,6 +28,8 @@ class ReplyActivity : BaseActivity() {
         setValues()
     }
 
+
+
     override fun setupEvents() {
 
         binding.btnEditReply.setOnClickListener {
@@ -56,8 +58,12 @@ class ReplyActivity : BaseActivity() {
 
     override fun setValues() {
 
+        getRequestReviewFromServer()
 
 
+
+    }
+    fun getRequestReviewFromServer() {
         apiService.getRequestReviewReply(mReviewData.id).enqueue(object : Callback<BasicResponse> {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
 
@@ -72,6 +78,8 @@ class ReplyActivity : BaseActivity() {
         mReplyAdapter = ReplyAdapter(mContext, R.layout.reply_list_item, mReplyList)
         binding.reviewReplyListview.adapter = mReplyAdapter
 
+
     }
+
 
 }
