@@ -1,8 +1,12 @@
 package com.neppplus.gudocin_android
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
@@ -12,6 +16,7 @@ import com.neppplus.gudocin_android.databinding.ActivityProductItemDetailBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.ProductData
 import com.neppplus.gudocin_android.datas.ReviewData
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -35,37 +40,33 @@ class ProductItemDetailActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
+        binding.btnBuyProduct.setOnClickListener {
+//           val myIntent = Intent(mContext,  ::class.java )
+//            myIntent.putExtra("product_id",mProductData.id)
+//            startActivity(myIntent)
+        }
+
+        binding.btnAddCart.setOnClickListener {
+
+            postAddItemToCartViaServer()
 
 
+        }
 
     }
 
     override fun setValues() {
 
-        binding.btnBuyProduct.setOnClickListener {
-           val myIntent = Intent(mContext,  ::class.java )
-            myIntent.putExtra("product_id",mProductData.id)
-            startActivity(myIntent)
-        }
-
-        binding.btnAddCart.setOnClickListener {
-            val myIntent = Intent(mContext, MyPurchaseListActivity ::class.java)
-            myIntent.putExtra("product_id",mProductData.id)
-            startActivity(myIntent)
-
-        }
-
         getProductItemDetailFromServer()
-
         mProductData = intent.getSerializableExtra("product_id") as ProductData
 
 
-        //제품 상세 content 와 상점 상세 content 의 ViewPager 용 어댑터 연결
+        //제품 상세 & 상점 상세의 ViewPager 용 어댑터 연결
         mProductContentViewPagerAdapter = ProductContentViewPagerAdapter(supportFragmentManager)
         binding.ProductContentViewPager.adapter= mProductContentViewPagerAdapter
         binding.ProductContentTabLayout.setupWithViewPager( binding.ProductContentViewPager )
 
-        //리뷰 리스트 Recycler View 용 어댑터 연결
+        //리뷰 리스트 호리젠탈 Recycler View 용 어댑터 연결
         mReviewRecyclerViewAdapterForProductList = ReviewRecyclerViewAdapterForProductList(mContext,mReviewList)
         binding.reviewRecyclerViewForProduct.adapter = mReviewRecyclerViewAdapterForProductList
         binding.reviewRecyclerViewForProduct.layoutManager = LinearLayoutManager(mContext,
@@ -103,6 +104,42 @@ class ProductItemDetailActivity : BaseActivity() {
             }
 
         })
+
+    }
+
+    fun postAddItemToCartViaServer(){
+        apiService.postRequestAddItemToCart(mProductData.id).enqueue(object :Callback<BasicResponse>{
+            override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
+                if (response.isSuccessful){
+
+                    val alert = AlertDialog.Builder(mContext)
+                    alert.setTitle("장바구니 상품 등록")
+                    alert.setMessage("장바구니로 이동 하시겠습니까?")
+                    alert.setPositiveButton("확인",DialogInterface.OnClickListener { dialog, which ->
+
+                        val myIntent = Intent(mContext, MyPurchaseListActivity ::class.java) // activity명 바꿔야 함
+                        myIntent.putExtra("product_id",mProductData.id)
+                        startActivity(myIntent)
+                    })
+                    alert.setNegativeButton("취소", DialogInterface.OnClickListener { dialog, which ->  })
+
+                }
+                else{
+                    val errorJson = JSONObject(response.errorBody()!!.string())
+                    Log.d("에러경우", errorJson.toString())
+                    val message = errorJson.getString("message")
+                    Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show()
+                }
+
+
+            }
+
+            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+
+            }
+
+        })
+
 
     }
 
