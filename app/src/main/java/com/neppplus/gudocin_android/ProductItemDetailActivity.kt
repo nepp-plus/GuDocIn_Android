@@ -1,6 +1,7 @@
 package com.neppplus.gudocin_android
 
 import android.os.Bundle
+import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
@@ -8,6 +9,7 @@ import com.neppplus.gudocin_android.adapters.ProductContentViewPagerAdapter
 import com.neppplus.gudocin_android.adapters.ReviewRecyclerViewAdapterForProductList
 import com.neppplus.gudocin_android.databinding.ActivityProductItemDetailBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
+import com.neppplus.gudocin_android.datas.ProductData
 import com.neppplus.gudocin_android.datas.ReviewData
 import retrofit2.Call
 import retrofit2.Callback
@@ -16,8 +18,8 @@ import retrofit2.Response
 class ProductItemDetailActivity : BaseActivity() {
 
     lateinit var binding: ActivityProductItemDetailBinding
-    var selectedItemFromList = 1
     val mReviewList = ArrayList<ReviewData>()
+    lateinit var mProductData :ProductData
     lateinit var mReviewRecyclerViewAdapterForProductList : ReviewRecyclerViewAdapterForProductList
     lateinit var mProductContentViewPagerAdapter : ProductContentViewPagerAdapter
 
@@ -38,6 +40,8 @@ class ProductItemDetailActivity : BaseActivity() {
 
     override fun setValues() {
 
+        mProductData = intent.getSerializableExtra("product_id") as ProductData
+
         getProductItemDetailFromServer()
 
         //제품 상세 content 와 상점 상세 content 의 ViewPager 용 어댑터 연결
@@ -54,7 +58,7 @@ class ProductItemDetailActivity : BaseActivity() {
     }
 
     fun getProductItemDetailFromServer(){
-        apiService.getRequestProductDetail(selectedItemFromList).enqueue( object : Callback<BasicResponse> {
+        apiService.getRequestProductDetail(mProductData.id).enqueue( object : Callback<BasicResponse> {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
 
                 if (response.isSuccessful) {
@@ -64,9 +68,15 @@ class ProductItemDetailActivity : BaseActivity() {
                     binding.txtProductCompanyName.text = br.data.product.store.name
                     Glide.with(mContext).load(br.data.product.imageUrl).into(binding.imgProduct)
 
-                    mReviewList.clear()
-                    mReviewList.addAll(response.body()!!.data.product.reviews)
-                    mReviewRecyclerViewAdapterForProductList.notifyDataSetChanged()
+                    if (mProductData.reviews.size == 0){
+                        binding.txtViewReview.text = "아직 등록된 리뷰가 없습니다."
+                    }
+                    else{
+                        mReviewList.clear()
+                        mReviewList.addAll(response.body()!!.data.product.reviews)
+                        mReviewRecyclerViewAdapterForProductList.notifyDataSetChanged()
+                    }
+
                 }
 
             }
@@ -78,4 +88,5 @@ class ProductItemDetailActivity : BaseActivity() {
         })
 
     }
+
 }

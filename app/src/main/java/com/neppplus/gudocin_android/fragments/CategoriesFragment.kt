@@ -8,9 +8,11 @@ import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.neppplus.gudocin_android.R
+import com.neppplus.gudocin_android.adapters.ProductRecyclerViewAdapter
 import com.neppplus.gudocin_android.adapters.SmallCategoriesListAdapter
 import com.neppplus.gudocin_android.databinding.FragmentCategoriesBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
+import com.neppplus.gudocin_android.datas.ProductData
 import com.neppplus.gudocin_android.datas.SmallCategoriesData
 import retrofit2.Call
 import retrofit2.Callback
@@ -23,8 +25,10 @@ class CategoriesFragment : BaseFragment() {
     var mSmallCategoriesList = ArrayList<SmallCategoriesData>()
     lateinit var mSmallcateoriesListAdapter : SmallCategoriesListAdapter
     var mLargeCategoryId = 2
+    var mClickedSmallCategoryNum = 1
 
-// 기대효과  장점  공부한 내용///여기에 래이아웃 만들어서 스몰 카테고리 만드는 코드 추가되어야 함   -> 아래 리뷰 리스트 리프레시 하는 코드도 추가되어야 함
+
+///여기에 래이아웃 만들어서 스몰 카테고리 만드는 코드 추가되어야 함   -> 아래 리뷰 리스트 리프레시 하는 코드도 추가되어야 함
 //    받아오는 카테고리 데이터 리스트로 해야 됨 다시보기
 
 //   eatCategoryId = 2 / wearCategoryId = 1 / lifeCategoryId =3
@@ -80,6 +84,8 @@ class CategoriesFragment : BaseFragment() {
         mSmallcateoriesListAdapter = SmallCategoriesListAdapter(mContext,mSmallCategoriesList)
 
 
+
+
     }
 
 
@@ -105,10 +111,10 @@ class CategoriesFragment : BaseFragment() {
 
                         txtSmallCategoryName.text = sc.name
 
-//                        view.setOnClickListener {
-//                            mClickedSmallCategoryNum = sc.id
-//                            getProductListInSmallCategoryFromServer()
-//                        }
+                        view.setOnClickListener {
+                            mClickedSmallCategoryNum = sc.id
+
+                        }
 
                         binding.smalllCategoryList.addView(view)
 
@@ -126,6 +132,8 @@ class CategoriesFragment : BaseFragment() {
 
 
     }
+
+
 
 
 }
