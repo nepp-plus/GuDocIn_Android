@@ -9,6 +9,7 @@ class DataResponse(
     var categories: CategoriesData,
     var small_categories: List<SmallCategoriesData>,
     val banners: List<BannerData>,
-    var baskets: List<BasketData>
+    var baskets: List<BasketData>,
+    var replies: ReplyData,
 ) {
 }

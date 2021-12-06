@@ -13,5 +13,6 @@ class ReplyData(
     var content: String,
     @SerializedName("created_at")
     var createdAt: String,
+    var user: UserData
 ): Serializable {
 }

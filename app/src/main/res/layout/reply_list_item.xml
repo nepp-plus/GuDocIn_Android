@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:orientation="horizontal"
     android:padding="10dp"
-    android:layout_height="match_parent">
+    android:gravity="center_vertical"
+    android:layout_height="wrap_content">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imgUserProfile"
@@ -35,6 +36,7 @@
     <TextView
         android:id="@+id/txtReviewReply"
         android:layout_width="wrap_content"
+        android:layout_marginStart="10dp"
         android:layout_height="wrap_content"
         android:text="댓글 내용 자리"/>
 
