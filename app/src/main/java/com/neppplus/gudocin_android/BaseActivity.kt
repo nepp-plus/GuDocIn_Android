@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.neppplus.gudocin_android.api.ServerAPI
 import com.neppplus.gudocin_android.api.ServerAPIInterface
+import com.neppplus.gudocin_android.fragments.BasketListFragment
 
 abstract class BaseActivity : AppCompatActivity() {
 
@@ -78,12 +79,12 @@ abstract class BaseActivity : AppCompatActivity() {
             startActivity(myIntent)
 
         }
-//        btnBasket.setOnClickListener {
-//
-//            val myIntent = Intent(mContext, BasketActivity::class.java)
-//            startActivity(myIntent)
-//
-//        }
+        btnBasket.setOnClickListener {
+
+            val myIntent = Intent(mContext, BasketListActivity::class.java)
+            startActivity(myIntent)
+
+        }
 
         SearchBoxInActionBar.setOnClickListener {
                 val myIntent = Intent(mContext,SearchActivity::class.java)

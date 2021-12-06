@@ -1,38 +1,27 @@
-package com.neppplus.gudocin_android.fragments
+package com.neppplus.gudocin_android
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import com.neppplus.gudocin_android.R
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.neppplus.gudocin_android.adapters.BasketRecyclerAdapter
-import com.neppplus.gudocin_android.databinding.FragmentBasketListBinding
+import com.neppplus.gudocin_android.databinding.ActivityBasketListBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.BasketData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class BasketListFragment : BaseFragment() {
+class BasketListActivity : BaseActivity() {
 
-    lateinit var binding: FragmentBasketListBinding
+    lateinit var binding: ActivityBasketListBinding
 
     val mBasketList = ArrayList<BasketData>()
 
     lateinit var mBasketRecyclerAdapter: BasketRecyclerAdapter
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_basket_list, container, false)
-        return binding.root
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_basket_list)
         setupEvents()
         setValues()
     }
@@ -46,6 +35,10 @@ class BasketListFragment : BaseFragment() {
         getBasketListFromServer()
 
         mBasketRecyclerAdapter = BasketRecyclerAdapter(mContext, mBasketList)
+
+        mBasketRecyclerAdapter = BasketRecyclerAdapter(mContext, mBasketList)
+        binding.basketListRecyclerView.adapter = mBasketRecyclerAdapter
+        binding.basketListRecyclerView.layoutManager = LinearLayoutManager(mContext)
 
     }
 

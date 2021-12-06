@@ -38,7 +38,7 @@ class BasketRecyclerAdapter(val mContext: Context, val mList: List<BasketData>) 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BasketViewHolder {
 
-        val row = LayoutInflater.from(mContext).inflate(R.layout.basket_list_item, parent, false)
+        val row = LayoutInflater.from(mContext).inflate(R.layout.fragment_basket_list, parent, false)
         return BasketViewHolder(row)
 
     }
