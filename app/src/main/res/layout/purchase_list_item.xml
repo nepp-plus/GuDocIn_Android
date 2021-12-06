@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+   
+
+       
+
+        <TextView
+            android:id="@+id/txtProductName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="상품명"/>
+    
+    <TextView
+        android:id="@+id/txtProductPrice"
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="12,000원"/>
+    <TextView
+        android:id="@+id/txtPurchaseDate"
+        android:textSize="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2021.12.06:구매일자"/>
+    
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    
+    <TextView
+
+        android:layout_marginTop="3dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="결제정보"/>
+    <TextView
+        android:id="@+id/txtPaymentInfo"
+        android:layout_marginTop="3dp"
+        android:textColor="@color/com_facebook_blue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="_더보기"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_marginTop="3dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="배송정보"/>
+        <TextView
+           android:id="@+id/txtDeliveryInfo"
+            android:layout_marginTop="3dp"
+            android:textColor="@color/com_facebook_blue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="_더보기"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        
+        <Button
+            android:id="@+id/btnReviewIndex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="리뷰 작성하기"/>
+        <TextView
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            />
+
+        
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="취소하기"/>
+        
+
+</LinearLayout>
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="1dp"
+        android:background="#808080"/>
+    </LinearLayout>
+
+</LinearLayout>

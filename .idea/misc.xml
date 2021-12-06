@@ -24,6 +24,7 @@
         <entry key="..\:/Users/NePPPlus_006/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_my_purchase_list.xml" value="0.33" />
         <entry key="..\:/Users/NePPPlus_006/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_my_save_money_detail.xml" value="0.33" />
         <entry key="..\:/Users/NePPPlus_006/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_navigation.xml" value="0.2046875" />
+        <entry key="..\:/Users/NePPPlus_006/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_notice.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/NePPPlus_006/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_purchase_list.xml" value="0.21" />
         <entry key="..\:/Users/NePPPlus_006/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_review.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/NePPPlus_006/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_save_mony_my.xml" value="0.5" />
@@ -32,6 +33,7 @@
         <entry key="..\:/Users/NePPPlus_006/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_splash.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/NePPPlus_006/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_terms.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/NePPPlus_006/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_user_edit.xml" value="0.25" />
+        <entry key="..\:/Users/NePPPlus_006/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/approach_imageview.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/NePPPlus_006/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/banner_item_for_main.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/NePPPlus_006/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/dddd.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/NePPPlus_006/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/fragment_banner_list.xml" value="0.36614583333333334" />
@@ -59,8 +61,11 @@
         <entry key="..\:/Users/NePPPlus_006/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/my_purchase_review.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/NePPPlus_006/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/my_review_list_item.xml" value="0.33" />
         <entry key="..\:/Users/NePPPlus_006/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/my_savedmoney.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/NePPPlus_006/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/mymy_review_recyclerview_list_item.xml" value="0.33" />
+        <entry key="..\:/Users/NePPPlus_006/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/purchase_list_item.xml" value="0.42725880551301687" />
         <entry key="..\:/Users/NePPPlus_006/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/ranking_list_item.xml" value="0.36614583333333334" />
-        <entry key="..\:/Users/NePPPlus_006/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/review_item_for_main.xml" value="0.17604166666666668" />
+        <entry key="..\:/Users/NePPPlus_006/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/review_item_for_main.xml" value="0.5" />
+        <entry key="..\:/Users/NePPPlus_006/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/review_item_for_product_detail.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_navigation.xml" value="0.3351851851851852" />
         <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_pre.xml" value="0.25" />
         <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_sign_up.xml" value="0.3351851851851852" />
