@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -76,11 +77,15 @@ abstract class BaseActivity : AppCompatActivity() {
             val myIntent = Intent(mContext, NoticeActivity::class.java)
             startActivity(myIntent)
 
+            finish()
+
         }
         btnBasket.setOnClickListener {
 
             val myIntent = Intent(mContext, BasketListActivity::class.java)
             startActivity(myIntent)
+
+            finish()
 
         }
 

@@ -1,6 +1,8 @@
 package com.neppplus.gudocin_android
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.neppplus.gudocin_android.adapters.BasketRecyclerAdapter
@@ -28,11 +30,22 @@ class BasketListActivity : BaseActivity() {
 
     override fun setupEvents() {
 
+        binding.btnSubscribe.setOnClickListener {
+
+            val myIntent = Intent(mContext, PaymentActivity::class.java)
+            startActivity(myIntent)
+
+            finish()
+
+        }
+
     }
 
     override fun setValues() {
 
-        getBasketListFromServer()
+        btnBasket.visibility = View.GONE
+
+//        getBasketListFromServer()
 
         mBasketRecyclerAdapter = BasketRecyclerAdapter(mContext, mBasketList)
 
@@ -42,29 +55,29 @@ class BasketListActivity : BaseActivity() {
 
     }
 
-    fun getBasketListFromServer() {
-
-        apiService.getRequestBasketList("X-Http-Token").enqueue(object : Callback<BasicResponse> {
-            override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
-
-                if (response.isSuccessful) {
-
-                    mBasketList.clear()
-
-                    mBasketList.addAll(response.body()!!.data.baskets)
-
-                    mBasketRecyclerAdapter.notifyDataSetChanged()
-
-                }
-
-            }
-
-            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-
-            }
-
-        })
-
-    }
+//    fun getBasketListFromServer() {
+//
+//        apiService.getRequestBasketList("X-Http-Token").enqueue(object : Callback<BasicResponse> {
+//            override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
+//
+//                if (response.isSuccessful) {
+//
+//                    mBasketList.clear()
+//
+//                    mBasketList.addAll(response.body()!!.data.baskets)
+//
+//                    mBasketRecyclerAdapter.notifyDataSetChanged()
+//
+//                }
+//
+//            }
+//
+//            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+//
+//            }
+//
+//        })
+//
+//    }
 
 }
