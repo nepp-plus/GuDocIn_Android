@@ -2,6 +2,7 @@ package com.neppplus.gudocin_android
 
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
+import com.bumptech.glide.Glide
 import com.neppplus.gudocin_android.adapters.ReplyAdapter
 import com.neppplus.gudocin_android.databinding.ActivityReplyBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
@@ -23,7 +24,7 @@ class ReplyActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.reply_list_item)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_reply)
         setupEvents()
         setValues()
     }
@@ -41,6 +42,11 @@ class ReplyActivity : BaseActivity() {
                         call: Call<BasicResponse>,
                         response: Response<BasicResponse>
                     ) {
+                        if (response.isSuccessful){
+                            val br = response.body()!!
+
+
+                        }
 
                     }
 
