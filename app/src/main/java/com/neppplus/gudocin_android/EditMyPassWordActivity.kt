@@ -32,8 +32,9 @@ class EditMyPassWordActivity : BaseActivity() {
 
             val currentPassword = binding.edtCurrentPassword.text.toString()
 
+//            만들어둔 api서버 접속
             apiService.patchRequestEditMyPassword(
-
+//              변경할 필드 password로, 변경할 비번과 현재 비번 입력
                 "password",
                 inputPassword,
                 currentPassword

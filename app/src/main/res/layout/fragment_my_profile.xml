@@ -19,15 +19,32 @@
         android:orientation="vertical"
         android:gravity="center">
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
         <TextView
             android:paddingTop="100dp"
             android:id="@+id/txtUserName"
             android:textSize="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="방우진님의 적립금"/>
+            android:text="방우진"/>
 
-            <LinearLayout
+
+        <TextView
+
+           android:layout_marginLeft="5dp"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="님의 적립금"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
                 android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -74,6 +91,7 @@
                 android:layout_marginTop="25dp"
                 android:text="내 구독정보" />
 
+<!--            내 구독정보 달력으로 표시 (구글검색)-->
             <com.prolificinteractive.materialcalendarview.MaterialCalendarView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -81,21 +99,27 @@
                 app:mcv_showOtherDates="all" />
 
             <LinearLayout
+                android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
 
-                <ImageView
-                    android:layout_width="200dp"
-                    android:layout_height="80dp"
-                    android:layout_marginTop="20dp"
-                    android:src="@drawable/mygudoclist" />
+                <Button
+                    android:id="@+id/btnMyProductPurchase"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="정기 구독 상품 내역"/>
 
-                <ImageView
-                    android:layout_width="200dp"
-                    android:layout_height="80dp"
-                    android:layout_marginTop="20dp"
-                    android:src="@drawable/review" />
+                <TextView
+                    android:layout_marginStart="30dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <Button
+                    android:id="@+id/btnMyReviewDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="리뷰 내역"/>
 
 
             </LinearLayout>
@@ -112,6 +136,20 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="회원정보 수정"
+                android:textSize="15sp" />
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#808080" />
+
+            <TextView
+                android:id="@+id/txtMyCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="등록 카드 관리"
                 android:textSize="15sp" />
 
             <TextView

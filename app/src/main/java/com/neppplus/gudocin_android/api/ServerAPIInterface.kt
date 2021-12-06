@@ -138,17 +138,18 @@ interface ServerAPIInterface {
     ): Call<BasicResponse>
 
 
+//    회원정보 수정 - 이메일
 
     @FormUrlEncoded
     @PATCH("/user")
-    fun patchRequestEditUserInfo(
+    fun patchRequestEditMyEmail(
         @Field("field") field: String,
         @Field("value") value: String,
 
 
     ) : Call<BasicResponse>
 
-
+//     회원정보 수정 - 전화번호
     @FormUrlEncoded
     @PATCH("/user")
     fun patchRequestEditMyNumber(
@@ -157,6 +158,8 @@ interface ServerAPIInterface {
 
     ) : Call<BasicResponse>
 
+
+//    회원정보 수정- 비밀번호
     @FormUrlEncoded
     @PATCH("/user")
     fun patchRequestEditMyPassword(
@@ -167,6 +170,8 @@ interface ServerAPIInterface {
 
         ) : Call<BasicResponse>
 
+
+//    회원정보 수정- 이름
     @FormUrlEncoded
     @PATCH("/user")
     fun patchRequestEditMyName(

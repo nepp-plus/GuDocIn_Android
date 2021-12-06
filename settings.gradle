@@ -5,6 +5,8 @@ dependencyResolutionManagement {
         mavenCentral()
         maven { url 'https://devrepo.kakao.com/nexus/content/groups/public/'}
         jcenter() // Warning: this repository is going to shut down soon
+
+//        카렌더 뷰 세팅
         maven { url 'https://jitpack.io' }
 
     }
