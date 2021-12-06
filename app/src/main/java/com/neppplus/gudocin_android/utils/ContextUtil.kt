@@ -13,6 +13,8 @@ class ContextUtil {
         private val TOKEN = "TOKEN"
         private val DEVICE_TOKEN = "DEVICE_TOKEN"
 
+        private val AUTO_LOGIN = "AUTO_LOGIN"
+
 //        저장 함수 (setter) / 조회 함수 (getter)
 
         fun setToken(context: Context, token: String) {
@@ -40,6 +42,19 @@ class ContextUtil {
 
             val pref = context.getSharedPreferences(prefName, Context.MODE_PRIVATE)
             return pref.getString(DEVICE_TOKEN, "")!!
+
+        }
+
+        fun setAutoLogin(context: Context, autoLogin: Boolean) {
+
+            val pref = context.getSharedPreferences(prefName, Context.MODE_PRIVATE)
+            pref.edit().putBoolean(AUTO_LOGIN, autoLogin).apply()
+        }
+
+        fun getAutoLogin(context: Context): Boolean {
+
+            val pref = context.getSharedPreferences(prefName, Context.MODE_PRIVATE)
+            return pref.getBoolean(AUTO_LOGIN, false)
 
         }
 

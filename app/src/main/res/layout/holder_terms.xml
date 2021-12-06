@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.neppplus.gudocin_android.terms.TermsViewModel" />
@@ -29,6 +30,7 @@
             android:id="@+id/cbServiceCheck"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:buttonTint="@color/black"
             android:checked="@={termsData.checked}"
             android:onClick="@{viewModel::onTermsItemCheckBoxClickListener}"
             app:layout_constraintBottom_toBottomOf="parent"

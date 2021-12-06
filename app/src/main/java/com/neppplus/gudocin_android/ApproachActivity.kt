@@ -79,7 +79,10 @@ class ApproachActivity : BaseActivity() {
 
                 GlobalData.loginUser?.let {
 
-                    apiService.patchRequestUpdateUserInfo("android_device_token", ContextUtil.getDeviceToken(mContext))
+                    apiService.patchRequestUpdateUserInfo(
+                        "android_device_token",
+                        ContextUtil.getDeviceToken(mContext)
+                    )
                 }
 
             }
@@ -97,7 +100,7 @@ class ApproachActivity : BaseActivity() {
 
                 val myIntent: Intent
 
-                if (ContextUtil.getToken(mContext) != "") {
+                if (ContextUtil.getAutoLogin(mContext) && ContextUtil.getToken(mContext) != "") {
                     myIntent = Intent(mContext, NavigationActivity::class.java)
                 } else {
                     myIntent = Intent(mContext, LoginActivity::class.java)
@@ -120,14 +123,16 @@ class ApproachActivity : BaseActivity() {
 
         binding.txtMaybeLater.setOnClickListener {
 
-            val alert = AlertDialog.Builder(mContext)
+            val alert = AlertDialog.Builder(mContext, R.style.MyDialogTheme)
             alert.setTitle("나가기 확인")
             alert.setMessage("정말 나가시겠습니까?")
             alert.setPositiveButton("확인", DialogInterface.OnClickListener { dialogInterface, i ->
                 finish()
             })
             alert.setNegativeButton("취소", null)
+
             alert.show()
+
         }
 
     }

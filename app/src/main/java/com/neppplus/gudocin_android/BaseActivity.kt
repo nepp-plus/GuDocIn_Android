@@ -78,12 +78,12 @@ abstract class BaseActivity : AppCompatActivity() {
             startActivity(myIntent)
 
         }
-        btnBasket.setOnClickListener {
-
-            val myIntent = Intent(mContext, BasketActivity::class.java)
-            startActivity(myIntent)
-
-        }
+//        btnBasket.setOnClickListener {
+//
+//            val myIntent = Intent(mContext, BasketActivity::class.java)
+//            startActivity(myIntent)
+//
+//        }
 
         SearchBoxInActionBar.setOnClickListener {
                 val myIntent = Intent(mContext,SearchActivity::class.java)

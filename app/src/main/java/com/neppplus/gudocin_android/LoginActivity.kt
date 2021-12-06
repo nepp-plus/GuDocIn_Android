@@ -65,6 +65,8 @@ class LoginActivity : BaseActivity() {
         callbackManager.onActivityResult(requestCode, resultCode, data)
         super.onActivityResult(requestCode, resultCode, data)
 
+        binding.checkAutoLogin.isChecked = ContextUtil.getAutoLogin(mContext)
+
         if (resultCode == Activity.RESULT_OK && requestCode == RESULT_CODE) {
             val result = Auth.GoogleSignInApi.getSignInResultFromIntent(data)
 
@@ -124,6 +126,14 @@ class LoginActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
+
+        binding.checkAutoLogin.setOnCheckedChangeListener { compoundButton, isChecked ->
+
+            Log.d("체크박스 변경", isChecked.toString())
+
+            ContextUtil.setAutoLogin(mContext, isChecked)
+
+        }
 
         binding.txtFindAccount.setOnClickListener {
 
@@ -242,6 +252,8 @@ class LoginActivity : BaseActivity() {
 
     override fun setValues() {
 
+        binding.checkAutoLogin.isChecked = ContextUtil.getAutoLogin(mContext)
+
         callbackManager = CallbackManager.Factory.create()
 
         LoginManager.getInstance().registerCallback(callbackManager, object :
@@ -321,6 +333,8 @@ class LoginActivity : BaseActivity() {
     }
 
     fun getMyInfoFromKakao() {
+
+        binding.checkAutoLogin.isChecked = ContextUtil.getAutoLogin(mContext)
 
         UserApiClient.instance.me { user, error ->
 

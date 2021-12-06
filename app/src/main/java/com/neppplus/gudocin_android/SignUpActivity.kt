@@ -307,7 +307,7 @@ class SignUpActivity : BaseActivity() {
         binding.checkMarketingConfirm.setOnClickListener {
 
             if (binding.checkMarketingConfirm.isChecked) {
-                val alert = AlertDialog.Builder(mContext)
+                val alert = AlertDialog.Builder(mContext, R.style.MyDialogTheme)
                 alert.setTitle("마케팅 정보 수신 동의")
                 alert.setMessage("신상품 소식, 이벤트 안내, 고객 혜택 등 다양한 정보를 제공합니다.")
                 alert.setPositiveButton(
