@@ -16,8 +16,14 @@ import com.bumptech.glide.Glide
 import com.neppplus.gudocin_android.NavigationActivity
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.ReviewActivity
+import com.neppplus.gudocin_android.ReviewDetailActivity
 import com.neppplus.gudocin_android.datas.BannerData
+import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.ReviewData
+import com.neppplus.gudocin_android.datas.SmallCategoriesData
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -28,9 +34,10 @@ class RecyclerVewAdapterForMain
     val mBannerList = ArrayList<BannerData>()
     lateinit var mBannerViewPagerAdapter: BannerViewPagerAdapter
 
+
     inner class HeaderViewHolder(row: View) : RecyclerView.ViewHolder(row) {
 
-//     카테고리 부분 작성
+
 
         val bannerViewPager = row.findViewById<ViewPager>(R.id.bannerViewPager)
 
@@ -69,6 +76,8 @@ class RecyclerVewAdapterForMain
             }, 2000, 2000)
 
 
+
+
         }
 
 
@@ -82,6 +91,12 @@ class RecyclerVewAdapterForMain
         val imgReviewSomeNail = row.findViewById<ImageView>(R.id.imgReviewSomeNail)
         val imgReviewerImage = row.findViewById<ImageView>(R.id.imgReviewerImage)
         val btnWriteReview = row.findViewById<TextView>(R.id.btnWriteReview)
+        val txtOpenPreView = row.findViewById<TextView>(R.id.txtOpenPreView)
+        val preViewLayout = row.findViewById<LinearLayout>(R.id.preViewLayout)
+        val btnGotoReviewDetail = row.findViewById<LinearLayout>(R.id.btnGotoReviewDetail)
+        var isPreViewOpen = false
+
+
 
 
 
@@ -98,7 +113,30 @@ class RecyclerVewAdapterForMain
                 mContext.startActivity(myIntent)
             }
 
+            if (isPreViewOpen==false){
+                btnOpenPreview.setOnClickListener {
+                    preViewLayout.visibility = View.VISIBLE
+                    txtOpenPreView.text= "닫기"
+                    isPreViewOpen =true
+                    notifyDataSetChanged()
+                }
+            }
+            else{
+                btnOpenPreview.setOnClickListener {
+                    preViewLayout.visibility = View.GONE
+                    txtOpenPreView.text= "더보기.."
+                    isPreViewOpen =false
+                    notifyDataSetChanged()
+                }
+            }
 
+            btnGotoReviewDetail.setOnClickListener {
+
+                val myIntent = Intent(mContext, ReviewDetailActivity::class.java)
+                myIntent.putExtra("review",data)
+                mContext.startActivity(myIntent)
+
+            }
         }
     }
 
@@ -152,6 +190,5 @@ class RecyclerVewAdapterForMain
     }
 
     override fun getItemCount() = mList.size + 1
-
 
 }

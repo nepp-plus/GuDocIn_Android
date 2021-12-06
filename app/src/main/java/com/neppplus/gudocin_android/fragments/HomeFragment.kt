@@ -4,13 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.adapters.RecyclerVewAdapterForMain
+import com.neppplus.gudocin_android.adapters.SmallCategoriesListAdapter
 import com.neppplus.gudocin_android.databinding.FragmentHomeBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.ReviewData
+import com.neppplus.gudocin_android.datas.SmallCategoriesData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -22,6 +25,8 @@ class HomeFragment : BaseFragment() {
     val mReviewList = ArrayList<ReviewData>()
     lateinit var mMainRecyclerAdapter : RecyclerVewAdapterForMain
 
+
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -30,10 +35,6 @@ class HomeFragment : BaseFragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
 
         return binding.root
-
-
-
-
 
     }
 
@@ -53,10 +54,6 @@ class HomeFragment : BaseFragment() {
 
     override fun setValues() {
 
-
-
-
-
         getReviewListFromServer()
         getBannerListFromServer()
 
@@ -64,8 +61,6 @@ class HomeFragment : BaseFragment() {
         mMainRecyclerAdapter = RecyclerVewAdapterForMain(mContext, mReviewList)
         binding.reviewListRecyclerView.adapter = mMainRecyclerAdapter
         binding.reviewListRecyclerView.layoutManager = LinearLayoutManager(mContext)
-
-
 
 
 
@@ -95,6 +90,9 @@ class HomeFragment : BaseFragment() {
 
     }
 
+    ////위의 함수는 아래로 대체되어야 함////
+    // fun getReviewListInSmallCategoryFromServer()
+
     fun getBannerListFromServer(){
         apiService.getRequestMainBanner().enqueue(  object : Callback<BasicResponse> {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
@@ -118,6 +116,12 @@ class HomeFragment : BaseFragment() {
 
         } )
     }
+
+
+
+
+
+
 
     }
 

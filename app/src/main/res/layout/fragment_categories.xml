@@ -7,60 +7,65 @@
         android:orientation="vertical"
         android:padding="20dp">
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btnCategriesEat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
                 android:layout_marginEnd="5dp"
                 android:backgroundTint="@color/white"
                 android:shadowColor="@color/black"
-                android:text="먹는 구독"/>
+                android:text="먹는 구독"
+                android:textColor="@color/black" />
 
 
             <Button
                 android:id="@+id/btnCategriesWear"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
                 android:layout_marginEnd="5dp"
                 android:backgroundTint="@color/white"
                 android:shadowColor="@color/black"
-                android:text="입는 구독"/>
+                android:text="입는 구독"
+                android:textColor="@color/black" />
 
             <Button
                 android:id="@+id/btnCategriesLife"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
                 android:layout_marginEnd="5dp"
                 android:backgroundTint="@color/white"
                 android:shadowColor="@color/black"
-                android:text="생활 구독"/>
+                android:text="생활 구독"
+                android:textColor="@color/black" />
 
 
         </LinearLayout>
 
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:overScrollMode="never">
+
 
             <LinearLayout
+                android:id="@+id/smalllCategoryList"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/smallcategoryRecyclerView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-
-
 
             </LinearLayout>
+
+        </HorizontalScrollView>
 
 
 

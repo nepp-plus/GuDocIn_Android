@@ -117,6 +117,12 @@ interface ServerAPIInterface {
         @Path("product_id") reviewId : Int,
     ): Call<BasicResponse>
 
+    //   특정 소분류 카테고리(내부의 상품목록) 의 리뷰 조회
+    @GET("/category/small/{small_category_id}/review")
+    fun getRequestSmallCategorysItemReviewList(
+        @Path("small_category_id") id:Int,
+    ): Call<BasicResponse>
+
 
 
 //    특정 리뷰의 댓글 모아보기

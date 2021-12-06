@@ -8,7 +8,7 @@
         android:orientation="vertical"
         tools:context=".EatCategoryListActivity"
         android:paddingTop="30dp"
-        android:paddingStart="10dp"
+        android:paddingStart="20dp"
         android:paddingEnd="10dp">
 
         <TextView
@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:textStyle="bold"
+            android:textSize="16sp"
             android:text="선택한 대분류 카테고리 이름"/>
 
         <TextView
@@ -24,9 +25,17 @@
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:textStyle="bold"
-            android:layout_marginTop="10dp"
+            android:textSize="12sp"
+            android:layout_marginTop="15dp"
             android:layout_marginBottom="10dp"
-            android:text="여기 아래로 소분류 리사이클러뷰"/>
+            android:text="카테고리"/>
+
+   <HorizontalScrollView
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:scrollbars="none"
+       android:overScrollMode="never">
+
         
         <LinearLayout
             android:id="@+id/smalllCategoryList"
@@ -37,8 +46,7 @@
             
         </LinearLayout>
 
-
-
+   </HorizontalScrollView>
 
         <TextView
             android:layout_width="wrap_content"
@@ -47,7 +55,7 @@
             android:textStyle="bold"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:text="여기 아래로 상품 리사이클러뷰"/>
+            android:text="상품 목록"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/productListRecyclerView"
