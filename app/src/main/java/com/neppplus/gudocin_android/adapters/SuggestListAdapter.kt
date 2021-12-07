@@ -9,7 +9,7 @@ import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.datas.ProductData
 
 
-class SuggestListAdapter(val mContext: Context,val resId: Int,val mList: List<ProductData>)
+class SuggestListAdapter(val mContext: Context, resId: Int, val mList: Array<String>)
     : ArrayAdapter<ProductData>(mContext,resId,mList) {
 
 
@@ -23,6 +23,9 @@ class SuggestListAdapter(val mContext: Context,val resId: Int,val mList: List<Pr
         }
 
         val row = tempRow!!
+        val data = mList[position]
+
+
         return row
 
     }

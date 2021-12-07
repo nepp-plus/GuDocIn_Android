@@ -6,12 +6,15 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.databinding.DataBindingUtil
 import com.mancj.materialsearchbar.MaterialSearchBar
 import com.neppplus.gudocin_android.adapters.SuggestListAdapter
 import com.neppplus.gudocin_android.databinding.ActivitySearchBinding
+import com.neppplus.gudocin_android.datas.BasicResponse
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class SearchActivity : BaseActivity() {
 
@@ -57,11 +60,11 @@ class SearchActivity : BaseActivity() {
 
     override fun setValues() {
 
-//        mSugestListAdapter = SuggestListAdapter(this,R.layout.simple_list_item_1,mSugestList)
-//        어댑터 연결부터 다시하자
+
+        mSugestListAdapter = SuggestListAdapter(this,R.layout.simple_list_item_1,mSugestList)
+        searchResultListView.adapter = mSugestListAdapter
+
         searchResultListView.visibility = View.INVISIBLE
-
-
 
         searchView.setOnSearchActionListener(object :MaterialSearchBar.OnSearchActionListener{
             override fun onSearchStateChanged(enabled: Boolean) {
@@ -116,8 +119,22 @@ class SearchActivity : BaseActivity() {
 
 
     }
+    // 추천으로 띄워줄 아이템  API 로 호출해서 가져오기
+
+    fun getProductListFromServer(){
+        apiService.getRequestProductList().enqueue(object :Callback<BasicResponse>{
+            override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
+
+            }
+
+            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+
+            }
+
+        })
+    }
 
 
-// 추천으로 띄워줄 아이템  API 로 호출해서 가져오기
+
 
 }
