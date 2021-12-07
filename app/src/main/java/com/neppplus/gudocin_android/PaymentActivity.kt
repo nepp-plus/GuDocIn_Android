@@ -15,6 +15,19 @@ class PaymentActivity : BaseActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_payment)
         setupEvents()
         setValues()
+
+        binding.imgDropDownArrow.setOnClickListener {
+
+            if (binding.layoutExpand1.visibility == View.VISIBLE) {
+                binding.layoutExpand1.visibility = View.GONE
+                binding.imgDropDownArrow.animate().setDuration(200).rotation(180f)
+            } else {
+                binding.layoutExpand1.visibility = View.VISIBLE
+                binding.imgDropDownArrow.animate().setDuration(200).rotation(0f)
+            }
+
+        }
+
     }
 
     override fun setupEvents() {
@@ -46,6 +59,14 @@ class PaymentActivity : BaseActivity() {
 
         }
 
+        binding.btnRegistryCard.setOnClickListener {
+
+            val myIntent = Intent(mContext, CardInfoActivity::class.java)
+            startActivity(myIntent)
+
+            finish()
+
+        }
 
     }
 

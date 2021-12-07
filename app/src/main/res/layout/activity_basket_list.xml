@@ -10,6 +10,7 @@
         tools:context=".BasketListActivity">
 
         <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="50dp"
             android:id="@+id/basketListRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
