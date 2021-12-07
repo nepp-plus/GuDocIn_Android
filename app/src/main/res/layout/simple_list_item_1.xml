@@ -1,14 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:padding="10dp">
 
-    <TextView
-        android:id="@+id/txtProductName"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:text="추천상품 이름"/>
+        android:layout_height="wrap_content">
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/txtProductName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="추천상품 이름"/>
+
+    </androidx.cardview.widget.CardView>
+
+</FrameLayout>
