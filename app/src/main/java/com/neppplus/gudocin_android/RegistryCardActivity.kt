@@ -1,5 +1,6 @@
 package com.neppplus.gudocin_android
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.databinding.DataBindingUtil
@@ -30,6 +31,15 @@ class RegistryCardActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
+
+        binding.btnCardInfoRevise.setOnClickListener {
+
+            val myIntent = Intent(mContext, RegistryCardReviseActivity::class.java)
+            startActivity(myIntent)
+
+            finish()
+
+        }
 
     }
 

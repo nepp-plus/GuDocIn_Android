@@ -14,10 +14,10 @@
         <entry key="..\:/GuDocIn_Android_1/app/src/main/res/layout/my_purchase_review.xml" value="0.25364583333333335" />
         <entry key="..\:/GuDocIn_Android_1/app/src/main/res/layout/my_savedmoney.xml" value="0.4" />
         <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_basket_list.xml" value="0.30428769017980634" />
-        <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_card_info.xml" value="0.287962962962963" />
+        <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_card_info.xml" value="0.33" />
         <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_consumer_info.xml" value="0.2914285714285714" />
         <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_customer_center.xml" value="0.287962962962963" />
-        <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_delivery_info.xml" value="0.33" />
+        <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_delivery_info.xml" value="0.22" />
         <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_edit_my_email.xml" value="0.287962962962963" />
         <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_edit_my_pass_word.xml" value="0.287962962962963" />
         <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_edit_my_phone_num.xml" value="0.287962962962963" />
@@ -32,7 +32,8 @@
         <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_payment.xml" value="0.33" />
         <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_product_item_detail.xml" value="0.287962962962963" />
         <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_regist_card.xml" value="0.287962962962963" />
-        <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_registry_card.xml" value="0.287962962962963" />
+        <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_registry_card.xml" value="0.22" />
+        <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_registry_card_revise.xml" value="0.33" />
         <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_reply.xml" value="0.287962962962963" />
         <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_review_detail.xml" value="0.287962962962963" />
         <entry key="..\:/Users/NePPPlus_010/AndroidStudioProjects/GuDocIn_Android/app/src/main/res/layout/activity_save_mony_my.xml" value="0.287962962962963" />

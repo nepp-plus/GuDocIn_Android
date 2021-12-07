@@ -90,6 +90,7 @@
                 android:orientation="horizontal">
 
                 <Button
+                    android:id="@+id/btnCardInfoDelete"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="40dp"
@@ -101,6 +102,7 @@
                     android:layout_weight="1" />
 
                 <Button
+                    android:id="@+id/btnCardInfoRevise"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="40dp"
