@@ -7,7 +7,7 @@ import java.lang.reflect.Type
 import java.text.SimpleDateFormat
 import java.util.*
 
-class DateDesirializer : JsonDeserializer<Date> {
+class DateDeserializer : JsonDeserializer<Date> {
     override fun deserialize(
         json: JsonElement?,
         typeOfT: Type?,
