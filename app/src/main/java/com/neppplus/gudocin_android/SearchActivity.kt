@@ -28,7 +28,9 @@ class SearchActivity : BaseActivity() {
 
     lateinit var mSugestListAdapter : SuggestListAdapter
 
-    var mInflater = getSystemService(LAYOUT_INFLATER_SERVICE) as LayoutInflater
+    //문서에서 쓰라고 한 부분//
+//    var mSugestListAdapter = SuggestListAdapter(mInflater)
+//    var mInflater = getSystemService(LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
     lateinit var mSearchBar: MaterialSearchBar
 
