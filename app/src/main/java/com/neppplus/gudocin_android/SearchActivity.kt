@@ -24,7 +24,7 @@ class SearchActivity : BaseActivity() {
 
     var mSugestList = ArrayList<ProductData>()
 
-    lateinit var mSugestListAdapter : SuggestListAdapter
+    lateinit var mSugestListAdapter: SuggestListAdapter
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,19 +40,19 @@ class SearchActivity : BaseActivity() {
     override fun setupEvents() {
 
         binding.btnCategriesEat.setOnClickListener {
-            val myIntent = Intent(mContext,EatCategoryListActivity::class.java)
+            val myIntent = Intent(mContext, EatCategoryListActivity::class.java)
 
             startActivity(myIntent)
         }
 
         binding.btnCategriesWear.setOnClickListener {
-            val myIntent = Intent(mContext,WearCategoryListActivity::class.java)
-            myIntent.putExtra("Large_category_id",1)
+            val myIntent = Intent(mContext, WearCategoryListActivity::class.java)
+            myIntent.putExtra("Large_category_id", 1)
             startActivity(myIntent)
         }
 
         binding.btnCategriesLife.setOnClickListener {
-            val myIntent = Intent(mContext,LifeCategoryListActivity::class.java)
+            val myIntent = Intent(mContext, LifeCategoryListActivity::class.java)
 
             startActivity(myIntent)
         }
@@ -63,17 +63,19 @@ class SearchActivity : BaseActivity() {
         getProductListFromServer()
 
 
-        mSugestListAdapter = SuggestListAdapter(this,R.layout.simple_list_item_1,mSugestList)
+        mSugestListAdapter = SuggestListAdapter(this, R.layout.simple_list_item_1, mSugestList)
         binding.searchResultListView.adapter = mSugestListAdapter
+        binding.searchResultListView.visibility = View.GONE
 
-        binding.searchResultListView.visibility = View.INVISIBLE
+        binding.searchView.setOnSearchActionListener(object :
+            MaterialSearchBar.OnSearchActionListener {
 
-        binding.searchView.setOnSearchActionListener(object :MaterialSearchBar.OnSearchActionListener{
+
             override fun onSearchStateChanged(enabled: Boolean) {
-                if(enabled){
+                if (enabled) {
                     binding.searchResultListView.visibility = View.VISIBLE
-                }else{
-                    binding.searchResultListView.visibility = View.INVISIBLE
+                } else {
+                    binding.searchResultListView.visibility = View.GONE
                 }
 
             }
@@ -83,17 +85,22 @@ class SearchActivity : BaseActivity() {
             }
 
             override fun onButtonClicked(buttonCode: Int) {
+//            if로 상품이 있으면 상품 띄워주고 없으면 없습니다 띄워주기
 
             }
 
         })
 
-        binding.searchView.addTextChangeListener(object : TextWatcher{
+        binding.searchView.addTextChangeListener(object : TextWatcher {
+
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
 
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+                mSugestListAdapter.getFilter().filter(s)
+//                text에 따라 추천 상품 바귀도록 아래 적기
 
             }
 
@@ -102,7 +109,8 @@ class SearchActivity : BaseActivity() {
             }
 
         })
-        binding.searchResultListView.setOnItemClickListener(object : AdapterView.OnItemClickListener{
+        binding.searchResultListView.setOnItemClickListener(object :
+            AdapterView.OnItemClickListener {
             override fun onItemClick(
                 parent: AdapterView<*>?,
                 view: View?,
@@ -110,7 +118,7 @@ class SearchActivity : BaseActivity() {
                 id: Long
             ) {
                 // 아이템이 가지고 있는 대분류 카테고리로 그에 맞는 ListActivity로 보내줘야 함
-                val myIntent = Intent(mContext,EatCategoryListActivity::class.java)
+                val myIntent = Intent(mContext, EatCategoryListActivity::class.java)
                 startActivity(myIntent)
             }
 
@@ -118,15 +126,13 @@ class SearchActivity : BaseActivity() {
         binding.searchView.setHint("생활에 필요한 구독을 검색하세요")
 
 
-
-
     }
     // 추천으로 띄워줄 아이템  API 로 호출해서 가져오기
 
-    fun getProductListFromServer(){
-        apiService.getRequestProductList().enqueue(object :Callback<BasicResponse>{
+    fun getProductListFromServer() {
+        apiService.getRequestProductList().enqueue(object : Callback<BasicResponse> {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
-                if (response.isSuccessful){
+                if (response.isSuccessful) {
                     val br = response.body()!!
                     mSugestList.clear()
                     mSugestList.addAll(br.data.products)
@@ -145,8 +151,6 @@ class SearchActivity : BaseActivity() {
 
         })
     }
-
-
 
 
 }

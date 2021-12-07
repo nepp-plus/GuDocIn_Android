@@ -38,7 +38,6 @@ class RecyclerVewAdapterForMain
     inner class HeaderViewHolder(row: View) : RecyclerView.ViewHolder(row) {
 
 
-
         val bannerViewPager = row.findViewById<ViewPager>(R.id.bannerViewPager)
 
         fun bind() {
@@ -55,7 +54,7 @@ class RecyclerVewAdapterForMain
 
                 currentPage++
 
-                if (currentPage ==mBannerList.size){
+                if (currentPage == mBannerList.size) {
                     currentPage = 0
                 }
                 bannerViewPager.currentItem = currentPage
@@ -74,14 +73,9 @@ class RecyclerVewAdapterForMain
                 }
 
             }, 2000, 2000)
-
-
-
-
         }
-
-
     }
+
 
     inner class ItemViewHolder(row: View) : RecyclerView.ViewHolder(row) {
         val txtReviewerNickName = row.findViewById<TextView>(R.id.txtReviewerNickName)
@@ -94,38 +88,36 @@ class RecyclerVewAdapterForMain
         val txtOpenPreView = row.findViewById<TextView>(R.id.txtOpenPreView)
         val preViewLayout = row.findViewById<LinearLayout>(R.id.preViewLayout)
         val btnGotoReviewDetail = row.findViewById<LinearLayout>(R.id.btnGotoReviewDetail)
+        val txReviewTitle = row.findViewById<TextView>(R.id.txReviewTitle)
         var isPreViewOpen = false
-
-
-
 
 
         fun bind(data: ReviewData) {
 
-            txtReviewerNickName.text = data.user.nickname
+            txtReviewerNickName.text = "${data.user.nickname} 님의 리뷰"
             txtProductName.text = data.product.name
             txtProductPrice.text = data.product.price.toString()
-            Glide.with(mContext).load(data.product.imageUrl).into(imgReviewSomeNail)
+            Glide.with(mContext).load(data.thumbNailImg).into(imgReviewSomeNail)
             Glide.with(mContext).load(data.user.profileImageURL).into(imgReviewerImage)
+            txReviewTitle.text = data.title
             btnWriteReview.setOnClickListener {
                 val myIntent = Intent(mContext, ReviewActivity::class.java)
                 myIntent.putExtra("product", data.product)
                 mContext.startActivity(myIntent)
             }
 
-            if (isPreViewOpen==false){
+            if (isPreViewOpen == false) {
                 btnOpenPreview.setOnClickListener {
                     preViewLayout.visibility = View.VISIBLE
-                    txtOpenPreView.text= "닫기"
-                    isPreViewOpen =true
+                    txtOpenPreView.text = "닫기"
+                    isPreViewOpen = true
                     notifyDataSetChanged()
                 }
-            }
-            else{
+            } else {
                 btnOpenPreview.setOnClickListener {
                     preViewLayout.visibility = View.GONE
-                    txtOpenPreView.text= "더보기.."
-                    isPreViewOpen =false
+                    txtOpenPreView.text = "더보기.."
+                    isPreViewOpen = false
                     notifyDataSetChanged()
                 }
             }
@@ -133,7 +125,7 @@ class RecyclerVewAdapterForMain
             btnGotoReviewDetail.setOnClickListener {
 
                 val myIntent = Intent(mContext, ReviewDetailActivity::class.java)
-                myIntent.putExtra("review",data)
+                myIntent.putExtra("review", data)
                 mContext.startActivity(myIntent)
 
             }
@@ -190,5 +182,6 @@ class RecyclerVewAdapterForMain
     }
 
     override fun getItemCount() = mList.size + 1
+
 
 }

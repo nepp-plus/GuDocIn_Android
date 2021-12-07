@@ -11,8 +11,6 @@
             android:layout_height="200dp"/>
 
 
-
-
         <fragment
             android:id="@+id/mainCategoryFragment"
             android:layout_width="match_parent"

@@ -10,6 +10,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.neppplus.gudocin_android.EatCategoryListActivity
+import com.neppplus.gudocin_android.NavigationActivity
 import com.neppplus.gudocin_android.ProductItemDetailActivity
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.datas.SmallCategoriesData
@@ -31,9 +32,10 @@ class SmallCategoriesListAdapter(val mContext: Context, val mList:  List<SmallCa
             btnRefreshListOfSmallCategory.setOnClickListener{
 
                 val selectedSmallCategoryNum = data.id
-//                (mContext as HomeFragment).
 
-                (mContext as EatCategoryListActivity).mClickedSmallCategoryNum = selectedSmallCategoryNum
+                if (mContext is EatCategoryListActivity){
+                    mContext.mClickedSmallCategoryNum = selectedSmallCategoryNum
+                }
 
             }
 

@@ -6,32 +6,39 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
+import com.mancj.materialsearchbar.adapter.SuggestionsAdapter
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.datas.ProductData
+import com.neppplus.gudocin_android.utils.SuggestionHolder
 
 
-class SuggestListAdapter(val mContext: Context, resId: Int, val mList: ArrayList<ProductData>)
-    : ArrayAdapter<ProductData>(mContext,resId,mList) {
+class SuggestListAdapter(val mInflater : LayoutInflater) : SuggestionsAdapter<ProductData,SuggestionHolder>(mInflater) {
 
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SuggestionHolder {
 
-    val mInflater = LayoutInflater.from(mContext)
-
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-
-        var tempRow = convertView
-        if (tempRow == null){
-            tempRow = mInflater.inflate(R.layout.simple_list_item_1,null)
-        }
-
-        val row = tempRow!!
-        val data = mList[position]
-
-        val txtProductName = row.findViewById<TextView>(R.id.txtProductName)
-
-        txtProductName.text = data.name
-
-
-        return row
+        return
 
     }
+
+    override fun onBindSuggestionHolder(
+        suggestion: ProductData?,
+        holder: SuggestionHolder?,
+        position: Int,
+        view: View
+    ) {
+
+//        val row = LayoutInflater.getLay.inflate(R.layout.product_item, parent, false)
+//        return SuggestionHolder(row)
+
+
+    }
+
+    override fun getSingleViewHeight(): Int {
+
+        return 0
+    }
+
+
+
+
 }
