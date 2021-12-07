@@ -15,6 +15,7 @@ class SubscriptionData (
     var createdAt: Date,
     @SerializedName("stopped_at")
     var stoppedAt: Date?,
+    var pruduct : ProductData,
 
         ) : Serializable{
 }

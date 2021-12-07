@@ -51,6 +51,7 @@ class PurchaseListFragment : BaseFragment() {
     }
 
     override fun setValues() {
+        getPurchaseListFromServer()
 
     }
 

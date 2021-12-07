@@ -13,6 +13,7 @@ class PaymentData (
         var amount: Int,
         @SerializedName("created_at")
         var createdAt: Date,
+        var subscription : SubscriptionData
 
         ) : Serializable {
 }
