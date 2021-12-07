@@ -12,8 +12,8 @@ class PurchaseViewPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm){
 
     override fun getPageTitle(position: Int): CharSequence? {
         return when(position) {
-            0 -> "상품 구매 내역"
-            else -> "내가 쓴 리뷰 모아보기"
+            0 -> "내가 쓴 리뷰 모아보기"
+            else -> "상품 구매 내역"
 
         }
     }
