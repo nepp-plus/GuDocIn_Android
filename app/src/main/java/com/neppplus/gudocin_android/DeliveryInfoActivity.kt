@@ -6,15 +6,15 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.databinding.DataBindingUtil
-import com.neppplus.gudocin_android.databinding.ActivityConsumerInfoBinding
+import com.neppplus.gudocin_android.databinding.ActivityDeliveryInfoBinding
 
-class ConsumerInfoActivity : BaseActivity() {
+class DeliveryInfoActivity : BaseActivity() {
 
-    lateinit var binding: ActivityConsumerInfoBinding
+    lateinit var binding: ActivityDeliveryInfoBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_consumer_info)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_delivery_info)
         setupEvents()
         setValues()
     }
@@ -30,11 +30,17 @@ class ConsumerInfoActivity : BaseActivity() {
 
         }
 
-        binding.btnConsumerInfoSave.setOnClickListener {
+        binding.btnFindDelivery.setOnClickListener {
+
+//            주소 관련 라이브러리?
+
+        }
+
+        binding.btnDeliveryInfoSave.setOnClickListener {
 
             val alert = AlertDialog.Builder(mContext, R.style.MyDialogTheme)
 
-            alert.setTitle("주문자 정보 변경")
+            alert.setTitle("배달 정보 변경")
 
             alert.setPositiveButton("확인", DialogInterface.OnClickListener { dialogInterface, i ->
                 val myIntent = Intent(mContext, PaymentActivity::class.java)

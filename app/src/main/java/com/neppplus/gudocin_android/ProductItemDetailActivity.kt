@@ -55,9 +55,10 @@ class ProductItemDetailActivity : BaseActivity() {
 
     override fun setValues() {
 
-        getProductItemDetailFromServer()
+
         mProductData = intent.getSerializableExtra("product_id") as ProductData
 
+        getProductItemDetailFromServer()
 
         //제품 상세 & 상점 상세의 ViewPager 용 어댑터 연결
         mProductContentViewPagerAdapter = ProductContentViewPagerAdapter(supportFragmentManager)

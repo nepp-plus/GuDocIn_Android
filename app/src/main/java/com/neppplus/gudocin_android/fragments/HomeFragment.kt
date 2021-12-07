@@ -26,6 +26,10 @@ class HomeFragment : BaseFragment() {
     lateinit var mMainRecyclerAdapter : RecyclerVewAdapterForMain
     var mClickedSmallCategoryNum = 1
 
+
+
+
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -56,7 +60,7 @@ class HomeFragment : BaseFragment() {
         getReviewListFromServer()
         getBannerListFromServer()
 
-        getReviewListInSmallCategoryFromServer()
+        getReviewListInSmallCategoryFromServer(mClickedSmallCategoryNum)
         // 카테고리 프레그먼트에서 소분류 클릭한 숫자 받아오기
 
         mMainRecyclerAdapter = RecyclerVewAdapterForMain(mContext, mReviewList)
@@ -93,7 +97,7 @@ class HomeFragment : BaseFragment() {
 
     ////위의 함수는 아래로 대체되어야 함////
 
-    fun getReviewListInSmallCategoryFromServer(){
+    fun getReviewListInSmallCategoryFromServer( mClickedSmallCategoryNum :Int){
         apiService.getRequestSmallCategorysItemReviewList(mClickedSmallCategoryNum).enqueue(object :Callback<BasicResponse>{
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
                 if (response.isSuccessful) {

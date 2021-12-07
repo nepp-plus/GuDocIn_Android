@@ -80,22 +80,25 @@ class NavigationActivity : BaseActivity() {
     inner class ViewPagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
         override fun getItemCount() = 3
 
+        val fragmentList = arrayListOf(HomeFragment(), RankingFragment(), MyProfileFragment())
+
 
         override fun createFragment(position: Int): Fragment {
-            return when (position) {
-                0 -> HomeFragment()
-                1 -> RankingFragment()
-                else -> MyProfileFragment()
-            }
-
+            return fragmentList[position]
         }
 
+        fun getFragment(position: Int) = fragmentList[position]
+
     }
+
 
     fun getAndSendDeviceToken() {
 
         if (ContextUtil.getDeviceToken(mContext) != "") {
-            apiService.patchRequestUpdateUserInfo("android_device_token", ContextUtil.getDeviceToken(mContext)).enqueue(object : Callback<BasicResponse> {
+            apiService.patchRequestUpdateUserInfo(
+                "android_device_token",
+                ContextUtil.getDeviceToken(mContext)
+            ).enqueue(object : Callback<BasicResponse> {
                 override fun onResponse(
                     call: Call<BasicResponse>,
                     response: Response<BasicResponse>

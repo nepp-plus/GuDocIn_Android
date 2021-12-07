@@ -6,14 +6,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".ConsumerInfoActivity">
+        tools:context=".DeliveryInfoActivity">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:padding="20dp"
-            android:text="주문자 정보 입력"
+            android:text="배달 정보 입력"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:padding="10dp"
-                android:text="주문자 : "
+                android:text="받는분 : "
                 android:textColor="@color/black"
                 android:textSize="17sp" />
 
@@ -68,6 +68,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_vertical"
             android:orientation="horizontal">
 
             <TextView
@@ -75,26 +76,53 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:padding="10dp"
-                android:text="이메일 : "
+                android:text="배송지"
                 android:textColor="@color/black"
                 android:textSize="17sp" />
 
-            <EditText
-                android:id="@+id/edtConsumerEmail"
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/btnFindDelivery"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="주문자 이메일 주소를 입력하세요"
-                android:singleLine="true" />
+                android:layout_marginEnd="15dp"
+                android:text="배송지 주소 찾기"
+                android:textColor="@color/black" />
 
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/txtConsumerAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:text="서울시 동대문구 제기동"
+            android:textColor="@color/black"
+            android:textSize="17sp" />
+
+        <EditText
+            android:id="@+id/edtConsumerAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:hint="상세 주소를 입력하세요"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textSize="17sp" />
+
         <Button
-            android:id="@+id/btnConsumerInfoSave"
+            android:id="@+id/btnDeliveryInfoSave"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="200dp"
-            android:text="주문자 정보 저장하기" />
+            android:layout_marginTop="120dp"
+            android:text="배달 정보 저장하기" />
 
     </LinearLayout>
 
