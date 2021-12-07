@@ -80,8 +80,10 @@ class ProductRecyclerViewAdapter(val mContext: Context, val mList: List<ProductD
             }
 
             rootLayout.setOnClickListener {
+//                프로덕트 디테일 번호 지참
 
                 val myIntent = Intent(mContext, ProductItemDetailActivity::class.java)
+                myIntent.putExtra("product_id",data)
                 mContext.startActivity(myIntent)
             }
 

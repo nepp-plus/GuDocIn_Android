@@ -4,12 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.neppplus.gudocin_android.R
+import com.neppplus.gudocin_android.adapters.ProductRecyclerViewAdapter
 import com.neppplus.gudocin_android.adapters.SmallCategoriesListAdapter
 import com.neppplus.gudocin_android.databinding.FragmentCategoriesBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
+import com.neppplus.gudocin_android.datas.ProductData
 import com.neppplus.gudocin_android.datas.SmallCategoriesData
 import retrofit2.Call
 import retrofit2.Callback
@@ -22,8 +25,11 @@ class CategoriesFragment : BaseFragment() {
     var mSmallCategoriesList = ArrayList<SmallCategoriesData>()
     lateinit var mSmallcateoriesListAdapter : SmallCategoriesListAdapter
     var mLargeCategoryId = 2
+    var mClickedSmallCategoryNum = 1
 
-//    ///여기에 래이아웃 만들어서 스몰 카테고리 만드는 코드 추가되어야 함   -> 아래 리뷰 리스트 리프레시 하는 코드도 추가되어야 함
+
+///여기에 래이아웃 만들어서 스몰 카테고리 만드는 코드 추가되어야 함   -> 아래 리뷰 리스트 리프레시 하는 코드도 추가되어야 함
+//    받아오는 카테고리 데이터 리스트로 해야 됨 다시보기
 
 //   eatCategoryId = 2 / wearCategoryId = 1 / lifeCategoryId =3
 
@@ -78,6 +84,8 @@ class CategoriesFragment : BaseFragment() {
         mSmallcateoriesListAdapter = SmallCategoriesListAdapter(mContext,mSmallCategoriesList)
 
 
+
+
     }
 
 
@@ -87,9 +95,31 @@ class CategoriesFragment : BaseFragment() {
 
                 if (response.isSuccessful ){
 
+                    binding.smalllCategoryList.removeAllViews()
+
+                    val br = response.body()!!
+
                     mSmallCategoriesList.clear()
-                    mSmallCategoriesList.addAll(response.body()!!.data.small_categories)
+                    mSmallCategoriesList.addAll(br.data.small_categories)
                     mSmallcateoriesListAdapter.notifyDataSetChanged()
+
+                    //                    추가한 카테고리 하나하나에 대한 view 생성
+
+                    for (sc in mSmallCategoriesList){
+                        val view = LayoutInflater.from(mContext).inflate(R.layout.small_categories_item,null)
+                        val txtSmallCategoryName = view.findViewById<TextView>(R.id.txtSmallCategoryName)
+
+                        txtSmallCategoryName.text = sc.name
+
+                        view.setOnClickListener {
+                            mClickedSmallCategoryNum = sc.id
+
+                        }
+
+                        binding.smalllCategoryList.addView(view)
+
+                    }
+
 
                 }
             }
@@ -102,6 +132,8 @@ class CategoriesFragment : BaseFragment() {
 
 
     }
+
+
 
 
 }
