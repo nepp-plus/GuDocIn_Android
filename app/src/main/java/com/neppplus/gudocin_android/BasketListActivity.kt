@@ -47,7 +47,7 @@ class BasketListActivity : BaseActivity() {
 
         btnBasket.visibility = View.GONE
 
-//        getBasketListFromServer()
+        getBasketListFromServer()
 
         mBasketRecyclerAdapter = BasketRecyclerAdapter(mContext, mBasketList)
 
@@ -57,29 +57,29 @@ class BasketListActivity : BaseActivity() {
 
     }
 
-//    fun getBasketListFromServer() {
-//
-//        apiService.getRequestBasketList().enqueue(object : Callback<BasicResponse> {
-//            override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
-//
-//                if (response.isSuccessful) {
-//
-//                    mBasketList.clear()
-//
-//                    mBasketList.addAll(response.body()!!.data.baskets)
-//
-//                    mBasketRecyclerAdapter.notifyDataSetChanged()
-//
-//                }
-//
-//            }
-//
-//            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-//
-//            }
-//
-//        })
-//
-//    }
+    fun getBasketListFromServer() {
+
+        apiService.getRequestBasketList().enqueue(object : Callback<BasicResponse> {
+            override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
+
+                if (response.isSuccessful) {
+
+                    mBasketList.clear()
+
+                    mBasketList.addAll(response.body()!!.data.baskets)
+
+                    mBasketRecyclerAdapter.notifyDataSetChanged()
+
+                }
+
+            }
+
+            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+
+            }
+
+        })
+
+    }
 
 }
