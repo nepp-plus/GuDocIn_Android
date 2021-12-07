@@ -1,6 +1,7 @@
 package com.neppplus.gudocin_android
 
 import android.os.Bundle
+import android.view.View
 import androidx.databinding.DataBindingUtil
 import com.neppplus.gudocin_android.databinding.ActivityPaymentBinding
 
@@ -16,6 +17,9 @@ class PaymentActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
+
+        btnBasket.visibility = View.GONE
+        btnBell.visibility = View.GONE
 
     }
 

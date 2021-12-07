@@ -19,8 +19,7 @@
             android:exported="false" />
         <activity
             android:name=".PaymentActivity"
-            android:exported="true"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+            android:exported="true" />
         <activity
             android:name=".FindAccountActivity"
             android:exported="true"
