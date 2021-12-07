@@ -15,6 +15,13 @@
         android:theme="@style/Theme.GuDocIn_Android"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ConsumerInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PaymentActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+        <activity
             android:name=".FindAccountActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
@@ -72,7 +79,7 @@
             android:name=".UserEditActivity"
             android:exported="true" />
         <activity
-            android:name=".SaveMonyMyActivity"
+            android:name=".BasketListActivity"
             android:exported="true" />
         <activity
             android:name=".terms.TermsActivity"
@@ -82,8 +89,8 @@
             android:exported="true" />
         <activity
             android:name=".ApproachActivity"
-            android:theme="@style/Theme.GuDocIn_Android.NoActionBar"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.GuDocIn_Android.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -118,8 +125,7 @@
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name=".NavigationActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"

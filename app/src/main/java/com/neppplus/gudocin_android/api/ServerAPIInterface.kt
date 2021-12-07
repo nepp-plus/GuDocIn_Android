@@ -11,7 +11,7 @@ interface ServerAPIInterface {
 //    필요 API들을 만들어주세요.
 //    이 파일은 여러명이 같이 편집하게 될겁니다.
 
-//    로그인 기능 명세
+    //    로그인 기능 명세
     @FormUrlEncoded
     @POST("/user")
     fun postRequestLogin(
@@ -30,7 +30,7 @@ interface ServerAPIInterface {
         @Field("phone") phone: String,
     ): Call<BasicResponse>
 
-//    중복 확인 기능  - GET
+    //    중복 확인 기능  - GET
     @GET("/user/check")
     fun getRequestDuplicatedCheck(
         @Query("type") type: String,
@@ -67,11 +67,11 @@ interface ServerAPIInterface {
         @PartMap params: HashMap<String, RequestBody>,
         @Part img: MultipartBody.Part
 
-    ) : Call<BasicResponse>
+    ): Call<BasicResponse>
 
 //    리뷰 목록 랭킹순
     @GET("/review/ranking")
-    fun getRequestRankingList() : Call<BasicResponse>
+    fun getRequestRankingList(): Call<BasicResponse>
 
     //    모든 카테고리 조회
     @GET("/category")
@@ -80,7 +80,7 @@ interface ServerAPIInterface {
     //    특정 대분류 카테고리(내부의 소분류) 조회
     @GET("/category/{large_category_id}")
     fun getRequestSmallCategoryDependOnLarge(
-        @Path("large_category_id") id:Int,
+        @Path("large_category_id") id: Int,
     ): Call<BasicResponse>
 
     //    모든 소분류 카테고리 조회
@@ -90,7 +90,7 @@ interface ServerAPIInterface {
     //   특정 소분류 카테고리(내부의 상품목록) 조회
     @GET("/category/small/{small_category_id}")
     fun getRequestSmallCategorysItemList(
-        @Path("small_category_id") id:Int,
+        @Path("small_category_id") id: Int,
     ): Call<BasicResponse>
 
 
@@ -105,22 +105,22 @@ interface ServerAPIInterface {
     @GET("/main/banner")
     fun getRequestMainBanner(): Call<BasicResponse>
 
-//      특정 리뷰 상세보기
+    //      특정 리뷰 상세보기
     @GET("/review/{review_id}")
     fun getRequestReviewDetail(
-    @Path("review_id") reviewId : Int,
+        @Path("review_id") reviewId: Int,
     ): Call<BasicResponse>
 
     //      특정 상품 상세보기
     @GET("/product/{product_id}")
     fun getRequestProductDetail(
-        @Path("product_id") reviewId : Int,
+        @Path("product_id") reviewId: Int,
     ): Call<BasicResponse>
 
     //   특정 소분류 카테고리(내부의 상품목록) 의 리뷰 조회
     @GET("/category/small/{small_category_id}/review")
     fun getRequestSmallCategorysItemReviewList(
-        @Path("small_category_id") id:Int,
+        @Path("small_category_id") id: Int,
     ): Call<BasicResponse>
 
 
@@ -128,14 +128,14 @@ interface ServerAPIInterface {
 //    특정 리뷰의 댓글 모아보기
     @GET("review/{review_id}/reply")
     fun getRequestReviewReply(
-    @Path("review_id") reveiwReply : Int,
+        @Path("review_id") reveiwReply: Int,
     ): Call<BasicResponse>
 
-//    리뷰에 댓글 작성
+    //    리뷰에 댓글 작성
     @POST("review/{review_id}/reply")
     fun postRequestReviewReply(
-    @Path("review_id") reviewReply: Int,
-    @Field("content") content: String,
+        @Path("review_id") reviewReply: Int,
+        @Field("content") content: String,
     ): Call<BasicResponse>
 
 
@@ -148,9 +148,9 @@ interface ServerAPIInterface {
         @Field("value") value: String,
 
 
-    ) : Call<BasicResponse>
+        ): Call<BasicResponse>
 
-//     회원정보 수정 - 전화번호
+    //     회원정보 수정 - 전화번호
     @FormUrlEncoded
     @PATCH("/user")
     fun patchRequestEditMyNumber(
@@ -169,7 +169,7 @@ interface ServerAPIInterface {
         @Field("current_password") password: String,
 
 
-        ) : Call<BasicResponse>
+        ): Call<BasicResponse>
 
 
 //    회원정보 수정- 이름
@@ -209,4 +209,21 @@ interface ServerAPIInterface {
         @Field("product_id") productId: Int,
 
     ) : Call<BasicResponse>
+        @Header("X-Http-Token") token: String,
+    ): Call<BasicResponse>
+
+    //    장바구니 상품 등록
+    @FormUrlEncoded
+    @POST("/cart")
+    fun postRequestProductRegister(
+        @Header("X-Http-Token") token: String,
+        @Field("product_id") id: Int
+    ): Call<BasicResponse>
+
+    //    장바구니 상품 삭제
+    @DELETE("/cart")
+    fun deleteRequestProduct(
+        @Header("X-Http-Token") token: String,
+        @Query("product_id") id: Int
+    )
 }
