@@ -4,10 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
-import android.widget.ListView
-import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import com.mancj.materialsearchbar.MaterialSearchBar
 import com.neppplus.gudocin_android.adapters.SuggestListAdapter
@@ -17,14 +16,21 @@ import com.neppplus.gudocin_android.datas.ProductData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import android.view.LayoutInflater
+import androidx.core.content.getSystemService as getSystemService1
+
 
 class SearchActivity : BaseActivity() {
 
     lateinit var binding: ActivitySearchBinding
 
-    var mSugestList = ArrayList<ProductData>()
+    var mSuggestList = ArrayList<ProductData>()
 
-    lateinit var mSugestListAdapter: SuggestListAdapter
+    lateinit var mSugestListAdapter : SuggestListAdapter
+
+    var mInflater = getSystemService(LAYOUT_INFLATER_SERVICE) as LayoutInflater
+
+    lateinit var mSearchBar: MaterialSearchBar
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,12 +65,16 @@ class SearchActivity : BaseActivity() {
     }
 
     override fun setValues() {
-
         getProductListFromServer()
+        binding.searchView.setMaxSuggestionCount(5)
+        binding.searchView.setHint("생활에 필요한 구독을 검색하세요")
+//        mSugestListAdapter.addSuggestion(ProductData("product_id", 100))
 
 
-        mSugestListAdapter = SuggestListAdapter(this, R.layout.simple_list_item_1, mSugestList)
-        binding.searchResultListView.adapter = mSugestListAdapter
+        mSugestListAdapter.setSuggestions(mSuggestList)
+        binding.searchView.setCustomSuggestionAdapter(mSugestListAdapter)
+
+
         binding.searchResultListView.visibility = View.GONE
 
         binding.searchView.setOnSearchActionListener(object :
@@ -87,7 +97,10 @@ class SearchActivity : BaseActivity() {
             override fun onButtonClicked(buttonCode: Int) {
 //            if로 상품이 있으면 상품 띄워주고 없으면 없습니다 띄워주기
 
+
             }
+
+
 
         })
 
@@ -98,8 +111,10 @@ class SearchActivity : BaseActivity() {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                Log.d("LOG_TAG", " view text changed " + binding.searchView.getText())
+                Log.d("LOG_TAG", " bar text changed " + mSearchBar.getText())
 
-                mSugestListAdapter.getFilter().filter(s)
+                mSugestListAdapter.getFilter().filter(binding.searchView.text)
 //                text에 따라 추천 상품 바귀도록 아래 적기
 
             }
@@ -123,7 +138,6 @@ class SearchActivity : BaseActivity() {
             }
 
         })
-        binding.searchView.setHint("생활에 필요한 구독을 검색하세요")
 
 
     }
@@ -134,8 +148,8 @@ class SearchActivity : BaseActivity() {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
                 if (response.isSuccessful) {
                     val br = response.body()!!
-                    mSugestList.clear()
-                    mSugestList.addAll(br.data.products)
+                    mSuggestList.clear()
+                    mSuggestList.addAll(br.data.products)
 
 
 
