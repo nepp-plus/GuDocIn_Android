@@ -219,4 +219,9 @@ interface ServerAPIInterface {
     fun deleteRequestProduct(
         @Query("product_id") id: Int
     )
+
+//    사용자 작성 리뷰목록
+    @GET("/user/review")
+    fun getRequestUserReviewList()
+    : Call<BasicResponse>
 }
