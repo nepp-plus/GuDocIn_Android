@@ -52,15 +52,15 @@ interface ServerAPIInterface {
     @GET("/user")
     fun getRequestMyInfo(): Call<BasicResponse>
 
-//    상품목록 받아오기
+    //    상품목록 받아오기
     @GET("/product")
     fun getRequestProductList(): Call<BasicResponse>
 
-//    전체 리뷰 목록 가져오기
+    //    전체 리뷰 목록 가져오기
     @GET("/review")
     fun getRequestReviewList(): Call<BasicResponse>
 
-//    리뷰 등록 - 멀티파트로 파일도 같이 첨부
+    //    리뷰 등록 - 멀티파트로 파일도 같이 첨부
     @Multipart
     @POST("/review")
     fun postRequestReviewContent(
@@ -69,7 +69,7 @@ interface ServerAPIInterface {
 
     ): Call<BasicResponse>
 
-//    리뷰 목록 랭킹순
+    //    리뷰 목록 랭킹순
     @GET("/review/ranking")
     fun getRequestRankingList(): Call<BasicResponse>
 
@@ -124,8 +124,7 @@ interface ServerAPIInterface {
     ): Call<BasicResponse>
 
 
-
-//    특정 리뷰의 댓글 모아보기
+    //    특정 리뷰의 댓글 모아보기
     @GET("review/{review_id}/reply")
     fun getRequestReviewReply(
         @Path("review_id") reveiwReply: Int,
@@ -157,10 +156,10 @@ interface ServerAPIInterface {
         @Field("field") field: String,
         @Field("value") value: String,
 
-    ) : Call<BasicResponse>
+        ): Call<BasicResponse>
 
 
-//    회원정보 수정- 비밀번호
+    //    회원정보 수정- 비밀번호
     @FormUrlEncoded
     @PATCH("/user")
     fun patchRequestEditMyPassword(
@@ -172,31 +171,31 @@ interface ServerAPIInterface {
         ): Call<BasicResponse>
 
 
-//    회원정보 수정- 이름
+    //    회원정보 수정- 이름
     @FormUrlEncoded
     @PATCH("/user")
     fun patchRequestEditMyName(
         @Field("field") field: String,
         @Field("value") value: String,
 
-        ) : Call<BasicResponse>
+        ): Call<BasicResponse>
 
-//      회원 아이디 찾기
+    //      회원 아이디 찾기
     @GET("/user/find/email")
     fun getRequestEmail(
-    @Query("nick_name") name: String,
-    @Query("phone") phone: String,
-    ) : Call<BasicResponse>
+        @Query("nick_name") name: String,
+        @Query("phone") phone: String,
+    ): Call<BasicResponse>
 
-//    회원 비밀번호 찾기
+    //    회원 비밀번호 찾기
     @FormUrlEncoded
     @POST("/user/find/password")
     fun postRequestPassword(
-    @Field("email") email: String,
-    @Field("nick_name") name: String,
-    ) : Call<BasicResponse>
+        @Field("email") email: String,
+        @Field("nick_name") name: String,
+    ): Call<BasicResponse>
 
-//    장바구니 조회
+    //    장바구니 조회
     @GET("/cart")
     fun getRequestBasketList() : Call<BasicResponse>
 
