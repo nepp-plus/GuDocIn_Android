@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -22,24 +23,37 @@ class MyReviewListRecyclerviewAdapter (
 
     inner class  MyReviewViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-
-        val imgReviewPicture = view.findViewById<ImageView>(R.id.imgReviewPicture)
-        val imgUserProfile = view.findViewById<ImageView>(R.id.imgUserProfile)
-        val txtReviwer = view.findViewById<TextView>(R.id.txtReviwer)
         val txtReviewTitle = view.findViewById<TextView>(R.id.txtReviewTitle)
+        val txtProductName = view.findViewById<TextView>(R.id.txtProductName)
+        val txtReviewDate = view.findViewById<TextView>(R.id.txtReviewDate)
+        val txtSavedMoneyPaymentCheck = view.findViewById<TextView>(R.id.txtSavedMoneyPaymentCheck)
+
+        val btnReviewCheck = view.findViewById<LinearLayout>(R.id.btnReviewCheck)
+        val btnEditReview = view.findViewById<LinearLayout>(R.id.btnEditReview)
+
+
+
 
         fun bind(data: ReviewData) {
-            txtReviwer.text = data.user.nickname
+            txtReviewWriterName.text = data.user.nickname
             txtReviewTitle.text = data.title
-            Glide.with(mContext).load(data.product.imageUrl).into(imgReviewPicture)
-            Glide.with(mContext).load(data.user.profileImageURL).into(imgUserProfile)
+            Glide.with(mContext).load(data.user.profileImageURL).into(imgReviewerImage)
 
-            imgReviewPicture.setOnClickListener {
 
-                val myIntent = Intent(mContext, ReviewDetailActivity::class.java)
-                myIntent.putExtra("review", data)
+           btnReviewCheck.setOnClickListener {
+                val myIntent = Intent(mContext,)
+                myIntent.putExtra("review",data) // 넘어갈 때 review id 들려 보내야 함
                 mContext.startActivity(myIntent)
             }
+
+            btnReviewCheck.setOnClickListener {
+
+
+            }
+
+
+
+
         }
 
     }
@@ -50,6 +64,8 @@ class MyReviewListRecyclerviewAdapter (
     }
 
     override fun onBindViewHolder(holder: MyReviewViewHolder, position: Int) {
+
+        holder.bind(mList[position])
 
     }
 

@@ -6,23 +6,26 @@
     android:padding="20dp">
 
     <TextView
-        android:id="@+id/txtProductName"
+        android:id="@+id/txtReviewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="상품명"/>
+        android:text="리뷰 Title"/>
 
     <TextView
-        android:id="@+id/txtProductPrice"
+        android:textStyle="bold"
+        android:textSize="10dp"
+        android:id="@+id/txtProductName"
         android:layout_marginTop="5dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="12,000원"/>
+        android:text="상품명"/>
     <TextView
-        android:id="@+id/txtPurchaseDate"
+        android:textStyle="bold"
+        android:id="@+id/txtReviewDate"
         android:textSize="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2021.12.06:구매일자"/>
+        android:text="2021.12.06:리뷰작성일자"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -30,6 +33,7 @@
 
 
         <TextView
+            android:textStyle="bold"
             android:id="@+id/txtSavedMoneyPaymentCheck"
             android:layout_marginTop="3dp"
             android:layout_width="wrap_content"
@@ -61,7 +65,7 @@
             android:id="@+id/btnEditReview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="취소하기"/>
+            android:text="리뷰 수정하기"/>
 
 
     </LinearLayout>
