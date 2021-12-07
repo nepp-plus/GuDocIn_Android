@@ -12,8 +12,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:padding="20dp"
-            android:text="주문자 정보 입력"
+            android:layout_marginTop="20dp"
+            android:text="카드 등록"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -27,17 +27,16 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:padding="10dp"
-                android:text="주문자 : "
+                android:layout_marginStart="10dp"
+                android:text="카드별칭 : "
                 android:textColor="@color/black"
                 android:textSize="17sp" />
 
             <EditText
-                android:id="@+id/edtConsumerName"
+                android:id="@+id/edtCardName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="주문자 성함을 입력하세요"
+                android:hint="카드 선택시 보일 명칭을 입력하세요"
                 android:singleLine="true" />
 
         </LinearLayout>
@@ -50,17 +49,16 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:padding="10dp"
-                android:text="연락처 : "
+                android:layout_marginStart="10dp"
+                android:text="카드번호 : "
                 android:textColor="@color/black"
                 android:textSize="17sp" />
 
             <EditText
-                android:id="@+id/edtConsumerPhone"
+                android:id="@+id/edtCardNum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="주문자 연락처를 입력하세요"
+                android:hint="카드번호를 입력해주세요"
                 android:singleLine="true" />
 
         </LinearLayout>
@@ -73,28 +71,71 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:padding="10dp"
-                android:text="이메일 : "
+                android:layout_marginStart="10dp"
+                android:text="유효기간 : "
                 android:textColor="@color/black"
                 android:textSize="17sp" />
 
             <EditText
-                android:id="@+id/edtConsumerEmail"
+                android:id="@+id/edtValidityPeriod"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="주문자 이메일 주소를 입력하세요"
+                android:hint="유효기간을 입력해주세요 (예: 1023)"
+                android:singleLine="true" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="생년월일 : "
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+
+            <EditText
+                android:id="@+id/edtBirthYear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="생년월일을 6자리로 입력해주세요"
+                android:singleLine="true" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="비밀번호 2자리 : "
+                android:textColor="@color/black"
+                android:textSize="17sp" />
+
+            <EditText
+                android:id="@+id/edtConsumerPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="비밀번호 앞 두자리를 입력해주세요"
                 android:singleLine="true" />
 
         </LinearLayout>
 
         <Button
-            android:id="@+id/btnConsumerInfoSave"
+            android:id="@+id/btnCardInfoSave"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="200dp"
-            android:text="주문자 정보 저장하기" />
+            android:layout_marginTop="150dp"
+            android:text="카드 저장하기" />
 
     </LinearLayout>
 

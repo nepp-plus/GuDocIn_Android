@@ -26,9 +26,6 @@ abstract class BaseActivity : AppCompatActivity() {
     lateinit var SearchBoxInActionBar : LinearLayout
     lateinit var txtCategoryNameInActionBar : TextView
 
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mContext = this
@@ -77,15 +74,11 @@ abstract class BaseActivity : AppCompatActivity() {
             val myIntent = Intent(mContext, NoticeActivity::class.java)
             startActivity(myIntent)
 
-            finish()
-
         }
         btnBasket.setOnClickListener {
 
             val myIntent = Intent(mContext, BasketListActivity::class.java)
             startActivity(myIntent)
-
-            finish()
 
         }
 

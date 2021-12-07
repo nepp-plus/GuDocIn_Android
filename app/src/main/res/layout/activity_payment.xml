@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout>
 
-    <ScrollView
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
         android:orientation="vertical"
         tools:context=".PaymentActivity">
 
@@ -34,8 +35,8 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:text="주문 상품"
-                android:textStyle="bold"
                 android:textColor="@color/black"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@id/imgBasketPhoto"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/txtOrderSubscribe"
@@ -88,8 +89,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:textSize="15sp"
                 android:textColor="@color/black"
+                android:textSize="15sp"
                 app:layout_constraintStart_toStartOf="@+id/txtBasketProductPrice1"
                 app:layout_constraintTop_toBottomOf="@+id/txtBasketProductPrice1"
                 tools:text="구독 주기 : " />
@@ -108,8 +109,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="12dp"
-                android:textSize="15sp"
                 android:textColor="@color/black"
+                android:textSize="15sp"
                 app:layout_constraintStart_toEndOf="@+id/btnOptionChange"
                 app:layout_constraintTop_toTopOf="@+id/btnOptionChange"
                 tools:text="옵션명" />
@@ -345,8 +346,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:textColor="@color/black"
                 android:text="배송 금액 : "
+                android:textColor="@color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/txtProductPrice"
@@ -384,7 +385,7 @@
                 android:id="@+id/btnPayment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="176dp"
+                android:layout_marginStart="170dp"
                 android:text="결제하기"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

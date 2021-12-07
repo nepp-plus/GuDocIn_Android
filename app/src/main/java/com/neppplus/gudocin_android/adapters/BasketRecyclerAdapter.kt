@@ -18,19 +18,17 @@ class BasketRecyclerAdapter(val mContext: Context, val mList: List<BasketData>) 
 
         val imgBasketPhoto = view.findViewById<ImageView>(R.id.imgBasketPhoto)
         val txtBasketProductName = view.findViewById<TextView>(R.id.txtBasketProductName)
-        val txtBasketProductPrice2 = view.findViewById<TextView>(R.id.txtBasketProductPrice2)
-        val txtTotalPrice = view.findViewById<TextView>(R.id.txtTotalPrice)
+        val txtBasketProductPrice = view.findViewById<TextView>(R.id.txtBasketProductPrice)
 
         fun bind(data: BasketData) {
 
             txtBasketProductName.text = data.name
-            txtBasketProductPrice2.text = data.price.toString()
-            txtTotalPrice.text = data.price.toString()
+            txtBasketProductPrice.text = data.price.toString()
 
             Glide.with(mContext).load(data.imageURL).into(imgBasketPhoto)
 
-            txtBasketProductPrice2.text = data.getFormattedPrice()
-            txtTotalPrice.text = data.getFormattedPrice()
+            txtBasketProductPrice.text = data.getFormattedPrice()
+
 
         }
 
