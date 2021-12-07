@@ -15,8 +15,17 @@
         android:theme="@style/Theme.GuDocIn_Android"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".RegistryCardActivity"
+            android:exported="true" />
+        <activity
+            android:name=".CardInfoActivity"
+            android:exported="true" />
+        <activity
+            android:name=".DeliveryInfoActivity"
+            android:exported="true" />
+        <activity
             android:name=".ConsumerInfoActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".PaymentActivity"
             android:exported="true" />

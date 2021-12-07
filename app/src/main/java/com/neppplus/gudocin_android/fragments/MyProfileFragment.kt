@@ -14,8 +14,8 @@ import com.neppplus.gudocin_android.datas.GlobalData
 class MyProfileFragment : BaseFragment() {
 
 
-//    xml에 <layout>으로 묶어주므로 바인딩 가능
-    lateinit var binding : FragmentMyProfileBinding
+    //    xml에 <layout>으로 묶어주므로 바인딩 가능
+    lateinit var binding: FragmentMyProfileBinding
 
 
     override fun onCreateView(
@@ -25,13 +25,13 @@ class MyProfileFragment : BaseFragment() {
     ): View? {
 
 //        바인딩 변수 사용. xml 화면을 바인딩 변수에 대입시키고 바인딩 된 마지막 화면으로 반환.
-        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_my_profile,container,false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_my_profile, container, false)
         return binding.root
 
 
     }
 
-//  화면이 시작될때 ocActivityCreated
+    //  화면이 시작될때 ocActivityCreated
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
@@ -41,15 +41,22 @@ class MyProfileFragment : BaseFragment() {
 
     }
 
-//    setupEvents함수 오버로딩
+    //    setupEvents함수 오버로딩
     override fun setupEvents() {
+
+        binding.txtMyCard.setOnClickListener {
+
+            val myIntent = Intent(mContext, RegistryCardActivity::class.java)
+            startActivity(myIntent)
+
+        }
 
 
 //     txtEditMyInfo 를 클릭했을 경우
         binding.txtEditMyInfo.setOnClickListener {
 
 //            Intent함수를 통해 현재 화면에서 MyInfoEditActivity 화면으로 넘어감
-            val myIntent = Intent(mContext,MyInfoEditActivity::class.java)
+            val myIntent = Intent(mContext, MyInfoEditActivity::class.java)
 
             startActivity(myIntent)
         }
@@ -57,7 +64,7 @@ class MyProfileFragment : BaseFragment() {
         binding.btnSaveMoney.setOnClickListener {
 
 //            Intent함수를 통해 현재 화면에서 SaveMonyMyActivity 화면으로 넘어감
-            val myIntent =  Intent( mContext, MySaveMoneyDetailActivity::class.java )
+            val myIntent = Intent(mContext, MySaveMoneyDetailActivity::class.java)
 
             startActivity(myIntent)
 
@@ -67,7 +74,7 @@ class MyProfileFragment : BaseFragment() {
         binding.txtMyProductPurnchaseList.setOnClickListener {
 
 //            Intent 함수를 통해 현재 화면에서 MyPurchaseListActivity 화면으로 넘어감
-            val myIntent =  Intent( mContext, MyPurchaseListActivity::class.java )
+            val myIntent = Intent(mContext, MyPurchaseListActivity::class.java)
 
             startActivity(myIntent)
 
@@ -77,7 +84,7 @@ class MyProfileFragment : BaseFragment() {
         binding.txtUserPointDetails.setOnClickListener {
 
 //            Intent 함수를 통해 현재 화면에서 SaveMoneyMyActivity 화면으로 넘어감
-            val myIntent =  Intent( mContext, MySaveMoneyDetailActivity::class.java )
+            val myIntent = Intent(mContext, MySaveMoneyDetailActivity::class.java)
 
             startActivity(myIntent)
 
@@ -120,7 +127,6 @@ class MyProfileFragment : BaseFragment() {
             startActivity(myIntent)
 
         }
-
 
 
     }

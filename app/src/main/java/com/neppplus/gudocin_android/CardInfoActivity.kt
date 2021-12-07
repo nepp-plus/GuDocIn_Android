@@ -6,31 +6,22 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.databinding.DataBindingUtil
-import com.neppplus.gudocin_android.databinding.ActivityConsumerInfoBinding
+import com.neppplus.gudocin_android.databinding.ActivityCardInfoBinding
 
-class ConsumerInfoActivity : BaseActivity() {
+class CardInfoActivity : BaseActivity() {
 
-    lateinit var binding: ActivityConsumerInfoBinding
+    lateinit var binding: ActivityCardInfoBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_consumer_info)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_card_info)
         setupEvents()
         setValues()
     }
 
     override fun setupEvents() {
 
-        btnBack.setOnClickListener {
-
-            val myIntent = Intent(mContext, PaymentActivity::class.java)
-            startActivity(myIntent)
-
-            finish()
-
-        }
-
-        binding.btnConsumerInfoSave.setOnClickListener {
+        binding.btnCardInfoSave.setOnClickListener {
 
             val alert = AlertDialog.Builder(mContext, R.style.MyDialogTheme)
 
