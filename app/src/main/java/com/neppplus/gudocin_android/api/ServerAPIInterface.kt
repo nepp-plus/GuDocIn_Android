@@ -198,32 +198,25 @@ interface ServerAPIInterface {
 
 //    장바구니 조회
     @GET("/cart")
-    fun getRequestBasketList(
-    @Header("X-Http-Token")  token: String,
-    ) : Call<BasicResponse>
+    fun getRequestBasketList() : Call<BasicResponse>
 
     //   장바구니에 상품 등록
     @FormUrlEncoded
     @POST("/cart")
     fun postRequestAddItemToCart(
         @Field("product_id") productId: Int,
-
-    ) : Call<BasicResponse>
-        @Header("X-Http-Token") token: String,
     ): Call<BasicResponse>
 
     //    장바구니 상품 등록
     @FormUrlEncoded
     @POST("/cart")
     fun postRequestProductRegister(
-        @Header("X-Http-Token") token: String,
         @Field("product_id") id: Int
     ): Call<BasicResponse>
 
     //    장바구니 상품 삭제
     @DELETE("/cart")
     fun deleteRequestProduct(
-        @Header("X-Http-Token") token: String,
         @Query("product_id") id: Int
     )
 }
