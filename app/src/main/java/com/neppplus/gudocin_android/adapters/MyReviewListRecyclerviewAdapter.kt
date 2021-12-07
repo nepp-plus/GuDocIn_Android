@@ -5,6 +5,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -28,28 +29,24 @@ class MyReviewListRecyclerviewAdapter (
         val txtReviewDate = view.findViewById<TextView>(R.id.txtReviewDate)
         val txtSavedMoneyPaymentCheck = view.findViewById<TextView>(R.id.txtSavedMoneyPaymentCheck)
 
-        val btnReviewCheck = view.findViewById<LinearLayout>(R.id.btnReviewCheck)
-        val btnEditReview = view.findViewById<LinearLayout>(R.id.btnEditReview)
+        val btnReviewCheck = view.findViewById<Button>(R.id.btnReviewCheck)
+        val btnEditReview = view.findViewById<Button>(R.id.btnEditReview)
 
 
 
 
         fun bind(data: ReviewData) {
-            txtReviewWriterName.text = data.user.nickname
+
             txtReviewTitle.text = data.title
-            Glide.with(mContext).load(data.user.profileImageURL).into(imgReviewerImage)
+
 
 
            btnReviewCheck.setOnClickListener {
-                val myIntent = Intent(mContext,)
+                val myIntent = Intent(mContext,ReviewDetailActivity::class.java)
                 myIntent.putExtra("review",data) // 넘어갈 때 review id 들려 보내야 함
                 mContext.startActivity(myIntent)
             }
 
-            btnReviewCheck.setOnClickListener {
-
-
-            }
 
 
 

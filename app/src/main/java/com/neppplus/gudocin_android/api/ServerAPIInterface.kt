@@ -224,4 +224,11 @@ interface ServerAPIInterface {
     @GET("/user/review")
     fun getRequestUserReviewList()
     : Call<BasicResponse>
+
+
+//   사용자 구독상품 결재 목록
+    @GET("/user/payment")
+    fun getRequestUserPurchaseList()
+        : Call<BasicResponse>
+
 }
