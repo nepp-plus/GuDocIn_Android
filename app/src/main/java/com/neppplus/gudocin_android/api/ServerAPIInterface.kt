@@ -201,4 +201,12 @@ interface ServerAPIInterface {
     fun getRequestBasketList(
     @Header("X-Http-Token")  token: String,
     ) : Call<BasicResponse>
+
+    //   장바구니에 상품 등록
+    @FormUrlEncoded
+    @POST("/cart")
+    fun postRequestAddItemToCart(
+        @Field("product_id") productId: Int,
+
+    ) : Call<BasicResponse>
 }

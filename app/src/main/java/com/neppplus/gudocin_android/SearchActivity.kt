@@ -1,18 +1,27 @@
 package com.neppplus.gudocin_android
 
-import android.app.DownloadManager
-import android.app.SearchManager
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.ListView
 import androidx.databinding.DataBindingUtil
+import com.mancj.materialsearchbar.MaterialSearchBar
+import com.neppplus.gudocin_android.adapters.SuggestListAdapter
 import com.neppplus.gudocin_android.databinding.ActivitySearchBinding
-import retrofit2.http.Query
 
 class SearchActivity : BaseActivity() {
 
     lateinit var binding: ActivitySearchBinding
-    val selectedLargeCategoryNum = 1
 
+    val searchResultListView = findViewById<ListView>(R.id.searchResultListView)
+    val searchView = findViewById<MaterialSearchBar>(R.id.searchView)
+    var mSugestList = arrayOf( "간식", "다이어트 용품")
+
+    lateinit var mSugestListAdapter : SuggestListAdapter
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,8 +31,8 @@ class SearchActivity : BaseActivity() {
         setupEvents()
         setValues()
 
-
     }
+
 
     override fun setupEvents() {
 
@@ -48,54 +57,67 @@ class SearchActivity : BaseActivity() {
 
     override fun setValues() {
 
+//        mSugestListAdapter = SuggestListAdapter(this,R.layout.simple_list_item_1,mSugestList)
+//        어댑터 연결부터 다시하자
+        searchResultListView.visibility = View.INVISIBLE
 
-        if (Intent.ACTION_SEARCH == intent.action) {
-            intent.getStringExtra(SearchManager.QUERY)?.also { query ->
+
+
+        searchView.setOnSearchActionListener(object :MaterialSearchBar.OnSearchActionListener{
+            override fun onSearchStateChanged(enabled: Boolean) {
+                if(enabled){
+                    searchResultListView.visibility = View.VISIBLE
+                }else{
+                    searchResultListView.visibility = View.INVISIBLE
+                }
 
             }
-        }
+
+            override fun onSearchConfirmed(text: CharSequence?) {
+
+            }
+
+            override fun onButtonClicked(buttonCode: Int) {
+
+            }
+
+        })
+
+        searchView.addTextChangeListener(object : TextWatcher{
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+
+            }
+
+        })
+        searchResultListView.setOnItemClickListener(object : AdapterView.OnItemClickListener{
+            override fun onItemClick(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                // 아이템이 가지고 있는 대분류 카테고리로 그에 맞는 ListActivity로 보내줘야 함
+                val myIntent = Intent(mContext,EatCategoryListActivity::class.java)
+                startActivity(myIntent)
+            }
+
+        })
+        searchView.setHint("생활에 필요한 구독을 검색하세요")
 
 
-
-
-
-//        mSearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-//            override fun onQueryTextSubmit(query: String?): Boolean {
-////                검색버튼이 눌렸을 때
-//                Log.d("검색어",query.toString())
-//                Toast.makeText(mContext, "검색하기", Toast.LENGTH_SHORT).show()
-//                return true
-//            }
-//
-//            override fun onQueryTextChange(newText: String?): Boolean {
-////                  검색어가 변경 되었을 때
-//
-//                return false
-//            }
-//
-//        })
 
 
     }
 
 
-    fun doMySearch(){
-
-    }
-
-//    fun searchResult() {
-//        mSearchView.setOnQueryTextListener(object :
-//            androidx.appcompat.widget.SearchView.OnQueryTextListener {
-//            override fun onQueryTextSubmit(query: String?): Boolean {
-//
-//            }
-//
-//            override fun onQueryTextChange(query: String?): Boolean {
-//                //mAdapter!!.filter.filter(query)
-//                return true
-//            }
-//        })
-//    }
-
+// 추천으로 띄워줄 아이템  API 로 호출해서 가져오기
 
 }

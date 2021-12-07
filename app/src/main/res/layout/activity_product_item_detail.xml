@@ -75,12 +75,14 @@
                     android:background="@color/black" />
 
                 <TextView
+                    android:id="@+id/txtViewReview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="5dp"
                     android:text="리뷰 보기"
                     android:textColor="@color/black"
                     android:textStyle="bold" />
+
 
                 <!--        이 리사이클러 뷰는 호리젠탈-->
                 <androidx.recyclerview.widget.RecyclerView

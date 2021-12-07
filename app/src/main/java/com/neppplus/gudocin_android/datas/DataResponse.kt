@@ -10,5 +10,8 @@ class DataResponse(
     var small_categories: List<SmallCategoriesData>,
     val banners: List<BannerData>,
     var baskets: List<BasketData>
+    var categories :List<CategoriesData>,
+    var small_categories :List<SmallCategoriesData>,
+    val banners : List<BannerData>,
 ) {
 }

@@ -10,13 +10,29 @@
         android:padding="10dp"
         tools:context=".SearchActivity">
 
-
-        <androidx.appcompat.widget.SearchView
+        <com.mancj.materialsearchbar.MaterialSearchBar
             android:id="@+id/searchView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:iconifiedByDefault="false"
-            app:queryHint="생활에 필요한 구독을 검색하세요" />
+            style="@style/MaterialSearchBarLight"
+            app:mt_speechMode="true"
+            app:mt_hint="생활에 필요한 구독을 검색하세요"
+            app:mt_maxSuggestionsCount="10"/>
+
+<!--        검색 결과가 띄워지는 List View-->
+
+        <ListView
+            android:id="@+id/searchResultListView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+<!--        <androidx.appcompat.widget.SearchView-->
+<!--            android:id="@+id/searchView"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:iconifiedByDefault="false"-->
+<!--            app:queryHint="생활에 필요한 구독을 검색하세요" />-->
 
         <TextView
             android:layout_width="match_parent"

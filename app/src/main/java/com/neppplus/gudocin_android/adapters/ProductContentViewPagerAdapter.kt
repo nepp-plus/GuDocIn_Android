@@ -12,7 +12,6 @@ class ProductContentViewPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter
     override fun getItem(position: Int): Fragment {
 
         return when(position) {
-
             0 -> ProductContentFragment()
                 else -> StoreContentFragment()
         }
