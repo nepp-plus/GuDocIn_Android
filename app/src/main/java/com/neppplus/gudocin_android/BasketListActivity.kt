@@ -9,6 +9,8 @@ import com.neppplus.gudocin_android.adapters.BasketRecyclerAdapter
 import com.neppplus.gudocin_android.databinding.ActivityBasketListBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.BasketData
+import com.neppplus.gudocin_android.utils.ContextUtil
+import okhttp3.Interceptor
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -45,7 +47,7 @@ class BasketListActivity : BaseActivity() {
 
         btnBasket.visibility = View.GONE
 
-//        getBasketListFromServer()
+        getBasketListFromServer()
 
         mBasketRecyclerAdapter = BasketRecyclerAdapter(mContext, mBasketList)
 
@@ -55,29 +57,29 @@ class BasketListActivity : BaseActivity() {
 
     }
 
-//    fun getBasketListFromServer() {
-//
-//        apiService.getRequestBasketList("X-Http-Token").enqueue(object : Callback<BasicResponse> {
-//            override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
-//
-//                if (response.isSuccessful) {
-//
-//                    mBasketList.clear()
-//
-//                    mBasketList.addAll(response.body()!!.data.baskets)
-//
-//                    mBasketRecyclerAdapter.notifyDataSetChanged()
-//
-//                }
-//
-//            }
-//
-//            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-//
-//            }
-//
-//        })
-//
-//    }
+    fun getBasketListFromServer() {
+
+        apiService.getRequestBasketList(ContextUtil.getToken(mContext)).enqueue(object : Callback<BasicResponse> {
+            override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
+
+                if (response.isSuccessful) {
+
+                    mBasketList.clear()
+
+                    mBasketList.addAll(response.body()!!.data.baskets)
+
+                    mBasketRecyclerAdapter.notifyDataSetChanged()
+
+                }
+
+            }
+
+            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+
+            }
+
+        })
+
+    }
 
 }
