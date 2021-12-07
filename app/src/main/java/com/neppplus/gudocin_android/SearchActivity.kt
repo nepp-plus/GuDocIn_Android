@@ -7,11 +7,13 @@ import android.text.TextWatcher
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ListView
+import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import com.mancj.materialsearchbar.MaterialSearchBar
 import com.neppplus.gudocin_android.adapters.SuggestListAdapter
 import com.neppplus.gudocin_android.databinding.ActivitySearchBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
+import com.neppplus.gudocin_android.datas.ProductData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -22,7 +24,7 @@ class SearchActivity : BaseActivity() {
 
     val searchResultListView = findViewById<ListView>(R.id.searchResultListView)
     val searchView = findViewById<MaterialSearchBar>(R.id.searchView)
-    var mSugestList = arrayOf( "간식", "다이어트 용품")
+    lateinit var mSugestList :ArrayList<ProductData>
 
     lateinit var mSugestListAdapter : SuggestListAdapter
 
@@ -59,6 +61,8 @@ class SearchActivity : BaseActivity() {
     }
 
     override fun setValues() {
+
+        getProductListFromServer()
 
 
         mSugestListAdapter = SuggestListAdapter(this,R.layout.simple_list_item_1,mSugestList)
@@ -124,6 +128,13 @@ class SearchActivity : BaseActivity() {
     fun getProductListFromServer(){
         apiService.getRequestProductList().enqueue(object :Callback<BasicResponse>{
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
+                if (response.isSuccessful){
+                    val br = response.body()!!
+                    mSugestList = arrayListOf(br.data.product)
+                    val txtProductName = findViewById<TextView>(R.id.txtProductName)
+                    txtProductName.text = br.data.product.name
+
+                }
 
             }
 

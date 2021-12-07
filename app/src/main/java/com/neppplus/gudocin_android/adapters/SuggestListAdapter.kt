@@ -9,7 +9,7 @@ import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.datas.ProductData
 
 
-class SuggestListAdapter(val mContext: Context, resId: Int, val mList: Array<String>)
+class SuggestListAdapter(val mContext: Context, resId: Int, val mList: ArrayList<ProductData>)
     : ArrayAdapter<ProductData>(mContext,resId,mList) {
 
 
