@@ -49,7 +49,6 @@ class BasketListActivity : BaseActivity() {
 
         mBasketRecyclerAdapter = BasketRecyclerAdapter(mContext, mBasketList)
 
-        mBasketRecyclerAdapter = BasketRecyclerAdapter(mContext, mBasketList)
         binding.basketListRecyclerView.adapter = mBasketRecyclerAdapter
         binding.basketListRecyclerView.layoutManager = LinearLayoutManager(mContext)
 
@@ -65,7 +64,7 @@ class BasketListActivity : BaseActivity() {
                     val br = response.body()!!
 
                     mBasketList.clear()
-                    mBasketList.addAll(br.data.baskets)
+                    mBasketList.addAll(br.data.carts)
 
                     mBasketRecyclerAdapter.notifyDataSetChanged()
 
