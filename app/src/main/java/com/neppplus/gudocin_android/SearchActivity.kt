@@ -22,9 +22,7 @@ class SearchActivity : BaseActivity() {
 
     lateinit var binding: ActivitySearchBinding
 
-    val searchResultListView = findViewById<ListView>(R.id.searchResultListView)
-    val searchView = findViewById<MaterialSearchBar>(R.id.searchView)
-    lateinit var mSugestList :ArrayList<ProductData>
+    var mSugestList = ArrayList<ProductData>()
 
     lateinit var mSugestListAdapter : SuggestListAdapter
 
@@ -66,16 +64,16 @@ class SearchActivity : BaseActivity() {
 
 
         mSugestListAdapter = SuggestListAdapter(this,R.layout.simple_list_item_1,mSugestList)
-        searchResultListView.adapter = mSugestListAdapter
+        binding.searchResultListView.adapter = mSugestListAdapter
 
-        searchResultListView.visibility = View.INVISIBLE
+        binding.searchResultListView.visibility = View.INVISIBLE
 
-        searchView.setOnSearchActionListener(object :MaterialSearchBar.OnSearchActionListener{
+        binding.searchView.setOnSearchActionListener(object :MaterialSearchBar.OnSearchActionListener{
             override fun onSearchStateChanged(enabled: Boolean) {
                 if(enabled){
-                    searchResultListView.visibility = View.VISIBLE
+                    binding.searchResultListView.visibility = View.VISIBLE
                 }else{
-                    searchResultListView.visibility = View.INVISIBLE
+                    binding.searchResultListView.visibility = View.INVISIBLE
                 }
 
             }
@@ -90,7 +88,7 @@ class SearchActivity : BaseActivity() {
 
         })
 
-        searchView.addTextChangeListener(object : TextWatcher{
+        binding.searchView.addTextChangeListener(object : TextWatcher{
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
 
             }
@@ -104,7 +102,7 @@ class SearchActivity : BaseActivity() {
             }
 
         })
-        searchResultListView.setOnItemClickListener(object : AdapterView.OnItemClickListener{
+        binding.searchResultListView.setOnItemClickListener(object : AdapterView.OnItemClickListener{
             override fun onItemClick(
                 parent: AdapterView<*>?,
                 view: View?,
@@ -117,7 +115,7 @@ class SearchActivity : BaseActivity() {
             }
 
         })
-        searchView.setHint("생활에 필요한 구독을 검색하세요")
+        binding.searchView.setHint("생활에 필요한 구독을 검색하세요")
 
 
 
@@ -130,9 +128,12 @@ class SearchActivity : BaseActivity() {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
                 if (response.isSuccessful){
                     val br = response.body()!!
-                    mSugestList = arrayListOf(br.data.product)
-                    val txtProductName = findViewById<TextView>(R.id.txtProductName)
-                    txtProductName.text = br.data.product.name
+                    mSugestList.clear()
+                    mSugestList.addAll(br.data.products)
+
+
+
+                    mSugestListAdapter.notifyDataSetChanged()
 
                 }
 
