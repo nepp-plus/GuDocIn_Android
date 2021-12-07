@@ -8,12 +8,10 @@ class PaymentData (
 
 
         var id : Int,
-        @SerializedName("subscription_id")
-        var subscriptionId : Int,
-        var amount: Int,
+               var amount: Int,
         @SerializedName("created_at")
         var createdAt: Date,
-        var subscription : SubscriptionData
+        var subscription : SubscriptionData,
 
         ) : Serializable {
 }
