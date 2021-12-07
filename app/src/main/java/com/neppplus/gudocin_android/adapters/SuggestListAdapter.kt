@@ -14,6 +14,7 @@ import com.neppplus.gudocin_android.datas.ProductData
 class SuggestListAdapter(
     val mContext: Context,
     val mInflater: LayoutInflater,
+    val mList: List<ProductData>
 ) : SuggestionsAdapter<ProductData, SuggestListAdapter.SuggestionHolder>(mInflater) {
 
 
@@ -41,7 +42,7 @@ class SuggestListAdapter(
 
 //        holder.bind(mList.[position])
 //        holder.bind(ProductData.[position])
-
+//
 //        holder.txtProductName.setText(suggestion.name)
     }
 

@@ -27,11 +27,6 @@ class SearchActivity : BaseActivity() {
     var mSuggestList = ArrayList<ProductData>()
 
     lateinit var mSugestListAdapter : SuggestListAdapter
-
-    //문서에서 쓰라고 한 부분//
-//    var mSugestListAdapter = SuggestListAdapter(mInflater)
-//    var mInflater = getSystemService(LAYOUT_INFLATER_SERVICE) as LayoutInflater
-
     lateinit var mSearchBar: MaterialSearchBar
 
 
@@ -70,8 +65,11 @@ class SearchActivity : BaseActivity() {
         getProductListFromServer()
         binding.searchView.setMaxSuggestionCount(5)
         binding.searchView.setHint("생활에 필요한 구독을 검색하세요")
-//        mSugestListAdapter.addSuggestion(ProductData("product_id", 100))
 
+
+
+
+        mSugestListAdapter = SuggestListAdapter(mContext, LayoutInflater.from(mContext),mSuggestList)
 
         mSugestListAdapter.setSuggestions(mSuggestList)
         binding.searchView.setCustomSuggestionAdapter(mSugestListAdapter)
