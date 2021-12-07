@@ -10,11 +10,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.ReviewDetailActivity
+import com.neppplus.gudocin_android.datas.PaymentData
 import com.neppplus.gudocin_android.datas.ProductData
 
 class MyPurchaseListRecyclerviewAdapter(
     val mContext : Context,
-    val mList: ArrayList<ProductData>
+    val mList: ArrayList<PaymentData>
 ) : RecyclerView.Adapter<MyPurchaseListRecyclerviewAdapter.MyPurchaseListViewHolder>() {
 
 
@@ -29,10 +30,9 @@ class MyPurchaseListRecyclerviewAdapter(
         val btnCancel = view.findViewById<Button>(R.id.btnCancel)
 
 
-        fun bind(data: ProductData) {
+        fun bind(data: PaymentData) {
 
-            txtProductReviewNoName.text = data.name
-            txtProductPrice.text = data.price.toString()
+
 
             txtPaymentInfo.setOnClickListener {
 
