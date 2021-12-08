@@ -63,9 +63,9 @@ class ReviewActivity : BaseActivity() {
 
                     val myIntent = Intent()
                     myIntent.action = Intent.ACTION_PICK
-                    myIntent.type = android.provider.MediaStore.Images.Media.CONTENT_TYPE
                     startActivityForResult(myIntent, REQ_FOR_GALLERY)
 
+                    myIntent.type = android.provider.MediaStore.Images.Media.CONTENT_TYPE
                 }
 
                 override fun onPermissionDenied(deniedPermissions: MutableList<String>?) {

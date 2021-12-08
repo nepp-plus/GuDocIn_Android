@@ -57,6 +57,8 @@ class ReplyActivity : BaseActivity() {
     override fun setValues() {
         val intputReply = binding.edtReply.text.toString()
 
+        mReviewData = intent.getSerializableExtra("review") as ReviewData
+
         apiService.getRequestReviewReply(mReviewData.id).enqueue(object : Callback<BasicResponse>{
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
 

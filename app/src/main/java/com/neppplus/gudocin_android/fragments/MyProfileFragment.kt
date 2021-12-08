@@ -1,5 +1,7 @@
 package com.neppplus.gudocin_android.fragments
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +11,7 @@ import androidx.databinding.DataBindingUtil
 import com.neppplus.gudocin_android.*
 import com.neppplus.gudocin_android.databinding.FragmentMyProfileBinding
 import com.neppplus.gudocin_android.datas.GlobalData
+import com.neppplus.gudocin_android.utils.ContextUtil
 
 //      BaseFragment 상속
 class MyProfileFragment : BaseFragment() {
@@ -43,6 +46,38 @@ class MyProfileFragment : BaseFragment() {
 
     //    setupEvents함수 오버로딩
     override fun setupEvents() {
+
+
+        binding.txtLogOut.setOnClickListener {
+
+//            진짜 로그아웃 할건지? 확인.
+
+            val alert = AlertDialog.Builder(mContext)
+            alert.setTitle("로그아웃 확인")
+            alert.setMessage("정말 로그아웃 하시겠습니까?")
+            alert.setPositiveButton("확인", DialogInterface.OnClickListener { dialogInterface, i ->
+
+//                실제 로그아웃 처리
+//                실제 로그아웃 처리 => 저장된 토큰을 "" 으로 돌려주자. (내 폰에 저장된 토큰 삭제)
+
+                ContextUtil.setToken(mContext, "")
+
+//                화면 종료 -> (열려있는 모든 화면을 전부 닫고)  SplashActivity로 이동.
+
+                val myIntent = Intent(mContext, ApproachActivity::class.java)
+                myIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(myIntent)
+
+            })
+            alert.setNegativeButton("취소", null)
+
+            alert.show()
+
+
+        }
+
+
+
 
         binding.txtMyCard.setOnClickListener {
 
@@ -134,6 +169,7 @@ class MyProfileFragment : BaseFragment() {
     override fun setValues() {
 
         binding.txtUserName.text = GlobalData.loginUser!!.nickname
+
 
     }
 }

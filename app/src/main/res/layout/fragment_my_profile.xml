@@ -67,6 +67,7 @@
 
             android:id="@+id/btnSaveMoney"
             android:layout_marginStart="20dp"
+            android:backgroundTint="@color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="내역확인"
@@ -108,6 +109,7 @@
                     android:id="@+id/btnMyProductPurchase"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
                     android:text="정기 구독 상품 내역"/>
 
                 <TextView
@@ -119,6 +121,7 @@
                     android:id="@+id/btnMyReviewDetail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
                     android:text="리뷰 내역"/>
 
 
