@@ -72,6 +72,7 @@
                         android:id="@+id/btnOptionChange"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:backgroundTint="@color/white"
                         android:text="옵션 변경" />
 
                 </LinearLayout>
@@ -354,6 +355,7 @@
                     android:visibility="gone">
 
                     <TextView
+                        android:id="@+id/txtConsumerCard"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="나의 소중한 신한 카드"
@@ -364,6 +366,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:backgroundTint="@color/white"
                         android:text="카드 등록하기" />
 
                 </LinearLayout>

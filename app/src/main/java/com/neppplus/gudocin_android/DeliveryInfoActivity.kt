@@ -71,7 +71,9 @@ class DeliveryInfoActivity : BaseActivity() {
 
                         val myIntent = Intent(mContext, PaymentActivity::class.java)
                         intent.putExtra("nickname", inputName)
-                        startActivity(myIntent)
+                        startActivityForResult(myIntent, 4)
+
+                        setResult(RESULT_OK)
 
                         finish()
 
@@ -113,7 +115,9 @@ class DeliveryInfoActivity : BaseActivity() {
 
                         val myIntent = Intent(mContext, PaymentActivity::class.java)
                         intent.putExtra("phone", inputPhone)
-                        startActivity(myIntent)
+                        startActivityForResult(myIntent, 5)
+
+                        setResult(RESULT_OK)
 
                         finish()
 

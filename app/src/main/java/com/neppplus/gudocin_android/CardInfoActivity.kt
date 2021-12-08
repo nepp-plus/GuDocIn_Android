@@ -30,6 +30,15 @@ class CardInfoActivity : BaseActivity() {
 
     override fun setupEvents() {
 
+        btnBack.setOnClickListener {
+
+            val myIntent = Intent(mContext, PaymentActivity::class.java)
+            startActivity(myIntent)
+
+            finish()
+
+        }
+
         binding.btnCardInfoSave.setOnClickListener {
 
             val inputCardNickname = binding.edtCardNickName.text.toString()
@@ -38,7 +47,13 @@ class CardInfoActivity : BaseActivity() {
             val inputCardBirthDay = binding.edtCardBirthDay.text.toString()
             val inputCardPassword = binding.edtCardPassword.text.toString()
 
-            apiService.postRequestUserCard(inputCardNickname, inputCardNum, inputCardValidity, inputCardBirthDay, inputCardPassword).enqueue(object :
+            apiService.postRequestUserCard(
+                inputCardNickname,
+                inputCardNum,
+                inputCardValidity,
+                inputCardBirthDay,
+                inputCardPassword
+            ).enqueue(object :
                 Callback<BasicResponse> {
                 override fun onResponse(
                     call: Call<BasicResponse>,
@@ -50,15 +65,22 @@ class CardInfoActivity : BaseActivity() {
 
                         val userNickname = basicResponse.data.user.nickname
 
-                        Toast.makeText(mContext, "${userNickname}님, 카드 등록이 완료되었습니다", Toast.LENGTH_SHORT)
+                        Toast.makeText(
+                            mContext,
+                            "${userNickname}님, 카드 등록이 완료되었습니다",
+                            Toast.LENGTH_SHORT
+                        )
                             .show()
 
                         ContextUtil.setToken(mContext, basicResponse.data.token)
 
                         GlobalData.loginUser = basicResponse.data.user
 
-                        val myIntent = Intent(mContext, NavigationActivity::class.java)
-                        startActivity(myIntent)
+                        val myIntent = Intent(mContext, PaymentActivity::class.java)
+                        intent.putExtra("nickname", inputCardNickname)
+                        startActivityForResult(myIntent, 6)
+
+                        setResult(RESULT_OK)
 
                         finish()
 

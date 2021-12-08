@@ -28,15 +28,21 @@ class PaymentActivity : BaseActivity() {
 
         }
 
-        if (intent.hasExtra("nickname")) {
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        //      주문자 정보
+        if (requestCode == 1 && resultCode == RESULT_OK && intent.hasExtra("nickname")) {
             binding.txtConsumerName1.text = intent.getStringExtra("nickname")
         }
 
-        else if (intent.hasExtra("phone")) {
+        else if (requestCode == 2 && resultCode == RESULT_OK && intent.hasExtra("phone")) {
             binding.txtConsumerPhone1.text = intent.getStringExtra("phone")
         }
 
-        else if (intent.hasExtra("email")) {
+        else if (requestCode == 3 && resultCode == RESULT_OK && intent.hasExtra("email")) {
             binding.txtConsumerEmail.text = intent.getStringExtra("email")
         }
 
@@ -44,12 +50,22 @@ class PaymentActivity : BaseActivity() {
 
         }
 
-        if (intent.hasExtra("nickname")) {
+//      배달 정보
+        if (requestCode == 4 && resultCode == RESULT_OK && intent.hasExtra("nickname")) {
             binding.txtConsumerName2.text = intent.getStringExtra("nickname")
         }
 
-        else if (intent.hasExtra("phone")) {
+        else if (requestCode == 5 && resultCode == RESULT_OK && intent.hasExtra("phone")) {
             binding.txtConsumerPhone2.text = intent.getStringExtra("phone")
+        }
+
+        else {
+
+        }
+
+//      카드 정보
+        if (requestCode == 6 && resultCode == RESULT_OK && intent.hasExtra("nickname")) {
+            binding.txtConsumerCard.text = intent.getStringExtra("nickname")
         }
 
         else {

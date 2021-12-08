@@ -65,7 +65,9 @@ class ConsumerInfoActivity : BaseActivity() {
 
                         val myIntent = Intent(mContext, PaymentActivity::class.java)
                         intent.putExtra("nickname", inputName)
-                        startActivity(myIntent)
+                        startActivityForResult(myIntent, 1)
+
+                        setResult(RESULT_OK)
 
                         finish()
 
@@ -107,7 +109,9 @@ class ConsumerInfoActivity : BaseActivity() {
 
                         val myIntent = Intent(mContext, PaymentActivity::class.java)
                         intent.putExtra("phone", inputPhone)
-                        startActivity(myIntent)
+                        startActivityForResult(myIntent, 2)
+
+                        setResult(RESULT_OK)
 
                         finish()
 
@@ -149,7 +153,9 @@ class ConsumerInfoActivity : BaseActivity() {
 
                         val myIntent = Intent(mContext, PaymentActivity::class.java)
                         intent.putExtra("email", inputEmail)
-                        startActivity(myIntent)
+                        startActivityForResult(myIntent, 3)
+
+                        setResult(RESULT_OK)
 
                         finish()
 
