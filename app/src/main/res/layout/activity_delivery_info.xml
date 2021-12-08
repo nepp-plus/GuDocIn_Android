@@ -68,6 +68,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
@@ -95,8 +96,8 @@
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/txtConsumerAddress"
+        <EditText
+            android:id="@+id/edtConsumerAddress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
@@ -107,7 +108,7 @@
             android:textSize="17sp" />
 
         <EditText
-            android:id="@+id/edtConsumerAddress"
+            android:id="@+id/edtConsumerMicroAddress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"

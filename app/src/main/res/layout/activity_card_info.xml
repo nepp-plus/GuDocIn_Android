@@ -33,7 +33,7 @@
                 android:textSize="17sp" />
 
             <EditText
-                android:id="@+id/edtCardName"
+                android:id="@+id/edtCardNickName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="카드 선택시 보일 명칭을 입력하세요"
@@ -77,7 +77,7 @@
                 android:textSize="17sp" />
 
             <EditText
-                android:id="@+id/edtValidityPeriod"
+                android:id="@+id/edtCardValidity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="유효기간을 입력해주세요 (예: 1023)"
@@ -99,7 +99,7 @@
                 android:textSize="17sp" />
 
             <EditText
-                android:id="@+id/edtBirthYear"
+                android:id="@+id/edtCardBirthDay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="생년월일을 6자리로 입력해주세요"
@@ -121,9 +121,10 @@
                 android:textSize="17sp" />
 
             <EditText
-                android:id="@+id/edtConsumerPassword"
+                android:id="@+id/edtCardPassword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:inputType="textPassword"
                 android:hint="비밀번호 앞 두자리를 입력해주세요"
                 android:singleLine="true" />
 

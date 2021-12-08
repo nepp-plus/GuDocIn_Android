@@ -1,12 +1,19 @@
 package com.neppplus.gudocin_android
 
-import android.app.AlertDialog
-import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.neppplus.gudocin_android.databinding.ActivityDeliveryInfoBinding
+import com.neppplus.gudocin_android.datas.BasicResponse
+import com.neppplus.gudocin_android.datas.GlobalData
+import com.neppplus.gudocin_android.utils.ContextUtil
+import org.json.JSONObject
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class DeliveryInfoActivity : BaseActivity() {
 
@@ -38,17 +45,96 @@ class DeliveryInfoActivity : BaseActivity() {
 
         binding.btnDeliveryInfoSave.setOnClickListener {
 
-            val alert = AlertDialog.Builder(mContext, R.style.MyDialogTheme)
+//            발신/수신자가 다른 경우에는 어떻게 처리해야 하는지?
+            val inputName = binding.edtConsumerName.text.toString()
+            val inputPhone = binding.edtConsumerPhone.text.toString()
 
-            alert.setTitle("배달 정보 변경")
+//           배송지는 어떻게 처리해야 하는지?
+//            val inputAddress = binding.edtConsumerAddress.text.toString()
 
-            alert.setPositiveButton("확인", DialogInterface.OnClickListener { dialogInterface, i ->
-                val myIntent = Intent(mContext, PaymentActivity::class.java)
-                startActivity(myIntent)
+            apiService.patchRequestEditMyName("nickname", inputName).enqueue(object :
+                Callback<BasicResponse> {
+                override fun onResponse(
+                    call: Call<BasicResponse>,
+                    response: Response<BasicResponse>
+                ) {
+
+                    if (response.isSuccessful) {
+                        val basicResponse = response.body()!!
+
+                        Toast.makeText(mContext, "배달 정보가 저장되었습니다.", Toast.LENGTH_SHORT)
+                            .show()
+
+                        ContextUtil.setToken(mContext, basicResponse.data.token)
+
+                        GlobalData.loginUser = basicResponse.data.user
+
+                        val myIntent = Intent(mContext, PaymentActivity::class.java)
+                        intent.putExtra("nickname", inputName)
+                        startActivity(myIntent)
+
+                        finish()
+
+                    } else {
+
+                        val errorJson = JSONObject(response.errorBody()!!.string())
+                        Log.d("에러경우", errorJson.toString())
+
+                        val message = errorJson.getString("message")
+
+                        Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show()
+
+                    }
+
+                }
+
+                override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+
+                }
+
             })
-            alert.setNegativeButton("취소", null)
 
-            alert.show()
+            apiService.patchRequestEditMyNumber("phone", inputPhone).enqueue(object :
+                Callback<BasicResponse> {
+                override fun onResponse(
+                    call: Call<BasicResponse>,
+                    response: Response<BasicResponse>
+                ) {
+
+                    if (response.isSuccessful) {
+                        val basicResponse = response.body()!!
+
+                        Toast.makeText(mContext, "배달 정보가 저장되었습니다.", Toast.LENGTH_SHORT)
+                            .show()
+
+                        ContextUtil.setToken(mContext, basicResponse.data.token)
+
+                        GlobalData.loginUser = basicResponse.data.user
+
+                        val myIntent = Intent(mContext, PaymentActivity::class.java)
+                        intent.putExtra("phone", inputPhone)
+                        startActivity(myIntent)
+
+                        finish()
+
+                    } else {
+
+                        val errorJson = JSONObject(response.errorBody()!!.string())
+                        Log.d("에러경우", errorJson.toString())
+
+                        val message = errorJson.getString("message")
+
+                        Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show()
+
+                    }
+
+                }
+
+                override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+
+                }
+
+            })
 
         }
 
@@ -58,6 +144,6 @@ class DeliveryInfoActivity : BaseActivity() {
 
         btnBasket.visibility = View.GONE
         btnBell.visibility = View.GONE
-
     }
+
 }

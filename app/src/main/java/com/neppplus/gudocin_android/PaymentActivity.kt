@@ -28,6 +28,30 @@ class PaymentActivity : BaseActivity() {
 
         }
 
+        if (intent.hasExtra("nickname")) {
+
+            binding.txtConsumerName1.text = intent.getStringExtra("nickname")
+
+        } else {
+
+        }
+
+        if (intent.hasExtra("phone")) {
+
+            binding.txtConsumerName1.text = intent.getStringExtra("phone")
+
+        } else {
+
+        }
+
+        if (intent.hasExtra("email")) {
+
+            binding.txtConsumerName1.text = intent.getStringExtra("email")
+
+        } else {
+
+        }
+
     }
 
     override fun setupEvents() {
