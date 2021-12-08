@@ -6,11 +6,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.MenuItem
-import android.view.View
-import android.widget.AdapterView
 import androidx.databinding.DataBindingUtil
-import androidx.drawerlayout.widget.DrawerLayout
 import com.mancj.materialsearchbar.MaterialSearchBar
 import com.neppplus.gudocin_android.adapters.SuggestListAdapter
 import com.neppplus.gudocin_android.databinding.ActivitySearchBinding
@@ -37,9 +33,6 @@ class SearchActivity : BaseActivity() {
 
     }
 
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//
-//    }
 
 
     override fun setupEvents() {
@@ -111,6 +104,7 @@ class SearchActivity : BaseActivity() {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
                 Log.d("LOG_TAG", " view text changed " + binding.searchView.getText())
                 val searchText = binding.searchView.text
 

@@ -40,16 +40,17 @@ class ProductItemDetailActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
-//        binding.btnBuyProduct.setOnClickListener {
-////           val myIntent = Intent(mContext,  ::class.java )
-////            myIntent.putExtra("product_id",mProductData.id)
-////            startActivity(myIntent)
-//        }
-//
-//        binding.btnAddCart.setOnClickListener {
-//
-//            postAddItemToCartViaServer()
-//        }
+        binding.btnBuyProduct.setOnClickListener {
+//           val myIntent = Intent(mContext,  ::class.java )
+//            myIntent.putExtra("product_id",mProductData.id)
+//            startActivity(myIntent)
+        }
+
+        binding.btnAddCart.setOnClickListener {
+
+            postAddItemToCartViaServer()
+
+        }
 
     }
 
@@ -111,15 +112,20 @@ class ProductItemDetailActivity : BaseActivity() {
         apiService.postRequestAddItemToCart(mProductData.id).enqueue(object :Callback<BasicResponse>{
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
                 if (response.isSuccessful){
+                    val br = response.body()!!
+                    Log.d("성공", br.message)
+
                     val alert = AlertDialog.Builder(mContext)
                     alert.setTitle("장바구니 상품 등록 완료")
                     alert.setMessage("장바구니로 이동 하시겠습니까?")
-                    alert.setPositiveButton("확인",DialogInterface.OnClickListener { dialog, which ->
-                        val myIntent = Intent(mContext, BasketListActivity::class.java)
-                        startActivity(myIntent)
-                    })
+                    alert.setPositiveButton("확인",
+                        DialogInterface.OnClickListener { dialog, which ->
+                            val myIntent = Intent(mContext, BasketListActivity::class.java)
+                            startActivity(myIntent)
+                        })
                     alert.setNegativeButton("취소", DialogInterface.OnClickListener { dialog, which ->
                     })
+                    alert.show()
                 }
                 else{
                     val errorJson = JSONObject(response.errorBody()!!.string())
