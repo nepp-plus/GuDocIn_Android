@@ -1,12 +1,15 @@
 package com.neppplus.gudocin_android.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.adapters.RecyclerVewAdapterForMain
 import com.neppplus.gudocin_android.adapters.SmallCategoriesListAdapter
@@ -67,9 +70,20 @@ class HomeFragment : BaseFragment() {
         binding.reviewListRecyclerView.adapter = mMainRecyclerAdapter
         binding.reviewListRecyclerView.layoutManager = LinearLayoutManager(mContext)
 
+        binding.reviewListRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener(){
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
 
+                if (!binding.reviewListRecyclerView.canScrollVertically(1)) {
+                    Log.d("SCROLL", "끝났음");
+                    Toast.makeText(mContext, "상품 목록이 끝났습니다.", Toast.LENGTH_SHORT).show()
+
+                }
+            }
+        })
 
     }
+
 
     fun getReviewListFromServer() {
 
