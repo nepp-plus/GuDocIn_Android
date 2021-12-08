@@ -76,14 +76,22 @@ class HomeFragment : BaseFragment() {
 
                 if (!binding.reviewListRecyclerView.canScrollVertically(1)) {
                     Log.d("SCROLL", "끝났음");
-                    Toast.makeText(mContext, "상품 목록이 끝났습니다.", Toast.LENGTH_SHORT).show()
+                    binding.btnPageUp.visibility = View.VISIBLE
+
+                    updown_Listener(binding.reviewListRecyclerView)
+
+                }
+                else{ binding.btnPageUp.visibility = View.GONE
 
                 }
             }
         })
 
     }
-
+    fun updown_Listener(view: RecyclerView?) {
+        binding.btnPageUp.setOnClickListener {
+            view?.smoothScrollToPosition(0)
+        } }
 
     fun getReviewListFromServer() {
 
