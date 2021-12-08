@@ -1,18 +1,13 @@
 package com.neppplus.gudocin_android
 
 import android.content.Intent
-import android.media.Rating
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.ContactsContract
 import android.util.Log
-import android.widget.ImageView
-import android.widget.RatingBar
-import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
 import com.neppplus.gudocin_android.databinding.ActivityReviewDetailBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
+import com.neppplus.gudocin_android.datas.ProductData
 import com.neppplus.gudocin_android.datas.ReviewData
 import org.json.JSONObject
 import retrofit2.Call
@@ -24,6 +19,7 @@ import java.util.*
 class ReviewDetailActivity : BaseActivity() {
 
     lateinit var mReviewData: ReviewData
+    lateinit var mProductData : ProductData
 
     lateinit var binding: ActivityReviewDetailBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -61,15 +57,14 @@ class ReviewDetailActivity : BaseActivity() {
             mContext.startActivity(myIntent)
         }
         binding.btnBuyProduct.setOnClickListener {
-//            결제 페이지로 인텐트
+            //            결제 페이지로 인텐트
+                val myIntent = Intent(mContext,  PaymentActivity::class.java )
+                myIntent.putExtra("product_id",mProductData)
+                startActivity(myIntent)
         }
-
-
     }
 
     override fun setValues() {
-
-
 
         mReviewData = intent.getSerializableExtra("review") as ReviewData
 
@@ -107,6 +102,8 @@ class ReviewDetailActivity : BaseActivity() {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
                 if (response.isSuccessful){
                     Log.d("불러오기성공","불러오기 성공")
+                    val br = response.body()!!
+                    mProductData = br.data.product
                 }
                 else{
                     val jsonobj = JSONObject(response.errorBody()!!.string())

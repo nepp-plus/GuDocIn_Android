@@ -83,6 +83,7 @@ class SearchActivity : BaseActivity() {
                     startActivity(myIntent)
                 }
                 val searchText = binding.searchView.text
+
                 mSugestListAdapter.filter?.filter(searchText)
                 getProductListFromServer()
 
@@ -108,6 +109,7 @@ class SearchActivity : BaseActivity() {
                 Log.d("LOG_TAG", " view text changed " + binding.searchView.getText())
                 val searchText = binding.searchView.text
 
+                mSuggestList.clear()
                 mSugestListAdapter.filter?.filter(searchText)
                 mSugestListAdapter.notifyDataSetChanged()
 //                text에 따라 추천 상품 바귀도록 아래 적기

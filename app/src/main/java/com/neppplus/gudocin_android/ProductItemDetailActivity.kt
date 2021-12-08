@@ -40,10 +40,11 @@ class ProductItemDetailActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
+
         binding.btnBuyProduct.setOnClickListener {
-//           val myIntent = Intent(mContext,  ::class.java )
-//            myIntent.putExtra("product_id",mProductData.id)
-//            startActivity(myIntent)
+           val myIntent = Intent(mContext,  PaymentActivity::class.java )
+            myIntent.putExtra("product_id",mProductData)
+            startActivity(myIntent)
         }
 
         binding.btnAddCart.setOnClickListener {
@@ -84,16 +85,19 @@ class ProductItemDetailActivity : BaseActivity() {
                     binding.txtProductPrice.text = br.data.product.getFormatedPrice()
                     binding.txtProductCompanyName.text = br.data.product.store.name
                     Glide.with(mContext).load(br.data.product.imageUrl).into(binding.imgProduct)
+                    mProductData = br.data.product
 
                     if (mProductData.reviews.size == 0){
                         binding.txtViewReview.text = "아직 등록된 리뷰가 없습니다."
 
                     }
                     else{
+                        for (review in response.body()!!.data.product.reviews){
+                            review.product = mProductData
+                        }
                         mReviewList.clear()
                         mReviewList.addAll(response.body()!!.data.product.reviews)
                         mReviewRecyclerViewAdapterForProductList.notifyDataSetChanged()
-
                     }
 
                 }
