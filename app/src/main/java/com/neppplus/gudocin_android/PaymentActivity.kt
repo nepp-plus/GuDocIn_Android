@@ -29,26 +29,30 @@ class PaymentActivity : BaseActivity() {
         }
 
         if (intent.hasExtra("nickname")) {
-
             binding.txtConsumerName1.text = intent.getStringExtra("nickname")
+        }
 
-        } else {
+        else if (intent.hasExtra("phone")) {
+            binding.txtConsumerPhone1.text = intent.getStringExtra("phone")
+        }
+
+        else if (intent.hasExtra("email")) {
+            binding.txtConsumerEmail.text = intent.getStringExtra("email")
+        }
+
+        else {
 
         }
 
-        if (intent.hasExtra("phone")) {
-
-            binding.txtConsumerName1.text = intent.getStringExtra("phone")
-
-        } else {
-
+        if (intent.hasExtra("nickname")) {
+            binding.txtConsumerName2.text = intent.getStringExtra("nickname")
         }
 
-        if (intent.hasExtra("email")) {
+        else if (intent.hasExtra("phone")) {
+            binding.txtConsumerPhone2.text = intent.getStringExtra("phone")
+        }
 
-            binding.txtConsumerName1.text = intent.getStringExtra("email")
-
-        } else {
+        else {
 
         }
 
