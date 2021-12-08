@@ -4,63 +4,83 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="20dp"
-    android:background="@drawable/corner_shape"
-    android:orientation="horizontal">
+    android:layout_margin="5dp"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <CheckBox
+        android:id="@+id/checkSubscribe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:orientation="vertical">
+        android:background="@drawable/corner_shape"
+        android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/imgBasketPhoto"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:src="@mipmap/ic_launcher" />
+            android:orientation="vertical">
 
-<!--        <Button-->
-<!--            android:id="@+id/btnOptionChange"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:backgroundTint="@color/white"-->
-<!--            android:text="옵션 변경" />-->
+            <ImageView
+                android:id="@+id/imgBasketPhoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:src="@mipmap/ic_launcher" />
 
-    </LinearLayout>
+            <!--        <Button-->
+            <!--            android:id="@+id/btnOptionChange"-->
+            <!--            android:layout_width="wrap_content"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:backgroundTint="@color/white"-->
+            <!--            android:text="옵션 변경" />-->
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:orientation="vertical">
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/txtBasketProductName"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textSize="12sp"
-            tools:text="상품명" />
+            android:layout_marginStart="15dp"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/txtBasketProductPrice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="가격"
-            android:textColor="@color/black"
-            android:textSize="12sp" />
+            <ImageView
+                android:id="@+id/imgDeleteSubscribe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:src="@drawable/close_icon" />
 
-<!--        <TextView-->
-<!--            android:id="@+id/txtBasketProductOption"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="25dp"-->
-<!--            android:textColor="@color/black"-->
-<!--            android:textSize="12sp"-->
-<!--            tools:text="옵션명" />-->
+            <TextView
+                android:id="@+id/txtBasketProductName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                tools:text="상품명" />
+
+            <TextView
+                android:id="@+id/txtBasketProductPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="가격"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <!--        <TextView-->
+            <!--            android:id="@+id/txtBasketProductOption"-->
+            <!--            android:layout_width="wrap_content"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:layout_marginTop="25dp"-->
+            <!--            android:textColor="@color/black"-->
+            <!--            android:textSize="12sp"-->
+            <!--            tools:text="옵션명" />-->
+
+        </LinearLayout>
 
     </LinearLayout>
 
