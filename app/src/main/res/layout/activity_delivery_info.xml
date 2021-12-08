@@ -91,6 +91,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="15dp"
+                android:backgroundTint="@color/white"
                 android:text="배송지 주소 찾기"
                 android:textColor="@color/black" />
 
@@ -123,6 +124,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="120dp"
+            android:backgroundTint="@color/white"
             android:text="배달 정보 저장하기" />
 
     </LinearLayout>

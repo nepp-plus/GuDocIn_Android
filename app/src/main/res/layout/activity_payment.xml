@@ -173,6 +173,7 @@
                         android:id="@+id/btnRevise1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:backgroundTint="@color/white"
                         android:text="수정하기" />
 
                 </LinearLayout>
@@ -228,6 +229,7 @@
                         android:id="@+id/checkSameInfo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:backgroundTint="@color/black"
                         android:text="주문자 정보와 동일" />
 
                 </LinearLayout>
@@ -277,6 +279,7 @@
                         android:id="@+id/btnRevise2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:backgroundTint="@color/white"
                         android:text="수정하기" />
 
                 </LinearLayout>
@@ -452,6 +455,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="10dp"
+                        android:backgroundTint="@color/white"
                         android:text="결제하기" />
 
                 </LinearLayout>

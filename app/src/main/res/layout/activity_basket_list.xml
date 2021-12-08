@@ -10,10 +10,10 @@
         tools:context=".BasketListActivity">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_marginTop="50dp"
             android:id="@+id/basketListRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginTop="50dp"
             android:layout_weight="1" />
 
         <View
@@ -55,6 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
+            android:backgroundTint="@color/white"
             android:text="선택상품 구독하기"
             android:textStyle="bold" />
 

@@ -124,8 +124,8 @@
                 android:id="@+id/edtCardPassword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"
                 android:hint="비밀번호 앞 두자리를 입력해주세요"
+                android:inputType="textPassword"
                 android:singleLine="true" />
 
         </LinearLayout>
@@ -136,6 +136,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="150dp"
+            android:backgroundTint="@color/white"
             android:text="카드 저장하기" />
 
     </LinearLayout>
