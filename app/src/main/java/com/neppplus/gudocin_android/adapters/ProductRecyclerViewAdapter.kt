@@ -53,6 +53,8 @@ class ProductRecyclerViewAdapter(val mContext: Context, val mList: List<ProductD
                 txtReviewWriterName.text = firstReview.user.nickname
                 Glide.with(mContext).load(firstReview.user.profileImageURL).into(imgReview)
 
+                firstReview.product = data
+
                 btnGotoReviewDetail.setOnClickListener {
                     val myIntent = Intent(mContext, ReviewDetailActivity::class.java)
                     myIntent.putExtra("review",firstReview)

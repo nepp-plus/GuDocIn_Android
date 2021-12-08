@@ -6,11 +6,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.MenuItem
-import android.view.View
-import android.widget.AdapterView
 import androidx.databinding.DataBindingUtil
-import androidx.drawerlayout.widget.DrawerLayout
 import com.mancj.materialsearchbar.MaterialSearchBar
 import com.neppplus.gudocin_android.adapters.SuggestListAdapter
 import com.neppplus.gudocin_android.databinding.ActivitySearchBinding
@@ -37,9 +33,6 @@ class SearchActivity : BaseActivity() {
 
     }
 
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//
-//    }
 
 
     override fun setupEvents() {
@@ -71,7 +64,6 @@ class SearchActivity : BaseActivity() {
         binding.searchView.setCardViewElevation(10)
 
         mSugestListAdapter = SuggestListAdapter(mContext, LayoutInflater.from(mContext),mSuggestList)
-
         mSugestListAdapter.setSuggestions(mSuggestList)
         binding.searchView.setCustomSuggestionAdapter(mSugestListAdapter)
 
@@ -90,19 +82,15 @@ class SearchActivity : BaseActivity() {
                     startActivity(myIntent)
                 }
                 val searchText = binding.searchView.text
+
                 mSugestListAdapter.filter?.filter(searchText)
                 getProductListFromServer()
 
             }
-
             override fun onButtonClicked(buttonCode: Int) {
 //            if로 상품이 있으면 상품 띄워주고 없으면 없습니다 띄워주기
 
-            }
-
-
-
-        })
+            }})
 
         binding.searchView.addTextChangeListener(object : TextWatcher {
 
@@ -111,9 +99,12 @@ class SearchActivity : BaseActivity() {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
                 Log.d("LOG_TAG", " view text changed " + binding.searchView.getText())
                 val searchText = binding.searchView.text
-
+                val textLength = searchText.length
+                var charSequence = charSequence.toSting()
+                mSuggestList.clear()
                 mSugestListAdapter.filter?.filter(searchText)
                 mSugestListAdapter.notifyDataSetChanged()
 //                text에 따라 추천 상품 바귀도록 아래 적기
