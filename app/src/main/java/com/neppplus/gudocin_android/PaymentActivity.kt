@@ -36,15 +36,15 @@ class PaymentActivity : BaseActivity() {
 
         //      주문자 정보
         if (requestCode == 1 && resultCode == RESULT_OK && intent.hasExtra("nickname")) {
-            binding.txtConsumerName1.text = intent.getStringExtra("nickname")
+            binding.edtConsumerName1.setText(intent.getStringExtra("nickname"))
         }
 
         else if (requestCode == 2 && resultCode == RESULT_OK && intent.hasExtra("phone")) {
-            binding.txtConsumerPhone1.text = intent.getStringExtra("phone")
+            binding.edtConsumerPhone1.setText(intent.getStringExtra("phone"))
         }
 
         else if (requestCode == 3 && resultCode == RESULT_OK && intent.hasExtra("email")) {
-            binding.txtConsumerEmail.text = intent.getStringExtra("email")
+            binding.edtConsumerEmail.setText(intent.getStringExtra("email"))
         }
 
         else {
@@ -53,11 +53,11 @@ class PaymentActivity : BaseActivity() {
 
 //      배달 정보
         if (requestCode == 4 && resultCode == RESULT_OK && intent.hasExtra("nickname")) {
-            binding.txtConsumerName2.text = intent.getStringExtra("nickname")
+            binding.edtConsumerName2.setText(intent.getStringExtra("nickname"))
         }
 
         else if (requestCode == 5 && resultCode == RESULT_OK && intent.hasExtra("phone")) {
-            binding.txtConsumerPhone2.text = intent.getStringExtra("phone")
+            binding.edtConsumerPhone2.setText(intent.getStringExtra("phone"))
         }
 
         else {

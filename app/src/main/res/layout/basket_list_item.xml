@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    android:background="@drawable/corner_shape"
     android:orientation="horizontal">
 
     <LinearLayout
@@ -19,19 +21,19 @@
             android:layout_gravity="center"
             android:src="@mipmap/ic_launcher" />
 
-        <Button
-            android:id="@+id/btnOptionChange"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
-            android:text="옵션 변경" />
+<!--        <Button-->
+<!--            android:id="@+id/btnOptionChange"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:backgroundTint="@color/white"-->
+<!--            android:text="옵션 변경" />-->
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="25dp"
         android:orientation="vertical">
 
         <TextView
@@ -51,14 +53,14 @@
             android:textColor="@color/black"
             android:textSize="12sp" />
 
-        <TextView
-            android:id="@+id/txtBasketProductOption"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:textColor="@color/black"
-            android:textSize="12sp"
-            tools:text="옵션명" />
+<!--        <TextView-->
+<!--            android:id="@+id/txtBasketProductOption"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="25dp"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="12sp"-->
+<!--            tools:text="옵션명" />-->
 
     </LinearLayout>
 
