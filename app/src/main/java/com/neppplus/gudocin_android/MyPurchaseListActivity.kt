@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import com.neppplus.gudocin_android.adapters.PurchaseViewPagerAdapter
 import com.neppplus.gudocin_android.databinding.ActivityMyPurchaseListBinding
+import com.neppplus.gudocin_android.datas.GlobalData
 
 class MyPurchaseListActivity : BaseActivity() {
 
@@ -29,6 +30,8 @@ class MyPurchaseListActivity : BaseActivity() {
         binding.purchaseViewPager.adapter = mAdapter
 
         binding.purchaseTabLayout.setupWithViewPager(binding.purchaseViewPager)
+        binding.txtUserNickName.text = GlobalData.loginUser!!.nickname
+
 
     }
 }
