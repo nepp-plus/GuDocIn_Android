@@ -24,6 +24,7 @@
             android:text="고객센터 대표 번호"/>
 
         <TextView
+            android:id="@+id/btnCustomerNum"
             android:textSize="20sp"
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
@@ -31,8 +32,10 @@
             android:text="1588-2288"/>
 
         <Button
+            android:id="@+id/btnDial"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
             android:text="전화문의 하기"/>
 
 

@@ -66,6 +66,7 @@
         <Button
 
             android:id="@+id/btnSaveMoney"
+            android:backgroundTint="@color/white"
             android:layout_marginStart="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -105,6 +106,7 @@
 
 
                 <Button
+                    android:backgroundTint="@color/white"
                     android:id="@+id/btnMyProductPurchase"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -116,6 +118,7 @@
                     android:layout_height="wrap_content"/>
 
                 <Button
+                    android:backgroundTint="@color/white"
                     android:id="@+id/btnMyReviewDetail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
