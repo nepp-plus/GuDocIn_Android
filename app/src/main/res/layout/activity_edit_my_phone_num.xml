@@ -33,6 +33,7 @@
         android:hint="변경 할 전화번호를 입력하세요."/>
 
     <Button
+        android:backgroundTint="@color/white"
         android:id="@+id/btnMyInfoSave"
         android:layout_marginTop="100dp"
         android:layout_width="match_parent"
