@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import com.neppplus.gudocin_android.databinding.ActivityPaymentBinding
+import com.neppplus.gudocin_android.datas.ReviewData
 
 class PaymentActivity : BaseActivity() {
 
@@ -115,6 +116,8 @@ class PaymentActivity : BaseActivity() {
     }
 
     override fun setValues() {
+
+//        mReviewData = intent.getSerializableExtra("review") as ReviewData?
 
         btnBasket.visibility = View.GONE
         btnBell.visibility = View.GONE

@@ -81,7 +81,7 @@ class MyProfileFragment : BaseFragment() {
 
         binding.txtMyCard.setOnClickListener {
 
-            val myIntent = Intent(mContext, RegistryCardActivity::class.java)
+            val myIntent = Intent(mContext, RegistryCardListActivity::class.java)
             startActivity(myIntent)
 
         }

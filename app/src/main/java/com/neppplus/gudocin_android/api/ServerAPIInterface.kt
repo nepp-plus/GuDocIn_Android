@@ -242,4 +242,9 @@ interface ServerAPIInterface {
     )
     : Call<BasicResponse>
 
+//    사용자 카드 목록 조회
+    @GET("/user/card")
+    fun getRequestUserCardLookup()
+    : Call<BasicResponse>
+
 }

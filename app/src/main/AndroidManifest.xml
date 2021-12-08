@@ -21,7 +21,7 @@
             android:name=".RegistryCardReviseActivity"
             android:exported="false" />
         <activity
-            android:name=".RegistryCardActivity"
+            android:name=".RegistryCardListActivity"
             android:exported="true" />
         <activity
             android:name=".CardInfoActivity"

@@ -11,6 +11,7 @@ class DataResponse(
     var small_categories :List<SmallCategoriesData>,
     val banners : List<BannerData>,
     val payments: List<PaymentData>,
+    var cards: List<CardData>
 
 ) {
 }
