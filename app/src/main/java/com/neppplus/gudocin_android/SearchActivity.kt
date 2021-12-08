@@ -102,8 +102,6 @@ class SearchActivity : BaseActivity() {
 
                 Log.d("LOG_TAG", " view text changed " + binding.searchView.getText())
                 val searchText = binding.searchView.text
-                val textLength = searchText.length
-                var charSequence = charSequence.toSting()
                 mSuggestList.clear()
                 mSugestListAdapter.filter?.filter(searchText)
                 mSugestListAdapter.notifyDataSetChanged()

@@ -19,7 +19,6 @@ import java.util.*
 class ReviewDetailActivity : BaseActivity() {
 
     lateinit var mReviewData: ReviewData
-    lateinit var mProductData : ProductData
 
     lateinit var binding: ActivityReviewDetailBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -61,7 +60,7 @@ class ReviewDetailActivity : BaseActivity() {
         binding.btnBuyProduct.setOnClickListener {
             //            결제 페이지로 인텐트
                 val myIntent = Intent(mContext,  PaymentActivity::class.java )
-                myIntent.putExtra("product_id",mProductData)
+                myIntent.putExtra("product_id",mReviewData.product)
                 startActivity(myIntent)
         }
     }
