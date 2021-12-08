@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
 import com.neppplus.gudocin_android.R
@@ -14,6 +16,7 @@ import com.neppplus.gudocin_android.databinding.FragmentStoreContentBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.ProductData
 import com.neppplus.gudocin_android.datas.ReviewData
+import com.neppplus.gudocin_android.datas.StoreData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -21,7 +24,7 @@ import retrofit2.Response
 class StoreContentFragment : BaseFragment() {
 
     lateinit var binding : FragmentStoreContentBinding
-    lateinit var mProductData :ProductData
+    lateinit var mStoreData : StoreData
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,9 +48,9 @@ class StoreContentFragment : BaseFragment() {
 
     override fun setValues() {
 
-            fun bind(data: ProductData) {
-            binding.txtStoreName.text = data.store.name
-            Glide.with(mContext).load(data.store.logoUrl).into(binding.imgStoreUrl)
+         fun bind(data: StoreData) {
+            binding.txtStoreName.text = mStoreData.name
+            Glide.with(mContext).load(mStoreData.logoUrl).into(binding.imgStoreUrl)
         }
 
     }

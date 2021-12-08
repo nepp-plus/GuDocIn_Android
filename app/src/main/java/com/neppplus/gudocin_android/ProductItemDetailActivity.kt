@@ -5,6 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
@@ -16,6 +18,7 @@ import com.neppplus.gudocin_android.databinding.ActivityProductItemDetailBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.ProductData
 import com.neppplus.gudocin_android.datas.ReviewData
+import com.neppplus.gudocin_android.datas.StoreData
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -26,6 +29,7 @@ class ProductItemDetailActivity : BaseActivity() {
     lateinit var binding: ActivityProductItemDetailBinding
 
     val mReviewList = ArrayList<ReviewData>()
+    lateinit var mStoreData : StoreData
     lateinit var mProductData :ProductData
     lateinit var mReviewRecyclerViewAdapterForProductList : ReviewRecyclerViewAdapterForProductList
     lateinit var mProductContentViewPagerAdapter : ProductContentViewPagerAdapter
@@ -62,10 +66,11 @@ class ProductItemDetailActivity : BaseActivity() {
 
         getProductItemDetailFromServer()
 
+
         //제품 상세 & 상점 상세의 ViewPager 용 어댑터 연결
-        mProductContentViewPagerAdapter = ProductContentViewPagerAdapter(supportFragmentManager)
+        mProductContentViewPagerAdapter = ProductContentViewPagerAdapter(supportFragmentManager, mStoreData)
         binding.ProductContentViewPager.adapter= mProductContentViewPagerAdapter
-        binding.ProductContentTabLayout.setupWithViewPager( binding.ProductContentViewPager )
+        binding.ProductContentTabLayout.setupWithViewPager( binding.ProductContentViewPager)
 
         //리뷰 리스트 호리젠탈 Recycler View 용 어댑터 연결
         mReviewRecyclerViewAdapterForProductList = ReviewRecyclerViewAdapterForProductList(mContext,mReviewList)
@@ -86,6 +91,7 @@ class ProductItemDetailActivity : BaseActivity() {
                     binding.txtProductCompanyName.text = br.data.product.store.name
                     Glide.with(mContext).load(br.data.product.imageUrl).into(binding.imgProduct)
                     mProductData = br.data.product
+                    mStoreData = br.data.product.store
 
                     if (mProductData.reviews.size == 0){
                         binding.txtViewReview.text = "아직 등록된 리뷰가 없습니다."
