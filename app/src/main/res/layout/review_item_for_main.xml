@@ -127,6 +127,7 @@
         android:id="@+id/btnWriteReview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
         android:text="리뷰 작성"/>
 
 

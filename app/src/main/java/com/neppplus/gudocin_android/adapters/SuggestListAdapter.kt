@@ -1,14 +1,20 @@
 package com.neppplus.gudocin_android.adapters
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Filter
 import android.widget.Filter.FilterResults
+import android.widget.Filterable
 import android.widget.TextView
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.mancj.materialsearchbar.adapter.SuggestionsAdapter
+import com.neppplus.gudocin_android.ProductItemDetailActivity
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.datas.ProductData
 
@@ -16,14 +22,19 @@ import com.neppplus.gudocin_android.datas.ProductData
 class SuggestListAdapter(
     val mContext: Context,
     val mInflater: LayoutInflater,
-    val mList: List<ProductData>
-) : SuggestionsAdapter<ProductData, SuggestListAdapter.SuggestionHolder>(mInflater) {
+    var mList: List<ProductData>
+) : SuggestionsAdapter<ProductData, SuggestListAdapter.SuggestionHolder>(mInflater) , Filterable{
 
 
     inner class SuggestionHolder(view: View) : RecyclerView.ViewHolder(view) {
         val txtProductName = itemView.findViewById<TextView>(R.id.txtProductName)
         fun bind(data: ProductData) {
             txtProductName.text = data.name
+            itemView.setOnClickListener { 
+//                val myIntent = Intent(mContext, ProductItemDetailActivity::class.java)
+//                startActivity(myIntent)
+                Toast.makeText(mContext, "클릭됨", Toast.LENGTH_SHORT).show()
+            }
         }
 
 
@@ -58,21 +69,25 @@ class SuggestListAdapter(
                 val results = FilterResults()
                 val term = constraint.toString()
                 if (term.isEmpty()) {
+
+
                   }
                 else {
+                    val filteredList = ArrayList<ProductData>()
                     for (item in mList) {
-                        if (item.name.toLowerCase()
-                                .contains(term.toLowerCase())
-                        )
-                         break
-                    }
+                  if (item.name.toLowerCase()
+                                .contains(term.toLowerCase())){
+                                    filteredList.add(item)
+                                }
+                        }
+                    mList = filteredList
                 }
-                results.values = suggestions
+                results.values = mList
                 return results
             }
 
             override fun publishResults(constraint: CharSequence, results: FilterResults) {
-                suggestions = results.values as ArrayList<ProductData>
+                mList = results.values as ArrayList<ProductData>
                 notifyDataSetChanged()
             }
         }
