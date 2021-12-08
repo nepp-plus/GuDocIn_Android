@@ -61,6 +61,7 @@ class ReviewDetailActivity : BaseActivity() {
             //            결제 페이지로 인텐트
                 val myIntent = Intent(mContext,  PaymentActivity::class.java )
                 myIntent.putExtra("product_id",mReviewData.product)
+                myIntent.putExtra("review",mReviewData)
                 startActivity(myIntent)
         }
     }
