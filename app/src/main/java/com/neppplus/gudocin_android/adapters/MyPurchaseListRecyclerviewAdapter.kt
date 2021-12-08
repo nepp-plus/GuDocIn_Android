@@ -30,7 +30,9 @@ class MyPurchaseListRecyclerviewAdapter(
         val btnCancel = view.findViewById<Button>(R.id.btnCancel)
 
 
+
         fun bind(data: PaymentData) {
+
 
 
 
