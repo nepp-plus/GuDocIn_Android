@@ -72,6 +72,7 @@
                         android:id="@+id/btnOptionChange"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:backgroundTint="@color/white"
                         android:text="옵션 변경" />
 
                 </LinearLayout>
@@ -142,7 +143,7 @@
                         android:id="@+id/txtConsumerName1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text=" 이아현" />
+                        android:text=" 성명" />
 
                 </LinearLayout>
 
@@ -173,6 +174,7 @@
                         android:id="@+id/btnRevise1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:backgroundTint="@color/white"
                         android:text="수정하기" />
 
                 </LinearLayout>
@@ -228,6 +230,7 @@
                         android:id="@+id/checkSameInfo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:backgroundTint="@color/black"
                         android:text="주문자 정보와 동일" />
 
                 </LinearLayout>
@@ -247,7 +250,7 @@
                         android:id="@+id/txtConsumerName2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text=" 이아현" />
+                        android:text=" 성명" />
 
                 </LinearLayout>
 
@@ -277,6 +280,7 @@
                         android:id="@+id/btnRevise2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:backgroundTint="@color/white"
                         android:text="수정하기" />
 
                 </LinearLayout>
@@ -351,6 +355,7 @@
                     android:visibility="gone">
 
                     <TextView
+                        android:id="@+id/txtConsumerCard"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="나의 소중한 신한 카드"
@@ -361,6 +366,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:backgroundTint="@color/white"
                         android:text="카드 등록하기" />
 
                 </LinearLayout>
@@ -452,6 +458,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="10dp"
+                        android:backgroundTint="@color/white"
                         android:text="결제하기" />
 
                 </LinearLayout>

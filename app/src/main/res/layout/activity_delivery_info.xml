@@ -68,6 +68,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
@@ -90,13 +91,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="15dp"
+                android:backgroundTint="@color/white"
                 android:text="배송지 주소 찾기"
                 android:textColor="@color/black" />
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/txtConsumerAddress"
+        <EditText
+            android:id="@+id/edtConsumerAddress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
@@ -107,7 +109,7 @@
             android:textSize="17sp" />
 
         <EditText
-            android:id="@+id/edtConsumerAddress"
+            android:id="@+id/edtConsumerMicroAddress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
@@ -122,6 +124,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="120dp"
+            android:backgroundTint="@color/white"
             android:text="배달 정보 저장하기" />
 
     </LinearLayout>

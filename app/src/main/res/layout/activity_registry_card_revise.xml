@@ -135,6 +135,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="150dp"
+            android:backgroundTint="@color/white"
             android:text="카드 저장하기" />
 
     </LinearLayout>
