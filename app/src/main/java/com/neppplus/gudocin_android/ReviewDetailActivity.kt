@@ -50,6 +50,7 @@ class ReviewDetailActivity : BaseActivity() {
         binding.txtGoReply.setOnClickListener {
 //            댓글 페이지로 인텐트
             val myIntent = Intent(mContext, ReplyActivity::class.java)
+            myIntent.putExtra("review", mReviewData)
             mContext.startActivity(myIntent)
         }
         binding.imgButtonProduct.setOnClickListener {
@@ -58,6 +59,7 @@ class ReviewDetailActivity : BaseActivity() {
         binding.imgButtonReply.setOnClickListener {
 //            댓글 페이지로 인텐트
             val myIntent = Intent(mContext, ReplyActivity::class.java)
+            myIntent.putExtra("review", mReviewData)
             mContext.startActivity(myIntent)
         }
         binding.btnBuyProduct.setOnClickListener {
