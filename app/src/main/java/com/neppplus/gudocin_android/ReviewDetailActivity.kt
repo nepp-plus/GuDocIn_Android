@@ -103,7 +103,7 @@ class ReviewDetailActivity : BaseActivity() {
                 if (response.isSuccessful){
                     Log.d("불러오기성공","불러오기 성공")
                     val br = response.body()!!
-                    mProductData = br.data.product
+//                    mProductData = br.data.product
                 }
                 else{
                     val jsonobj = JSONObject(response.errorBody()!!.string())

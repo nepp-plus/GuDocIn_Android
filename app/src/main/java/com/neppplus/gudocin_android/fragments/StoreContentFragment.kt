@@ -21,7 +21,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class StoreContentFragment : BaseFragment() {
+class StoreContentFragment(mStoreData: StoreData) : BaseFragment() {
 
     lateinit var binding : FragmentStoreContentBinding
     lateinit var mStoreData : StoreData

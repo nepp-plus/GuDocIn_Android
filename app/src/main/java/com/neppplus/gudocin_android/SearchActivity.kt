@@ -64,7 +64,6 @@ class SearchActivity : BaseActivity() {
         binding.searchView.setCardViewElevation(10)
 
         mSugestListAdapter = SuggestListAdapter(mContext, LayoutInflater.from(mContext),mSuggestList)
-
         mSugestListAdapter.setSuggestions(mSuggestList)
         binding.searchView.setCustomSuggestionAdapter(mSugestListAdapter)
 
@@ -88,15 +87,10 @@ class SearchActivity : BaseActivity() {
                 getProductListFromServer()
 
             }
-
             override fun onButtonClicked(buttonCode: Int) {
 //            if로 상품이 있으면 상품 띄워주고 없으면 없습니다 띄워주기
 
-            }
-
-
-
-        })
+            }})
 
         binding.searchView.addTextChangeListener(object : TextWatcher {
 
@@ -108,7 +102,8 @@ class SearchActivity : BaseActivity() {
 
                 Log.d("LOG_TAG", " view text changed " + binding.searchView.getText())
                 val searchText = binding.searchView.text
-
+                val textLength = searchText.length
+                var charSequence = charSequence.toSting()
                 mSuggestList.clear()
                 mSugestListAdapter.filter?.filter(searchText)
                 mSugestListAdapter.notifyDataSetChanged()
