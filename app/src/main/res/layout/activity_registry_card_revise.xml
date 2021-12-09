@@ -13,7 +13,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:text="카드 등록"
+            android:text="카드 정보 수정"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />

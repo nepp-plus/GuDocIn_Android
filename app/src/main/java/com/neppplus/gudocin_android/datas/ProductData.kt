@@ -17,7 +17,7 @@ class ProductData(
 
 ) : Serializable {
 
-    fun getFormatedPrice(): String {
+    fun getFormattedPrice(): String {
         return "${NumberFormat.getInstance(Locale.KOREA).format(this.price)} 원"
     }
 }

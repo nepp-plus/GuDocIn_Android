@@ -38,7 +38,7 @@ class ProductRecyclerViewAdapter(val mContext: Context, val mList: List<ProductD
 
         fun bind(data: ProductData) {
             txtProductName.text = data.name
-            txtProductPrice.text = data.getFormatedPrice()
+            txtProductPrice.text = data.getFormattedPrice()
             txtProductCompanyName.text = data.store.name
             Glide.with(mContext).load(data.imageUrl).into(imgProduct)
 

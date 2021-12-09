@@ -206,18 +206,11 @@ interface ServerAPIInterface {
         @Field("product_id") productId: Int,
     ): Call<BasicResponse>
 
-    //    장바구니 상품 등록
-    @FormUrlEncoded
-    @POST("/cart")
-    fun postRequestProductRegister(
-        @Field("product_id") id: Int
-    ): Call<BasicResponse>
-
     //    장바구니 상품 삭제
     @DELETE("/cart")
     fun deleteRequestProduct(
         @Query("product_id") id: Int
-    )
+    ) : Call<BasicResponse>
 
 //    사용자 작성 리뷰목록
     @GET("/user/review")
@@ -245,6 +238,11 @@ interface ServerAPIInterface {
     @Field("birthday") birthDay: String,
     @Field("password_2digit") password: String,
     )
+    : Call<BasicResponse>
+
+//    사용자 카드 목록 조회
+    @GET("/user/card")
+    fun getRequestUserCardLookup()
     : Call<BasicResponse>
 
 }

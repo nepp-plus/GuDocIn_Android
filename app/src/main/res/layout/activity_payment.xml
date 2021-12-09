@@ -68,12 +68,12 @@
                         android:layout_marginTop="5dp"
                         android:src="@mipmap/ic_launcher" />
 
-                    <Button
-                        android:id="@+id/btnOptionChange"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@color/white"
-                        android:text="옵션 변경" />
+                    <!--                    <Button-->
+                    <!--                        android:id="@+id/btnOptionChange"-->
+                    <!--                        android:layout_width="wrap_content"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:backgroundTint="@color/white"-->
+                    <!--                        android:text="옵션 변경" />-->
 
                 </LinearLayout>
 
@@ -100,14 +100,14 @@
                         android:textColor="@color/black"
                         android:textSize="12sp" />
 
-                    <TextView
-                        android:id="@+id/txtProductOption"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="28dp"
-                        android:textColor="@color/black"
-                        android:textSize="12sp"
-                        tools:text="옵션명" />
+                    <!--                    <TextView-->
+                    <!--                        android:id="@+id/txtProductOption"-->
+                    <!--                        android:layout_width="wrap_content"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:layout_marginTop="28dp"-->
+                    <!--                        android:textColor="@color/black"-->
+                    <!--                        android:textSize="12sp"-->
+                    <!--                        tools:text="옵션명" />-->
 
                 </LinearLayout>
 
@@ -136,14 +136,16 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="주문자: "
+                        android:text="주문자 : "
                         android:textColor="@color/black" />
 
-                    <TextView
-                        android:id="@+id/txtConsumerName1"
+                    <EditText
+                        android:id="@+id/edtConsumerName1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text=" 성명" />
+                        android:hint="주문자 성명"
+                        android:singleLine="true"
+                        android:textSize="13sp" />
 
                 </LinearLayout>
 
@@ -155,14 +157,16 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="연락처: "
+                        android:text="연락처 : "
                         android:textColor="@color/black" />
 
-                    <TextView
-                        android:id="@+id/txtConsumerPhone1"
+                    <EditText
+                        android:id="@+id/edtConsumerPhone1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text=" 010-0000-0000" />
+                        android:hint="010-0000-0000"
+                        android:singleLine="true"
+                        android:textSize="13sp" />
 
 
                     <TextView
@@ -188,14 +192,16 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="이메일: "
+                        android:text="이메일 : "
                         android:textColor="@color/black" />
 
-                    <TextView
-                        android:id="@+id/txtConsumerEmail"
+                    <EditText
+                        android:id="@+id/edtConsumerEmail"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text=" nepp@gmail.com" />
+                        android:hint="nepp@gmail.com"
+                        android:singleLine="true"
+                        android:textSize="13sp" />
 
                 </LinearLayout>
 
@@ -243,14 +249,16 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="받는분: "
+                        android:text="받는분 : "
                         android:textColor="@color/black" />
 
-                    <TextView
-                        android:id="@+id/txtConsumerName2"
+                    <EditText
+                        android:id="@+id/edtConsumerName2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text=" 성명" />
+                        android:hint="수신자 성명"
+                        android:singleLine="true"
+                        android:textSize="13sp" />
 
                 </LinearLayout>
 
@@ -262,14 +270,16 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="연락처: "
+                        android:text="연락처 : "
                         android:textColor="@color/black" />
 
-                    <TextView
-                        android:id="@+id/txtConsumerPhone2"
+                    <EditText
+                        android:id="@+id/edtConsumerPhone2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text=" 010-0000-0000" />
+                        android:hint="010-0000-0000"
+                        android:singleLine="true"
+                        android:textSize="13sp" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -297,11 +307,13 @@
                         android:text="배송지: "
                         android:textColor="@color/black" />
 
-                    <TextView
-                        android:id="@+id/txtConsumerAddress"
+                    <EditText
+                        android:id="@+id/edtConsumerAddress"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text=" 서울시 동대문구 제기동 " />
+                        android:hint="서울시 동대문구 제기동 "
+                        android:singleLine="true"
+                        android:textSize="13sp" />
 
                 </LinearLayout>
 
@@ -423,7 +435,7 @@
                         android:id="@+id/txtDeliveryCost"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text=" 10,000원" />
+                        android:text=" 3,000원" />
 
                 </LinearLayout>
 
@@ -443,7 +455,7 @@
                         android:id="@+id/txtTotalCost"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text=" 20,000원" />
+                        android:text=" 13,000원" />
 
                 </LinearLayout>
 

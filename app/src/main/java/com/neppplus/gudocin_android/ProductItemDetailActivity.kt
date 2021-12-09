@@ -84,13 +84,12 @@ class ProductItemDetailActivity : BaseActivity() {
         apiService.getRequestProductDetail(mProductData.id).enqueue( object : Callback<BasicResponse> {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
 
-                if (response.isSuccessful) {
-                    val br = response.body()!!
-                    binding.txtProductName.text= br.data.product.name
-                    binding.txtProductPrice.text = br.data.product.getFormatedPrice()
-                    binding.txtProductCompanyName.text = br.data.product.store.name
-                    Glide.with(mContext).load(br.data.product.imageUrl).into(binding.imgProduct)
-                    mProductData = br.data.product
+                    if (response.isSuccessful) {
+                        val br = response.body()!!
+                        binding.txtProductName.text = br.data.product.name
+                        binding.txtProductPrice.text = br.data.product.getFormattedPrice()
+                        binding.txtProductCompanyName.text = br.data.product.store.name
+                        Glide.with(mContext).load(br.data.product.imageUrl).into(binding.imgProduct)
 
                     if (mProductData.reviews.size == 0){
                         binding.txtViewReview.text = "아직 등록된 리뷰가 없습니다."

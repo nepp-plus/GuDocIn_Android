@@ -13,32 +13,28 @@
             android:id="@+id/basketListRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginStart="5dp"
             android:layout_weight="1" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@color/black" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
+            android:layout_margin="15dp"
+            android:background="@drawable/corner_shape"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="선택상품 구독 금액"
+                android:layout_marginTop="5dp"
+                android:text="전체 상품 구독 금액"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:text="합산 금액 "
                 android:textColor="@color/black" />
 
@@ -46,6 +42,7 @@
                 android:id="@+id/txtTotalPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:text=" 10,000원" />
 
         </LinearLayout>
@@ -56,7 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:backgroundTint="@color/white"
-            android:text="선택상품 구독하기"
+            android:text="상품 구독하기"
             android:textStyle="bold" />
 
     </LinearLayout>
