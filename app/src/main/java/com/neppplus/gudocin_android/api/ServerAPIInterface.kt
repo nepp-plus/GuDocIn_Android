@@ -210,7 +210,7 @@ interface ServerAPIInterface {
     @DELETE("/cart")
     fun deleteRequestProduct(
         @Query("product_id") id: Int
-    )
+    ) : Call<BasicResponse>
 
 //    사용자 작성 리뷰목록
     @GET("/user/review")
