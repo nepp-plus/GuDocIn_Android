@@ -71,6 +71,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
+                android:backgroundTint="@color/white"
                 android:text="제출하기"
                 android:textStyle="bold" />
 
@@ -131,6 +132,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
+                android:backgroundTint="@color/white"
                 android:text="제출하기"
                 android:textStyle="bold" />
 

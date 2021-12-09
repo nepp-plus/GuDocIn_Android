@@ -94,6 +94,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="40dp"
+                    android:backgroundTint="@color/white"
                     android:text="카드 정보 삭제" />
 
                 <TextView
@@ -106,18 +107,28 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="40dp"
+                    android:backgroundTint="@color/white"
                     android:text="카드 정보 수정" />
 
             </LinearLayout>
 
-        </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="200dp"
-            android:text="새 카드 등록하기" />
+                <Button
+                    android:id="@+id/btnRegistryNewCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:backgroundTint="@color/white"
+                    android:text="새 카드 등록하기" />
+
+            </LinearLayout>
+
+        </LinearLayout>
 
     </LinearLayout>
 

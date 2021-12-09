@@ -235,4 +235,16 @@ interface ServerAPIInterface {
     fun getRequestUserPointList()
         : Call<BasicResponse>
 
+//    사용자 카드 등록
+    @FormUrlEncoded
+    @POST("/user/card")
+    fun postRequestUserCard(
+    @Field("card_num") num: String,
+    @Field("card_nickname") nickname: String,
+    @Field("mm_yy") validity: String,
+    @Field("birthday") birthDay: String,
+    @Field("password_2digit") password: String,
+    )
+    : Call<BasicResponse>
+
 }

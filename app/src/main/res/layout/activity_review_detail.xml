@@ -271,17 +271,17 @@
             android:layout_height="wrap_content"
             android:background="@color/gray3"
             android:gravity="center"
+            android:padding="10dp"
+            android:id="@+id/btnBuyProduct"
             android:orientation="horizontal">
 
 
-            <Button
-                android:id="@+id/btnBuyProduct"
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@drawable/button_line"
+                android:background="@null"
                 android:gravity="center_vertical"
-                android:text="        구독하기        "
+                android:text="구독하기"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 

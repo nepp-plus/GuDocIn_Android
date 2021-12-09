@@ -17,6 +17,9 @@
         android:theme="@style/Theme.GuDocIn_Android"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".WebViewActivity"
+            android:exported="false" />
+        <activity
             android:name=".RegistryCardReviseActivity"
             android:exported="false" />
         <activity

@@ -11,9 +11,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="20dp"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="20dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -55,6 +55,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
+                android:backgroundTint="@color/white"
                 android:text="로그인 하기"
                 android:textStyle="bold" />
 
@@ -99,6 +100,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="50dp"
+                    android:backgroundTint="@color/white"
                     android:text="카카오로 계속"
                     android:textStyle="bold" />
 
@@ -106,6 +108,7 @@
                     android:id="@+id/btnFacebookLogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
                     android:text="페이스북으로 계속"
                     android:textStyle="bold" />
 
@@ -113,6 +116,7 @@
                     android:id="@+id/btnGoogleLogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
                     android:text="구글로 계속"
                     android:textStyle="bold" />
 

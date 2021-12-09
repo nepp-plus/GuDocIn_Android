@@ -94,6 +94,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="200dp"
+            android:backgroundTint="@color/white"
             android:text="주문자 정보 저장하기" />
 
     </LinearLayout>

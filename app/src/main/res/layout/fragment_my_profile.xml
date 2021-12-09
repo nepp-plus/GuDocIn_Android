@@ -118,10 +118,10 @@
                     android:layout_height="wrap_content"/>
 
                 <Button
-                    android:backgroundTint="@color/white"
                     android:id="@+id/btnMyReviewDetail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
                     android:text="리뷰 내역"/>
 
 
