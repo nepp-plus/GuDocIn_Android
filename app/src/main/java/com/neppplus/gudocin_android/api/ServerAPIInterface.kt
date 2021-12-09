@@ -206,13 +206,6 @@ interface ServerAPIInterface {
         @Field("product_id") productId: Int,
     ): Call<BasicResponse>
 
-    //    장바구니 상품 등록
-    @FormUrlEncoded
-    @POST("/cart")
-    fun postRequestProductRegister(
-        @Field("product_id") id: Int
-    ): Call<BasicResponse>
-
     //    장바구니 상품 삭제
     @DELETE("/cart")
     fun deleteRequestProduct(

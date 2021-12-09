@@ -26,8 +26,8 @@
 
             <ImageView
                 android:id="@+id/imgBasketPhoto"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
                 android:src="@mipmap/ic_launcher" />
@@ -58,6 +58,7 @@
                 android:id="@+id/txtBasketProductName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:textColor="@color/black"
                 android:textSize="12sp"
                 tools:text="상품명" />

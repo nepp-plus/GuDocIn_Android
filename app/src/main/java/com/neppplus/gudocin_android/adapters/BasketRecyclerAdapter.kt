@@ -9,7 +9,13 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.neppplus.gudocin_android.R
+import com.neppplus.gudocin_android.api.ServerAPI
+import com.neppplus.gudocin_android.api.ServerAPIInterface
+import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.BasketData
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class BasketRecyclerAdapter(val mContext: Context, val mList: List<BasketData>) :
     RecyclerView.Adapter<BasketRecyclerAdapter.BasketViewHolder>() {
@@ -20,15 +26,26 @@ class BasketRecyclerAdapter(val mContext: Context, val mList: List<BasketData>) 
         val txtBasketProductName = view.findViewById<TextView>(R.id.txtBasketProductName)
         val txtBasketProductPrice = view.findViewById<TextView>(R.id.txtBasketProductPrice)
 
+        lateinit var apiService: ServerAPIInterface
+
+        val retrofit = ServerAPI.getRetrofit(mContext)
+
+        val imgDeleteSubscribe = view.findViewById<ImageView>(R.id.imgDeleteSubscribe)
+
         fun bind(data: BasketData) {
 
-            txtBasketProductName.text = data.name
-            txtBasketProductPrice.text = data.price.toString()
+            txtBasketProductName.text = data.product.name
+            txtBasketProductPrice.text = data.product.price.toString()
 
-            Glide.with(mContext).load(data.imageURL).into(imgBasketPhoto)
+            Glide.with(mContext).load(data.product.imageUrl).into(imgBasketPhoto)
 
-            txtBasketProductPrice.text = data.getFormattedPrice()
+            txtBasketProductPrice.text = data.product.getFormatedPrice()
 
+            apiService = retrofit.create(ServerAPIInterface::class.java)
+
+            imgDeleteSubscribe.setOnClickListener {
+
+            }
 
         }
 

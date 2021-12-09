@@ -7,17 +7,12 @@ import java.util.*
 class BasketData(
 
     var id: Int,
-    var name: String,
-    var price: Int,
-    @SerializedName("image_url")
-    var imageURL: String,
+    var product: ProductData,
 
     ) {
 
     fun getFormattedPrice(): String {
-
-        return "${NumberFormat.getInstance(Locale.KOREA).format(this.price)} 원"
-
+        return "${NumberFormat.getInstance(Locale.KOREA).format(this.product.price)} 원"
     }
 
 }
