@@ -20,7 +20,7 @@ class UserData(
     @SerializedName("receive_email")
     var receiveEmail: String,
 
-    var phone: Int,
+    var phone: String,
     var point: Int,
 
 

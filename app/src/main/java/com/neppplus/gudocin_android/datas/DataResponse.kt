@@ -14,8 +14,8 @@ class DataResponse(
     val banners : List<BannerData>,
     val payments: List<PaymentData>,
     @SerializedName("point_logs")
-    val pointLogs: List<PointLogData>
-    var cards: List<CardData>
+    val pointLogs: List<PointLogData>,
+    var cards: List<CardData>,
 
 ) {
 }
