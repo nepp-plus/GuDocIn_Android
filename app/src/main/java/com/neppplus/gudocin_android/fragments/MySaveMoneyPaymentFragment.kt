@@ -10,7 +10,11 @@ import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.adapters.MyReviewListRecyclerviewAdapter
 import com.neppplus.gudocin_android.adapters.MySaveMoneyPaymentRecyclerViewAdapter
 import com.neppplus.gudocin_android.databinding.FragmentMySavemoneyPaymentBinding
+import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.CardData
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MySaveMoneyPaymentFragment: BaseFragment() {
 
@@ -48,8 +52,31 @@ class MySaveMoneyPaymentFragment: BaseFragment() {
 
     }
 
-    fun getMyPointFromServer() {
+    fun getMyReviewListFromServer() {
 
-        apiService.getrequest
+        apiService.getRequestUserPointList().enqueue(object : Callback<BasicResponse> {
+            override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
+
+                if (response.isSuccessful) {
+
+                    val br = response.body()!!
+
+                    mMyPointList.clear()
+//                    mMyPointList.addAll(br.data.)
+
+                    mMyPointPaymentRecyclerViewAdapter.notifyDataSetChanged()
+
+                }
+
+            }
+
+            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+
+            }
+
+
+        })
+
+
     }
 }

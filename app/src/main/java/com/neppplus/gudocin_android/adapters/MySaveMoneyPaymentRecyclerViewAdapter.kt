@@ -27,7 +27,7 @@ class MySaveMoneyPaymentRecyclerViewAdapter(
             txtPointDay.text = data.createdAt.toString()
             txtPointMoney.text = data.amount.toString()
 
-
+            }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MySaveMoneyPaymentViewHolder {
@@ -44,5 +44,5 @@ class MySaveMoneyPaymentRecyclerViewAdapter(
 
     override fun getItemCount() = mList.size
 
-    }
+
 }
