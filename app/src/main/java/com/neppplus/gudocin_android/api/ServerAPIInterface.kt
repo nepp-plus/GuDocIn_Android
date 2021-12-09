@@ -131,6 +131,7 @@ interface ServerAPIInterface {
     ): Call<BasicResponse>
 
     //    리뷰에 댓글 작성
+    @FormUrlEncoded
     @POST("review/{review_id}/reply")
     fun postRequestReviewReply(
         @Path("review_id") reviewReply: Int,
