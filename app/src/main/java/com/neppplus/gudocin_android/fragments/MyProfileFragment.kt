@@ -48,6 +48,19 @@ class MyProfileFragment : BaseFragment() {
     override fun setupEvents() {
 
 
+
+
+
+
+        binding.btnMyProductPurchase.setOnClickListener {
+
+            val myIntent = Intent(mContext, MyPurchaseListActivity::class.java)
+            startActivity(myIntent)
+
+
+        }
+
+
         binding.txtLogOut.setOnClickListener {
 
 //            진짜 로그아웃 할건지? 확인.

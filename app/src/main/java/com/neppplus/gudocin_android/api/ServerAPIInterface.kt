@@ -230,6 +230,11 @@ interface ServerAPIInterface {
     fun getRequestUserPurchaseList()
         : Call<BasicResponse>
 
+//    사용자 마일리지 적립 내역 조회
+    @GET("/user/point")
+    fun getRequestUserPointList()
+        : Call<BasicResponse>
+
 //    사용자 카드 등록
     @FormUrlEncoded
     @POST("/user/card")

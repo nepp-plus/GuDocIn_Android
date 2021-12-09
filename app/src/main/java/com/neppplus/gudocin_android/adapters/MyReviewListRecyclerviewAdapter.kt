@@ -38,6 +38,8 @@ class MyReviewListRecyclerviewAdapter (
         fun bind(data: ReviewData) {
 
             txtReviewTitle.text = data.title
+            txtProductName.text = data.product.name
+            txtReviewDate.text = data.createdAt
 
 
 

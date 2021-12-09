@@ -4,18 +4,19 @@ import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 import java.util.*
 
-class SubscriptionData (
-
+class PointLogData(
     var id: Int,
     @SerializedName("user_id")
     var userId: Int,
-    @SerializedName("product_id")
-    var productId: Int,
+    @SerializedName("payment_id")
+    var paymentId: Int,
+    @SerializedName("review_id")
+    var reviewId: Int,
+    var amount: Int,
+    var type: String,
+
     @SerializedName("created_at")
     var createdAt: Date,
-    @SerializedName("stopped_at")
-    var stoppedAt: Date?,
-    var product : ProductData,
-
-        ) : Serializable{
+    var payment: PaymentData,
+) : Serializable{
 }

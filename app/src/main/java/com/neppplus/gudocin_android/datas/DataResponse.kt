@@ -1,5 +1,7 @@
 package com.neppplus.gudocin_android.datas
 
+import com.google.gson.annotations.SerializedName
+
 class DataResponse(
     var user: UserData,
     var token: String,
@@ -11,6 +13,8 @@ class DataResponse(
     var small_categories :List<SmallCategoriesData>,
     val banners : List<BannerData>,
     val payments: List<PaymentData>,
+    @SerializedName("point_logs")
+    val pointLogs: List<PointLogData>
 
 ) {
 }
