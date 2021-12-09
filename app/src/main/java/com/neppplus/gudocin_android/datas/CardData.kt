@@ -11,12 +11,12 @@ class CardData(
     var cardNickname: String,
 
     @SerializedName("mm_yy")
-    var valid: String,
+    var cardValid: String,
 
-    var birthday: String,
+    var cardBirthday: String,
 
-    @SerializedName("password_2digit")
-    var cardDigit: String
+//    @SerializedName("password_2digit")
+//    var cardPwDigit: String
 
 ) {
 }

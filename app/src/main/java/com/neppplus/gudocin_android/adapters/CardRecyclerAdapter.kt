@@ -25,11 +25,9 @@ class CardRecyclerAdapter(val mContext: Context, val mList: List<CardData>) :
 
             txtCardNickname.text = data.cardNickname
             txtCardNum.text = data.cardNum
-            txtCardValidity.text = data.valid
-            txtCardBirthday.text = data.birthday
-//            txtCardPassword.text = data.cardDigit
-
-
+            txtCardValidity.text = data.cardValid
+            txtCardBirthday.text = data.cardBirthday
+//            txtCardPassword.text = data.cardPwDigit
 
         }
 

@@ -87,7 +87,7 @@ class ProductItemDetailActivity : BaseActivity() {
                     if (response.isSuccessful) {
                         val br = response.body()!!
                         binding.txtProductName.text = br.data.product.name
-                        binding.txtProductPrice.text = br.data.product.getFormatedPrice()
+                        binding.txtProductPrice.text = br.data.product.getFormattedPrice()
                         binding.txtProductCompanyName.text = br.data.product.store.name
                         Glide.with(mContext).load(br.data.product.imageUrl).into(binding.imgProduct)
 

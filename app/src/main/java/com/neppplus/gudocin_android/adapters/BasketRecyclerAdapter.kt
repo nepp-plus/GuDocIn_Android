@@ -39,7 +39,7 @@ class BasketRecyclerAdapter(val mContext: Context, val mList: List<BasketData>) 
 
             Glide.with(mContext).load(data.product.imageUrl).into(imgBasketPhoto)
 
-            txtBasketProductPrice.text = data.product.getFormatedPrice()
+            txtBasketProductPrice.text = data.product.getFormattedPrice()
 
             apiService = retrofit.create(ServerAPIInterface::class.java)
 
