@@ -9,6 +9,7 @@ import com.neppplus.gudocin_android.databinding.ActivityMySaveMoneyDetailBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.GlobalData
 import com.neppplus.gudocin_android.datas.UserData
+import com.neppplus.gudocin_android.utils.ContextUtil
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -40,7 +41,7 @@ class MySaveMoneyDetailActivity : BaseActivity() {
 
 
 
-        val inputTotalPoint = binding.txtMyTotalPoint.text.toString()
+
 
 
         apiService.getRequestMyInfo(
@@ -54,7 +55,9 @@ class MySaveMoneyDetailActivity : BaseActivity() {
                 if(response.isSuccessful){
 
                     val br = response.body()!!
-                    br.data.user.point
+                  val inputTotalPoint =  br.data.user.point.toString()
+
+
                 }
                     Toast.makeText(mContext, "현재 적립금 입니다.", Toast.LENGTH_SHORT).show()
 
