@@ -5,18 +5,19 @@ import java.io.Serializable
 import java.util.*
 
 class CardData(
-    var id: Int,
-    @SerializedName("user_id")
-    var userId: Int,
-    @SerializedName("payment_id")
-    var paymentId: Int,
-    @SerializedName("review_id")
-    var reviewId: Int,
-    var amount: Int,
-    var type: String,
+    @SerializedName("card_num")
+    var cardNum: String,
 
-    @SerializedName("created_at")
-    var createdAt: Date,
+    @SerializedName("card_nickname")
+    var cardNickname: String,
+
+    @SerializedName("mm_yy")
+    var valid: String,
+
+    var birthday: String,
+
+    @SerializedName("password_2digit")
+    var cardDigit: String
 
 
 ) :Serializable{
