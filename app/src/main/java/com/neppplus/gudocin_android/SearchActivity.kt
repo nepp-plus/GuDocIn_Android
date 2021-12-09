@@ -77,20 +77,19 @@ class SearchActivity : BaseActivity() {
 
             override fun onSearchConfirmed(text: CharSequence?) {
                 Log.d("검색어",  binding.searchView.getText())
-                if (text == mSuggestList){
-                    val myIntent = Intent(mContext, ProductItemDetailActivity::class.java)
-//                    myIntent.putExtra("product_id",)
-                    startActivity(myIntent)
-                }
+
                 val searchText = binding.searchView.text
-
-                mSugestListAdapter.filter?.filter(searchText)
-                getProductListFromServer()
-
+                for (product in mTotalProductList){
+                    if (product.name.contains(searchText)){
+                        mSuggestList.add(product)
+                    }
+                }
             }
             override fun onButtonClicked(buttonCode: Int) {
 //            if로 상품이 있으면 상품 띄워주고 없으면 없습니다 띄워주기
-
+                val myIntent = Intent(mContext, ProductItemDetailActivity::class.java)
+//                    myIntent.putExtra("product_id",)
+                startActivity(myIntent)
             }})
 
         binding.searchView.addTextChangeListener(object : TextWatcher {
@@ -119,11 +118,7 @@ class SearchActivity : BaseActivity() {
                     }
                 }
 
-                mSuggestList.clear()
-
                 mSugestListAdapter.notifyDataSetChanged()
-//                text에 따라 추천 상품 바귀도록 아래 적기
-
 
             }
 
