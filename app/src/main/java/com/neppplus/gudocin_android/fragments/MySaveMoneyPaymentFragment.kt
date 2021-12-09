@@ -50,6 +50,7 @@ class MySaveMoneyPaymentFragment: BaseFragment() {
 
     override fun setValues() {
 
+        getMyReviewListFromServer()
     }
 
     fun getMyReviewListFromServer() {
