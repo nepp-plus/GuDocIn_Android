@@ -8,11 +8,13 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.datas.CardData
+import com.neppplus.gudocin_android.datas.PointLogData
+import java.text.SimpleDateFormat
 
 class MySaveMoneyPaymentRecyclerViewAdapter(
 
     val mContext: Context,
-    val mList: ArrayList<CardData>
+    val mList: ArrayList<PointLogData>
 ):RecyclerView.Adapter<MySaveMoneyPaymentRecyclerViewAdapter.MySaveMoneyPaymentViewHolder>()
 {
 
@@ -22,10 +24,15 @@ class MySaveMoneyPaymentRecyclerViewAdapter(
         val txtGudocIn = view.findViewById<TextView>(R.id.txtGudocIn)
         val txtPointMoney = view.findViewById<TextView>(R.id.txtPointMoney)
 
-        fun bind(data : CardData) {
+        fun bind(data : PointLogData) {
 
-            txtPointDay.text = data.createdAt.toString()
+//            txtPointDay.text = data.createdAt.toString()
             txtPointMoney.text = data.amount.toString()
+            txtGudocIn.text = data.payment.subscription.product.store.name
+
+            val sdf = SimpleDateFormat("yyyy.MM.dd ")
+
+            txtPointDay.text = sdf.format( data.createdAt )
 
             }
     }

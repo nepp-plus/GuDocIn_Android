@@ -1,6 +1,7 @@
 package com.neppplus.gudocin_android.datas
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 import java.util.*
 
 class PointLogData(
@@ -16,5 +17,6 @@ class PointLogData(
 
     @SerializedName("created_at")
     var createdAt: Date,
-) {
+    var payment: PaymentData,
+) : Serializable{
 }

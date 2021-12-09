@@ -12,13 +12,14 @@ import com.neppplus.gudocin_android.adapters.MySaveMoneyPaymentRecyclerViewAdapt
 import com.neppplus.gudocin_android.databinding.FragmentMySavemoneyPaymentBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.CardData
+import com.neppplus.gudocin_android.datas.PointLogData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class MySaveMoneyPaymentFragment: BaseFragment() {
 
-    val mMyPointList = ArrayList<CardData>()
+    val mMyPointList = ArrayList<PointLogData>()
 
     lateinit var mMyPointPaymentRecyclerViewAdapter: MySaveMoneyPaymentRecyclerViewAdapter
     lateinit var binding: FragmentMySavemoneyPaymentBinding
@@ -49,6 +50,7 @@ class MySaveMoneyPaymentFragment: BaseFragment() {
     }
 
     override fun setValues() {
+        getMyReviewListFromServer()
 
         getMyReviewListFromServer()
     }
@@ -63,7 +65,7 @@ class MySaveMoneyPaymentFragment: BaseFragment() {
                     val br = response.body()!!
 
                     mMyPointList.clear()
-//                    mMyPointList.addAll(br.data.)
+                    mMyPointList.addAll(br.data.pointLogs)
 
                     mMyPointPaymentRecyclerViewAdapter.notifyDataSetChanged()
 
