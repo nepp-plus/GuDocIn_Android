@@ -5,11 +5,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.neppplus.gudocin_android.R
+import com.neppplus.gudocin_android.adapters.MyReviewListRecyclerviewAdapter
+import com.neppplus.gudocin_android.adapters.MySaveMoneyPaymentRecyclerViewAdapter
 import com.neppplus.gudocin_android.databinding.FragmentMySavemoneyPaymentBinding
+import com.neppplus.gudocin_android.datas.CardData
 
 class MySaveMoneyPaymentFragment: BaseFragment() {
 
+    val mMyPointList = ArrayList<CardData>()
+
+    lateinit var mMyPointPaymentRecyclerViewAdapter: MySaveMoneyPaymentRecyclerViewAdapter
     lateinit var binding: FragmentMySavemoneyPaymentBinding
 
     override fun onCreateView(
@@ -31,9 +38,18 @@ class MySaveMoneyPaymentFragment: BaseFragment() {
     }
     override fun setupEvents() {
 
+        mMyPointPaymentRecyclerViewAdapter = MySaveMoneyPaymentRecyclerViewAdapter(mContext,mMyPointList)
+        binding.mySaveMoneyPaymentRecyclerView.adapter = mMyPointPaymentRecyclerViewAdapter
+        binding.mySaveMoneyPaymentRecyclerView.layoutManager = LinearLayoutManager(mContext)
+
     }
 
     override fun setValues() {
 
+    }
+
+    fun getMyPointFromServer() {
+
+        apiService.getrequest
     }
 }

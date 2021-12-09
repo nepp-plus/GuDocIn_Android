@@ -14,4 +14,6 @@ class CategoriesData (
 
 
 
-) : Serializable {}
+) : Serializable {
+
+}
