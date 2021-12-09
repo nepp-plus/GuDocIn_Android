@@ -25,6 +25,8 @@ class MySaveMoneyDetailActivity : BaseActivity() {
 
     override fun setValues() {
 
+
+
 //      뷰페이져,텝레이아웃 작업한 어댑터 가져와 Activity와 연결
         mAdapter = SaveMoneyViewPagerAdapter(supportFragmentManager)
         binding.saveMondyViewPager.adapter = mAdapter
