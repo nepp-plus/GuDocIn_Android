@@ -14,8 +14,8 @@ class SaveMoneyViewPagerAdapter(fm:FragmentManager): FragmentPagerAdapter(fm) {
 
     override fun getPageTitle(position: Int): CharSequence? {
         return when(position) {
-            0 -> "적립금 사용 내역"
-            else -> "적립금 지급 내역"
+            0 -> "적립금 지급 내역"
+            else -> "적립금 사용 내역"
         }
     }
 

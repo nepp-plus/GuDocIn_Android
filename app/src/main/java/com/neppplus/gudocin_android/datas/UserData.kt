@@ -21,6 +21,7 @@ class UserData(
     var receiveEmail: String,
 
     var phone: Int,
+    var point: Int,
 
 
 
