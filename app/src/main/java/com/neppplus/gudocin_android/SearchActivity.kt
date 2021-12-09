@@ -22,6 +22,7 @@ class SearchActivity : BaseActivity() {
     lateinit var binding: ActivitySearchBinding
     var mSuggestList = ArrayList<ProductData>()
     lateinit var mSugestListAdapter : SuggestListAdapter
+    val mTotalProductList = ArrayList<ProductData>()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -103,7 +104,23 @@ class SearchActivity : BaseActivity() {
                 Log.d("LOG_TAG", " view text changed " + binding.searchView.getText())
                 val searchText = binding.searchView.text
                 mSuggestList.clear()
-                mSugestListAdapter.filter?.filter(searchText)
+
+                if (searchText==""){
+//                    검색어가 없을 때
+
+                    mSuggestList.addAll(mTotalProductList)
+                }
+                else{
+//                    검색어가 있으면 이름이 검색되는 상품만 표시
+                    for (product in mTotalProductList){
+                        if (product.name.contains(searchText)){
+                            mSuggestList.add(product)
+                        }
+                    }
+                }
+
+                mSuggestList.clear()
+
                 mSugestListAdapter.notifyDataSetChanged()
 //                text에 따라 추천 상품 바귀도록 아래 적기
 
@@ -128,6 +145,9 @@ class SearchActivity : BaseActivity() {
                     val br = response.body()!!
                     mSuggestList.clear()
                     mSuggestList.addAll(br.data.products)
+
+                    mTotalProductList.clear()
+                    mTotalProductList.addAll(br.data.products)
 
                     mSugestListAdapter.notifyDataSetChanged()
 

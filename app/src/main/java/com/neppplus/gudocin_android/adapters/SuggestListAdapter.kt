@@ -63,35 +63,7 @@ class SuggestListAdapter(
     override fun getSingleViewHeight() = 60
 
 
-    override fun getFilter(): Filter? {
-        return object : Filter() {
-            override fun performFiltering(constraint: CharSequence): FilterResults {
-                val results = FilterResults()
-                val term = constraint.toString()
-                if (term.isEmpty()) {
 
-
-                  }
-                else {
-                    val filteredList = ArrayList<ProductData>()
-                    for (item in mList) {
-                  if (item.name.toLowerCase()
-                                .contains(term.toLowerCase())){
-                                    filteredList.add(item)
-                                }
-                        }
-                    mList = filteredList
-                }
-                results.values = mList
-                return results
-            }
-
-            override fun publishResults(constraint: CharSequence, results: FilterResults) {
-                mList = results.values as ArrayList<ProductData>
-                notifyDataSetChanged()
-            }
-        }
-    }
 
 
 }
