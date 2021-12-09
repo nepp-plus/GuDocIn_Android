@@ -35,24 +35,21 @@ class BasketRecyclerAdapter(val mContext: Context, val mList: List<BasketData>) 
 
         val retrofit = ServerAPI.getRetrofit(mContext)
 
-        lateinit var mProductData: ProductData
-
         val imgDeleteSubscribe = view.findViewById<ImageView>(R.id.imgDeleteSubscribe)
 
         fun bind(data: BasketData) {
 
             txtBasketProductName.text = data.product.name
-            txtBasketProductPrice.text = data.product.price.toString()
-
-            Glide.with(mContext).load(data.product.imageUrl).into(imgBasketPhoto)
 
             txtBasketProductPrice.text = data.product.getFormattedPrice()
+
+            Glide.with(mContext).load(data.product.imageUrl).into(imgBasketPhoto)
 
             apiService = retrofit.create(ServerAPIInterface::class.java)
 
             imgDeleteSubscribe.setOnClickListener {
 
-                apiService.deleteRequestProduct(mProductData.id).enqueue(object : Callback<BasicResponse> {
+                apiService.deleteRequestProduct(data.product.id).enqueue(object : Callback<BasicResponse> {
                     override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
 
                         if (response.isSuccessful) {
@@ -63,6 +60,8 @@ class BasketRecyclerAdapter(val mContext: Context, val mList: List<BasketData>) 
                                 Toast.LENGTH_SHORT
                             )
                                 .show()
+
+                            notifyDataSetChanged()
 
                         } else {
 
