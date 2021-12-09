@@ -2,12 +2,15 @@ package com.neppplus.gudocin_android
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.neppplus.gudocin_android.databinding.ActivityMyInfoEditBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.GlobalData
+import com.neppplus.gudocin_android.utils.ContextUtil
 import okhttp3.Request
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -31,12 +34,12 @@ class MyInfoEditActivity : BaseActivity() {
 //        btnMyInfoSave 버튼을 클릭했을 경우
         binding.btnMyInfoSave.setOnClickListener {
 
-//            inputMyname변수 안에 입력된 editMyName를 문자열로 변환하여 대입시킴
+
             val inputMyName = binding.editMyName.text.toString()
 
-//           만들어둔 api서버호출
+
             apiService.patchRequestEditMyName(
-//                필드의 닉네임을 inputMyName으로 바꿔라.
+
                 "nickname",
                 inputMyName
 
@@ -48,15 +51,23 @@ class MyInfoEditActivity : BaseActivity() {
                 ) {
 
 
-//                    입력값이 없으면 "변경할 이름을 입력하세요" 토스트 띄우기
 
-                  if(inputMyName == null){
-                       Toast.makeText(mContext, "변경할 이름을 입력하세요.", Toast.LENGTH_SHORT).show()
-                   }
+
+                  if(response.isSuccessful){
+
+                      val br = response.body()!!
+                       Toast.makeText(mContext, "이름이 변경되었습니다.", Toast.LENGTH_SHORT).show()
+                      ContextUtil.setToken(mContext, br.data.token)
+
+                      GlobalData.loginUser = br.data.user
+
+                  }
                     else{
+                      val errorJson = JSONObject(response.errorBody()!!.string())
+                      Log.d("에러경우", errorJson.toString())
 
-//                       이상 없으면 "이름이 변경되었습니다" 토스트 띄우기
-                       Toast.makeText(mContext, "이름이 변경 되었습니다", Toast.LENGTH_SHORT).show()
+                      val message = errorJson.getString("message")
+                       Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show()
 
 
 

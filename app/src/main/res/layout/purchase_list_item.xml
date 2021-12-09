@@ -82,6 +82,7 @@
         android:layout_height="wrap_content">
         
         <Button
+            android:backgroundTint="@color/white"
             android:id="@+id/btnReviewIndex"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -93,6 +94,7 @@
 
         
         <Button
+            android:backgroundTint="@color/white"
             android:id="@+id/btnCancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -191,6 +193,7 @@
         android:layout_height="wrap_content">
 
         <Button
+            android:backgroundTint="@color/white"
             android:id="@+id/btnReviewCheck"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -202,6 +205,7 @@
 
 
         <Button
+            android:backgroundTint="@color/white"
             android:id="@+id/btnCancel2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
