@@ -32,6 +32,13 @@ class MySaveMoneyDetailActivity : BaseActivity() {
 
     override fun setValues() {
 
+//      뷰페이져,텝레이아웃 작업한 어댑터 가져와 Activity와 연결
+        mAdapter = SaveMoneyViewPagerAdapter(supportFragmentManager)
+        binding.saveMondyViewPager.adapter = mAdapter
+
+        binding.saveMoneyTabLayout.setupWithViewPager(binding.saveMondyViewPager)
+
+
 
         val inputTotalPoint = binding.txtMyTotalPoint.text.toString()
 
@@ -44,6 +51,11 @@ class MySaveMoneyDetailActivity : BaseActivity() {
                 call: Call<BasicResponse>,
                 response: Response<BasicResponse>
             ) {
+                if(response.isSuccessful){
+
+                    val br = response.body()!!
+                    br.data.user.point
+                }
                     Toast.makeText(mContext, "현재 적립금 입니다.", Toast.LENGTH_SHORT).show()
 
             }
@@ -57,11 +69,5 @@ class MySaveMoneyDetailActivity : BaseActivity() {
     }
 
 
-
-//      뷰페이져,텝레이아웃 작업한 어댑터 가져와 Activity와 연결
-    mAdapter = SaveMoneyViewPagerAdapter(supportFragmentManager)
-    binding.saveMondyViewPager.adapter = mAdapter
-
-    binding.saveMoneyTabLayout.setupWithViewPager(binding.saveMondyViewPager)
 
 }
