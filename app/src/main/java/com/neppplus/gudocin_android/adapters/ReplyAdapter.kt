@@ -7,14 +7,16 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.datas.ReplyData
 import com.neppplus.gudocin_android.datas.ReviewData
+import java.text.SimpleDateFormat
 
 class ReplyAdapter(
     val mContext: Context,
     val resId: Int,
-    val mList: List<ReviewData>) : ArrayAdapter<ReviewData>(mContext,resId,mList) {
+    val mList: List<ReplyData>) : ArrayAdapter<ReplyData>(mContext,resId,mList) {
 
 
     val mInflater = LayoutInflater.from(mContext)
@@ -27,14 +29,22 @@ class ReplyAdapter(
         }
 
         val row = tempRow!!
-        return row
+
+        val data = mList[position]
 
         val imgUserProfile = row.findViewById<ImageView>(R.id.imgUserProfile)
         val txtUserNickName = row.findViewById<TextView>(R.id.txtUserNickName)
         val txtReplyTime = row.findViewById<TextView>(R.id.txtReplyTime)
         val txtReviewReply = row.findViewById<TextView>(R.id.txtReviewReply)
 
+        Glide.with(mContext).load(data.user.profileImageURL).into(imgUserProfile)
+        txtUserNickName.text = data.user.nickname
+        txtReviewReply.text = data.content
 
+        val sdf = SimpleDateFormat("M월 d일 a H:mm")
 
+        txtReplyTime.text = sdf.format(data.createdAt)
+
+        return row
     }
 }

@@ -16,6 +16,7 @@ class DataResponse(
     @SerializedName("point_logs")
     val pointLogs: List<PointLogData>,
     var cards: List<CardData>,
+    val replies: List<ReplyData>,
 
 ) {
 }
