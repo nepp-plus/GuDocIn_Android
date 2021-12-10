@@ -27,36 +27,26 @@ class ReviewDetailActivity : BaseActivity() {
         setupEvents()
         setValues()
 
-        val reviewContentImg = binding.reviewContentImg
-        if (reviewContentImg == null){
-
-
-
-        }else{
-
-        }
-
     }
 
     override fun setupEvents() {
-        binding.txtProductDetail.setOnClickListener {
+        binding.btnProductDetail.setOnClickListener {
 //            제품 상세페이지 인텐트
+            val myIntent = Intent(mContext, ProductItemDetailActivity::class.java)
+            myIntent.putExtra("product_id", mReviewData.product)
+            mContext.startActivity(myIntent)
+
         }
-        binding.txtGoReply.setOnClickListener {
+
+        binding.btnGoReply.setOnClickListener {
+
 //            댓글 페이지로 인텐트
             val myIntent = Intent(mContext, ReplyActivity::class.java)
             myIntent.putExtra("review", mReviewData)
             mContext.startActivity(myIntent)
         }
-        binding.imgButtonProduct.setOnClickListener {
-//            제품 상세페이지 인텐트
-        }
-        binding.imgButtonReply.setOnClickListener {
-//            댓글 페이지로 인텐트
-            val myIntent = Intent(mContext, ReplyActivity::class.java)
-            myIntent.putExtra("review", mReviewData)
-            mContext.startActivity(myIntent)
-        }
+
+
         binding.btnBuyProduct.setOnClickListener {
             //            결제 페이지로 인텐트
                 val myIntent = Intent(mContext,  PaymentActivity::class.java )
