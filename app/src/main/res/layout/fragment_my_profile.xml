@@ -1,288 +1,282 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingRight="10dp"
-    android:paddingLeft="10dp">
-
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-        <TextView
-            android:paddingTop="100dp"
-            android:id="@+id/txtUserName"
-            android:textSize="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="방우진"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
 
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:text="의 적립금"
-                android:textSize="20dp" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-                android:layout_marginTop="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/txtUserPoint"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
-                    android:textSize="18sp"
-                    android:text="30000원"/>
-
-
-
-
-
-        <Button
-
-            android:id="@+id/btnSaveMoney"
-            android:backgroundTint="@color/white"
-            android:layout_marginStart="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="내역확인"
-            />
-
-
-
-        </LinearLayout>
-
-
-        <LinearLayout
-
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:text="내 구독정보" />
-
-<!--            내 구독정보 달력으로 표시 (구글검색)-->
-            <com.prolificinteractive.materialcalendarview.MaterialCalendarView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:mcv_selectionColor="#00F"
-                app:mcv_showOtherDates="all" />
+            android:layout_height="wrap_content">
 
             <LinearLayout
-                android:gravity="center"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:orientation="vertical">
 
-
-                <Button
-                    android:backgroundTint="@color/white"
-                    android:id="@+id/btnMyProductPurchase"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="정기 구독 상품 내역"/>
+                    android:layout_marginTop="40dp"
+                    android:orientation="horizontal">
 
-                <TextView
-                    android:layout_marginStart="30dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    <TextView
+                        android:id="@+id/txtUserName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="방우진"
+                        android:textSize="20dp" />
 
-                <Button
-                    android:id="@+id/btnMyReviewDetail"
-                    android:layout_width="wrap_content"
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="의 적립금"
+                        android:textSize="20dp" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/white"
-                    android:text="리뷰 내역"/>
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/txtUserPoint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:text="30000원"
+                        android:textSize="18sp" />
+
+
+                    <Button
+
+                        android:id="@+id/btnSaveMoney"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:backgroundTint="@color/white"
+                        android:text="내역확인" />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp"
+                        android:text="내 구독정보" />
+
+                    <!--            내 구독정보 달력으로 표시 (구글검색)-->
+                    <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:mcv_selectionColor="#00F"
+                        app:mcv_showOtherDates="all" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
+
+
+                        <Button
+                            android:id="@+id/btnMyProductPurchase"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/white"
+                            android:text="정기 구독 상품 내역" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="30dp" />
+
+                        <Button
+                            android:id="@+id/btnMyReviewDetail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="@color/white"
+                            android:text="리뷰 내역" />
+
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="회원정보" />
+
+                    <TextView
+                        android:id="@+id/txtEditMyInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="회원정보 수정"
+                        android:textSize="15sp" />
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#808080" />
+
+                    <TextView
+                        android:id="@+id/txtMyCard"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="등록 카드 관리"
+                        android:textSize="15sp" />
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#808080" />
+
+                    <TextView
+                        android:id="@+id/txtLogOut"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="로그아웃"
+                        android:textSize="15sp" />
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#808080" />
+
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="적립금" />
+
+                    <TextView
+                        android:id="@+id/txtUserPointDetails"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="적립금 세부내역"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#808080" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="정기구독 상품" />
+
+                    <TextView
+                        android:id="@+id/txtMyProductPurnchaseList"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="정기구독 상품 구매 내역"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#808080" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="고객센터" />
+
+                    <TextView
+                        android:id="@+id/txtguide"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="이용가이드"
+                        android:textSize="15sp" />
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#808080" />
+
+                    <TextView
+                        android:id="@+id/txtnotice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="공지사항"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#808080" />
+
+                    <TextView
+                        android:id="@+id/txtquestions"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="자주 묻는 질문"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#808080" />
+
+                    <TextView
+                        android:id="@+id/txttermsofuse"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="서비스 이용약관"
+                        android:textSize="15sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#808080" />
+
+
+                </LinearLayout>
 
 
             </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="회원정보" />
-
-            <TextView
-                android:id="@+id/txtEditMyInfo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="회원정보 수정"
-                android:textSize="15sp" />
-
-            <TextView
-
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#808080" />
-
-            <TextView
-                android:id="@+id/txtMyCard"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="등록 카드 관리"
-                android:textSize="15sp" />
-
-            <TextView
-
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#808080" />
-
-            <TextView
-                android:id="@+id/txtLogOut"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="로그아웃"
-                android:textSize="15sp" />
-
-            <TextView
-
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#808080" />
-
-
-            <TextView
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="적립금" />
-
-            <TextView
-                android:id="@+id/txtUserPointDetails"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="적립금 세부내역"
-                android:textSize="17sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#808080" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="정기구독 상품" />
-
-            <TextView
-                android:id="@+id/txtMyProductPurnchaseList"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="정기구독 상품 구매 내역"
-                android:textSize="15sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#808080" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="고객센터" />
-
-            <TextView
-                android:id="@+id/txtguide"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="이용가이드"
-                android:textSize="15sp" />
-
-            <TextView
-
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#808080" />
-
-            <TextView
-                android:id="@+id/txtnotice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="공지사항"
-                android:textSize="15sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#808080" />
-
-            <TextView
-                android:id="@+id/txtquestions"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="자주 묻는 질문"
-                android:textSize="15sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#808080" />
-
-            <TextView
-                android:id="@+id/txttermsofuse"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="서비스 이용약관"
-                android:textSize="15sp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#808080" />
-
-
-        </LinearLayout>
-
-
-
+        </ScrollView>
 
     </LinearLayout>
-
-    </ScrollView>
-
-</LinearLayout>
 </layout>

@@ -75,6 +75,10 @@ class NavigationActivity : BaseActivity() {
 
         }
 
+
+//        3장의 화면을 계속 유지하도록
+        binding.viewPager.offscreenPageLimit = 3
+
     }
 
     inner class ViewPagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
