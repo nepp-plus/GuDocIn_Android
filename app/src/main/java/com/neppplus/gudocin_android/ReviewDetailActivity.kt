@@ -31,7 +31,7 @@ class ReviewDetailActivity : BaseActivity() {
 
     override fun setupEvents() {
         binding.btnProductDetail.setOnClickListener {
-//            제품 상세페이지 인텐트
+//            제품 상세페이지 인텐트 => 상품 들고가게
             val myIntent = Intent(mContext, ProductItemDetailActivity::class.java)
             myIntent.putExtra("product_id", mReviewData.product)
             mContext.startActivity(myIntent)
@@ -40,7 +40,7 @@ class ReviewDetailActivity : BaseActivity() {
 
         binding.btnGoReply.setOnClickListener {
 
-//            댓글 페이지로 인텐트
+//            댓글 페이지로 인텐트 => 리뷰 데이터 들고가게
             val myIntent = Intent(mContext, ReplyActivity::class.java)
             myIntent.putExtra("review", mReviewData)
             mContext.startActivity(myIntent)
