@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.datas.ReplyData
 import com.neppplus.gudocin_android.datas.ReviewData
+import com.neppplus.gudocin_android.utils.TimeAgoUtil
 import java.text.SimpleDateFormat
 
 class ReplyAdapter(
@@ -41,9 +42,7 @@ class ReplyAdapter(
         txtUserNickName.text = data.user.nickname
         txtReviewReply.text = data.content
 
-        val sdf = SimpleDateFormat("M월 d일 a H:mm")
-
-        txtReplyTime.text = sdf.format(data.createdAt)
+        txtReplyTime.text = TimeAgoUtil.getTimeAgoString(data.createdAt)
 
         return row
     }
