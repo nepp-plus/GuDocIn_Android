@@ -10,14 +10,11 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.facebook.CallbackManager
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.api.ServerAPI
 import com.neppplus.gudocin_android.api.ServerAPIInterface
-import com.neppplus.gudocin_android.calculator.CalTotal
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.BasketData
-import com.neppplus.gudocin_android.datas.ProductData
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -25,12 +22,9 @@ import retrofit2.Response
 
 class BasketRecyclerAdapter(
     val mContext: Context,
-    val mList: List<BasketData>,
-    val calTotal: CalTotal
+    val mList: List<BasketData>
 ) :
     RecyclerView.Adapter<BasketRecyclerAdapter.BasketViewHolder>() {
-
-    var total = 0
 
     inner class BasketViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
@@ -94,12 +88,7 @@ class BasketRecyclerAdapter(
                     })
 
             }
-            for (data in mList) {
-                if (data.product.price != null) {
-                    total += data.product.price!!
-                }
-            }
-            calTotal.cal(total.toString())
+
         }
 
     }
