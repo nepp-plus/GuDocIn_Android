@@ -2,35 +2,35 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-     android:gravity="center|top">
+    android:gravity="center|top"
+    android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/btnGotoReviewWriterDetail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
         android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp">
+        android:layout_marginBottom="5dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imgReviewerImage"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@mipmap/ic_launcher"
-            android:layout_marginLeft="5dp"/>
+            android:layout_marginLeft="5dp"
+            android:src="@mipmap/ic_launcher" />
 
 
         <TextView
             android:id="@+id/txtReviewerNickName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textStyle="bold"
             android:layout_marginLeft="5dp"
+            android:text="리뷰어 이름"
+            android:textColor="@color/black"
             android:textSize="14sp"
-            android:text="리뷰어 이름"/>
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -38,43 +38,43 @@
         android:id="@+id/btnGotoReviewDetail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        android:orientation="vertical">
 
         <ImageView
             android:id="@+id/imgReviewSomeNail"
             android:layout_width="400dp"
             android:layout_height="400dp"
-            android:src="@drawable/review_image_flower"
-            android:scaleType="centerCrop"/>
+            android:scaleType="centerCrop"
+            android:src="@drawable/review_image_flower" />
 
 
         <TextView
             android:id="@+id/txReviewTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textSize="15sp"
             android:layout_marginLeft="5dp"
-            android:text="리뷰 Title"/>
+            android:text="리뷰 Title"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/txtProductName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textSize="13sp"
             android:layout_marginLeft="5dp"
-            android:text="상품명"/>
+            android:text="상품명"
+            android:textColor="@color/black"
+            android:textSize="13sp" />
 
         <TextView
             android:id="@+id/txtProductPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textSize="11sp"
             android:layout_marginLeft="5dp"
-            android:text="가격"/>
+            android:text="가격"
+            android:textColor="@color/black"
+            android:textSize="11sp" />
 
 
     </LinearLayout>
@@ -84,18 +84,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:orientation="vertical"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/txtOpenPreView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textSize="13sp"
-            android:layout_marginTop="5dp"
             android:layout_marginLeft="5dp"
-            android:text="더보기"/>
+            android:layout_marginTop="5dp"
+            android:text="더보기"
+            android:textColor="@color/black"
+            android:textSize="13sp" />
 
     </LinearLayout>
 
@@ -103,37 +103,31 @@
         android:id="@+id/preViewLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
         android:orientation="vertical"
-        android:visibility="gone"
-        android:layout_marginLeft="10dp">
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/txtCheckedContents1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="선택된 체크박스 내용 자리"/>
+            android:text="선택된 체크박스 내용 자리" />
 
         <TextView
             android:id="@+id/txtCheckedContents2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="선택된 체크박스 내용 자리"/>
+            android:text="선택된 체크박스 내용 자리" />
 
     </LinearLayout>
-
 
 
     <Button
         android:id="@+id/btnWriteReview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="리뷰 작성"/>
-
-
-
-
-
-
+        android:backgroundTint="@color/white"
+        android:text="리뷰 작성" />
 
 
 </LinearLayout>

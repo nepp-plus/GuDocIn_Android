@@ -101,8 +101,8 @@
                         android:id="@+id/selectImgLayout"
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
-                        android:gravity="center"
                         android:background="@drawable/text_box"
+                        android:gravity="center"
                         android:orientation="vertical">
 
                         <TextView
@@ -116,9 +116,9 @@
                         android:id="@+id/imgThumPicture"
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
-                        android:visibility="gone"
                         android:scaleType="centerCrop"
-                        android:src="@mipmap/ic_launcher" />
+                        android:src="@mipmap/ic_launcher"
+                        android:visibility="gone" />
 
                 </LinearLayout>
 
@@ -140,8 +140,8 @@
                     <RadioGroup
                         android:id="@+id/radioOptionDelivery"
                         android:layout_width="match_parent"
-                        android:orientation="horizontal"
-                        android:layout_height="30dp">
+                        android:layout_height="30dp"
+                        android:orientation="horizontal">
 
                         <RadioButton
                             android:id="@+id/radioBtnDelivery1"
@@ -176,8 +176,8 @@
                 <RadioGroup
                     android:id="@+id/radioOptionQuality"
                     android:layout_width="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_height="30dp">
+                    android:layout_height="30dp"
+                    android:orientation="horizontal">
 
                     <RadioButton
                         android:id="@+id/radioBtnQuality1"
@@ -210,8 +210,8 @@
                 <RadioGroup
                     android:id="@+id/radioOptionPrice"
                     android:layout_width="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_height="30dp">
+                    android:layout_height="30dp"
+                    android:orientation="horizontal">
 
                     <RadioButton
                         android:id="@+id/radioBtnPrice1"
@@ -245,10 +245,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
                     android:isIndicator="false"
-                    app:srb_stepSize="0.5"
                     android:max="5"
-                    android:layout_marginTop="5dp" />
+                    app:srb_stepSize="0.5" />
 
                 <EditText
                     android:id="@+id/edtReviewContent"
@@ -263,6 +263,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
+                    android:backgroundTint="@color/white"
                     android:text="사진추가"
                     android:textSize="15sp" />
 

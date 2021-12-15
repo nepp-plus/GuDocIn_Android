@@ -56,7 +56,7 @@
                 android:layout_marginTop="10dp"
                 android:textColor="@color/black"
                 android:textSize="12sp"
-                tools:text="상품명" />
+                android:text="상품명" />
 
             <TextView
                 android:id="@+id/txtBasketProductPrice"

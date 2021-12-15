@@ -21,7 +21,7 @@ class BasketListActivity : BaseActivity() {
 
     lateinit var mBasketRecyclerAdapter: BasketRecyclerAdapter
 
-    var total = 0
+    var total = 1000
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -90,6 +90,7 @@ class BasketListActivity : BaseActivity() {
             if (data.product.price != null) {
                 total += data.product.price!!
             }
+
         }
         binding.txtTotalPrice.text = total.toString()
     }

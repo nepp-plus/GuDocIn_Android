@@ -9,23 +9,24 @@
         android:id="@+id/txtReviewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="리뷰 Title"/>
+        android:text="리뷰 Title" />
 
     <TextView
-        android:textStyle="bold"
-        android:textSize="10dp"
         android:id="@+id/txtProductName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="상품명"/>
-    <TextView
-        android:textStyle="bold"
-        android:id="@+id/txtReviewDate"
+        android:text="상품명"
         android:textSize="10dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtReviewDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2021.12.06:리뷰작성일자"/>
+        android:text="2021.12.06:리뷰작성일자"
+        android:textSize="10dp"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -33,50 +34,53 @@
 
 
         <TextView
-            android:textStyle="bold"
             android:id="@+id/txtSavedMoneyPaymentCheck"
-            android:layout_marginTop="3dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="적립금 지급내역 확인"/>
+            android:layout_marginTop="3dp"
+            android:text="적립금 지급내역 확인"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
 
-
     <LinearLayout
-        android:gravity="center"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/btnReviewCheck"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="리뷰 확인하기"/>
+            android:backgroundTint="@color/white"
+            android:text="리뷰 확인하기" />
+
         <TextView
             android:layout_width="20dp"
-            android:layout_height="wrap_content"
-            />
+            android:layout_height="wrap_content" />
 
 
         <Button
             android:id="@+id/btnEditReview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="리뷰 수정하기"/>
+            android:backgroundTint="@color/white"
+            android:text="리뷰 수정하기" />
 
 
     </LinearLayout>
+
     <LinearLayout
-        android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
         <TextView
             android:layout_width="300dp"
             android:layout_height="1dp"
-            android:background="#808080"/>
+            android:background="#808080" />
     </LinearLayout>
 
 </LinearLayout>
