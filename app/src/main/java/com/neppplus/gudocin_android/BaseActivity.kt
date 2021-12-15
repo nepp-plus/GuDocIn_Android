@@ -20,11 +20,11 @@ abstract class BaseActivity : AppCompatActivity() {
 
     lateinit var apiService: ServerAPIInterface
 
-    lateinit var btnBack : ImageView
-    lateinit var btnBell : ImageView
-    lateinit var btnBasket : ImageView
-    lateinit var SearchBoxInActionBar : LinearLayout
-    lateinit var txtCategoryNameInActionBar : TextView
+    lateinit var btnBack: ImageView
+    lateinit var btnBell: ImageView
+    lateinit var btnBasket: ImageView
+    lateinit var SearchBoxInActionBar: LinearLayout
+    lateinit var txtCategoryNameInActionBar: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,7 +53,7 @@ abstract class BaseActivity : AppCompatActivity() {
         defActionBar.setCustomView(R.layout.custom_action_bar)
 
 //        좌우 여백 제거 : ToolBar 소환 -> 여백값 세팅
-        val toolBar =  defActionBar.customView.parent as Toolbar
+        val toolBar = defActionBar.customView.parent as Toolbar
         toolBar.setContentInsetsAbsolute(0, 0)
 
 
@@ -62,7 +62,8 @@ abstract class BaseActivity : AppCompatActivity() {
         btnBell = defActionBar.customView.findViewById(R.id.btnBell)
         btnBasket = defActionBar.customView.findViewById(R.id.btnBasket)
         SearchBoxInActionBar = defActionBar.customView.findViewById(R.id.SearchBoxInActionBar)
-        txtCategoryNameInActionBar = defActionBar.customView.findViewById(R.id.txtCategoryNameInActionBar)
+        txtCategoryNameInActionBar =
+            defActionBar.customView.findViewById(R.id.txtCategoryNameInActionBar)
 
 
         btnBack.setOnClickListener {
@@ -83,17 +84,11 @@ abstract class BaseActivity : AppCompatActivity() {
         }
 
         SearchBoxInActionBar.setOnClickListener {
-                val myIntent = Intent(mContext,SearchActivity::class.java)
-                startActivity(myIntent)
+            val myIntent = Intent(mContext, SearchActivity::class.java)
+            startActivity(myIntent)
         }
 
-
-
     }
-
-
-
-
 
     abstract fun setupEvents()
     abstract fun setValues()

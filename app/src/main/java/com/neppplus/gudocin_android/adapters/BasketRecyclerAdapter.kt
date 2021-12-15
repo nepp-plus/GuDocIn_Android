@@ -14,6 +14,7 @@ import com.facebook.CallbackManager
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.api.ServerAPI
 import com.neppplus.gudocin_android.api.ServerAPIInterface
+import com.neppplus.gudocin_android.calculator.CalTotal
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.BasketData
 import com.neppplus.gudocin_android.datas.ProductData
@@ -22,8 +23,14 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class BasketRecyclerAdapter(val mContext: Context, val mList: List<BasketData>) :
+class BasketRecyclerAdapter(
+    val mContext: Context,
+    val mList: List<BasketData>,
+    val calTotal: CalTotal
+) :
     RecyclerView.Adapter<BasketRecyclerAdapter.BasketViewHolder>() {
+
+    var total = 0
 
     inner class BasketViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
@@ -49,41 +56,50 @@ class BasketRecyclerAdapter(val mContext: Context, val mList: List<BasketData>) 
 
             imgDeleteSubscribe.setOnClickListener {
 
-                apiService.deleteRequestProduct(data.product.id).enqueue(object : Callback<BasicResponse> {
-                    override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
+                apiService.deleteRequestProduct(data.product.id)
+                    .enqueue(object : Callback<BasicResponse> {
+                        override fun onResponse(
+                            call: Call<BasicResponse>,
+                            response: Response<BasicResponse>
+                        ) {
 
-                        if (response.isSuccessful) {
+                            if (response.isSuccessful) {
 
-                            Toast.makeText(
-                                mContext,
-                                "장바구니 목록이 삭제되었습니다",
-                                Toast.LENGTH_SHORT
-                            )
-                                .show()
+                                Toast.makeText(
+                                    mContext,
+                                    "장바구니 목록이 삭제되었습니다",
+                                    Toast.LENGTH_SHORT
+                                )
+                                    .show()
 
-                            notifyDataSetChanged()
+                                notifyDataSetChanged()
 
-                        } else {
+                            } else {
 
-                            val errorJson = JSONObject(response.errorBody()!!.string())
-                            Log.d("에러경우", errorJson.toString())
+                                val errorJson = JSONObject(response.errorBody()!!.string())
+                                Log.d("에러경우", errorJson.toString())
 
-                            val message = errorJson.getString("message")
+                                val message = errorJson.getString("message")
 
-                            Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show()
+                                Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show()
+
+                            }
 
                         }
 
-                    }
+                        override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
 
-                    override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+                        }
 
-                    }
-
-                })
+                    })
 
             }
-
+            for (data in mList) {
+                if (data.product.price != null) {
+                    total += data.product.price!!
+                }
+            }
+            calTotal.cal(total.toString())
         }
 
     }

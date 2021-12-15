@@ -6,6 +6,7 @@ import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.neppplus.gudocin_android.adapters.BasketRecyclerAdapter
+import com.neppplus.gudocin_android.calculator.CalTotal
 import com.neppplus.gudocin_android.databinding.ActivityBasketListBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.BasketData
@@ -13,13 +14,15 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class BasketListActivity : BaseActivity() {
+class BasketListActivity : BaseActivity(), CalTotal {
 
     lateinit var binding: ActivityBasketListBinding
 
     val mBasketList = ArrayList<BasketData>()
 
     lateinit var mBasketRecyclerAdapter: BasketRecyclerAdapter
+
+    lateinit var calTotal: CalTotal
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,7 +50,7 @@ class BasketListActivity : BaseActivity() {
 
         getBasketListFromServer()
 
-        mBasketRecyclerAdapter = BasketRecyclerAdapter(mContext, mBasketList)
+        mBasketRecyclerAdapter = BasketRecyclerAdapter(mContext, mBasketList, calTotal)
 
         binding.basketListRecyclerView.adapter = mBasketRecyclerAdapter
         binding.basketListRecyclerView.layoutManager = LinearLayoutManager(mContext)
@@ -78,6 +81,10 @@ class BasketListActivity : BaseActivity() {
 
         })
 
+    }
+
+    override fun cal(total: String) {
+        binding.txtTotalPrice.text = total
     }
 
 }
