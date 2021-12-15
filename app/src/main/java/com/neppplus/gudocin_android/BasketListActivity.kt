@@ -90,7 +90,6 @@ class BasketListActivity : BaseActivity() {
             if (data.product.price != null) {
                 total += data.product.price!!
             }
-
         }
         binding.txtTotalPrice.text = total.toString()
     }
