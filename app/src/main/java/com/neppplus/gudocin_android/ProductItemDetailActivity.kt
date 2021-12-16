@@ -121,22 +121,27 @@ class ProductItemDetailActivity : BaseActivity() {
                     response: Response<BasicResponse>
                 ) {
                     if (response.isSuccessful) {
-                        val alert = AlertDialog.Builder(mContext)
-                        alert.setTitle("장바구니 상품 등록 완료")
-                        alert.setMessage("장바구니로 이동 하시겠습니까?")
-                        alert.setPositiveButton(
-                            "확인",
-                            DialogInterface.OnClickListener { dialog, which ->
-                                val myIntent = Intent(mContext, BasketListActivity::class.java)
-                                startActivity(myIntent)
-                            })
-                        alert.setNegativeButton(
-                            "취소",
-                            DialogInterface.OnClickListener { dialog, which ->
-                            })
-                    } else {
+
+                        Toast.makeText(mContext, "장바구니 상품 등록 완료", Toast.LENGTH_SHORT).show()
+
+//                        val alert = AlertDialog.Builder(mContext, R.style.MyDialogTheme)
+//                        alert.setTitle("장바구니 상품 등록 완료")
+//                        alert.setMessage("장바구니로 이동 하시겠습니까?")
+//                        alert.setPositiveButton(
+//                            "확인",
+//                            DialogInterface.OnClickListener { dialog, which ->
+//                                val myIntent = Intent(mContext, BasketListActivity::class.java)
+//                                startActivity(myIntent)
+//                            })
+//                        alert.setNegativeButton(
+//                            "취소",
+//                            DialogInterface.OnClickListener { dialog, which ->
+//                            })
+                    }
+                    else {
                         val errorJson = JSONObject(response.errorBody()!!.string())
                         Log.d("에러경우", errorJson.toString())
+
                         val message = errorJson.getString("message")
                         Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show()
                     }
@@ -149,7 +154,6 @@ class ProductItemDetailActivity : BaseActivity() {
                 }
 
             })
-
 
     }
 

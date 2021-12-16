@@ -2,6 +2,8 @@ package com.neppplus.gudocin_android
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,7 +23,7 @@ class BasketListActivity : BaseActivity() {
 
     lateinit var mBasketRecyclerAdapter: BasketRecyclerAdapter
 
-    var total = 1000
+    var total = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,8 +46,6 @@ class BasketListActivity : BaseActivity() {
     }
 
     override fun setValues() {
-
-        calTotalPrice()
 
         btnBasket.visibility = View.GONE
 
@@ -72,6 +72,12 @@ class BasketListActivity : BaseActivity() {
 
                     mBasketRecyclerAdapter.notifyDataSetChanged()
 
+                    for (data in mBasketList) {
+                        if (data.product.price != null) {
+                            total += data.product.price!!
+                        }
+                    }
+                    binding.txtTotalPrice.text = total.toString()
                 }
 
             }
@@ -82,16 +88,6 @@ class BasketListActivity : BaseActivity() {
 
         })
 
-    }
-
-    fun calTotalPrice() {
-
-        for (data in mBasketList) {
-            if (data.product.price != null) {
-                total += data.product.price!!
-            }
-        }
-        binding.txtTotalPrice.text = total.toString()
     }
 
 }

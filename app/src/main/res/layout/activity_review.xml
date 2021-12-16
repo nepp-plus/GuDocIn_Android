@@ -309,6 +309,7 @@
                         android:id="@+id/btnCancleReview"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:backgroundTint="@color/white"
                         android:text="작성취소"
                         android:textSize="17sp" />
 
@@ -317,6 +318,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="30dp"
+                        android:backgroundTint="@color/white"
                         android:text="작성완료"
                         android:textSize="17sp" />
 
