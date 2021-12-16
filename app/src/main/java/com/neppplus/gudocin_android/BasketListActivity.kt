@@ -14,6 +14,9 @@ import com.neppplus.gudocin_android.datas.BasketData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.NumberFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class BasketListActivity : BaseActivity() {
 
@@ -77,7 +80,8 @@ class BasketListActivity : BaseActivity() {
                             total += data.product.price!!
                         }
                     }
-                    binding.txtTotalPrice.text = total.toString()
+                    var KRW = "${NumberFormat.getInstance(Locale.KOREA).format(total)} 원"
+                    binding.txtTotalPrice.text = KRW
                 }
 
             }
