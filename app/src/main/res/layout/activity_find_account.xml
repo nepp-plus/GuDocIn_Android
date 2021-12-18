@@ -26,6 +26,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="아이디 찾기"
+                    android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -41,6 +42,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="50dp"
                     android:text="닉네임"
+                    android:textColor="@color/black"
                     android:textStyle="bold" />
 
                 <EditText
@@ -55,6 +57,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="전화번호"
+                    android:textColor="@color/black"
                     android:textStyle="bold" />
 
                 <EditText
@@ -86,6 +89,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="비밀번호 찾기"
+                    android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -101,6 +105,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
                     android:text="아이디"
+                    android:textColor="@color/black"
                     android:textStyle="bold" />
 
                 <EditText
@@ -116,6 +121,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="닉네임"
+                    android:textColor="@color/black"
                     android:textStyle="bold" />
 
                 <EditText

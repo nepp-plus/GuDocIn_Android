@@ -16,10 +16,8 @@ import com.neppplus.gudocin_android.utils.ContextUtil
 //      BaseFragment 상속
 class MyProfileFragment : BaseFragment() {
 
-
     //    xml에 <layout>으로 묶어주므로 바인딩 가능
     lateinit var binding: FragmentMyProfileBinding
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,7 +28,6 @@ class MyProfileFragment : BaseFragment() {
 //        바인딩 변수 사용. xml 화면을 바인딩 변수에 대입시키고 바인딩 된 마지막 화면으로 반환.
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_my_profile, container, false)
         return binding.root
-
 
     }
 
@@ -47,19 +44,12 @@ class MyProfileFragment : BaseFragment() {
     //    setupEvents함수 오버로딩
     override fun setupEvents() {
 
-
-
-
-
-
         binding.btnMyProductPurchase.setOnClickListener {
 
             val myIntent = Intent(mContext, MyPurchaseListActivity::class.java)
             startActivity(myIntent)
 
-
         }
-
 
         binding.txtLogOut.setOnClickListener {
 
@@ -86,11 +76,7 @@ class MyProfileFragment : BaseFragment() {
 
             alert.show()
 
-
         }
-
-
-
 
         binding.txtMyCard.setOnClickListener {
 
@@ -108,6 +94,7 @@ class MyProfileFragment : BaseFragment() {
 
             startActivity(myIntent)
         }
+
 //       btnSaveMoney 클릭했을 경우
         binding.btnSaveMoney.setOnClickListener {
 
@@ -176,13 +163,11 @@ class MyProfileFragment : BaseFragment() {
 
         }
 
-
     }
 
     override fun setValues() {
 
         binding.txtUserName.text = GlobalData.loginUser!!.nickname
-
 
     }
 }

@@ -7,7 +7,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -33,15 +32,12 @@
                         android:text="방우진"
                         android:textSize="20dp" />
 
-
                     <TextView
-
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
                         android:text="의 적립금"
                         android:textSize="20dp" />
-
 
                 </LinearLayout>
 
@@ -57,12 +53,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
-                        android:text="30000원"
+                        android:text="30,000원"
                         android:textSize="18sp" />
 
-
                     <Button
-
                         android:id="@+id/btnSaveMoney"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -70,19 +64,14 @@
                         android:backgroundTint="@color/white"
                         android:text="내역확인" />
 
-
                 </LinearLayout>
 
-
                 <LinearLayout
-
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-
                     <TextView
-
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="25dp"
@@ -99,7 +88,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center">
-
 
                         <Button
                             android:id="@+id/btnMyProductPurchase"
@@ -120,7 +108,6 @@
                             android:backgroundTint="@color/white"
                             android:text="리뷰 내역" />
 
-
                     </LinearLayout>
 
                     <TextView
@@ -138,7 +125,6 @@
                         android:textSize="15sp" />
 
                     <TextView
-
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:background="#808080" />
@@ -152,7 +138,6 @@
                         android:textSize="15sp" />
 
                     <TextView
-
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:background="#808080" />
@@ -166,14 +151,11 @@
                         android:textSize="15sp" />
 
                     <TextView
-
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:background="#808080" />
 
-
                     <TextView
-
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
@@ -185,7 +167,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="적립금 세부내역"
-                        android:textSize="17sp" />
+                        android:textSize="15sp" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -226,7 +208,6 @@
                         android:textSize="15sp" />
 
                     <TextView
-
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:background="#808080" />
@@ -270,13 +251,12 @@
                         android:layout_height="1dp"
                         android:background="#808080" />
 
-
                 </LinearLayout>
-
 
             </LinearLayout>
 
         </ScrollView>
 
     </LinearLayout>
+
 </layout>
