@@ -5,7 +5,6 @@
     android:orientation="vertical"
     android:padding="20dp">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -22,6 +21,7 @@
             android:text="리뷰가 작성되지 않았어요! 지금 작성해 보세요."
             android:textColor="@color/red"
             android:textSize="10dp" />
+
     </LinearLayout>
 
     <TextView
@@ -43,7 +43,6 @@
         android:layout_height="wrap_content">
 
         <TextView
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
@@ -86,7 +85,6 @@
         android:orientation="horizontal">
 
         <Button
-            android:backgroundTint="@color/white"
             android:id="@+id/btnReviewIndex"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -97,15 +95,12 @@
             android:layout_width="20dp"
             android:layout_height="wrap_content" />
 
-
         <Button
-            android:backgroundTint="@color/white"
             android:id="@+id/btnCancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/white"
             android:text="취소하기" />
-
 
     </LinearLayout>
 
@@ -118,8 +113,8 @@
             android:layout_width="300dp"
             android:layout_height="1dp"
             android:background="#808080" />
-    </LinearLayout>
 
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -138,6 +133,7 @@
             android:text="리뷰가 작성된 상품입니다."
             android:textColor="@color/red"
             android:textSize="10dp" />
+
     </LinearLayout>
 
     <TextView
@@ -159,7 +155,6 @@
         android:layout_height="wrap_content">
 
         <TextView
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
@@ -202,7 +197,6 @@
         android:orientation="horizontal">
 
         <Button
-            android:backgroundTint="@color/white"
             android:id="@+id/btnReviewCheck"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -215,13 +209,11 @@
 
 
         <Button
-            android:backgroundTint="@color/white"
             android:id="@+id/btnCancel2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/white"
             android:text="취소하기" />
-
 
     </LinearLayout>
 
@@ -234,8 +226,8 @@
             android:layout_width="300dp"
             android:layout_height="1dp"
             android:background="#808080" />
-    </LinearLayout>
 
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -254,6 +246,7 @@
             android:text="취소된 상품입니다.."
             android:textColor="@color/red"
             android:textSize="10dp" />
+
     </LinearLayout>
 
     <TextView
@@ -275,7 +268,6 @@
         android:layout_height="wrap_content">
 
         <TextView
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
@@ -288,6 +280,7 @@
             android:layout_marginTop="3dp"
             android:text="_더보기"
             android:textColor="@color/com_facebook_blue" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -299,6 +292,7 @@
             android:layout_width="300dp"
             android:layout_height="1dp"
             android:background="#808080" />
+
     </LinearLayout>
 
 </LinearLayout>

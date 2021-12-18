@@ -22,7 +22,7 @@
                 android:text="고객센터 대표 번호" />
 
             <TextView
-                android:id="@+id/btnCustomerNum"
+                android:id="@+id/txtCustomerNum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"

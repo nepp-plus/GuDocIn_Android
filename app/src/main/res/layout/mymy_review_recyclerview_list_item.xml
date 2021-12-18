@@ -32,7 +32,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-
         <TextView
             android:id="@+id/txtSavedMoneyPaymentCheck"
             android:layout_width="wrap_content"
@@ -43,7 +42,6 @@
 
     </LinearLayout>
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -51,7 +49,6 @@
         android:orientation="horizontal">
 
         <Button
-            android:backgroundTint="@color/white"
             android:id="@+id/btnReviewCheck"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -62,15 +59,12 @@
             android:layout_width="20dp"
             android:layout_height="wrap_content" />
 
-
         <Button
-            android:backgroundTint="@color/white"
             android:id="@+id/btnEditReview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/white"
             android:text="리뷰 수정하기" />
-
 
     </LinearLayout>
 
@@ -83,6 +77,7 @@
             android:layout_width="300dp"
             android:layout_height="1dp"
             android:background="#808080" />
+
     </LinearLayout>
 
 </LinearLayout>
