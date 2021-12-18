@@ -2,14 +2,12 @@
 <layout>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="20dp"
         tools:context=".CustomerCenterActivity">
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -18,13 +16,13 @@
             android:gravity="center"
             android:orientation="vertical">
 
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="고객센터 대표 번호" />
 
             <TextView
+                android:id="@+id/btnCustomerNum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -32,11 +30,11 @@
                 android:textSize="20sp" />
 
             <Button
+                android:id="@+id/btnDial"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/white"
                 android:text="전화문의 하기" />
-
 
         </LinearLayout>
 
@@ -46,7 +44,6 @@
             android:orientation="vertical">
 
             <TextView
-
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -147,7 +144,6 @@
                 android:textStyle="bold" />
 
             <TextView
-
                 android:id="@+id/txtAgreementDownload"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -158,10 +154,8 @@
                 android:layout_height="1dp"
                 android:background="#808080" />
 
-
         </LinearLayout>
 
     </LinearLayout>
-
 
 </layout>

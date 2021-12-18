@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="20dp">
 
@@ -86,6 +86,7 @@
         android:orientation="horizontal">
 
         <Button
+            android:backgroundTint="@color/white"
             android:id="@+id/btnReviewIndex"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -98,6 +99,7 @@
 
 
         <Button
+            android:backgroundTint="@color/white"
             android:id="@+id/btnCancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -200,6 +202,7 @@
         android:orientation="horizontal">
 
         <Button
+            android:backgroundTint="@color/white"
             android:id="@+id/btnReviewCheck"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -212,6 +215,7 @@
 
 
         <Button
+            android:backgroundTint="@color/white"
             android:id="@+id/btnCancel2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

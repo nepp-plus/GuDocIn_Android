@@ -131,6 +131,7 @@ interface ServerAPIInterface {
     ): Call<BasicResponse>
 
     //    리뷰에 댓글 작성
+    @FormUrlEncoded
     @POST("review/{review_id}/reply")
     fun postRequestReviewReply(
         @Path("review_id") reviewReply: Int,
@@ -221,6 +222,11 @@ interface ServerAPIInterface {
 //   사용자 구독상품 결재 목록
     @GET("/user/payment")
     fun getRequestUserPurchaseList()
+        : Call<BasicResponse>
+
+//    사용자 마일리지 적립 내역 조회
+    @GET("/user/point")
+    fun getRequestUserPointList()
         : Call<BasicResponse>
 
 //    사용자 카드 등록

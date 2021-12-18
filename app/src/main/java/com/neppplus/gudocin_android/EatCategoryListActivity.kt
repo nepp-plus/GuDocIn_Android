@@ -25,6 +25,7 @@ class EatCategoryListActivity : BaseActivity() {
     lateinit var mSmallcategoryListAdapter : SmallCategoriesListAdapter
     var mLargeCategoryId = 2
     var mClickedSmallCategoryNum = 7
+    lateinit var mProductData :ProductData
 
 
     val mProductList = ArrayList<ProductData>()
@@ -68,6 +69,7 @@ class EatCategoryListActivity : BaseActivity() {
 
                 if (response.isSuccessful ){
                     val br = response.body()!!
+
 
                     mProductList.clear()
                     mProductList.addAll(br.data.products)

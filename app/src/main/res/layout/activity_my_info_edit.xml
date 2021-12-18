@@ -2,7 +2,6 @@
 <layout>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -50,7 +49,6 @@
             android:layout_height="wrap_content"
             android:hint="변경할 이름을 입력하세요" />
 
-
         <Button
             android:id="@+id/btnMyInfoSave"
             android:layout_width="match_parent"
@@ -74,7 +72,6 @@
                 android:textStyle="bold" />
 
             <TextView
-
                 android:id="@+id/txtIfEditEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -84,7 +81,6 @@
                 android:textStyle="bold" />
 
             <TextView
-
                 android:id="@+id/txtEditPhonNum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -92,8 +88,9 @@
                 android:layout_marginTop="20dp"
                 android:text="전화번호 변경하기->"
                 android:textStyle="bold" />
+
         </LinearLayout>
 
-
     </LinearLayout>
+
 </layout>

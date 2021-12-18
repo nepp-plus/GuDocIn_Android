@@ -12,5 +12,6 @@ class PaymentData(
     var createdAt: Date,
     var subscription: SubscriptionData,
 
+
     ) : Serializable {
 }

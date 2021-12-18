@@ -12,6 +12,9 @@ import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.ReviewDetailActivity
 import com.neppplus.gudocin_android.datas.PaymentData
 import com.neppplus.gudocin_android.datas.ProductData
+import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 class MyPurchaseListRecyclerviewAdapter(
     val mContext : Context,
@@ -30,7 +33,24 @@ class MyPurchaseListRecyclerviewAdapter(
         val btnCancel = view.findViewById<Button>(R.id.btnCancel)
 
 
+
         fun bind(data: PaymentData) {
+
+            txtProductReviewNoName.text = data.subscription.product.name
+            txtProductPrice.text = data.subscription.product.price.toString()
+//            txtPurchaseDate.text = data.subscription.createdAt.toString()
+
+            val sdf = SimpleDateFormat("yyyy-M-d H:mm:ss")
+
+            txtPurchaseDate.text = sdf.format( data.createdAt )
+
+
+
+            btnReviewIndex.setOnClickListener {
+                val myIntent = Intent(mContext,ReviewDetailActivity::class.java)
+                myIntent.putExtra("review",data) // 넘어갈 때 review id 들려 보내야 함
+                mContext.startActivity(myIntent)
+            }
 
 
 

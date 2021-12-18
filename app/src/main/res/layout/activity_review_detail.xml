@@ -19,12 +19,13 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="20dp"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -200,25 +201,25 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
+                    android:paddingVertical="10dp"
+                    android:id="@+id/btnProductDetail"
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/txtProductDetail"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="리뷰 상품 상세보기"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1" />
 
                     <ImageView
-                        android:id="@+id/imgButtonProduct"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:src="@drawable/bottom_icon" />
+                        android:src="@drawable/right_arrow_icon" />
 
 
                 </LinearLayout>
@@ -229,31 +230,32 @@
                     android:background="@color/black" />
 
                 <LinearLayout
+                    android:id="@+id/btnGoReply"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:paddingVertical="10dp"
                     android:layout_marginTop="20dp"
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/txtGoReply"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="리뷰 상품 댓글보기"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1" />
 
                     <ImageView
-                        android:id="@+id/imgButtonReply"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:src="@drawable/bottom_icon" />
+                        android:src="@drawable/right_arrow_icon" />
 
 
                 </LinearLayout>
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
@@ -271,17 +273,17 @@
             android:layout_height="wrap_content"
             android:background="@color/gray3"
             android:gravity="center"
+            android:padding="10dp"
+            android:id="@+id/btnBuyProduct"
             android:orientation="horizontal">
 
 
-            <Button
-                android:id="@+id/btnBuyProduct"
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@drawable/button_line"
+                android:background="@null"
                 android:gravity="center_vertical"
-                android:text="        구독하기        "
+                android:text="구독하기"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 

@@ -15,7 +15,15 @@ class UserData(
     var nickname: String,
 
     @SerializedName("profile_img")
-    var profileImageURL: String
+    var profileImageURL: String,
+
+    @SerializedName("receive_email")
+    var receiveEmail: String,
+
+    var phone: String,
+    var point: Int,
+
+
 
 ) : Serializable {
 }

@@ -4,7 +4,6 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
@@ -30,24 +29,22 @@ class ProductItemDetailActivity : BaseActivity() {
     lateinit var mReviewRecyclerViewAdapterForProductList: ReviewRecyclerViewAdapterForProductList
     lateinit var mProductContentViewPagerAdapter: ProductContentViewPagerAdapter
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_product_item_detail)
-
         setupEvents()
         setValues()
     }
 
     override fun setupEvents() {
+
         binding.btnBuyProduct.setOnClickListener {
-            val myIntent = Intent(mContext, PaymentActivity::class.java)
-            myIntent.putExtra("product_id", mProductData.id)
+           val myIntent = Intent(mContext,  PaymentActivity::class.java )
+            myIntent.putExtra("product_id",mProductData)
             startActivity(myIntent)
+
         }
-
         binding.btnAddCart.setOnClickListener {
-
             postAddItemToCartViaServer()
         }
 
@@ -55,34 +52,27 @@ class ProductItemDetailActivity : BaseActivity() {
 
     override fun setValues() {
 
-
         mProductData = intent.getSerializableExtra("product_id") as ProductData
 
         getProductItemDetailFromServer()
 
         //제품 상세 & 상점 상세의 ViewPager 용 어댑터 연결
-        mProductContentViewPagerAdapter = ProductContentViewPagerAdapter(supportFragmentManager)
-        binding.ProductContentViewPager.adapter = mProductContentViewPagerAdapter
-        binding.ProductContentTabLayout.setupWithViewPager(binding.ProductContentViewPager)
+        mProductContentViewPagerAdapter = ProductContentViewPagerAdapter(supportFragmentManager, mProductData)
+        binding.ProductContentViewPager.adapter= mProductContentViewPagerAdapter
+        binding.ProductContentTabLayout.setupWithViewPager( binding.ProductContentViewPager)
 
         //리뷰 리스트 호리젠탈 Recycler View 용 어댑터 연결
-        mReviewRecyclerViewAdapterForProductList =
-            ReviewRecyclerViewAdapterForProductList(mContext, mReviewList)
+        mReviewRecyclerViewAdapterForProductList = ReviewRecyclerViewAdapterForProductList(mContext,mReviewList)
         binding.reviewRecyclerViewForProduct.adapter = mReviewRecyclerViewAdapterForProductList
-        binding.reviewRecyclerViewForProduct.layoutManager = LinearLayoutManager(
-            mContext,
-            LinearLayoutManager.HORIZONTAL, false
-        )
+        binding.reviewRecyclerViewForProduct.layoutManager = LinearLayoutManager(mContext,
+            LinearLayoutManager.HORIZONTAL,false)
 
     }
 
-    fun getProductItemDetailFromServer() {
-        apiService.getRequestProductDetail(mProductData.id)
-            .enqueue(object : Callback<BasicResponse> {
-                override fun onResponse(
-                    call: Call<BasicResponse>,
-                    response: Response<BasicResponse>
-                ) {
+    fun getProductItemDetailFromServer(){
+
+        apiService.getRequestProductDetail(mProductData.id).enqueue( object : Callback<BasicResponse> {
+            override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
 
                     if (response.isSuccessful) {
                         val br = response.body()!!
@@ -91,69 +81,64 @@ class ProductItemDetailActivity : BaseActivity() {
                         binding.txtProductCompanyName.text = br.data.product.store.name
                         Glide.with(mContext).load(br.data.product.imageUrl).into(binding.imgProduct)
 
-                        if (mProductData.reviews.size == 0) {
-                            binding.txtViewReview.text = "아직 등록된 리뷰가 없습니다."
+                    if (mProductData.reviews.size == 0){
+                        binding.txtViewReview.text = "아직 등록된 리뷰가 없습니다."
 
-                        } else {
-                            mReviewList.clear()
-                            mReviewList.addAll(response.body()!!.data.product.reviews)
-                            mReviewRecyclerViewAdapterForProductList.notifyDataSetChanged()
-
+                    }
+                    else{
+                        for (review in response.body()!!.data.product.reviews){
+                            review.product = mProductData
                         }
-
+                        mReviewList.clear()
+                        mReviewList.addAll(response.body()!!.data.product.reviews)
+                        mReviewRecyclerViewAdapterForProductList.notifyDataSetChanged()
                     }
 
                 }
 
-                override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+            }
 
-                }
+            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
 
-            })
+            }
+
+        })
 
     }
 
-    fun postAddItemToCartViaServer() {
-        apiService.postRequestAddItemToCart(mProductData.id)
-            .enqueue(object : Callback<BasicResponse> {
-                override fun onResponse(
-                    call: Call<BasicResponse>,
-                    response: Response<BasicResponse>
-                ) {
-                    if (response.isSuccessful) {
+    fun postAddItemToCartViaServer(){
+        apiService.postRequestAddItemToCart(mProductData.id).enqueue(object :Callback<BasicResponse>{
+            override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
+                if (response.isSuccessful){
+                    val br = response.body()!!
+                    Log.d("성공", br.message)
 
-                        Toast.makeText(mContext, "장바구니 상품 등록 완료", Toast.LENGTH_SHORT).show()
-
-//                        val alert = AlertDialog.Builder(mContext, R.style.MyDialogTheme)
-//                        alert.setTitle("장바구니 상품 등록 완료")
-//                        alert.setMessage("장바구니로 이동 하시겠습니까?")
-//                        alert.setPositiveButton(
-//                            "확인",
-//                            DialogInterface.OnClickListener { dialog, which ->
-//                                val myIntent = Intent(mContext, BasketListActivity::class.java)
-//                                startActivity(myIntent)
-//                            })
-//                        alert.setNegativeButton(
-//                            "취소",
-//                            DialogInterface.OnClickListener { dialog, which ->
-//                            })
-                    }
-                    else {
-                        val errorJson = JSONObject(response.errorBody()!!.string())
-                        Log.d("에러경우", errorJson.toString())
-
-                        val message = errorJson.getString("message")
-                        Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show()
-                    }
-
-
+                    val alert = AlertDialog.Builder(mContext)
+                    alert.setTitle("장바구니 상품 등록 완료")
+                    alert.setMessage("장바구니로 이동 하시겠습니까?")
+                    alert.setPositiveButton("확인",
+                        DialogInterface.OnClickListener { dialog, which ->
+                            val myIntent = Intent(mContext, BasketListActivity::class.java)
+                            startActivity(myIntent)
+                        })
+                    alert.setNegativeButton("취소", DialogInterface.OnClickListener { dialog, which ->
+                    })
+                    alert.show()
+                }
+                else{
+                    val errorJson = JSONObject(response.errorBody()!!.string())
+                    Log.d("에러경우", errorJson.toString())
+                    val message = errorJson.getString("message")
+                    Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show()
                 }
 
-                override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+            }
 
-                }
+            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
 
-            })
+            }
+
+        })
 
     }
 

@@ -2,6 +2,7 @@ package com.neppplus.gudocin_android
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.neppplus.gudocin_android.adapters.ReplyAdapter
 import com.neppplus.gudocin_android.databinding.ActivityReplyBinding
@@ -20,7 +21,7 @@ class ReplyActivity : BaseActivity() {
 
     lateinit var mReplyAdapter : ReplyAdapter
 
-    val mReplyList = ArrayList<ReviewData>()
+    val mReplyList = ArrayList<ReplyData>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +41,14 @@ class ReplyActivity : BaseActivity() {
                     response: Response<BasicResponse>
                 ) {
 
+                    if (response.isSuccessful) {
+                        Toast.makeText(mContext, "댓글 작성에 성공했습니다.", Toast.LENGTH_SHORT).show()
+                        getReplyListFromServer()
+                    }
+                    else {
+                        Toast.makeText(mContext, "서버통신에 문제가 있습니다. 관리자에게 문의해주세요.", Toast.LENGTH_SHORT).show()
+                    }
+
                 }
 
                 override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
@@ -55,12 +64,30 @@ class ReplyActivity : BaseActivity() {
     }
 
     override fun setValues() {
-        val intputReply = binding.edtReply.text.toString()
 
         mReviewData = intent.getSerializableExtra("review") as ReviewData
 
+        mReplyAdapter = ReplyAdapter(mContext,R.layout.reply_list_item,mReplyList)
+        binding.reviewReplyListview.adapter = mReplyAdapter
+
+        getReplyListFromServer()
+
+    }
+
+    fun getReplyListFromServer() {
+
         apiService.getRequestReviewReply(mReviewData.id).enqueue(object : Callback<BasicResponse>{
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
+
+                if (response.isSuccessful) {
+
+                    val br = response.body()!!
+                    mReplyList.clear()
+                    mReplyList.addAll(br.data.replies)
+
+                    mReplyAdapter.notifyDataSetChanged()
+                }
+
 
             }
 
@@ -70,9 +97,6 @@ class ReplyActivity : BaseActivity() {
 
 
         })
-        mReplyAdapter = ReplyAdapter(mContext,R.layout.reply_list_item,mReplyList)
-        binding.reviewReplyListview.adapter = mReplyAdapter
-
     }
 
 }

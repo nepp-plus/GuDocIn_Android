@@ -21,13 +21,11 @@
             android:layout_marginLeft="5dp"
             android:src="@mipmap/ic_launcher" />
 
-
         <TextView
             android:id="@+id/txtReviewerNickName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:text="리뷰어 이름"
             android:textColor="@color/black"
             android:textSize="14sp"
             android:textStyle="bold" />
@@ -47,7 +45,6 @@
             android:layout_height="400dp"
             android:scaleType="centerCrop"
             android:src="@drawable/review_image_flower" />
-
 
         <TextView
             android:id="@+id/txReviewTitle"
@@ -75,7 +72,6 @@
             android:text="가격"
             android:textColor="@color/black"
             android:textSize="11sp" />
-
 
     </LinearLayout>
 
@@ -121,13 +117,11 @@
 
     </LinearLayout>
 
-
     <Button
         android:id="@+id/btnWriteReview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
         android:text="리뷰 작성" />
-
 
 </LinearLayout>

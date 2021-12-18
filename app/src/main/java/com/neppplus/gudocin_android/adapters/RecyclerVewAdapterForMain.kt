@@ -34,6 +34,7 @@ class RecyclerVewAdapterForMain
     val mBannerList = ArrayList<BannerData>()
     lateinit var mBannerViewPagerAdapter: BannerViewPagerAdapter
 
+    var isBannerViewPagerInit = false
 
     inner class HeaderViewHolder(row: View) : RecyclerView.ViewHolder(row) {
 
@@ -48,31 +49,40 @@ class RecyclerVewAdapterForMain
 
             bannerViewPager.adapter = mBannerViewPagerAdapter
 
-            var currentPage = 0
+//            바인드 할때마다 페이징 코드가 누적됨
+//            최초 1회만 설정하도록
 
-            val nextPage = {
+            if (!isBannerViewPagerInit) {
+                var currentPage = 0
 
-                currentPage++
+                val nextPage = {
 
-                if (currentPage == mBannerList.size) {
-                    currentPage = 0
+                    currentPage++
+
+                    if (currentPage == mBannerList.size) {
+                        currentPage = 0
+                    }
+                    bannerViewPager.currentItem = currentPage
+
                 }
-                bannerViewPager.currentItem = currentPage
-
-            }
-            val myHandler = Handler(Looper.getMainLooper())
+                val myHandler = Handler(Looper.getMainLooper())
 
 //            Timer클래스 활용 =>  할 일 (코드)를 2초마다 반복.
 
-            val timer = Timer()
-            timer.schedule(object : TimerTask() {
-                override fun run() {
+                val timer = Timer()
+                timer.schedule(object : TimerTask() {
+                    override fun run() {
 
-                    myHandler.post(nextPage)
+                        myHandler.post(nextPage)
 
-                }
+                    }
 
-            }, 2000, 2000)
+                }, 2000, 2000)
+
+                isBannerViewPagerInit = true
+            }
+
+
         }
     }
 
@@ -182,6 +192,9 @@ class RecyclerVewAdapterForMain
     }
 
     override fun getItemCount() = mList.size + 1
+
+
+
 
 
 }

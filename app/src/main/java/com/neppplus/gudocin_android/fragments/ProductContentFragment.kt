@@ -8,8 +8,9 @@ import androidx.databinding.DataBindingUtil
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.FragmentProductContentBinding
 import com.neppplus.gudocin_android.databinding.FragmentPurchaseListBinding
+import com.neppplus.gudocin_android.datas.ProductData
 
-class ProductContentFragment : BaseFragment() {
+class ProductContentFragment(val mProductData: ProductData) : BaseFragment() {
 
     lateinit var binding : FragmentProductContentBinding
 

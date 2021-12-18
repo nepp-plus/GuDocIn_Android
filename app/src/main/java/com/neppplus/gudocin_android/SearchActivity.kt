@@ -6,11 +6,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.MenuItem
-import android.view.View
-import android.widget.AdapterView
 import androidx.databinding.DataBindingUtil
-import androidx.drawerlayout.widget.DrawerLayout
 import com.mancj.materialsearchbar.MaterialSearchBar
 import com.neppplus.gudocin_android.adapters.SuggestListAdapter
 import com.neppplus.gudocin_android.databinding.ActivitySearchBinding
@@ -26,6 +22,7 @@ class SearchActivity : BaseActivity() {
     lateinit var binding: ActivitySearchBinding
     var mSuggestList = ArrayList<ProductData>()
     lateinit var mSugestListAdapter : SuggestListAdapter
+    val mTotalProductList = ArrayList<ProductData>()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,9 +34,6 @@ class SearchActivity : BaseActivity() {
 
     }
 
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//
-//    }
 
 
     override fun setupEvents() {
@@ -71,7 +65,6 @@ class SearchActivity : BaseActivity() {
         binding.searchView.setCardViewElevation(10)
 
         mSugestListAdapter = SuggestListAdapter(mContext, LayoutInflater.from(mContext),mSuggestList)
-
         mSugestListAdapter.setSuggestions(mSuggestList)
         binding.searchView.setCustomSuggestionAdapter(mSugestListAdapter)
 
@@ -84,25 +77,20 @@ class SearchActivity : BaseActivity() {
 
             override fun onSearchConfirmed(text: CharSequence?) {
                 Log.d("검색어",  binding.searchView.getText())
-                if (text == mSuggestList){
-                    val myIntent = Intent(mContext, ProductItemDetailActivity::class.java)
-//                    myIntent.putExtra("product_id",)
-                    startActivity(myIntent)
-                }
+
                 val searchText = binding.searchView.text
-                mSugestListAdapter.filter?.filter(searchText)
-                getProductListFromServer()
-
+                for (product in mTotalProductList){
+                    if (product.name.contains(searchText)){
+                        mSuggestList.add(product)
+                    }
+                }
             }
-
             override fun onButtonClicked(buttonCode: Int) {
 //            if로 상품이 있으면 상품 띄워주고 없으면 없습니다 띄워주기
-
-            }
-
-
-
-        })
+                val myIntent = Intent(mContext, ProductItemDetailActivity::class.java)
+//                    myIntent.putExtra("product_id",)
+                startActivity(myIntent)
+            }})
 
         binding.searchView.addTextChangeListener(object : TextWatcher {
 
@@ -111,13 +99,26 @@ class SearchActivity : BaseActivity() {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+
                 Log.d("LOG_TAG", " view text changed " + binding.searchView.getText())
                 val searchText = binding.searchView.text
+                mSuggestList.clear()
 
-                mSugestListAdapter.filter?.filter(searchText)
+                if (searchText==""){
+//                    검색어가 없을 때
+
+                    mSuggestList.addAll(mTotalProductList)
+                }
+                else{
+//                    검색어가 있으면 이름이 검색되는 상품만 표시
+                    for (product in mTotalProductList){
+                        if (product.name.contains(searchText)){
+                            mSuggestList.add(product)
+                        }
+                    }
+                }
+
                 mSugestListAdapter.notifyDataSetChanged()
-//                text에 따라 추천 상품 바귀도록 아래 적기
-
 
             }
 
@@ -139,6 +140,9 @@ class SearchActivity : BaseActivity() {
                     val br = response.body()!!
                     mSuggestList.clear()
                     mSuggestList.addAll(br.data.products)
+
+                    mTotalProductList.clear()
+                    mTotalProductList.addAll(br.data.products)
 
                     mSugestListAdapter.notifyDataSetChanged()
 

@@ -265,6 +265,7 @@
                     android:layout_gravity="end"
                     android:backgroundTint="@color/white"
                     android:text="사진추가"
+                    android:backgroundTint="@color/white"
                     android:textSize="15sp" />
 
                 <LinearLayout
