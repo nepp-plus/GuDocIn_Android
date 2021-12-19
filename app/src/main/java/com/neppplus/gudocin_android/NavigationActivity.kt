@@ -33,11 +33,9 @@ class NavigationActivity : BaseActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_navigation)
         setupEvents()
         setValues()
-
     }
 
     override fun setupEvents() {
-
 
         binding.bottomNavi.setOnNavigationItemSelectedListener {
             when (it.itemId) {
@@ -47,8 +45,6 @@ class NavigationActivity : BaseActivity() {
             }
             true
         }
-
-
         getAndSendDeviceToken()
         getKeyHash()
     }
@@ -75,7 +71,6 @@ class NavigationActivity : BaseActivity() {
 
         }
 
-
 //        3장의 화면을 계속 유지하도록
         binding.viewPager.offscreenPageLimit = 3
 
@@ -86,7 +81,6 @@ class NavigationActivity : BaseActivity() {
 
         val fragmentList = arrayListOf(HomeFragment(), RankingFragment(), MyProfileFragment())
 
-
         override fun createFragment(position: Int): Fragment {
             return fragmentList[position]
         }
@@ -94,7 +88,6 @@ class NavigationActivity : BaseActivity() {
         fun getFragment(position: Int) = fragmentList[position]
 
     }
-
 
     fun getAndSendDeviceToken() {
 

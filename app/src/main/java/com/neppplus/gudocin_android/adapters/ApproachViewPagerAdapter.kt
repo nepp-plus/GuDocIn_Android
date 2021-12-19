@@ -14,9 +14,9 @@ class ApproachViewPagerAdapter(private val context: Context) : PagerAdapter() {
     private var layoutInflater: LayoutInflater? = null
 
     val Image = arrayOf(
-        R.drawable.banner_special_day,
-        R.drawable.banner_best_discount,
-        R.drawable.banner_super_sale
+        R.drawable.banner_alert_sale,
+        R.drawable.banner_mega_sale,
+        R.drawable.banner_best_discount
     )
 
     override fun isViewFromObject(view: View, `object`: Any): Boolean {

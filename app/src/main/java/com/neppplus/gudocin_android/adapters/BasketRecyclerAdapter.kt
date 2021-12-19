@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.neppplus.gudocin_android.PaymentActivity
@@ -31,7 +32,7 @@ class BasketRecyclerAdapter(
 
     inner class BasketViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-        val imgBasketPhoto = view.findViewById<ImageView>(R.id.imgBasketPhoto)
+        val imgBasketProductPhoto = view.findViewById<ImageView>(R.id.imgBasketProductPhoto)
         val txtBasketProductName = view.findViewById<TextView>(R.id.txtBasketProductName)
         val txtBasketProductPrice = view.findViewById<TextView>(R.id.txtBasketProductPrice)
 
@@ -40,6 +41,7 @@ class BasketRecyclerAdapter(
         val retrofit = ServerAPI.getRetrofit(mContext)
 
         val imgDeleteSubscribe = view.findViewById<ImageView>(R.id.imgDeleteSubscribe)
+        val btnSubscribe = view.findViewById<Button>(R.id.btnSubscribe)
 
         fun bind(data: BasketData) {
 
@@ -47,7 +49,7 @@ class BasketRecyclerAdapter(
 
             txtBasketProductPrice.text = data.product.getFormattedPrice()
 
-            Glide.with(mContext).load(data.product.imageUrl).into(imgBasketPhoto)
+            Glide.with(mContext).load(data.product.imageUrl).into(imgBasketProductPhoto)
 
             apiService = retrofit.create(ServerAPIInterface::class.java)
 
@@ -105,6 +107,13 @@ class BasketRecyclerAdapter(
 
     override fun onBindViewHolder(holder: BasketViewHolder, position: Int) {
         holder.bind(mList[position])
+
+        holder.btnSubscribe.setOnClickListener {
+
+            val myIntent = Intent(mContext, PaymentActivity::class.java)
+            startActivity(holder.btnSubscribe.context, myIntent, null)
+
+        }
     }
 
     override fun getItemCount() = mList.size
