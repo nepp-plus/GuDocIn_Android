@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout>
 
-    <LinearLayout
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -15,9 +15,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:orientation="vertical"
                 android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:orientation="vertical">
+                android:paddingRight="10dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -181,7 +181,7 @@
                         android:text="정기구독 상품" />
 
                     <TextView
-                        android:id="@+id/txtMyProductPurnchaseList"
+                        android:id="@+id/txtMyProductPurchaseList"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -200,7 +200,7 @@
                         android:text="고객센터" />
 
                     <TextView
-                        android:id="@+id/txtguide"
+                        android:id="@+id/txtGuide"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -213,7 +213,7 @@
                         android:background="#808080" />
 
                     <TextView
-                        android:id="@+id/txtnotice"
+                        android:id="@+id/txtNotice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -226,7 +226,7 @@
                         android:background="#808080" />
 
                     <TextView
-                        android:id="@+id/txtquestions"
+                        android:id="@+id/txtQuestions"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -239,7 +239,7 @@
                         android:background="#808080" />
 
                     <TextView
-                        android:id="@+id/txttermsofuse"
+                        android:id="@+id/txtTermsOfUse"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"

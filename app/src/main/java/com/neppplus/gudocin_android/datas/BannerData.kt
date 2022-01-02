@@ -9,6 +9,5 @@ class BannerData(
     var displayImageUrl: String,
     @SerializedName("click_url")
     var clickUrl: String
-
-) :Serializable{
+) : Serializable {
 }

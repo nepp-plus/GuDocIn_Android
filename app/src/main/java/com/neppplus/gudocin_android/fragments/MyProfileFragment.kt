@@ -158,7 +158,7 @@ class MyProfileFragment : BaseFragment() {
     }
 
     override fun setValues() {
-        binding.txtUserName.text = GlobalData.loginUser?.nickname
+        binding.txtUserName.text = GlobalData.loginUser!!.nickname
     }
 
 }

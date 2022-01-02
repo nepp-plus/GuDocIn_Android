@@ -2,7 +2,6 @@ package com.neppplus.gudocin_android.datas
 
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
-import java.util.*
 
 class CardData(
     @SerializedName("card_num")
@@ -19,8 +18,5 @@ class CardData(
 //    @SerializedName("password_2digit")
 //    var cardPwDigit: String
 
-
-) :Serializable{
-
-
+) : Serializable {
 }
