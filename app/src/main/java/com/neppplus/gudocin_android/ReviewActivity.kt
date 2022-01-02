@@ -44,8 +44,6 @@ class ReviewActivity : BaseActivity() {
 
     lateinit var mProductData: ProductData
 
-    val mRaidoList = ArrayList<String>()
-
     val mInputTagList = ArrayList<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,19 +57,18 @@ class ReviewActivity : BaseActivity() {
 
         val ocl = View.OnClickListener {
             val pl = object : PermissionListener {
+
                 override fun onPermissionGranted() {
 
                     val myIntent = Intent()
                     myIntent.action = Intent.ACTION_PICK
+                    myIntent.type = android.provider.MediaStore.Images.Media.CONTENT_TYPE
                     startActivityForResult(myIntent, REQ_FOR_GALLERY)
 
-                    myIntent.type = android.provider.MediaStore.Images.Media.CONTENT_TYPE
                 }
 
                 override fun onPermissionDenied(deniedPermissions: MutableList<String>?) {
-
                     Toast.makeText(mContext, "갤러리 조회 권한이 없습니다.", Toast.LENGTH_SHORT).show()
-
                 }
 
             }
@@ -80,20 +77,19 @@ class ReviewActivity : BaseActivity() {
                 .setPermissionListener(pl)
                 .setPermissions(Manifest.permission.READ_EXTERNAL_STORAGE)
                 .check()
+
         }
 
         binding.selectImgLayout.setOnClickListener(ocl)
         binding.imgThumPicture.setOnClickListener(ocl)
 
-
 //        지금들어오는 텍스트가 무엇인지 확인하는 함수
         binding.edtKeyword.addTextChangedListener {
 
             val nowText = it.toString()
-
             if (nowText == "") {
-
                 return@addTextChangedListener
+
             }
 
 //            입력한 값이 스페이스바가 들어오게 되면 태그가 되게하는 함수
@@ -103,24 +99,23 @@ class ReviewActivity : BaseActivity() {
                 Log.d("입력값", "스페이스바가 들어옴")
 
                 val tag = nowText.replace(" ", "")
-
                 mInputTagList.add(tag)
 
                 val tagBox = LayoutInflater.from(mContext).inflate(R.layout.tag_list_item, null)
                 val txtTag = tagBox.findViewById<TextView>(R.id.txtTag)
                 txtTag.text = "#${tag}"
-
                 binding.tagListLayout.addView(tagBox)
+
                 binding.edtKeyword.setText("")
 
             }
+
         }
 
         binding.btnUploadReview.setOnClickListener {
 
             val inputTag = binding.edtKeyword.text.toString()
             val inputTile = binding.edtReviewTitle.text.toString()
-
 
 //            제목이 입력되지않으면 버튼이 눌리지않도록 하는 함수
             if (inputTile.length < 1) {
@@ -135,43 +130,38 @@ class ReviewActivity : BaseActivity() {
                 return@setOnClickListener
             }
 
-
             if (mSelectedThumbnailUri == null) {
-                Toast.makeText(mContext, "대표사진을 첨부해주세요.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(mContext, "대표 사진을 첨부해주세요.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
             val alert = AlertDialog.Builder(mContext)
             alert.setTitle("리뷰 등록")
-            alert.setMessage("리뷰작성을 등록하시겠습니까?")
+            alert.setMessage("리뷰 작성을 등록하시겠습니까?")
             alert.setPositiveButton("확인", DialogInterface.OnClickListener { dialog, i ->
 
                 val rating = binding.ratingBar.rating.toDouble()
-
                 var tagStr = ""
 
                 for (tag in mInputTagList) {
                     Log.d("첨부할 태그", tag)
                     tagStr += tag
                     tagStr += ","
-
                 }
-                tagStr = tagStr.substring(0, tagStr.length - 1)
-                Log.d("완성된String", tagStr)
 
-                val productIdBody = RequestBody.create(MediaType.parse("text/plain"), mProductData.id.toString())
-                val inputContentBody = RequestBody.create(MediaType.parse("text/plain"), inputContent)
+                tagStr = tagStr.substring(0, tagStr.length - 1)
+                Log.d("완성된 String", tagStr)
+
+                val productIdBody =
+                    RequestBody.create(MediaType.parse("text/plain"), mProductData.id.toString())
+                val inputContentBody =
+                    RequestBody.create(MediaType.parse("text/plain"), inputContent)
                 val inputTitleBody = RequestBody.create(MediaType.parse("text/plain"), inputTile)
-                val ratingBody = RequestBody.create(MediaType.parse("text/plain"), rating.toString())
+                val ratingBody =
+                    RequestBody.create(MediaType.parse("text/plain"), rating.toString())
                 val tagStrBody = RequestBody.create(MediaType.parse("text/plain"), tagStr)
 
-
-                val file = File( URIPathHelper().getPath(mContext, mSelectedThumbnailUri!!) )
-                val fileReqBody =  RequestBody.create(MediaType.get("image/*"), file)
-                val thumbNailImagebody = MultipartBody.Part.createFormData("thumbnail_img", "myFile.jpg", fileReqBody)
-
                 val param = HashMap<String, RequestBody>()
-
                 param.put("product_id", productIdBody)
                 param.put("content", inputContentBody)
                 param.put("title", inputTitleBody)
@@ -179,36 +169,36 @@ class ReviewActivity : BaseActivity() {
                 param.put("tag_list", tagStrBody)
 //                param.put("thumbnail_img", fileReqBody)
 
+                val file = File(URIPathHelper().getPath(mContext, mSelectedThumbnailUri!!))
+                val fileReqBody = RequestBody.create(MediaType.get("image/*"), file)
+                val thumbNailImageBody =
+                    MultipartBody.Part.createFormData("thumbnail_img", "thumbnail.jpg", fileReqBody)
+
                 apiService.postRequestReviewContent(
                     param,
-                    thumbNailImagebody,
+                    thumbNailImageBody,
                 ).enqueue(object : Callback<BasicResponse> {
                     override fun onResponse(
                         call: Call<BasicResponse>,
                         response: Response<BasicResponse>
                     ) {
-
                         if (response.isSuccessful) {
-
+                            Toast.makeText(mContext, "리뷰가 등록되었습니다.", Toast.LENGTH_SHORT).show()
                             finish()
-                            Toast.makeText(mContext, "리뷰가 등록되었습니다..", Toast.LENGTH_SHORT).show()
-
                         } else {
-                            val jsonobj = JSONObject(response.errorBody()!!.string())
-                            Log.d("리뷰등록실패", jsonobj.toString())
+                            val jsonObj = JSONObject(response.errorBody()!!.string())
+                            Log.d("리뷰 등록 실패", jsonObj.toString())
                         }
-
                     }
 
                     override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
 
                     }
-
                 })
 
             })
-            alert.setNegativeButton("취소", null)
 
+            alert.setNegativeButton("취소", null)
             alert.show()
 
         }
@@ -217,20 +207,17 @@ class ReviewActivity : BaseActivity() {
 
             val alert = AlertDialog.Builder(mContext)
             alert.setTitle("리뷰 취소 알람")
-            alert.setMessage("리뷰작성을 취소하시겠습니까?")
+            alert.setMessage("리뷰 작성을 취소하시겠습니까?")
+
             alert.setPositiveButton("확인", DialogInterface.OnClickListener { dialog, i ->
-
+                Toast.makeText(mContext, "리뷰 작성이 취소되었습니다.", Toast.LENGTH_SHORT).show()
                 finish()
-                Toast.makeText(mContext, "리뷰작성이 취소되었습니다.", Toast.LENGTH_SHORT).show()
-
             })
-            alert.setNegativeButton("취소", null)
 
+            alert.setNegativeButton("취소", null)
             alert.show()
 
-
         }
-
 
     }
 
@@ -238,14 +225,11 @@ class ReviewActivity : BaseActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQ_FOR_GALLERY) {
             if (resultCode == RESULT_OK) {
-
                 mSelectedThumbnailUri = data!!.data
+                Glide.with(mContext).load(mSelectedThumbnailUri).into(binding.imgThumPicture)
 
                 binding.selectImgLayout.visibility = View.GONE
                 binding.imgThumPicture.visibility = View.VISIBLE
-
-                Glide.with(mContext).load(mSelectedThumbnailUri).into(binding.imgThumPicture)
-
             }
         }
     }
@@ -258,11 +242,10 @@ class ReviewActivity : BaseActivity() {
         binding.txtUserNickName.text = GlobalData.loginUser!!.nickname
 
         val now = Calendar.getInstance()
-
         val sdf = SimpleDateFormat("yyyy.MM.dd")
         val nowString = sdf.format(now.time)
-
         binding.txtReviewTime.text = nowString
 
     }
+
 }
