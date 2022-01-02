@@ -12,8 +12,8 @@ import androidx.core.app.ActivityCompat
 import androidx.databinding.DataBindingUtil
 import androidx.viewpager.widget.ViewPager
 import com.google.firebase.messaging.FirebaseMessaging
-import com.neppplus.gudocin_android.adapters.ApproachViewPagerAdapter
-import com.neppplus.gudocin_android.databinding.ActivityApproachBinding
+import com.neppplus.gudocin_android.adapters.InitialViewPagerAdapter
+import com.neppplus.gudocin_android.databinding.ActivityInitialBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.GlobalData
 import com.neppplus.gudocin_android.utils.ContextUtil
@@ -21,9 +21,9 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ApproachActivity : BaseActivity() {
+class InitialActivity : BaseActivity() {
 
-    lateinit var binding: ActivityApproachBinding
+    lateinit var binding: ActivityInitialBinding
 
     internal lateinit var viewPager: ViewPager
 
@@ -38,13 +38,13 @@ class ApproachActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_approach)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_initial)
         setupEvents()
         setValues()
 
         viewPager = findViewById(R.id.viewPager) as ViewPager
 
-        val adapter = ApproachViewPagerAdapter(this)
+        val adapter = InitialViewPagerAdapter(this)
         viewPager.adapter = adapter
 
         val thread = Thread(PagerRunnable())
@@ -53,6 +53,7 @@ class ApproachActivity : BaseActivity() {
     }
 
     override fun onBackPressed() {
+
         if (System.currentTimeMillis() - backKeyPressedTime >= 1500) {
             backKeyPressedTime = System.currentTimeMillis()
             Toast.makeText(this, "'뒤로' 버튼을 한번 더 누르시면 종료됩니다.", Toast.LENGTH_SHORT).show()
@@ -89,7 +90,6 @@ class ApproachActivity : BaseActivity() {
             if (it.isSuccessful) {
 
                 val deviceToken = it.result
-
                 Log.d("FCM토큰", deviceToken!!)
                 ContextUtil.setDeviceToken(mContext, deviceToken)
 
@@ -99,11 +99,13 @@ class ApproachActivity : BaseActivity() {
                         "android_device_token",
                         ContextUtil.getDeviceToken(mContext)
                     )
+
                 }
 
             }
 
         }
+
     }
 
     override fun setupEvents() {
@@ -145,8 +147,8 @@ class ApproachActivity : BaseActivity() {
             alert.setPositiveButton("확인", DialogInterface.OnClickListener { dialogInterface, i ->
                 finish()
             })
-            alert.setNegativeButton("취소", null)
 
+            alert.setNegativeButton("취소", null)
             alert.show()
 
         }
@@ -159,36 +161,26 @@ class ApproachActivity : BaseActivity() {
 
         apiService.getRequestMyInfo().enqueue(object : Callback<BasicResponse> {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
-
                 if (response.isSuccessful) {
-
                     GlobalData.loginUser = response.body()!!.data.user
-
                 }
-
             }
 
             override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
 
             }
-
         })
 
         apiService.getRequestMyInfo().enqueue(object : Callback<BasicResponse> {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
-
                 if (response.isSuccessful) {
-
                     GlobalData.loginUser = response.body()!!.data.user
-
                 }
-
             }
 
             override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
 
             }
-
         })
 
     }

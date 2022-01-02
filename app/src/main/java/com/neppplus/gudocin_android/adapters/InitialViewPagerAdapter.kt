@@ -9,7 +9,7 @@ import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.neppplus.gudocin_android.R
 
-class ApproachViewPagerAdapter(private val context: Context) : PagerAdapter() {
+class InitialViewPagerAdapter(private val context: Context) : PagerAdapter() {
 
     private var layoutInflater: LayoutInflater? = null
 

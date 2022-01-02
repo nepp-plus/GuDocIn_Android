@@ -3,15 +3,15 @@ package com.neppplus.gudocin_android
 import android.content.Intent
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
-import com.neppplus.gudocin_android.databinding.ActivityRegistryCardReviseBinding
+import com.neppplus.gudocin_android.databinding.ActivityRegistryRevisedCardBinding
 
-class RegistryCardReviseActivity : BaseActivity() {
+class RegistryRevisedCardActivity : BaseActivity() {
 
-    lateinit var binding: ActivityRegistryCardReviseBinding
+    lateinit var binding: ActivityRegistryRevisedCardBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_registry_card_revise)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_registry_revised_card)
         setupEvents()
         setValues()
     }
@@ -30,5 +30,7 @@ class RegistryCardReviseActivity : BaseActivity() {
     }
 
     override fun setValues() {
+
     }
+
 }
