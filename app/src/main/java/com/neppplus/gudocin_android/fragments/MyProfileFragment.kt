@@ -13,13 +13,11 @@ import com.neppplus.gudocin_android.databinding.FragmentMyProfileBinding
 import com.neppplus.gudocin_android.datas.GlobalData
 import com.neppplus.gudocin_android.utils.ContextUtil
 
-//      BaseFragment 상속
+// BaseFragment 상속
 class MyProfileFragment : BaseFragment() {
 
-
-    //    xml에 <layout>으로 묶어주므로 바인딩 가능
+    // xml 에 <layout>으로 묶어주므로 바인딩 가능
     lateinit var binding: FragmentMyProfileBinding
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,35 +29,27 @@ class MyProfileFragment : BaseFragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_my_profile, container, false)
         return binding.root
 
-
     }
 
-    //  화면이 시작될때 ocActivityCreated
+    // 화면이 시작될때 ocActivityCreated
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
 //    override 한 두개의 함수를 사용한다고 정의
-        setValues()
         setupEvents()
+        setValues()
 
     }
 
-    //    setupEvents함수 오버로딩
+    // setupEvents 함수 오버로딩
     override fun setupEvents() {
-
-
-
-
-
 
         binding.btnMyProductPurchase.setOnClickListener {
 
             val myIntent = Intent(mContext, MyPurchaseListActivity::class.java)
             startActivity(myIntent)
 
-
         }
-
 
         binding.txtLogOut.setOnClickListener {
 
@@ -75,7 +65,7 @@ class MyProfileFragment : BaseFragment() {
 
                 ContextUtil.setToken(mContext, "")
 
-//                화면 종료 -> (열려있는 모든 화면을 전부 닫고)  SplashActivity로 이동.
+//                화면 종료 -> (열려있는 모든 화면을 전부 닫고)  SplashActivity 로 이동.
 
                 val myIntent = Intent(mContext, ApproachActivity::class.java)
                 myIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
@@ -83,14 +73,8 @@ class MyProfileFragment : BaseFragment() {
 
             })
             alert.setNegativeButton("취소", null)
-
             alert.show()
-
-
         }
-
-
-
 
         binding.txtMyCard.setOnClickListener {
 
@@ -99,31 +83,29 @@ class MyProfileFragment : BaseFragment() {
 
         }
 
-
 //     txtEditMyInfo 를 클릭했을 경우
         binding.txtEditMyInfo.setOnClickListener {
 
-//            Intent함수를 통해 현재 화면에서 MyInfoEditActivity 화면으로 넘어감
+//            Intent 함수를 통해 현재 화면에서 MyInfoEditActivity 화면으로 넘어감
             val myIntent = Intent(mContext, MyInfoEditActivity::class.java)
-
             startActivity(myIntent)
+
         }
+
 //       btnSaveMoney 클릭했을 경우
         binding.btnSaveMoney.setOnClickListener {
 
-//            Intent함수를 통해 현재 화면에서 SaveMonyMyActivity 화면으로 넘어감
+//            Intent 함수를 통해 현재 화면에서 SaveMoneyMyActivity 화면으로 넘어감
             val myIntent = Intent(mContext, MySaveMoneyDetailActivity::class.java)
-
             startActivity(myIntent)
 
         }
 
-//        txtMyProductPurnchaseList 클릭했을 경우
-        binding.txtMyProductPurnchaseList.setOnClickListener {
+//        txtMyProductPurchaseList 클릭했을 경우
+        binding.txtMyProductPurchaseList.setOnClickListener {
 
 //            Intent 함수를 통해 현재 화면에서 MyPurchaseListActivity 화면으로 넘어감
             val myIntent = Intent(mContext, MyPurchaseListActivity::class.java)
-
             startActivity(myIntent)
 
         }
@@ -133,56 +115,50 @@ class MyProfileFragment : BaseFragment() {
 
 //            Intent 함수를 통해 현재 화면에서 SaveMoneyMyActivity 화면으로 넘어감
             val myIntent = Intent(mContext, MySaveMoneyDetailActivity::class.java)
-
             startActivity(myIntent)
 
         }
 
-//        txtguide 클릭 했을 경우
-        binding.txtguide.setOnClickListener {
+//        txtGuide 클릭 했을 경우
+        binding.txtGuide.setOnClickListener {
 
 //            Intent 함수를 통해 현재 화면에서 CustomerCenterActivity 화면으로 넘어감
             val myIntent = Intent(mContext, CustomerCenterActivity::class.java)
-
             startActivity(myIntent)
 
         }
 
-//        txtnotice 클릭 했을 경우
-        binding.txtnotice.setOnClickListener {
+//        txtNotice 클릭 했을 경우
+        binding.txtNotice.setOnClickListener {
 
 //            Intent 함수를 통해 현재 화면에서 CustomerCenterActivity 화면으로 넘어감
             val myIntent = Intent(mContext, CustomerCenterActivity::class.java)
-
             startActivity(myIntent)
+
         }
 
-//        txtquestions 클릭 했을 경우
-        binding.txtquestions.setOnClickListener {
+//        txtQuestions 클릭 했을 경우
+        binding.txtQuestions.setOnClickListener {
 
 //            Intent 함수를 통해 현재 화면에서 CustomerCenterActivity 화면으로 넘어감
             val myIntent = Intent(mContext, CustomerCenterActivity::class.java)
-
             startActivity(myIntent)
+
         }
 
-//        txttermsofuse 클릭했을 경우
-        binding.txttermsofuse.setOnClickListener {
+//        txtTermsOfUse 클릭했을 경우
+        binding.txtTermsOfUse.setOnClickListener {
 
 //            Intent 함수를 통해 현재 화면에서 CustomerCenterActivity 화면으로 넘어감
             val myIntent = Intent(mContext, CustomerCenterActivity::class.java)
-
             startActivity(myIntent)
 
         }
-
 
     }
 
     override fun setValues() {
-
         binding.txtUserName.text = GlobalData.loginUser!!.nickname
-
-
     }
+
 }

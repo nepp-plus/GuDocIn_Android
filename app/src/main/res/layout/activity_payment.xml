@@ -89,7 +89,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
                         android:textSize="12sp"
-                        tools:text="가격" />
+                        android:text="가격" />
 
                     <TextView
                         android:id="@+id/txtSubscribeCycle"

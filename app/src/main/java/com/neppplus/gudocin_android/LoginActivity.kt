@@ -2,14 +2,7 @@ package com.neppplus.gudocin_android
 
 import android.app.Activity
 import android.content.Intent
-import android.content.pm.PackageManager
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.util.Base64
-import android.util.Base64.DEFAULT
-import android.util.Base64.encodeToString
 import android.util.Log
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
@@ -28,7 +21,6 @@ import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.security.MessageDigest
 import java.util.*
 
 class LoginActivity : BaseActivity() {

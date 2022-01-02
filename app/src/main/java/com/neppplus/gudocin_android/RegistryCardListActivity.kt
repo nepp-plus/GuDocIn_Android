@@ -26,43 +26,35 @@ class RegistryCardListActivity : BaseActivity() {
         setupEvents()
         setValues()
 
-//        binding.imgDropDownArrow.setOnClickListener {
-//
-//            if (binding.layoutExpand1.visibility == View.VISIBLE) {
-//                binding.layoutExpand1.visibility = View.GONE
-//                binding.imgDropDownArrow.animate().setDuration(200).rotation(180f)
-//            } else {
-//                binding.layoutExpand1.visibility = View.VISIBLE
-//                binding.imgDropDownArrow.animate().setDuration(200).rotation(0f)
-//            }
-//
-//        }
+        /*binding.imgDropDownArrow.setOnClickListener {
+
+            if (binding.layoutExpand1.visibility == View.VISIBLE) {
+                binding.layoutExpand1.visibility = View.GONE
+                binding.imgDropDownArrow.animate().setDuration(200).rotation(180f)
+            } else {
+                binding.layoutExpand1.visibility = View.VISIBLE
+                binding.imgDropDownArrow.animate().setDuration(200).rotation(0f)
+            }
+
+        }*/
 
     }
-
 
     fun getCardListFromServer() {
 
         apiService.getRequestUserCardLookup().enqueue(object : Callback<BasicResponse> {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
-
                 if (response.isSuccessful) {
-
                     val br = response.body()!!
-
                     mCardList.clear()
                     mCardList.addAll(br.data.cards)
-
                     mCardRecyclerAdapter.notifyDataSetChanged()
-
                 }
-
             }
 
             override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
 
             }
-
         })
 
     }
@@ -71,7 +63,7 @@ class RegistryCardListActivity : BaseActivity() {
 
         binding.btnCardInfoRevise.setOnClickListener {
 
-            val myIntent = Intent(mContext, RegistryCardReviseActivity::class.java)
+            val myIntent = Intent(mContext, RegistryRevisedCardActivity::class.java)
             startActivity(myIntent)
 
             finish()
@@ -94,9 +86,9 @@ class RegistryCardListActivity : BaseActivity() {
         getCardListFromServer()
 
         mCardRecyclerAdapter = CardRecyclerAdapter(mContext, mCardList)
-
         binding.cardListRecyclerView.adapter = mCardRecyclerAdapter
         binding.cardListRecyclerView.layoutManager = LinearLayoutManager(mContext)
 
     }
+
 }

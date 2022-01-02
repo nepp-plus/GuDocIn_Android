@@ -89,7 +89,6 @@
                         android:text="구독기간"
                         android:textSize="17sp" />
 
-
                 </LinearLayout>
 
                 <LinearLayout
@@ -101,8 +100,8 @@
                         android:id="@+id/selectImgLayout"
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
-                        android:gravity="center"
                         android:background="@drawable/text_box"
+                        android:gravity="center"
                         android:orientation="vertical">
 
                         <TextView
@@ -116,12 +115,11 @@
                         android:id="@+id/imgThumPicture"
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
-                        android:visibility="gone"
                         android:scaleType="centerCrop"
-                        android:src="@mipmap/ic_launcher" />
+                        android:src="@mipmap/ic_launcher"
+                        android:visibility="gone" />
 
                 </LinearLayout>
-
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -140,8 +138,8 @@
                     <RadioGroup
                         android:id="@+id/radioOptionDelivery"
                         android:layout_width="match_parent"
-                        android:orientation="horizontal"
-                        android:layout_height="30dp">
+                        android:layout_height="30dp"
+                        android:orientation="horizontal">
 
                         <RadioButton
                             android:id="@+id/radioBtnDelivery1"
@@ -163,7 +161,6 @@
 
                     </RadioGroup>
 
-
                 </LinearLayout>
 
                 <TextView
@@ -176,8 +173,8 @@
                 <RadioGroup
                     android:id="@+id/radioOptionQuality"
                     android:layout_width="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_height="30dp">
+                    android:layout_height="30dp"
+                    android:orientation="horizontal">
 
                     <RadioButton
                         android:id="@+id/radioBtnQuality1"
@@ -199,7 +196,6 @@
 
                 </RadioGroup>
 
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -210,8 +206,8 @@
                 <RadioGroup
                     android:id="@+id/radioOptionPrice"
                     android:layout_width="match_parent"
-                    android:orientation="horizontal"
-                    android:layout_height="30dp">
+                    android:layout_height="30dp"
+                    android:orientation="horizontal">
 
                     <RadioButton
                         android:id="@+id/radioBtnPrice1"
@@ -233,7 +229,6 @@
 
                 </RadioGroup>
 
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
@@ -245,10 +240,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
                     android:isIndicator="false"
-                    app:srb_stepSize="0.5"
                     android:max="5"
-                    android:layout_marginTop="5dp" />
+                    app:srb_stepSize="0.5" />
 
                 <EditText
                     android:id="@+id/edtReviewContent"
@@ -263,8 +258,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
-                    android:text="사진추가"
                     android:backgroundTint="@color/white"
+                    android:text="사진추가"
                     android:textSize="15sp" />
 
                 <LinearLayout
@@ -292,11 +287,9 @@
                         android:layout_height="wrap_content"
                         app:flRowSpacing="5dp">
 
-
                     </com.nex3z.flowlayout.FlowLayout>
 
                 </LinearLayout>
-
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -324,13 +317,10 @@
 
                 </LinearLayout>
 
-
             </LinearLayout>
-
 
         </LinearLayout>
 
     </ScrollView>
-
 
 </layout>

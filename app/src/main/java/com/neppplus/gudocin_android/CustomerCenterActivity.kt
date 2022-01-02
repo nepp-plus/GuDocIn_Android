@@ -24,7 +24,7 @@ class CustomerCenterActivity : BaseActivity() {
         binding.btnDial.setOnClickListener {
         //            입력한 전화번호? 추출 (변수에 저장)
 
-//            val inputPhoneNum =  btnCustomerNum.text.toString()
+//            val inputPhoneNum =  txtCustomerNum.text.toString()
 
 //            그 전화번호에 실제 전화 연결 (DIAL)
 

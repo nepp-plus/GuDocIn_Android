@@ -13,5 +13,4 @@
         android:padding="5dp"
         android:text="태그내용" />
 
-
 </LinearLayout>

@@ -12,7 +12,7 @@ import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.BannerListBinding
 import com.neppplus.gudocin_android.datas.BannerData
 
-class MainBannerFragment(val mBannerData: BannerData) : BaseFragment() {
+class MainBannerFragment(private val mBannerData: BannerData) : BaseFragment() {
 
     lateinit var binding: BannerListBinding
 
@@ -21,36 +21,29 @@ class MainBannerFragment(val mBannerData: BannerData) : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater,R.layout.banner_list,container,false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.banner_list, container, false)
         return binding.root
-
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
         setupEvents()
         setValues()
-
     }
 
     override fun setupEvents() {
 
         binding.imgMainBanner.setOnClickListener {
             val myUri = Uri.parse(mBannerData.clickUrl)
-            val myIntent = Intent( Intent.ACTION_VIEW, myUri )
+            val myIntent = Intent(Intent.ACTION_VIEW, myUri)
             startActivity(myIntent)
-
-
         }
 
-        }
-
-    override fun setValues() {
-
-        Glide.with(mContext).load(mBannerData.displayImageUrl).into(binding.imgMainBanner)
     }
 
+    override fun setValues() {
+        Glide.with(mContext).load(mBannerData.displayImageUrl).into(binding.imgMainBanner)
+    }
 
 }
 

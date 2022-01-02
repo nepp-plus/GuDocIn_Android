@@ -4,9 +4,6 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
@@ -18,7 +15,6 @@ import com.neppplus.gudocin_android.databinding.ActivityProductItemDetailBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.ProductData
 import com.neppplus.gudocin_android.datas.ReviewData
-import com.neppplus.gudocin_android.datas.StoreData
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -29,15 +25,13 @@ class ProductItemDetailActivity : BaseActivity() {
     lateinit var binding: ActivityProductItemDetailBinding
 
     val mReviewList = ArrayList<ReviewData>()
-    lateinit var mProductData :ProductData
-    lateinit var mReviewRecyclerViewAdapterForProductList : ReviewRecyclerViewAdapterForProductList
-    lateinit var mProductContentViewPagerAdapter : ProductContentViewPagerAdapter
-
+    lateinit var mProductData: ProductData
+    lateinit var mReviewRecyclerViewAdapterForProductList: ReviewRecyclerViewAdapterForProductList
+    lateinit var mProductContentViewPagerAdapter: ProductContentViewPagerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding=DataBindingUtil.setContentView(this, R.layout.activity_product_item_detail)
-
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_product_item_detail)
         setupEvents()
         setValues()
     }
@@ -48,24 +42,19 @@ class ProductItemDetailActivity : BaseActivity() {
            val myIntent = Intent(mContext,  PaymentActivity::class.java )
             myIntent.putExtra("product_id",mProductData)
             startActivity(myIntent)
+
         }
-
         binding.btnAddCart.setOnClickListener {
-
             postAddItemToCartViaServer()
-
         }
 
     }
 
     override fun setValues() {
 
-
         mProductData = intent.getSerializableExtra("product_id") as ProductData
 
-
         getProductItemDetailFromServer()
-
 
         //제품 상세 & 상점 상세의 ViewPager 용 어댑터 연결
         mProductContentViewPagerAdapter = ProductContentViewPagerAdapter(supportFragmentManager, mProductData)
@@ -81,6 +70,7 @@ class ProductItemDetailActivity : BaseActivity() {
     }
 
     fun getProductItemDetailFromServer(){
+
         apiService.getRequestProductDetail(mProductData.id).enqueue( object : Callback<BasicResponse> {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
 
@@ -142,7 +132,6 @@ class ProductItemDetailActivity : BaseActivity() {
                     Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show()
                 }
 
-
             }
 
             override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
@@ -150,7 +139,6 @@ class ProductItemDetailActivity : BaseActivity() {
             }
 
         })
-
 
     }
 

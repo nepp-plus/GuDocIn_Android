@@ -7,7 +7,6 @@ import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
 import com.neppplus.gudocin_android.databinding.ActivityReviewDetailBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
-import com.neppplus.gudocin_android.datas.ProductData
 import com.neppplus.gudocin_android.datas.ReviewData
 import org.json.JSONObject
 import retrofit2.Call
@@ -21,16 +20,17 @@ class ReviewDetailActivity : BaseActivity() {
     lateinit var mReviewData: ReviewData
 
     lateinit var binding: ActivityReviewDetailBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_review_detail)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_review_detail)
         setupEvents()
         setValues()
-
     }
 
     override fun setupEvents() {
         binding.btnProductDetail.setOnClickListener {
+
 //            제품 상세페이지 인텐트
             val myIntent = Intent(mContext, ProductItemDetailActivity::class.java)
             myIntent.putExtra("product_id", mReviewData.product)
@@ -44,16 +44,19 @@ class ReviewDetailActivity : BaseActivity() {
             val myIntent = Intent(mContext, ReplyActivity::class.java)
             myIntent.putExtra("review", mReviewData)
             mContext.startActivity(myIntent)
-        }
 
+        }
 
         binding.btnBuyProduct.setOnClickListener {
-            //            결제 페이지로 인텐트
-                val myIntent = Intent(mContext,  PaymentActivity::class.java )
-                myIntent.putExtra("product_id",mReviewData.product)
-                myIntent.putExtra("review",mReviewData)
-                startActivity(myIntent)
+
+            // 결제 페이지로 인텐트
+            val myIntent = Intent(mContext, PaymentActivity::class.java)
+            myIntent.putExtra("product_id", mReviewData.product)
+            myIntent.putExtra("review", mReviewData)
+            startActivity(myIntent)
+
         }
+
     }
 
     override fun setValues() {
@@ -64,7 +67,8 @@ class ReviewDetailActivity : BaseActivity() {
         getReviewDataFromSever()
 
     }
-    fun setReviewDataToUI(){
+
+    fun setReviewDataToUI() {
 
         binding.txtReviewTitle.text = mReviewData.title
         binding.txtProductName.text = mReviewData.product.name
@@ -72,45 +76,37 @@ class ReviewDetailActivity : BaseActivity() {
         binding.txtReviewContent.text = mReviewData.content
         Glide.with(mContext).load(mReviewData.thumbNailImg).into(binding.thumNailImg)
 
-//        평점을 레이팅바에 가져오는 바인딩함수(Int -> Float으로 변환)
+//        평점을 ratingBar 에 가져오는 바인딩 함수(Int -> Float 으로 변환)
         binding.ratingBar.rating = mReviewData.score.toFloat()
 
-
-//        이화면에서 쓸 날짜를 알맞은 양식으로 변환
+//        이 화면에서 쓸 날짜를 알맞은 양식으로 변환
         val now = Calendar.getInstance()
         val sdf = SimpleDateFormat("yyyy.MM.dd")
         val nowString = sdf.format(now.time)
         binding.txtReviewTime.text = nowString
 
-
     }
-
-
 
     fun getReviewDataFromSever() {
 
-//        리뷰데이터 API서버에서 파싱
-        apiService.getRequestReviewDetail(mReviewData.id).enqueue(object : Callback<BasicResponse>{
+//        리뷰 데이터 API 서버에서 파싱
+        apiService.getRequestReviewDetail(mReviewData.id).enqueue(object : Callback<BasicResponse> {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
-                if (response.isSuccessful){
-                    Log.d("불러오기성공","불러오기 성공")
+                if (response.isSuccessful) {
+                    Log.d("불러오기 성공", "불러오기 성공")
                     val br = response.body()!!
 //                    mProductData = br.data.product
+                } else {
+                    val jsonObj = JSONObject(response.errorBody()!!.string())
+                    Log.d("리뷰 등록 실패", jsonObj.toString())
                 }
-                else{
-                    val jsonobj = JSONObject(response.errorBody()!!.string())
-                    Log.d("리뷰등록실패",jsonobj.toString())
-                }
-
-
             }
 
             override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
 
-
             }
-
         })
 
     }
+
 }

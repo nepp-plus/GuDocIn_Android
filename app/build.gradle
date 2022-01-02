@@ -42,11 +42,11 @@ dependencies {
 
     implementation 'com.github.ome450901:SimpleRatingBar:1.5.1'
     implementation 'io.github.ParkSangGwon:tedpermission-normal:3.3.0'
+    implementation 'com.google.firebase:firebase-auth-ktx:21.0.1'
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
     implementation 'com.github.prolificinteractive:material-calendarview:2.0.1'
     implementation 'com.google.android.gms:play-services-auth:19.2.0'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
-    implementation 'com.google.firebase:firebase-auth:19.3.2'
     implementation platform('com.google.firebase:firebase-bom:29.0.0')
     implementation "com.kakao.sdk:v2-user:2.8.3" // 카카오 로그인
     implementation 'com.facebook.android:facebook-android-sdk:[4,5)'

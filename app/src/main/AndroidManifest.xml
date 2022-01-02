@@ -4,8 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
-    <uses-permission android:name="android.permission.DIAL_PHONE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.DIAL_PHONE" />
 
     <application
         android:name=".GlobalApplication"
@@ -17,8 +17,8 @@
         android:theme="@style/Theme.GuDocIn_Android"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".RegistryCardReviseActivity"
-            android:exported="false" />
+            android:name=".RegistryRevisedCardActivity"
+            android:exported="true" />
         <activity
             android:name=".RegistryCardListActivity"
             android:exported="true" />
@@ -55,7 +55,7 @@
             android:exported="true" />
         <activity
             android:name=".ReplyActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".ProductItemDetailActivity"
             android:exported="true" />
@@ -70,7 +70,7 @@
             android:exported="true" />
         <activity
             android:name=".ReviewDetailActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".EatCategoryListActivity"
             android:exported="true" />
@@ -101,7 +101,7 @@
             android:name=".NoticeActivity"
             android:exported="true" />
         <activity
-            android:name=".ApproachActivity"
+            android:name=".InitialActivity"
             android:exported="true"
             android:theme="@style/Theme.GuDocIn_Android.NoActionBar">
             <intent-filter>
@@ -122,7 +122,7 @@
                 <!-- Redirect URI: "kakao{NATIVE_APP_KEY}://oauth" -->
                 <data
                     android:host="oauth"
-                    android:scheme="kakaoe01a6443a1c0ffc7bc1e1eb6633b56e2" />
+                    android:scheme="kakaoc53922b4fc7f54934a3bca77009f4a04" />
             </intent-filter>
         </activity>
         <activity

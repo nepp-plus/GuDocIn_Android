@@ -82,6 +82,7 @@
             android:backgroundTint="@color/white"
             android:enabled="@{viewModel.btnEnable}"
             android:text="@string/complete_text"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

@@ -2,6 +2,8 @@ package com.neppplus.gudocin_android
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,6 +14,9 @@ import com.neppplus.gudocin_android.datas.BasketData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.NumberFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class BasketListActivity : BaseActivity() {
 
@@ -20,6 +25,8 @@ class BasketListActivity : BaseActivity() {
     val mBasketList = ArrayList<BasketData>()
 
     lateinit var mBasketRecyclerAdapter: BasketRecyclerAdapter
+
+    var total = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,6 +75,13 @@ class BasketListActivity : BaseActivity() {
 
                     mBasketRecyclerAdapter.notifyDataSetChanged()
 
+                    for (data in mBasketList) {
+                        if (data.product.price != null) {
+                            total += data.product.price!!
+                        }
+                    }
+                    var KRW = "${NumberFormat.getInstance(Locale.KOREA).format(total)} 원"
+                    binding.txtTotalPrice.text = KRW
                 }
 
             }

@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout>
 
-    <LinearLayout
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
 
         <ScrollView
             android:layout_width="match_parent"
@@ -16,9 +15,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:orientation="vertical"
                 android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:orientation="vertical">
+                android:paddingRight="10dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -33,15 +32,12 @@
                         android:text="방우진"
                         android:textSize="20dp" />
 
-
                     <TextView
-
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
                         android:text="의 적립금"
                         android:textSize="20dp" />
-
 
                 </LinearLayout>
 
@@ -57,12 +53,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
-                        android:text="30000원"
+                        android:text="30,000원"
                         android:textSize="18sp" />
 
-
                     <Button
-
                         android:id="@+id/btnSaveMoney"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -70,19 +64,14 @@
                         android:backgroundTint="@color/white"
                         android:text="내역확인" />
 
-
                 </LinearLayout>
 
-
                 <LinearLayout
-
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-
                     <TextView
-
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="25dp"
@@ -99,7 +88,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center">
-
 
                         <Button
                             android:id="@+id/btnMyProductPurchase"
@@ -120,7 +108,6 @@
                             android:backgroundTint="@color/white"
                             android:text="리뷰 내역" />
 
-
                     </LinearLayout>
 
                     <TextView
@@ -138,7 +125,6 @@
                         android:textSize="15sp" />
 
                     <TextView
-
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:background="#808080" />
@@ -152,7 +138,6 @@
                         android:textSize="15sp" />
 
                     <TextView
-
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:background="#808080" />
@@ -166,14 +151,11 @@
                         android:textSize="15sp" />
 
                     <TextView
-
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:background="#808080" />
 
-
                     <TextView
-
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
@@ -185,7 +167,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="적립금 세부내역"
-                        android:textSize="17sp" />
+                        android:textSize="15sp" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -199,7 +181,7 @@
                         android:text="정기구독 상품" />
 
                     <TextView
-                        android:id="@+id/txtMyProductPurnchaseList"
+                        android:id="@+id/txtMyProductPurchaseList"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -218,7 +200,7 @@
                         android:text="고객센터" />
 
                     <TextView
-                        android:id="@+id/txtguide"
+                        android:id="@+id/txtGuide"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -226,13 +208,12 @@
                         android:textSize="15sp" />
 
                     <TextView
-
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
                         android:background="#808080" />
 
                     <TextView
-                        android:id="@+id/txtnotice"
+                        android:id="@+id/txtNotice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -245,7 +226,7 @@
                         android:background="#808080" />
 
                     <TextView
-                        android:id="@+id/txtquestions"
+                        android:id="@+id/txtQuestions"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -258,7 +239,7 @@
                         android:background="#808080" />
 
                     <TextView
-                        android:id="@+id/txttermsofuse"
+                        android:id="@+id/txtTermsOfUse"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -270,13 +251,12 @@
                         android:layout_height="1dp"
                         android:background="#808080" />
 
-
                 </LinearLayout>
-
 
             </LinearLayout>
 
         </ScrollView>
 
     </LinearLayout>
+
 </layout>
