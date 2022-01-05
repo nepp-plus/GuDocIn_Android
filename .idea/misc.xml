@@ -109,6 +109,7 @@
         <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/layout/activity_find_account.xml" value="0.3609375" />
         <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/layout/activity_initial.xml" value="0.30185185185185187" />
         <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/layout/activity_login.xml" value="0.27870370370370373" />
+        <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/layout/activity_main.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/layout/activity_my_info_edit.xml" value="0.20555555555555555" />
         <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/layout/activity_my_purchase_list.xml" value="0.3609375" />
         <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/layout/activity_my_save_money_detail.xml" value="0.3609375" />
@@ -126,8 +127,12 @@
         <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/layout/fragment_my_profile.xml" value="0.33" />
         <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/layout/fragment_ranking.xml" value="0.2972222222222222" />
+        <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/layout/initial_image_view.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/layout/main_top_viewpager_item.xml" value="0.21388888888888888" />
         <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/layout/mymy_review_recyclerview_list_item.xml" value="0.2015625" />
+        <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/layout/product_item.xml" value="0.33" />
         <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/layout/purchase_list_item.xml" value="0.23425925925925925" />
+        <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/layout/registry_card_list_item.xml" value="0.3564102564102564" />
         <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/menu/menu_bottom_navigation.xml" value="0.24722222222222223" />
         <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/menu/search_menu.xml" value="0.13703703703703704" />
         <entry key="..\:/Users/Public/GuDocIn_Android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.24814814814814815" />
