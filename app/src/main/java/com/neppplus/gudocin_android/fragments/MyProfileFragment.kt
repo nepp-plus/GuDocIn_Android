@@ -67,7 +67,7 @@ class MyProfileFragment : BaseFragment() {
 
 //                화면 종료 -> (열려있는 모든 화면을 전부 닫고)  SplashActivity 로 이동.
 
-                val myIntent = Intent(mContext, ApproachActivity::class.java)
+                val myIntent = Intent(mContext, InitialActivity::class.java)
                 myIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 startActivity(myIntent)
 
