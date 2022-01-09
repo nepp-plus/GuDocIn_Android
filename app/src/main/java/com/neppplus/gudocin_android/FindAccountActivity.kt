@@ -1,5 +1,6 @@
 package com.neppplus.gudocin_android
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -22,6 +23,14 @@ class FindAccountActivity : BaseActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_find_account)
         setupEvents()
         setValues()
+    }
+
+    override fun onBackPressed() {
+
+        val myIntent = Intent(mContext, LoginActivity::class.java)
+        startActivity(myIntent)
+
+        finish()
 
     }
 
