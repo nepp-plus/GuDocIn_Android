@@ -33,14 +33,16 @@ class SignUpActivity : BaseActivity() {
 
     lateinit var callbackManager: CallbackManager
 
-    var isDuplOk = false
+    var isDuplicatedOk = false
     var isPasswordLengthOk = false
     var isPasswordSame = false
 
     private val googleSignInIntent by lazy {
+
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_client_id)).requestEmail().build()
         GoogleSignIn.getClient(this, gso).signInIntent
+
     }
 
     companion object {
@@ -58,6 +60,15 @@ class SignUpActivity : BaseActivity() {
         binding.btnGoogleLogin.setOnClickListener {
             startActivityForResult(googleSignInIntent, LoginActivity.RESULT_CODE)
         }
+
+    }
+
+    override fun onBackPressed() {
+
+        val myIntent = Intent(mContext, InitialActivity::class.java)
+        startActivity(myIntent)
+
+        finish()
 
     }
 
@@ -202,7 +213,7 @@ class SignUpActivity : BaseActivity() {
         binding.edtNickname.addTextChangedListener {
 
             binding.txtNicknameCheckResult.text = "닉네임 중복검사를 해주세요."
-            isDuplOk = false
+            isDuplicatedOk = false
 
         }
 
@@ -220,12 +231,12 @@ class SignUpActivity : BaseActivity() {
                         if (response.isSuccessful) {
 
                             binding.txtNicknameCheckResult.text = "사용해도 좋은 닉네임 입니다."
-                            isDuplOk = true
+                            isDuplicatedOk = true
 
                         } else {
 
                             binding.txtNicknameCheckResult.text = "다른 닉네임으로 다시 검사해주세요."
-                            isDuplOk = false
+                            isDuplicatedOk = false
 
                         }
 
@@ -252,7 +263,7 @@ class SignUpActivity : BaseActivity() {
                 return@setOnClickListener
             }
 
-            if (!isDuplOk) {
+            if (!isDuplicatedOk) {
                 Toast.makeText(mContext, "닉네임 중복검사를 해주세요.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }

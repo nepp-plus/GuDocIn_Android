@@ -53,6 +53,15 @@ class LoginActivity : BaseActivity() {
 
     }
 
+    override fun onBackPressed() {
+
+        val myIntent = Intent(mContext, InitialActivity::class.java)
+        startActivity(myIntent)
+
+        finish()
+
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         callbackManager.onActivityResult(requestCode, resultCode, data)
         super.onActivityResult(requestCode, resultCode, data)
