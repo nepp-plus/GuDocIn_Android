@@ -20,6 +20,5 @@ fun TextView.setTermsString(termsStr: String, required: Boolean) {
     } else {
         String.format(this.context.getString(R.string.terms_title_required_false), termsStr)
     }
-
     this.text = termsText
 }

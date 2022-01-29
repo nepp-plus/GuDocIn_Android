@@ -7,31 +7,28 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.FragmentProductContentBinding
-import com.neppplus.gudocin_android.databinding.FragmentPurchaseListBinding
 import com.neppplus.gudocin_android.datas.ProductData
 
 class ProductContentFragment(val mProductData: ProductData) : BaseFragment() {
 
-    lateinit var binding : FragmentProductContentBinding
+    lateinit var binding: FragmentProductContentBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_product_content,container,false)
+        binding =
+            DataBindingUtil.inflate(inflater, R.layout.fragment_product_content, container, false)
         return binding.root
     }
-
-
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         setupEvents()
         setValues()
-
-
     }
+
     override fun setupEvents() {
 
     }
@@ -39,4 +36,5 @@ class ProductContentFragment(val mProductData: ProductData) : BaseFragment() {
     override fun setValues() {
 
     }
+
 }

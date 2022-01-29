@@ -32,13 +32,11 @@ class MainBannerFragment(private val mBannerData: BannerData) : BaseFragment() {
     }
 
     override fun setupEvents() {
-
         binding.imgMainBanner.setOnClickListener {
             val myUri = Uri.parse(mBannerData.clickUrl)
             val myIntent = Intent(Intent.ACTION_VIEW, myUri)
             startActivity(myIntent)
         }
-
     }
 
     override fun setValues() {
@@ -46,7 +44,6 @@ class MainBannerFragment(private val mBannerData: BannerData) : BaseFragment() {
     }
 
 }
-
 
 
 

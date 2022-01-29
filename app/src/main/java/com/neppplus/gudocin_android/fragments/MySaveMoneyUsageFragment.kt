@@ -8,8 +8,7 @@ import androidx.databinding.DataBindingUtil
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.FragmentMySavemoneyUsageBinding
 
-class MySaveMoneyUsageFragment: BaseFragment() {
-
+class MySaveMoneyUsageFragment : BaseFragment() {
 
     lateinit var binding: FragmentMySavemoneyUsageBinding
 
@@ -18,16 +17,21 @@ class MySaveMoneyUsageFragment: BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_my_savemoney_usage,container,false)
+        binding = DataBindingUtil.inflate(
+            inflater,
+            R.layout.fragment_my_savemoney_usage,
+            container,
+            false
+        )
         return binding.root
     }
-
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         setupEvents()
         setValues()
     }
+
     override fun setupEvents() {
 
     }
@@ -35,4 +39,5 @@ class MySaveMoneyUsageFragment: BaseFragment() {
     override fun setValues() {
 
     }
+
 }

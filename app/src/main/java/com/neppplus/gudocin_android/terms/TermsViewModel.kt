@@ -12,11 +12,7 @@ class TermsViewModel : ViewModel() {
         TermsData(3, "개인정보 제3자 제공 동의(인증 이용기관 제공)", true, "이용약관3"),
         TermsData(4, "개인정보 제3자 제공 동의(GuDocIn)", true, "이용약관4"),
     )
-
-
     private val requiredTermsCount = termsList.filter { it.required }.size
-
-
     val allAgreeChecked = ObservableBoolean(false)
     val btnEnable = ObservableBoolean(false)
 
@@ -35,4 +31,5 @@ class TermsViewModel : ViewModel() {
             btnEnable.set(allAgreeChecked.get())
         }
     }
+
 }

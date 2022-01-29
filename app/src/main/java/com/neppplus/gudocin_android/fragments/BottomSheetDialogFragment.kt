@@ -17,7 +17,12 @@ class BottomSheetDialogFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_bottom_sheet_dialog,container,false)
+        binding = DataBindingUtil.inflate(
+            inflater,
+            R.layout.fragment_bottom_sheet_dialog,
+            container,
+            false
+        )
         return binding.root
     }
 
@@ -26,6 +31,7 @@ class BottomSheetDialogFragment : BaseFragment() {
         setupEvents()
         setValues()
     }
+
     override fun setupEvents() {
 
     }
@@ -33,4 +39,5 @@ class BottomSheetDialogFragment : BaseFragment() {
     override fun setValues() {
 
     }
+
 }

@@ -13,10 +13,8 @@ class TermsAdapter(private val termsViewModel: TermsViewModel) :
 
     override fun onBindViewHolder(holder: TermsHolder, position: Int) {
         val item = getItem(position)
-
         holder.onBind(termsViewModel, item)
     }
-
 
     class TermsDataDiffCallback : DiffUtil.ItemCallback<TermsData>() {
         override fun areItemsTheSame(oldItem: TermsData, newItem: TermsData): Boolean {
@@ -26,7 +24,6 @@ class TermsAdapter(private val termsViewModel: TermsViewModel) :
         override fun areContentsTheSame(oldItem: TermsData, newItem: TermsData): Boolean {
             return oldItem == newItem
         }
-
     }
 
 }
