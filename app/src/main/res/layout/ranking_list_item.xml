@@ -5,7 +5,6 @@
     android:orientation="vertical"
     android:padding="15dp">
 
-
     <ImageView
         android:id="@+id/imgReviewPicture"
         android:layout_width="match_parent"
@@ -24,7 +23,7 @@
             android:src="@mipmap/ic_launcher" />
 
         <TextView
-            android:id="@+id/txtReviwer"
+            android:id="@+id/txtReviewer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="유저 닉네임" />
@@ -40,7 +39,7 @@
             android:id="@+id/txtReviewTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="리뷰제목" />
+            android:text="리뷰 제목" />
 
         <TextView
             android:id="@+id/txtTag"
@@ -48,8 +47,6 @@
             android:layout_height="wrap_content"
             android:text=" " />
 
-
     </LinearLayout>
-
 
 </LinearLayout>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
+
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -9,37 +10,34 @@
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imgStoreUrl"
             android:layout_width="50dp"
-            android:layout_height="50dp"/>
+            android:layout_height="50dp" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginLeft="20dp">
+            android:layout_marginLeft="20dp"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="상점 명"
-                android:textSize="14sp"
-                android:textStyle="bold"
                 android:layout_marginTop="5dp"
-                android:textColor="@color/black"/>
+                android:text="상점 명"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txtStoreName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="상점 명"
-                android:textSize="14sp"
                 android:layout_marginTop="5dp"
-                android:textColor="@color/black"/>
+                android:text="상점 명"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
 
         </LinearLayout>
 
-
-
-
-
     </LinearLayout>
+
 </layout>

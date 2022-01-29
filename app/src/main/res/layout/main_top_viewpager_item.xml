@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
+
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -8,18 +9,14 @@
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/bannerViewPager"
             android:layout_width="match_parent"
-            android:layout_height="200dp"/>
-
+            android:layout_height="200dp" />
 
         <fragment
             android:id="@+id/mainCategoryFragment"
+            class="com.neppplus.gudocin_android.fragments.CategoriesFragment"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            class="com.neppplus.gudocin_android.fragments.CategoriesFragment"/>
-
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
-
-
 
 </layout>

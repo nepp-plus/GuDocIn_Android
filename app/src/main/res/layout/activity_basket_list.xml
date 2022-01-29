@@ -31,13 +31,6 @@
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="5dp"-->
-<!--                android:text="합산 금액 "-->
-<!--                android:textColor="@color/black" />-->
-
             <TextView
                 android:id="@+id/txtTotalPrice"
                 android:layout_width="wrap_content"

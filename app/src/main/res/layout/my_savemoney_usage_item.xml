@@ -12,7 +12,7 @@
         android:text="2021.11.01"/>
 
     <TextView
-        android:id="@+id/txtGudocIn"
+        android:id="@+id/txtGuDocIn"
         android:layout_marginTop="3dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,7 +30,5 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#808080"/>
-
-
 
 </LinearLayout>

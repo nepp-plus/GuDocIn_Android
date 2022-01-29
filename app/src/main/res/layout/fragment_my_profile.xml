@@ -77,7 +77,7 @@
                         android:layout_marginTop="25dp"
                         android:text="내 구독정보" />
 
-                    <!--            내 구독정보 달력으로 표시 (구글검색)-->
+                    <!-- 내 구독정보 달력으로 표시 (구글검색) -->
                     <com.prolificinteractive.materialcalendarview.MaterialCalendarView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

@@ -12,22 +12,20 @@
 
         <com.mancj.materialsearchbar.MaterialSearchBar
             android:id="@+id/searchView"
+            style="@style/MaterialSearchBarLight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/MaterialSearchBarLight"
             app:mt_hint="생활에 필요한 구독을 검색하세요"
-            app:mt_textColor="@color/black"
-            app:mt_maxSuggestionsCount="5"/>
-
-
+            app:mt_maxSuggestionsCount="5"
+            app:mt_textColor="@color/black" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:textColor="@color/black"
             android:layout_marginLeft="10dp"
-            android:text="카테고리 선택" />
+            android:layout_marginTop="30dp"
+            android:text="카테고리 선택"
+            android:textColor="@color/black" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -37,28 +35,27 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btnCategriesEat"
+                android:id="@+id/btnCategoriesEat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="5dp"
                 android:backgroundTint="@color/white"
                 android:shadowColor="@color/black"
-                android:text="먹는 구독"
+                android:text="식품 구독"
                 android:textColor="@color/black" />
 
-
             <Button
-                android:id="@+id/btnCategriesWear"
+                android:id="@+id/btnCategoriesWear"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="5dp"
                 android:backgroundTint="@color/white"
                 android:shadowColor="@color/black"
-                android:text="입는 구독"
+                android:text="의류 구독"
                 android:textColor="@color/black" />
 
             <Button
-                android:id="@+id/btnCategriesLife"
+                android:id="@+id/btnCategoriesLife"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="5dp"
@@ -67,9 +64,7 @@
                 android:text="생활 구독"
                 android:textColor="@color/black" />
 
-
         </LinearLayout>
-
 
     </LinearLayout>
 

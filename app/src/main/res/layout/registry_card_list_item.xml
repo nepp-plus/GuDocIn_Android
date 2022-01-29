@@ -23,12 +23,12 @@
             android:textColor="@color/black"
             android:textSize="20sp" />
 
-        <!--        <ImageView-->
-        <!--            android:id="@+id/imgDropDownArrow"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginStart="100dp"-->
-        <!--            android:src="@drawable/drop_down_arrow" />-->
+        <!-- <ImageView
+            android:id="@+id/imgDropDownArrow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
+            android:src="@drawable/drop_down_arrow" /> -->
 
     </LinearLayout>
 
@@ -37,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-        <!--        android:visibility="gone">-->
+        <!-- android:visibility="gone"> -->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -110,19 +110,19 @@
             android:layout_marginTop="5dp"
             android:orientation="horizontal">
 
-            <!--            <TextView-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:layout_marginStart="40dp"-->
-            <!--                android:text="비밀번호 2자리 : "-->
-            <!--                android:textColor="@color/black" />-->
+            <!-- <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:text="비밀번호 2자리 : "
+                android:textColor="@color/black" />
 
-            <!--            <TextView-->
-            <!--                android:id="@+id/txtCardPassword"-->
-            <!--                android:layout_width="wrap_content"-->
-            <!--                android:layout_height="wrap_content"-->
-            <!--                android:text=" 10"-->
-            <!--                android:textColor="@color/black" />-->
+            <TextView
+                android:id="@+id/txtCardPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" 10"
+                android:textColor="@color/black" /> -->
 
         </LinearLayout>
 

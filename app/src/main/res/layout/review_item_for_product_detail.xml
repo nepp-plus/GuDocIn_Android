@@ -52,15 +52,12 @@
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
-
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:scaleType="centerCrop"
             android:src="@drawable/direction_left_icon" />
 
-
     </LinearLayout>
-
 
 </LinearLayout>

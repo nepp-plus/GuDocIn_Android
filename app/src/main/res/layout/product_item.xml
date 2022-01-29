@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="5dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="5dp">
 
     <LinearLayout
         android:id="@+id/rootLayout"
@@ -26,9 +26,6 @@
             android:layout_weight="1"
             android:orientation="vertical">
 
-
-
-
             <TextView
                 android:id="@+id/txtProductCompanyName"
                 android:layout_width="wrap_content"
@@ -48,7 +45,6 @@
                 android:id="@+id/txtProductPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:text="가격/1회당" />
 
             <LinearLayout
@@ -67,26 +63,21 @@
 
             </LinearLayout>
 
-
-
         </LinearLayout>
 
-
     </LinearLayout>
-
-
 
     <LinearLayout
         android:id="@+id/reviewItemLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
         android:layout_margin="10dp"
         android:background="@drawable/radius_box"
-        android:visibility="gone"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
         android:outlineSpotShadowColor="@color/black"
-        android:padding="5dp">
+        android:padding="5dp"
+        android:visibility="gone">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imgReview"
@@ -118,7 +109,6 @@
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
-
         <ImageView
             android:id="@+id/btnGotoReviewDetail"
             android:layout_width="30dp"
@@ -126,10 +116,6 @@
             android:scaleType="centerCrop"
             android:src="@drawable/direction_left_icon" />
 
-
     </LinearLayout>
-
-
-
 
 </LinearLayout>

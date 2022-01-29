@@ -18,7 +18,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="리뷰가 작성되지 않았어요! 지금 작성해 보세요."
+            android:text="  리뷰가 작성되지 않았어요! 지금 작성해 보세요"
             android:textColor="@color/red"
             android:textSize="10dp" />
 
@@ -130,7 +130,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="리뷰가 작성된 상품입니다."
+            android:text="  리뷰가 작성된 상품입니다"
             android:textColor="@color/red"
             android:textSize="10dp" />
 
@@ -207,7 +207,6 @@
             android:layout_width="20dp"
             android:layout_height="wrap_content" />
 
-
         <Button
             android:id="@+id/btnCancel2"
             android:layout_width="wrap_content"
@@ -243,7 +242,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="취소된 상품입니다.."
+            android:text="  취소된 상품입니다"
             android:textColor="@color/red"
             android:textSize="10dp" />
 
@@ -296,6 +295,3 @@
     </LinearLayout>
 
 </LinearLayout>
-
-
-
