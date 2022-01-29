@@ -5,13 +5,10 @@ import java.io.Serializable
 import java.util.*
 
 class PaymentData(
-
     var id: Int,
     var amount: Int,
     @SerializedName("created_at")
     var createdAt: Date,
     var subscription: SubscriptionData,
-
-
-    ) : Serializable {
+) : Serializable {
 }

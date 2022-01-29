@@ -14,36 +14,29 @@ class ServerAPI {
     companion object {
 
         private var BASE_URL = "https://api.gudoc.in"
-
         private var retrofit: Retrofit? = null
 
         fun getRetrofit(context: Context): Retrofit {
-
             if (retrofit == null) {
-
                 val interceptor = Interceptor {
-
                     with(it) {
-
                         val newRequest = request().newBuilder()
                             .addHeader("X-Http-Token", ContextUtil.getToken(context))
                             .build()
-
                         proceed(newRequest)
-
                     }
-
                 }
-
                 val myClient = OkHttpClient.Builder()
                     .addInterceptor(interceptor)
                     .build()
 
                 val gson = GsonBuilder()
                     .setDateFormat("yyyy-MM-dd HH:mm:ss")
-                    .registerTypeAdapter( Date::class.java, DateDeserializer() )  // Date형태로 실제 파싱 진행 클래스 추가
+                    .registerTypeAdapter(
+                        Date::class.java,
+                        DateDeserializer()
+                    )  // Date형태로 실제 파싱 진행 클래스 추가
                     .create()
-
 
                 retrofit = Retrofit.Builder()
                     .baseUrl(BASE_URL)
@@ -51,9 +44,7 @@ class ServerAPI {
                     .client(myClient)
                     .build()
             }
-
             return retrofit!!
-
         }
 
     }

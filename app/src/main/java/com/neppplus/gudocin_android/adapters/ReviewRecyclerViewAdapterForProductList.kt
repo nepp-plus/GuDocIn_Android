@@ -18,41 +18,33 @@ class ReviewRecyclerViewAdapterForProductList
     (val mContext: Context, val mList: List<ReviewData>) :
     RecyclerView.Adapter<ReviewRecyclerViewAdapterForProductList.ReviewViewHolder>() {
 
-//   이 어댑터는 상품 상세에서 돌리는 리뷰 리스트에 사용합니다.
-
-    inner class ReviewViewHolder(itemview: View) : RecyclerView.ViewHolder(itemview) {
-
-
+    // 이 어댑터는 상품 상세에서 돌리는 리뷰 리스트에 사용합니다
+    inner class ReviewViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val txtReviewWriterName = itemView.findViewById<TextView>(R.id.txtReviewWriterName)
-        val imgReviewerImage = itemview.findViewById<ImageView>(R.id.imgReviewerImage)
+        val imgReviewerImage = itemView.findViewById<ImageView>(R.id.imgReviewerImage)
         val txtReviewTitle = itemView.findViewById<TextView>(R.id.txtReviewTitle)
-        val btnGotoReviewDetail = itemview.findViewById<LinearLayout>(R.id.btnGotoReviewDetail)
-
+        val btnGotoReviewDetail = itemView.findViewById<LinearLayout>(R.id.btnGotoReviewDetail)
 
         fun bind(data: ReviewData) {
             txtReviewWriterName.text = data.user.nickname
             txtReviewTitle.text = data.title
             Glide.with(mContext).load(data.user.profileImageURL).into(imgReviewerImage)
 
-
             btnGotoReviewDetail.setOnClickListener {
                 val myIntent = Intent(mContext, ReviewDetailActivity::class.java)
-                myIntent.putExtra("review",data) // 넘어갈 때 review id 들려 보내야 함
+                myIntent.putExtra("review", data) // 넘어갈 때 review id 들려 보내야 함
                 mContext.startActivity(myIntent)
             }
-
-
         }
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReviewViewHolder {
-
         val row =
-            LayoutInflater.from(mContext).inflate(R.layout.review_item_for_product_detail, parent, false)
+            LayoutInflater.from(mContext)
+                .inflate(R.layout.review_item_for_product_detail, parent, false)
         return ReviewViewHolder(row)
-
     }
 
     override fun onBindViewHolder(holder: ReviewViewHolder, position: Int) {

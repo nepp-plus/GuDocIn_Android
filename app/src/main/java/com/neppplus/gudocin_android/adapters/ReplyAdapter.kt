@@ -10,27 +10,22 @@ import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.datas.ReplyData
-import com.neppplus.gudocin_android.datas.ReviewData
 import com.neppplus.gudocin_android.utils.TimeAgoUtil
-import java.text.SimpleDateFormat
 
 class ReplyAdapter(
     val mContext: Context,
     val resId: Int,
-    val mList: List<ReplyData>) : ArrayAdapter<ReplyData>(mContext,resId,mList) {
-
+    val mList: List<ReplyData>
+) : ArrayAdapter<ReplyData>(mContext, resId, mList) {
 
     val mInflater = LayoutInflater.from(mContext)
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-
         var tempRow = convertView
-        if (tempRow == null){
-            tempRow = mInflater.inflate(R.layout.reply_list_item,null)
+        if (tempRow == null) {
+            tempRow = mInflater.inflate(R.layout.reply_list_item, null)
         }
-
         val row = tempRow!!
-
         val data = mList[position]
 
         val imgUserProfile = row.findViewById<ImageView>(R.id.imgUserProfile)
@@ -41,9 +36,9 @@ class ReplyAdapter(
         Glide.with(mContext).load(data.user.profileImageURL).into(imgUserProfile)
         txtUserNickName.text = data.user.nickname
         txtReviewReply.text = data.content
-
         txtReplyTime.text = TimeAgoUtil.getTimeAgoString(data.createdAt)
 
         return row
     }
+
 }

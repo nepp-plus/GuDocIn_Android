@@ -18,7 +18,6 @@ import com.neppplus.gudocin_android.datas.ProductData
 class ProductRecyclerViewAdapter(val mContext: Context, val mList: List<ProductData>) :
     RecyclerView.Adapter<ProductRecyclerViewAdapter.ProductViewHolder>() {
 
-
     inner class ProductViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         val rootLayout = view.findViewById<LinearLayout>(R.id.rootLayout)
@@ -35,61 +34,54 @@ class ProductRecyclerViewAdapter(val mContext: Context, val mList: List<ProductD
         val imgProduct = view.findViewById<ImageView>(R.id.imgProduct)
         var isReviewOpen = false
 
-
         fun bind(data: ProductData) {
             txtProductName.text = data.name
             txtProductPrice.text = data.getFormattedPrice()
             txtProductCompanyName.text = data.store.name
             Glide.with(mContext).load(data.imageUrl).into(imgProduct)
 
-            if (data.reviews.size==0){
+            if (data.reviews.size == 0) {
                 btnMoreReview.visibility = View.GONE
                 reviewItemLayout.visibility = View.GONE
-            }
-            else{
+            } else {
                 btnMoreReview.visibility = View.VISIBLE
                 val firstReview = data.reviews[0]
-                txtReviewTitle.text= firstReview.title
+                txtReviewTitle.text = firstReview.title
                 txtReviewWriterName.text = firstReview.user.nickname
                 Glide.with(mContext).load(firstReview.user.profileImageURL).into(imgReview)
-
                 firstReview.product = data
 
                 btnGotoReviewDetail.setOnClickListener {
                     val myIntent = Intent(mContext, ReviewDetailActivity::class.java)
-                    myIntent.putExtra("review",firstReview)
+                    myIntent.putExtra("review", firstReview)
                     mContext.startActivity(myIntent)
                 }
 
-                if (isReviewOpen==false){
+                if (isReviewOpen == false) {
                     btnMoreReview.setOnClickListener {
                         reviewItemLayout.visibility = View.VISIBLE
-                        txtOpenReview.text= "리뷰 닫기"
-                        isReviewOpen =true
+                        txtOpenReview.text = "리뷰 닫기"
+                        isReviewOpen = true
                         notifyDataSetChanged()
                     }
-                }
-                else{
+                } else {
                     btnMoreReview.setOnClickListener {
                         reviewItemLayout.visibility = View.GONE
-                        txtOpenReview.text= "리뷰 더보기.."
-                        isReviewOpen =false
+                        txtOpenReview.text = "리뷰 더보기.."
+                        isReviewOpen = false
                         notifyDataSetChanged()
                     }
                 }
-
-
             }
 
             rootLayout.setOnClickListener {
 //                프로덕트 디테일 번호 지참
-
                 val myIntent = Intent(mContext, ProductItemDetailActivity::class.java)
-                myIntent.putExtra("product_id",data)
+                myIntent.putExtra("product_id", data)
                 mContext.startActivity(myIntent)
             }
-
         }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
@@ -102,6 +94,5 @@ class ProductRecyclerViewAdapter(val mContext: Context, val mList: List<ProductD
     }
 
     override fun getItemCount() = mList.size
-
 
 }

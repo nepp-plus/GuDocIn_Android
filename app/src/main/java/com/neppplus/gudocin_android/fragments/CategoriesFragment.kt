@@ -47,20 +47,20 @@ class CategoriesFragment : BaseFragment() {
 
     override fun setupEvents() {
 
-        binding.btnCategriesEat.setOnClickListener {
+        binding.btnCategoriesEat.setOnClickListener {
             mLargeCategoryId = 2
             getSmallCategoryListFromServer()
 
         }
 
-        binding.btnCategriesLife.setOnClickListener {
+        binding.btnCategoriesLife.setOnClickListener {
             mLargeCategoryId = 3
             getSmallCategoryListFromServer()
 
         }
 
 
-        binding.btnCategriesWear.setOnClickListener {
+        binding.btnCategoriesWear.setOnClickListener {
             mLargeCategoryId = 1
             getSmallCategoryListFromServer()
 

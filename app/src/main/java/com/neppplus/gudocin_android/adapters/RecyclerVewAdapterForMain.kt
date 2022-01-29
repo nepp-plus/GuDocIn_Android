@@ -18,12 +18,7 @@ import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.ReviewActivity
 import com.neppplus.gudocin_android.ReviewDetailActivity
 import com.neppplus.gudocin_android.datas.BannerData
-import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.ReviewData
-import com.neppplus.gudocin_android.datas.SmallCategoriesData
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -33,11 +28,9 @@ class RecyclerVewAdapterForMain
 
     val mBannerList = ArrayList<BannerData>()
     lateinit var mBannerViewPagerAdapter: BannerViewPagerAdapter
-
     var isBannerViewPagerInit = false
 
     inner class HeaderViewHolder(row: View) : RecyclerView.ViewHolder(row) {
-
 
         val bannerViewPager = row.findViewById<ViewPager>(R.id.bannerViewPager)
 
@@ -48,46 +41,33 @@ class RecyclerVewAdapterForMain
             )
 
             bannerViewPager.adapter = mBannerViewPagerAdapter
-
 //            바인드 할때마다 페이징 코드가 누적됨
 //            최초 1회만 설정하도록
-
             if (!isBannerViewPagerInit) {
                 var currentPage = 0
-
                 val nextPage = {
-
                     currentPage++
-
                     if (currentPage == mBannerList.size) {
                         currentPage = 0
                     }
                     bannerViewPager.currentItem = currentPage
-
                 }
                 val myHandler = Handler(Looper.getMainLooper())
-
-//            Timer클래스 활용 =>  할 일 (코드)를 2초마다 반복.
-
+//            Timer 클래스 활용 ->  할 일(코드)을 2초마다 반복
                 val timer = Timer()
                 timer.schedule(object : TimerTask() {
                     override fun run() {
-
                         myHandler.post(nextPage)
-
                     }
-
                 }, 2000, 2000)
-
                 isBannerViewPagerInit = true
             }
-
-
         }
+
     }
 
-
     inner class ItemViewHolder(row: View) : RecyclerView.ViewHolder(row) {
+
         val txtReviewerNickName = row.findViewById<TextView>(R.id.txtReviewerNickName)
         val txtProductName = row.findViewById<TextView>(R.id.txtProductName)
         val txtProductPrice = row.findViewById<TextView>(R.id.txtProductPrice)
@@ -101,15 +81,14 @@ class RecyclerVewAdapterForMain
         val txReviewTitle = row.findViewById<TextView>(R.id.txReviewTitle)
         var isPreViewOpen = false
 
-
         fun bind(data: ReviewData) {
-
             txtReviewerNickName.text = "${data.user.nickname} 님의 리뷰"
             txtProductName.text = data.product.name
             txtProductPrice.text = data.product.price.toString()
             Glide.with(mContext).load(data.thumbNailImg).into(imgReviewSomeNail)
             Glide.with(mContext).load(data.user.profileImageURL).into(imgReviewerImage)
             txReviewTitle.text = data.title
+
             btnWriteReview.setOnClickListener {
                 val myIntent = Intent(mContext, ReviewActivity::class.java)
                 myIntent.putExtra("product", data.product)
@@ -133,33 +112,26 @@ class RecyclerVewAdapterForMain
             }
 
             btnGotoReviewDetail.setOnClickListener {
-
                 val myIntent = Intent(mContext, ReviewDetailActivity::class.java)
                 myIntent.putExtra("review", data)
                 mContext.startActivity(myIntent)
-
             }
         }
+
     }
 
     val HEADER_VIEW_TYPE = 1000
     val REVIEW_ITEM_TYPE = 1001
 
     override fun getItemViewType(position: Int): Int {
-
         return when (position) {
-
             0 -> HEADER_VIEW_TYPE
             else -> REVIEW_ITEM_TYPE
-
         }
-
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
-
             HEADER_VIEW_TYPE -> {
                 val row = LayoutInflater.from(mContext)
                     .inflate(R.layout.main_top_viewpager_item, parent, false)
@@ -167,13 +139,10 @@ class RecyclerVewAdapterForMain
             }
             else -> {
 //                리뷰 아이템
-
                 val row = LayoutInflater.from(mContext)
                     .inflate(R.layout.review_item_for_main, parent, false)
                 ItemViewHolder(row)
-
             }
-
         }
     }
 
@@ -181,20 +150,13 @@ class RecyclerVewAdapterForMain
         when (holder) {
             is HeaderViewHolder -> {
                 holder.bind()
-
             }
             is ItemViewHolder -> {
-
                 holder.bind(mList[position - 1])
-
             }
         }
     }
 
     override fun getItemCount() = mList.size + 1
-
-
-
-
 
 }

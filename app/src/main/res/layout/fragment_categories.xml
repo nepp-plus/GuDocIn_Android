@@ -16,28 +16,28 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btnCategriesEat"
+                android:id="@+id/btnCategoriesEat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="5dp"
                 android:backgroundTint="@color/white"
                 android:shadowColor="@color/black"
-                android:text="먹는 구독"
+                android:text="식품 구독"
                 android:textColor="@color/black" />
 
 
             <Button
-                android:id="@+id/btnCategriesWear"
+                android:id="@+id/btnCategoriesWear"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="5dp"
                 android:backgroundTint="@color/white"
                 android:shadowColor="@color/black"
-                android:text="입는 구독"
+                android:text="의류 구독"
                 android:textColor="@color/black" />
 
             <Button
-                android:id="@+id/btnCategriesLife"
+                android:id="@+id/btnCategoriesLife"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="5dp"

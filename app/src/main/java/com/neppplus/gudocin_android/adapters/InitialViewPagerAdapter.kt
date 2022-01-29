@@ -31,13 +31,12 @@ class InitialViewPagerAdapter(private val context: Context) : PagerAdapter() {
         layoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val view = layoutInflater!!.inflate(R.layout.initial_image_view, null)
         val image = view.findViewById<View>(R.id.imageView) as ImageView
-
         image.setImageResource(Image[position])
+
         val viewPager = container as ViewPager
         viewPager.addView(view, 0)
 
         return view
-
     }
 
     override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {

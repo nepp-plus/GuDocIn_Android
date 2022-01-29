@@ -11,16 +11,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.ReviewDetailActivity
 import com.neppplus.gudocin_android.datas.PaymentData
-import com.neppplus.gudocin_android.datas.ProductData
 import java.text.SimpleDateFormat
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
 
 class MyPurchaseListRecyclerviewAdapter(
-    val mContext : Context,
+    val mContext: Context,
     val mList: ArrayList<PaymentData>
 ) : RecyclerView.Adapter<MyPurchaseListRecyclerviewAdapter.MyPurchaseListViewHolder>() {
-
 
     inner class MyPurchaseListViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
@@ -28,31 +24,23 @@ class MyPurchaseListRecyclerviewAdapter(
         val txtPurchaseDate = view.findViewById<TextView>(R.id.txtPurchaseDate)
         val txtPaymentInfo = view.findViewById<TextView>(R.id.txtPaymentInfo)
         val txtDeliveryInfo = view.findViewById<TextView>(R.id.txtDeliveryInfo)
-        val txtProductPrice= view.findViewById<TextView>(R.id.txtProductPrice)
+        val txtProductPrice = view.findViewById<TextView>(R.id.txtProductPrice)
         val btnReviewIndex = view.findViewById<Button>(R.id.btnReviewIndex)
         val btnCancel = view.findViewById<Button>(R.id.btnCancel)
 
-
-
         fun bind(data: PaymentData) {
-
             txtProductReviewNoName.text = data.subscription.product.name
             txtProductPrice.text = data.subscription.product.price.toString()
 //            txtPurchaseDate.text = data.subscription.createdAt.toString()
 
             val sdf = SimpleDateFormat("yyyy-M-d H:mm:ss")
-
-            txtPurchaseDate.text = sdf.format( data.createdAt )
-
-
+            txtPurchaseDate.text = sdf.format(data.createdAt)
 
             btnReviewIndex.setOnClickListener {
-                val myIntent = Intent(mContext,ReviewDetailActivity::class.java)
-                myIntent.putExtra("review",data) // 넘어갈 때 review id 들려 보내야 함
+                val myIntent = Intent(mContext, ReviewDetailActivity::class.java)
+                myIntent.putExtra("review", data) // 넘어갈 때 review id 들려 보내야 함
                 mContext.startActivity(myIntent)
             }
-
-
 
             txtPaymentInfo.setOnClickListener {
 
@@ -64,37 +52,24 @@ class MyPurchaseListRecyclerviewAdapter(
 
             btnReviewIndex.setOnClickListener {
 
-
             }
 
             btnCancel.setOnClickListener {
 
-
             }
-
-
-
-
         }
-
-
-
-
-
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyPurchaseListViewHolder {
-
         val row = LayoutInflater.from(mContext).inflate(R.layout.purchase_list_item, parent, false)
         return MyPurchaseListViewHolder(row)
-
     }
 
-    override fun onBindViewHolder(holder:MyPurchaseListViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MyPurchaseListViewHolder, position: Int) {
         holder.bind(mList[position])
-
     }
 
     override fun getItemCount() = mList.size
+
 }

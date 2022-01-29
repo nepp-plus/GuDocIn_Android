@@ -4,7 +4,6 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.neppplus.gudocin_android.R
@@ -22,22 +21,19 @@ class CardRecyclerAdapter(val mContext: Context, val mList: List<CardData>) :
 //        val txtCardPassword = view.findViewById<TextView>(R.id.txtCardPassword)
 
         fun bind(data: CardData) {
-
             txtCardNickname.text = data.cardNickname
             txtCardNum.text = data.cardNum
             txtCardValidity.text = data.cardValid
             txtCardBirthday.text = data.cardBirthday
 //            txtCardPassword.text = data.cardPwDigit
-
         }
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder {
-
-        val row = LayoutInflater.from(mContext).inflate(R.layout.registry_card_list_item, parent, false)
+        val row =
+            LayoutInflater.from(mContext).inflate(R.layout.registry_card_list_item, parent, false)
         return CardViewHolder(row)
-
     }
 
     override fun onBindViewHolder(holder: CardViewHolder, position: Int) {

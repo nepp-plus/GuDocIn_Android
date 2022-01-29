@@ -9,14 +9,13 @@ class DataResponse(
     var products: List<ProductData>,
     var product: ProductData,
     var carts: List<BasketData>,
-    var categories :List<CategoriesData>,
-    var small_categories :List<SmallCategoriesData>,
-    val banners : List<BannerData>,
+    var categories: List<CategoriesData>,
+    var small_categories: List<SmallCategoriesData>,
+    val banners: List<BannerData>,
     val payments: List<PaymentData>,
     @SerializedName("point_logs")
     val pointLogs: List<PointLogData>,
     var cards: List<CardData>,
     val replies: List<ReplyData>,
-
 ) {
 }

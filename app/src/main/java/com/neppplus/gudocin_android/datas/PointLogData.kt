@@ -14,9 +14,8 @@ class PointLogData(
     var reviewId: Int,
     var amount: Int,
     var type: String,
-
     @SerializedName("created_at")
     var createdAt: Date,
     var payment: PaymentData,
-) : Serializable{
+) : Serializable {
 }

@@ -32,27 +32,21 @@ class RankingRecyclerViewListAdapter(
             Glide.with(mContext).load(data.user.profileImageURL).into(imgUserProfile)
 
             imgReviewPicture.setOnClickListener {
-
                 val myIntent = Intent(mContext, ReviewDetailActivity::class.java)
-                myIntent.putExtra("review",data)
+                myIntent.putExtra("review", data)
                 mContext.startActivity(myIntent)
             }
-
         }
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RakingViewHolder {
-
         val row = LayoutInflater.from(mContext).inflate(R.layout.ranking_list_item, parent, false)
         return RakingViewHolder(row)
-
     }
 
     override fun onBindViewHolder(holder: RakingViewHolder, position: Int) {
-
-        holder.bind( mList[position] )
-
+        holder.bind(mList[position])
     }
 
     override fun getItemCount() = mList.size

@@ -64,7 +64,7 @@ class EatCategoryListActivity : BaseActivity() {
 
     fun getProductListInSmallCategoryFromServer(){
 
-        apiService.getRequestSmallCategorysItemList(mClickedSmallCategoryNum).enqueue(object : Callback<BasicResponse> {
+        apiService.getRequestSmallCategoriesItemList(mClickedSmallCategoryNum).enqueue(object : Callback<BasicResponse> {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
 
                 if (response.isSuccessful ){

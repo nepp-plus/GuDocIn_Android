@@ -4,8 +4,7 @@ import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 import java.util.*
 
-class SubscriptionData (
-
+class SubscriptionData(
     var id: Int,
     @SerializedName("user_id")
     var userId: Int,
@@ -15,7 +14,6 @@ class SubscriptionData (
     var createdAt: Date,
     @SerializedName("stopped_at")
     var stoppedAt: Date?,
-    var product : ProductData,
-
-        ) : Serializable{
+    var product: ProductData,
+) : Serializable {
 }
