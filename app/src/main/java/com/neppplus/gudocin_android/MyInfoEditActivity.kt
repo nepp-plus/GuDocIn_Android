@@ -69,7 +69,7 @@ class MyInfoEditActivity : BaseActivity() {
             val myIntent = Intent(mContext, EditMyPassWordActivity::class.java)
             startActivity(myIntent)
         }
-        binding.txtEditPhonNum.setOnClickListener {
+        binding.txtEditPhoneNum.setOnClickListener {
             val myIntent = Intent(mContext, EditMyPhoneNumActivity::class.java)
             startActivity(myIntent)
         }

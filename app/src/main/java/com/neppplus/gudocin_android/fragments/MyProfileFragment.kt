@@ -24,7 +24,7 @@ class MyProfileFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-//        바인딩 변수 사용. xml 화면을 바인딩 변수에 대입시키고 바인딩 된 마지막 화면으로 반환.
+//        바인딩 변수 사용 -> xml 화면을 바인딩 변수에 대입시키고 바인딩 된 마지막 화면으로 반환
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_my_profile, container, false)
         return binding.root
     }

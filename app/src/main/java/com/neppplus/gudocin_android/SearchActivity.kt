@@ -31,16 +31,16 @@ class SearchActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
-        binding.btnCategriesEat.setOnClickListener {
+        binding.btnCategoriesEat.setOnClickListener {
             val myIntent = Intent(mContext, EatCategoryListActivity::class.java)
             startActivity(myIntent)
         }
-        binding.btnCategriesWear.setOnClickListener {
+        binding.btnCategoriesWear.setOnClickListener {
             val myIntent = Intent(mContext, WearCategoryListActivity::class.java)
             myIntent.putExtra("Large_category_id", 1)
             startActivity(myIntent)
         }
-        binding.btnCategriesLife.setOnClickListener {
+        binding.btnCategoriesLife.setOnClickListener {
             val myIntent = Intent(mContext, LifeCategoryListActivity::class.java)
             startActivity(myIntent)
         }

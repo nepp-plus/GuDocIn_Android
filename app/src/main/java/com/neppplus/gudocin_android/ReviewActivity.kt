@@ -73,7 +73,7 @@ class ReviewActivity : BaseActivity() {
                 .check()
         }
         binding.selectImgLayout.setOnClickListener(ocl)
-        binding.imgThumPicture.setOnClickListener(ocl)
+        binding.imgThumbPicture.setOnClickListener(ocl)
 
 //        지금들어오는 텍스트가 무엇인지 확인하는 함수
         binding.edtKeyword.addTextChangedListener {
@@ -199,17 +199,17 @@ class ReviewActivity : BaseActivity() {
         if (requestCode == REQ_FOR_GALLERY) {
             if (resultCode == RESULT_OK) {
                 mSelectedThumbnailUri = data!!.data
-                Glide.with(mContext).load(mSelectedThumbnailUri).into(binding.imgThumPicture)
+                Glide.with(mContext).load(mSelectedThumbnailUri).into(binding.imgThumbPicture)
 
                 binding.selectImgLayout.visibility = View.GONE
-                binding.imgThumPicture.visibility = View.VISIBLE
+                binding.imgThumbPicture.visibility = View.VISIBLE
             }
         }
     }
 
     override fun setValues() {
         mProductData = intent.getSerializableExtra("product") as ProductData
-        binding.txtPrductName.text = mProductData.name
+        binding.txtProductName.text = mProductData.name
         binding.txtUserNickName.text = GlobalData.loginUser!!.nickname
 
         val now = Calendar.getInstance()

@@ -89,7 +89,6 @@ class CardInfoActivity : BaseActivity() {
 
     override fun setValues() {
         btnBasket.visibility = View.GONE
-        btnBell.visibility = View.GONE
     }
 
 }

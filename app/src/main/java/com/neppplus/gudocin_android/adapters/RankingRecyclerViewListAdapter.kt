@@ -22,7 +22,7 @@ class RankingRecyclerViewListAdapter(
 
         val imgReviewPicture = view.findViewById<ImageView>(R.id.imgReviewPicture)
         val imgUserProfile = view.findViewById<ImageView>(R.id.imgUserProfile)
-        val txtReviwer = view.findViewById<TextView>(R.id.txtReviwer)
+        val txtReviwer = view.findViewById<TextView>(R.id.txtReviewer)
         val txtReviewTitle = view.findViewById<TextView>(R.id.txtReviewTitle)
 
         fun bind(data: ReviewData) {

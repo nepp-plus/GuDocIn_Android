@@ -21,10 +21,11 @@ class EatCategoryListActivity : BaseActivity() {
 
     val mSmallCategoryList = ArrayList<SmallCategoriesData>()
     lateinit var mSmallCategoryListAdapter: SmallCategoriesListAdapter
+
     var mLargeCategoryId = 2
     var mClickedSmallCategoryNum = 7
-    lateinit var mProductData: ProductData
 
+    lateinit var mProductData: ProductData
     val mProductList = ArrayList<ProductData>()
     lateinit var mProductRecyclerAdapter: ProductRecyclerViewAdapter
 
@@ -79,7 +80,7 @@ class EatCategoryListActivity : BaseActivity() {
                     response: Response<BasicResponse>
                 ) {
                     if (response.isSuccessful) {
-                        binding.smalllCategoryList.removeAllViews()
+                        binding.smallCategoryList.removeAllViews()
                         val br = response.body()!!
                         mSmallCategoryList.clear()
                         mSmallCategoryList.addAll(br.data.small_categories)
@@ -96,7 +97,7 @@ class EatCategoryListActivity : BaseActivity() {
                                 mClickedSmallCategoryNum = sc.id
                                 getProductListInSmallCategoryFromServer()
                             }
-                            binding.smalllCategoryList.addView(view)
+                            binding.smallCategoryList.addView(view)
                         }
                     }
                 }

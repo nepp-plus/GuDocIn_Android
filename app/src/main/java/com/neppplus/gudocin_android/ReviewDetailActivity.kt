@@ -61,7 +61,7 @@ class ReviewDetailActivity : BaseActivity() {
         binding.txtProductName.text = mReviewData.product.name
         binding.txtUserNickName.text = mReviewData.user.nickname
         binding.txtReviewContent.text = mReviewData.content
-        Glide.with(mContext).load(mReviewData.thumbNailImg).into(binding.thumNailImg)
+        Glide.with(mContext).load(mReviewData.thumbNailImg).into(binding.thumbNailImg)
 
 //        평점을 ratingBar 에 가져오는 바인딩 함수(Int -> Float 으로 변환)
         binding.ratingBar.rating = mReviewData.score.toFloat()

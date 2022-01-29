@@ -70,7 +70,7 @@ class CategoriesFragment : BaseFragment() {
                         mSmallCategoriesList.addAll(br.data.small_categories)
 
 //                    추가한 카테고리 하나하나에 대한 view 생성
-                        binding.smalllCategoryList.removeAllViews()
+                        binding.smallCategoryList.removeAllViews()
                         for (sc in mSmallCategoriesList) {
                             val view = LayoutInflater.from(mContext)
                                 .inflate(R.layout.small_categories_item, null)
@@ -89,7 +89,7 @@ class CategoriesFragment : BaseFragment() {
                                     mClickedSmallCategoryNum
                                 )
                             }
-                            binding.smalllCategoryList.addView(view)
+                            binding.smallCategoryList.addView(view)
                         }
                     }
                 }

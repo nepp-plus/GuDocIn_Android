@@ -74,7 +74,7 @@ class WearCategoryListActivity : BaseActivity() {
             Callback<BasicResponse> {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
                 if (response.isSuccessful) {
-                    binding.smalllCategoryList.removeAllViews()
+                    binding.smallCategoryList.removeAllViews()
                     val br = response.body()!!
                     mSmallCategoryList.clear()
                     mSmallCategoryList.addAll(br.data.small_categories)
@@ -91,7 +91,7 @@ class WearCategoryListActivity : BaseActivity() {
                             mClickedSmallCategoryNum = sc.id
                             getProductListInSmallCategoryFromServer()
                         }
-                        binding.smalllCategoryList.addView(view)
+                        binding.smallCategoryList.addView(view)
                     }
                 }
             }

@@ -81,7 +81,6 @@ class PaymentActivity : BaseActivity() {
     override fun setValues() {
 //        mReviewData = intent.getSerializableExtra("review") as ReviewData?
         btnBasket.visibility = View.GONE
-        btnBell.visibility = View.GONE
     }
 
 }

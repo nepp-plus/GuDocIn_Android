@@ -3,15 +3,15 @@
     <item
         android:id="@+id/naviHome"
         android:enabled="true"
-        android:icon="@drawable/navi_home"
+        android:icon="@drawable/nav_home"
         android:title="홈" />
     <item
         android:id="@+id/naviRanking"
-        android:icon="@drawable/navi_ranking"
+        android:icon="@drawable/nav_ranking"
         android:title="랭킹" />
     <item
         android:id="@+id/naviMyProfile"
         android:enabled="true"
-        android:icon="@drawable/navi_my_profile"
+        android:icon="@drawable/nav_my_profile"
         android:title="내 정보" />
 </menu>

@@ -19,7 +19,7 @@ class MySaveMoneyPaymentRecyclerViewAdapter(
     inner class MySaveMoneyPaymentViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         val txtPointDay = view.findViewById<TextView>(R.id.txtPointDay)
-        val txtGudocIn = view.findViewById<TextView>(R.id.txtGudocIn)
+        val txtGudocIn = view.findViewById<TextView>(R.id.txtGuDocIn)
         val txtPointMoney = view.findViewById<TextView>(R.id.txtPointMoney)
 
         fun bind(data: PointLogData) {
