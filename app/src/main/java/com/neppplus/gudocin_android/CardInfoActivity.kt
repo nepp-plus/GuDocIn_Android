@@ -1,7 +1,5 @@
 package com.neppplus.gudocin_android
 
-import android.app.AlertDialog
-import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -29,14 +27,10 @@ class CardInfoActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
-
         btnBack.setOnClickListener {
-
             val myIntent = Intent(mContext, PaymentActivity::class.java)
             startActivity(myIntent)
-
             finish()
-
         }
 
         binding.btnCardInfoSave.setOnClickListener {
@@ -59,58 +53,43 @@ class CardInfoActivity : BaseActivity() {
                     call: Call<BasicResponse>,
                     response: Response<BasicResponse>
                 ) {
-
                     if (response.isSuccessful) {
                         val basicResponse = response.body()!!
-
                         val userNickname = basicResponse.data.user.nickname
-
                         Toast.makeText(
                             mContext,
                             "${userNickname}님, 카드 등록이 완료되었습니다",
                             Toast.LENGTH_SHORT
-                        )
-                            .show()
+                        ).show()
 
                         ContextUtil.setToken(mContext, basicResponse.data.token)
-
                         GlobalData.loginUser = basicResponse.data.user
 
                         val myIntent = Intent(mContext, PaymentActivity::class.java)
                         intent.putExtra("nickname", inputCardNickname)
                         startActivityForResult(myIntent, 6)
-
                         setResult(RESULT_OK)
-
                         finish()
-
                     } else {
-
                         val errorJson = JSONObject(response.errorBody()!!.string())
                         Log.d("에러경우", errorJson.toString())
 
                         val message = errorJson.getString("message")
-
                         Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show()
-
                     }
-
                 }
 
                 override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
 
                 }
-
             })
 
         }
-
     }
 
     override fun setValues() {
-
         btnBasket.visibility = View.GONE
         btnBell.visibility = View.GONE
-
     }
+
 }

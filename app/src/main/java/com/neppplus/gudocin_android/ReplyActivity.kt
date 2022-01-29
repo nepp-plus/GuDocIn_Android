@@ -1,6 +1,5 @@
 package com.neppplus.gudocin_android
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
@@ -17,85 +16,65 @@ class ReplyActivity : BaseActivity() {
 
     lateinit var binding: ActivityReplyBinding
 
-    lateinit var mReviewData : ReviewData
+    lateinit var mReviewData: ReviewData
 
-    lateinit var mReplyAdapter : ReplyAdapter
+    lateinit var mReplyAdapter: ReplyAdapter
 
     val mReplyList = ArrayList<ReplyData>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_reply)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_reply)
         setupEvents()
         setValues()
     }
 
     override fun setupEvents() {
-
         binding.btnEditReply.setOnClickListener {
             val inputContent = binding.edtReply.text.toString()
-
-            apiService.postRequestReviewReply(mReviewData.id,inputContent).enqueue(object :Callback<BasicResponse>{
-                override fun onResponse(
-                    call: Call<BasicResponse>,
-                    response: Response<BasicResponse>
-                ) {
-
-                    if (response.isSuccessful) {
-                        Toast.makeText(mContext, "댓글 작성에 성공했습니다.", Toast.LENGTH_SHORT).show()
-                        getReplyListFromServer()
+            apiService.postRequestReviewReply(mReviewData.id, inputContent)
+                .enqueue(object : Callback<BasicResponse> {
+                    override fun onResponse(
+                        call: Call<BasicResponse>,
+                        response: Response<BasicResponse>
+                    ) {
+                        if (response.isSuccessful) {
+                            Toast.makeText(mContext, "댓글 작성에 성공했습니다", Toast.LENGTH_SHORT).show()
+                            getReplyListFromServer()
+                        } else {
+                            Toast.makeText(mContext, "서버 통신오류: 관리자에게 문의해주세요", Toast.LENGTH_SHORT)
+                                .show()
+                        }
                     }
-                    else {
-                        Toast.makeText(mContext, "서버통신에 문제가 있습니다. 관리자에게 문의해주세요.", Toast.LENGTH_SHORT).show()
+
+                    override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+
                     }
-
-                }
-
-                override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-
-                }
-
-
-            })
-
+                })
         }
-
-
     }
 
     override fun setValues() {
-
-        mReviewData = intent.getSerializableExtra("review") as ReviewData
-
-        mReplyAdapter = ReplyAdapter(mContext,R.layout.reply_list_item,mReplyList)
-        binding.reviewReplyListview.adapter = mReplyAdapter
-
         getReplyListFromServer()
-
+        mReviewData = intent.getSerializableExtra("review") as ReviewData
+        mReplyAdapter = ReplyAdapter(mContext, R.layout.reply_list_item, mReplyList)
+        binding.reviewReplyListview.adapter = mReplyAdapter
     }
 
     fun getReplyListFromServer() {
-
-        apiService.getRequestReviewReply(mReviewData.id).enqueue(object : Callback<BasicResponse>{
+        apiService.getRequestReviewReply(mReviewData.id).enqueue(object : Callback<BasicResponse> {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
-
                 if (response.isSuccessful) {
-
                     val br = response.body()!!
                     mReplyList.clear()
                     mReplyList.addAll(br.data.replies)
-
                     mReplyAdapter.notifyDataSetChanged()
                 }
-
-
             }
 
             override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
 
             }
-
-
         })
     }
 

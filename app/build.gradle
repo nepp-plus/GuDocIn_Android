@@ -8,9 +8,7 @@ android {
     compileSdk 31
 
     buildFeatures {
-
         dataBinding = true
-
     }
 
     defaultConfig {

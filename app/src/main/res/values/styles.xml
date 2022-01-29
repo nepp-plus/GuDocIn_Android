@@ -2,8 +2,7 @@
 <resources>
 
     <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
-
-        <!-- Transparent statusbar -->
+        <!-- Transparent statusBar -->
         <item name="android:windowTranslucentNavigation">true</item>
         <item name="android:windowTranslucentStatus">true</item>
     </style>
@@ -13,12 +12,11 @@
     </style>
 
     <style name="MyCustomTheme" parent="MaterialSearchBarLight">
-    <item name="mt_searchBarColor">@color/gray3</item>
+        <item name="mt_searchBarColor">@color/gray3</item>
         <item name="mt_searchIconTint">@color/black</item>
         <item name="mt_textCursorTint">@color/black</item>
         <item name="mt_placeholderColor">@color/black</item>
         <item name="mt_handlesTintEnabled">true</item>
-
     </style>
 
 </resources>

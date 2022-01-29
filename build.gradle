@@ -2,12 +2,12 @@
 buildscript {
     repositories {
         google()
-        maven { url 'https://devrepo.kakao.com/nexus/content/groups/public/'}
+        maven { url 'https://devrepo.kakao.com/nexus/content/groups/public/' }
         mavenCentral()
-
-//        카렌터뷰 세팅
+//        CalendarView 세팅
         maven { url 'https://jitpack.io' }
     }
+
     dependencies {
         classpath 'com.android.tools.build:gradle:7.0.3'
         classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.0'

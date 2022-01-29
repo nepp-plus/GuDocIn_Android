@@ -49,11 +49,9 @@ class InitialActivity : BaseActivity() {
 
         val thread = Thread(PagerRunnable())
         thread.start()
-
     }
 
     override fun onBackPressed() {
-
         if (System.currentTimeMillis() - backKeyPressedTime >= 1500) {
             backKeyPressedTime = System.currentTimeMillis()
             Toast.makeText(this, "'뒤로' 버튼을 한번 더 누르시면 종료됩니다.", Toast.LENGTH_SHORT).show()
@@ -62,15 +60,12 @@ class InitialActivity : BaseActivity() {
             System.runFinalization()
             System.exit(0)
         }
-
     }
 
     fun setPage() {
-
         if (currentPosition == 3) currentPosition = 0
         viewPager.setCurrentItem(currentPosition, true)
         currentPosition += 1
-
     }
 
     inner class PagerRunnable : Runnable {
@@ -83,80 +78,57 @@ class InitialActivity : BaseActivity() {
     }
 
     fun setFirebaseToken() {
-
         FirebaseMessaging.getInstance().token.addOnCompleteListener {
-
 //            토큰을 잘 받아왔다면
             if (it.isSuccessful) {
-
                 val deviceToken = it.result
                 Log.d("FCM토큰", deviceToken!!)
                 ContextUtil.setDeviceToken(mContext, deviceToken)
 
                 GlobalData.loginUser?.let {
-
                     apiService.patchRequestUpdateUserInfo(
                         "android_device_token",
                         ContextUtil.getDeviceToken(mContext)
                     )
-
                 }
-
             }
-
         }
-
     }
 
     override fun setupEvents() {
-
         binding.btnLogin.setOnClickListener {
-
             val myHandler = Handler(Looper.getMainLooper())
 
             myHandler.postDelayed({
-
                 val myIntent: Intent
-
                 if (ContextUtil.getAutoLogin(mContext) && ContextUtil.getToken(mContext) != "") {
                     myIntent = Intent(mContext, NavigationActivity::class.java)
                 } else {
                     myIntent = Intent(mContext, LoginActivity::class.java)
                 }
-
                 startActivity(myIntent)
-
                 finish()
-
             }, 1000)
-
         }
 
         binding.btnSignUp.setOnClickListener {
-
             val myIntent = Intent(mContext, SignUpActivity::class.java)
             startActivity(myIntent)
-
         }
 
         binding.txtMaybeLater.setOnClickListener {
-
             val alert = AlertDialog.Builder(mContext, R.style.MyDialogTheme)
             alert.setTitle("나가기 확인")
             alert.setMessage("정말 나가시겠습니까?")
             alert.setPositiveButton("확인", DialogInterface.OnClickListener { dialogInterface, i ->
                 finish()
             })
-
             alert.setNegativeButton("취소", null)
             alert.show()
-
         }
-
     }
 
     override fun setValues() {
-
         setFirebaseToken()
 
         apiService.getRequestMyInfo().enqueue(object : Callback<BasicResponse> {
@@ -182,7 +154,6 @@ class InitialActivity : BaseActivity() {
 
             }
         })
-
     }
 
 }

@@ -25,7 +25,7 @@ import java.security.MessageDigest
 
 class NavigationActivity : BaseActivity() {
 
-//    메인화면 - 김준기가 작업합니다.
+//    메인화면 - 김준기가 작업합니다
 
     lateinit var binding: ActivityNavigationBinding
 
@@ -39,7 +39,6 @@ class NavigationActivity : BaseActivity() {
     }
 
     override fun onBackPressed() {
-
         if (System.currentTimeMillis() - backKeyPressedTime >= 1500) {
             backKeyPressedTime = System.currentTimeMillis()
             Toast.makeText(this, "'뒤로' 버튼을 한번 더 누르시면 종료됩니다.", Toast.LENGTH_SHORT).show()
@@ -48,11 +47,9 @@ class NavigationActivity : BaseActivity() {
             System.runFinalization()
             System.exit(0)
         }
-
     }
 
     override fun setupEvents() {
-
         binding.bottomNavi.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.naviHome -> binding.viewPager.currentItem = 0
@@ -66,7 +63,6 @@ class NavigationActivity : BaseActivity() {
     }
 
     override fun setValues() {
-
         btnBack.visibility = View.INVISIBLE
         txtCategoryNameInActionBar.visibility = View.INVISIBLE
         SearchBoxInActionBar.visibility = View.VISIBLE
@@ -82,14 +78,10 @@ class NavigationActivity : BaseActivity() {
                         else -> R.id.naviMyProfile
                     }
                 }
-
             })
-
         }
-
 //        3장의 화면을 계속 유지하도록
         binding.viewPager.offscreenPageLimit = 3
-
     }
 
     inner class ViewPagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
@@ -102,11 +94,9 @@ class NavigationActivity : BaseActivity() {
         }
 
         fun getFragment(position: Int) = fragmentList[position]
-
     }
 
     fun getAndSendDeviceToken() {
-
         if (ContextUtil.getDeviceToken(mContext) != "") {
             apiService.patchRequestUpdateUserInfo(
                 "android_device_token",
@@ -116,16 +106,13 @@ class NavigationActivity : BaseActivity() {
                     call: Call<BasicResponse>,
                     response: Response<BasicResponse>
                 ) {
-
                 }
 
                 override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
 
                 }
-
             })
         }
-
     }
 
     fun getKeyHash() {
@@ -138,7 +125,6 @@ class NavigationActivity : BaseActivity() {
             md.update(signature.toByteArray())
             Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT))
         }
-
     }
 
 }

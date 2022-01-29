@@ -1,6 +1,5 @@
 package com.neppplus.gudocin_android
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import com.neppplus.gudocin_android.databinding.ActivityEditMyEmailBinding
@@ -14,45 +13,34 @@ class EditMyEmailActivity : BaseActivity() {
     lateinit var binding: ActivityEditMyEmailBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
-
         super.onCreate(savedInstanceState)
-       binding=DataBindingUtil.setContentView(this,R.layout.activity_edit_my_email)
-
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_edit_my_email)
         setupEvents()
         setValues()
-
     }
 
     override fun setupEvents() {
-
         binding.btnMyInfoSave.setOnClickListener {
-
-            val inputEamil = binding.edtEmail.text.toString()
-
+            val inputEmail = binding.edtEmail.text.toString()
             apiService.patchRequestEditMyEmail(
                 "receive_email",
-                inputEamil
-            ).enqueue( object : Callback<BasicResponse>{
+                inputEmail
+            ).enqueue(object : Callback<BasicResponse> {
                 override fun onResponse(
                     call: Call<BasicResponse>,
                     response: Response<BasicResponse>
                 ) {
-
-
-
                 }
 
                 override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
 
                 }
-
             })
         }
-
     }
 
     override fun setValues() {
 
     }
+
 }

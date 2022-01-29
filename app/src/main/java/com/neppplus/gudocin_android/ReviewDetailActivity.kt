@@ -30,46 +30,33 @@ class ReviewDetailActivity : BaseActivity() {
 
     override fun setupEvents() {
         binding.btnProductDetail.setOnClickListener {
-
 //            제품 상세페이지 인텐트
             val myIntent = Intent(mContext, ProductItemDetailActivity::class.java)
             myIntent.putExtra("product_id", mReviewData.product)
             mContext.startActivity(myIntent)
-
         }
-
         binding.btnGoReply.setOnClickListener {
-
 //            댓글 페이지로 인텐트
             val myIntent = Intent(mContext, ReplyActivity::class.java)
             myIntent.putExtra("review", mReviewData)
             mContext.startActivity(myIntent)
-
         }
-
         binding.btnBuyProduct.setOnClickListener {
-
             // 결제 페이지로 인텐트
             val myIntent = Intent(mContext, PaymentActivity::class.java)
             myIntent.putExtra("product_id", mReviewData.product)
             myIntent.putExtra("review", mReviewData)
             startActivity(myIntent)
-
         }
-
     }
 
     override fun setValues() {
-
-        mReviewData = intent.getSerializableExtra("review") as ReviewData
-
         setReviewDataToUI()
         getReviewDataFromSever()
-
+        mReviewData = intent.getSerializableExtra("review") as ReviewData
     }
 
     fun setReviewDataToUI() {
-
         binding.txtReviewTitle.text = mReviewData.title
         binding.txtProductName.text = mReviewData.product.name
         binding.txtUserNickName.text = mReviewData.user.nickname
@@ -84,11 +71,9 @@ class ReviewDetailActivity : BaseActivity() {
         val sdf = SimpleDateFormat("yyyy.MM.dd")
         val nowString = sdf.format(now.time)
         binding.txtReviewTime.text = nowString
-
     }
 
     fun getReviewDataFromSever() {
-
 //        리뷰 데이터 API 서버에서 파싱
         apiService.getRequestReviewDetail(mReviewData.id).enqueue(object : Callback<BasicResponse> {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
@@ -106,7 +91,6 @@ class ReviewDetailActivity : BaseActivity() {
 
             }
         })
-
     }
 
 }

@@ -1,12 +1,9 @@
 package com.neppplus.gudocin_android
 
-import android.app.AlertDialog
-import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.EditText
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.neppplus.gudocin_android.databinding.ActivityConsumerInfoBinding
@@ -30,14 +27,10 @@ class ConsumerInfoActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
-
         btnBack.setOnClickListener {
-
             val myIntent = Intent(mContext, PaymentActivity::class.java)
             startActivity(myIntent)
-
             finish()
-
         }
 
         binding.btnConsumerInfoSave.setOnClickListener {
@@ -52,42 +45,31 @@ class ConsumerInfoActivity : BaseActivity() {
                     call: Call<BasicResponse>,
                     response: Response<BasicResponse>
                 ) {
-
                     if (response.isSuccessful) {
                         val basicResponse = response.body()!!
-
                         Toast.makeText(mContext, "주문자 정보가 저장되었습니다.", Toast.LENGTH_SHORT)
                             .show()
 
                         ContextUtil.setToken(mContext, basicResponse.data.token)
-
                         GlobalData.loginUser = basicResponse.data.user
 
                         val myIntent = Intent(mContext, PaymentActivity::class.java)
                         intent.putExtra("nickname", inputName)
                         startActivityForResult(myIntent, 1)
-
                         setResult(RESULT_OK)
-
                         finish()
-
                     } else {
-
                         val errorJson = JSONObject(response.errorBody()!!.string())
                         Log.d("에러경우", errorJson.toString())
 
                         val message = errorJson.getString("message")
-
                         Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show()
-
                     }
-
                 }
 
                 override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
 
                 }
-
             })
 
             apiService.patchRequestEditMyNumber("phone", inputPhone).enqueue(object :
@@ -96,42 +78,31 @@ class ConsumerInfoActivity : BaseActivity() {
                     call: Call<BasicResponse>,
                     response: Response<BasicResponse>
                 ) {
-
                     if (response.isSuccessful) {
                         val basicResponse = response.body()!!
-
                         Toast.makeText(mContext, "주문자 정보가 저장되었습니다.", Toast.LENGTH_SHORT)
                             .show()
 
                         ContextUtil.setToken(mContext, basicResponse.data.token)
-
                         GlobalData.loginUser = basicResponse.data.user
 
                         val myIntent = Intent(mContext, PaymentActivity::class.java)
                         intent.putExtra("phone", inputPhone)
                         startActivityForResult(myIntent, 2)
-
                         setResult(RESULT_OK)
-
                         finish()
-
                     } else {
-
                         val errorJson = JSONObject(response.errorBody()!!.string())
                         Log.d("에러경우", errorJson.toString())
 
                         val message = errorJson.getString("message")
-
                         Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show()
-
                     }
-
                 }
 
                 override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
 
                 }
-
             })
 
             apiService.patchRequestEditMyEmail("email", inputEmail).enqueue(object :
@@ -140,52 +111,39 @@ class ConsumerInfoActivity : BaseActivity() {
                     call: Call<BasicResponse>,
                     response: Response<BasicResponse>
                 ) {
-
                     if (response.isSuccessful) {
                         val basicResponse = response.body()!!
-
                         Toast.makeText(mContext, "주문자 정보가 저장되었습니다.", Toast.LENGTH_SHORT)
                             .show()
 
                         ContextUtil.setToken(mContext, basicResponse.data.token)
-
                         GlobalData.loginUser = basicResponse.data.user
 
                         val myIntent = Intent(mContext, PaymentActivity::class.java)
                         intent.putExtra("email", inputEmail)
                         startActivityForResult(myIntent, 3)
-
                         setResult(RESULT_OK)
-
                         finish()
-
                     } else {
-
                         val errorJson = JSONObject(response.errorBody()!!.string())
                         Log.d("에러경우", errorJson.toString())
 
                         val message = errorJson.getString("message")
-
                         Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show()
-
                     }
-
                 }
 
                 override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
 
                 }
-
             })
 
         }
-
     }
 
     override fun setValues() {
-
         btnBasket.visibility = View.GONE
         btnBell.visibility = View.GONE
-
     }
+
 }

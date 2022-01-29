@@ -17,16 +17,11 @@ class RegistryRevisedCardActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
-
         btnBack.setOnClickListener {
-
             val myIntent = Intent(mContext, RegistryCardListActivity::class.java)
             startActivity(myIntent)
-
             finish()
-
         }
-
     }
 
     override fun setValues() {

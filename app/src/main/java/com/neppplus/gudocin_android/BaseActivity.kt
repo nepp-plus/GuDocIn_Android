@@ -35,28 +35,24 @@ abstract class BaseActivity : AppCompatActivity() {
         supportActionBar?.let {
             setCustomActionBar()
         }
-
     }
 
     fun setCustomActionBar() {
-
-//        기본 액션바 가져오기 -> 액션바는 무조건 있다고 전제.
+//        기본 액션바 가져오기 -> 액션바는 무조건 있다고 전제
         val defActionBar = supportActionBar!!
-
         Log.d("액션바", "설정으로 들어옴")
 
 //        이 액션바를 커스텀 모드로 변경
         defActionBar.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
 
-//        실제 커스텀뷰를 어떤 xml인지 설정
+//        실제 커스텀뷰를 어떤 xml 인지 설정
         defActionBar.setCustomView(R.layout.custom_action_bar)
 
 //        좌우 여백 제거 : ToolBar 소환 -> 여백값 세팅
         val toolBar = defActionBar.customView.parent as Toolbar
         toolBar.setContentInsetsAbsolute(0, 0)
 
-
-//       (액션바의 커스텀뷰에) 추가된 UI요소들을 멤버변수에 연결
+//       (액션바의 커스텀뷰에) 추가된 UI 요소들을 멤버변수에 연결
         btnBack = defActionBar.customView.findViewById(R.id.btnBack)
         btnBell = defActionBar.customView.findViewById(R.id.btnBell)
         btnBasket = defActionBar.customView.findViewById(R.id.btnBasket)
@@ -64,29 +60,24 @@ abstract class BaseActivity : AppCompatActivity() {
         txtCategoryNameInActionBar =
             defActionBar.customView.findViewById(R.id.txtCategoryNameInActionBar)
 
-
         btnBack.setOnClickListener {
             finish()
         }
 
         btnBell.setOnClickListener {
-
             val myIntent = Intent(mContext, NoticeActivity::class.java)
             startActivity(myIntent)
-
         }
-        btnBasket.setOnClickListener {
 
+        btnBasket.setOnClickListener {
             val myIntent = Intent(mContext, BasketListActivity::class.java)
             startActivity(myIntent)
-
         }
 
         SearchBoxInActionBar.setOnClickListener {
             val myIntent = Intent(mContext, SearchActivity::class.java)
             startActivity(myIntent)
         }
-
     }
 
     abstract fun setupEvents()
