@@ -17,6 +17,16 @@
         android:theme="@style/Theme.GuDocIn_Android"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".RegistryRevisedCardActivity"
             android:exported="true" />
         <activity
@@ -98,18 +108,9 @@
             android:name=".terms.TermsActivity"
             android:exported="true" />
         <activity
-            android:name=".NoticeActivity"
-            android:exported="true" />
-        <activity
             android:name=".InitialActivity"
             android:exported="true"
-            android:theme="@style/Theme.GuDocIn_Android.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/Theme.GuDocIn_Android.NoActionBar"></activity>
         <activity
             android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
             android:exported="true">
