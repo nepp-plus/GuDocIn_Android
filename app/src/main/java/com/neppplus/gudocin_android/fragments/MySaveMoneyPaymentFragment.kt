@@ -8,7 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.adapters.MySaveMoneyPaymentRecyclerViewAdapter
-import com.neppplus.gudocin_android.databinding.FragmentMySavemoneyPaymentBinding
+import com.neppplus.gudocin_android.databinding.FragmentMySaveMoneyPaymentBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.PointLogData
 import retrofit2.Call
@@ -20,7 +20,7 @@ class MySaveMoneyPaymentFragment : BaseFragment() {
     val mMyPointList = ArrayList<PointLogData>()
 
     lateinit var mMyPointPaymentRecyclerViewAdapter: MySaveMoneyPaymentRecyclerViewAdapter
-    lateinit var binding: FragmentMySavemoneyPaymentBinding
+    lateinit var binding: FragmentMySaveMoneyPaymentBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,

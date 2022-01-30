@@ -6,11 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.neppplus.gudocin_android.R
-import com.neppplus.gudocin_android.databinding.FragmentMySavemoneyUsageBinding
+import com.neppplus.gudocin_android.databinding.FragmentMySaveMoneyUsageBinding
 
 class MySaveMoneyUsageFragment : BaseFragment() {
 
-    lateinit var binding: FragmentMySavemoneyUsageBinding
+    lateinit var binding: FragmentMySaveMoneyUsageBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,

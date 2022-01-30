@@ -67,26 +67,26 @@
                 android:id="@+id/txtEdtMyPassWord"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="125dp"
-                android:text="비밀번호 변경하기->"
+                android:layout_marginLeft="140dp"
+                android:text="이메일 변경하기"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txtIfEditEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="140dp"
+                android:layout_marginLeft="130dp"
                 android:layout_marginTop="20dp"
-                android:text="이메일 변경하기->"
+                android:text="비밀번호 변경하기"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/txtEditPhoneNum"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="125dp"
+                android:layout_marginLeft="130dp"
                 android:layout_marginTop="20dp"
-                android:text="전화번호 변경하기->"
+                android:text="전화번호 변경하기"
                 android:textStyle="bold" />
 
         </LinearLayout>

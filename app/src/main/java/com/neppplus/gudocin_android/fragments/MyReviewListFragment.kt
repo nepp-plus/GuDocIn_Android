@@ -8,7 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.adapters.MyReviewListRecyclerviewAdapter
-import com.neppplus.gudocin_android.databinding.FragmentMymyReviewListBinding
+import com.neppplus.gudocin_android.databinding.FragmentMyReviewListBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.ReviewData
 import retrofit2.Call
@@ -19,7 +19,7 @@ class MyReviewListFragment : BaseFragment() {
 
     val mMyReviewList = ArrayList<ReviewData>()
 
-    lateinit var binding: FragmentMymyReviewListBinding
+    lateinit var binding: FragmentMyReviewListBinding
     lateinit var mReviewRecyclerviewAdapter: MyReviewListRecyclerviewAdapter
 
     override fun onCreateView(
