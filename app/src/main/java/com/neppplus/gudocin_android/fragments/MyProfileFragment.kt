@@ -68,7 +68,7 @@ class MyProfileFragment : BaseFragment() {
 //     txtEditMyInfo 를 클릭했을 경우
         binding.txtEditMyInfo.setOnClickListener {
 //            Intent 함수를 통해 현재 화면에서 MyInfoEditActivity 화면으로 넘어감
-            val myIntent = Intent(mContext, MyInfoEditActivity::class.java)
+            val myIntent = Intent(mContext, EditMyInfoActivity::class.java)
             startActivity(myIntent)
         }
 

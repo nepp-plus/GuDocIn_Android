@@ -51,7 +51,7 @@
             android:name=".EditMyEmailActivity"
             android:exported="true" />
         <activity
-            android:name=".MyInfoEditActivity"
+            android:name=".EditMyInfoActivity"
             android:exported="true" />
         <activity
             android:name=".ReplyActivity"
@@ -89,7 +89,7 @@
             android:name=".CustomerCenterActivity"
             android:exported="true" />
         <activity
-            android:name=".UserEditActivity"
+            android:name=".EditUserActivity"
             android:exported="true" />
         <activity
             android:name=".BasketListActivity"

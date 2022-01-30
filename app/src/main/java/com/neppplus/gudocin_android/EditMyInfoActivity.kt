@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import com.neppplus.gudocin_android.databinding.ActivityMyInfoEditBinding
+import com.neppplus.gudocin_android.databinding.ActivityEditMyInfoBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.GlobalData
 import com.neppplus.gudocin_android.utils.ContextUtil
@@ -15,15 +15,15 @@ import retrofit2.Callback
 import retrofit2.Response
 
 // BaseActivity 상속
-class MyInfoEditActivity : BaseActivity() {
+class EditMyInfoActivity : BaseActivity() {
 
-    //    xml <layout> -> binding 변수생성 추후 사용
-    lateinit var binding: ActivityMyInfoEditBinding
+    // xml <layout> -> binding 변수생성 추후 사용
+    lateinit var binding: ActivityEditMyInfoBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        binding 변수사용 xml 화면 담아둠
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_my_info_edit)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_edit_my_info)
         setupEvents()
         setValues()
     }

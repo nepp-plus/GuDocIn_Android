@@ -38,7 +38,7 @@ class MySaveMoneyPaymentRecyclerViewAdapter(
         viewType: Int
     ): MySaveMoneyPaymentViewHolder {
         val row =
-            LayoutInflater.from(mContext).inflate(R.layout.my_savemoney_payment_item, parent, false)
+            LayoutInflater.from(mContext).inflate(R.layout.my_save_money_payment_item, parent, false)
         return MySaveMoneyPaymentViewHolder(row)
     }
 

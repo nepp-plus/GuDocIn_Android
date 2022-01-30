@@ -34,7 +34,7 @@ class SuggestListAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SuggestionHolder {
-        val row = LayoutInflater.from(mContext).inflate(R.layout.simple_list_item_1, parent, false)
+        val row = LayoutInflater.from(mContext).inflate(R.layout.simple_list_item, parent, false)
         return SuggestionHolder(row)
     }
 

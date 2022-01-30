@@ -29,7 +29,7 @@ class MySaveMoneyPaymentFragment : BaseFragment() {
     ): View? {
         binding = DataBindingUtil.inflate(
             inflater,
-            R.layout.fragment_my_savemoney_payment,
+            R.layout.fragment_my_save_money_payment,
             container,
             false
         )

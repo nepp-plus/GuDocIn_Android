@@ -15,7 +15,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MyMyReviewListFragment : BaseFragment() {
+class MyReviewListFragment : BaseFragment() {
 
     val mMyReviewList = ArrayList<ReviewData>()
 
@@ -28,7 +28,7 @@ class MyMyReviewListFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding =
-            DataBindingUtil.inflate(inflater, R.layout.fragment_mymy_review_list, container, false)
+            DataBindingUtil.inflate(inflater, R.layout.fragment_my_review_list, container, false)
         return binding.root
     }
 

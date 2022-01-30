@@ -2,15 +2,15 @@ package com.neppplus.gudocin_android
 
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
-import com.neppplus.gudocin_android.databinding.ActivityUserEditBinding
+import com.neppplus.gudocin_android.databinding.ActivityEditUserBinding
 
-class UserEditActivity : BaseActivity() {
+class EditUserActivity : BaseActivity() {
 
-    lateinit var binding: ActivityUserEditBinding
+    lateinit var binding: ActivityEditUserBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_user_edit)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_edit_user)
         setValues()
         setupEvents()
     }
