@@ -63,7 +63,7 @@ class InitialActivity : BaseActivity() {
     }
 
     fun setPage() {
-        if (currentPosition == 3) currentPosition = 0
+        if (currentPosition == 4) currentPosition = 0
         viewPager.setCurrentItem(currentPosition, true)
         currentPosition += 1
     }
@@ -71,7 +71,7 @@ class InitialActivity : BaseActivity() {
     inner class PagerRunnable : Runnable {
         override fun run() {
             while (true) {
-                Thread.sleep(2500)
+                Thread.sleep(1000)
                 handler.sendEmptyMessage(0)
             }
         }

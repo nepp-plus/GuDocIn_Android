@@ -14,9 +14,10 @@ class InitialViewPagerAdapter(private val context: Context) : PagerAdapter() {
     private var layoutInflater: LayoutInflater? = null
 
     val Image = arrayOf(
-        R.drawable.banner_alert_sale,
-        R.drawable.banner_mega_sale,
-        R.drawable.banner_best_discount
+        R.drawable.banner_spring,
+        R.drawable.banner_summer,
+        R.drawable.banner_autumn,
+        R.drawable.banner_winter,
     )
 
     override fun isViewFromObject(view: View, `object`: Any): Boolean {
