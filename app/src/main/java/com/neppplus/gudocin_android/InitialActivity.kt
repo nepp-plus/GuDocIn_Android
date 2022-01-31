@@ -17,6 +17,7 @@ import com.neppplus.gudocin_android.databinding.ActivityInitialBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.GlobalData
 import com.neppplus.gudocin_android.utils.ContextUtil
+import com.tbuonomo.viewpagerdotsindicator.DotsIndicator
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -49,6 +50,9 @@ class InitialActivity : BaseActivity() {
 
         val thread = Thread(PagerRunnable())
         thread.start()
+
+        val dotsIndicator = findViewById<DotsIndicator>(R.id.dotsIndicator)
+        dotsIndicator.setViewPager(viewPager)
     }
 
     override fun onBackPressed() {
@@ -64,7 +68,7 @@ class InitialActivity : BaseActivity() {
 
     fun setPage() {
         if (currentPosition == 4) currentPosition = 0
-        viewPager.setCurrentItem(currentPosition, true)
+        binding.viewPager.setCurrentItem(currentPosition, true)
         currentPosition += 1
     }
 
@@ -130,18 +134,6 @@ class InitialActivity : BaseActivity() {
 
     override fun setValues() {
         setFirebaseToken()
-
-        apiService.getRequestMyInfo().enqueue(object : Callback<BasicResponse> {
-            override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
-                if (response.isSuccessful) {
-                    GlobalData.loginUser = response.body()!!.data.user
-                }
-            }
-
-            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-
-            }
-        })
 
         apiService.getRequestMyInfo().enqueue(object : Callback<BasicResponse> {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
