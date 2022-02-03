@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/naviHome"
+        android:id="@+id/navHome"
         android:enabled="true"
         android:icon="@drawable/nav_home"
         android:title="홈" />
     <item
-        android:id="@+id/naviRanking"
+        android:id="@+id/navRanking"
         android:icon="@drawable/nav_ranking"
         android:title="랭킹" />
     <item
-        android:id="@+id/naviMyProfile"
+        android:id="@+id/navMyProfile"
         android:enabled="true"
         android:icon="@drawable/nav_my_profile"
         android:title="내 정보" />

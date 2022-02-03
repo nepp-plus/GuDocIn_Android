@@ -56,7 +56,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/direction_left_icon" />
+            android:src="@drawable/right_arrow_icon" />
 
     </LinearLayout>
 

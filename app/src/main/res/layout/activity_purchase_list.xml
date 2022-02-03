@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".MyPurchaseListActivity">
+        tools:context=".PurchaseListActivity">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -20,7 +20,7 @@
                 android:id="@+id/txtUserNickName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="~~님의 구매내역" />
+                android:text="nepp_plus님의 구매내역" />
 
         </LinearLayout>
 

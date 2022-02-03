@@ -27,10 +27,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".RegistryRevisedCardActivity"
+            android:name=".CardModifyActivity"
             android:exported="true" />
         <activity
-            android:name=".RegistryCardListActivity"
+            android:name=".CardManagementListActivity"
             android:exported="true" />
         <activity
             android:name=".CardInfoActivity"
@@ -49,16 +49,13 @@
             android:exported="true"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
-            android:name=".EditMyPhoneNumActivity"
+            android:name=".EditPhoneNumActivity"
             android:exported="true" />
         <activity
-            android:name=".MySaveMoneyDetailActivity"
+            android:name=".EditPasswordActivity"
             android:exported="true" />
         <activity
-            android:name=".EditMyPassWordActivity"
-            android:exported="true" />
-        <activity
-            android:name=".EditMyEmailActivity"
+            android:name=".EditEmailActivity"
             android:exported="true" />
         <activity
             android:name=".EditMyInfoActivity"
@@ -76,7 +73,7 @@
             android:name=".WearCategoryListActivity"
             android:exported="true" />
         <activity
-            android:name=".MyPurchaseListActivity"
+            android:name=".PurchaseListActivity"
             android:exported="true" />
         <activity
             android:name=".ReviewDetailActivity"
@@ -102,7 +99,7 @@
             android:name=".EditUserActivity"
             android:exported="true" />
         <activity
-            android:name=".BasketListActivity"
+            android:name=".CartListActivity"
             android:exported="true" />
         <activity
             android:name=".terms.TermsActivity"

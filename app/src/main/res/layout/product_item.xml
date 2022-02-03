@@ -38,14 +38,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="상품명"
-                android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/txtProductPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="가격/1회당" />
+                android:text="가격/1회당"
+                android:textColor="@color/black" />
 
             <LinearLayout
                 android:id="@+id/btnMoreReview"
@@ -57,9 +57,8 @@
                     android:id="@+id/txtOpenReview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="리뷰 더보기.."
-                    android:textColor="@color/black"
-                    android:textStyle="bold" />
+                    android:text="리뷰 더보기"
+                    android:textColor="@color/black" />
 
             </LinearLayout>
 
@@ -114,7 +113,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/direction_left_icon" />
+            android:src="@drawable/right_arrow_icon" />
 
     </LinearLayout>
 

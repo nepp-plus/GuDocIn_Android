@@ -34,7 +34,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="qkddnwls14@gmail.com" />
+                    android:text="nepp@gmail.com" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -46,7 +46,7 @@
                     android:id="@+id/existingEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="아이디는 기존의 이메일 주소가 유지됩니다"
+                    android:hint="새로운 이메일을 입력하세요"
                     android:inputType="textEmailAddress" />
 
                 <TextView
@@ -60,7 +60,7 @@
                     android:id="@+id/edtUserName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="이름을 입력하세요" />
+                    android:hint="새로운 이름을 입력하세요" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -72,7 +72,7 @@
                     android:id="@+id/edtUserPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="변경할 비밀번호를 입력하세요"
+                    android:hint="새로운 비밀번호를 입력하세요"
                     android:inputType="textPassword" />
 
                 <TextView
@@ -85,7 +85,7 @@
                     android:id="@+id/edtUserPasswordCheck"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="변경할 비밀번호를 확인해주세요" />
+                    android:hint="새로운 비밀번호 확인" />
 
                 <Button
                     android:id="@+id/btnEdtUserPassword"
