@@ -5,10 +5,10 @@ import android.os.Bundle
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.neppplus.gudocin_android.adapters.BasketRecyclerAdapter
-import com.neppplus.gudocin_android.databinding.ActivityBasketListBinding
+import com.neppplus.gudocin_android.adapters.CartRecyclerAdapter
+import com.neppplus.gudocin_android.databinding.ActivityCartListBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
-import com.neppplus.gudocin_android.datas.BasketData
+import com.neppplus.gudocin_android.datas.CartData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -16,19 +16,19 @@ import java.text.NumberFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
-class BasketListActivity : BaseActivity() {
+class CartListActivity : BaseActivity() {
 
-    lateinit var binding: ActivityBasketListBinding
+    lateinit var binding: ActivityCartListBinding
 
-    val mBasketList = ArrayList<BasketData>()
+    val mBasketList = ArrayList<CartData>()
 
-    lateinit var mBasketRecyclerAdapter: BasketRecyclerAdapter
+    lateinit var mCartRecyclerAdapter: CartRecyclerAdapter
 
     var total = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_basket_list)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_cart_list)
         setupEvents()
         setValues()
     }
@@ -46,9 +46,9 @@ class BasketListActivity : BaseActivity() {
 
         btnBasket.visibility = View.GONE
 
-        mBasketRecyclerAdapter = BasketRecyclerAdapter(mContext, mBasketList)
+        mCartRecyclerAdapter = CartRecyclerAdapter(mContext, mBasketList)
 
-        binding.basketListRecyclerView.adapter = mBasketRecyclerAdapter
+        binding.basketListRecyclerView.adapter = mCartRecyclerAdapter
         binding.basketListRecyclerView.layoutManager = LinearLayoutManager(mContext)
     }
 
@@ -59,7 +59,7 @@ class BasketListActivity : BaseActivity() {
                     val br = response.body()!!
                     mBasketList.clear()
                     mBasketList.addAll(br.data.carts)
-                    mBasketRecyclerAdapter.notifyDataSetChanged()
+                    mCartRecyclerAdapter.notifyDataSetChanged()
 
                     for (data in mBasketList) {
                         if (data.product.price != null) {

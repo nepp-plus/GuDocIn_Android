@@ -3,7 +3,7 @@ package com.neppplus.gudocin_android
 import android.os.Bundle
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import com.neppplus.gudocin_android.databinding.ActivityEditMyPassWordBinding
+import com.neppplus.gudocin_android.databinding.ActivityEditPasswordBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.utils.ContextUtil
 import org.json.JSONObject
@@ -11,13 +11,13 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class EditMyPassWordActivity : BaseActivity() {
+class EditPasswordActivity : BaseActivity() {
 
-    lateinit var binding: ActivityEditMyPassWordBinding
+    lateinit var binding: ActivityEditPasswordBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_edit_my_pass_word)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_edit_password)
         setupEvents()
         setValues()
     }

@@ -42,7 +42,7 @@ class ReviewDetailActivity : BaseActivity() {
             mContext.startActivity(myIntent)
         }
         binding.btnBuyProduct.setOnClickListener {
-            // 결제 페이지로 인텐트
+//            결제 페이지로 인텐트
             val myIntent = Intent(mContext, PaymentActivity::class.java)
             myIntent.putExtra("product_id", mReviewData.product)
             myIntent.putExtra("review", mReviewData)
@@ -69,8 +69,8 @@ class ReviewDetailActivity : BaseActivity() {
 //        이 화면에서 쓸 날짜를 알맞은 양식으로 변환
         val now = Calendar.getInstance()
         val sdf = SimpleDateFormat("yyyy.MM.dd")
-        val nowString = sdf.format(now.time)
-        binding.txtReviewTime.text = nowString
+        val date = sdf.format(now.time)
+        binding.txtReviewTime.text = date
     }
 
     fun getReviewDataFromSever() {

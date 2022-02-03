@@ -13,10 +13,10 @@ import com.neppplus.gudocin_android.ReviewDetailActivity
 import com.neppplus.gudocin_android.datas.PaymentData
 import java.text.SimpleDateFormat
 
-class MyPurchaseListRecyclerviewAdapter(
+class PurchaseListRecyclerviewAdapter(
     val mContext: Context,
     val mList: ArrayList<PaymentData>
-) : RecyclerView.Adapter<MyPurchaseListRecyclerviewAdapter.MyPurchaseListViewHolder>() {
+) : RecyclerView.Adapter<PurchaseListRecyclerviewAdapter.MyPurchaseListViewHolder>() {
 
     inner class MyPurchaseListViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 

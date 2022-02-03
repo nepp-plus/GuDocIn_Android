@@ -63,7 +63,7 @@ abstract class BaseActivity : AppCompatActivity() {
         }
 
         btnBasket.setOnClickListener {
-            val myIntent = Intent(mContext, BasketListActivity::class.java)
+            val myIntent = Intent(mContext, CartListActivity::class.java)
             startActivity(myIntent)
         }
 

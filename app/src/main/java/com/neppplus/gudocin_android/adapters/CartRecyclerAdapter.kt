@@ -18,16 +18,16 @@ import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.api.ServerAPI
 import com.neppplus.gudocin_android.api.ServerAPIInterface
 import com.neppplus.gudocin_android.datas.BasicResponse
-import com.neppplus.gudocin_android.datas.BasketData
+import com.neppplus.gudocin_android.datas.CartData
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class BasketRecyclerAdapter(
+class CartRecyclerAdapter(
     val mContext: Context,
-    val mList: List<BasketData>
-) : RecyclerView.Adapter<BasketRecyclerAdapter.BasketViewHolder>() {
+    val mList: List<CartData>
+) : RecyclerView.Adapter<CartRecyclerAdapter.BasketViewHolder>() {
 
     inner class BasketViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
@@ -41,7 +41,7 @@ class BasketRecyclerAdapter(
         val imgDeleteSubscribe = view.findViewById<ImageView>(R.id.imgDeleteSubscribe)
         val btnSubscribe = view.findViewById<Button>(R.id.btnSubscribe)
 
-        fun bind(data: BasketData) {
+        fun bind(data: CartData) {
             txtBasketProductName.text = data.product.name
             txtBasketProductPrice.text = data.product.getFormattedPrice()
             Glide.with(mContext).load(data.product.imageUrl).into(imgBasketProductPhoto)
@@ -81,7 +81,7 @@ class BasketRecyclerAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BasketViewHolder {
-        val row = LayoutInflater.from(mContext).inflate(R.layout.basket_list_item, parent, false)
+        val row = LayoutInflater.from(mContext).inflate(R.layout.cart_list_item, parent, false)
         return BasketViewHolder(row)
     }
 

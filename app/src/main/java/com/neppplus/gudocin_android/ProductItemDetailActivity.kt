@@ -117,7 +117,7 @@ class ProductItemDetailActivity : BaseActivity() {
                         alert.setMessage("장바구니로 이동 하시겠습니까?")
                         alert.setPositiveButton("확인",
                             DialogInterface.OnClickListener { dialog, which ->
-                                val myIntent = Intent(mContext, BasketListActivity::class.java)
+                                val myIntent = Intent(mContext, CartListActivity::class.java)
                                 startActivity(myIntent)
                             })
                         alert.setNegativeButton(

@@ -57,7 +57,7 @@ class PaymentActivity : BaseActivity() {
 
     override fun setupEvents() {
         btnBack.setOnClickListener {
-            val myIntent = Intent(mContext, BasketListActivity::class.java)
+            val myIntent = Intent(mContext, CartListActivity::class.java)
             startActivity(myIntent)
             finish()
         }

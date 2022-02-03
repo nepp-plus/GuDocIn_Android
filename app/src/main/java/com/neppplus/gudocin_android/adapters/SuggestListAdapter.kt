@@ -25,8 +25,8 @@ class SuggestListAdapter(
         fun bind(data: ProductData) {
             txtProductName.text = data.name
             itemView.setOnClickListener {
-//                val myIntent = Intent(mContext, ProductItemDetailActivity::class.java)
-//                startActivity(myIntent)
+                /* val myIntent = Intent(mContext, ProductItemDetailActivity::class.java)
+                   startActivity(myIntent) */
                 Toast.makeText(mContext, "클릭됨", Toast.LENGTH_SHORT).show()
             }
         }
@@ -51,5 +51,4 @@ class SuggestListAdapter(
     }
 
     override fun getSingleViewHeight() = 60
-
 }

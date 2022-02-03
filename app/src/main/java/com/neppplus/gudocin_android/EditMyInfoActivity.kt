@@ -62,15 +62,15 @@ class EditMyInfoActivity : BaseActivity() {
             })
         }
         binding.txtIfEditEmail.setOnClickListener {
-            val myIntent = Intent(mContext, EditMyEmailActivity::class.java)
+            val myIntent = Intent(mContext, EditEmailActivity::class.java)
             startActivity(myIntent)
         }
         binding.txtEdtMyPassWord.setOnClickListener {
-            val myIntent = Intent(mContext, EditMyPassWordActivity::class.java)
+            val myIntent = Intent(mContext, EditPasswordActivity::class.java)
             startActivity(myIntent)
         }
         binding.txtEditPhoneNum.setOnClickListener {
-            val myIntent = Intent(mContext, EditMyPhoneNumActivity::class.java)
+            val myIntent = Intent(mContext, EditPhoneNumActivity::class.java)
             startActivity(myIntent)
         }
     }

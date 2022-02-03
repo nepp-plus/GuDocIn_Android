@@ -50,10 +50,10 @@ class NavigationActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
-        binding.bottomNavi.setOnNavigationItemSelectedListener {
+        binding.bottomNav.setOnNavigationItemSelectedListener {
             when (it.itemId) {
-                R.id.naviHome -> binding.viewPager.currentItem = 0
-                R.id.naviRanking -> binding.viewPager.currentItem = 1
+                R.id.navHome -> binding.viewPager.currentItem = 0
+                R.id.navRanking -> binding.viewPager.currentItem = 1
                 else -> binding.viewPager.currentItem = 2
             }
             true
@@ -72,10 +72,10 @@ class NavigationActivity : BaseActivity() {
             registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
                 override fun onPageSelected(position: Int) {
                     super.onPageSelected(position)
-                    binding.bottomNavi.selectedItemId = when (position) {
-                        0 -> R.id.naviHome
-                        1 -> R.id.naviRanking
-                        else -> R.id.naviMyProfile
+                    binding.bottomNav.selectedItemId = when (position) {
+                        0 -> R.id.navHome
+                        1 -> R.id.navRanking
+                        else -> R.id.navMyProfile
                     }
                 }
             })

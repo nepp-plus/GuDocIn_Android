@@ -214,8 +214,8 @@ class ReviewActivity : BaseActivity() {
 
         val now = Calendar.getInstance()
         val sdf = SimpleDateFormat("yyyy.MM.dd")
-        val nowString = sdf.format(now.time)
-        binding.txtReviewTime.text = nowString
+        val date = sdf.format(now.time)
+        binding.txtReviewTime.text = date
     }
 
 }

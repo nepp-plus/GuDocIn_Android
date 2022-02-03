@@ -2,29 +2,29 @@ package com.neppplus.gudocin_android
 
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
-import com.neppplus.gudocin_android.databinding.ActivityEditMyEmailBinding
+import com.neppplus.gudocin_android.databinding.ActivityEditPhoneNumBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class EditMyEmailActivity : BaseActivity() {
+class EditPhoneNumActivity : BaseActivity() {
 
-    lateinit var binding: ActivityEditMyEmailBinding
+    lateinit var binding: ActivityEditPhoneNumBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_edit_my_email)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_edit_phone_num)
         setupEvents()
         setValues()
     }
 
     override fun setupEvents() {
         binding.btnMyInfoSave.setOnClickListener {
-            val inputEmail = binding.edtEmail.text.toString()
-            apiService.patchRequestEditMyEmail(
-                "receive_email",
-                inputEmail
+            val inputPhoneNum = binding.edtMyPhonNum.text.toString()
+            apiService.patchRequestEditMyNumber(
+                "phone",
+                inputPhoneNum
             ).enqueue(object : Callback<BasicResponse> {
                 override fun onResponse(
                     call: Call<BasicResponse>,

@@ -5,16 +5,16 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.neppplus.gudocin_android.adapters.CardRecyclerAdapter
-import com.neppplus.gudocin_android.databinding.ActivityRegistryCardListBinding
+import com.neppplus.gudocin_android.databinding.ActivityCardManagementListBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.CardData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class RegistryCardListActivity : BaseActivity() {
+class CardManagementListActivity : BaseActivity() {
 
-    lateinit var binding: ActivityRegistryCardListBinding
+    lateinit var binding: ActivityCardManagementListBinding
 
     val mCardList = ArrayList<CardData>()
 
@@ -22,11 +22,11 @@ class RegistryCardListActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_registry_card_list)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_card_management_list)
         setupEvents()
         setValues()
 
-        /*binding.imgDropDownArrow.setOnClickListener {
+        /* binding.imgDropDownArrow.setOnClickListener {
             if (binding.layoutExpand1.visibility == View.VISIBLE) {
                 binding.layoutExpand1.visibility = View.GONE
                 binding.imgDropDownArrow.animate().setDuration(200).rotation(180f)
@@ -34,7 +34,7 @@ class RegistryCardListActivity : BaseActivity() {
                 binding.layoutExpand1.visibility = View.VISIBLE
                 binding.imgDropDownArrow.animate().setDuration(200).rotation(0f)
             }
-        }*/
+        } */
     }
 
     fun getCardListFromServer() {
@@ -56,7 +56,7 @@ class RegistryCardListActivity : BaseActivity() {
 
     override fun setupEvents() {
         binding.btnCardInfoRevise.setOnClickListener {
-            val myIntent = Intent(mContext, RegistryRevisedCardActivity::class.java)
+            val myIntent = Intent(mContext, CardModifyActivity::class.java)
             startActivity(myIntent)
             finish()
         }

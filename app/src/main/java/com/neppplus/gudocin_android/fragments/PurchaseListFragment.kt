@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.neppplus.gudocin_android.R
-import com.neppplus.gudocin_android.adapters.MyPurchaseListRecyclerviewAdapter
+import com.neppplus.gudocin_android.adapters.PurchaseListRecyclerviewAdapter
 import com.neppplus.gudocin_android.databinding.FragmentPurchaseListBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.PaymentData
@@ -19,7 +19,7 @@ class PurchaseListFragment : BaseFragment() {
 
     val mMyPurchaseList = ArrayList<PaymentData>()
     lateinit var binding: FragmentPurchaseListBinding
-    lateinit var mMyPurchaseListRecyclerViewAdapter: MyPurchaseListRecyclerviewAdapter
+    lateinit var mPurchaseListRecyclerViewAdapter: PurchaseListRecyclerviewAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,9 +39,9 @@ class PurchaseListFragment : BaseFragment() {
     }
 
     override fun setupEvents() {
-        mMyPurchaseListRecyclerViewAdapter =
-            MyPurchaseListRecyclerviewAdapter(mContext, mMyPurchaseList)
-        binding.myPurchaseRecyclerView.adapter = mMyPurchaseListRecyclerViewAdapter
+        mPurchaseListRecyclerViewAdapter =
+            PurchaseListRecyclerviewAdapter(mContext, mMyPurchaseList)
+        binding.myPurchaseRecyclerView.adapter = mPurchaseListRecyclerViewAdapter
         binding.myPurchaseRecyclerView.layoutManager = LinearLayoutManager(mContext)
     }
 
@@ -56,7 +56,7 @@ class PurchaseListFragment : BaseFragment() {
                     val br = response.body()!!
                     mMyPurchaseList.clear()
                     mMyPurchaseList.addAll(br.data.payments)
-                    mMyPurchaseListRecyclerViewAdapter.notifyDataSetChanged()
+                    mPurchaseListRecyclerViewAdapter.notifyDataSetChanged()
                 }
             }
 

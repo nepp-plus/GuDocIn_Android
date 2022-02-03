@@ -40,7 +40,7 @@ class MyProfileFragment : BaseFragment() {
     // setupEvents 함수 오버로딩
     override fun setupEvents() {
         binding.btnMyProductPurchase.setOnClickListener {
-            val myIntent = Intent(mContext, MyPurchaseListActivity::class.java)
+            val myIntent = Intent(mContext, PurchaseListActivity::class.java)
             startActivity(myIntent)
         }
         binding.txtLogOut.setOnClickListener {
@@ -61,7 +61,7 @@ class MyProfileFragment : BaseFragment() {
         }
 
         binding.txtMyCard.setOnClickListener {
-            val myIntent = Intent(mContext, RegistryCardListActivity::class.java)
+            val myIntent = Intent(mContext, CardManagementListActivity::class.java)
             startActivity(myIntent)
         }
 
@@ -72,24 +72,10 @@ class MyProfileFragment : BaseFragment() {
             startActivity(myIntent)
         }
 
-//       btnSaveMoney 클릭했을 경우
-        binding.btnSaveMoney.setOnClickListener {
-//            Intent 함수를 통해 현재 화면에서 SaveMoneyMyActivity 화면으로 넘어감
-            val myIntent = Intent(mContext, MySaveMoneyDetailActivity::class.java)
-            startActivity(myIntent)
-        }
-
 //        txtMyProductPurchaseList 클릭했을 경우
         binding.txtMyProductPurchaseList.setOnClickListener {
 //            Intent 함수를 통해 현재 화면에서 MyPurchaseListActivity 화면으로 넘어감
-            val myIntent = Intent(mContext, MyPurchaseListActivity::class.java)
-            startActivity(myIntent)
-        }
-
-//       txtUerPointDetails 클릭 했을 경우
-        binding.txtUserPointDetails.setOnClickListener {
-//            Intent 함수를 통해 현재 화면에서 SaveMoneyMyActivity 화면으로 넘어감
-            val myIntent = Intent(mContext, MySaveMoneyDetailActivity::class.java)
+            val myIntent = Intent(mContext, PurchaseListActivity::class.java)
             startActivity(myIntent)
         }
 
