@@ -24,10 +24,11 @@ class ProductItemDetailActivity : BaseActivity() {
 
     lateinit var binding: ActivityProductItemDetailBinding
 
-    val mReviewList = ArrayList<ReviewData>()
     lateinit var mProductData: ProductData
-    lateinit var mReviewRecyclerViewAdapterForProductList: ReviewRecyclerViewAdapterForProductList
     lateinit var mProductContentViewPagerAdapter: ProductContentViewPagerAdapter
+
+    val mReviewList = ArrayList<ReviewData>()
+    lateinit var mReviewRecyclerViewAdapterForProductList: ReviewRecyclerViewAdapterForProductList
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,9 +49,9 @@ class ProductItemDetailActivity : BaseActivity() {
     }
 
     override fun setValues() {
-        getProductItemDetailFromServer()
-
         mProductData = intent.getSerializableExtra("product_id") as ProductData
+
+        getProductItemDetailFromServer()
 
         // 제품 상세 & 상점 상세의 ViewPager 용 어댑터 연결
         mProductContentViewPagerAdapter =

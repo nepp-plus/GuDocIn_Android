@@ -17,9 +17,9 @@ import java.util.*
 
 class ReviewDetailActivity : BaseActivity() {
 
-    lateinit var mReviewData: ReviewData
-
     lateinit var binding: ActivityReviewDetailBinding
+
+    lateinit var mReviewData: ReviewData
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,9 +51,9 @@ class ReviewDetailActivity : BaseActivity() {
     }
 
     override fun setValues() {
+        mReviewData = intent.getSerializableExtra("review") as ReviewData
         setReviewDataToUI()
         getReviewDataFromSever()
-        mReviewData = intent.getSerializableExtra("review") as ReviewData
     }
 
     fun setReviewDataToUI() {
@@ -79,8 +79,6 @@ class ReviewDetailActivity : BaseActivity() {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
                 if (response.isSuccessful) {
                     Log.d("불러오기 성공", "불러오기 성공")
-                    val br = response.body()!!
-//                    mProductData = br.data.product
                 } else {
                     val jsonObj = JSONObject(response.errorBody()!!.string())
                     Log.d("리뷰 등록 실패", jsonObj.toString())

@@ -55,10 +55,10 @@ class ReplyActivity : BaseActivity() {
     }
 
     override fun setValues() {
-        getReplyListFromServer()
         mReviewData = intent.getSerializableExtra("review") as ReviewData
         mReplyAdapter = ReplyAdapter(mContext, R.layout.reply_list_item, mReplyList)
         binding.reviewReplyListview.adapter = mReplyAdapter
+        getReplyListFromServer()
     }
 
     fun getReplyListFromServer() {
