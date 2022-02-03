@@ -1,7 +1,8 @@
-package com.neppplus.gudocin_android
+package com.neppplus.gudocin_android.activities
 
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
+import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.ActivityEditPhoneNumBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import retrofit2.Call
@@ -22,7 +23,7 @@ class EditPhoneNumActivity : BaseActivity() {
     override fun setupEvents() {
         binding.btnMyInfoSave.setOnClickListener {
             val inputPhoneNum = binding.edtMyPhonNum.text.toString()
-            apiService.patchRequestEditMyNumber(
+            apiService.patchRequestEditPhoneNumber(
                 "phone",
                 inputPhoneNum
             ).enqueue(object : Callback<BasicResponse> {

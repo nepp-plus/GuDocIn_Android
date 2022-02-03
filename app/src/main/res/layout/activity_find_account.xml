@@ -8,11 +8,12 @@
         android:gravity="center"
         android:orientation="vertical"
         android:padding="20dp"
-        tools:context=".FindAccountActivity">
+        tools:context=".activities.FindAccountActivity">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -25,7 +26,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="아이디 찾기"
+                    android:text="이메일 찾기"
                     android:textColor="@color/black"
                     android:textSize="20sp"
                     android:textStyle="bold" />
@@ -40,31 +41,33 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp"
-                    android:text="닉네임"
-                    android:textColor="@color/black"
-                    android:textStyle="bold" />
-
-                <EditText
-                    android:id="@+id/edtNickname1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="닉네임을 입력해주세요"
-                    android:singleLine="true" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="30dp"
                     android:text="전화번호"
                     android:textColor="@color/black"
+                    android:textSize="17sp"
                     android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/edtPhone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="전화번호를 입력해주세요"
+                    android:hint="전화번호를 입력하세요"
+                    android:singleLine="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="닉네임"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edtNickname1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="닉네임을 입력하세요"
                     android:singleLine="true" />
 
             </LinearLayout>
@@ -73,7 +76,7 @@
                 android:id="@+id/btnSubmit1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_marginTop="10dp"
                 android:backgroundTint="@color/white"
                 android:text="제출하기"
                 android:textStyle="bold" />
@@ -104,15 +107,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
-                    android:text="아이디"
+                    android:text="이메일"
                     android:textColor="@color/black"
+                    android:textSize="17sp"
                     android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/edtEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="아이디를 입력해주세요"
+                    android:hint="이메일을 입력하세요"
                     android:inputType="textEmailAddress"
                     android:singleLine="true" />
 
@@ -122,13 +126,14 @@
                     android:layout_marginTop="10dp"
                     android:text="닉네임"
                     android:textColor="@color/black"
+                    android:textSize="17sp"
                     android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/edtNickname2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="닉네임을 입력해주세요"
+                    android:hint="닉네임을 입력하세요"
                     android:singleLine="true" />
 
             </LinearLayout>
@@ -137,7 +142,7 @@
                 android:id="@+id/btnSubmit2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
+                android:layout_marginTop="10dp"
                 android:backgroundTint="@color/white"
                 android:text="제출하기"
                 android:textStyle="bold" />

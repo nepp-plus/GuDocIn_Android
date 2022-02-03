@@ -8,7 +8,7 @@
         android:orientation="vertical"
         android:overScrollMode="never"
         android:scrollbars="none"
-        tools:context=".LoginActivity">
+        tools:context=".activities.LoginActivity">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -17,29 +17,22 @@
             android:orientation="vertical"
             android:padding="20dp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="로그인"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
+                android:layout_marginTop="50dp"
+                android:text="로그인"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/edtEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="30dp"
                 android:gravity="center"
-                android:hint="아이디를 입력해주세요 (이메일)"
+                android:hint="이메일을 입력하세요"
                 android:inputType="textEmailAddress"
                 android:singleLine="true" />
 
@@ -48,7 +41,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:hint="비밀번호를 입력해주세요"
+                android:hint="비밀번호를 입력하세요"
                 android:inputType="textPassword"
                 android:singleLine="true" />
 
@@ -56,7 +49,7 @@
                 android:id="@+id/btnLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="10dp"
                 android:backgroundTint="@color/white"
                 android:text="로그인 하기"
                 android:textStyle="bold" />
@@ -93,7 +86,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="40dp"
+                android:layout_margin="50dp"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -101,9 +94,8 @@
                     android:id="@+id/btnKakaoLogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp"
                     android:backgroundTint="@color/white"
-                    android:text="카카오로 계속"
+                    android:text="카카오 로그인"
                     android:textStyle="bold" />
 
                 <Button
@@ -111,7 +103,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
-                    android:text="페이스북으로 계속"
+                    android:text="페이스북 로그인"
                     android:textStyle="bold" />
 
                 <Button
@@ -119,7 +111,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
-                    android:text="구글로 계속"
+                    android:text="구글 로그인"
                     android:textStyle="bold" />
 
             </LinearLayout>

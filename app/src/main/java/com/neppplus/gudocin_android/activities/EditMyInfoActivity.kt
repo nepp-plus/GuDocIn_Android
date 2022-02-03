@@ -1,10 +1,11 @@
-package com.neppplus.gudocin_android
+package com.neppplus.gudocin_android.activities
 
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.ActivityEditMyInfoBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.GlobalData
@@ -31,8 +32,8 @@ class EditMyInfoActivity : BaseActivity() {
     override fun setupEvents() {
 //        btnMyInfoSave 버튼을 클릭했을 경우
         binding.btnMyInfoSave.setOnClickListener {
-            val inputMyName = binding.editMyName.text.toString()
-            apiService.patchRequestEditMyName(
+            val inputMyName = binding.edtName.text.toString()
+            apiService.patchRequestEditNickname(
                 "nickname",
                 inputMyName
 //            서버에서 응답하기
@@ -43,7 +44,7 @@ class EditMyInfoActivity : BaseActivity() {
                 ) {
                     if (response.isSuccessful) {
                         val br = response.body()!!
-                        Toast.makeText(mContext, "이름이 변경되었습니다.", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(mContext, "이름이 변경되었습니다", Toast.LENGTH_SHORT).show()
 
                         ContextUtil.setToken(mContext, br.data.token)
                         GlobalData.loginUser = br.data.user
@@ -61,22 +62,22 @@ class EditMyInfoActivity : BaseActivity() {
                 }
             })
         }
-        binding.txtIfEditEmail.setOnClickListener {
+        binding.txtEdtEmail.setOnClickListener {
             val myIntent = Intent(mContext, EditEmailActivity::class.java)
             startActivity(myIntent)
         }
-        binding.txtEdtMyPassWord.setOnClickListener {
+        binding.txtEdtPassword.setOnClickListener {
             val myIntent = Intent(mContext, EditPasswordActivity::class.java)
             startActivity(myIntent)
         }
-        binding.txtEditPhoneNum.setOnClickListener {
+        binding.txtEdtPhoneNum.setOnClickListener {
             val myIntent = Intent(mContext, EditPhoneNumActivity::class.java)
             startActivity(myIntent)
         }
     }
 
     override fun setValues() {
-        binding.txtMyEmail.text = GlobalData.loginUser!!.email
+
     }
 
 }

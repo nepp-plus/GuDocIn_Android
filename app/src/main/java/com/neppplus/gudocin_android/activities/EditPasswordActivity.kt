@@ -1,8 +1,9 @@
-package com.neppplus.gudocin_android
+package com.neppplus.gudocin_android.activities
 
 import android.os.Bundle
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.ActivityEditPasswordBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.utils.ContextUtil
@@ -28,7 +29,7 @@ class EditPasswordActivity : BaseActivity() {
             val currentPassword = binding.edtCurrentPassword.text.toString()
 
 //            만들어둔 api 서버 접속
-            apiService.patchRequestEditMyPassword(
+            apiService.patchRequestEditPassword(
 //              변경할 필드 password 로, 변경할 비밀번호와 현재 비밀번호 입력
                 "password",
                 inputPassword,
