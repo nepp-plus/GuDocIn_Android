@@ -47,19 +47,12 @@
         <activity
             android:name=".FindAccountActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
-        <activity
-            android:name=".EditPhoneNumActivity"
-            android:exported="true" />
-        <activity
-            android:name=".EditPasswordActivity"
-            android:exported="true" />
-        <activity
-            android:name=".EditEmailActivity"
-            android:exported="true" />
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".EditMyInfoActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ReplyActivity"
             android:exported="true" />
@@ -96,9 +89,6 @@
             android:name=".CustomerCenterActivity"
             android:exported="true" />
         <activity
-            android:name=".EditUserActivity"
-            android:exported="true" />
-        <activity
             android:name=".CartListActivity"
             android:exported="true" />
         <activity
@@ -126,14 +116,16 @@
         <activity
             android:name=".SignUpActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".ReviewActivity"
             android:exported="true" />
         <activity
             android:name=".LoginActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".NavigationActivity"
             android:exported="true" />
