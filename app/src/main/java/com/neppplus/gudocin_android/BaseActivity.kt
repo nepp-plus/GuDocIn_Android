@@ -21,7 +21,8 @@ abstract class BaseActivity : AppCompatActivity() {
 
     lateinit var btnBack: ImageView
     lateinit var btnBasket: ImageView
-    lateinit var SearchBoxInActionBar: LinearLayout
+
+    lateinit var searchBoxInActionBar: LinearLayout
     lateinit var txtCategoryNameInActionBar: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,7 +55,7 @@ abstract class BaseActivity : AppCompatActivity() {
 //       (액션바의 커스텀뷰에) 추가된 UI 요소들을 멤버변수에 연결
         btnBack = defActionBar.customView.findViewById(R.id.btnBack)
         btnBasket = defActionBar.customView.findViewById(R.id.btnBasket)
-        SearchBoxInActionBar = defActionBar.customView.findViewById(R.id.SearchBoxInActionBar)
+        searchBoxInActionBar = defActionBar.customView.findViewById(R.id.SearchBoxInActionBar)
         txtCategoryNameInActionBar =
             defActionBar.customView.findViewById(R.id.txtCategoryNameInActionBar)
 
@@ -67,7 +68,7 @@ abstract class BaseActivity : AppCompatActivity() {
             startActivity(myIntent)
         }
 
-        SearchBoxInActionBar.setOnClickListener {
+        searchBoxInActionBar.setOnClickListener {
             val myIntent = Intent(mContext, SearchActivity::class.java)
             startActivity(myIntent)
         }

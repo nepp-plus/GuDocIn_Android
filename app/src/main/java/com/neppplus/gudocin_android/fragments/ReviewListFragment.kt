@@ -7,20 +7,21 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.neppplus.gudocin_android.R
-import com.neppplus.gudocin_android.adapters.MyReviewListRecyclerviewAdapter
-import com.neppplus.gudocin_android.databinding.FragmentMyReviewListBinding
+import com.neppplus.gudocin_android.adapters.ReviewListRecyclerviewAdapter
+import com.neppplus.gudocin_android.databinding.FragmentReviewListBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.ReviewData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MyReviewListFragment : BaseFragment() {
+class ReviewListFragment : BaseFragment() {
+
+    lateinit var binding: FragmentReviewListBinding
 
     val mMyReviewList = ArrayList<ReviewData>()
 
-    lateinit var binding: FragmentMyReviewListBinding
-    lateinit var mReviewRecyclerviewAdapter: MyReviewListRecyclerviewAdapter
+    lateinit var mReviewRecyclerviewAdapter: ReviewListRecyclerviewAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,7 +29,7 @@ class MyReviewListFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding =
-            DataBindingUtil.inflate(inflater, R.layout.fragment_my_review_list, container, false)
+            DataBindingUtil.inflate(inflater, R.layout.fragment_review_list, container, false)
         return binding.root
     }
 
@@ -39,7 +40,7 @@ class MyReviewListFragment : BaseFragment() {
     }
 
     override fun setupEvents() {
-        mReviewRecyclerviewAdapter = MyReviewListRecyclerviewAdapter(mContext, mMyReviewList)
+        mReviewRecyclerviewAdapter = ReviewListRecyclerviewAdapter(mContext, mMyReviewList)
         binding.myReviewListRecyclerView.adapter = mReviewRecyclerviewAdapter
         binding.myReviewListRecyclerView.layoutManager = LinearLayoutManager(mContext)
     }

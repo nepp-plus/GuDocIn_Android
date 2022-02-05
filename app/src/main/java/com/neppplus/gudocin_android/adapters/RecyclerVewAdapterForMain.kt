@@ -13,7 +13,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
-import com.neppplus.gudocin_android.NavigationActivity
+import com.neppplus.gudocin_android.MainActivity
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.ReviewActivity
 import com.neppplus.gudocin_android.ReviewDetailActivity
@@ -36,7 +36,7 @@ class RecyclerVewAdapterForMain
 
         fun bind() {
             mBannerViewPagerAdapter = BannerViewPagerAdapter(
-                (mContext as NavigationActivity).supportFragmentManager,
+                (mContext as MainActivity).supportFragmentManager,
                 mBannerList
             )
 

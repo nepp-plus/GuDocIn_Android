@@ -106,7 +106,7 @@ class InitialActivity : BaseActivity() {
             myHandler.postDelayed({
                 val myIntent: Intent
                 if (ContextUtil.getAutoLogin(mContext) && ContextUtil.getToken(mContext) != "") {
-                    myIntent = Intent(mContext, NavigationActivity::class.java)
+                    myIntent = Intent(mContext, MainActivity::class.java)
                 } else {
                     myIntent = Intent(mContext, LoginActivity::class.java)
                 }

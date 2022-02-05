@@ -17,8 +17,10 @@ import retrofit2.Response
 
 class PurchaseListFragment : BaseFragment() {
 
-    val mMyPurchaseList = ArrayList<PaymentData>()
     lateinit var binding: FragmentPurchaseListBinding
+
+    val mMyPurchaseList = ArrayList<PaymentData>()
+
     lateinit var mPurchaseListRecyclerViewAdapter: PurchaseListRecyclerviewAdapter
 
     override fun onCreateView(
@@ -26,7 +28,6 @@ class PurchaseListFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-//        데이터 바인딩을 같이 활용 -> xml 도 지정
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_purchase_list, container, false)
         return binding.root

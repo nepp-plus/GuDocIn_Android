@@ -31,8 +31,8 @@ class FindAccountActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
-        binding.btnSubmit1.setOnClickListener {
-            val inputNickname = binding.edtNickname1.text.toString()
+        binding.btnSubmitForEmail.setOnClickListener {
+            val inputNickname = binding.edtNicknameForEmail.text.toString()
             val inputPhone = binding.edtPhone.text.toString()
 
             apiService.getRequestEmail(inputNickname, inputPhone).enqueue(object :
@@ -42,7 +42,7 @@ class FindAccountActivity : BaseActivity() {
                     response: Response<BasicResponse>
                 ) {
                     if (response.isSuccessful) {
-                        Toast.makeText(mContext, "등록된 연락처로 가입한 이메일을 보냈습니다.", Toast.LENGTH_SHORT)
+                        Toast.makeText(mContext, "가입한 이메일을 등록된 연락처로 전송했습니다", Toast.LENGTH_SHORT)
                             .show()
                     } else {
                         val errorJson = JSONObject(response.errorBody()!!.string())
@@ -59,9 +59,9 @@ class FindAccountActivity : BaseActivity() {
             })
         }
 
-        binding.btnSubmit2.setOnClickListener {
+        binding.btnSubmitForPassword.setOnClickListener {
             val inputEmail = binding.edtEmail.text.toString()
-            val inputNickname = binding.edtNickname2.text.toString()
+            val inputNickname = binding.edtNicknameForPassword.text.toString()
 
             apiService.postRequestPassword(inputEmail, inputNickname)
                 .enqueue(object : Callback<BasicResponse> {
@@ -70,7 +70,7 @@ class FindAccountActivity : BaseActivity() {
                         response: Response<BasicResponse>
                     ) {
                         if (response.isSuccessful) {
-                            Toast.makeText(mContext, "임시 비밀번호를 메일로 전송했습니다.", Toast.LENGTH_SHORT)
+                            Toast.makeText(mContext, "임시 비밀번호를 등록된 이메일로 전송했습니다", Toast.LENGTH_SHORT)
                                 .show()
                         } else {
                             val errorJson = JSONObject(response.errorBody()!!.string())

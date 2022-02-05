@@ -12,20 +12,18 @@ import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.ReviewDetailActivity
 import com.neppplus.gudocin_android.datas.ReviewData
 
-class MyReviewListRecyclerviewAdapter(
+class ReviewListRecyclerviewAdapter(
     val mContext: Context,
     val mList: ArrayList<ReviewData>
-) : RecyclerView.Adapter<MyReviewListRecyclerviewAdapter.MyReviewViewHolder>() {
+) : RecyclerView.Adapter<ReviewListRecyclerviewAdapter.MyReviewViewHolder>() {
 
     inner class MyReviewViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         val txtReviewTitle = view.findViewById<TextView>(R.id.txtReviewTitle)
         val txtProductName = view.findViewById<TextView>(R.id.txtProductName)
         val txtReviewDate = view.findViewById<TextView>(R.id.txtReviewDate)
-//        val txtSavedMoneyPaymentCheck = view.findViewById<TextView>(R.id.txtSavedMoneyPaymentCheck)
 
         val btnReviewCheck = view.findViewById<Button>(R.id.btnReviewCheck)
-//        val btnEditReview = view.findViewById<Button>(R.id.btnEditReview)
 
         fun bind(data: ReviewData) {
             txtReviewTitle.text = data.title

@@ -46,7 +46,7 @@ class DeliveryInfoActivity : BaseActivity() {
 /* //           배송지는 어떻게 처리해야 하는지?
             val inputAddress = binding.edtConsumerAddress.text.toString() */
 
-            apiService.patchRequestEditMyName("nickname", inputName).enqueue(object :
+            apiService.patchRequestEditNickname("nickname", inputName).enqueue(object :
                 Callback<BasicResponse> {
                 override fun onResponse(
                     call: Call<BasicResponse>,
@@ -79,7 +79,7 @@ class DeliveryInfoActivity : BaseActivity() {
                 }
             })
 
-            apiService.patchRequestEditMyNumber("phone", inputPhone).enqueue(object :
+            apiService.patchRequestEditPhoneNumber("phone", inputPhone).enqueue(object :
                 Callback<BasicResponse> {
                 override fun onResponse(
                     call: Call<BasicResponse>,

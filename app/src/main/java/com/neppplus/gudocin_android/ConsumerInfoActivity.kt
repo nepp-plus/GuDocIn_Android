@@ -39,7 +39,7 @@ class ConsumerInfoActivity : BaseActivity() {
             val inputPhone = binding.edtConsumerPhone.text.toString()
             val inputEmail = binding.edtConsumerEmail.text.toString()
 
-            apiService.patchRequestEditMyName("nickname", inputName).enqueue(object :
+            apiService.patchRequestEditNickname("nickname", inputName).enqueue(object :
                 Callback<BasicResponse> {
                 override fun onResponse(
                     call: Call<BasicResponse>,
@@ -72,7 +72,7 @@ class ConsumerInfoActivity : BaseActivity() {
                 }
             })
 
-            apiService.patchRequestEditMyNumber("phone", inputPhone).enqueue(object :
+            apiService.patchRequestEditPhoneNumber("phone", inputPhone).enqueue(object :
                 Callback<BasicResponse> {
                 override fun onResponse(
                     call: Call<BasicResponse>,
@@ -105,7 +105,7 @@ class ConsumerInfoActivity : BaseActivity() {
                 }
             })
 
-            apiService.patchRequestEditMyEmail("email", inputEmail).enqueue(object :
+            apiService.patchRequestEditEmail("email", inputEmail).enqueue(object :
                 Callback<BasicResponse> {
                 override fun onResponse(
                     call: Call<BasicResponse>,

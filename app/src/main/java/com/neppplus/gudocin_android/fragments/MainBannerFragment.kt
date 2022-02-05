@@ -1,7 +1,5 @@
 package com.neppplus.gudocin_android.fragments
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +10,7 @@ import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.BannerListBinding
 import com.neppplus.gudocin_android.datas.BannerData
 
-class MainBannerFragment(private val mBannerData: BannerData) : BaseFragment() {
+class MainBannerFragment(private val mBannerData: BannerData? = null) : BaseFragment() {
 
     lateinit var binding: BannerListBinding
 
@@ -32,15 +30,15 @@ class MainBannerFragment(private val mBannerData: BannerData) : BaseFragment() {
     }
 
     override fun setupEvents() {
-       /* binding.imgMainBanner.setOnClickListener {
-            val myUri = Uri.parse(mBannerData.clickUrl)
-            val myIntent = Intent(Intent.ACTION_VIEW, myUri)
-            startActivity(myIntent)
-        } */
+        /* binding.imgMainBanner.setOnClickListener {
+             val myUri = Uri.parse(mBannerData.clickUrl)
+             val myIntent = Intent(Intent.ACTION_VIEW, myUri)
+             startActivity(myIntent)
+         } */
     }
 
     override fun setValues() {
-        Glide.with(mContext).load(mBannerData.displayImageUrl).into(binding.imgMainBanner)
+        Glide.with(mContext).load(mBannerData?.displayImageUrl).into(binding.imgMainBanner)
     }
 
 }

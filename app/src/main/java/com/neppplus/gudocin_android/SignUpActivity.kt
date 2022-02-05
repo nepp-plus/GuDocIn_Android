@@ -93,7 +93,7 @@ class SignUpActivity : BaseActivity() {
                             ContextUtil.setToken(mContext, br.data.token)
                             GlobalData.loginUser = br.data.user
 
-                            val myIntent = Intent(mContext, NavigationActivity::class.java)
+                            val myIntent = Intent(mContext, MainActivity::class.java)
                             startActivity(myIntent)
                             finish()
                         }
@@ -148,7 +148,7 @@ class SignUpActivity : BaseActivity() {
                 binding.txtPasswordCheckResult1.text = "사용해도 좋은 비밀번호입니다"
                 isPasswordLengthOk = true
             } else {
-                binding.txtPasswordCheckResult1.text = "8글자 이상으로 해주세요"
+                binding.txtPasswordCheckResult1.text = "비밀번호는 8글자 이상이어야 합니다"
                 isPasswordLengthOk = false
             }
             isPasswordSame = compareTwoPasswords()
@@ -159,7 +159,7 @@ class SignUpActivity : BaseActivity() {
         }
 
         binding.edtNickname.addTextChangedListener {
-            binding.txtNicknameCheckResult.text = "닉네임 중복검사를 해주세요"
+            binding.txtNicknameCheckResult.text = "닉네임 중복확인을 진행해야 합니다"
             isDuplicatedOk = false
         }
 
@@ -172,10 +172,10 @@ class SignUpActivity : BaseActivity() {
                         response: Response<BasicResponse>
                     ) {
                         if (response.isSuccessful) {
-                            binding.txtNicknameCheckResult.text = "사용해도 좋은 닉네임 입니다"
+                            binding.txtNicknameCheckResult.text = "사용해도 좋은 닉네임입니다"
                             isDuplicatedOk = true
                         } else {
-                            binding.txtNicknameCheckResult.text = "다른 닉네임으로 다시 검사해주세요"
+                            binding.txtNicknameCheckResult.text = "중복된 닉네임이 존재합니다"
                             isDuplicatedOk = false
                         }
                     }
@@ -225,7 +225,7 @@ class SignUpActivity : BaseActivity() {
                             Toast.LENGTH_SHORT
                         ).show()
                     }
-                    val myIntent = Intent(mContext, NavigationActivity::class.java)
+                    val myIntent = Intent(mContext, MainActivity::class.java)
                     startActivity(myIntent)
                     finish()
                 }
@@ -297,7 +297,7 @@ class SignUpActivity : BaseActivity() {
                                             GlobalData.loginUser = br.data.user
 
                                             val myIntent =
-                                                Intent(mContext, NavigationActivity::class.java)
+                                                Intent(mContext, MainActivity::class.java)
                                             startActivity(myIntent)
                                             finish()
                                         }
@@ -356,7 +356,7 @@ class SignUpActivity : BaseActivity() {
                             ContextUtil.setToken(mContext, br.data.token)
                             GlobalData.loginUser = br.data.user
 
-                            val myIntent = Intent(mContext, NavigationActivity::class.java)
+                            val myIntent = Intent(mContext, MainActivity::class.java)
                             startActivity(myIntent)
                             finish()
                         }

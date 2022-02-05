@@ -87,7 +87,7 @@ class EditMyInfoActivity : BaseActivity() {
                         ContextUtil.setToken(mContext, br.data.token)
                         GlobalData.loginUser = br.data.user
 
-                        val myIntent = Intent(mContext, NavigationActivity::class.java)
+                        val myIntent = Intent(mContext, MainActivity::class.java)
                         startActivity(myIntent)
                         finish()
                     }
@@ -127,7 +127,7 @@ class EditMyInfoActivity : BaseActivity() {
                         ContextUtil.setToken(mContext, br.data.token)
                         GlobalData.loginUser = br.data.user
 
-                        val myIntent = Intent(mContext, NavigationActivity::class.java)
+                        val myIntent = Intent(mContext, MainActivity::class.java)
                         startActivity(myIntent)
                         finish()
                     }
@@ -159,7 +159,7 @@ class EditMyInfoActivity : BaseActivity() {
                         ContextUtil.setToken(mContext, br.data.token)
                         GlobalData.loginUser = br.data.user
 
-                        val myIntent = Intent(mContext, NavigationActivity::class.java)
+                        val myIntent = Intent(mContext, MainActivity::class.java)
                         startActivity(myIntent)
                         finish()
                     }
@@ -197,7 +197,7 @@ class EditMyInfoActivity : BaseActivity() {
                         ContextUtil.setToken(mContext, br.data.token)
                         GlobalData.loginUser = br.data.user
 
-                        val myIntent = Intent(mContext, NavigationActivity::class.java)
+                        val myIntent = Intent(mContext, MainActivity::class.java)
                         startActivity(myIntent)
                         finish()
                     }

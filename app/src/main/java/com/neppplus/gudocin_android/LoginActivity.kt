@@ -94,7 +94,7 @@ class LoginActivity : BaseActivity() {
                             ContextUtil.setToken(mContext, br.data.token)
                             GlobalData.loginUser = br.data.user
 
-                            val myIntent = Intent(mContext, NavigationActivity::class.java)
+                            val myIntent = Intent(mContext, MainActivity::class.java)
                             startActivity(myIntent)
                             finish()
                         }
@@ -170,7 +170,7 @@ class LoginActivity : BaseActivity() {
                         ContextUtil.setToken(mContext, basicResponse.data.token)
                         GlobalData.loginUser = basicResponse.data.user
 
-                        val myIntent = Intent(mContext, NavigationActivity::class.java)
+                        val myIntent = Intent(mContext, MainActivity::class.java)
                         startActivity(myIntent)
                         finish()
                     } else {
@@ -224,7 +224,7 @@ class LoginActivity : BaseActivity() {
                                             GlobalData.loginUser = br.data.user
 
                                             val myIntent =
-                                                Intent(mContext, NavigationActivity::class.java)
+                                                Intent(mContext, MainActivity::class.java)
                                             startActivity(myIntent)
                                             finish()
                                         }
@@ -284,7 +284,7 @@ class LoginActivity : BaseActivity() {
                             ContextUtil.setToken(mContext, br.data.token)
                             GlobalData.loginUser = br.data.user
 
-                            val myIntent = Intent(mContext, NavigationActivity::class.java)
+                            val myIntent = Intent(mContext, MainActivity::class.java)
                             startActivity(myIntent)
                             finish()
                         }

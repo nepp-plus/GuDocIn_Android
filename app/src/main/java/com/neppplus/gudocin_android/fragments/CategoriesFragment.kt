@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
-import com.neppplus.gudocin_android.NavigationActivity
+import com.neppplus.gudocin_android.MainActivity
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.FragmentCategoriesBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
@@ -82,7 +82,7 @@ class CategoriesFragment : BaseFragment() {
                                 mClickedSmallCategoryNum = sc.id
 //                            네비게이션 액티비티 -> 홈 프래그먼트
                                 val homeFragment =
-                                    ((requireContext() as NavigationActivity).binding.viewPager.adapter as NavigationActivity.ViewPagerAdapter).getFragment(
+                                    ((requireContext() as MainActivity).binding.viewPager.adapter as MainActivity.ViewPagerAdapter).getFragment(
                                         0
                                     ) as HomeFragment
                                 homeFragment.getReviewListInSmallCategoryFromServer(
