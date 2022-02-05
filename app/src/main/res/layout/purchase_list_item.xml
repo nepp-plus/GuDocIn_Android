@@ -10,10 +10,11 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/txtProductReviewNoName"
+            android:id="@+id/txtReviewingProductName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="상품명" />
+            android:text="상품명"
+            android:textColor="@color/black" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -28,15 +29,17 @@
         android:id="@+id/txtProductPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="12,000원" />
+        android:layout_marginTop="3dp"
+        android:text="12,000원"
+        android:textColor="@color/black" />
 
     <TextView
         android:id="@+id/txtPurchaseDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2021.12.06:구매일자"
-        android:textSize="10dp" />
+        android:layout_marginTop="3dp"
+        android:text="구매일자"
+        android:textColor="@color/black" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -46,7 +49,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
-            android:text="결제정보" />
+            android:text="결제정보"
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/txtPaymentInfo"
@@ -66,7 +70,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
-            android:text="배송정보" />
+            android:text="배송정보"
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/txtDeliveryInfo"
@@ -78,43 +83,17 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/btnWriteReview"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:backgroundTint="@color/white"
+        android:text="리뷰 작성하기" />
 
-        <Button
-            android:id="@+id/btnReviewIndex"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
-            android:text="리뷰 작성하기" />
-
-        <TextView
-            android:layout_width="20dp"
-            android:layout_height="wrap_content" />
-
-        <Button
-            android:id="@+id/btnCancel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
-            android:text="취소하기" />
-
-    </LinearLayout>
-
-    <LinearLayout
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center">
-
-        <TextView
-            android:layout_width="300dp"
-            android:layout_height="1dp"
-            android:background="#808080" />
-
-    </LinearLayout>
+        android:layout_height="1dp"
+        android:background="@color/black" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -122,10 +101,11 @@
         android:layout_marginTop="10dp">
 
         <TextView
-            android:id="@+id/txtProductReviewOkName"
+            android:id="@+id/txtReviewedProductName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="상품명" />
+            android:text="상품명"
+            android:textColor="@color/black" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -137,18 +117,20 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/txtProductPrice2"
+        android:id="@+id/txtProductPrice1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="12,000원" />
+        android:layout_marginTop="3dp"
+        android:text="12,000원"
+        android:textColor="@color/black" />
 
     <TextView
-        android:id="@+id/txtPurchaseDate2"
+        android:id="@+id/txtPurchaseDate1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2021.12.06:구매일자"
-        android:textSize="10dp" />
+        android:layout_marginTop="3dp"
+        android:text="구매일자"
+        android:textColor="@color/black" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -158,7 +140,92 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
-            android:text="결제정보" />
+            android:text="결제정보"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/txtPaymentInfo1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="_더보기"
+            android:textColor="@color/com_facebook_blue" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="배송정보"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/txtDeliveryInfo1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="_더보기"
+            android:textColor="@color/com_facebook_blue" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/black" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/txtCanceledProductName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="상품명"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  취소된 상품입니다"
+            android:textColor="@color/red"
+            android:textSize="10dp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtProductPrice2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:text="12,000원"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/txtPurchaseDate2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="구매일자"
+        android:textColor="@color/black" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="결제정보"
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/txtPaymentInfo2"
@@ -178,7 +245,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
-            android:text="배송정보" />
+            android:text="배송정보"
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/txtDeliveryInfo2"
@@ -190,108 +258,10 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btnReviewCheck"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
-            android:text="리뷰 확인하기" />
-
-        <TextView
-            android:layout_width="20dp"
-            android:layout_height="wrap_content" />
-
-        <Button
-            android:id="@+id/btnCancel2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
-            android:text="취소하기" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center">
-
-        <TextView
-            android:layout_width="300dp"
-            android:layout_height="1dp"
-            android:background="#808080" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
-
-        <TextView
-            android:id="@+id/txtCancelProductName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="상품명" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="  취소된 상품입니다"
-            android:textColor="@color/red"
-            android:textSize="10dp" />
-
-    </LinearLayout>
-
     <TextView
-        android:id="@+id/txtProductPrice3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
         android:layout_marginTop="5dp"
-        android:text="12,000원" />
-
-    <TextView
-        android:id="@+id/txtPurchaseDate3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="2021.12.06:구매일자"
-        android:textSize="10dp" />
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:text="결제정보" />
-
-        <TextView
-            android:id="@+id/txtDeliveryInfo3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:text="_더보기"
-            android:textColor="@color/com_facebook_blue" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center">
-
-        <TextView
-            android:layout_width="300dp"
-            android:layout_height="1dp"
-            android:background="#808080" />
-
-    </LinearLayout>
+        android:background="@color/black" />
 
 </LinearLayout>

@@ -39,13 +39,16 @@
                         android:layout_height="wrap_content"
                         android:text="상품명 "
                         android:textColor="@color/black"
-                        android:textSize="18sp" />
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/txtProductPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text=" 가격/1회당" />
+                        android:text="  가격"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -56,8 +59,9 @@
                         android:id="@+id/txtProductCompanyName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="회사명"
-                        android:textColor="@color/black" />
+                        android:text="가게명"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -77,7 +81,7 @@
                     android:textColor="@color/black"
                     android:textStyle="bold" />
 
-                <!-- 이 리사이클러 뷰는 Horizontal -->
+                <!-- Horizontal RecyclerView -->
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/reviewRecyclerViewForProduct"
                     android:layout_width="match_parent"
@@ -105,11 +109,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
-                <!-- <androidx.viewpager.widget.ViewPager
-                     android:id="@+id/ProductContentViewPager"
-                     android:layout_width="match_parent"
-                     android:layout_height="500dp" /> -->
-
             </LinearLayout>
 
         </ScrollView>
@@ -132,8 +131,8 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:scaleType="centerCrop"
                     android:src="@drawable/cart_icon" />
 
@@ -141,7 +140,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="장바구니"
-                    android:textSize="10sp" />
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -155,10 +156,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="30dp"
-                android:background="@drawable/button_line"
-                android:text="    구독하기    "
+                android:backgroundTint="@color/white"
+                android:text="구독하기"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="17sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 

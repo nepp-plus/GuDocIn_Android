@@ -27,7 +27,7 @@
             android:layout_marginBottom="10dp"
             android:text="카테고리"
             android:textColor="@color/black"
-            android:textSize="12sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <HorizontalScrollView
@@ -53,6 +53,7 @@
             android:layout_marginBottom="10dp"
             android:text="상품 목록"
             android:textColor="@color/black"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView

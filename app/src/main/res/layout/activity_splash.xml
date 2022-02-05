@@ -12,7 +12,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/title_logo" />
+            android:src="@drawable/splash_logo" />
 
     </LinearLayout>
 

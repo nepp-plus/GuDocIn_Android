@@ -36,7 +36,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text=" 10,000원" />
+                android:text=" 10,000원"
+                android:textColor="@color/black" />
 
         </LinearLayout>
 
@@ -44,7 +45,6 @@
             android:id="@+id/btnSubscribe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
             android:backgroundTint="@color/white"
             android:text="전체 상품 구독하기"
             android:textStyle="bold" />

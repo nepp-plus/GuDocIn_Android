@@ -31,10 +31,16 @@
 
             <EditText
                 android:id="@+id/edtReply"
-                android:layout_width="300dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="댓글을 달아주세요..."
+                android:layout_marginLeft="10dp"
+                android:hint="댓글을 남겨보세요"
                 android:inputType="text" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
 
             <Button
                 android:id="@+id/btnEditReply"
@@ -42,7 +48,8 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/white"
                 android:text="전송"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textStyle="bold" />
 
         </LinearLayout>
 

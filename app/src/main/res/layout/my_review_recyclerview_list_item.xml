@@ -10,6 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="리뷰 Title"
+        android:textColor="@color/black"
         android:textSize="17sp" />
 
     <TextView
@@ -18,38 +19,24 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:text="상품명"
+        android:textColor="@color/black"
         android:textSize="15sp" />
 
     <TextView
         android:id="@+id/txtReviewDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:text="작성일자"
+        android:textColor="@color/black"
         android:textSize="13sp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/btnReviewCheck"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btnReviewCheck"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
-            android:text="리뷰 확인하기" />
-
-        <TextView
-            android:layout_width="20dp"
-            android:layout_height="wrap_content" />
-
-        <Button
-            android:id="@+id/btnEditReview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
-            android:text="리뷰 수정하기" />
-
-    </LinearLayout>
+        android:layout_marginTop="5dp"
+        android:backgroundTint="@color/white"
+        android:text="리뷰 확인하기" />
 
 </LinearLayout>

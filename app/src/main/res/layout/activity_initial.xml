@@ -13,8 +13,12 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical"
-            android:padding="20dp"
             tools:context=".InitialActivity">
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:src="@drawable/title_logo" />
 
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/viewPager"
@@ -47,7 +51,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
-                    android:text="로그인 하기" />
+                    android:text="로그인 하러가기"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
 
                 <Button
                     android:id="@+id/btnSignUp"
@@ -55,15 +61,18 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="3dp"
                     android:backgroundTint="@color/white"
-                    android:text="회원가입 하기" />
+                    android:text="회원가입 하러가기"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/txtMaybeLater"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="3dp"
-                    android:text="다음에 할게요"
-                    android:textColor="@color/black" />
+                    android:text="다음에 만나요"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 

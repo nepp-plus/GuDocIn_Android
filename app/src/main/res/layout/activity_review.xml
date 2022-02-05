@@ -253,15 +253,6 @@
                     android:minLines="3"
                     android:textSize="23sp" />
 
-                <Button
-                    android:id="@+id/btnEddPicture"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:backgroundTint="@color/white"
-                    android:text="사진추가"
-                    android:textSize="15sp" />
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
