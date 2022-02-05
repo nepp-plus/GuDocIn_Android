@@ -106,11 +106,11 @@ class EditMyInfoActivity : BaseActivity() {
                 return@setOnClickListener
             }
 
-            val currentPassword = binding.edtCurrentPassword.text.toString()
             val inputPassword = binding.edtPassword.text.toString()
+            val currentPassword = binding.edtCurrentPassword.text.toString()
 
             apiService.patchRequestEditPassword(
-                "password", currentPassword, inputPassword
+                "password", inputPassword, currentPassword
             ).enqueue(object : Callback<BasicResponse> {
                 override fun onResponse(
                     call: Call<BasicResponse>,
