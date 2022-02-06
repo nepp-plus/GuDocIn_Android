@@ -35,7 +35,7 @@ class ServerAPI {
                     .registerTypeAdapter(
                         Date::class.java,
                         DateDeserializer()
-                    )  // Date형태로 실제 파싱 진행 클래스 추가
+                    )  // Date 형태로 실제 파싱 진행 클래스 추가
                     .create()
 
                 retrofit = Retrofit.Builder()

@@ -222,4 +222,11 @@ interface ServerAPIInterface {
     // 사용자 카드 목록 조회
     @GET("/user/card")
     fun getRequestUserCardLookup(): Call<BasicResponse>
+
+    // 프로필 사진 첨부 -> Field 대신 Multipart 활용
+    @Multipart
+    @PUT("/user/image")
+    fun putRequestProfileImg(
+        @Part img: MultipartBody.Part
+    ): Call<BasicResponse>
 }

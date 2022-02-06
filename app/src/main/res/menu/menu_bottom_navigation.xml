@@ -13,5 +13,5 @@
         android:id="@+id/navMyProfile"
         android:enabled="true"
         android:icon="@drawable/nav_my_profile"
-        android:title="내 정보" />
+        android:title="프로필" />
 </menu>
