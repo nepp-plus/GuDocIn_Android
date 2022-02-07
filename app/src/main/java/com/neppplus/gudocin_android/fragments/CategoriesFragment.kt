@@ -20,8 +20,8 @@ class CategoriesFragment : BaseFragment() {
     lateinit var binding: FragmentCategoriesBinding
 
     var mSmallCategoriesList = ArrayList<SmallCategoriesData>()
-    var mLargeCategoryId = 2
-    var mClickedSmallCategoryNum = 1
+    var mLargeCategoryId = 1
+    var mClickedSmallCategoryNum = 2
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,15 +40,15 @@ class CategoriesFragment : BaseFragment() {
 
     override fun setupEvents() {
         binding.btnCategoriesEat.setOnClickListener {
+            mLargeCategoryId = 1
+            getSmallCategoryListFromServer()
+        }
+        binding.btnCategoriesWear.setOnClickListener {
             mLargeCategoryId = 2
             getSmallCategoryListFromServer()
         }
         binding.btnCategoriesLife.setOnClickListener {
             mLargeCategoryId = 3
-            getSmallCategoryListFromServer()
-        }
-        binding.btnCategoriesWear.setOnClickListener {
-            mLargeCategoryId = 1
             getSmallCategoryListFromServer()
         }
     }
@@ -80,7 +80,7 @@ class CategoriesFragment : BaseFragment() {
 
                             view.setOnClickListener {
                                 mClickedSmallCategoryNum = sc.id
-//                            네비게이션 액티비티 -> 홈 프래그먼트
+//                            MainActivity -> HomeFragment
                                 val homeFragment =
                                     ((requireContext() as MainActivity).binding.viewPager.adapter as MainActivity.ViewPagerAdapter).getFragment(
                                         0

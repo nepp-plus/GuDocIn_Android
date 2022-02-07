@@ -23,7 +23,8 @@
             android:id="@+id/txtSmallCategoryName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="소분류 이름" />
+            android:text="소분류 이름"
+            android:textColor="@color/black" />
 
     </LinearLayout>
 

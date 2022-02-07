@@ -56,7 +56,7 @@ interface ServerAPIInterface {
     @GET("/review")
     fun getRequestReviewList(): Call<BasicResponse>
 
-    // 리뷰 등록 - 멀티파트로 파일도 같이 첨부
+    // 리뷰 등록 - Multipart 로 파일도 같이 첨부
     @Multipart
     @POST("/review")
     fun postRequestReviewContent(
@@ -196,11 +196,11 @@ interface ServerAPIInterface {
         @Query("product_id") id: Int
     ): Call<BasicResponse>
 
-    // 사용자 작성 리뷰목록
+    // 사용자 작성 리뷰 목록
     @GET("/user/review")
     fun getRequestUserReviewList(): Call<BasicResponse>
 
-    // 사용자 구독상품 결재 목록
+    // 사용자 구독상품 결제 목록
     @GET("/user/payment")
     fun getRequestUserPurchaseList(): Call<BasicResponse>
 
@@ -229,4 +229,8 @@ interface ServerAPIInterface {
     fun putRequestProfileImg(
         @Part img: MultipartBody.Part
     ): Call<BasicResponse>
+
+    // 리뷰 체크 항목
+    @GET("/review/check_list")
+    fun getRequestReviewCheckList(): Call<BasicResponse>
 }

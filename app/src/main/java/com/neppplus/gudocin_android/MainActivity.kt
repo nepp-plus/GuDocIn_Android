@@ -16,7 +16,7 @@ import com.neppplus.gudocin_android.databinding.ActivityMainBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.fragments.HomeFragment
 import com.neppplus.gudocin_android.fragments.MyProfileFragment
-import com.neppplus.gudocin_android.fragments.RankingFragment
+import com.neppplus.gudocin_android.fragments.RankingListFragment
 import com.neppplus.gudocin_android.utils.ContextUtil
 import retrofit2.Call
 import retrofit2.Callback
@@ -87,7 +87,7 @@ class MainActivity : BaseActivity() {
     inner class ViewPagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
         override fun getItemCount() = 3
 
-        val fragmentList = arrayListOf(HomeFragment(), RankingFragment(), MyProfileFragment())
+        val fragmentList = arrayListOf(HomeFragment(), RankingListFragment(), MyProfileFragment())
 
         override fun createFragment(position: Int): Fragment {
             return fragmentList[position]

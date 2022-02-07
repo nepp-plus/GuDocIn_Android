@@ -33,15 +33,17 @@ class SearchActivity : BaseActivity() {
     override fun setupEvents() {
         binding.btnCategoriesEat.setOnClickListener {
             val myIntent = Intent(mContext, EatCategoryListActivity::class.java)
+            myIntent.putExtra("Large_category_id", 1)
             startActivity(myIntent)
         }
         binding.btnCategoriesWear.setOnClickListener {
             val myIntent = Intent(mContext, WearCategoryListActivity::class.java)
-            myIntent.putExtra("Large_category_id", 1)
+            myIntent.putExtra("Large_category_id", 2)
             startActivity(myIntent)
         }
         binding.btnCategoriesLife.setOnClickListener {
             val myIntent = Intent(mContext, LifeCategoryListActivity::class.java)
+            myIntent.putExtra("Large_category_id", 3)
             startActivity(myIntent)
         }
     }
@@ -50,7 +52,7 @@ class SearchActivity : BaseActivity() {
         getProductListFromServer()
 
         binding.searchView.setMaxSuggestionCount(5)
-        binding.searchView.setHint("생활에 필요한 구독을 검색하세요")
+        binding.searchView.setHint("필요한 구독을 검색하세요")
         binding.searchView.setCardViewElevation(10)
 
         mSuggestListAdapter =
@@ -61,6 +63,7 @@ class SearchActivity : BaseActivity() {
         binding.searchView.setOnSearchActionListener(object :
             MaterialSearchBar.OnSearchActionListener {
             override fun onSearchStateChanged(enabled: Boolean) {
+
             }
 
             override fun onSearchConfirmed(text: CharSequence?) {
@@ -74,7 +77,7 @@ class SearchActivity : BaseActivity() {
             }
 
             override fun onButtonClicked(buttonCode: Int) {
-//            if로 상품이 있으면 상품 띄워주고 없으면 없습니다 띄워주기
+//            상품이 있으면 띄워주고 없으면 "상품이 없습니다" 띄워주기
                 val myIntent = Intent(mContext, ProductItemDetailActivity::class.java)
 //                    myIntent.putExtra("product_id",)
                 startActivity(myIntent)

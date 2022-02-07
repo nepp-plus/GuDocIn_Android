@@ -44,7 +44,7 @@ class CartListActivity : BaseActivity() {
     override fun setValues() {
         getBasketListFromServer()
 
-        btnBasket.visibility = View.GONE
+        btnCart.visibility = View.GONE
 
         mCartRecyclerAdapter = CartRecyclerAdapter(mContext, mBasketList)
 

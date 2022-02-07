@@ -125,17 +125,17 @@ class MyProfileFragment : BaseFragment() {
         }
 
         binding.txtMyCard.setOnClickListener {
-            val myIntent = Intent(mContext, CardManagementListActivity::class.java)
+            val myIntent = Intent(mContext, CardListActivity::class.java)
             startActivity(myIntent)
         }
 
         binding.txtEditMyInfo.setOnClickListener {
-            val myIntent = Intent(mContext, EditMyInfoActivity::class.java)
+            val myIntent = Intent(mContext, EditProfileActivity::class.java)
             startActivity(myIntent)
         }
 
         binding.txtPurchaseReviewList.setOnClickListener {
-            val myIntent = Intent(mContext, PurchaseReviewListActivity::class.java)
+            val myIntent = Intent(mContext, SubscribeHistoryListActivity::class.java)
             startActivity(myIntent)
         }
 
@@ -143,8 +143,6 @@ class MyProfileFragment : BaseFragment() {
 
     override fun setValues() {
         getMyInfoFromServer()
-        binding.txtNickname.text = GlobalData.loginUser!!.nickname
-        Glide.with(mContext).load(GlobalData.loginUser!!.profileImageURL).into(binding.imgProfile)
 
         when (GlobalData.loginUser!!.provider) {
             "facebook" -> {

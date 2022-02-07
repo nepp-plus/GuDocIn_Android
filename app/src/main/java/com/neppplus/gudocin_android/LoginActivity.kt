@@ -115,7 +115,7 @@ class LoginActivity : BaseActivity() {
         }
 
         binding.txtFindAccount.setOnClickListener {
-            val myIntent = Intent(mContext, FindAccountActivity::class.java)
+            val myIntent = Intent(mContext, AccountActivity::class.java)
             startActivity(myIntent)
             finish()
         }
@@ -143,14 +143,12 @@ class LoginActivity : BaseActivity() {
                 }
             }
         }
+
         binding.btnFacebookLogin.setOnClickListener {
             LoginManager.getInstance()
                 .logInWithReadPermissions(this, Arrays.asList("public_profile"))
         }
-        binding.txtSignUp.setOnClickListener {
-            val myIntent = Intent(mContext, SignUpActivity::class.java)
-            startActivity(myIntent)
-        }
+
         binding.btnLogin.setOnClickListener {
             val inputEmail = binding.edtEmail.text.toString()
             val inputPw = binding.edtPassword.text.toString()

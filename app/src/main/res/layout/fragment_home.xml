@@ -18,13 +18,13 @@
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/btnPageUp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ImageView
+            android:id="@+id/imgPageUp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_gravity="bottom|end"
-            android:backgroundTint="@color/white"
-            android:text="상단으로 이동"
+            android:layout_margin="10dp"
+            android:src="@drawable/upward_arrow_icon"
             android:visibility="gone" />
 
     </FrameLayout>

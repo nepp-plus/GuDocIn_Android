@@ -35,8 +35,8 @@ class ReplyAdapter(
 
         Glide.with(mContext).load(data.user.profileImageURL).into(imgUserProfile)
         txtUserNickName.text = data.user.nickname
-        txtReviewReply.text = data.content
         txtReplyTime.text = TimeAgoUtil.getTimeAgoString(data.createdAt)
+        txtReviewReply.text = data.content
 
         return row
     }

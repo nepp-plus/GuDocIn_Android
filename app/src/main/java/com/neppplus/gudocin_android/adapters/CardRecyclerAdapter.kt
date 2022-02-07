@@ -32,7 +32,7 @@ class CardRecyclerAdapter(val mContext: Context, val mList: List<CardData>) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder {
         val row =
-            LayoutInflater.from(mContext).inflate(R.layout.card_management_list_item, parent, false)
+            LayoutInflater.from(mContext).inflate(R.layout.card_list_item, parent, false)
         return CardViewHolder(row)
     }
 

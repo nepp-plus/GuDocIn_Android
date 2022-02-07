@@ -18,7 +18,7 @@ class CardModifyActivity : BaseActivity() {
 
     override fun setupEvents() {
         btnBack.setOnClickListener {
-            val myIntent = Intent(mContext, CardManagementListActivity::class.java)
+            val myIntent = Intent(mContext, CardListActivity::class.java)
             startActivity(myIntent)
             finish()
         }

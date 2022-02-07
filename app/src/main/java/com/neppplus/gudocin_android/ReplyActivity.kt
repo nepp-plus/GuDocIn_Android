@@ -57,28 +57,12 @@ class ReplyActivity : BaseActivity() {
     }
 
     override fun setValues() {
-        getMyInfoFromServer()
         Glide.with(mContext).load(GlobalData.loginUser!!.profileImageURL).into(binding.imgProfile)
 
         mReviewData = intent.getSerializableExtra("review") as ReviewData
         mReplyAdapter = ReplyAdapter(mContext, R.layout.reply_list_item, mReplyList)
         binding.reviewReplyListview.adapter = mReplyAdapter
         getReplyListFromServer()
-    }
-
-    fun getMyInfoFromServer() {
-        apiService.getRequestMyInfo().enqueue(object : Callback<BasicResponse> {
-            override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
-                if (response.isSuccessful) {
-                    val br = response.body()!!
-                    Glide.with(mContext).load(br.data.user.profileImageURL).into(binding.imgProfile)
-                }
-            }
-
-            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-
-            }
-        })
     }
 
     fun getReplyListFromServer() {

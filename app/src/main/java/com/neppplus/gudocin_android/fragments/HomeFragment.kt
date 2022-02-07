@@ -60,17 +60,17 @@ class HomeFragment : BaseFragment() {
                 super.onScrolled(recyclerView, dx, dy)
                 if (!binding.reviewListRecyclerView.canScrollVertically(1)) {
                     Log.d("SCROLL", "끝났음");
-                    binding.btnPageUp.visibility = View.VISIBLE
-                    updown_Listener(binding.reviewListRecyclerView)
+                    binding.imgPageUp.visibility = View.VISIBLE
+                    updownListener(binding.reviewListRecyclerView)
                 } else {
-                    binding.btnPageUp.visibility = View.GONE
+                    binding.imgPageUp.visibility = View.GONE
                 }
             }
         })
     }
 
-    fun updown_Listener(view: RecyclerView?) {
-        binding.btnPageUp.setOnClickListener {
+    fun updownListener(view: RecyclerView?) {
+        binding.imgPageUp.setOnClickListener {
             view?.smoothScrollToPosition(0)
         }
     }

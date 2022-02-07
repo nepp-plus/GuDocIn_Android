@@ -27,7 +27,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="전체 상품 구독 금액"
+                android:text="전체 구독 금액"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
@@ -46,7 +46,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/white"
-            android:text="전체 상품 구독하기"
+            android:text="전체 구독하기"
             android:textStyle="bold" />
 
     </LinearLayout>

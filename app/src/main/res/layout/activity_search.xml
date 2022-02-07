@@ -6,8 +6,8 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="10dp"
         android:orientation="vertical"
-        android:padding="10dp"
         tools:context=".SearchActivity">
 
         <com.mancj.materialsearchbar.MaterialSearchBar
@@ -15,7 +15,7 @@
             style="@style/MaterialSearchBarLight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:mt_hint="생활에 필요한 구독을 검색하세요"
+            app:mt_hint="필요한 구독을 검색하세요"
             app:mt_maxSuggestionsCount="5"
             app:mt_textColor="@color/black" />
 
@@ -23,9 +23,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:text="카테고리 선택"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -41,7 +42,7 @@
                 android:layout_marginEnd="5dp"
                 android:backgroundTint="@color/white"
                 android:shadowColor="@color/black"
-                android:text="식품 구독"
+                android:text="식품구독"
                 android:textColor="@color/black" />
 
             <Button
@@ -51,7 +52,7 @@
                 android:layout_marginEnd="5dp"
                 android:backgroundTint="@color/white"
                 android:shadowColor="@color/black"
-                android:text="의류 구독"
+                android:text="의류구독"
                 android:textColor="@color/black" />
 
             <Button
@@ -61,7 +62,7 @@
                 android:layout_marginEnd="5dp"
                 android:backgroundTint="@color/white"
                 android:shadowColor="@color/black"
-                android:text="생활 구독"
+                android:text="생활구독"
                 android:textColor="@color/black" />
 
         </LinearLayout>

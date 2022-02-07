@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:overScrollMode="never"
@@ -111,16 +111,6 @@
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/txtSignUp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="159dp"
-                android:text="회원가입"
-                android:textColor="@color/black"
-                android:textSize="15sp"
-                android:textStyle="bold" />
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -128,36 +118,31 @@
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <androidx.appcompat.widget.AppCompatButton
+                <Button
                     android:id="@+id/btnKakaoLogin"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:background="@drawable/button_kakao"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:backgroundTint="@color/white"
                     android:text="카카오 로그인"
-                    android:textColor="@color/black"
-                    android:textSize="12sp"
                     android:textStyle="bold" />
 
-                <androidx.appcompat.widget.AppCompatButton
+                <Button
                     android:id="@+id/btnFacebookLogin"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/button_facebook"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:backgroundTint="@color/white"
                     android:text="페이스북 로그인"
-                    android:textColor="@color/black"
-                    android:textSize="12sp"
                     android:textStyle="bold" />
 
-                <androidx.appcompat.widget.AppCompatButton
+                <Button
                     android:id="@+id/btnGoogleLogin"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/button_google"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:backgroundTint="@color/white"
                     android:text="구글 로그인"
-                    android:textColor="@color/black"
-                    android:textSize="12sp"
                     android:textStyle="bold" />
 
             </LinearLayout>

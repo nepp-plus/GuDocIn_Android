@@ -27,7 +27,9 @@ class RecyclerVewAdapterForMain
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     val mBannerList = ArrayList<BannerData>()
+
     lateinit var mBannerViewPagerAdapter: BannerViewPagerAdapter
+
     var isBannerViewPagerInit = false
 
     inner class HeaderViewHolder(row: View) : RecyclerView.ViewHolder(row) {
@@ -41,7 +43,7 @@ class RecyclerVewAdapterForMain
             )
 
             bannerViewPager.adapter = mBannerViewPagerAdapter
-//            바인드 할때마다 페이징 코드가 누적됨
+//            바인드 할 때마다 페이징 코드가 누적됨
 //            최초 1회만 설정하도록
             if (!isBannerViewPagerInit) {
                 var currentPage = 0
@@ -68,52 +70,35 @@ class RecyclerVewAdapterForMain
 
     inner class ItemViewHolder(row: View) : RecyclerView.ViewHolder(row) {
 
+        val imgReviewerImage = row.findViewById<ImageView>(R.id.imgReviewerImage)
         val txtReviewerNickName = row.findViewById<TextView>(R.id.txtReviewerNickName)
+
+        val imgReviewThumbnail = row.findViewById<ImageView>(R.id.imgReviewThumbnail)
+        val txtReviewTitle = row.findViewById<TextView>(R.id.txtReviewTitle)
         val txtProductName = row.findViewById<TextView>(R.id.txtProductName)
         val txtProductPrice = row.findViewById<TextView>(R.id.txtProductPrice)
-        val btnOpenPreview = row.findViewById<LinearLayout>(R.id.btnOpenPreview)
-        val imgReviewSomeNail = row.findViewById<ImageView>(R.id.imgReviewSomeNail)
-        val imgReviewerImage = row.findViewById<ImageView>(R.id.imgReviewerImage)
-        val btnWriteReview = row.findViewById<TextView>(R.id.btnWriteReview)
-        val txtOpenPreView = row.findViewById<TextView>(R.id.txtOpenPreView)
-        val preViewLayout = row.findViewById<LinearLayout>(R.id.preViewLayout)
+
         val btnGotoReviewDetail = row.findViewById<LinearLayout>(R.id.btnGotoReviewDetail)
-        val txReviewTitle = row.findViewById<TextView>(R.id.txReviewTitle)
-        var isPreViewOpen = false
+        val btnWriteReview = row.findViewById<TextView>(R.id.btnWriteReview)
 
         fun bind(data: ReviewData) {
+            Glide.with(mContext).load(data.user.profileImageURL).into(imgReviewerImage)
             txtReviewerNickName.text = "${data.user.nickname} 님의 리뷰"
+
+            Glide.with(mContext).load(data.thumbNailImg).into(imgReviewThumbnail)
+            txtReviewTitle.text = data.title
             txtProductName.text = data.product.name
             txtProductPrice.text = data.product.price.toString()
-            Glide.with(mContext).load(data.thumbNailImg).into(imgReviewSomeNail)
-            Glide.with(mContext).load(data.user.profileImageURL).into(imgReviewerImage)
-            txReviewTitle.text = data.title
-
-            btnWriteReview.setOnClickListener {
-                val myIntent = Intent(mContext, ReviewActivity::class.java)
-                myIntent.putExtra("product", data.product)
-                mContext.startActivity(myIntent)
-            }
-
-            if (isPreViewOpen == false) {
-                btnOpenPreview.setOnClickListener {
-                    preViewLayout.visibility = View.VISIBLE
-                    txtOpenPreView.text = "닫기"
-                    isPreViewOpen = true
-                    notifyDataSetChanged()
-                }
-            } else {
-                btnOpenPreview.setOnClickListener {
-                    preViewLayout.visibility = View.GONE
-                    txtOpenPreView.text = "더보기.."
-                    isPreViewOpen = false
-                    notifyDataSetChanged()
-                }
-            }
 
             btnGotoReviewDetail.setOnClickListener {
                 val myIntent = Intent(mContext, ReviewDetailActivity::class.java)
                 myIntent.putExtra("review", data)
+                mContext.startActivity(myIntent)
+            }
+
+            btnWriteReview.setOnClickListener {
+                val myIntent = Intent(mContext, ReviewActivity::class.java)
+                myIntent.putExtra("product", data.product)
                 mContext.startActivity(myIntent)
             }
         }

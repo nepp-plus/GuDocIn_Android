@@ -148,7 +148,7 @@ class SignUpActivity : BaseActivity() {
                 binding.txtPasswordCheckResult1.text = "사용해도 좋은 비밀번호입니다"
                 isPasswordLengthOk = true
             } else {
-                binding.txtPasswordCheckResult1.text = "비밀번호는 8글자 이상이어야 합니다"
+                binding.txtPasswordCheckResult1.text = "비밀번호는 8자리 이상이어야 합니다"
                 isPasswordLengthOk = false
             }
             isPasswordSame = compareTwoPasswords()
@@ -159,12 +159,16 @@ class SignUpActivity : BaseActivity() {
         }
 
         binding.edtNickname.addTextChangedListener {
-            binding.txtNicknameCheckResult.text = "닉네임 중복확인을 진행해야 합니다"
+            binding.txtNicknameCheckResult.text = "닉네임 중복확인을 진행해 주세요"
             isDuplicatedOk = false
         }
 
         binding.btnNicknameCheck.setOnClickListener {
             val nickname = binding.edtNickname.text.toString()
+            if (nickname == "") {
+                Toast.makeText(mContext, "닉네임을 입력해 주세요", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
             apiService.getRequestDuplicatedCheck("NICK_NAME", nickname)
                 .enqueue(object : Callback<BasicResponse> {
                     override fun onResponse(
@@ -192,15 +196,15 @@ class SignUpActivity : BaseActivity() {
                 return@setOnClickListener
             }
             if (!isPasswordSame) {
-                Toast.makeText(mContext, "두개의 비밀번호는 서로 같아야합니다", Toast.LENGTH_SHORT).show()
+                Toast.makeText(mContext, "비밀번호가 일치하지 않습니다", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             if (!isDuplicatedOk) {
-                Toast.makeText(mContext, "닉네임 중복검사를 해주세요", Toast.LENGTH_SHORT).show()
+                Toast.makeText(mContext, "닉네임 중복확인을 진행해 주세요", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             if (!binding.checkSignUpConfirm.isChecked) {
-                Toast.makeText(mContext, "회원약관 동의를 해주세요", Toast.LENGTH_SHORT).show()
+                Toast.makeText(mContext, "회원약관 동의를 진행해 주세요", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
@@ -240,7 +244,7 @@ class SignUpActivity : BaseActivity() {
             if (binding.checkMarketingConfirm.isChecked) {
                 val alert = AlertDialog.Builder(mContext, R.style.MyDialogTheme)
                 alert.setTitle("마케팅 정보 수신 동의")
-                alert.setMessage("신상품 소식, 이벤트 안내, 고객 혜택 등 다양한 정보를 제공합니다")
+                alert.setMessage("신상품 소식, 이벤트 안내, 고객혜택 등 다양한 정보를 제공합니다")
                 alert.setPositiveButton(
                     "확인",
                     DialogInterface.OnClickListener { dialogInterface, i ->
@@ -259,7 +263,7 @@ class SignUpActivity : BaseActivity() {
             binding.txtPasswordCheckResult2.text = "사용해도 좋습니다"
             return true
         } else {
-            binding.txtPasswordCheckResult2.text = "위의 비밀번호와 일치해야 합니다"
+            binding.txtPasswordCheckResult2.text = "비밀번호가 서로 일치해야 합니다"
             return false
         }
     }

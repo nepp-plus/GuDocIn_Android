@@ -26,7 +26,8 @@
             android:id="@+id/txtReviewer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="유저 닉네임" />
+            android:text="유저 닉네임"
+            android:textColor="@color/black" />
 
     </LinearLayout>
 
@@ -39,7 +40,8 @@
             android:id="@+id/txtReviewTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="리뷰 제목" />
+            android:text="리뷰 제목"
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/txtTag"

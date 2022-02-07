@@ -120,7 +120,7 @@ class InitialActivity : BaseActivity() {
             startActivity(myIntent)
         }
 
-        binding.txtMaybeLater.setOnClickListener {
+        binding.btnSeeYou.setOnClickListener {
             val alert = AlertDialog.Builder(mContext, R.style.MyDialogTheme)
             alert.setTitle("나가기 확인")
             alert.setMessage("정말 나가시겠습니까?")
