@@ -5,21 +5,21 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import com.neppplus.gudocin_android.databinding.ActivityFindAccountBinding
+import com.neppplus.gudocin_android.databinding.ActivityAccountBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class FindAccountActivity : BaseActivity() {
+class AccountActivity : BaseActivity() {
 
-    lateinit var binding: ActivityFindAccountBinding
+    lateinit var binding: ActivityAccountBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_find_account)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_find_account)
+        setContentView(R.layout.activity_account)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_account)
         setupEvents()
         setValues()
     }
