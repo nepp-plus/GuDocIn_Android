@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
-import com.neppplus.gudocin_android.databinding.ActivityEditMyInfoBinding
+import com.neppplus.gudocin_android.databinding.ActivityEditProfileBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.GlobalData
 import com.neppplus.gudocin_android.utils.ContextUtil
@@ -13,16 +13,16 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class EditMyInfoActivity : BaseActivity() {
+class EditProfileActivity : BaseActivity() {
 
-    lateinit var binding: ActivityEditMyInfoBinding
+    lateinit var binding: ActivityEditProfileBinding
 
     var isPasswordLengthOk = false
     var isDuplicatedOk = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_edit_my_info)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_edit_profile)
         setupEvents()
         setValues()
     }
@@ -46,6 +46,10 @@ class EditMyInfoActivity : BaseActivity() {
 
         binding.btnNicknameCheck.setOnClickListener {
             val nickname = binding.edtNicknameCheck.text.toString()
+            if (nickname == "") {
+                Toast.makeText(mContext, "닉네임을 입력해 주세요", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
             apiService.getRequestDuplicatedCheck("NICK_NAME", nickname)
                 .enqueue(object : Callback<BasicResponse> {
                     override fun onResponse(
@@ -69,6 +73,10 @@ class EditMyInfoActivity : BaseActivity() {
 
         binding.btnEmailChange.setOnClickListener {
             val inputEmail = binding.edtEmail.text.toString()
+            if (inputEmail == "") {
+                Toast.makeText(mContext, "이메일을 입력해 주세요", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
             apiService.patchRequestEditEmail(
                 "receive_email", inputEmail
             ).enqueue(object : Callback<BasicResponse> {
@@ -141,6 +149,10 @@ class EditMyInfoActivity : BaseActivity() {
 
         binding.btnPhoneNumChange.setOnClickListener {
             val inputPhoneNumber = binding.edtPhoneNum.text.toString()
+            if (inputPhoneNumber == "") {
+                Toast.makeText(mContext, "전화번호를 입력해 주세요", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
             apiService.patchRequestEditPhoneNumber(
                 "phone", inputPhoneNumber,
             ).enqueue(object : Callback<BasicResponse> {
@@ -172,13 +184,11 @@ class EditMyInfoActivity : BaseActivity() {
         }
 
         binding.btnNicknameChange.setOnClickListener {
-
-            if (!isDuplicatedOk) {
-                Toast.makeText(mContext, "중복된 닉네임이 존재합니다", Toast.LENGTH_SHORT).show()
+            val inputNickname = binding.edtNickname.text.toString()
+            if (inputNickname == "" || !isDuplicatedOk) {
+                Toast.makeText(mContext, "사용가능한 닉네임을 입력해 주세요", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-
-            val inputNickname = binding.edtNickname.text.toString()
             apiService.patchRequestEditNickname(
                 "nickname", inputNickname,
             ).enqueue(object : Callback<BasicResponse> {

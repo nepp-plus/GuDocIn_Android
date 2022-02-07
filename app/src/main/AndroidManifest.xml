@@ -30,7 +30,7 @@
             android:name=".CardModifyActivity"
             android:exported="true" />
         <activity
-            android:name=".CardManagementListActivity"
+            android:name=".CardListActivity"
             android:exported="true" />
         <activity
             android:name=".CardInfoActivity"
@@ -45,12 +45,12 @@
             android:name=".PaymentActivity"
             android:exported="true" />
         <activity
-            android:name=".FindAccountActivity"
+            android:name=".AccountActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".EditMyInfoActivity"
+            android:name=".EditProfileActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize" />
         <activity
@@ -66,7 +66,7 @@
             android:name=".WearCategoryListActivity"
             android:exported="true" />
         <activity
-            android:name=".PurchaseReviewListActivity"
+            android:name=".SubscribeHistoryListActivity"
             android:exported="true" />
         <activity
             android:name=".ReviewDetailActivity"

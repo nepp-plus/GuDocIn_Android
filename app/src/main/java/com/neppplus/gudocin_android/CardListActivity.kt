@@ -5,16 +5,16 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.neppplus.gudocin_android.adapters.CardRecyclerAdapter
-import com.neppplus.gudocin_android.databinding.ActivityCardManagementListBinding
+import com.neppplus.gudocin_android.databinding.ActivityCardListBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.CardData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class CardManagementListActivity : BaseActivity() {
+class CardListActivity : BaseActivity() {
 
-    lateinit var binding: ActivityCardManagementListBinding
+    lateinit var binding: ActivityCardListBinding
 
     val mCardList = ArrayList<CardData>()
 
@@ -22,7 +22,7 @@ class CardManagementListActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_card_management_list)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_card_list)
         setupEvents()
         setValues()
 

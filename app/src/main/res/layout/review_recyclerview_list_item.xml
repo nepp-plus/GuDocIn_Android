@@ -9,7 +9,7 @@
         android:id="@+id/txtReviewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="리뷰 Title"
+        android:text="리뷰 제목"
         android:textColor="@color/black"
         android:textSize="17sp" />
 
@@ -37,6 +37,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:backgroundTint="@color/white"
-        android:text="리뷰 확인하기" />
+        android:text="리뷰확인" />
 
 </LinearLayout>
