@@ -6,7 +6,7 @@
     android:padding="5dp">
 
     <LinearLayout
-        android:id="@+id/rootLayout"
+        android:id="@+id/layoutRoot"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="bottom"
@@ -27,10 +27,11 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/txtProductCompanyName"
+                android:id="@+id/txtStoreName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="회사명"
+                android:layout_marginTop="5dp"
+                android:text="가게명"
                 android:textColor="@color/black" />
 
             <TextView
@@ -44,17 +45,16 @@
                 android:id="@+id/txtProductPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="가격/1회당"
+                android:text="가격"
                 android:textColor="@color/black" />
 
             <LinearLayout
-                android:id="@+id/btnMoreReview"
+                android:id="@+id/layoutReviewDetail"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp">
+                android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/txtOpenReview"
+                    android:id="@+id/txtReviewDetail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="리뷰 더보기"
@@ -67,7 +67,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/reviewItemLayout"
+        android:id="@+id/layoutReviewItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -76,7 +76,7 @@
         android:orientation="horizontal"
         android:outlineSpotShadowColor="@color/black"
         android:padding="5dp"
-        android:visibility="gone">
+        android:visibility="visible">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imgReview"
@@ -90,18 +90,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
-            android:text=" 리뷰 제목 "
+            android:text="리뷰 제목"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="17sp" />
 
         <TextView
-            android:id="@+id/txtReviewWriterName"
+            android:id="@+id/txtReviewWriter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
-            android:text="작성자 명"
+            android:text="작성자"
             android:textColor="@color/black"
-            android:textSize="12sp" />
+            android:textSize="14sp" />
 
         <TextView
             android:layout_width="0dp"
@@ -109,7 +109,7 @@
             android:layout_weight="1" />
 
         <ImageView
-            android:id="@+id/btnGotoReviewDetail"
+            android:id="@+id/imgReviewDetail"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:scaleType="centerCrop"

@@ -22,7 +22,7 @@ import com.neppplus.gudocin_android.datas.ReviewData
 import java.util.*
 import kotlin.collections.ArrayList
 
-class RecyclerVewAdapterForMain
+class ReviewRecyclerVewAdapterForMain
     (val mContext: Context, val mList: List<ReviewData>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -88,7 +88,7 @@ class RecyclerVewAdapterForMain
             Glide.with(mContext).load(data.thumbNailImg).into(imgReviewThumbnail)
             txtReviewTitle.text = data.title
             txtProductName.text = data.product.name
-            txtProductPrice.text = data.product.price.toString()
+            txtProductPrice.text = data.product.getFormattedPrice()
 
             btnGotoReviewDetail.setOnClickListener {
                 val myIntent = Intent(mContext, ReviewDetailActivity::class.java)
@@ -119,13 +119,13 @@ class RecyclerVewAdapterForMain
         return when (viewType) {
             HEADER_VIEW_TYPE -> {
                 val row = LayoutInflater.from(mContext)
-                    .inflate(R.layout.main_top_viewpager_item, parent, false)
+                    .inflate(R.layout.viewpager_for_main, parent, false)
                 HeaderViewHolder(row)
             }
             else -> {
 //                리뷰 아이템
                 val row = LayoutInflater.from(mContext)
-                    .inflate(R.layout.review_item_for_main, parent, false)
+                    .inflate(R.layout.review_list_item_for_main, parent, false)
                 ItemViewHolder(row)
             }
         }

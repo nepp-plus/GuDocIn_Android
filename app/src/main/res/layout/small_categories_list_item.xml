@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/btnRefreshListOfSmallCategory"
+    android:id="@+id/btnSmallCategoryList"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginTop="5dp"
@@ -20,10 +20,10 @@
             android:src="@mipmap/ic_launcher" />
 
         <TextView
-            android:id="@+id/txtSmallCategoryName"
+            android:id="@+id/txtSmallCategory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="소분류 이름"
+            android:text="소분류"
             android:textColor="@color/black" />
 
     </LinearLayout>

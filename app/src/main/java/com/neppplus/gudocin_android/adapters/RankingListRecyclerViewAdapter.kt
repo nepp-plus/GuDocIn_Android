@@ -13,10 +13,10 @@ import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.ReviewDetailActivity
 import com.neppplus.gudocin_android.datas.ReviewData
 
-class RankingRecyclerViewListAdapter(
+class RankingListRecyclerViewAdapter(
     val mContext: Context,
     val mList: ArrayList<ReviewData>
-) : RecyclerView.Adapter<RankingRecyclerViewListAdapter.RakingViewHolder>() {
+) : RecyclerView.Adapter<RankingListRecyclerViewAdapter.RakingViewHolder>() {
 
     inner class RakingViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 

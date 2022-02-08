@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="330dp"
+    android:layout_width="350dp"
     android:layout_height="wrap_content">
 
     <LinearLayout
         android:id="@+id/btnGotoReviewDetail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
         android:layout_margin="10dp"
         android:background="@drawable/radius_box"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
         android:outlineSpotShadowColor="@color/black"
         android:padding="5dp">
 
@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:text="리뷰 제목"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="15sp" />
 
         <TextView
             android:layout_width="0dp"
@@ -43,9 +43,9 @@
             android:id="@+id/txtReviewWriterName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="작성자 명"
+            android:text="작성자"
             android:textColor="@color/black"
-            android:textSize="12sp" />
+            android:textSize="14sp" />
 
         <TextView
             android:layout_width="0dp"

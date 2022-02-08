@@ -24,16 +24,16 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class CartRecyclerAdapter(
+class CartListRecyclerViewAdapter(
     val mContext: Context,
     val mList: List<CartData>
-) : RecyclerView.Adapter<CartRecyclerAdapter.BasketViewHolder>() {
+) : RecyclerView.Adapter<CartListRecyclerViewAdapter.CartViewHolder>() {
 
-    inner class BasketViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    inner class CartViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-        val imgBasketProductPhoto = view.findViewById<ImageView>(R.id.imgBasketProductPhoto)
-        val txtBasketProductName = view.findViewById<TextView>(R.id.txtBasketProductName)
-        val txtBasketProductPrice = view.findViewById<TextView>(R.id.txtBasketProductPrice)
+        val imgCartProductPhoto = view.findViewById<ImageView>(R.id.imgCartProductPhoto)
+        val txtCartProductName = view.findViewById<TextView>(R.id.txtCartProductName)
+        val txtCartProductPrice = view.findViewById<TextView>(R.id.txtCartProductPrice)
 
         lateinit var apiService: ServerAPIInterface
         val retrofit = ServerAPI.getRetrofit(mContext)
@@ -42,9 +42,9 @@ class CartRecyclerAdapter(
         val btnSubscribe = view.findViewById<Button>(R.id.btnSubscribe)
 
         fun bind(data: CartData) {
-            txtBasketProductName.text = data.product.name
-            txtBasketProductPrice.text = data.product.getFormattedPrice()
-            Glide.with(mContext).load(data.product.imageUrl).into(imgBasketProductPhoto)
+            txtCartProductName.text = data.product.name
+            txtCartProductPrice.text = data.product.getFormattedPrice()
+            Glide.with(mContext).load(data.product.imageUrl).into(imgCartProductPhoto)
 
             apiService = retrofit.create(ServerAPIInterface::class.java)
 
@@ -80,12 +80,12 @@ class CartRecyclerAdapter(
 
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BasketViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartViewHolder {
         val row = LayoutInflater.from(mContext).inflate(R.layout.cart_list_item, parent, false)
-        return BasketViewHolder(row)
+        return CartViewHolder(row)
     }
 
-    override fun onBindViewHolder(holder: BasketViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CartViewHolder, position: Int) {
         holder.bind(mList[position])
         holder.btnSubscribe.setOnClickListener {
             val myIntent = Intent(mContext, PaymentActivity::class.java)

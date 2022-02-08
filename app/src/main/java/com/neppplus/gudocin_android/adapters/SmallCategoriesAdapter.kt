@@ -11,19 +11,19 @@ import com.neppplus.gudocin_android.EatCategoryListActivity
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.datas.SmallCategoriesData
 
-class SmallCategoriesListAdapter(
+class SmallCategoriesAdapter(
     val mContext: Context, val mList: List<SmallCategoriesData>
-) : RecyclerView.Adapter<SmallCategoriesListAdapter.SmallCategoryViewHolder>() {
+) : RecyclerView.Adapter<SmallCategoriesAdapter.SmallCategoryViewHolder>() {
 
     inner class SmallCategoryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-        val txtSmallCategoryName = view.findViewById<TextView>(R.id.txtSmallCategoryName)
-        val btnRefreshListOfSmallCategory =
-            view.findViewById<LinearLayout>(R.id.btnRefreshListOfSmallCategory)
+        val txtSmallCategory = view.findViewById<TextView>(R.id.txtSmallCategory)
+        val btnSmallCategoryList =
+            view.findViewById<LinearLayout>(R.id.btnSmallCategoryList)
 
         fun bind(data: SmallCategoriesData) {
-            txtSmallCategoryName.text = data.name
-            btnRefreshListOfSmallCategory.setOnClickListener {
+            txtSmallCategory.text = data.name
+            btnSmallCategoryList.setOnClickListener {
                 val selectedSmallCategoryNum = data.id
                 if (mContext is EatCategoryListActivity) {
                     mContext.mClickedSmallCategoryNum = selectedSmallCategoryNum
@@ -35,7 +35,7 @@ class SmallCategoriesListAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SmallCategoryViewHolder {
         val row =
-            LayoutInflater.from(mContext).inflate(R.layout.small_categories_item, parent, false)
+            LayoutInflater.from(mContext).inflate(R.layout.small_categories_list_item, parent, false)
         return SmallCategoryViewHolder(row)
     }
 

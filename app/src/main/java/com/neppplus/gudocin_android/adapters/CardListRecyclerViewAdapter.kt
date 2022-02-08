@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.datas.CardData
 
-class CardRecyclerAdapter(val mContext: Context, val mList: List<CardData>) :
-    RecyclerView.Adapter<CardRecyclerAdapter.CardViewHolder>() {
+class CardListRecyclerViewAdapter(val mContext: Context, val mList: List<CardData>) :
+    RecyclerView.Adapter<CardListRecyclerViewAdapter.CardViewHolder>() {
 
     inner class CardViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 

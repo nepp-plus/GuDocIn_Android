@@ -14,11 +14,11 @@ import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.ReviewDetailActivity
 import com.neppplus.gudocin_android.datas.ReviewData
 
-class ReviewRecyclerViewAdapterForProductList
+class ReviewRecyclerViewAdapterForProduct
     (val mContext: Context, val mList: List<ReviewData>) :
-    RecyclerView.Adapter<ReviewRecyclerViewAdapterForProductList.ReviewViewHolder>() {
+    RecyclerView.Adapter<ReviewRecyclerViewAdapterForProduct.ReviewViewHolder>() {
 
-    // 이 어댑터는 상품 상세에서 돌리는 리뷰 리스트에 사용합니다
+    // 이 어댑터는 상품 상세화면의 리뷰 리스트에 사용합니다
     inner class ReviewViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val txtReviewWriterName = itemView.findViewById<TextView>(R.id.txtReviewWriterName)
@@ -43,7 +43,7 @@ class ReviewRecyclerViewAdapterForProductList
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReviewViewHolder {
         val row =
             LayoutInflater.from(mContext)
-                .inflate(R.layout.review_item_for_product_detail, parent, false)
+                .inflate(R.layout.review_list_item_for_product_detail, parent, false)
         return ReviewViewHolder(row)
     }
 
