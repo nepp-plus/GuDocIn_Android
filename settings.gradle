@@ -3,13 +3,11 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven { url 'https://devrepo.kakao.com/nexus/content/groups/public/'}
-        jcenter() // Warning: this repository is going to shut down soon
-
-//        카렌더 뷰 세팅
+        maven { url 'https://devrepo.kakao.com/nexus/content/groups/public/' }
         maven { url 'https://jitpack.io' }
-
+        jcenter() // Warning: this repository is going to shut down soon
     }
 }
+
 rootProject.name = "GuDocIn_Android"
 include ':app'

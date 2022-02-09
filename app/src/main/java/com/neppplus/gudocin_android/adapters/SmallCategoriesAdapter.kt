@@ -18,12 +18,12 @@ class SmallCategoriesAdapter(
     inner class SmallCategoryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         val txtSmallCategory = view.findViewById<TextView>(R.id.txtSmallCategory)
-        val btnSmallCategoryList =
-            view.findViewById<LinearLayout>(R.id.btnSmallCategoryList)
+        val layoutSmallCategoryList =
+            view.findViewById<LinearLayout>(R.id.layoutSmallCategoryList)
 
         fun bind(data: SmallCategoriesData) {
             txtSmallCategory.text = data.name
-            btnSmallCategoryList.setOnClickListener {
+            layoutSmallCategoryList.setOnClickListener {
                 val selectedSmallCategoryNum = data.id
                 if (mContext is EatCategoryListActivity) {
                     mContext.mClickedSmallCategoryNum = selectedSmallCategoryNum

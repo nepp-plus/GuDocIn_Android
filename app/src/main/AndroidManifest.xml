@@ -27,15 +27,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CardModifyActivity"
-            android:exported="true" />
-        <activity
-            android:name=".CardListActivity"
-            android:exported="true" />
-        <activity
-            android:name=".CardInfoActivity"
-            android:exported="true" />
-        <activity
             android:name=".DeliveryInfoActivity"
             android:exported="true" />
         <activity

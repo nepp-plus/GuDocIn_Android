@@ -6,7 +6,7 @@ import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.neppplus.gudocin_android.adapters.ProductRecyclerViewAdapter
-import com.neppplus.gudocin_android.adapters.SmallCategoriesListAdapter
+import com.neppplus.gudocin_android.adapters.SmallCategoriesAdapter
 import com.neppplus.gudocin_android.databinding.ActivityWearCategoryListBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.ProductData
@@ -20,10 +20,10 @@ class WearCategoryListActivity : BaseActivity() {
     lateinit var binding: ActivityWearCategoryListBinding
 
     val mSmallCategoryList = ArrayList<SmallCategoriesData>()
-    lateinit var mSmallCategoryListAdapter: SmallCategoriesListAdapter
+    lateinit var mSmallCategoryAdapter: SmallCategoriesAdapter
 
-    var mLargeCategoryId = 1
-    var mClickedSmallCategoryNum = 10
+    var mLargeCategoryId = 2
+    var mClickedSmallCategoryNum = 6
 
     val mProductList = ArrayList<ProductData>()
     lateinit var mProductRecyclerAdapter: ProductRecyclerViewAdapter
@@ -40,10 +40,10 @@ class WearCategoryListActivity : BaseActivity() {
     }
 
     override fun setValues() {
-        binding.txtSelectedCategoryName.text = "의류 구독"
+        binding.txtSelectedCategory.text = "의류구독"
 
         getSmallCategoryListFromServer()
-        mSmallCategoryListAdapter = SmallCategoriesListAdapter(mContext, mSmallCategoryList)
+        mSmallCategoryAdapter = SmallCategoriesAdapter(mContext, mSmallCategoryList)
 
         getProductListInSmallCategoryFromServer()
         mProductRecyclerAdapter = ProductRecyclerViewAdapter(mContext, mProductList)
@@ -82,10 +82,10 @@ class WearCategoryListActivity : BaseActivity() {
 //                    추가한 카테고리 하나하나에 대한 view 생성
                     for (sc in mSmallCategoryList) {
                         val view = LayoutInflater.from(mContext)
-                            .inflate(R.layout.small_categories_item, null)
-                        val txtSmallCategoryName =
-                            view.findViewById<TextView>(R.id.txtSmallCategoryName)
-                        txtSmallCategoryName.text = sc.name
+                            .inflate(R.layout.small_categories_list_item, null)
+                        val txtSmallCategory =
+                            view.findViewById<TextView>(R.id.txtSmallCategory)
+                        txtSmallCategory.text = sc.name
 
                         view.setOnClickListener {
                             mClickedSmallCategoryNum = sc.id
