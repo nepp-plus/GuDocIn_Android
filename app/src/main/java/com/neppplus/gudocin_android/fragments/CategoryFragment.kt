@@ -8,27 +8,28 @@ import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import com.neppplus.gudocin_android.MainActivity
 import com.neppplus.gudocin_android.R
-import com.neppplus.gudocin_android.databinding.FragmentCategoriesBinding
+import com.neppplus.gudocin_android.databinding.FragmentCategoryBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.SmallCategoriesData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class CategoriesFragment : BaseFragment() {
+class CategoryFragment : BaseFragment() {
 
-    lateinit var binding: FragmentCategoriesBinding
+    lateinit var binding: FragmentCategoryBinding
 
     var mSmallCategoriesList = ArrayList<SmallCategoriesData>()
+
     var mLargeCategoryId = 1
-    var mClickedSmallCategoryNum = 2
+    var mClickedSmallCategoryNum = 1
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_categories, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_category, container, false)
         return binding.root
     }
 
@@ -39,15 +40,15 @@ class CategoriesFragment : BaseFragment() {
     }
 
     override fun setupEvents() {
-        binding.btnCategoriesEat.setOnClickListener {
+        binding.btnEatCategory.setOnClickListener {
             mLargeCategoryId = 1
             getSmallCategoryListFromServer()
         }
-        binding.btnCategoriesWear.setOnClickListener {
+        binding.btnWearCategory.setOnClickListener {
             mLargeCategoryId = 2
             getSmallCategoryListFromServer()
         }
-        binding.btnCategoriesLife.setOnClickListener {
+        binding.btnLifeCategory.setOnClickListener {
             mLargeCategoryId = 3
             getSmallCategoryListFromServer()
         }
@@ -73,10 +74,10 @@ class CategoriesFragment : BaseFragment() {
                         binding.smallCategoryList.removeAllViews()
                         for (sc in mSmallCategoriesList) {
                             val view = LayoutInflater.from(mContext)
-                                .inflate(R.layout.small_categories_item, null)
-                            val txtSmallCategoryName =
-                                view.findViewById<TextView>(R.id.txtSmallCategoryName)
-                            txtSmallCategoryName.text = sc.name
+                                .inflate(R.layout.small_categories_list_item, null)
+                            val txtSmallCategory =
+                                view.findViewById<TextView>(R.id.txtSmallCategory)
+                            txtSmallCategory.text = sc.name
 
                             view.setOnClickListener {
                                 mClickedSmallCategoryNum = sc.id
