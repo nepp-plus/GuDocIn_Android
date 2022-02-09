@@ -12,7 +12,7 @@ import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.datas.ReplyData
 import com.neppplus.gudocin_android.utils.TimeAgoUtil
 
-class ReplyAdapter(
+class ReplyListAdapter(
     val mContext: Context,
     val resId: Int,
     val mList: List<ReplyData>

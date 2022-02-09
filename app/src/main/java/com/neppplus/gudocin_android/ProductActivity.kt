@@ -9,9 +9,8 @@ import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
-import com.neppplus.gudocin_android.adapters.ProductContentViewPagerAdapter
-import com.neppplus.gudocin_android.adapters.ReviewRecyclerViewAdapterForProductList
-import com.neppplus.gudocin_android.databinding.ActivityProductItemDetailBinding
+import com.neppplus.gudocin_android.adapters.ReviewListRecyclerViewAdapterForProduct
+import com.neppplus.gudocin_android.databinding.ActivityProductBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.ProductData
 import com.neppplus.gudocin_android.datas.ReviewData
@@ -20,49 +19,45 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ProductItemDetailActivity : BaseActivity() {
+class ProductActivity : BaseActivity() {
 
-    lateinit var binding: ActivityProductItemDetailBinding
+    lateinit var binding: ActivityProductBinding
 
     lateinit var mProductData: ProductData
-    lateinit var mProductContentViewPagerAdapter: ProductContentViewPagerAdapter
+
+    lateinit var mReviewData: ReviewData
 
     val mReviewList = ArrayList<ReviewData>()
-    lateinit var mReviewRecyclerViewAdapterForProductList: ReviewRecyclerViewAdapterForProductList
+    lateinit var mReviewListRecyclerViewAdapterForProduct: ReviewListRecyclerViewAdapterForProduct
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_product_item_detail)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_product)
         setupEvents()
         setValues()
     }
 
     override fun setupEvents() {
-        binding.btnBuyProduct.setOnClickListener {
+        binding.imgCart.setOnClickListener {
+            postAddItemToCartViaServer()
+        }
+        binding.imgCredit.setOnClickListener {
             val myIntent = Intent(mContext, PaymentActivity::class.java)
             myIntent.putExtra("product_id", mProductData)
             startActivity(myIntent)
-        }
-        binding.btnAddCart.setOnClickListener {
-            postAddItemToCartViaServer()
         }
     }
 
     override fun setValues() {
         mProductData = intent.getSerializableExtra("product_id") as ProductData
+//        mReviewData = intent.getSerializableExtra("product_id") as ReviewData
 
         getProductItemDetailFromServer()
 
-        // 제품 상세 & 상점 상세의 ViewPager 용 어댑터 연결
-        mProductContentViewPagerAdapter =
-            ProductContentViewPagerAdapter(supportFragmentManager, mProductData)
-        binding.ProductContentViewPager.adapter = mProductContentViewPagerAdapter
-        binding.ProductContentTabLayout.setupWithViewPager(binding.ProductContentViewPager)
-
         // 리뷰 리스트 Horizontal Recycler View 용 어댑터 연결
-        mReviewRecyclerViewAdapterForProductList =
-            ReviewRecyclerViewAdapterForProductList(mContext, mReviewList)
-        binding.reviewRecyclerViewForProduct.adapter = mReviewRecyclerViewAdapterForProductList
+        mReviewListRecyclerViewAdapterForProduct =
+            ReviewListRecyclerViewAdapterForProduct(mContext, mReviewList)
+        binding.reviewRecyclerViewForProduct.adapter = mReviewListRecyclerViewAdapterForProduct
         binding.reviewRecyclerViewForProduct.layoutManager = LinearLayoutManager(
             mContext,
             LinearLayoutManager.HORIZONTAL, false
@@ -91,7 +86,7 @@ class ProductItemDetailActivity : BaseActivity() {
                             }
                             mReviewList.clear()
                             mReviewList.addAll(response.body()!!.data.product.reviews)
-                            mReviewRecyclerViewAdapterForProductList.notifyDataSetChanged()
+                            mReviewListRecyclerViewAdapterForProduct.notifyDataSetChanged()
                         }
                     }
                 }
@@ -129,6 +124,7 @@ class ProductItemDetailActivity : BaseActivity() {
                     } else {
                         val errorJson = JSONObject(response.errorBody()!!.string())
                         Log.d("에러경우", errorJson.toString())
+
                         val message = errorJson.getString("message")
                         Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show()
                     }

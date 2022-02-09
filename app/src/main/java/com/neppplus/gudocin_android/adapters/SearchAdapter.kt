@@ -12,11 +12,11 @@ import com.mancj.materialsearchbar.adapter.SuggestionsAdapter
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.datas.ProductData
 
-class SuggestListAdapter(
+class SearchAdapter(
     val mContext: Context,
     val mInflater: LayoutInflater,
     var mList: List<ProductData>
-) : SuggestionsAdapter<ProductData, SuggestListAdapter.SuggestionHolder>(mInflater), Filterable {
+) : SuggestionsAdapter<ProductData, SearchAdapter.SuggestionHolder>(mInflater), Filterable {
 
     inner class SuggestionHolder(view: View) : RecyclerView.ViewHolder(view) {
 
@@ -34,7 +34,7 @@ class SuggestListAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SuggestionHolder {
-        val row = LayoutInflater.from(mContext).inflate(R.layout.simple_list_item, parent, false)
+        val row = LayoutInflater.from(mContext).inflate(R.layout.search_list_item, parent, false)
         return SuggestionHolder(row)
     }
 
@@ -45,7 +45,7 @@ class SuggestListAdapter(
     ) {
         if (suggestion != null) {
             if (holder != null) {
-                holder.txtProductName.setText(suggestion.name.toString())
+                holder.txtProductName.setText(suggestion.name)
             }
         }
     }

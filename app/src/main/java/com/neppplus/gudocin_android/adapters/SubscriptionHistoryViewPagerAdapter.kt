@@ -3,10 +3,10 @@ package com.neppplus.gudocin_android.adapters
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.neppplus.gudocin_android.fragments.ReviewListFragment
 import com.neppplus.gudocin_android.fragments.PurchaseListFragment
+import com.neppplus.gudocin_android.fragments.ReviewListFragment
 
-class SubscribeHistoryListViewPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
+class SubscriptionHistoryViewPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
     override fun getCount() = 2
 

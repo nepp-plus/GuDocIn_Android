@@ -22,7 +22,7 @@ import com.neppplus.gudocin_android.datas.ReviewData
 import java.util.*
 import kotlin.collections.ArrayList
 
-class ReviewRecyclerVewAdapterForMain
+class ReviewListRecyclerVewAdapterForMain
     (val mContext: Context, val mList: List<ReviewData>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -119,7 +119,7 @@ class ReviewRecyclerVewAdapterForMain
         return when (viewType) {
             HEADER_VIEW_TYPE -> {
                 val row = LayoutInflater.from(mContext)
-                    .inflate(R.layout.viewpager_for_main, parent, false)
+                    .inflate(R.layout.main_viewpager, parent, false)
                 HeaderViewHolder(row)
             }
             else -> {

@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
-import com.neppplus.gudocin_android.adapters.ReplyAdapter
-import com.neppplus.gudocin_android.databinding.ActivityReplyBinding
+import com.neppplus.gudocin_android.adapters.ReplyListAdapter
+import com.neppplus.gudocin_android.databinding.ActivityReplyListBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.GlobalData
 import com.neppplus.gudocin_android.datas.ReplyData
@@ -14,19 +14,19 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ReplyActivity : BaseActivity() {
+class ReplyListctivity : BaseActivity() {
 
-    lateinit var binding: ActivityReplyBinding
+    lateinit var binding: ActivityReplyListBinding
 
     lateinit var mReviewData: ReviewData
 
-    lateinit var mReplyAdapter: ReplyAdapter
+    lateinit var mReplyListAdapter: ReplyListAdapter
 
     val mReplyList = ArrayList<ReplyData>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_reply)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_reply_list)
         setupEvents()
         setValues()
     }
@@ -60,8 +60,8 @@ class ReplyActivity : BaseActivity() {
         Glide.with(mContext).load(GlobalData.loginUser!!.profileImageURL).into(binding.imgProfile)
 
         mReviewData = intent.getSerializableExtra("review") as ReviewData
-        mReplyAdapter = ReplyAdapter(mContext, R.layout.reply_list_item, mReplyList)
-        binding.reviewReplyListview.adapter = mReplyAdapter
+        mReplyListAdapter = ReplyListAdapter(mContext, R.layout.reply_list_item, mReplyList)
+        binding.reviewReplyListview.adapter = mReplyListAdapter
         getReplyListFromServer()
     }
 
@@ -72,7 +72,7 @@ class ReplyActivity : BaseActivity() {
                     val br = response.body()!!
                     mReplyList.clear()
                     mReplyList.addAll(br.data.replies)
-                    mReplyAdapter.notifyDataSetChanged()
+                    mReplyListAdapter.notifyDataSetChanged()
                 }
             }
 

@@ -12,10 +12,10 @@ import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.ReviewDetailActivity
 import com.neppplus.gudocin_android.datas.ReviewData
 
-class ReviewListRecyclerViewAdapter(
+class ReviewListRecyclerViewAdapterForProfile(
     val mContext: Context,
     val mList: ArrayList<ReviewData>
-) : RecyclerView.Adapter<ReviewListRecyclerViewAdapter.MyReviewViewHolder>() {
+) : RecyclerView.Adapter<ReviewListRecyclerViewAdapterForProfile.MyReviewViewHolder>() {
 
     inner class MyReviewViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
@@ -41,7 +41,7 @@ class ReviewListRecyclerViewAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyReviewViewHolder {
         val row = LayoutInflater.from(mContext)
-            .inflate(R.layout.recyclerview_review_list_item, parent, false)
+            .inflate(R.layout.review_list_item_for_profile, parent, false)
         return MyReviewViewHolder(row)
     }
 
