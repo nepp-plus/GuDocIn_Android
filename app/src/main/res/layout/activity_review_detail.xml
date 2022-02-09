@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -25,6 +26,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:orientation="vertical">
 
                     <TextView
@@ -32,64 +34,95 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="리뷰 제목"
-                        android:textSize="25sp"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/txtProductName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
                         android:layout_marginTop="3dp"
-                        android:text="구독상품이름"
-                        android:textSize="17sp" />
+                        android:background="@color/black" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/imgProfile"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@mipmap/ic_launcher" />
+
+                        <TextView
+                            android:id="@+id/txtUserNickName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:text="유저 닉네임"
+                            android:textColor="@color/black"
+                            android:textSize="17sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="작성일시 : "
+                            android:textColor="@color/black"
+                            android:textSize="17sp" />
+
+                        <TextView
+                            android:id="@+id/txtReviewDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2021.11.26"
+                            android:textColor="@color/black"
+                            android:textSize="17sp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/black" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txtProductName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="구독상품"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
                 <ImageView
                     android:id="@+id/thumbNailImg"
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
+                    android:layout_height="300dp"
                     android:layout_marginTop="5dp"
                     android:scaleType="centerCrop"
                     android:src="@mipmap/ic_launcher" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/txtUserNickName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="유저 닉네임"
-                        android:textSize="20sp" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="작성일시 : "
-                        android:textSize="16sp" />
-
-                    <TextView
-                        android:id="@+id/txtReviewTime"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="작성일시 2021.11.26"
-                        android:textSize="16sp" />
-
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/black" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -101,78 +134,88 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="배송  "
+                        android:textColor="@color/black"
+                        android:textSize="17sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/txtChecked1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="체크박스의 선택된 내용" />
+                        android:text="체크박스 선택 내용"
+                        android:textColor="@color/black" />
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
+                    android:layout_marginTop="3dp"
                     android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="품질  "
+                        android:textColor="@color/black"
+                        android:textSize="17sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/txtChecked2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="체크박스의 선택된 내용" />
+                        android:text="체크박스 선택 내용"
+                        android:textColor="@color/black" />
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="2dp"
+                    android:layout_marginTop="3dp"
                     android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="가격  "
+                        android:textColor="@color/black"
+                        android:textSize="17sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/txtChecked3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="체크박스의 선택된 내용" />
+                        android:text="체크박스 선택 내용"
+                        android:textColor="@color/black" />
 
                 </LinearLayout>
 
-                <RatingBar
+                <com.willy.ratingbar.BaseRatingBar
                     android:id="@+id/ratingBar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    android:layout_gravity="center_horizontal"
                     android:layout_marginTop="5dp"
-                    android:isIndicator="true" />
+                    android:isIndicator="true"
+                    app:srb_stepSize="0.5" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
                     android:background="@drawable/text_box"
-                    android:orientation="vertical"
-                    android:padding="5dp">
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/txtReviewContent"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
+                        android:layout_margin="5dp"
                         android:minLines="3"
-                        android:text="리뷰내용"
+                        android:text="리뷰 내용"
                         android:textColor="@color/black" />
 
                     <TextView
@@ -195,15 +238,16 @@
                     android:id="@+id/btnProductDetail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
                     android:orientation="horizontal"
                     android:paddingVertical="10dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="리뷰 상품 상세보기"
-                        android:textStyle="bold" />
+                        android:text="리뷰 상품 상세 보기"
+                        android:textColor="@color/black"
+                        android:textSize="17sp" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -213,6 +257,7 @@
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
+                        android:layout_marginTop="3dp"
                         android:src="@drawable/right_arrow_icon" />
 
                 </LinearLayout>
@@ -223,18 +268,19 @@
                     android:background="@color/black" />
 
                 <LinearLayout
-                    android:id="@+id/btnGoReply"
+                    android:id="@+id/btnProductReply"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
                     android:orientation="horizontal"
                     android:paddingVertical="10dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="리뷰 상품 댓글보기"
-                        android:textStyle="bold" />
+                        android:text="리뷰 상품 댓글 보기"
+                        android:textColor="@color/black"
+                        android:textSize="17sp" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -244,6 +290,7 @@
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
+                        android:layout_marginTop="3dp"
                         android:src="@drawable/right_arrow_icon" />
 
                 </LinearLayout>
@@ -257,25 +304,15 @@
 
         </ScrollView>
 
-        <LinearLayout
+        <Button
             android:id="@+id/btnBuyProduct"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/gray3"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:padding="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@null"
-                android:gravity="center_vertical"
-                android:text="구독하기"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
-
-        </LinearLayout>
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/white"
+            android:text="구독하기"
+            android:textSize="17sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 

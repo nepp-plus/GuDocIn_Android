@@ -12,8 +12,6 @@ import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.text.SimpleDateFormat
-import java.util.*
 
 class ReviewDetailActivity : BaseActivity() {
 
@@ -35,12 +33,14 @@ class ReviewDetailActivity : BaseActivity() {
             myIntent.putExtra("product_id", mReviewData.product)
             mContext.startActivity(myIntent)
         }
-        binding.btnGoReply.setOnClickListener {
+
+        binding.btnProductReply.setOnClickListener {
 //            댓글 페이지로 인텐트
             val myIntent = Intent(mContext, ReplyActivity::class.java)
             myIntent.putExtra("review", mReviewData)
             mContext.startActivity(myIntent)
         }
+
         binding.btnBuyProduct.setOnClickListener {
 //            결제 페이지로 인텐트
             val myIntent = Intent(mContext, PaymentActivity::class.java)
@@ -48,29 +48,29 @@ class ReviewDetailActivity : BaseActivity() {
             myIntent.putExtra("review", mReviewData)
             startActivity(myIntent)
         }
+
+        binding.ratingBar.setOnRatingChangeListener { ratingBar, rating, fromUser ->
+            ratingBar.setIsIndicator(true)
+        }
     }
 
     override fun setValues() {
         mReviewData = intent.getSerializableExtra("review") as ReviewData
         setReviewDataToUI()
         getReviewDataFromSever()
+        Glide.with(mContext).load(mReviewData.user.profileImageURL).into(binding.imgProfile)
     }
 
     fun setReviewDataToUI() {
         binding.txtReviewTitle.text = mReviewData.title
-        binding.txtProductName.text = mReviewData.product.name
         binding.txtUserNickName.text = mReviewData.user.nickname
+        binding.txtReviewDate.text = mReviewData.createdAt
+        binding.txtProductName.text = mReviewData.product.name
         binding.txtReviewContent.text = mReviewData.content
         Glide.with(mContext).load(mReviewData.thumbNailImg).into(binding.thumbNailImg)
 
 //        평점을 ratingBar 에 가져오는 바인딩 함수(Int -> Float 으로 변환)
         binding.ratingBar.rating = mReviewData.score.toFloat()
-
-//        이 화면에서 쓸 날짜를 알맞은 양식으로 변환
-        val now = Calendar.getInstance()
-        val sdf = SimpleDateFormat("yyyy.MM.dd")
-        val date = sdf.format(now.time)
-        binding.txtReviewTime.text = date
     }
 
     fun getReviewDataFromSever() {
@@ -78,10 +78,10 @@ class ReviewDetailActivity : BaseActivity() {
         apiService.getRequestReviewDetail(mReviewData.id).enqueue(object : Callback<BasicResponse> {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
                 if (response.isSuccessful) {
-                    Log.d("불러오기 성공", "불러오기 성공")
+                    Log.d("리뷰 불러오기 성공", "리뷰 불러오기 성공")
                 } else {
                     val jsonObj = JSONObject(response.errorBody()!!.string())
-                    Log.d("리뷰 등록 실패", jsonObj.toString())
+                    Log.d("리뷰 불러오기 실패", jsonObj.toString())
                 }
             }
 

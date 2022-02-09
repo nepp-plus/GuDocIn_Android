@@ -15,62 +15,74 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="10dp"
                 android:orientation="vertical"
-                android:padding="20dp"
                 tools:context=".ReviewActivity">
 
                 <EditText
+
                     android:id="@+id/edtReviewTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:hint="리뷰 제목을 입력해 주세요."
-                    android:singleLine="true"
-                    android:textSize="23sp" />
+                    android:hint="리뷰 제목을 작성해 주세요"
+                    android:textSize="20sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
                     android:orientation="horizontal">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imgProfile"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@mipmap/ic_launcher" />
 
                     <TextView
                         android:id="@+id/txtUserNickName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
                         android:text="유저 닉네임"
-                        android:textSize="20sp" />
+                        android:textColor="@color/black"
+                        android:textSize="17sp" />
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="작성일시 : "
-                        android:textSize="16sp" />
+                        android:textColor="@color/black"
+                        android:textSize="17sp" />
 
                     <TextView
                         android:id="@+id/txtReviewTime"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="작성일시 2021.11.26"
-                        android:textSize="16sp" />
+                        android:text="2021.11.26"
+                        android:textColor="@color/black"
+                        android:textSize="17sp" />
 
                 </LinearLayout>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
+                    android:layout_marginTop="5dp"
                     android:background="@color/black" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="5dp"
                     android:gravity="center"
                     android:orientation="vertical">
 
@@ -79,27 +91,22 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="구독상품"
-                        android:textSize="22sp"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
                         android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/txtProductTime"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="구독기간"
-                        android:textSize="17sp" />
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:orientation="vertical">
 
                     <LinearLayout
                         android:id="@+id/selectImgLayout"
                         android:layout_width="match_parent"
-                        android:layout_height="150dp"
+                        android:layout_height="300dp"
                         android:background="@drawable/text_box"
                         android:gravity="center"
                         android:orientation="vertical">
@@ -107,7 +114,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="이곳을 눌러 대표사진을 첨부해주세요!" />
+                            android:text="이곳을 눌러 대표 사진을 첨부해 주세요" />
 
                     </LinearLayout>
 
@@ -126,6 +133,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:text="배송"
+                    android:textColor="@color/black"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
@@ -167,6 +175,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="품질"
+                    android:textColor="@color/black"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
@@ -200,6 +209,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="가격"
+                    android:textColor="@color/black"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
@@ -235,42 +245,44 @@
                     android:layout_marginTop="3dp"
                     android:background="@color/black" />
 
-                <com.willy.ratingbar.ScaleRatingBar
+                <com.willy.ratingbar.BaseRatingBar
                     android:id="@+id/ratingBar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
+                    android:layout_gravity="center_horizontal"
                     android:layout_marginTop="5dp"
                     android:isIndicator="false"
-                    android:max="5"
                     app:srb_stepSize="0.5" />
 
                 <EditText
                     android:id="@+id/edtReviewContent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="리뷰 내용을 작성해주세요."
-                    android:minLines="3"
-                    android:textSize="23sp" />
+                    android:gravity="center"
+                    android:hint="리뷰 내용을 작성해주세요"
+                    android:textSize="20sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="# 키워드 입력하기"
+                        android:textColor="@color/black"
                         android:textSize="20sp" />
 
                     <EditText
                         android:id="@+id/edtKeyword"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="스페이스바 입력시 자동으로 하나의 키워드가 됩니다."
+                        android:gravity="center"
+                        android:hint="스페이스바 입력 시 하나의 키워드가 완성됩니다"
                         android:singleLine="true"
-                        android:textSize="15sp" />
+                        android:textSize="17sp" />
 
                     <com.nex3z.flowlayout.FlowLayout
                         android:id="@+id/tagListLayout"
@@ -286,24 +298,25 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
+                    android:layout_marginTop="3dp"
                     android:gravity="center"
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/btnCancleReview"
+                        android:id="@+id/btnReviewUpload"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/white"
-                        android:text="작성취소"
+                        android:text="작성완료"
                         android:textSize="17sp" />
 
                     <Button
-                        android:id="@+id/btnUploadReview"
+                        android:id="@+id/btnReviewCancel"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="30dp"
                         android:backgroundTint="@color/white"
-                        android:text="작성완료"
+                        android:text="작성취소"
                         android:textSize="17sp" />
 
                 </LinearLayout>
