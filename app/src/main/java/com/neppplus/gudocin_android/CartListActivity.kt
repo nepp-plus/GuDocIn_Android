@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.neppplus.gudocin_android.adapters.CartRecyclerAdapter
+import com.neppplus.gudocin_android.adapters.CartListRecyclerViewAdapter
 import com.neppplus.gudocin_android.databinding.ActivityCartListBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.CartData
@@ -20,9 +20,9 @@ class CartListActivity : BaseActivity() {
 
     lateinit var binding: ActivityCartListBinding
 
-    val mBasketList = ArrayList<CartData>()
+    val mCartList = ArrayList<CartData>()
 
-    lateinit var mCartRecyclerAdapter: CartRecyclerAdapter
+    lateinit var mCartListRecyclerViewAdapter: CartListRecyclerViewAdapter
 
     var total = 0
 
@@ -42,31 +42,31 @@ class CartListActivity : BaseActivity() {
     }
 
     override fun setValues() {
-        getBasketListFromServer()
+        getCartListFromServer()
 
         btnCart.visibility = View.GONE
 
-        mCartRecyclerAdapter = CartRecyclerAdapter(mContext, mBasketList)
+        mCartListRecyclerViewAdapter = CartListRecyclerViewAdapter(mContext, mCartList)
 
-        binding.basketListRecyclerView.adapter = mCartRecyclerAdapter
-        binding.basketListRecyclerView.layoutManager = LinearLayoutManager(mContext)
+        binding.cartListRecyclerView.adapter = mCartListRecyclerViewAdapter
+        binding.cartListRecyclerView.layoutManager = LinearLayoutManager(mContext)
     }
 
-    fun getBasketListFromServer() {
-        apiService.getRequestBasketList().enqueue(object : Callback<BasicResponse> {
+    fun getCartListFromServer() {
+        apiService.getRequestCartList().enqueue(object : Callback<BasicResponse> {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
                 if (response.isSuccessful) {
                     val br = response.body()!!
-                    mBasketList.clear()
-                    mBasketList.addAll(br.data.carts)
-                    mCartRecyclerAdapter.notifyDataSetChanged()
+                    mCartList.clear()
+                    mCartList.addAll(br.data.carts)
+                    mCartListRecyclerViewAdapter.notifyDataSetChanged()
 
-                    for (data in mBasketList) {
+                    for (data in mCartList) {
                         if (data.product.price != null) {
                             total += data.product.price!!
                         }
                     }
-                    var KRW = "${NumberFormat.getInstance(Locale.KOREA).format(total)} 원"
+                    var KRW = "${NumberFormat.getInstance(Locale.KOREA).format(total)}원"
                     binding.txtTotalPrice.text = KRW
                 }
             }
