@@ -181,7 +181,7 @@ interface ServerAPIInterface {
 
     // 장바구니 조회
     @GET("/cart")
-    fun getRequestBasketList(): Call<BasicResponse>
+    fun getRequestCartList(): Call<BasicResponse>
 
     // 장바구니에 상품 등록
     @FormUrlEncoded

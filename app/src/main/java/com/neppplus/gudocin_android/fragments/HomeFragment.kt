@@ -9,7 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.neppplus.gudocin_android.R
-import com.neppplus.gudocin_android.adapters.RecyclerVewAdapterForMain
+import com.neppplus.gudocin_android.adapters.ReviewListRecyclerVewAdapterForMain
 import com.neppplus.gudocin_android.databinding.FragmentHomeBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.ReviewData
@@ -21,8 +21,10 @@ class HomeFragment : BaseFragment() {
 
     lateinit var binding: FragmentHomeBinding
 
+    lateinit var mMainReviewListRecyclerAdapter: ReviewListRecyclerVewAdapterForMain
+
     val mReviewList = ArrayList<ReviewData>()
-    lateinit var mMainRecyclerAdapter: RecyclerVewAdapterForMain
+
     var mClickedSmallCategoryNum = 1
 
     override fun onCreateView(
@@ -45,13 +47,12 @@ class HomeFragment : BaseFragment() {
     }
 
     override fun setValues() {
-        getReviewListFromServer()
         getBannerListFromServer()
-        // 카테고리 프레그먼트에서 소분류 클릭한 숫자 받아오기
+        // CategoryFragment 에서 소분류 클릭한 숫자 받아오기
         getReviewListInSmallCategoryFromServer(mClickedSmallCategoryNum)
 
-        mMainRecyclerAdapter = RecyclerVewAdapterForMain(mContext, mReviewList)
-        binding.reviewListRecyclerView.adapter = mMainRecyclerAdapter
+        mMainReviewListRecyclerAdapter = ReviewListRecyclerVewAdapterForMain(mContext, mReviewList)
+        binding.reviewListRecyclerView.adapter = mMainReviewListRecyclerAdapter
         binding.reviewListRecyclerView.layoutManager = LinearLayoutManager(mContext)
 
         binding.reviewListRecyclerView.addOnScrollListener(object :
@@ -75,24 +76,6 @@ class HomeFragment : BaseFragment() {
         }
     }
 
-    fun getReviewListFromServer() {
-        apiService.getRequestReviewList().enqueue(object : Callback<BasicResponse> {
-            override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
-                if (response.isSuccessful) {
-                    var br = response.body()!!
-                    mReviewList.clear()
-                    mReviewList.addAll(br.data.reviews)
-                    mMainRecyclerAdapter.notifyDataSetChanged()
-                }
-            }
-
-            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-
-            }
-        })
-    }
-
-    /// 위의 함수는 아래로 대체되어야 함 ///
     fun getReviewListInSmallCategoryFromServer(mClickedSmallCategoryNum: Int) {
         apiService.getRequestSmallCategorysItemReviewList(mClickedSmallCategoryNum)
             .enqueue(object : Callback<BasicResponse> {
@@ -104,7 +87,7 @@ class HomeFragment : BaseFragment() {
                         var br = response.body()!!
                         mReviewList.clear()
                         mReviewList.addAll(br.data.reviews)
-                        mMainRecyclerAdapter.notifyDataSetChanged()
+                        mMainReviewListRecyclerAdapter.notifyDataSetChanged()
                     }
                 }
 
@@ -119,10 +102,9 @@ class HomeFragment : BaseFragment() {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
                 if (response.isSuccessful) {
                     val br = response.body()!!
-                    mMainRecyclerAdapter.mBannerList.clear()
-                    mMainRecyclerAdapter.mBannerList.addAll(br.data.banners)
-//                    (뷰페이저) 어댑터 새로고침
-                    mMainRecyclerAdapter.mBannerViewPagerAdapter.notifyDataSetChanged()
+                    mMainReviewListRecyclerAdapter.mBannerList.clear()
+                    mMainReviewListRecyclerAdapter.mBannerList.addAll(br.data.banners)
+                    mMainReviewListRecyclerAdapter.mBannerViewPagerAdapter.notifyDataSetChanged()
                 }
             }
 

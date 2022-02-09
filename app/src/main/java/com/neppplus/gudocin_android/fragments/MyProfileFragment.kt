@@ -124,18 +124,13 @@ class MyProfileFragment : BaseFragment() {
             alert.show()
         }
 
-        binding.txtMyCard.setOnClickListener {
-            val myIntent = Intent(mContext, CardListActivity::class.java)
-            startActivity(myIntent)
-        }
-
         binding.txtEditMyInfo.setOnClickListener {
             val myIntent = Intent(mContext, EditProfileActivity::class.java)
             startActivity(myIntent)
         }
 
         binding.txtPurchaseReviewList.setOnClickListener {
-            val myIntent = Intent(mContext, SubscribeHistoryListActivity::class.java)
+            val myIntent = Intent(mContext, SubscriptionHistoryActivity::class.java)
             startActivity(myIntent)
         }
 

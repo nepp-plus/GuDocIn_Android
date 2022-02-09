@@ -30,7 +30,7 @@ class InitialViewPagerAdapter(private val context: Context) : PagerAdapter() {
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         layoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        val view = layoutInflater!!.inflate(R.layout.initial_imageview, null)
+        val view = layoutInflater!!.inflate(R.layout.imageview_initial, null)
         val image = view.findViewById<View>(R.id.imageView) as ImageView
         image.setImageResource(Image[position])
 

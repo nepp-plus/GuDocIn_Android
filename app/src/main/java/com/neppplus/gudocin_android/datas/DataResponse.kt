@@ -7,11 +7,10 @@ class DataResponse(
     var products: List<ProductData>,
     var product: ProductData,
     var carts: List<CartData>,
-    var categories: List<CategoriesData>,
-    var small_categories: List<SmallCategoriesData>,
+    var categories: List<CategoryData>,
+    var small_categories: List<SmallCategoryData>,
     val banners: List<BannerData>,
     val payments: List<PaymentData>,
-    var cards: List<CardData>,
     val replies: List<ReplyData>,
 ) {
 }

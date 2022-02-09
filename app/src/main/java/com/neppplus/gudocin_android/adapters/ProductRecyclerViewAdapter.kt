@@ -10,7 +10,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.neppplus.gudocin_android.ProductItemDetailActivity
+import com.neppplus.gudocin_android.ProductDetailActivity
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.ReviewDetailActivity
 import com.neppplus.gudocin_android.datas.ProductData
@@ -20,63 +20,65 @@ class ProductRecyclerViewAdapter(val mContext: Context, val mList: List<ProductD
 
     inner class ProductViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-        val rootLayout = view.findViewById<LinearLayout>(R.id.rootLayout)
+        val layoutRoot = view.findViewById<LinearLayout>(R.id.layoutRoot)
+        val imgProduct = view.findViewById<ImageView>(R.id.imgProduct)
+        val txtStoreName = view.findViewById<TextView>(R.id.txtStoreName)
         val txtProductName = view.findViewById<TextView>(R.id.txtProductName)
         val txtProductPrice = view.findViewById<TextView>(R.id.txtProductPrice)
-        val txtProductCompanyName = view.findViewById<TextView>(R.id.txtProductCompanyName)
-        val reviewItemLayout = view.findViewById<LinearLayout>(R.id.reviewItemLayout)
-        val btnMoreReview = view.findViewById<LinearLayout>(R.id.btnMoreReview)
-        val txtOpenReview = view.findViewById<TextView>(R.id.txtOpenReview)
-        val txtReviewTitle = view.findViewById<TextView>(R.id.txtReviewTitle)
-        val txtReviewWriterName = view.findViewById<TextView>(R.id.txtReviewWriterName)
-        val btnGotoReviewDetail = view.findViewById<ImageView>(R.id.btnGotoReviewDetail)
+        val layoutReviewDetail = view.findViewById<LinearLayout>(R.id.layoutReviewDetail)
+        val txtReviewDetail = view.findViewById<TextView>(R.id.txtReviewDetail)
+
+        val layoutReviewItem = view.findViewById<LinearLayout>(R.id.layoutReviewItem)
         val imgReview = view.findViewById<ImageView>(R.id.imgReview)
-        val imgProduct = view.findViewById<ImageView>(R.id.imgProduct)
+        val txtReviewTitle = view.findViewById<TextView>(R.id.txtReviewTitle)
+        val txtReviewWriter = view.findViewById<TextView>(R.id.txtReviewWriter)
+        val imgReviewDetail = view.findViewById<ImageView>(R.id.imgReviewDetail)
+
         var isReviewOpen = false
 
         fun bind(data: ProductData) {
+            Glide.with(mContext).load(data.imageUrl).into(imgProduct)
+            txtStoreName.text = data.store.name
             txtProductName.text = data.name
             txtProductPrice.text = data.getFormattedPrice()
-            txtProductCompanyName.text = data.store.name
-            Glide.with(mContext).load(data.imageUrl).into(imgProduct)
 
             if (data.reviews.size == 0) {
-                btnMoreReview.visibility = View.GONE
-                reviewItemLayout.visibility = View.GONE
+                layoutReviewDetail.visibility = View.GONE
+                layoutReviewItem.visibility = View.GONE
             } else {
-                btnMoreReview.visibility = View.VISIBLE
+                layoutReviewDetail.visibility = View.VISIBLE
                 val firstReview = data.reviews[0]
-                txtReviewTitle.text = firstReview.title
-                txtReviewWriterName.text = firstReview.user.nickname
                 Glide.with(mContext).load(firstReview.user.profileImageURL).into(imgReview)
+                txtReviewTitle.text = firstReview.title
+                txtReviewWriter.text = firstReview.user.nickname
                 firstReview.product = data
 
-                btnGotoReviewDetail.setOnClickListener {
+                imgReviewDetail.setOnClickListener {
                     val myIntent = Intent(mContext, ReviewDetailActivity::class.java)
                     myIntent.putExtra("review", firstReview)
                     mContext.startActivity(myIntent)
                 }
 
                 if (isReviewOpen == false) {
-                    btnMoreReview.setOnClickListener {
-                        reviewItemLayout.visibility = View.VISIBLE
-                        txtOpenReview.text = "리뷰 닫기"
+                    layoutReviewDetail.setOnClickListener {
+                        layoutReviewItem.visibility = View.VISIBLE
+                        txtReviewDetail.text = "리뷰 닫기"
                         isReviewOpen = true
                         notifyDataSetChanged()
                     }
                 } else {
-                    btnMoreReview.setOnClickListener {
-                        reviewItemLayout.visibility = View.GONE
-                        txtOpenReview.text = "리뷰 더보기.."
+                    layoutReviewDetail.setOnClickListener {
+                        layoutReviewItem.visibility = View.GONE
+                        txtReviewDetail.text = "리뷰 더보기"
                         isReviewOpen = false
                         notifyDataSetChanged()
                     }
                 }
             }
 
-            rootLayout.setOnClickListener {
-//                프로덕트 디테일 번호 지참
-                val myIntent = Intent(mContext, ProductItemDetailActivity::class.java)
+            layoutRoot.setOnClickListener {
+//                product_id 지참
+                val myIntent = Intent(mContext, ProductDetailActivity::class.java)
                 myIntent.putExtra("product_id", data)
                 mContext.startActivity(myIntent)
             }
@@ -85,7 +87,7 @@ class ProductRecyclerViewAdapter(val mContext: Context, val mList: List<ProductD
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
-        val row = LayoutInflater.from(mContext).inflate(R.layout.product_item, parent, false)
+        val row = LayoutInflater.from(mContext).inflate(R.layout.product_list_item, parent, false)
         return ProductViewHolder(row)
     }
 

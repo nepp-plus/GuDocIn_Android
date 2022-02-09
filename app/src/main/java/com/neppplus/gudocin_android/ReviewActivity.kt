@@ -6,12 +6,9 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
 import com.gun0912.tedpermission.PermissionListener
@@ -64,7 +61,7 @@ class ReviewActivity : BaseActivity() {
                 }
 
                 override fun onPermissionDenied(deniedPermissions: MutableList<String>?) {
-                    Toast.makeText(mContext, "갤러리 조회 권한이 없습니다.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(mContext, "갤러리 조회 권한이 없습니다", Toast.LENGTH_SHORT).show()
                 }
             }
             TedPermission.create()
@@ -75,13 +72,13 @@ class ReviewActivity : BaseActivity() {
         binding.selectImgLayout.setOnClickListener(ocl)
         binding.imgThumbPicture.setOnClickListener(ocl)
 
-//        지금들어오는 텍스트가 무엇인지 확인하는 함수
+/* //        지금 들어오는 텍스트가 무엇인지 확인하는 함수
         binding.edtKeyword.addTextChangedListener {
             val nowText = it.toString()
             if (nowText == "") {
                 return@addTextChangedListener
             }
-//            입력한 값이 스페이스바가 들어오게 되면 태그가 되게하는 함수
+//            입력한 값이 스페이스바가 들어오게 되면 태그가 되게 하는 함수
             Log.d("입력값", nowText)
 
             if (nowText.last() == ' ') {
@@ -96,30 +93,30 @@ class ReviewActivity : BaseActivity() {
                 binding.tagListLayout.addView(tagBox)
                 binding.edtKeyword.setText("")
             }
-        }
+        } */
 
-        binding.btnUploadReview.setOnClickListener {
-            val inputTag = binding.edtKeyword.text.toString()
+        binding.btnReviewUpload.setOnClickListener {
+//          val inputTag = binding.edtKeyword.text.toString()
             val inputTile = binding.edtReviewTitle.text.toString()
 
-//            제목이 입력되지않으면 버튼이 눌리지않도록 하는 함수
+//            제목이 입력되지 않으면 버튼이 눌리지 않도록 하는 함수
             if (inputTile.length < 1) {
                 Toast.makeText(mContext, "제목을 입력해 주세요", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-//            리뷰내용이 입력되지않으면 버튼이 눌리지않도록 하는 함수
+//            리뷰 내용이 입력되지 않으면 버튼이 눌리지 않도록 하는 함수
             val inputContent = binding.edtReviewContent.text.toString()
             if (inputContent.length < 1) {
-                Toast.makeText(mContext, "리뷰 내용을 입력해주세요", Toast.LENGTH_SHORT).show()
+                Toast.makeText(mContext, "리뷰 내용을 입력해 주세요", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             if (mSelectedThumbnailUri == null) {
-                Toast.makeText(mContext, "대표 사진을 첨부해주세요", Toast.LENGTH_SHORT).show()
+                Toast.makeText(mContext, "대표 사진을 첨부해 주세요", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             val alert = AlertDialog.Builder(mContext)
-            alert.setTitle("리뷰 등록")
-            alert.setMessage("리뷰 작성을 등록하시겠습니까?")
+            alert.setTitle("리뷰 작성 알림")
+            alert.setMessage("리뷰 작성을 하시겠습니까?")
             alert.setPositiveButton("확인", DialogInterface.OnClickListener { dialog, i ->
 
                 val rating = binding.ratingBar.rating.toDouble()
@@ -141,18 +138,18 @@ class ReviewActivity : BaseActivity() {
                     RequestBody.create(MediaType.parse("text/plain"), rating.toString())
                 val tagStrBody = RequestBody.create(MediaType.parse("text/plain"), tagStr)
 
+                val file = File(URIPathHelper().getPath(mContext, mSelectedThumbnailUri!!))
+                val fileReqBody = RequestBody.create(MediaType.get("image/*"), file)
+                val thumbNailImageBody =
+                    MultipartBody.Part.createFormData("thumbnail_img", "thumbnail.jpg", fileReqBody)
+
                 val param = HashMap<String, RequestBody>()
                 param.put("product_id", productIdBody)
                 param.put("content", inputContentBody)
                 param.put("title", inputTitleBody)
                 param.put("score", ratingBody)
                 param.put("tag_list", tagStrBody)
-//                param.put("thumbnail_img", fileReqBody)
-
-                val file = File(URIPathHelper().getPath(mContext, mSelectedThumbnailUri!!))
-                val fileReqBody = RequestBody.create(MediaType.get("image/*"), file)
-                val thumbNailImageBody =
-                    MultipartBody.Part.createFormData("thumbnail_img", "thumbnail.jpg", fileReqBody)
+                param.put("thumbnail_img", fileReqBody)
 
                 apiService.postRequestReviewContent(
                     param,
@@ -163,11 +160,11 @@ class ReviewActivity : BaseActivity() {
                         response: Response<BasicResponse>
                     ) {
                         if (response.isSuccessful) {
-                            Toast.makeText(mContext, "리뷰가 등록되었습니다", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(mContext, "리뷰가 작성되었습니다", Toast.LENGTH_SHORT).show()
                             finish()
                         } else {
                             val jsonObj = JSONObject(response.errorBody()!!.string())
-                            Log.d("리뷰 등록 실패", jsonObj.toString())
+                            Log.d("리뷰 작성 실패", jsonObj.toString())
                         }
                     }
 
@@ -175,15 +172,14 @@ class ReviewActivity : BaseActivity() {
 
                     }
                 })
-
             })
             alert.setNegativeButton("취소", null)
             alert.show()
         }
 
-        binding.btnCancleReview.setOnClickListener {
+        binding.btnReviewCancel.setOnClickListener {
             val alert = AlertDialog.Builder(mContext)
-            alert.setTitle("리뷰 취소 알람")
+            alert.setTitle("리뷰 취소 알림")
             alert.setMessage("리뷰 작성을 취소하시겠습니까?")
             alert.setPositiveButton("확인", DialogInterface.OnClickListener { dialog, i ->
                 Toast.makeText(mContext, "리뷰 작성이 취소되었습니다", Toast.LENGTH_SHORT).show()
@@ -208,12 +204,14 @@ class ReviewActivity : BaseActivity() {
     }
 
     override fun setValues() {
+        Glide.with(mContext).load(GlobalData.loginUser!!.profileImageURL).into(binding.imgProfile)
+
         mProductData = intent.getSerializableExtra("product") as ProductData
-        binding.txtProductName.text = mProductData.name
         binding.txtUserNickName.text = GlobalData.loginUser!!.nickname
+        binding.txtProductName.text = mProductData.name
 
         val now = Calendar.getInstance()
-        val sdf = SimpleDateFormat("yyyy.MM.dd")
+        val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
         val date = sdf.format(now.time)
         binding.txtReviewTime.text = date
     }

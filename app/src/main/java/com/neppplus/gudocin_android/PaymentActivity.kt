@@ -71,15 +71,10 @@ class PaymentActivity : BaseActivity() {
             startActivity(myIntent)
             finish()
         }
-        binding.btnRegistryCard.setOnClickListener {
-            val myIntent = Intent(mContext, CardInfoActivity::class.java)
-            startActivity(myIntent)
-            finish()
-        }
     }
 
     override fun setValues() {
-//        mReviewData = intent.getSerializableExtra("review") as ReviewData?
+//      mReviewData = intent.getSerializableExtra("review") as ReviewData?
         btnCart.visibility = View.GONE
     }
 

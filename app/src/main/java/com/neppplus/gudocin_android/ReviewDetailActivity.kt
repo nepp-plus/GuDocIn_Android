@@ -29,14 +29,14 @@ class ReviewDetailActivity : BaseActivity() {
     override fun setupEvents() {
         binding.btnProductDetail.setOnClickListener {
 //            제품 상세페이지 인텐트
-            val myIntent = Intent(mContext, ProductItemDetailActivity::class.java)
+            val myIntent = Intent(mContext, ProductDetailActivity::class.java)
             myIntent.putExtra("product_id", mReviewData.product)
             mContext.startActivity(myIntent)
         }
 
         binding.btnProductReply.setOnClickListener {
 //            댓글 페이지로 인텐트
-            val myIntent = Intent(mContext, ReplyActivity::class.java)
+            val myIntent = Intent(mContext, ReplyListActivity::class.java)
             myIntent.putExtra("review", mReviewData)
             mContext.startActivity(myIntent)
         }

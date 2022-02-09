@@ -25,8 +25,6 @@ import java.security.MessageDigest
 
 class MainActivity : BaseActivity() {
 
-//    메인화면 - 김준기가 작업합니다
-
     lateinit var binding: ActivityMainBinding
 
     var backKeyPressedTime: Long = 0
@@ -75,7 +73,7 @@ class MainActivity : BaseActivity() {
                     binding.bottomNav.selectedItemId = when (position) {
                         0 -> R.id.navHome
                         1 -> R.id.navRanking
-                        else -> R.id.navMyProfile
+                        else -> R.id.navProfile
                     }
                 }
             })
@@ -128,6 +126,3 @@ class MainActivity : BaseActivity() {
     }
 
 }
-
-
-

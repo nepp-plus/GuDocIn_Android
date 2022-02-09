@@ -10,7 +10,7 @@ import com.neppplus.gudocin_android.MainActivity
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.FragmentCategoryBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
-import com.neppplus.gudocin_android.datas.SmallCategoriesData
+import com.neppplus.gudocin_android.datas.SmallCategoryData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -19,7 +19,7 @@ class CategoryFragment : BaseFragment() {
 
     lateinit var binding: FragmentCategoryBinding
 
-    var mSmallCategoriesList = ArrayList<SmallCategoriesData>()
+    var mSmallCategoriesList = ArrayList<SmallCategoryData>()
 
     var mLargeCategoryId = 1
     var mClickedSmallCategoryNum = 1
@@ -74,7 +74,7 @@ class CategoryFragment : BaseFragment() {
                         binding.smallCategoryList.removeAllViews()
                         for (sc in mSmallCategoriesList) {
                             val view = LayoutInflater.from(mContext)
-                                .inflate(R.layout.small_categories_list_item, null)
+                                .inflate(R.layout.category_list_item, null)
                             val txtSmallCategory =
                                 view.findViewById<TextView>(R.id.txtSmallCategory)
                             txtSmallCategory.text = sc.name

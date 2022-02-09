@@ -8,7 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.neppplus.gudocin_android.R
-import com.neppplus.gudocin_android.adapters.RankingRecyclerViewListAdapter
+import com.neppplus.gudocin_android.adapters.RankingListRecyclerViewAdapter
 import com.neppplus.gudocin_android.databinding.FragmentRankingListBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.ReviewData
@@ -21,7 +21,7 @@ class RankingListFragment : BaseFragment() {
     lateinit var binding: FragmentRankingListBinding
 
     val mRankingList = ArrayList<ReviewData>()
-    lateinit var mReviewAdapter: RankingRecyclerViewListAdapter
+    lateinit var mReviewRecyclerViewAdapter: RankingListRecyclerViewAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -46,8 +46,8 @@ class RankingListFragment : BaseFragment() {
     override fun setValues() {
         getRakingListFromServer()
 
-        mReviewAdapter = RankingRecyclerViewListAdapter(mContext, mRankingList)
-        binding.rankingRecyclerView.adapter = mReviewAdapter
+        mReviewRecyclerViewAdapter = RankingListRecyclerViewAdapter(mContext, mRankingList)
+        binding.rankingRecyclerView.adapter = mReviewRecyclerViewAdapter
         binding.rankingRecyclerView.layoutManager =
             StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
     }
@@ -59,7 +59,7 @@ class RankingListFragment : BaseFragment() {
                     val br = response.body()!!
                     mRankingList.clear()
                     mRankingList.addAll(br.data.reviews)
-                    mReviewAdapter.notifyDataSetChanged()
+                    mReviewRecyclerViewAdapter.notifyDataSetChanged()
                 }
             }
 

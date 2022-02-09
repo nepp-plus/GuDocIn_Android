@@ -14,9 +14,7 @@ class ProductData(
     var store: StoreData,
     var reviews: List<ReviewData>,
 ) : Serializable {
-
     fun getFormattedPrice(): String {
-        return "${NumberFormat.getInstance(Locale.KOREA).format(this.price)} 원"
+        return "${NumberFormat.getInstance(Locale.KOREA).format(this.price)}원"
     }
-
 }

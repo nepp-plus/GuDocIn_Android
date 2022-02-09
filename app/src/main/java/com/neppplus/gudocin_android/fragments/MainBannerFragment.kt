@@ -7,19 +7,19 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
 import com.neppplus.gudocin_android.R
-import com.neppplus.gudocin_android.databinding.BannerListBinding
+import com.neppplus.gudocin_android.databinding.FragmentMainBannerBinding
 import com.neppplus.gudocin_android.datas.BannerData
 
 class MainBannerFragment(private val mBannerData: BannerData? = null) : BaseFragment() {
 
-    lateinit var binding: BannerListBinding
+    lateinit var binding: FragmentMainBannerBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.banner_list, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_main_banner, container, false)
         return binding.root
     }
 

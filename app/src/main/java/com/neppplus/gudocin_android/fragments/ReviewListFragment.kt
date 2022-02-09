@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.neppplus.gudocin_android.R
-import com.neppplus.gudocin_android.adapters.ReviewListRecyclerviewAdapter
+import com.neppplus.gudocin_android.adapters.ReviewListRecyclerViewAdapterForProfile
 import com.neppplus.gudocin_android.databinding.FragmentReviewListBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.ReviewData
@@ -21,7 +21,7 @@ class ReviewListFragment : BaseFragment() {
 
     val mMyReviewList = ArrayList<ReviewData>()
 
-    lateinit var mReviewRecyclerviewAdapter: ReviewListRecyclerviewAdapter
+    lateinit var mReviewRecyclerViewAdapterForProfile: ReviewListRecyclerViewAdapterForProfile
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,8 +40,8 @@ class ReviewListFragment : BaseFragment() {
     }
 
     override fun setupEvents() {
-        mReviewRecyclerviewAdapter = ReviewListRecyclerviewAdapter(mContext, mMyReviewList)
-        binding.myReviewListRecyclerView.adapter = mReviewRecyclerviewAdapter
+        mReviewRecyclerViewAdapterForProfile = ReviewListRecyclerViewAdapterForProfile(mContext, mMyReviewList)
+        binding.myReviewListRecyclerView.adapter = mReviewRecyclerViewAdapterForProfile
         binding.myReviewListRecyclerView.layoutManager = LinearLayoutManager(mContext)
     }
 
@@ -56,7 +56,7 @@ class ReviewListFragment : BaseFragment() {
                     val br = response.body()!!
                     mMyReviewList.clear()
                     mMyReviewList.addAll(br.data.reviews)
-                    mReviewRecyclerviewAdapter.notifyDataSetChanged()
+                    mReviewRecyclerViewAdapterForProfile.notifyDataSetChanged()
                 }
             }
 
