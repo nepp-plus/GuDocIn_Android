@@ -10,7 +10,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.neppplus.gudocin_android.adapters.ReviewListRecyclerViewAdapterForProduct
-import com.neppplus.gudocin_android.databinding.ActivityProductBinding
+import com.neppplus.gudocin_android.databinding.ActivityProductDetailBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.ProductData
 import com.neppplus.gudocin_android.datas.ReviewData
@@ -19,20 +19,18 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ProductActivity : BaseActivity() {
+class ProductDetailActivity : BaseActivity() {
 
-    lateinit var binding: ActivityProductBinding
+    lateinit var binding: ActivityProductDetailBinding
 
     lateinit var mProductData: ProductData
-
-    lateinit var mReviewData: ReviewData
 
     val mReviewList = ArrayList<ReviewData>()
     lateinit var mReviewListRecyclerViewAdapterForProduct: ReviewListRecyclerViewAdapterForProduct
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_product)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_product_detail)
         setupEvents()
         setValues()
     }
