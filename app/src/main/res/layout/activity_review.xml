@@ -10,6 +10,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="60dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -107,7 +108,7 @@
                         android:id="@+id/selectImgLayout"
                         android:layout_width="match_parent"
                         android:layout_height="300dp"
-                        android:background="@drawable/text_box"
+                        android:background="@drawable/review_image_upload_box"
                         android:gravity="center"
                         android:orientation="vertical">
 
@@ -128,122 +129,136 @@
 
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="배송"
-                    android:textColor="@color/black"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                <!--
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:text="배송"
+                                    android:textColor="@color/black"
+                                    android:textSize="17sp"
+                                    android:textStyle="bold" />
+                -->
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center_vertical"
-                    android:orientation="horizontal">
+                <!--
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp"
+                                    android:layout_gravity="center_vertical"
+                                    android:orientation="horizontal">
 
-                    <RadioGroup
-                        android:id="@+id/radioOptionDelivery"
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:orientation="horizontal">
+                                    <RadioGroup
+                                        android:id="@+id/radioOptionDelivery"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="30dp"
+                                        android:orientation="horizontal">
 
-                        <RadioButton
-                            android:id="@+id/radioBtnDelivery1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="만족" />
+                                        <RadioButton
+                                            android:id="@+id/radioBtnDelivery1"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="만족" />
 
-                        <RadioButton
-                            android:id="@+id/radioBtnDelivery2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="보통" />
+                                        <RadioButton
+                                            android:id="@+id/radioBtnDelivery2"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="보통" />
 
-                        <RadioButton
-                            android:id="@+id/radioBtnDelivery3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="불만족" />
+                                        <RadioButton
+                                            android:id="@+id/radioBtnDelivery3"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="불만족" />
 
-                    </RadioGroup>
+                                    </RadioGroup>
 
-                </LinearLayout>
+                                </LinearLayout>
+                -->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="품질"
-                    android:textColor="@color/black"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                <!--
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="품질"
+                                    android:textColor="@color/black"
+                                    android:textSize="17sp"
+                                    android:textStyle="bold" />
+                -->
 
-                <RadioGroup
-                    android:id="@+id/radioOptionQuality"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:orientation="horizontal">
+                <!--
+                                <RadioGroup
+                                    android:id="@+id/radioOptionQuality"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp"
+                                    android:orientation="horizontal">
 
-                    <RadioButton
-                        android:id="@+id/radioBtnQuality1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="만족" />
+                                    <RadioButton
+                                        android:id="@+id/radioBtnQuality1"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="만족" />
 
-                    <RadioButton
-                        android:id="@+id/radioBtnQuality2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="보통" />
+                                    <RadioButton
+                                        android:id="@+id/radioBtnQuality2"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="보통" />
 
-                    <RadioButton
-                        android:id="@+id/radioBtnQuality3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="불만족" />
+                                    <RadioButton
+                                        android:id="@+id/radioBtnQuality3"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="불만족" />
 
-                </RadioGroup>
+                                </RadioGroup>
+                -->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="가격"
-                    android:textColor="@color/black"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+                <!--
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="가격"
+                                    android:textColor="@color/black"
+                                    android:textSize="17sp"
+                                    android:textStyle="bold" />
+                -->
 
-                <RadioGroup
-                    android:id="@+id/radioOptionPrice"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:orientation="horizontal">
+                <!--
+                                <RadioGroup
+                                    android:id="@+id/radioOptionPrice"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp"
+                                    android:orientation="horizontal">
 
-                    <RadioButton
-                        android:id="@+id/radioBtnPrice1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="만족" />
+                                    <RadioButton
+                                        android:id="@+id/radioBtnPrice1"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="만족" />
 
-                    <RadioButton
-                        android:id="@+id/radioBtnPrice2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="보통" />
+                                    <RadioButton
+                                        android:id="@+id/radioBtnPrice2"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="보통" />
 
-                    <RadioButton
-                        android:id="@+id/radioBtnPrice3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="불만족" />
+                                    <RadioButton
+                                        android:id="@+id/radioBtnPrice3"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="불만족" />
 
-                </RadioGroup>
+                                </RadioGroup>
+                -->
 
+<!--
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="3dp"
                     android:background="@color/black" />
+-->
 
                 <com.willy.ratingbar.BaseRatingBar
                     android:id="@+id/ratingBar"
@@ -262,37 +277,39 @@
                     android:hint="리뷰 내용을 작성해주세요"
                     android:textSize="20sp" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:orientation="vertical">
+                <!--
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                    android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="# 키워드 입력하기"
-                        android:textColor="@color/black"
-                        android:textSize="20sp" />
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="# 키워드 입력하기"
+                                        android:textColor="@color/black"
+                                        android:textSize="20sp" />
 
-                    <EditText
-                        android:id="@+id/edtKeyword"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:hint="스페이스바 입력 시 하나의 키워드가 완성됩니다"
-                        android:singleLine="true"
-                        android:textSize="17sp" />
+                                    <EditText
+                                        android:id="@+id/edtKeyword"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:hint="스페이스바 입력 시 하나의 키워드가 완성됩니다"
+                                        android:singleLine="true"
+                                        android:textSize="17sp" />
 
-                    <com.nex3z.flowlayout.FlowLayout
-                        android:id="@+id/tagListLayout"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:flRowSpacing="5dp">
+                                    <com.nex3z.flowlayout.FlowLayout
+                                        android:id="@+id/tagListLayout"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        app:flRowSpacing="5dp">
 
-                    </com.nex3z.flowlayout.FlowLayout>
+                                    </com.nex3z.flowlayout.FlowLayout>
 
-                </LinearLayout>
+                                </LinearLayout>
+                -->
 
                 <LinearLayout
                     android:layout_width="match_parent"

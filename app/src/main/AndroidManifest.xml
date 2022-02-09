@@ -45,37 +45,20 @@
             android:exported="true"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".ReplyActivity"
+            android:name=".ReplyListActivity"
             android:exported="true" />
         <activity
-            android:name=".ProductItemDetailActivity"
+            android:name=".ProductDetailActivity"
             android:exported="true" />
         <activity
-            android:name=".LifeCategoryListActivity"
+            android:name=".ProductActivity"
             android:exported="true" />
         <activity
-            android:name=".WearCategoryListActivity"
-            android:exported="true" />
-        <activity
-            android:name=".SubscribeHistoryListActivity"
+            android:name=".SubscriptionHistoryActivity"
             android:exported="true" />
         <activity
             android:name=".ReviewDetailActivity"
             android:exported="true" />
-        <activity
-            android:name=".EatCategoryListActivity"
-            android:exported="true" />
-        <activity
-            android:name=".SearchActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.SEARCH" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.app.searchable"
-                android:resource="@xml/searchable" />
-        </activity>
         <activity
             android:name=".CartListActivity"
             android:exported="true" />
@@ -85,7 +68,7 @@
         <activity
             android:name=".InitialActivity"
             android:exported="true"
-            android:theme="@style/Theme.GuDocIn_Android.NoActionBar"></activity>
+            android:theme="@style/Theme.GuDocIn_Android.NoActionBar" />
         <activity
             android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
             android:exported="true">

@@ -58,15 +58,6 @@
                     android:textSize="17sp" />
 
                 <TextView
-                    android:id="@+id/txtMyCard"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="등록카드 관리"
-                    android:textColor="@color/black"
-                    android:textSize="15sp" />
-
-                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="@color/black" />
