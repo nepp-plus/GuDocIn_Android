@@ -144,11 +144,12 @@
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/drawable/tag_box.xml" value="0.3764102564102564" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/drawable/text_box.xml" value="0.3764102564102564" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/font/font.xml" value="0.3814814814814815" />
+        <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/activity_account.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/activity_card_info.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/activity_card_list.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/activity_card_management_list.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/activity_card_modify.xml" value="0.36614583333333334" />
-        <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/activity_cart_list.xml" value="0.5" />
+        <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/activity_cart_list.xml" value="0.33" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/activity_consumer_info.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/activity_customer_center.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/activity_delivery_info.xml" value="0.36614583333333334" />
@@ -166,27 +167,38 @@
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/activity_main.xml" value="0.2046875" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/activity_navigation.xml" value="0.3453703703703704" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/activity_payment.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/activity_product.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/activity_product_detail.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/activity_product_item_detail.xml" value="0.33" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/activity_purchase_list.xml" value="0.33" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/activity_purchase_review_list.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/activity_reply.xml" value="0.33" />
+        <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/activity_reply_list.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/activity_review.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/activity_review_detail.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/activity_search.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/activity_sign_up.xml" value="0.33" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/activity_splash.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/activity_subscribe_history_list.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/activity_subscription_history.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/activity_terms.xml" value="0.3453703703703704" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/activity_wear_category_list.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/banner_list.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/card_list_item.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/card_management_list_item.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/cart_list_item.xml" value="0.5" />
+        <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/category_list_item.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/custom_action_bar.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/fragment_blank.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/fragment_bottom_sheet_dialog.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/fragment_categories.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/fragment_category.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/fragment_eat_category.xml" value="0.31851851851851853" />
+        <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/fragment_eat_category_list.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/fragment_edit_user.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/fragment_home.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/fragment_life_category_list.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/fragment_main_banner.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/fragment_my_profile.xml" value="0.33" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/fragment_my_review_list.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/fragment_product_content.xml" value="0.36614583333333334" />
@@ -196,6 +208,7 @@
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/fragment_ranking_list.xml" value="0.3619791666666667" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/fragment_review_list.xml" value="0.3619791666666667" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/fragment_store_content.xml" value="0.3619791666666667" />
+        <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/fragment_wear_category_list.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/holder_terms.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/initial_image_view.xml" value="0.3619791666666667" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/main_top_viewpager_item.xml" value="0.3619791666666667" />
@@ -209,14 +222,22 @@
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/review_item_for_main.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/review_item_for_product_detail.xml" value="0.3619791666666667" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/review_list_item_for_main.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/review_list_item_for_product.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/review_list_item_for_product_detail.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/review_list_item_for_profile.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/review_recyclerview_list_item.xml" value="0.3619791666666667" />
+        <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/search_list_item.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/simple_list_item.xml" value="0.3619791666666667" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/small_categories_item.xml" value="0.3619791666666667" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/small_categories_list_item.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/small_category_list_item.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/tag_list_item.xml" value="0.3619791666666667" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/viewpager_for_main.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/layout/viewpager_main.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/menu/menu_bottom_navigation.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/menu/menu_bottom_navigation_for_main.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/menu/menu_bottom_navigation_for_product.xml" value="0.31851851851851853" />
+        <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/menu/menu_search.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/Gudoc_In/app/src/main/res/menu/search_menu.xml" value="0.36614583333333334" />
       </map>
     </option>

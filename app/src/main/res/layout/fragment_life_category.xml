@@ -9,7 +9,7 @@
         android:paddingStart="20dp"
         android:paddingTop="30dp"
         android:paddingEnd="10dp"
-        tools:context=".EatCategoryListActivity">
+        tools:context=".LifeCategoryListFragment">
 
         <TextView
             android:id="@+id/txtSelectedCategory"
@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:text="선택한 대분류 카테고리"
             android:textColor="@color/black"
-            android:textSize="15sp"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <HorizontalScrollView
@@ -43,6 +43,7 @@
             android:layout_marginBottom="10dp"
             android:text="상품 목록"
             android:textColor="@color/black"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView

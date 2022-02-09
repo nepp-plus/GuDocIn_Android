@@ -12,11 +12,9 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">@android:color/black</item>
         <!-- Customize your theme here. -->
-
     </style>
 
     <style name="Theme.GuDocIn_Android.NoActionBar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/black</item>
         <item name="colorPrimaryVariant">@color/main_blue_light</item>
@@ -28,7 +26,6 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">@android:color/black</item>
         <!-- Customize your theme here. -->
-
     </style>
 
 </resources>

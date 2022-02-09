@@ -1,26 +1,29 @@
-package com.neppplus.gudocin_android
+package com.neppplus.gudocin_android.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.neppplus.gudocin_android.R
+import com.neppplus.gudocin_android.adapters.CategoryAdapter
 import com.neppplus.gudocin_android.adapters.ProductRecyclerViewAdapter
-import com.neppplus.gudocin_android.adapters.SmallCategoriesAdapter
-import com.neppplus.gudocin_android.databinding.ActivityWearCategoryListBinding
+import com.neppplus.gudocin_android.databinding.FragmentWearCategoryBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.ProductData
-import com.neppplus.gudocin_android.datas.SmallCategoriesData
+import com.neppplus.gudocin_android.datas.SmallCategoryData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class WearCategoryListActivity : BaseActivity() {
+class WearCategoryFragment : BaseFragment() {
 
-    lateinit var binding: ActivityWearCategoryListBinding
+    lateinit var binding: FragmentWearCategoryBinding
 
-    val mSmallCategoryList = ArrayList<SmallCategoriesData>()
-    lateinit var mSmallCategoryAdapter: SmallCategoriesAdapter
+    val mSmallCategoryList = ArrayList<SmallCategoryData>()
+    lateinit var mCategoryAdapter: CategoryAdapter
 
     var mLargeCategoryId = 2
     var mClickedSmallCategoryNum = 6
@@ -28,9 +31,23 @@ class WearCategoryListActivity : BaseActivity() {
     val mProductList = ArrayList<ProductData>()
     lateinit var mProductRecyclerAdapter: ProductRecyclerViewAdapter
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_wear_category_list)
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding =
+            DataBindingUtil.inflate(
+                inflater,
+                R.layout.fragment_wear_category,
+                container,
+                false
+            )
+        return binding.root
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
         setupEvents()
         setValues()
     }
@@ -41,9 +58,8 @@ class WearCategoryListActivity : BaseActivity() {
 
     override fun setValues() {
         binding.txtSelectedCategory.text = "의류구독"
-
         getSmallCategoryListFromServer()
-        mSmallCategoryAdapter = SmallCategoriesAdapter(mContext, mSmallCategoryList)
+        mCategoryAdapter = CategoryAdapter(mContext, mSmallCategoryList)
 
         getProductListInSmallCategoryFromServer()
         mProductRecyclerAdapter = ProductRecyclerViewAdapter(mContext, mProductList)
@@ -82,7 +98,7 @@ class WearCategoryListActivity : BaseActivity() {
 //                    추가한 카테고리 하나하나에 대한 view 생성
                     for (sc in mSmallCategoryList) {
                         val view = LayoutInflater.from(mContext)
-                            .inflate(R.layout.small_categories_list_item, null)
+                            .inflate(R.layout.category_list_item, null)
                         val txtSmallCategory =
                             view.findViewById<TextView>(R.id.txtSmallCategory)
                         txtSmallCategory.text = sc.name
