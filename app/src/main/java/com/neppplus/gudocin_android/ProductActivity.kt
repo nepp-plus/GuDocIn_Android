@@ -24,8 +24,8 @@ class ProductActivity : BaseActivity() {
     override fun setupEvents() {
         binding.bottomNav.setOnNavigationItemSelectedListener {
             when (it.itemId) {
-                R.id.navHome -> binding.viewPager.currentItem = 0
-                R.id.navRanking -> binding.viewPager.currentItem = 1
+                R.id.navEat -> binding.viewPager.currentItem = 0
+                R.id.navWear -> binding.viewPager.currentItem = 1
                 else -> binding.viewPager.currentItem = 2
             }
             true
