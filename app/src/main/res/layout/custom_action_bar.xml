@@ -36,30 +36,26 @@
         android:layout_height="30dp"
         android:layout_gravity="bottom"
         android:layout_marginStart="20dp"
-        android:layout_marginBottom="5dp"
-        android:background="@drawable/radius_box_search"
+        android:layout_marginBottom="7dp"
+        android:background="@drawable/corner_shape_for_explore"
         android:visibility="invisible">
 
         <TextView
             android:id="@+id/txtSearch"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:shadowColor="@color/black"
-            android:text="구독상품 검색하기"
+            android:layout_gravity="center"
+            android:layout_marginLeft="75dp"
+            android:text="구독상품 탐색하기"
             android:textColor="@color/black"
-            android:textColorHint="@color/black"
             android:textSize="13sp" />
 
         <ImageView
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:layout_gravity="center_vertical"
-            android:layout_marginRight="10dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/search_icon" />
+            android:layout_gravity="center"
+            android:layout_marginLeft="40dp"
+            android:src="@drawable/explore_icon" />
 
     </LinearLayout>
 

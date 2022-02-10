@@ -6,9 +6,9 @@
     <LinearLayout
         android:id="@+id/btnGotoReviewDetail"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_margin="10dp"
-        android:background="@drawable/radius_box"
+        android:background="@drawable/corner_shape_for_review"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:outlineSpotShadowColor="@color/black"
@@ -30,7 +30,7 @@
             android:id="@+id/txtReviewTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="리뷰 제목"
+            android:text="리뷰제목"
             android:textColor="@color/black"
             android:textSize="15sp" />
 
