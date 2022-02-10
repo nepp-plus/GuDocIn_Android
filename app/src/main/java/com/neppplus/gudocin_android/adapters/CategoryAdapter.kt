@@ -4,10 +4,12 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.datas.SmallCategoryData
+import com.neppplus.gudocin_android.fragments.EatCategoryFragment
 
 class CategoryAdapter(
     val mContext: Context, val mList: List<SmallCategoryData>

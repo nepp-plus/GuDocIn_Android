@@ -116,7 +116,7 @@ class ReviewActivity : BaseActivity() {
             }
             val alert = AlertDialog.Builder(mContext)
             alert.setTitle("리뷰 작성 알림")
-            alert.setMessage("리뷰 작성을 하시겠습니까?")
+            alert.setMessage("리뷰를 작성하시겠습니까?")
             alert.setPositiveButton("확인", DialogInterface.OnClickListener { dialog, i ->
 
                 val rating = binding.ratingBar.rating.toDouble()

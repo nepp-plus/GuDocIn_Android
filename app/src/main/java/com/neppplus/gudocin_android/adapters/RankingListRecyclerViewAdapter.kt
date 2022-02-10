@@ -21,15 +21,15 @@ class RankingListRecyclerViewAdapter(
     inner class RakingViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         val imgReviewPicture = view.findViewById<ImageView>(R.id.imgReviewPicture)
-        val imgUserProfile = view.findViewById<ImageView>(R.id.imgUserProfile)
-        val txtReviwer = view.findViewById<TextView>(R.id.txtReviewer)
+        val imgProfile = view.findViewById<ImageView>(R.id.imgProfile)
+        val txtNickname = view.findViewById<TextView>(R.id.txtNickname)
         val txtReviewTitle = view.findViewById<TextView>(R.id.txtReviewTitle)
 
         fun bind(data: ReviewData) {
-            txtReviwer.text = data.user.nickname
+            txtNickname.text = data.user.nickname
             txtReviewTitle.text = data.title
             Glide.with(mContext).load(data.product.imageUrl).into(imgReviewPicture)
-            Glide.with(mContext).load(data.user.profileImageURL).into(imgUserProfile)
+            Glide.with(mContext).load(data.user.profileImageURL).into(imgProfile)
 
             imgReviewPicture.setOnClickListener {
                 val myIntent = Intent(mContext, ReviewDetailActivity::class.java)
