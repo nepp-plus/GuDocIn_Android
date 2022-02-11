@@ -15,7 +15,10 @@ import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
 import com.gun0912.tedpermission.PermissionListener
 import com.gun0912.tedpermission.normal.TedPermission
-import com.neppplus.gudocin_android.*
+import com.neppplus.gudocin_android.EditProfileActivity
+import com.neppplus.gudocin_android.InitialActivity
+import com.neppplus.gudocin_android.R
+import com.neppplus.gudocin_android.SubscriptionHistoryActivity
 import com.neppplus.gudocin_android.databinding.FragmentMyProfileBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.GlobalData
@@ -70,7 +73,7 @@ class MyProfileFragment : BaseFragment() {
                     ) {
                         if (response.isSuccessful) {
                             Toast.makeText(mContext, "프로필 사진이 변경되었습니다", Toast.LENGTH_SHORT).show()
-//                            사용자가 선택한 사진(selectedImageUri)을 프로필 ImageView 에 반영
+                            //                            사용자가 선택한 사진(selectedImageUri)을 프로필 ImageView 에 반영
                             Glide.with(mContext).load(selectedImageUri).into(binding.imgProfile)
                         } else {
                             Toast.makeText(mContext, "프로필 사진 변경에 실패했습니다", Toast.LENGTH_SHORT)
@@ -139,13 +142,17 @@ class MyProfileFragment : BaseFragment() {
     override fun setValues() {
         getMyInfoFromServer()
 
-        when (GlobalData.loginUser!!.provider) {
+        when (GlobalData.loginUser?.provider) {
+            "kakao" -> {
+                binding.imgProvider.setImageResource(R.drawable.kakao_logo)
+                binding.imgProvider.visibility = View.VISIBLE
+            }
             "facebook" -> {
                 binding.imgProvider.setImageResource(R.drawable.facebook_logo)
                 binding.imgProvider.visibility = View.VISIBLE
             }
-            "kakao" -> {
-                binding.imgProvider.setImageResource(R.drawable.kakao_logo)
+            "google" -> {
+                binding.imgProvider.setImageResource(R.drawable.google_logo)
                 binding.imgProvider.visibility = View.VISIBLE
             }
             else -> {

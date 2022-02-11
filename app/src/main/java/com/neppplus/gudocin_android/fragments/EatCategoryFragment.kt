@@ -96,7 +96,7 @@ class EatCategoryFragment : BaseFragment() {
                         mSmallCategoryList.clear()
                         mSmallCategoryList.addAll(br.data.small_categories)
 
-//                    추가한 카테고리 하나하나에 대한 view 생성
+    //                    추가한 카테고리 하나하나에 대한 view 생성
                         for (sc in mSmallCategoryList) {
                             val view = LayoutInflater.from(mContext)
                                 .inflate(R.layout.category_list_item, null)

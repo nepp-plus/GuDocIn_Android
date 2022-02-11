@@ -18,7 +18,6 @@ class ReviewListRecyclerViewAdapterForProduct
     (val mContext: Context, val mList: List<ReviewData>) :
     RecyclerView.Adapter<ReviewListRecyclerViewAdapterForProduct.ReviewViewHolder>() {
 
-    // 이 어댑터는 상품 상세화면의 리뷰 리스트에 사용합니다
     inner class ReviewViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val txtReviewWriterName = itemView.findViewById<TextView>(R.id.txtReviewWriterName)

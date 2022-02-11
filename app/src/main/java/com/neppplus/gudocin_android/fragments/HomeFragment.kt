@@ -21,9 +21,9 @@ class HomeFragment : BaseFragment() {
 
     lateinit var binding: FragmentHomeBinding
 
-    lateinit var mMainReviewListRecyclerAdapter: ReviewListRecyclerVewAdapterForMain
-
     val mReviewList = ArrayList<ReviewData>()
+
+    lateinit var mMainReviewListRecyclerAdapter: ReviewListRecyclerVewAdapterForMain
 
     var mClickedSmallCategoryNum = 1
 
@@ -62,7 +62,7 @@ class HomeFragment : BaseFragment() {
                 if (!binding.reviewListRecyclerView.canScrollVertically(1)) {
                     Log.d("SCROLL", "끝났음");
                     binding.imgPageUp.visibility = View.VISIBLE
-                    updownListener(binding.reviewListRecyclerView)
+                    pageUpListener(binding.reviewListRecyclerView)
                 } else {
                     binding.imgPageUp.visibility = View.GONE
                 }
@@ -70,7 +70,7 @@ class HomeFragment : BaseFragment() {
         })
     }
 
-    fun updownListener(view: RecyclerView?) {
+    fun pageUpListener(view: RecyclerView?) {
         binding.imgPageUp.setOnClickListener {
             view?.smoothScrollToPosition(0)
         }

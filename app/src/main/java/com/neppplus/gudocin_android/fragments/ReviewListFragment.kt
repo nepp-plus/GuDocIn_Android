@@ -17,9 +17,9 @@ import retrofit2.Response
 
 class ReviewListFragment : BaseFragment() {
 
-    lateinit var binding: FragmentReviewListBinding
-
     val mMyReviewList = ArrayList<ReviewData>()
+
+    lateinit var binding: FragmentReviewListBinding
 
     lateinit var mReviewRecyclerViewAdapterForProfile: ReviewListRecyclerViewAdapterForProfile
 

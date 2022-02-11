@@ -70,7 +70,7 @@ class CategoryFragment : BaseFragment() {
                         mSmallCategoriesList.clear()
                         mSmallCategoriesList.addAll(br.data.small_categories)
 
-//                    추가한 카테고리 하나하나에 대한 view 생성
+    //                    추가한 카테고리 하나하나에 대한 view 생성
                         binding.smallCategoryList.removeAllViews()
                         for (sc in mSmallCategoriesList) {
                             val view = LayoutInflater.from(mContext)
@@ -81,7 +81,7 @@ class CategoryFragment : BaseFragment() {
 
                             view.setOnClickListener {
                                 mClickedSmallCategoryNum = sc.id
-//                            MainActivity -> HomeFragment
+    //                            MainActivity -> HomeFragment
                                 val homeFragment =
                                     ((requireContext() as MainActivity).binding.viewPager.adapter as MainActivity.ViewPagerAdapter).getFragment(
                                         0

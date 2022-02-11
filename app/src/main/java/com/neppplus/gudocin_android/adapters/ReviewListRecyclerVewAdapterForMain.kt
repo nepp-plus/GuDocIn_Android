@@ -7,6 +7,7 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -96,7 +97,7 @@ class ReviewListRecyclerVewAdapterForMain
                 mContext.startActivity(myIntent)
             }
 
-            btnWriteReview.setOnClickListener {
+             btnWriteReview.setOnClickListener {
                 val myIntent = Intent(mContext, ReviewActivity::class.java)
                 myIntent.putExtra("product", data.product)
                 mContext.startActivity(myIntent)

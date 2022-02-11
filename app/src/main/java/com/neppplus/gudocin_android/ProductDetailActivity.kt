@@ -48,7 +48,6 @@ class ProductDetailActivity : BaseActivity() {
 
     override fun setValues() {
         mProductData = intent.getSerializableExtra("product_id") as ProductData
-//        mReviewData = intent.getSerializableExtra("product_id") as ReviewData
 
         getProductItemDetailFromServer()
 

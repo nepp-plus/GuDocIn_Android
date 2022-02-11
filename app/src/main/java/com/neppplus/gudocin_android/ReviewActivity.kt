@@ -204,10 +204,10 @@ class ReviewActivity : BaseActivity() {
     }
 
     override fun setValues() {
-        Glide.with(mContext).load(GlobalData.loginUser!!.profileImageURL).into(binding.imgProfile)
+        Glide.with(mContext).load(GlobalData.loginUser?.profileImageURL).into(binding.imgProfile)
 
         mProductData = intent.getSerializableExtra("product") as ProductData
-        binding.txtUserNickName.text = GlobalData.loginUser!!.nickname
+        binding.txtUserNickName.text = GlobalData.loginUser?.nickname
         binding.txtProductName.text = mProductData.name
 
         val now = Calendar.getInstance()

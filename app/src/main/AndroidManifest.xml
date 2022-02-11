@@ -99,7 +99,7 @@
             android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".MainActivity"
-            android:exported="true" />
+            android:exported="true"></activity>
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
