@@ -7,7 +7,6 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -16,7 +15,6 @@ import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
 import com.neppplus.gudocin_android.MainActivity
 import com.neppplus.gudocin_android.R
-import com.neppplus.gudocin_android.ReviewActivity
 import com.neppplus.gudocin_android.ReviewDetailActivity
 import com.neppplus.gudocin_android.datas.BannerData
 import com.neppplus.gudocin_android.datas.ReviewData
@@ -80,7 +78,6 @@ class ReviewListRecyclerVewAdapterForMain
         val txtProductPrice = row.findViewById<TextView>(R.id.txtProductPrice)
 
         val btnGotoReviewDetail = row.findViewById<LinearLayout>(R.id.btnGotoReviewDetail)
-        val btnWriteReview = row.findViewById<TextView>(R.id.btnWriteReview)
 
         fun bind(data: ReviewData) {
             Glide.with(mContext).load(data.user.profileImageURL).into(imgReviewerImage)
@@ -94,12 +91,6 @@ class ReviewListRecyclerVewAdapterForMain
             btnGotoReviewDetail.setOnClickListener {
                 val myIntent = Intent(mContext, ReviewDetailActivity::class.java)
                 myIntent.putExtra("review", data)
-                mContext.startActivity(myIntent)
-            }
-
-             btnWriteReview.setOnClickListener {
-                val myIntent = Intent(mContext, ReviewActivity::class.java)
-                myIntent.putExtra("product", data.product)
                 mContext.startActivity(myIntent)
             }
         }

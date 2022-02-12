@@ -8,20 +8,21 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.neppplus.gudocin_android.R
-import com.neppplus.gudocin_android.adapters.RankingListRecyclerViewAdapter
-import com.neppplus.gudocin_android.databinding.FragmentRankingListBinding
+import com.neppplus.gudocin_android.adapters.ProductRecyclerAdapter
+import com.neppplus.gudocin_android.databinding.FragmentProductBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
-import com.neppplus.gudocin_android.datas.ReviewData
+import com.neppplus.gudocin_android.datas.ProductData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class RankingListFragment : BaseFragment() {
+class ProductFragment : BaseFragment() {
 
-    lateinit var binding: FragmentRankingListBinding
+    lateinit var binding: FragmentProductBinding
 
-    val mRankingList = ArrayList<ReviewData>()
-    lateinit var mReviewRecyclerViewAdapter: RankingListRecyclerViewAdapter
+    val mProductList = ArrayList<ProductData>()
+
+    lateinit var mProductRecyclerAdapter: ProductRecyclerAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,7 +30,7 @@ class RankingListFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding =
-            DataBindingUtil.inflate(inflater, R.layout.fragment_ranking_list, container, false)
+            DataBindingUtil.inflate(inflater, R.layout.fragment_product, container, false)
         return binding.root
     }
 
@@ -44,22 +45,21 @@ class RankingListFragment : BaseFragment() {
     }
 
     override fun setValues() {
-        getRakingListFromServer()
+        getProductListFromServer()
 
-        mReviewRecyclerViewAdapter = RankingListRecyclerViewAdapter(mContext, mRankingList)
-        binding.rankingRecyclerView.adapter = mReviewRecyclerViewAdapter
-        binding.rankingRecyclerView.layoutManager =
+        mProductRecyclerAdapter = ProductRecyclerAdapter(mContext, mProductList)
+        binding.productListRecyclerView.adapter = mProductRecyclerAdapter
+        binding.productListRecyclerView.layoutManager =
             StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
     }
 
-    fun getRakingListFromServer() {
-        apiService.getRequestRankingList().enqueue(object : Callback<BasicResponse> {
+    fun getProductListFromServer() {
+        apiService.getRequestProductList().enqueue(object : Callback<BasicResponse> {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
                 if (response.isSuccessful) {
-                    val br = response.body()!!
-                    mRankingList.clear()
-                    mRankingList.addAll(br.data.reviews)
-                    mReviewRecyclerViewAdapter.notifyDataSetChanged()
+                    mProductList.clear()
+                    mProductList.addAll(response.body()!!.data.products)
+                    mProductRecyclerAdapter.notifyDataSetChanged()
                 }
             }
 

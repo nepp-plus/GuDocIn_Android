@@ -28,21 +28,18 @@ class ReviewDetailActivity : BaseActivity() {
 
     override fun setupEvents() {
         binding.btnProductDetail.setOnClickListener {
-//            제품 상세페이지 인텐트
             val myIntent = Intent(mContext, ProductDetailActivity::class.java)
             myIntent.putExtra("product_id", mReviewData.product)
             mContext.startActivity(myIntent)
         }
 
         binding.btnProductReply.setOnClickListener {
-//            댓글 페이지로 인텐트
             val myIntent = Intent(mContext, ReplyListActivity::class.java)
             myIntent.putExtra("review", mReviewData)
             mContext.startActivity(myIntent)
         }
 
         binding.btnBuyProduct.setOnClickListener {
-//            결제 페이지로 인텐트
             val myIntent = Intent(mContext, PaymentActivity::class.java)
             myIntent.putExtra("product_id", mReviewData.product)
             myIntent.putExtra("review", mReviewData)
@@ -66,15 +63,16 @@ class ReviewDetailActivity : BaseActivity() {
         binding.txtUserNickName.text = mReviewData.user.nickname
         binding.txtReviewDate.text = mReviewData.createdAt
         binding.txtProductName.text = mReviewData.product.name
-        binding.txtReviewContent.text = mReviewData.content
         Glide.with(mContext).load(mReviewData.thumbNailImg).into(binding.thumbNailImg)
+        binding.txtReviewContent.text = mReviewData.content
+        binding.txtTag.text = mReviewData.tags.toString()
+//      binding.txtTag.text = mReviewData.tagList
 
 //        평점을 ratingBar 에 가져오는 바인딩 함수(Int -> Float 으로 변환)
         binding.ratingBar.rating = mReviewData.score.toFloat()
     }
 
     fun getReviewDataFromSever() {
-//        리뷰 데이터 API 서버에서 파싱
         apiService.getRequestReviewDetail(mReviewData.id).enqueue(object : Callback<BasicResponse> {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
                 if (response.isSuccessful) {

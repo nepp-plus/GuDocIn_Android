@@ -77,7 +77,6 @@ class ProductRecyclerViewAdapter(val mContext: Context, val mList: List<ProductD
             }
 
             layoutRoot.setOnClickListener {
-//                product_id 지참
                 val myIntent = Intent(mContext, ProductDetailActivity::class.java)
                 myIntent.putExtra("product_id", data)
                 mContext.startActivity(myIntent)
