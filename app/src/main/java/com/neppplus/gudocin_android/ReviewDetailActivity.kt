@@ -27,11 +27,11 @@ class ReviewDetailActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
-        binding.btnProductDetail.setOnClickListener {
+        /* binding.btnProductDetail.setOnClickListener {
             val myIntent = Intent(mContext, ProductDetailActivity::class.java)
             myIntent.putExtra("product_id", mReviewData.product)
             mContext.startActivity(myIntent)
-        }
+        } */
 
         binding.btnProductReply.setOnClickListener {
             val myIntent = Intent(mContext, ReplyListActivity::class.java)
@@ -65,8 +65,7 @@ class ReviewDetailActivity : BaseActivity() {
         binding.txtProductName.text = mReviewData.product.name
         Glide.with(mContext).load(mReviewData.thumbNailImg).into(binding.thumbNailImg)
         binding.txtReviewContent.text = mReviewData.content
-        binding.txtTag.text = mReviewData.tags.toString()
-//      binding.txtTag.text = mReviewData.tagList
+//      binding.txtTag.text = mReviewData.tags.toString()
 
 //        평점을 ratingBar 에 가져오는 바인딩 함수(Int -> Float 으로 변환)
         binding.ratingBar.rating = mReviewData.score.toFloat()

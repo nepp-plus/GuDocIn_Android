@@ -142,23 +142,23 @@ class MyProfileFragment : BaseFragment() {
     override fun setValues() {
         getMyInfoFromServer()
 
-        when (GlobalData.loginUser?.provider) {
-            "kakao" -> {
-                binding.imgProvider.setImageResource(R.drawable.kakao_logo)
-                binding.imgProvider.visibility = View.VISIBLE
+            when (GlobalData.loginUser!!.provider) {
+                "kakao" -> {
+                    binding.imgProvider.setImageResource(R.drawable.kakao_logo)
+                    binding.imgProvider.visibility = View.VISIBLE
+                }
+                "facebook" -> {
+                    binding.imgProvider.setImageResource(R.drawable.facebook_logo)
+                    binding.imgProvider.visibility = View.VISIBLE
+                }
+                "google" -> {
+                    binding.imgProvider.setImageResource(R.drawable.google_logo)
+                    binding.imgProvider.visibility = View.VISIBLE
+                }
+                else -> {
+                    binding.imgProvider.visibility = View.GONE
+                }
             }
-            "facebook" -> {
-                binding.imgProvider.setImageResource(R.drawable.facebook_logo)
-                binding.imgProvider.visibility = View.VISIBLE
-            }
-            "google" -> {
-                binding.imgProvider.setImageResource(R.drawable.google_logo)
-                binding.imgProvider.visibility = View.VISIBLE
-            }
-            else -> {
-                binding.imgProvider.visibility = View.GONE
-            }
-        }
     }
 
     fun getMyInfoFromServer() {

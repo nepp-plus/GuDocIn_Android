@@ -88,8 +88,7 @@ class InitialActivity : BaseActivity() {
                 val deviceToken = it.result
                 Log.d("FCM토큰", deviceToken!!)
                 ContextUtil.setDeviceToken(mContext, deviceToken)
-
-                GlobalData.loginUser?.let {
+                GlobalData.loginUser.let {
                     apiService.patchRequestUpdateUserInfo(
                         "android_device_token",
                         ContextUtil.getDeviceToken(mContext)
@@ -102,7 +101,6 @@ class InitialActivity : BaseActivity() {
     override fun setupEvents() {
         binding.btnLogin.setOnClickListener {
             val myHandler = Handler(Looper.getMainLooper())
-
             myHandler.postDelayed({
                 val myIntent: Intent
                 if (ContextUtil.getAutoLogin(mContext) && ContextUtil.getToken(mContext) != "") {
@@ -134,7 +132,6 @@ class InitialActivity : BaseActivity() {
 
     override fun setValues() {
         setFirebaseToken()
-
         apiService.getRequestMyInfo().enqueue(object : Callback<BasicResponse> {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
                 if (response.isSuccessful) {

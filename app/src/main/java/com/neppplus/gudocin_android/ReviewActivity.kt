@@ -40,11 +40,11 @@ class ReviewActivity : BaseActivity() {
 
     var mSelectedThumbnailUri: Uri? = null
 
+    val mInputTagList = ArrayList<String>()
+
     lateinit var binding: ActivityReviewBinding
 
     lateinit var mProductData: ProductData
-
-    val mInputTagList = ArrayList<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -99,27 +99,28 @@ class ReviewActivity : BaseActivity() {
         }
 
         binding.btnReviewUpload.setOnClickListener {
-//          val inputTag = binding.edtKeyword.text.toString()
-            val inputTile = binding.edtReviewTitle.text.toString()
+            val inputTitle = binding.edtReviewTitle.text.toString()
+            val inputContent = binding.edtReviewContent.text.toString()
 
-//            제목이 입력되지 않으면 버튼이 눌리지 않도록 하는 함수
-            if (inputTile.length < 1) {
+            // 제목이 입력되지 않으면 버튼이 눌리지 않도록 하는 함수
+            if (inputTitle.length < 1) {
                 Toast.makeText(mContext, "제목을 입력해 주세요", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-//            리뷰 내용이 입력되지 않으면 버튼이 눌리지 않도록 하는 함수
-            val inputContent = binding.edtReviewContent.text.toString()
-            if (inputContent.length < 1) {
-                Toast.makeText(mContext, "리뷰 내용을 입력해 주세요", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
+            // 대표 사진이 첨부되지 않으면 버튼이 눌리지 않도록 하는 함수
             if (mSelectedThumbnailUri == null) {
                 Toast.makeText(mContext, "대표 사진을 첨부해 주세요", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
+            // 리뷰 내용이 입력되지 않으면 버튼이 눌리지 않도록 하는 함수
+            if (inputContent.length < 1) {
+                Toast.makeText(mContext, "리뷰 내용을 입력해 주세요", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             val alert = AlertDialog.Builder(mContext)
             alert.setTitle("리뷰 작성 알림")
-            alert.setMessage("리뷰를 작성하시겠습니까?")
+            alert.setMessage("리뷰를 작성하시겠습니까?\n\n※ 키워드를 입력하지 않으면 작성되지 않습니다!")
             alert.setPositiveButton("확인", DialogInterface.OnClickListener { dialog, i ->
 
                 val rating = binding.ratingBar.rating.toDouble()
@@ -136,7 +137,7 @@ class ReviewActivity : BaseActivity() {
                     RequestBody.create(MediaType.parse("text/plain"), mProductData.id.toString())
                 val inputContentBody =
                     RequestBody.create(MediaType.parse("text/plain"), inputContent)
-                val inputTitleBody = RequestBody.create(MediaType.parse("text/plain"), inputTile)
+                val inputTitleBody = RequestBody.create(MediaType.parse("text/plain"), inputTitle)
                 val ratingBody =
                     RequestBody.create(MediaType.parse("text/plain"), rating.toString())
                 val tagStrBody = RequestBody.create(MediaType.parse("text/plain"), tagStr)
@@ -199,7 +200,6 @@ class ReviewActivity : BaseActivity() {
             if (resultCode == RESULT_OK) {
                 mSelectedThumbnailUri = data!!.data
                 Glide.with(mContext).load(mSelectedThumbnailUri).into(binding.imgThumbPicture)
-
                 binding.selectImgLayout.visibility = View.GONE
                 binding.imgThumbPicture.visibility = View.VISIBLE
             }
@@ -208,7 +208,6 @@ class ReviewActivity : BaseActivity() {
 
     override fun setValues() {
         Glide.with(mContext).load(GlobalData.loginUser!!.profileImageURL).into(binding.imgProfile)
-
         mProductData = intent.getSerializableExtra("product") as ProductData
         binding.txtUserNickName.text = GlobalData.loginUser!!.nickname
         binding.txtProductName.text = mProductData.name

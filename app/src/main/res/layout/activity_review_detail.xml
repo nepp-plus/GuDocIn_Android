@@ -119,85 +119,85 @@
                 <ImageView
                     android:id="@+id/thumbNailImg"
                     android:layout_width="match_parent"
-                    android:layout_height="300dp"
+                    android:layout_height="350dp"
                     android:layout_marginTop="5dp"
                     android:scaleType="centerCrop"
                     android:src="@mipmap/ic_launcher" />
 
-<!--
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:orientation="horizontal">
+                <!--
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:orientation="horizontal">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="배송  "
-                        android:textColor="@color/black"
-                        android:textSize="17sp"
-                        android:textStyle="bold" />
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="배송  "
+                                        android:textColor="@color/black"
+                                        android:textSize="17sp"
+                                        android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/txtChecked1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="체크박스 선택 내용"
-                        android:textColor="@color/black" />
+                                    <TextView
+                                        android:id="@+id/txtChecked1"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="체크박스 선택 내용"
+                                        android:textColor="@color/black" />
 
-                </LinearLayout>
--->
+                                </LinearLayout>
+                -->
 
-<!--
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
-                    android:orientation="horizontal">
+                <!--
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="3dp"
+                                    android:orientation="horizontal">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="품질  "
-                        android:textColor="@color/black"
-                        android:textSize="17sp"
-                        android:textStyle="bold" />
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="품질  "
+                                        android:textColor="@color/black"
+                                        android:textSize="17sp"
+                                        android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/txtChecked2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="체크박스 선택 내용"
-                        android:textColor="@color/black" />
+                                    <TextView
+                                        android:id="@+id/txtChecked2"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="체크박스 선택 내용"
+                                        android:textColor="@color/black" />
 
-                </LinearLayout>
--->
+                                </LinearLayout>
+                -->
 
-<!--
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
-                    android:orientation="horizontal">
+                <!--
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="3dp"
+                                    android:orientation="horizontal">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="가격  "
-                        android:textColor="@color/black"
-                        android:textSize="17sp"
-                        android:textStyle="bold" />
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="가격  "
+                                        android:textColor="@color/black"
+                                        android:textSize="17sp"
+                                        android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/txtChecked3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="체크박스 선택 내용"
-                        android:textColor="@color/black" />
+                                    <TextView
+                                        android:id="@+id/txtChecked3"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="체크박스 선택 내용"
+                                        android:textColor="@color/black" />
 
-                </LinearLayout>
--->
+                                </LinearLayout>
+                -->
 
                 <com.willy.ratingbar.BaseRatingBar
                     android:id="@+id/ratingBar"
@@ -240,44 +240,70 @@
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/btnProductDetail"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:orientation="horizontal"
-                    android:paddingVertical="10dp">
+                <!--
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="5dp"
+                                    android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="리뷰 상품 상세 보기"
-                        android:textColor="@color/black"
-                        android:textSize="17sp" />
+                                    <TextView
+                                        android:id="@+id/txtTag"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_marginEnd="5dp"
+                                        android:background="@drawable/tag_box"
+                                        android:padding="5dp"
+                                        android:text="태그내용"
+                                        android:textColor="@color/black" />
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
+                                </LinearLayout>
+                -->
 
-                    <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_marginTop="3dp"
-                        android:src="@drawable/right_arrow_icon" />
+                <!--
+                                <LinearLayout
+                                    android:id="@+id/btnProductDetail"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:orientation="horizontal"
+                                    android:paddingVertical="10dp">
 
-                </LinearLayout>
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="리뷰 상품 상세 보기"
+                                        android:textColor="@color/black"
+                                        android:textSize="17sp" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/black" />
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1" />
+
+                                    <ImageView
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+                                        android:layout_marginTop="3dp"
+                                        android:src="@drawable/right_arrow_icon" />
+
+                                </LinearLayout>
+                -->
+
+                <!--
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/black" />
+                -->
 
                 <LinearLayout
                     android:id="@+id/btnProductReply"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="5dp"
                     android:orientation="horizontal"
                     android:paddingVertical="10dp">
 
@@ -306,19 +332,19 @@
                     android:layout_height="1dp"
                     android:background="@color/black" />
 
+                <Button
+                    android:id="@+id/btnBuyProduct"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:backgroundTint="@color/white"
+                    android:text="구독하기"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
             </LinearLayout>
 
         </ScrollView>
-
-        <Button
-            android:id="@+id/btnBuyProduct"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="@color/white"
-            android:text="구독하기"
-            android:textSize="17sp"
-            android:textStyle="bold" />
 
     </LinearLayout>
 

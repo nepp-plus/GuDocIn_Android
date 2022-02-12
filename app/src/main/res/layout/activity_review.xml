@@ -10,7 +10,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="30dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -102,12 +102,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
+                    android:gravity="center"
                     android:orientation="vertical">
 
                     <LinearLayout
                         android:id="@+id/selectImgLayout"
                         android:layout_width="match_parent"
-                        android:layout_height="300dp"
+                        android:layout_height="350dp"
                         android:background="@drawable/review_image_upload_box"
                         android:gravity="center"
                         android:orientation="vertical">
@@ -115,14 +116,14 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="이곳을 눌러 대표 사진을 첨부해 주세요" />
+                            android:text="해당 박스를 클릭하여 대표 사진을 첨부해 주세요" />
 
                     </LinearLayout>
 
                     <ImageView
                         android:id="@+id/imgThumbPicture"
                         android:layout_width="match_parent"
-                        android:layout_height="150dp"
+                        android:layout_height="350dp"
                         android:scaleType="centerCrop"
                         android:src="@mipmap/ic_launcher"
                         android:visibility="gone" />
@@ -252,13 +253,13 @@
                                 </RadioGroup>
                 -->
 
-<!--
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="3dp"
-                    android:background="@color/black" />
--->
+                <!--
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_marginTop="3dp"
+                                    android:background="@color/black" />
+                -->
 
                 <com.willy.ratingbar.BaseRatingBar
                     android:id="@+id/ratingBar"
@@ -288,7 +289,7 @@
                         android:layout_height="wrap_content"
                         android:text="# 키워드 입력하기"
                         android:textColor="@color/black"
-                        android:textSize="20sp" />
+                        android:textSize="17sp" />
 
                     <EditText
                         android:id="@+id/edtKeyword"
@@ -313,7 +314,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginTop="3dp"
+                    android:layout_margin="10dp"
                     android:gravity="center"
                     android:orientation="horizontal">
 
@@ -321,6 +322,7 @@
                         android:id="@+id/btnReviewUpload"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:backgroundTint="@color/white"
                         android:text="작성완료"
                         android:textSize="17sp" />
@@ -330,6 +332,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="30dp"
+                        android:layout_weight="1"
                         android:backgroundTint="@color/white"
                         android:text="작성취소"
                         android:textSize="17sp" />
