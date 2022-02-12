@@ -50,8 +50,8 @@ class MainActivity : BaseActivity() {
     override fun setupEvents() {
         binding.bottomNav.setOnNavigationItemSelectedListener {
             when (it.itemId) {
-                R.id.navHome -> binding.viewPager.currentItem = 0
-                R.id.navRanking -> binding.viewPager.currentItem = 1
+                R.id.navMain -> binding.viewPager.currentItem = 0
+                R.id.navReview -> binding.viewPager.currentItem = 1
                 else -> binding.viewPager.currentItem = 2
             }
             true
@@ -71,8 +71,8 @@ class MainActivity : BaseActivity() {
                 override fun onPageSelected(position: Int) {
                     super.onPageSelected(position)
                     binding.bottomNav.selectedItemId = when (position) {
-                        0 -> R.id.navHome
-                        1 -> R.id.navRanking
+                        0 -> R.id.navMain
+                        1 -> R.id.navReview
                         else -> R.id.navProfile
                     }
                 }
