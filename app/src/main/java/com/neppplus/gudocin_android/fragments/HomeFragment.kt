@@ -77,24 +77,26 @@ class HomeFragment : BaseFragment() {
     }
 
     fun getReviewListInSmallCategoryFromServer(mClickedSmallCategoryNum: Int) {
-        apiService.getRequestSmallCategorysItemReviewList(mClickedSmallCategoryNum)
-            .enqueue(object : Callback<BasicResponse> {
-                override fun onResponse(
-                    call: Call<BasicResponse>,
-                    response: Response<BasicResponse>
-                ) {
-                    if (response.isSuccessful) {
-                        var br = response.body()!!
-                        mReviewList.clear()
-                        mReviewList.addAll(br.data.reviews)
-                        mMainReviewListRecyclerAdapter.notifyDataSetChanged()
+        if (isInitialized) {
+            apiService.getRequestSmallCategorysItemReviewList(mClickedSmallCategoryNum)
+                .enqueue(object : Callback<BasicResponse> {
+                    override fun onResponse(
+                        call: Call<BasicResponse>,
+                        response: Response<BasicResponse>
+                    ) {
+                        if (response.isSuccessful) {
+                            var br = response.body()!!
+                            mReviewList.clear()
+                            mReviewList.addAll(br.data.reviews)
+                            mMainReviewListRecyclerAdapter.notifyDataSetChanged()
+                        }
                     }
-                }
 
-                override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+                    override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
 
-                }
-            })
+                    }
+                })
+        }
     }
 
     fun getBannerListFromServer() {

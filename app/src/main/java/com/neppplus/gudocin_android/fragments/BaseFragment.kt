@@ -9,7 +9,9 @@ import com.neppplus.gudocin_android.api.ServerAPIInterface
 abstract class BaseFragment : Fragment() {
 
     lateinit var mContext: Context
+
     lateinit var apiService: ServerAPIInterface
+    val isInitialized get() = this::apiService.isInitialized
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
