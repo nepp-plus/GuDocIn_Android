@@ -6,9 +6,12 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
 import com.gun0912.tedpermission.PermissionListener
@@ -72,13 +75,13 @@ class ReviewActivity : BaseActivity() {
         binding.selectImgLayout.setOnClickListener(ocl)
         binding.imgThumbPicture.setOnClickListener(ocl)
 
-/* //        지금 들어오는 텍스트가 무엇인지 확인하는 함수
+        // 지금 들어오는 텍스트가 무엇인지 확인하는 함수
         binding.edtKeyword.addTextChangedListener {
             val nowText = it.toString()
             if (nowText == "") {
                 return@addTextChangedListener
             }
-//            입력한 값이 스페이스바가 들어오게 되면 태그가 되게 하는 함수
+            // 입력한 값이 스페이스바가 들어오게 되면 태그가 되게 하는 함수
             Log.d("입력값", nowText)
 
             if (nowText.last() == ' ') {
@@ -93,7 +96,7 @@ class ReviewActivity : BaseActivity() {
                 binding.tagListLayout.addView(tagBox)
                 binding.edtKeyword.setText("")
             }
-        } */
+        }
 
         binding.btnReviewUpload.setOnClickListener {
 //          val inputTag = binding.edtKeyword.text.toString()
@@ -204,10 +207,10 @@ class ReviewActivity : BaseActivity() {
     }
 
     override fun setValues() {
-        Glide.with(mContext).load(GlobalData.loginUser?.profileImageURL).into(binding.imgProfile)
+        Glide.with(mContext).load(GlobalData.loginUser!!.profileImageURL).into(binding.imgProfile)
 
         mProductData = intent.getSerializableExtra("product") as ProductData
-        binding.txtUserNickName.text = GlobalData.loginUser?.nickname
+        binding.txtUserNickName.text = GlobalData.loginUser!!.nickname
         binding.txtProductName.text = mProductData.name
 
         val now = Calendar.getInstance()

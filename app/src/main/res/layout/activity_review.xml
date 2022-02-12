@@ -277,39 +277,37 @@
                     android:hint="리뷰 내용을 작성해주세요"
                     android:textSize="20sp" />
 
-                <!--
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="5dp"
-                                    android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:orientation="vertical">
 
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="# 키워드 입력하기"
-                                        android:textColor="@color/black"
-                                        android:textSize="20sp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="# 키워드 입력하기"
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
 
-                                    <EditText
-                                        android:id="@+id/edtKeyword"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:gravity="center"
-                                        android:hint="스페이스바 입력 시 하나의 키워드가 완성됩니다"
-                                        android:singleLine="true"
-                                        android:textSize="17sp" />
+                    <EditText
+                        android:id="@+id/edtKeyword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:hint="스페이스바 입력 시 하나의 키워드가 완성됩니다"
+                        android:singleLine="true"
+                        android:textSize="17sp" />
 
-                                    <com.nex3z.flowlayout.FlowLayout
-                                        android:id="@+id/tagListLayout"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        app:flRowSpacing="5dp">
+                    <com.nex3z.flowlayout.FlowLayout
+                        android:id="@+id/tagListLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:flRowSpacing="5dp">
 
-                                    </com.nex3z.flowlayout.FlowLayout>
+                    </com.nex3z.flowlayout.FlowLayout>
 
-                                </LinearLayout>
-                -->
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
