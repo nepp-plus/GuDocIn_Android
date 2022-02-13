@@ -15,99 +15,42 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:gravity="center">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="구독하기 주문"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="20dp"
-                android:text="주문 상품"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/corner_shape_for_cart"
                 android:orientation="horizontal">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <ImageView
+                    android:id="@+id/imgProductPhoto"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/txtProductName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="상품명"
-                        android:textColor="@color/black"
-                        android:textSize="12sp" />
-
-                    <ImageView
-                        android:id="@+id/imgProductPhoto"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginTop="5dp"
-                        android:src="@mipmap/ic_launcher" />
-
-                    <!-- <Button
-                        android:id="@+id/btnOptionChange"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@color/white"
-                        android:text="옵션 변경" /> -->
-
-                </LinearLayout>
+                    android:src="@mipmap/ic_launcher" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="45dp"
+                    android:layout_marginTop="20dp"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/txtProductPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="가격"
+                        android:layout_marginLeft="7dp"
+                        android:text="상품명"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
+                        android:textSize="13sp" />
 
                     <TextView
                         android:id="@+id/txtSubscribeCycle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="구독 주기"
+                        android:layout_marginLeft="7dp"
+                        android:layout_marginTop="5dp"
+                        android:text="가격"
                         android:textColor="@color/black"
-                        android:textSize="12sp" />
-
-                    <!-- <TextView
-                        android:id="@+id/txtProductOption"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="28dp"
-                        android:textColor="@color/black"
-                        android:textSize="12sp"
-                        tools:text="옵션명" /> -->
+                        android:textSize="13sp" />
 
                 </LinearLayout>
 
@@ -177,6 +120,7 @@
                         android:id="@+id/btnRevise1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
                         android:backgroundTint="@color/white"
                         android:text="수정하기" />
 
@@ -185,7 +129,6 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -215,7 +158,6 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -289,6 +231,7 @@
                         android:id="@+id/btnRevise2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
                         android:backgroundTint="@color/white"
                         android:text="수정하기" />
 
@@ -297,7 +240,6 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -352,9 +294,10 @@
 
                     <ImageView
                         android:id="@+id/imgDropDownArrow"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@mipmap/ic_launcher" />
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/down_arrow_icon" />
 
                 </LinearLayout>
 
@@ -407,7 +350,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="상품 금액: "
+                        android:text="상품 금액 : "
                         android:textColor="@color/black" />
 
                     <TextView
@@ -427,7 +370,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="배송 금액: "
+                        android:text="배송 금액 : "
                         android:textColor="@color/black" />
 
                     <TextView
@@ -447,7 +390,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="최종 결제 금액: "
+                        android:text="최종 결제 금액 : "
                         android:textColor="@color/black" />
 
                     <TextView
@@ -465,10 +408,10 @@
 
                     <Button
                         android:id="@+id/btnPayment"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginTop="10dp"
+                        android:layout_margin="5dp"
                         android:backgroundTint="@color/white"
                         android:text="결제하기" />
 

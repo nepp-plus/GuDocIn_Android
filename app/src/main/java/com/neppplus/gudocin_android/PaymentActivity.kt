@@ -39,7 +39,7 @@ class PaymentActivity : BaseActivity() {
         } else {
 
         }
-//      배달 정보
+        // 배달 정보
         if (requestCode == 4 && resultCode == RESULT_OK && intent.hasExtra("nickname")) {
             binding.edtConsumerName2.setText(intent.getStringExtra("nickname"))
         } else if (requestCode == 5 && resultCode == RESULT_OK && intent.hasExtra("phone")) {
@@ -47,7 +47,7 @@ class PaymentActivity : BaseActivity() {
         } else {
 
         }
-//      카드 정보
+        // 카드 정보
         if (requestCode == 6 && resultCode == RESULT_OK && intent.hasExtra("nickname")) {
             binding.txtConsumerCard.text = intent.getStringExtra("nickname")
         } else {
@@ -61,20 +61,10 @@ class PaymentActivity : BaseActivity() {
             startActivity(myIntent)
             finish()
         }
-        binding.btnRevise1.setOnClickListener {
-            val myIntent = Intent(mContext, ConsumerInfoActivity::class.java)
-            startActivity(myIntent)
-            finish()
-        }
-        binding.btnRevise2.setOnClickListener {
-            val myIntent = Intent(mContext, DeliveryInfoActivity::class.java)
-            startActivity(myIntent)
-            finish()
-        }
     }
 
     override fun setValues() {
-//      mReviewData = intent.getSerializableExtra("review") as ReviewData?
+//      mReviewData = intent.getSerializableExtra("review") as ReviewData
         btnCart.visibility = View.GONE
     }
 

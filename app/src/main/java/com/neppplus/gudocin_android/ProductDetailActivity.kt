@@ -106,8 +106,8 @@ class ProductDetailActivity : BaseActivity() {
                         Log.d("성공", br.message)
 
                         val alert = AlertDialog.Builder(mContext)
-                        alert.setTitle("장바구니 상품 등록 완료")
-                        alert.setMessage("장바구니로 이동 하시겠습니까?")
+                        alert.setTitle("장바구니 등록 완료")
+                        alert.setMessage("장바구니로 이동하시겠습니까?")
                         alert.setPositiveButton("확인",
                             DialogInterface.OnClickListener { dialog, which ->
                                 val myIntent = Intent(mContext, CartListActivity::class.java)
