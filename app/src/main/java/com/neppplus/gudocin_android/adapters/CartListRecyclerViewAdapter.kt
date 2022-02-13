@@ -1,19 +1,18 @@
 package com.neppplus.gudocin_android.adapters
 
 import android.content.Context
-import android.content.Intent
+import android.text.Layout
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.content.ContextCompat.startActivity
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.bumptech.glide.Glide
-import com.neppplus.gudocin_android.PaymentActivity
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.api.ServerAPI
 import com.neppplus.gudocin_android.api.ServerAPIInterface
@@ -39,7 +38,7 @@ class CartListRecyclerViewAdapter(
         val retrofit = ServerAPI.getRetrofit(mContext)
 
         val imgDeleteSubscribe = view.findViewById<ImageView>(R.id.imgDeleteSubscribe)
-        val btnSubscribe = view.findViewById<Button>(R.id.btnSubscribe)
+//      val btnSubscribe = view.findViewById<Button>(R.id.btnSubscribe)
 
         fun bind(data: CartData) {
             txtCartProductName.text = data.product.name
@@ -56,12 +55,12 @@ class CartListRecyclerViewAdapter(
                             response: Response<BasicResponse>
                         ) {
                             if (response.isSuccessful) {
+                                notifyDataSetChanged()
                                 Toast.makeText(
                                     mContext,
                                     "장바구니 목록이 삭제되었습니다",
                                     Toast.LENGTH_SHORT
                                 ).show()
-                                notifyDataSetChanged()
                             } else {
                                 val errorJson = JSONObject(response.errorBody()!!.string())
                                 Log.d("에러경우", errorJson.toString())
@@ -87,10 +86,10 @@ class CartListRecyclerViewAdapter(
 
     override fun onBindViewHolder(holder: CartViewHolder, position: Int) {
         holder.bind(mList[position])
-        holder.btnSubscribe.setOnClickListener {
+        /* holder.btnSubscribe.setOnClickListener {
             val myIntent = Intent(mContext, PaymentActivity::class.java)
             startActivity(holder.btnSubscribe.context, myIntent, null)
-        }
+        } */
     }
 
     override fun getItemCount() = mList.size

@@ -39,17 +39,33 @@ class CartListActivity : BaseActivity() {
             startActivity(myIntent)
             finish()
         }
+
+        binding.swipeRefresh.setOnRefreshListener {
+            try {
+                val intent = intent
+                finish() // 현재 액티비티 종료 실시
+                overridePendingTransition(0, 0) // 인텐트 애니메이션 없애기
+                startActivity(intent) // 현재 액티비티 재실행 실시
+                overridePendingTransition(0, 0) // 인텐트 애니메이션 없애기
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+            binding.swipeRefresh.isRefreshing = false
+        }
+
+        /* binding.layoutScroll.viewTreeObserver.addOnScrollChangedListener {
+            binding.swipeRefresh.isEnabled = (binding.layoutScroll.scrollY == 0)
+        } */
     }
 
     override fun setValues() {
         getCartListFromServer()
 
-        btnCart.visibility = View.GONE
-
         mCartListRecyclerViewAdapter = CartListRecyclerViewAdapter(mContext, mCartList)
-
         binding.cartListRecyclerView.adapter = mCartListRecyclerViewAdapter
         binding.cartListRecyclerView.layoutManager = LinearLayoutManager(mContext)
+
+        btnCart.visibility = View.GONE
     }
 
     fun getCartListFromServer() {
