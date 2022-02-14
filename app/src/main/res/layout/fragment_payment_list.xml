@@ -4,11 +4,10 @@
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
         android:orientation="vertical">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/myPurchaseRecyclerView"
+            android:id="@+id/paymentRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

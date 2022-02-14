@@ -26,7 +26,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/txtProductPrice"
+        android:id="@+id/txtPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
@@ -34,7 +34,7 @@
         android:textColor="@color/black" />
 
     <TextView
-        android:id="@+id/txtPurchaseDate"
+        android:id="@+id/txtPaymentDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
@@ -117,7 +117,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/txtProductPrice1"
+        android:id="@+id/txtPrice1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
@@ -125,7 +125,7 @@
         android:textColor="@color/black" />
 
     <TextView
-        android:id="@+id/txtPurchaseDate1"
+        android:id="@+id/txtPaymentDate1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
@@ -202,7 +202,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/txtProductPrice2"
+        android:id="@+id/txtPrice2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
@@ -210,7 +210,7 @@
         android:textColor="@color/black" />
 
     <TextView
-        android:id="@+id/txtPurchaseDate2"
+        android:id="@+id/txtPaymentDate2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="구매일자"

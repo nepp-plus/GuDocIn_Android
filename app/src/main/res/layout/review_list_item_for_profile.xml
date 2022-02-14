@@ -3,24 +3,26 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
+    android:background="@drawable/corner_shape"
+    android:gravity="center"
     android:orientation="vertical">
-
-    <TextView
-        android:id="@+id/txtReviewTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="리뷰 제목"
-        android:textColor="@color/black"
-        android:textSize="17sp" />
 
     <TextView
         android:id="@+id/txtProductName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:text="상품명"
         android:textColor="@color/black"
         android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/txtReviewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="리뷰 제목"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
 
     <TextView
         android:id="@+id/txtReviewDate"
@@ -33,9 +35,9 @@
 
     <Button
         android:id="@+id/btnReviewCheck"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_margin="5dp"
         android:backgroundTint="@color/white"
         android:text="리뷰확인" />
 

@@ -5,7 +5,8 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".activities.FindAccountActivity">
+        android:padding="20dp"
+        tools:context=".activities.AccountActivity">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -20,8 +21,8 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
                     android:layout_gravity="center"
                     android:src="@drawable/title_logo" />
 
@@ -30,7 +31,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_marginTop="10dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -43,43 +44,31 @@
 
                 <EditText
                     android:id="@+id/edtPhone"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="연락처를 입력하세요"
                     android:inputType="phone" />
 
-                <LinearLayout
+                <EditText
+                    android:id="@+id/edtNicknameForEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:hint="닉네임을 입력하세요" />
 
-                    <EditText
-                        android:id="@+id/edtNicknameForEmail"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:hint="닉네임을 입력하세요" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
-
-                    <Button
-                        android:id="@+id/btnSubmitForEmail"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@color/white"
-                        android:text="제출하기"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
+                <Button
+                    android:id="@+id/btnSubmitForEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    android:text="제출하기"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_marginTop="30dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -92,36 +81,24 @@
 
                 <EditText
                     android:id="@+id/edtEmail"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="이메일을 입력하세요"
                     android:inputType="textEmailAddress" />
 
-                <LinearLayout
+                <EditText
+                    android:id="@+id/edtNicknameForPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:hint="닉네임을 입력하세요" />
 
-                    <EditText
-                        android:id="@+id/edtNicknameForPassword"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:hint="닉네임을 입력하세요" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
-
-                    <Button
-                        android:id="@+id/btnSubmitForPassword"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@color/white"
-                        android:text="제출하기"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
+                <Button
+                    android:id="@+id/btnSubmitForPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    android:text="제출하기"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 

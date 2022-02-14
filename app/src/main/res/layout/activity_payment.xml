@@ -7,7 +7,7 @@
         android:layout_height="match_parent"
         android:animateLayoutChanges="true"
         android:orientation="vertical"
-        tools:context=".PaymentActivity">
+        tools:context=".activities.PaymentActivity">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -18,11 +18,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:background="@drawable/corner_shape_for_cart"
+                android:background="@drawable/corner_shape"
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/imgProductPhoto"
+                    android:id="@+id/imgProduct"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@mipmap/ic_launcher" />
@@ -30,27 +30,27 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="17dp"
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/txtProductPrice"
+                        android:id="@+id/txtProductName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="7dp"
+                        android:layout_marginLeft="10dp"
                         android:text="상품명"
                         android:textColor="@color/black"
-                        android:textSize="13sp" />
+                        android:textSize="12sp" />
 
                     <TextView
-                        android:id="@+id/txtSubscribeCycle"
+                        android:id="@+id/txtPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="7dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_marginTop="5dp"
                         android:text="가격"
                         android:textColor="@color/black"
-                        android:textSize="13sp" />
+                        android:textSize="12sp" />
 
                 </LinearLayout>
 
@@ -83,7 +83,7 @@
                         android:textColor="@color/black" />
 
                     <EditText
-                        android:id="@+id/edtConsumerName1"
+                        android:id="@+id/edtOrderName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="주문자 성명"
@@ -104,7 +104,7 @@
                         android:textColor="@color/black" />
 
                     <EditText
-                        android:id="@+id/edtConsumerPhone1"
+                        android:id="@+id/edtOrderPhone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="010-0000-0000"
@@ -117,7 +117,7 @@
                         android:layout_weight="1" />
 
                     <Button
-                        android:id="@+id/btnRevise1"
+                        android:id="@+id/btnOrderRevise"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
@@ -138,7 +138,7 @@
                         android:textColor="@color/black" />
 
                     <EditText
-                        android:id="@+id/edtConsumerEmail"
+                        android:id="@+id/edtOrderEmail"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="nepp@gmail.com"
@@ -174,7 +174,7 @@
                         android:layout_weight="1" />
 
                     <CheckBox
-                        android:id="@+id/checkSameInfo"
+                        android:id="@+id/checkInfo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/black"
@@ -194,7 +194,7 @@
                         android:textColor="@color/black" />
 
                     <EditText
-                        android:id="@+id/edtConsumerName2"
+                        android:id="@+id/edtReceiverName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="수신자 성명"
@@ -215,7 +215,7 @@
                         android:textColor="@color/black" />
 
                     <EditText
-                        android:id="@+id/edtConsumerPhone2"
+                        android:id="@+id/edtReceiverPhone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="010-0000-0000"
@@ -228,7 +228,7 @@
                         android:layout_weight="1" />
 
                     <Button
-                        android:id="@+id/btnRevise2"
+                        android:id="@+id/btnReceiverRevise"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
@@ -249,7 +249,7 @@
                         android:textColor="@color/black" />
 
                     <EditText
-                        android:id="@+id/edtConsumerAddress"
+                        android:id="@+id/edtReceiverAddress"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="서울시 동대문구 제기동 "
@@ -275,7 +275,7 @@
                     android:textStyle="bold" />
 
                 <LinearLayout
-                    android:id="@+id/parent1"
+                    android:id="@+id/parent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
@@ -302,14 +302,14 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/layoutExpand1"
+                    android:id="@+id/layoutExpand"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:visibility="gone">
 
                     <TextView
-                        android:id="@+id/txtConsumerCard"
+                        android:id="@+id/txtOrderCard"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="나의 소중한 신한 카드"

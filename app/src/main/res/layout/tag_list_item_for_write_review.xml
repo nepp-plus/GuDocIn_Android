@@ -8,7 +8,7 @@
         android:id="@+id/txtTag"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginEnd="5dp"
+        android:layout_margin="5dp"
         android:background="@drawable/tag_box"
         android:padding="5dp"
         android:text="태그내용"

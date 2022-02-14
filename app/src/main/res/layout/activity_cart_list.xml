@@ -7,7 +7,7 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
-        tools:context=".CartListActivity">
+        tools:context=".activities.CartListActivity">
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/swipeRefresh"
@@ -31,7 +31,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="12dp"
                     android:layout_marginRight="12dp"
-                    android:background="@drawable/corner_shape_for_cart"
+                    android:background="@drawable/corner_shape"
                     android:orientation="vertical">
 
                     <TextView

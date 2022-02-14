@@ -7,25 +7,31 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".SubscriptionHistoryActivity">
+        tools:context=".activities.SubscriptionHistoryActivity">
 
-        <de.hdodenhof.circleimageview.CircleImageView
+        <!-- <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imgProfile"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
             android:src="@mipmap/ic_launcher"
-            app:civ_border_width="2dp" />
+            app:civ_border_width="2dp" /> -->
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="310dp"
+            android:layout_gravity="center"
+            android:src="@drawable/title_logo" />
 
         <com.google.android.material.tabs.TabLayout
-            android:id="@+id/subscribeHistoryTabLayout"
+            android:id="@+id/activitiesHistoryTabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:tabMode="fixed" />
 
         <androidx.viewpager.widget.ViewPager
-            android:id="@+id/subscribeHistoryViewPager"
+            android:id="@+id/activitiesHistoryViewPager"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

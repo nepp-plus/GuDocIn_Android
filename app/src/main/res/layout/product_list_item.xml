@@ -3,118 +3,52 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="5dp">
+    android:padding="10dp">
 
-    <LinearLayout
-        android:id="@+id/layoutRoot"
+    <ImageView
+        android:id="@+id/imgProduct"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="bottom"
+        android:src="@mipmap/ic_launcher" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:gravity="center_vertical"
         android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/imgProduct"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:scaleType="centerCrop"
-            android:src="@mipmap/ic_launcher" />
-
-        <LinearLayout
-            android:layout_width="0dp"
+        <TextView
+            android:id="@+id/txtStoreName"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/txtStoreName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="가게명"
-                android:textColor="@color/black" />
-
-            <TextView
-                android:id="@+id/txtProductName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="상품명"
-                android:textColor="@color/black" />
-
-            <TextView
-                android:id="@+id/txtProductPrice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="가격"
-                android:textColor="@color/black" />
-
-            <LinearLayout
-                android:id="@+id/layoutReviewDetail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/txtReviewDetail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="리뷰 더보기"
-                    android:textColor="@color/black" />
-
-            </LinearLayout>
-
-        </LinearLayout>
+            android:text="가게명"
+            android:textColor="@color/black" />
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/layoutReviewItem"
+    <TextView
+        android:id="@+id/txtProductName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:text="상품명"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/txtPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:text="가격"
+        android:textColor="@color/black" />
+
+    <Button
+        android:id="@+id/btnWriteReview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="@drawable/corner_shape_for_review"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:outlineSpotShadowColor="@color/black"
-        android:padding="5dp"
-        android:visibility="visible">
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/imgReview"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:scaleType="centerCrop"
-            android:src="@mipmap/ic_launcher" />
-
-        <TextView
-            android:id="@+id/txtReviewTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:text="리뷰제목"
-            android:textColor="@color/black"
-            android:textSize="17sp" />
-
-        <TextView
-            android:id="@+id/txtReviewWriter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:text="작성자"
-            android:textColor="@color/black"
-            android:textSize="14sp" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-        <ImageView
-            android:id="@+id/imgReviewDetail"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/right_arrow_icon" />
-
-    </LinearLayout>
+        android:layout_marginTop="3dp"
+        android:backgroundTint="@color/white"
+        android:text="상품 리뷰 작성" />
 
 </LinearLayout>

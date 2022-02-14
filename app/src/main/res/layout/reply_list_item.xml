@@ -7,7 +7,7 @@
     android:padding="10dp">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/imgUserProfile"
+        android:id="@+id/imgProfile"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:scaleType="centerCrop"
@@ -20,7 +20,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/txtUserNickName"
+            android:id="@+id/txtNickName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="닉네임"
@@ -36,7 +36,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/txtReviewReply"
+        android:id="@+id/txtReply"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"

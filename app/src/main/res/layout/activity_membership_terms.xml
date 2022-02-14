@@ -5,7 +5,8 @@
 
         <variable
             name="viewModel"
-            type="com.neppplus.gudocin_android.terms.TermsViewModel" />
+            type="com.neppplus.gudoc_in.terms.TermsViewModel" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"

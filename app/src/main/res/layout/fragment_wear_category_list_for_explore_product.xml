@@ -12,10 +12,10 @@
         tools:context=".WearCategoryListFragment">
 
         <TextView
-            android:id="@+id/txtSelectedCategory"
+            android:id="@+id/txtSelectedLargeCategory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="선택한 대분류 카테고리"
+            android:text="선택한 카테고리"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -27,7 +27,7 @@
             android:scrollbars="none">
 
             <LinearLayout
-                android:id="@+id/smallCategoryList"
+                android:id="@+id/layoutSmallCategoryList"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">

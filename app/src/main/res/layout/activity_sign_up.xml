@@ -1,33 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center"
         android:orientation="vertical"
-        tools:context=".LoginActivity">
+        android:padding="20dp"
+        tools:context=".activities.SignUpActivity">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="20dp">
+            android:orientation="vertical">
 
-            <LinearLayout
+            <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/title_logo" />
-
-            </LinearLayout>
+                android:layout_height="250dp"
+                android:src="@drawable/title_logo" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -37,7 +28,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
                     android:text="이메일"
                     android:textColor="@color/black"
                     android:textSize="17sp"
@@ -154,7 +144,7 @@
                     android:id="@+id/checkSignUpConfirm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="10dp"
                     android:buttonTint="@color/black"
                     android:checked="false"
                     android:text="회원약관 동의(필수)"
@@ -183,15 +173,13 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="30dp"
-                android:gravity="center"
+                android:layout_marginTop="30dp"
                 android:orientation="vertical">
 
                 <Button
                     android:id="@+id/btnKakaoLogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
                     android:backgroundTint="@color/white"
                     android:text="카카오 로그인"
                     android:textStyle="bold" />
@@ -200,7 +188,6 @@
                     android:id="@+id/btnFacebookLogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
                     android:backgroundTint="@color/white"
                     android:text="페이스북 로그인"
                     android:textStyle="bold" />
@@ -209,7 +196,6 @@
                     android:id="@+id/btnGoogleLogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
                     android:backgroundTint="@color/white"
                     android:text="구글 로그인"
                     android:textStyle="bold" />
