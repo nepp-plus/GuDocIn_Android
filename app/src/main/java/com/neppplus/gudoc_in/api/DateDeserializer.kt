@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android.api
+package com.neppplus.gudoc_in.api
 
 import com.google.gson.JsonDeserializationContext
 import com.google.gson.JsonDeserializer
