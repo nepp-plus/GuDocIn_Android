@@ -1,8 +1,8 @@
-package com.neppplus.gudocin_android.api
+package com.neppplus.gudoc_in.api
 
 import android.content.Context
 import com.google.gson.GsonBuilder
-import com.neppplus.gudocin_android.utils.ContextUtil
+import com.neppplus.gudoc_in.utils.ContextUtil
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

@@ -1,6 +1,6 @@
-package com.neppplus.gudocin_android.api
+package com.neppplus.gudoc_in.api
 
-import com.neppplus.gudocin_android.datas.BasicResponse
+import com.neppplus.gudoc_in.datas.BasicResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call
@@ -202,7 +202,7 @@ interface ServerAPIInterface {
 
     // 사용자 구독상품 결제 목록
     @GET("/user/payment")
-    fun getRequestUserPurchaseList(): Call<BasicResponse>
+    fun getRequestUserpaymentList(): Call<BasicResponse>
 
     // 사용자 마일리지 적립 내역 조회
     @GET("/user/point")
@@ -233,4 +233,10 @@ interface ServerAPIInterface {
     // 리뷰 체크 항목
     @GET("/review/check_list")
     fun getRequestReviewCheckList(): Call<BasicResponse>
+
+    // 회원탈퇴
+    @DELETE("/user")
+    fun deleteRequestUser(
+        @Query("text") text: String
+    ): Call<BasicResponse>
 }
