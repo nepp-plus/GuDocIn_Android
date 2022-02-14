@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android
+package com.neppplus.gudoc_in.application
 
 import android.app.Application
 import com.kakao.sdk.common.KakaoSdk
