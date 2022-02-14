@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android.utils
+package com.neppplus.gudoc_in.utils
 
 import java.text.SimpleDateFormat
 import java.util.*
