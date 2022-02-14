@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android.datas
+package com.neppplus.gudoc_in.datas
 
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
