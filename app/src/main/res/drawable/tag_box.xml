@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <item
-        android:state_pressed="false">
+    <item android:state_pressed="false">
 
         <layer-list>
 
@@ -11,46 +9,28 @@
                 <shape
 
                     android:shape="rectangle">
-                    <solid
-                        android:color="@color/black"/>
 
-                    <corners
-                        android:radius="5dp"/>
+                    <solid android:color="@color/black" />
 
+                    <corners android:radius="5dp" />
 
                 </shape>
 
-
             </item>
 
-            <item
-                android:top="1dp"
-                android:bottom="1dp"
-                android:left="1dp"
-                android:right="1dp">
-                <shape
-                    android:shape="rectangle">
+            <item android:bottom="1dp" android:left="1dp" android:right="1dp" android:top="1dp">
 
-                    <solid
-                        android:color="@color/white"/>
+                <shape android:shape="rectangle">
 
-                    <corners
-                        android:radius="4dp"/>
+                    <solid android:color="@color/white" />
 
+                    <corners android:radius="4dp" />
 
                 </shape>
 
-
-
             </item>
-
-
 
         </layer-list>
 
-
-
     </item>
-
-
 </selector>

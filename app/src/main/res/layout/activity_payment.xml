@@ -7,7 +7,7 @@
         android:layout_height="match_parent"
         android:animateLayoutChanges="true"
         android:orientation="vertical"
-        tools:context=".PaymentActivity">
+        tools:context=".activities.PaymentActivity">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -15,99 +15,42 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:gravity="center">
+                android:layout_margin="10dp"
+                android:background="@drawable/corner_shape"
+                android:orientation="horizontal">
 
-                <TextView
+                <ImageView
+                    android:id="@+id/imgProduct"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="구독하기 주문"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="20dp"
-                android:text="주문 상품"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
+                    android:src="@mipmap/ic_launcher" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
+                    android:layout_marginTop="17dp"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/txtProductName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
+                        android:layout_marginLeft="10dp"
                         android:text="상품명"
                         android:textColor="@color/black"
                         android:textSize="12sp" />
 
-                    <ImageView
-                        android:id="@+id/imgProductPhoto"
+                    <TextView
+                        android:id="@+id/txtPrice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
                         android:layout_marginTop="5dp"
-                        android:src="@mipmap/ic_launcher" />
-
-                    <!--                    <Button-->
-                    <!--                        android:id="@+id/btnOptionChange"-->
-                    <!--                        android:layout_width="wrap_content"-->
-                    <!--                        android:layout_height="wrap_content"-->
-                    <!--                        android:backgroundTint="@color/white"-->
-                    <!--                        android:text="옵션 변경" />-->
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="45dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/txtProductPrice"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black"
-                        android:textSize="12sp"
-                        android:text="가격" />
-
-                    <TextView
-                        android:id="@+id/txtSubscribeCycle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="구독 주기"
+                        android:text="가격"
                         android:textColor="@color/black"
                         android:textSize="12sp" />
-
-                    <!--                    <TextView-->
-                    <!--                        android:id="@+id/txtProductOption"-->
-                    <!--                        android:layout_width="wrap_content"-->
-                    <!--                        android:layout_height="wrap_content"-->
-                    <!--                        android:layout_marginTop="28dp"-->
-                    <!--                        android:textColor="@color/black"-->
-                    <!--                        android:textSize="12sp"-->
-                    <!--                        tools:text="옵션명" />-->
 
                 </LinearLayout>
 
@@ -140,7 +83,7 @@
                         android:textColor="@color/black" />
 
                     <EditText
-                        android:id="@+id/edtConsumerName1"
+                        android:id="@+id/edtOrderName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="주문자 성명"
@@ -161,13 +104,12 @@
                         android:textColor="@color/black" />
 
                     <EditText
-                        android:id="@+id/edtConsumerPhone1"
+                        android:id="@+id/edtOrderPhone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="010-0000-0000"
                         android:singleLine="true"
                         android:textSize="13sp" />
-
 
                     <TextView
                         android:layout_width="0dp"
@@ -175,9 +117,10 @@
                         android:layout_weight="1" />
 
                     <Button
-                        android:id="@+id/btnRevise1"
+                        android:id="@+id/btnOrderRevise"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
                         android:backgroundTint="@color/white"
                         android:text="수정하기" />
 
@@ -186,7 +129,6 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -196,7 +138,7 @@
                         android:textColor="@color/black" />
 
                     <EditText
-                        android:id="@+id/edtConsumerEmail"
+                        android:id="@+id/edtOrderEmail"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="nepp@gmail.com"
@@ -216,7 +158,6 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -233,7 +174,7 @@
                         android:layout_weight="1" />
 
                     <CheckBox
-                        android:id="@+id/checkSameInfo"
+                        android:id="@+id/checkInfo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/black"
@@ -253,7 +194,7 @@
                         android:textColor="@color/black" />
 
                     <EditText
-                        android:id="@+id/edtConsumerName2"
+                        android:id="@+id/edtReceiverName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="수신자 성명"
@@ -274,7 +215,7 @@
                         android:textColor="@color/black" />
 
                     <EditText
-                        android:id="@+id/edtConsumerPhone2"
+                        android:id="@+id/edtReceiverPhone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="010-0000-0000"
@@ -287,9 +228,10 @@
                         android:layout_weight="1" />
 
                     <Button
-                        android:id="@+id/btnRevise2"
+                        android:id="@+id/btnReceiverRevise"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
                         android:backgroundTint="@color/white"
                         android:text="수정하기" />
 
@@ -298,7 +240,6 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -308,7 +249,7 @@
                         android:textColor="@color/black" />
 
                     <EditText
-                        android:id="@+id/edtConsumerAddress"
+                        android:id="@+id/edtReceiverAddress"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="서울시 동대문구 제기동 "
@@ -334,7 +275,7 @@
                     android:textStyle="bold" />
 
                 <LinearLayout
-                    android:id="@+id/parent1"
+                    android:id="@+id/parent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
@@ -353,21 +294,22 @@
 
                     <ImageView
                         android:id="@+id/imgDropDownArrow"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/drop_down_arrow" />
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/down_arrow_icon" />
 
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/layoutExpand1"
+                    android:id="@+id/layoutExpand"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:visibility="gone">
 
                     <TextView
-                        android:id="@+id/txtConsumerCard"
+                        android:id="@+id/txtOrderCard"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="나의 소중한 신한 카드"
@@ -408,7 +350,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="상품 금액: "
+                        android:text="상품 금액 : "
                         android:textColor="@color/black" />
 
                     <TextView
@@ -428,7 +370,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="배송 금액: "
+                        android:text="배송 금액 : "
                         android:textColor="@color/black" />
 
                     <TextView
@@ -448,7 +390,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="최종 결제 금액: "
+                        android:text="최종 결제 금액 : "
                         android:textColor="@color/black" />
 
                     <TextView
@@ -466,10 +408,10 @@
 
                     <Button
                         android:id="@+id/btnPayment"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginTop="10dp"
+                        android:layout_margin="5dp"
                         android:backgroundTint="@color/white"
                         android:text="결제하기" />
 

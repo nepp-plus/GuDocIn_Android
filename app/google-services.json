@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "627080655507",
-    "project_id": "gudocin-android",
-    "storage_bucket": "gudocin-android.appspot.com"
+    "project_number": "741873260357",
+    "project_id": "gudocin-android-27f8e",
+    "storage_bucket": "gudocin-android-27f8e.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:627080655507:android:ffc4643099fa651c8a5366",
+        "mobilesdk_app_id": "1:741873260357:android:b8c51db40de29f6c9a502c",
         "android_client_info": {
           "package_name": "com.neppplus.gudocin_android"
         }
       },
       "oauth_client": [
         {
-          "client_id": "627080655507-847v9jj18npd61r9ltkh7a7qs6dmd3mr.apps.googleusercontent.com",
+          "client_id": "741873260357-k81nj85r84ohs525oc5n1p3sq5ng5178.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDbdYmXah_RnxBghZl9DN1UVQN1T16Lb7k"
+          "current_key": "AIzaSyAXX6zVHtU_Li2WwnLAGb4I1h5ZiCvOCOU"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "627080655507-847v9jj18npd61r9ltkh7a7qs6dmd3mr.apps.googleusercontent.com",
+              "client_id": "741873260357-k81nj85r84ohs525oc5n1p3sq5ng5178.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
