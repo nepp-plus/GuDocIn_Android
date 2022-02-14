@@ -1,10 +1,10 @@
-package com.neppplus.gudocin_android.adapters
+package com.neppplus.gudoc_in.adapters
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.neppplus.gudocin_android.fragments.PurchaseListFragment
-import com.neppplus.gudocin_android.fragments.ReviewListFragment
+import com.neppplus.gudoc_in.fragments.PaymentListFragment
+import com.neppplus.gudoc_in.fragments.ReviewListFragment
 
 class SubscriptionHistoryViewPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
@@ -13,14 +13,14 @@ class SubscriptionHistoryViewPagerAdapter(fm: FragmentManager) : FragmentPagerAd
     override fun getPageTitle(position: Int): CharSequence? {
         return when (position) {
             0 -> "상품 리뷰 내역"
-            else -> "상품 구매 내역"
+            else -> "상품 결제 내역"
         }
     }
 
     override fun getItem(position: Int): Fragment {
         return when (position) {
             0 -> ReviewListFragment()
-            else -> PurchaseListFragment()
+            else -> PaymentListFragment()
         }
     }
 

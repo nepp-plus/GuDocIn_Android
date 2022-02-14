@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android.adapters
+package com.neppplus.gudoc_in.adapters.reviews
 
 import android.content.Context
 import android.content.Intent
@@ -10,28 +10,28 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.neppplus.gudocin_android.R
-import com.neppplus.gudocin_android.ReviewDetailActivity
-import com.neppplus.gudocin_android.datas.ReviewData
+import com.neppplus.gudoc_in.R
+import com.neppplus.gudoc_in.activities.ReviewActivity
+import com.neppplus.gudoc_in.datas.ReviewData
 
-class ReviewListRecyclerViewAdapterForProduct
+class ReviewListRecyclerViewAdapterForExploreProduct
     (val mContext: Context, val mList: List<ReviewData>) :
-    RecyclerView.Adapter<ReviewListRecyclerViewAdapterForProduct.ReviewViewHolder>() {
+    RecyclerView.Adapter<ReviewListRecyclerViewAdapterForExploreProduct.ReviewViewHolder>() {
 
     inner class ReviewViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        val txtReviewWriterName = itemView.findViewById<TextView>(R.id.txtReviewWriterName)
-        val imgReviewerImage = itemView.findViewById<ImageView>(R.id.imgReviewerImage)
+        val layoutReviewDetail = itemView.findViewById<LinearLayout>(R.id.layoutReviewDetail)
+        val imgReviewer = itemView.findViewById<ImageView>(R.id.imgReviewer)
         val txtReviewTitle = itemView.findViewById<TextView>(R.id.txtReviewTitle)
-        val btnGotoReviewDetail = itemView.findViewById<LinearLayout>(R.id.btnGotoReviewDetail)
+        val txtReviewerName = itemView.findViewById<TextView>(R.id.txtReviewerName)
 
         fun bind(data: ReviewData) {
-            txtReviewWriterName.text = data.user.nickname
+            txtReviewerName.text = data.user.nickname
             txtReviewTitle.text = data.title
-            Glide.with(mContext).load(data.user.profileImageURL).into(imgReviewerImage)
+            Glide.with(mContext).load(data.user.profileImageURL).into(imgReviewer)
 
-            btnGotoReviewDetail.setOnClickListener {
-                val myIntent = Intent(mContext, ReviewDetailActivity::class.java)
+            layoutReviewDetail.setOnClickListener {
+                val myIntent = Intent(mContext, ReviewActivity::class.java)
                 myIntent.putExtra("review", data) // 넘어갈 때 review id 들려 보내야 함
                 mContext.startActivity(myIntent)
             }
@@ -42,7 +42,7 @@ class ReviewListRecyclerViewAdapterForProduct
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReviewViewHolder {
         val row =
             LayoutInflater.from(mContext)
-                .inflate(R.layout.review_list_item_for_product, parent, false)
+                .inflate(R.layout.review_list_item_for_explore_product, parent, false)
         return ReviewViewHolder(row)
     }
 

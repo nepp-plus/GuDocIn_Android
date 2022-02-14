@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android.adapters
+package com.neppplus.gudoc_in.adapters
 
 import android.content.Context
 import android.content.Intent
@@ -10,29 +10,29 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.neppplus.gudocin_android.R
-import com.neppplus.gudocin_android.ReviewActivity
-import com.neppplus.gudocin_android.datas.ProductData
+import com.neppplus.gudoc_in.R
+import com.neppplus.gudoc_in.activities.WriteReviewActivity
+import com.neppplus.gudoc_in.datas.ProductData
 
-class ProductRecyclerAdapter(val mContext: Context, val mList: List<ProductData>) :
-    RecyclerView.Adapter<ProductRecyclerAdapter.ProductViewHolder>() {
+class ProductListRecyclerViewAdapter(val mContext: Context, val mList: List<ProductData>) :
+    RecyclerView.Adapter<ProductListRecyclerViewAdapter.ProductViewHolder>() {
 
     inner class ProductViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         val imgProduct = view.findViewById<ImageView>(R.id.imgProduct)
         val txtStoreName = view.findViewById<TextView>(R.id.txtStoreName)
         val txtProductName = view.findViewById<TextView>(R.id.txtProductName)
-        val txtProductPrice = view.findViewById<TextView>(R.id.txtProductPrice)
+        val txtPrice = view.findViewById<TextView>(R.id.txtPrice)
         val btnWriteReview = view.findViewById<Button>(R.id.btnWriteReview)
 
         fun bind(data: ProductData) {
             Glide.with(mContext).load(data.imageUrl).into(imgProduct)
             txtStoreName.text = data.store.name
             txtProductName.text = data.name
-            txtProductPrice.text = data.getFormattedPrice()
+            txtPrice.text = data.getFormattedPrice()
 
             btnWriteReview.setOnClickListener {
-                val myIntent = Intent(mContext, ReviewActivity::class.java)
+                val myIntent = Intent(mContext, WriteReviewActivity::class.java)
                 myIntent.putExtra("product", data)
                 mContext.startActivity(myIntent)
             }
@@ -41,7 +41,7 @@ class ProductRecyclerAdapter(val mContext: Context, val mList: List<ProductData>
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
-        val row = LayoutInflater.from(mContext).inflate(R.layout.product_item, parent, false)
+        val row = LayoutInflater.from(mContext).inflate(R.layout.product_list_item, parent, false)
         return ProductViewHolder(row)
     }
 

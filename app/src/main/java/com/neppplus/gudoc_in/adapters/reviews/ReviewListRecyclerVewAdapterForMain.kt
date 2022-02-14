@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android.adapters
+package com.neppplus.gudoc_in.adapters.reviews
 
 import android.content.Context
 import android.content.Intent
@@ -13,11 +13,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
-import com.neppplus.gudocin_android.MainActivity
-import com.neppplus.gudocin_android.R
-import com.neppplus.gudocin_android.ReviewDetailActivity
-import com.neppplus.gudocin_android.datas.BannerData
-import com.neppplus.gudocin_android.datas.ReviewData
+import com.neppplus.gudoc_in.activities.MainActivity
+import com.neppplus.gudoc_in.R
+import com.neppplus.gudoc_in.activities.ReviewActivity
+import com.neppplus.gudoc_in.adapters.MainBannerViewPagerAdapter
+import com.neppplus.gudoc_in.datas.BannerData
+import com.neppplus.gudoc_in.datas.ReviewData
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -27,7 +28,7 @@ class ReviewListRecyclerVewAdapterForMain
 
     val mBannerList = ArrayList<BannerData>()
 
-    lateinit var mBannerViewPagerAdapter: BannerViewPagerAdapter
+    lateinit var mMainBannerViewPagerAdapter: MainBannerViewPagerAdapter
 
     var isBannerViewPagerInit = false
 
@@ -36,12 +37,12 @@ class ReviewListRecyclerVewAdapterForMain
         val bannerViewPager = row.findViewById<ViewPager>(R.id.bannerViewPager)
 
         fun bind() {
-            mBannerViewPagerAdapter = BannerViewPagerAdapter(
+            mMainBannerViewPagerAdapter = MainBannerViewPagerAdapter(
                 (mContext as MainActivity).supportFragmentManager,
                 mBannerList
             )
 
-            bannerViewPager.adapter = mBannerViewPagerAdapter
+            bannerViewPager.adapter = mMainBannerViewPagerAdapter
 //            바인드 할 때마다 페이징 코드가 누적됨
 //            최초 1회만 설정하도록
             if (!isBannerViewPagerInit) {
@@ -75,9 +76,9 @@ class ReviewListRecyclerVewAdapterForMain
         val imgReviewThumbnail = row.findViewById<ImageView>(R.id.imgReviewThumbnail)
         val txtReviewTitle = row.findViewById<TextView>(R.id.txtReviewTitle)
         val txtProductName = row.findViewById<TextView>(R.id.txtProductName)
-        val txtProductPrice = row.findViewById<TextView>(R.id.txtProductPrice)
+        val txtPrice = row.findViewById<TextView>(R.id.txtPrice)
 
-        val btnGotoReviewDetail = row.findViewById<LinearLayout>(R.id.btnGotoReviewDetail)
+        val layoutReviewDetail = row.findViewById<LinearLayout>(R.id.layoutReviewDetail)
 
         fun bind(data: ReviewData) {
             Glide.with(mContext).load(data.user.profileImageURL).into(imgReviewerImage)
@@ -86,10 +87,10 @@ class ReviewListRecyclerVewAdapterForMain
             Glide.with(mContext).load(data.thumbNailImg).into(imgReviewThumbnail)
             txtReviewTitle.text = data.title
             txtProductName.text = data.product.name
-            txtProductPrice.text = data.product.getFormattedPrice()
+            txtPrice.text = data.product.getFormattedPrice()
 
-            btnGotoReviewDetail.setOnClickListener {
-                val myIntent = Intent(mContext, ReviewDetailActivity::class.java)
+            layoutReviewDetail.setOnClickListener {
+                val myIntent = Intent(mContext, ReviewActivity::class.java)
                 myIntent.putExtra("review", data)
                 mContext.startActivity(myIntent)
             }
@@ -111,7 +112,7 @@ class ReviewListRecyclerVewAdapterForMain
         return when (viewType) {
             HEADER_VIEW_TYPE -> {
                 val row = LayoutInflater.from(mContext)
-                    .inflate(R.layout.main_viewpager, parent, false)
+                    .inflate(R.layout.main_view_pager, parent, false)
                 HeaderViewHolder(row)
             }
             else -> {

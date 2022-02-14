@@ -1,12 +1,12 @@
-package com.neppplus.gudocin_android.adapters
+package com.neppplus.gudoc_in.adapters
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.neppplus.gudocin_android.datas.BannerData
-import com.neppplus.gudocin_android.fragments.MainBannerFragment
+import com.neppplus.gudoc_in.datas.BannerData
+import com.neppplus.gudoc_in.fragments.MainBannerFragment
 
-class BannerViewPagerAdapter(fm: FragmentManager, val mBannerList: List<BannerData>) :
+class MainBannerViewPagerAdapter(fm: FragmentManager, val mBannerList: List<BannerData>) :
     FragmentPagerAdapter(fm) {
     override fun getCount() = mBannerList.size
 

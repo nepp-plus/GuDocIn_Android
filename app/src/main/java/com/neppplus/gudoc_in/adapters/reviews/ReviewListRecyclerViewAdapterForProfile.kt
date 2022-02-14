@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android.adapters
+package com.neppplus.gudoc_in.adapters.reviews
 
 import android.content.Context
 import android.content.Intent
@@ -8,16 +8,16 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.neppplus.gudocin_android.R
-import com.neppplus.gudocin_android.ReviewDetailActivity
-import com.neppplus.gudocin_android.datas.ReviewData
+import com.neppplus.gudoc_in.R
+import com.neppplus.gudoc_in.activities.ReviewActivity
+import com.neppplus.gudoc_in.datas.ReviewData
 
 class ReviewListRecyclerViewAdapterForProfile(
     val mContext: Context,
     val mList: ArrayList<ReviewData>
-) : RecyclerView.Adapter<ReviewListRecyclerViewAdapterForProfile.MyReviewViewHolder>() {
+) : RecyclerView.Adapter<ReviewListRecyclerViewAdapterForProfile.ReviewViewHolder>() {
 
-    inner class MyReviewViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    inner class ReviewViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         val txtReviewTitle = view.findViewById<TextView>(R.id.txtReviewTitle)
         val txtProductName = view.findViewById<TextView>(R.id.txtProductName)
@@ -31,7 +31,7 @@ class ReviewListRecyclerViewAdapterForProfile(
             txtReviewDate.text = data.createdAt
 
             btnReviewCheck.setOnClickListener {
-                val myIntent = Intent(mContext, ReviewDetailActivity::class.java)
+                val myIntent = Intent(mContext, ReviewActivity::class.java)
                 myIntent.putExtra("review", data) // 넘어갈 때 review id 들려 보내야 함
                 mContext.startActivity(myIntent)
             }
@@ -39,13 +39,13 @@ class ReviewListRecyclerViewAdapterForProfile(
 
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyReviewViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReviewViewHolder {
         val row = LayoutInflater.from(mContext)
             .inflate(R.layout.review_list_item_for_profile, parent, false)
-        return MyReviewViewHolder(row)
+        return ReviewViewHolder(row)
     }
 
-    override fun onBindViewHolder(holder: MyReviewViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ReviewViewHolder, position: Int) {
         holder.bind(mList[position])
     }
 

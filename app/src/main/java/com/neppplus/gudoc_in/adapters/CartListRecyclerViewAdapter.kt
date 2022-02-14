@@ -1,23 +1,24 @@
-package com.neppplus.gudocin_android.adapters
+package com.neppplus.gudoc_in.adapters
 
 import android.content.Context
-import android.text.Layout
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.constraintlayout.widget.ConstraintSet
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.bumptech.glide.Glide
-import com.neppplus.gudocin_android.R
-import com.neppplus.gudocin_android.api.ServerAPI
-import com.neppplus.gudocin_android.api.ServerAPIInterface
-import com.neppplus.gudocin_android.datas.BasicResponse
-import com.neppplus.gudocin_android.datas.CartData
+import com.neppplus.gudoc_in.R
+import com.neppplus.gudoc_in.api.ServerAPI
+import com.neppplus.gudoc_in.api.ServerAPIInterface
+import com.neppplus.gudoc_in.datas.BasicResponse
+import com.neppplus.gudoc_in.datas.CartData
+import com.neppplus.gudoc_in.dummy.DummyActivity
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -30,20 +31,20 @@ class CartListRecyclerViewAdapter(
 
     inner class CartViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-        val imgCartProductPhoto = view.findViewById<ImageView>(R.id.imgCartProductPhoto)
-        val txtCartProductName = view.findViewById<TextView>(R.id.txtCartProductName)
-        val txtCartProductPrice = view.findViewById<TextView>(R.id.txtCartProductPrice)
+        val imgProduct = view.findViewById<ImageView>(R.id.imgProduct)
+        val txtProductName = view.findViewById<TextView>(R.id.txtProductName)
+        val txtPrice = view.findViewById<TextView>(R.id.txtPrice)
 
         lateinit var apiService: ServerAPIInterface
         val retrofit = ServerAPI.getRetrofit(mContext)
 
-        val imgDeleteSubscribe = view.findViewById<ImageView>(R.id.imgDeleteSubscribe)
+        val imgDeleteSubscribe = view.findViewById<ImageView>(R.id.imgDelete)
 //      val btnSubscribe = view.findViewById<Button>(R.id.btnSubscribe)
 
         fun bind(data: CartData) {
-            txtCartProductName.text = data.product.name
-            txtCartProductPrice.text = data.product.getFormattedPrice()
-            Glide.with(mContext).load(data.product.imageUrl).into(imgCartProductPhoto)
+            txtProductName.text = data.product.name
+            txtPrice.text = data.product.getFormattedPrice()
+            Glide.with(mContext).load(data.product.imageUrl).into(imgProduct)
 
             apiService = retrofit.create(ServerAPIInterface::class.java)
 

@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android.adapters
+package com.neppplus.gudoc_in.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,9 +8,9 @@ import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
-import com.neppplus.gudocin_android.R
-import com.neppplus.gudocin_android.datas.ReplyData
-import com.neppplus.gudocin_android.utils.TimeAgoUtil
+import com.neppplus.gudoc_in.R
+import com.neppplus.gudoc_in.datas.ReplyData
+import com.neppplus.gudoc_in.utils.TimeAgoUtil
 
 class ReplyListAdapter(
     val mContext: Context,
@@ -28,15 +28,15 @@ class ReplyListAdapter(
         val row = tempRow!!
         val data = mList[position]
 
-        val imgUserProfile = row.findViewById<ImageView>(R.id.imgUserProfile)
-        val txtUserNickName = row.findViewById<TextView>(R.id.txtUserNickName)
+        val imgProfile = row.findViewById<ImageView>(R.id.imgProfile)
+        val txtNickName = row.findViewById<TextView>(R.id.txtNickName)
         val txtReplyTime = row.findViewById<TextView>(R.id.txtReplyTime)
-        val txtReviewReply = row.findViewById<TextView>(R.id.txtReviewReply)
+        val txtReply = row.findViewById<TextView>(R.id.txtReply)
 
-        Glide.with(mContext).load(data.user.profileImageURL).into(imgUserProfile)
-        txtUserNickName.text = data.user.nickname
+        Glide.with(mContext).load(data.user.profileImageURL).into(imgProfile)
+        txtNickName.text = data.user.nickname
         txtReplyTime.text = TimeAgoUtil.getTimeAgoString(data.createdAt)
-        txtReviewReply.text = data.content
+        txtReply.text = data.content
 
         return row
     }

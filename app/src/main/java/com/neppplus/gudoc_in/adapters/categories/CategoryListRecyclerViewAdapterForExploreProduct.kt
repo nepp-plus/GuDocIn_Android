@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android.adapters
+package com.neppplus.gudoc_in.adapters.categories
 
 import android.content.Context
 import android.content.Intent
@@ -10,13 +10,16 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.neppplus.gudocin_android.ProductDetailActivity
-import com.neppplus.gudocin_android.R
-import com.neppplus.gudocin_android.ReviewDetailActivity
-import com.neppplus.gudocin_android.datas.ProductData
+import com.neppplus.gudoc_in.activities.ProductActivity
+import com.neppplus.gudoc_in.R
+import com.neppplus.gudoc_in.activities.ReviewActivity
+import com.neppplus.gudoc_in.datas.ProductData
 
-class ProductRecyclerViewAdapter(val mContext: Context, val mList: List<ProductData>) :
-    RecyclerView.Adapter<ProductRecyclerViewAdapter.ProductViewHolder>() {
+class CategoryListRecyclerViewAdapterForExploreProduct(
+    val mContext: Context,
+    val mList: List<ProductData>
+) :
+    RecyclerView.Adapter<CategoryListRecyclerViewAdapterForExploreProduct.ProductViewHolder>() {
 
     inner class ProductViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
@@ -24,14 +27,14 @@ class ProductRecyclerViewAdapter(val mContext: Context, val mList: List<ProductD
         val imgProduct = view.findViewById<ImageView>(R.id.imgProduct)
         val txtStoreName = view.findViewById<TextView>(R.id.txtStoreName)
         val txtProductName = view.findViewById<TextView>(R.id.txtProductName)
-        val txtProductPrice = view.findViewById<TextView>(R.id.txtProductPrice)
+        val txtPrice = view.findViewById<TextView>(R.id.txtPrice)
         val layoutReviewDetail = view.findViewById<LinearLayout>(R.id.layoutReviewDetail)
         val txtReviewDetail = view.findViewById<TextView>(R.id.txtReviewDetail)
 
         val layoutReviewItem = view.findViewById<LinearLayout>(R.id.layoutReviewItem)
         val imgReview = view.findViewById<ImageView>(R.id.imgReview)
         val txtReviewTitle = view.findViewById<TextView>(R.id.txtReviewTitle)
-        val txtReviewWriter = view.findViewById<TextView>(R.id.txtReviewWriter)
+        val txtReviewWriter = view.findViewById<TextView>(R.id.txtReviewer)
         val imgReviewDetail = view.findViewById<ImageView>(R.id.imgReviewDetail)
 
         var isReviewOpen = false
@@ -40,7 +43,7 @@ class ProductRecyclerViewAdapter(val mContext: Context, val mList: List<ProductD
             Glide.with(mContext).load(data.imageUrl).into(imgProduct)
             txtStoreName.text = data.store.name
             txtProductName.text = data.name
-            txtProductPrice.text = data.getFormattedPrice()
+            txtPrice.text = data.getFormattedPrice()
 
             if (data.reviews.size == 0) {
                 layoutReviewDetail.visibility = View.GONE
@@ -54,7 +57,7 @@ class ProductRecyclerViewAdapter(val mContext: Context, val mList: List<ProductD
                 firstReview.product = data
 
                 imgReviewDetail.setOnClickListener {
-                    val myIntent = Intent(mContext, ReviewDetailActivity::class.java)
+                    val myIntent = Intent(mContext, ReviewActivity::class.java)
                     myIntent.putExtra("review", firstReview)
                     mContext.startActivity(myIntent)
                 }
@@ -77,7 +80,7 @@ class ProductRecyclerViewAdapter(val mContext: Context, val mList: List<ProductD
             }
 
             layoutRoot.setOnClickListener {
-                val myIntent = Intent(mContext, ProductDetailActivity::class.java)
+                val myIntent = Intent(mContext, ProductActivity::class.java)
                 myIntent.putExtra("product_id", data)
                 mContext.startActivity(myIntent)
             }
@@ -86,7 +89,8 @@ class ProductRecyclerViewAdapter(val mContext: Context, val mList: List<ProductD
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
-        val row = LayoutInflater.from(mContext).inflate(R.layout.product_list_item, parent, false)
+        val row = LayoutInflater.from(mContext)
+            .inflate(R.layout.category_list_item_for_explore_product, parent, false)
         return ProductViewHolder(row)
     }
 

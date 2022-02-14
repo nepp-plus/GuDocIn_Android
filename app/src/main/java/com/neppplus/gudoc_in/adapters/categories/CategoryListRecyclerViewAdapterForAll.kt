@@ -1,20 +1,17 @@
-package com.neppplus.gudocin_android.adapters
+package com.neppplus.gudoc_in.adapters.categories
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.neppplus.gudocin_android.ProductActivity
-import com.neppplus.gudocin_android.R
-import com.neppplus.gudocin_android.datas.SmallCategoryData
-import com.neppplus.gudocin_android.fragments.EatCategoryFragment
+import com.neppplus.gudoc_in.R
+import com.neppplus.gudoc_in.datas.SmallCategoryData
 
-class CategoryAdapter(
+class CategoryListRecyclerViewAdapterForAll(
     val mContext: Context, val mList: List<SmallCategoryData>
-) : RecyclerView.Adapter<CategoryAdapter.SmallCategoryViewHolder>() {
+) : RecyclerView.Adapter<CategoryListRecyclerViewAdapterForAll.SmallCategoryViewHolder>() {
 
     inner class SmallCategoryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val txtSmallCategory = view.findViewById<TextView>(R.id.txtSmallCategory)
@@ -26,7 +23,7 @@ class CategoryAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SmallCategoryViewHolder {
         val row =
-            LayoutInflater.from(mContext).inflate(R.layout.category_list_item, parent, false)
+            LayoutInflater.from(mContext).inflate(R.layout.category_list_item_for_all, parent, false)
         return SmallCategoryViewHolder(row)
     }
 
