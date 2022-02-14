@@ -1,20 +1,18 @@
-package com.neppplus.gudocin_android.utils
+package com.neppplus.gudoc_in.utils
 
 import android.content.Context
 import android.util.AttributeSet
 import androidx.viewpager.widget.ViewPager
 
-class CustomViewPager : ViewPager {
+class CustomViewPager :ViewPager {
     constructor(context: Context?) : super(context!!) {}
     constructor(context: Context?, attrs: AttributeSet?) : super(
         context!!,
         attrs
-    )
-
+    ) {}
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         var heightMeasureSpec = heightMeasureSpec
         val mode = MeasureSpec.getMode(heightMeasureSpec)
-
         if (mode == MeasureSpec.UNSPECIFIED || mode == MeasureSpec.AT_MOST) {
             super.onMeasure(widthMeasureSpec, heightMeasureSpec)
             var height = 0

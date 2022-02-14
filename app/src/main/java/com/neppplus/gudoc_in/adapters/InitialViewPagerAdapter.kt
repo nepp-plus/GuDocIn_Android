@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android.adapters
+package com.neppplus.gudoc_in.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
-import com.neppplus.gudocin_android.R
+import com.neppplus.gudoc_in.R
 
 class InitialViewPagerAdapter(private val context: Context) : PagerAdapter() {
 
@@ -30,7 +30,7 @@ class InitialViewPagerAdapter(private val context: Context) : PagerAdapter() {
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         layoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        val view = layoutInflater!!.inflate(R.layout.imageview_initial, null)
+        val view = layoutInflater!!.inflate(R.layout.initial_image_view, null)
         val image = view.findViewById<View>(R.id.imageView) as ImageView
         image.setImageResource(Image[position])
 
