@@ -1,10 +1,10 @@
-package com.neppplus.gudocin_android
+package com.neppplus.gudoc_in
 
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.neppplus.gudocin_android.terms.TermsAdapter
-import com.neppplus.gudocin_android.terms.TermsData
+import com.neppplus.gudoc_in.terms.TermsAdapter
+import com.neppplus.gudoc_in.terms.TermsData
 
 @BindingAdapter("termsItems")
 fun RecyclerView.bindTermsItem(list: List<TermsData>?) {

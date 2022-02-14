@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android.terms
+package com.neppplus.gudoc_in.terms
 
 import android.view.View
 import androidx.databinding.ObservableBoolean

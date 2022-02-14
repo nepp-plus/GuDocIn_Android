@@ -1,11 +1,11 @@
-package com.neppplus.gudocin_android.terms
+package com.neppplus.gudoc_in.terms
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.neppplus.gudocin_android.databinding.HolderTermsBinding
+import com.neppplus.gudoc_in.databinding.TermsHolderBinding
 
-class TermsHolder(private val binding: HolderTermsBinding) :
+class TermsHolder(private val binding: TermsHolderBinding) :
     RecyclerView.ViewHolder(binding.root) {
     fun onBind(viewModel: TermsViewModel, item: TermsData) {
         binding.viewModel = viewModel
@@ -16,7 +16,7 @@ class TermsHolder(private val binding: HolderTermsBinding) :
     companion object {
         fun from(parent: ViewGroup): TermsHolder {
             val layoutInflater = LayoutInflater.from(parent.context)
-            val binding = HolderTermsBinding.inflate(layoutInflater, parent, false)
+            val binding = TermsHolderBinding.inflate(layoutInflater, parent, false)
             return TermsHolder(
                 binding
             )
