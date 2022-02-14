@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android
+package com.neppplus.gudoc_in.activities
 
 import android.content.DialogInterface
 import android.content.Intent
@@ -9,28 +9,34 @@ import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
-import com.neppplus.gudocin_android.adapters.ReviewListRecyclerViewAdapterForProduct
-import com.neppplus.gudocin_android.databinding.ActivityProductDetailBinding
-import com.neppplus.gudocin_android.datas.BasicResponse
-import com.neppplus.gudocin_android.datas.ProductData
-import com.neppplus.gudocin_android.datas.ReviewData
+import com.neppplus.gudoc_in.R
+import com.neppplus.gudoc_in.adapters.ContentViewPagerAdapter
+import com.neppplus.gudoc_in.adapters.reviews.ReviewListRecyclerViewAdapterForExploreProduct
+import com.neppplus.gudoc_in.databinding.ActivityProductBinding
+import com.neppplus.gudoc_in.datas.BasicResponse
+import com.neppplus.gudoc_in.datas.ProductData
+import com.neppplus.gudoc_in.datas.ReviewData
+import com.neppplus.gudoc_in.dummy.DummyActivity
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ProductDetailActivity : BaseActivity() {
+class ProductActivity : BaseActivity() {
 
-    lateinit var binding: ActivityProductDetailBinding
+    lateinit var binding: ActivityProductBinding
 
     lateinit var mProductData: ProductData
 
+    lateinit var mContentViewPagerAdapter: ContentViewPagerAdapter
+
     val mReviewList = ArrayList<ReviewData>()
-    lateinit var mReviewListRecyclerViewAdapterForProduct: ReviewListRecyclerViewAdapterForProduct
+
+    lateinit var mReviewListRecyclerViewAdapterForExploreProduct: ReviewListRecyclerViewAdapterForExploreProduct
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_product_detail)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_product)
         setupEvents()
         setValues()
     }
@@ -39,10 +45,17 @@ class ProductDetailActivity : BaseActivity() {
         binding.imgCart.setOnClickListener {
             postAddItemToCartViaServer()
         }
-        binding.imgCredit.setOnClickListener {
+
+        /* binding.imgCredit.setOnClickListener {
             val myIntent = Intent(mContext, PaymentActivity::class.java)
             myIntent.putExtra("product_id", mProductData)
             startActivity(myIntent)
+        } */
+
+        binding.imgCredit.setOnClickListener {
+            val myIntent = Intent(mContext, DummyActivity::class.java)
+            startActivity(myIntent)
+            finish()
         }
     }
 
@@ -51,11 +64,15 @@ class ProductDetailActivity : BaseActivity() {
 
         getProductItemDetailFromServer()
 
-        // 리뷰 리스트 Horizontal Recycler View 용 어댑터 연결
-        mReviewListRecyclerViewAdapterForProduct =
-            ReviewListRecyclerViewAdapterForProduct(mContext, mReviewList)
-        binding.reviewRecyclerViewForProduct.adapter = mReviewListRecyclerViewAdapterForProduct
-        binding.reviewRecyclerViewForProduct.layoutManager = LinearLayoutManager(
+        mContentViewPagerAdapter =
+            ContentViewPagerAdapter(supportFragmentManager, mProductData)
+        binding.ProductContentViewPager.adapter = mContentViewPagerAdapter
+        binding.ProductContentTabLayout.setupWithViewPager(binding.ProductContentViewPager)
+
+        mReviewListRecyclerViewAdapterForExploreProduct =
+            ReviewListRecyclerViewAdapterForExploreProduct(mContext, mReviewList)
+        binding.reviewRecyclerView.adapter = mReviewListRecyclerViewAdapterForExploreProduct
+        binding.reviewRecyclerView.layoutManager = LinearLayoutManager(
             mContext,
             LinearLayoutManager.HORIZONTAL, false
         )
@@ -71,19 +88,19 @@ class ProductDetailActivity : BaseActivity() {
                     if (response.isSuccessful) {
                         val br = response.body()!!
                         binding.txtProductName.text = br.data.product.name
-                        binding.txtProductPrice.text = br.data.product.getFormattedPrice()
-                        binding.txtProductCompanyName.text = br.data.product.store.name
+                        binding.txtPrice.text = br.data.product.getFormattedPrice()
+                        binding.txtStoreName.text = br.data.product.store.name
                         Glide.with(mContext).load(br.data.product.imageUrl).into(binding.imgProduct)
 
                         if (mProductData.reviews.size == 0) {
-                            binding.txtViewReview.text = "아직 등록된 리뷰가 없습니다"
+                            binding.txtReviewList.text = "아직 등록된 리뷰가 없습니다"
                         } else {
                             for (review in response.body()!!.data.product.reviews) {
                                 review.product = mProductData
                             }
                             mReviewList.clear()
                             mReviewList.addAll(response.body()!!.data.product.reviews)
-                            mReviewListRecyclerViewAdapterForProduct.notifyDataSetChanged()
+                            mReviewListRecyclerViewAdapterForExploreProduct.notifyDataSetChanged()
                         }
                     }
                 }

@@ -1,14 +1,15 @@
-package com.neppplus.gudocin_android
+package com.neppplus.gudoc_in.activities
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
-import com.neppplus.gudocin_android.databinding.ActivityEditProfileBinding
-import com.neppplus.gudocin_android.datas.BasicResponse
-import com.neppplus.gudocin_android.datas.GlobalData
-import com.neppplus.gudocin_android.utils.ContextUtil
+import com.neppplus.gudoc_in.R
+import com.neppplus.gudoc_in.databinding.ActivityEditProfileBinding
+import com.neppplus.gudoc_in.datas.BasicResponse
+import com.neppplus.gudoc_in.datas.GlobalData
+import com.neppplus.gudoc_in.utils.ContextUtil
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

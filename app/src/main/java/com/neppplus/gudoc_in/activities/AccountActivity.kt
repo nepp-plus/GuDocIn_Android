@@ -1,12 +1,13 @@
-package com.neppplus.gudocin_android
+package com.neppplus.gudoc_in.activities
 
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import com.neppplus.gudocin_android.databinding.ActivityAccountBinding
-import com.neppplus.gudocin_android.datas.BasicResponse
+import com.neppplus.gudoc_in.R
+import com.neppplus.gudoc_in.databinding.ActivityAccountBinding
+import com.neppplus.gudoc_in.datas.BasicResponse
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback

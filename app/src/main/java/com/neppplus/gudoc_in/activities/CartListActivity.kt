@@ -1,14 +1,16 @@
-package com.neppplus.gudocin_android
+package com.neppplus.gudoc_in.activities
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.neppplus.gudocin_android.adapters.CartListRecyclerViewAdapter
-import com.neppplus.gudocin_android.databinding.ActivityCartListBinding
-import com.neppplus.gudocin_android.datas.BasicResponse
-import com.neppplus.gudocin_android.datas.CartData
+import com.neppplus.gudoc_in.R
+import com.neppplus.gudoc_in.adapters.CartListRecyclerViewAdapter
+import com.neppplus.gudoc_in.databinding.ActivityCartListBinding
+import com.neppplus.gudoc_in.datas.BasicResponse
+import com.neppplus.gudoc_in.datas.CartData
+import com.neppplus.gudoc_in.dummy.DummyActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -34,8 +36,14 @@ class CartListActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
-        binding.btnSubscribe.setOnClickListener {
+        /* binding.btnSubscribe.setOnClickListener {
             val myIntent = Intent(mContext, PaymentActivity::class.java)
+            startActivity(myIntent)
+            finish()
+        } */
+
+        binding.btnSubscribe.setOnClickListener {
+            val myIntent = Intent(mContext, DummyActivity::class.java)
             startActivity(myIntent)
             finish()
         }

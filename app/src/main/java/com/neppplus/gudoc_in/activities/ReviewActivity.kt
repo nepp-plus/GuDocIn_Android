@@ -1,49 +1,57 @@
-package com.neppplus.gudocin_android
+package com.neppplus.gudoc_in.activities
 
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
-import com.neppplus.gudocin_android.databinding.ActivityReviewDetailBinding
-import com.neppplus.gudocin_android.datas.BasicResponse
-import com.neppplus.gudocin_android.datas.ReviewData
+import com.neppplus.gudoc_in.R
+import com.neppplus.gudoc_in.databinding.ActivityReviewBinding
+import com.neppplus.gudoc_in.datas.BasicResponse
+import com.neppplus.gudoc_in.datas.ReviewData
+import com.neppplus.gudoc_in.dummy.DummyActivity
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ReviewDetailActivity : BaseActivity() {
+class ReviewActivity : BaseActivity() {
 
-    lateinit var binding: ActivityReviewDetailBinding
+    lateinit var binding: ActivityReviewBinding
 
     lateinit var mReviewData: ReviewData
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_review_detail)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_review)
         setupEvents()
         setValues()
     }
 
     override fun setupEvents() {
         /* binding.btnProductDetail.setOnClickListener {
-            val myIntent = Intent(mContext, ProductDetailActivity::class.java)
+            val myIntent = Intent(mContext, ProductActivity::class.java)
             myIntent.putExtra("product_id", mReviewData.product)
             mContext.startActivity(myIntent)
         } */
 
-        binding.btnProductReply.setOnClickListener {
-            val myIntent = Intent(mContext, ReplyListActivity::class.java)
-            myIntent.putExtra("review", mReviewData)
-            mContext.startActivity(myIntent)
-        }
-
-        binding.btnBuyProduct.setOnClickListener {
+        /* binding.btnSubscribe.setOnClickListener {
             val myIntent = Intent(mContext, PaymentActivity::class.java)
             myIntent.putExtra("product_id", mReviewData.product)
             myIntent.putExtra("review", mReviewData)
             startActivity(myIntent)
+        } */
+
+        binding.btnSubscribe.setOnClickListener {
+            val myIntent = Intent(mContext, DummyActivity::class.java)
+            startActivity(myIntent)
+            finish()
+        }
+
+        binding.layoutWatchReply.setOnClickListener {
+            val myIntent = Intent(mContext, ReplyListActivity::class.java)
+            myIntent.putExtra("review", mReviewData)
+            mContext.startActivity(myIntent)
         }
 
         binding.ratingBar.setOnRatingChangeListener { ratingBar, rating, fromUser ->
@@ -60,10 +68,10 @@ class ReviewDetailActivity : BaseActivity() {
 
     fun setReviewDataToUI() {
         binding.txtReviewTitle.text = mReviewData.title
-        binding.txtUserNickName.text = mReviewData.user.nickname
+        binding.txtNickName.text = mReviewData.user.nickname
         binding.txtReviewDate.text = mReviewData.createdAt
         binding.txtProductName.text = mReviewData.product.name
-        Glide.with(mContext).load(mReviewData.thumbNailImg).into(binding.thumbNailImg)
+        Glide.with(mContext).load(mReviewData.thumbNailImg).into(binding.imgThumbnail)
         binding.txtReviewContent.text = mReviewData.content
 //      binding.txtTag.text = mReviewData.tags.toString()
 

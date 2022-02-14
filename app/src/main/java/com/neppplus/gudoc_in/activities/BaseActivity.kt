@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android
+package com.neppplus.gudoc_in.activities
 
 import android.content.Context
 import android.content.Intent
@@ -10,8 +10,9 @@ import android.widget.TextView
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import com.neppplus.gudocin_android.api.ServerAPI
-import com.neppplus.gudocin_android.api.ServerAPIInterface
+import com.neppplus.gudoc_in.R
+import com.neppplus.gudoc_in.api.ServerAPI
+import com.neppplus.gudoc_in.api.ServerAPIInterface
 
 abstract class BaseActivity : AppCompatActivity() {
 
@@ -22,8 +23,8 @@ abstract class BaseActivity : AppCompatActivity() {
     lateinit var btnBack: ImageView
     lateinit var btnCart: ImageView
 
-    lateinit var searchBoxInActionBar: LinearLayout
-    lateinit var txtCategoryNameInActionBar: TextView
+    lateinit var exploreBoxInActionBar: LinearLayout
+    lateinit var txtTitleInActionBar: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,9 +56,9 @@ abstract class BaseActivity : AppCompatActivity() {
 //       (액션바의 커스텀뷰에) 추가된 UI 요소들을 멤버변수에 연결
         btnBack = defActionBar.customView.findViewById(R.id.btnBack)
         btnCart = defActionBar.customView.findViewById(R.id.btnCart)
-        searchBoxInActionBar = defActionBar.customView.findViewById(R.id.SearchBoxInActionBar)
-        txtCategoryNameInActionBar =
-            defActionBar.customView.findViewById(R.id.txtCategoryNameInActionBar)
+        exploreBoxInActionBar = defActionBar.customView.findViewById(R.id.exploreBoxInActionBar)
+        txtTitleInActionBar =
+            defActionBar.customView.findViewById(R.id.txtTitleInActionBar)
 
         btnBack.setOnClickListener {
             finish()
@@ -68,8 +69,8 @@ abstract class BaseActivity : AppCompatActivity() {
             startActivity(myIntent)
         }
 
-        searchBoxInActionBar.setOnClickListener {
-            val myIntent = Intent(mContext, ProductActivity::class.java)
+        exploreBoxInActionBar.setOnClickListener {
+            val myIntent = Intent(mContext, ExploreProductActivity::class.java)
             startActivity(myIntent)
         }
     }

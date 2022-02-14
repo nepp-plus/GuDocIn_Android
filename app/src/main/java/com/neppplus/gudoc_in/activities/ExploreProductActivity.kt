@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android
+package com.neppplus.gudoc_in.activities
 
 import android.os.Bundle
 import android.view.View
@@ -7,16 +7,20 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
-import com.neppplus.gudocin_android.databinding.ActivityProductBinding
-import com.neppplus.gudocin_android.fragments.*
+import com.neppplus.gudoc_in.R
+import com.neppplus.gudoc_in.databinding.ActivityExploreProductBinding
+import com.neppplus.gudoc_in.fragments.*
+import com.neppplus.gudoc_in.fragments.categories.EatCategoryListFragment
+import com.neppplus.gudoc_in.fragments.categories.LifeCategoryListFragment
+import com.neppplus.gudoc_in.fragments.categories.WearCategoryListFragment
 
-class ProductActivity : BaseActivity() {
+class ExploreProductActivity : BaseActivity() {
 
-    lateinit var binding: ActivityProductBinding
+    lateinit var binding: ActivityExploreProductBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_product)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_explore_product)
         setupEvents()
         setValues()
     }
@@ -34,10 +38,10 @@ class ProductActivity : BaseActivity() {
 
     override fun setValues() {
         btnBack.visibility = View.VISIBLE
-        txtCategoryNameInActionBar.visibility = View.VISIBLE
+        txtTitleInActionBar.visibility = View.VISIBLE
 
         binding.viewPager.apply {
-            adapter = ViewPagerAdapter(this@ProductActivity)
+            adapter = ViewPagerAdapter(this@ExploreProductActivity)
             registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
                 override fun onPageSelected(position: Int) {
                     super.onPageSelected(position)
@@ -56,7 +60,8 @@ class ProductActivity : BaseActivity() {
     inner class ViewPagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
         override fun getItemCount() = 3
 
-        val fragmentList = arrayListOf(EatCategoryFragment(), WearCategoryFragment(), LifeCategoryFragment())
+        val fragmentList =
+            arrayListOf(EatCategoryListFragment(), WearCategoryListFragment(), LifeCategoryListFragment())
 
         override fun createFragment(position: Int): Fragment {
             return fragmentList[position]

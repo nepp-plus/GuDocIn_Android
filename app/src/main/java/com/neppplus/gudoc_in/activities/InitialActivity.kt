@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android
+package com.neppplus.gudoc_in.activities
 
 import android.app.AlertDialog
 import android.content.DialogInterface
@@ -12,11 +12,12 @@ import androidx.core.app.ActivityCompat
 import androidx.databinding.DataBindingUtil
 import androidx.viewpager.widget.ViewPager
 import com.google.firebase.messaging.FirebaseMessaging
-import com.neppplus.gudocin_android.adapters.InitialViewPagerAdapter
-import com.neppplus.gudocin_android.databinding.ActivityInitialBinding
-import com.neppplus.gudocin_android.datas.BasicResponse
-import com.neppplus.gudocin_android.datas.GlobalData
-import com.neppplus.gudocin_android.utils.ContextUtil
+import com.neppplus.gudoc_in.R
+import com.neppplus.gudoc_in.adapters.InitialViewPagerAdapter
+import com.neppplus.gudoc_in.databinding.ActivityInitialBinding
+import com.neppplus.gudoc_in.datas.BasicResponse
+import com.neppplus.gudoc_in.datas.GlobalData
+import com.neppplus.gudoc_in.utils.ContextUtil
 import com.tbuonomo.viewpagerdotsindicator.DotsIndicator
 import retrofit2.Call
 import retrofit2.Callback

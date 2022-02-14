@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android
+package com.neppplus.gudoc_in.activities
 
 import android.app.Activity
 import android.content.Intent
@@ -13,10 +13,11 @@ import com.google.android.gms.auth.api.Auth
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.kakao.sdk.user.UserApiClient
-import com.neppplus.gudocin_android.databinding.ActivityLoginBinding
-import com.neppplus.gudocin_android.datas.BasicResponse
-import com.neppplus.gudocin_android.datas.GlobalData
-import com.neppplus.gudocin_android.utils.ContextUtil
+import com.neppplus.gudoc_in.R
+import com.neppplus.gudoc_in.databinding.ActivityLoginBinding
+import com.neppplus.gudoc_in.datas.BasicResponse
+import com.neppplus.gudoc_in.datas.GlobalData
+import com.neppplus.gudoc_in.utils.ContextUtil
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback

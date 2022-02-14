@@ -1,11 +1,12 @@
-package com.neppplus.gudocin_android
+package com.neppplus.gudoc_in.activities
 
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.databinding.DataBindingUtil
-import com.neppplus.gudocin_android.databinding.ActivitySplashBinding
+import com.neppplus.gudoc_in.R
+import com.neppplus.gudoc_in.databinding.ActivitySplashBinding
 
 class SplashActivity : BaseActivity() {
 

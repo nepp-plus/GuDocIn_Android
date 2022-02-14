@@ -1,10 +1,11 @@
-package com.neppplus.gudocin_android
+package com.neppplus.gudoc_in.activities
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.databinding.DataBindingUtil
-import com.neppplus.gudocin_android.databinding.ActivityPaymentBinding
+import com.neppplus.gudoc_in.R
+import com.neppplus.gudoc_in.databinding.ActivityPaymentBinding
 
 class PaymentActivity : BaseActivity() {
 
@@ -17,11 +18,11 @@ class PaymentActivity : BaseActivity() {
         setValues()
 
         binding.imgDropDownArrow.setOnClickListener {
-            if (binding.layoutExpand1.visibility == View.VISIBLE) {
-                binding.layoutExpand1.visibility = View.GONE
+            if (binding.layoutExpand.visibility == View.VISIBLE) {
+                binding.layoutExpand.visibility = View.GONE
                 binding.imgDropDownArrow.animate().setDuration(200).rotation(180f)
             } else {
-                binding.layoutExpand1.visibility = View.VISIBLE
+                binding.layoutExpand.visibility = View.VISIBLE
                 binding.imgDropDownArrow.animate().setDuration(200).rotation(0f)
             }
         }
@@ -31,25 +32,25 @@ class PaymentActivity : BaseActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         // 주문자 정보
         if (requestCode == 1 && resultCode == RESULT_OK && intent.hasExtra("nickname")) {
-            binding.edtConsumerName1.setText(intent.getStringExtra("nickname"))
+            binding.edtOrderName.setText(intent.getStringExtra("nickname"))
         } else if (requestCode == 2 && resultCode == RESULT_OK && intent.hasExtra("phone")) {
-            binding.edtConsumerPhone1.setText(intent.getStringExtra("phone"))
+            binding.edtOrderPhone.setText(intent.getStringExtra("phone"))
         } else if (requestCode == 3 && resultCode == RESULT_OK && intent.hasExtra("email")) {
-            binding.edtConsumerEmail.setText(intent.getStringExtra("email"))
+            binding.edtOrderEmail.setText(intent.getStringExtra("email"))
         } else {
 
         }
-        // 배달 정보
+        // 수신자 정보
         if (requestCode == 4 && resultCode == RESULT_OK && intent.hasExtra("nickname")) {
-            binding.edtConsumerName2.setText(intent.getStringExtra("nickname"))
+            binding.edtReceiverName.setText(intent.getStringExtra("nickname"))
         } else if (requestCode == 5 && resultCode == RESULT_OK && intent.hasExtra("phone")) {
-            binding.edtConsumerPhone2.setText(intent.getStringExtra("phone"))
+            binding.edtReceiverPhone.setText(intent.getStringExtra("phone"))
         } else {
 
         }
         // 카드 정보
         if (requestCode == 6 && resultCode == RESULT_OK && intent.hasExtra("nickname")) {
-            binding.txtConsumerCard.text = intent.getStringExtra("nickname")
+            binding.txtOrderCard.text = intent.getStringExtra("nickname")
         } else {
 
         }
@@ -64,7 +65,6 @@ class PaymentActivity : BaseActivity() {
     }
 
     override fun setValues() {
-//      mReviewData = intent.getSerializableExtra("review") as ReviewData
         btnCart.visibility = View.GONE
     }
 

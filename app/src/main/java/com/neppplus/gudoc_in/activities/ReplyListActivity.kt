@@ -1,15 +1,16 @@
-package com.neppplus.gudocin_android
+package com.neppplus.gudoc_in.activities
 
 import android.os.Bundle
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
-import com.neppplus.gudocin_android.adapters.ReplyListAdapter
-import com.neppplus.gudocin_android.databinding.ActivityReplyListBinding
-import com.neppplus.gudocin_android.datas.BasicResponse
-import com.neppplus.gudocin_android.datas.GlobalData
-import com.neppplus.gudocin_android.datas.ReplyData
-import com.neppplus.gudocin_android.datas.ReviewData
+import com.neppplus.gudoc_in.R
+import com.neppplus.gudoc_in.adapters.ReplyListAdapter
+import com.neppplus.gudoc_in.databinding.ActivityReplyListBinding
+import com.neppplus.gudoc_in.datas.BasicResponse
+import com.neppplus.gudoc_in.datas.GlobalData
+import com.neppplus.gudoc_in.datas.ReplyData
+import com.neppplus.gudoc_in.datas.ReviewData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -43,6 +44,7 @@ class ReplyListActivity : BaseActivity() {
                         if (response.isSuccessful) {
                             Toast.makeText(mContext, "댓글이 작성되었습니다", Toast.LENGTH_SHORT).show()
                             getReplyListFromServer()
+                            binding.edtReply.setText("")
                         } else {
                             Toast.makeText(mContext, "댓글 작성 실패: 관리자에게 문의해주세요", Toast.LENGTH_SHORT)
                                 .show()
@@ -61,7 +63,7 @@ class ReplyListActivity : BaseActivity() {
 
         mReviewData = intent.getSerializableExtra("review") as ReviewData
         mReplyListAdapter = ReplyListAdapter(mContext, R.layout.reply_list_item, mReplyList)
-        binding.reviewReplyListview.adapter = mReplyListAdapter
+        binding.replyListView.adapter = mReplyListAdapter
         getReplyListFromServer()
     }
 

@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android
+package com.neppplus.gudoc_in.activities
 
 import android.Manifest
 import android.content.DialogInterface
@@ -16,11 +16,12 @@ import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
 import com.gun0912.tedpermission.PermissionListener
 import com.gun0912.tedpermission.normal.TedPermission
-import com.neppplus.gudocin_android.databinding.ActivityReviewBinding
-import com.neppplus.gudocin_android.datas.BasicResponse
-import com.neppplus.gudocin_android.datas.GlobalData
-import com.neppplus.gudocin_android.datas.ProductData
-import com.neppplus.gudocin_android.utils.URIPathHelper
+import com.neppplus.gudoc_in.R
+import com.neppplus.gudoc_in.databinding.ActivityWriteReviewBinding
+import com.neppplus.gudoc_in.datas.BasicResponse
+import com.neppplus.gudoc_in.datas.GlobalData
+import com.neppplus.gudoc_in.datas.ProductData
+import com.neppplus.gudoc_in.utils.URIPathHelper
 import okhttp3.MediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -34,7 +35,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
-class ReviewActivity : BaseActivity() {
+class WriteReviewActivity : BaseActivity() {
 
     val REQ_FOR_GALLERY = 1004
 
@@ -42,13 +43,13 @@ class ReviewActivity : BaseActivity() {
 
     val mInputTagList = ArrayList<String>()
 
-    lateinit var binding: ActivityReviewBinding
+    lateinit var binding: ActivityWriteReviewBinding
 
     lateinit var mProductData: ProductData
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_review)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_write_review)
         setupEvents()
         setValues()
     }
@@ -72,8 +73,8 @@ class ReviewActivity : BaseActivity() {
                 .setPermissions(Manifest.permission.READ_EXTERNAL_STORAGE)
                 .check()
         }
-        binding.selectImgLayout.setOnClickListener(ocl)
-        binding.imgThumbPicture.setOnClickListener(ocl)
+        binding.layoutSelectImage.setOnClickListener(ocl)
+        binding.imgThumbnail.setOnClickListener(ocl)
 
         // 지금 들어오는 텍스트가 무엇인지 확인하는 함수
         binding.edtKeyword.addTextChangedListener {
@@ -90,7 +91,8 @@ class ReviewActivity : BaseActivity() {
                 val tag = nowText.replace(" ", "")
                 mInputTagList.add(tag)
 
-                val tagBox = LayoutInflater.from(mContext).inflate(R.layout.tag_list_item, null)
+                val tagBox = LayoutInflater.from(mContext)
+                    .inflate(R.layout.tag_list_item_for_write_review, null)
                 val txtTag = tagBox.findViewById<TextView>(R.id.txtTag)
                 txtTag.text = "#${tag}"
                 binding.tagListLayout.addView(tagBox)
@@ -199,9 +201,9 @@ class ReviewActivity : BaseActivity() {
         if (requestCode == REQ_FOR_GALLERY) {
             if (resultCode == RESULT_OK) {
                 mSelectedThumbnailUri = data!!.data
-                Glide.with(mContext).load(mSelectedThumbnailUri).into(binding.imgThumbPicture)
-                binding.selectImgLayout.visibility = View.GONE
-                binding.imgThumbPicture.visibility = View.VISIBLE
+                Glide.with(mContext).load(mSelectedThumbnailUri).into(binding.imgThumbnail)
+                binding.layoutSelectImage.visibility = View.GONE
+                binding.imgThumbnail.visibility = View.VISIBLE
             }
         }
     }
@@ -209,13 +211,13 @@ class ReviewActivity : BaseActivity() {
     override fun setValues() {
         Glide.with(mContext).load(GlobalData.loginUser!!.profileImageURL).into(binding.imgProfile)
         mProductData = intent.getSerializableExtra("product") as ProductData
-        binding.txtUserNickName.text = GlobalData.loginUser!!.nickname
+        binding.txtNickName.text = GlobalData.loginUser!!.nickname
         binding.txtProductName.text = mProductData.name
 
         val now = Calendar.getInstance()
         val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
         val date = sdf.format(now.time)
-        binding.txtReviewTime.text = date
+        binding.txtReviewDate.text = date
     }
 
 }

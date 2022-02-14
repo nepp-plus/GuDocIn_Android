@@ -1,11 +1,11 @@
-package com.neppplus.gudocin_android
+package com.neppplus.gudoc_in.activities
 
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
-import com.bumptech.glide.Glide
-import com.neppplus.gudocin_android.adapters.SubscriptionHistoryViewPagerAdapter
-import com.neppplus.gudocin_android.databinding.ActivitySubscriptionHistoryBinding
-import com.neppplus.gudocin_android.datas.BasicResponse
+import com.neppplus.gudoc_in.R
+import com.neppplus.gudoc_in.adapters.SubscriptionHistoryViewPagerAdapter
+import com.neppplus.gudoc_in.databinding.ActivitySubscriptionHistoryBinding
+import com.neppplus.gudoc_in.datas.BasicResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -29,8 +29,8 @@ class SubscriptionHistoryActivity : BaseActivity() {
 
     override fun setValues() {
         mAdapterReview = SubscriptionHistoryViewPagerAdapter(supportFragmentManager)
-        binding.subscribeHistoryViewPager.adapter = mAdapterReview
-        binding.subscribeHistoryTabLayout.setupWithViewPager(binding.subscribeHistoryViewPager)
+        binding.activitiesHistoryViewPager.adapter = mAdapterReview
+        binding.activitiesHistoryTabLayout.setupWithViewPager(binding.activitiesHistoryViewPager)
 
         getMyInfoFromServer()
     }
@@ -40,7 +40,7 @@ class SubscriptionHistoryActivity : BaseActivity() {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
                 if (response.isSuccessful) {
                     val br = response.body()!!
-                    Glide.with(mContext).load(br.data.user.profileImageURL).into(binding.imgProfile)
+//                  Glide.with(mContext).load(br.data.user.profileImageURL).into(binding.imgProfile)
                 }
             }
 
