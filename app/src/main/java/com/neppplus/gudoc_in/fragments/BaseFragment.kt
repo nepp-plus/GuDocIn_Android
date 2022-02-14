@@ -1,10 +1,10 @@
-package com.neppplus.gudocin_android.fragments
+package com.neppplus.gudoc_in.fragments
 
 import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import com.neppplus.gudocin_android.api.ServerAPI
-import com.neppplus.gudocin_android.api.ServerAPIInterface
+import com.neppplus.gudoc_in.api.ServerAPI
+import com.neppplus.gudoc_in.api.ServerAPIInterface
 
 abstract class BaseFragment : Fragment() {
 

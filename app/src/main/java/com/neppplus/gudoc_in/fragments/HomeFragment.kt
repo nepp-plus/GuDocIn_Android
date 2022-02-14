@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android.fragments
+package com.neppplus.gudoc_in.fragments
 
 import android.os.Bundle
 import android.util.Log
@@ -8,11 +8,11 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.neppplus.gudocin_android.R
-import com.neppplus.gudocin_android.adapters.ReviewListRecyclerVewAdapterForMain
-import com.neppplus.gudocin_android.databinding.FragmentHomeBinding
-import com.neppplus.gudocin_android.datas.BasicResponse
-import com.neppplus.gudocin_android.datas.ReviewData
+import com.neppplus.gudoc_in.R
+import com.neppplus.gudoc_in.adapters.reviews.ReviewListRecyclerVewAdapterForMain
+import com.neppplus.gudoc_in.databinding.FragmentHomeBinding
+import com.neppplus.gudoc_in.datas.BasicResponse
+import com.neppplus.gudoc_in.datas.ReviewData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -106,7 +106,7 @@ class HomeFragment : BaseFragment() {
                     val br = response.body()!!
                     mMainReviewListRecyclerAdapter.mBannerList.clear()
                     mMainReviewListRecyclerAdapter.mBannerList.addAll(br.data.banners)
-                    mMainReviewListRecyclerAdapter.mBannerViewPagerAdapter.notifyDataSetChanged()
+                    mMainReviewListRecyclerAdapter.mMainBannerViewPagerAdapter.notifyDataSetChanged()
                 }
             }
 

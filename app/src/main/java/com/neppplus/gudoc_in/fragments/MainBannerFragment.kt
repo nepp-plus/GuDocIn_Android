@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android.fragments
+package com.neppplus.gudoc_in.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,9 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
-import com.neppplus.gudocin_android.R
-import com.neppplus.gudocin_android.databinding.FragmentMainBannerBinding
-import com.neppplus.gudocin_android.datas.BannerData
+import com.neppplus.gudoc_in.R
+import com.neppplus.gudoc_in.databinding.FragmentMainBannerBinding
+import com.neppplus.gudoc_in.datas.BannerData
 
 class MainBannerFragment(private val mBannerData: BannerData? = null) : BaseFragment() {
 

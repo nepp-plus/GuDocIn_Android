@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android.fragments
+package com.neppplus.gudoc_in.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,22 +7,22 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.neppplus.gudocin_android.R
-import com.neppplus.gudocin_android.adapters.ProductRecyclerAdapter
-import com.neppplus.gudocin_android.databinding.FragmentProductBinding
-import com.neppplus.gudocin_android.datas.BasicResponse
-import com.neppplus.gudocin_android.datas.ProductData
+import com.neppplus.gudoc_in.R
+import com.neppplus.gudoc_in.adapters.ProductListRecyclerViewAdapter
+import com.neppplus.gudoc_in.databinding.FragmentProductListBinding
+import com.neppplus.gudoc_in.datas.BasicResponse
+import com.neppplus.gudoc_in.datas.ProductData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class ProductFragment : BaseFragment() {
+class ProductListFragment : BaseFragment() {
 
-    lateinit var binding: FragmentProductBinding
+    lateinit var binding: FragmentProductListBinding
 
     val mProductList = ArrayList<ProductData>()
 
-    lateinit var mProductRecyclerAdapter: ProductRecyclerAdapter
+    lateinit var mProductListRecyclerViewAdapter: ProductListRecyclerViewAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -30,7 +30,7 @@ class ProductFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding =
-            DataBindingUtil.inflate(inflater, R.layout.fragment_product, container, false)
+            DataBindingUtil.inflate(inflater, R.layout.fragment_product_list, container, false)
         return binding.root
     }
 
@@ -47,8 +47,8 @@ class ProductFragment : BaseFragment() {
     override fun setValues() {
         getProductListFromServer()
 
-        mProductRecyclerAdapter = ProductRecyclerAdapter(mContext, mProductList)
-        binding.productListRecyclerView.adapter = mProductRecyclerAdapter
+        mProductListRecyclerViewAdapter = ProductListRecyclerViewAdapter(mContext, mProductList)
+        binding.productListRecyclerView.adapter = mProductListRecyclerViewAdapter
         binding.productListRecyclerView.layoutManager =
             StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
     }
@@ -59,7 +59,7 @@ class ProductFragment : BaseFragment() {
                 if (response.isSuccessful) {
                     mProductList.clear()
                     mProductList.addAll(response.body()!!.data.products)
-                    mProductRecyclerAdapter.notifyDataSetChanged()
+                    mProductListRecyclerViewAdapter.notifyDataSetChanged()
                 }
             }
 

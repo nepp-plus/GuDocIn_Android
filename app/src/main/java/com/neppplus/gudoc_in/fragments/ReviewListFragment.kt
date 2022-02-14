@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android.fragments
+package com.neppplus.gudoc_in.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,18 +6,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.neppplus.gudocin_android.R
-import com.neppplus.gudocin_android.adapters.ReviewListRecyclerViewAdapterForProfile
-import com.neppplus.gudocin_android.databinding.FragmentReviewListBinding
-import com.neppplus.gudocin_android.datas.BasicResponse
-import com.neppplus.gudocin_android.datas.ReviewData
+import com.neppplus.gudoc_in.R
+import com.neppplus.gudoc_in.adapters.reviews.ReviewListRecyclerViewAdapterForProfile
+import com.neppplus.gudoc_in.databinding.FragmentReviewListBinding
+import com.neppplus.gudoc_in.datas.BasicResponse
+import com.neppplus.gudoc_in.datas.ReviewData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class ReviewListFragment : BaseFragment() {
 
-    val mMyReviewList = ArrayList<ReviewData>()
+    val mReviewList = ArrayList<ReviewData>()
 
     lateinit var binding: FragmentReviewListBinding
 
@@ -40,9 +40,9 @@ class ReviewListFragment : BaseFragment() {
     }
 
     override fun setupEvents() {
-        mReviewRecyclerViewAdapterForProfile = ReviewListRecyclerViewAdapterForProfile(mContext, mMyReviewList)
-        binding.myReviewListRecyclerView.adapter = mReviewRecyclerViewAdapterForProfile
-        binding.myReviewListRecyclerView.layoutManager = LinearLayoutManager(mContext)
+        mReviewRecyclerViewAdapterForProfile = ReviewListRecyclerViewAdapterForProfile(mContext, mReviewList)
+        binding.reviewListRecyclerView.adapter = mReviewRecyclerViewAdapterForProfile
+        binding.reviewListRecyclerView.layoutManager = LinearLayoutManager(mContext)
     }
 
     override fun setValues() {
@@ -54,8 +54,8 @@ class ReviewListFragment : BaseFragment() {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
                 if (response.isSuccessful) {
                     val br = response.body()!!
-                    mMyReviewList.clear()
-                    mMyReviewList.addAll(br.data.reviews)
+                    mReviewList.clear()
+                    mReviewList.addAll(br.data.reviews)
                     mReviewRecyclerViewAdapterForProfile.notifyDataSetChanged()
                 }
             }

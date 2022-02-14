@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android.fragments
+package com.neppplus.gudoc_in.fragments
 
 import android.Manifest
 import android.app.Activity
@@ -15,15 +15,15 @@ import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
 import com.gun0912.tedpermission.PermissionListener
 import com.gun0912.tedpermission.normal.TedPermission
-import com.neppplus.gudocin_android.EditProfileActivity
-import com.neppplus.gudocin_android.InitialActivity
-import com.neppplus.gudocin_android.R
-import com.neppplus.gudocin_android.SubscriptionHistoryActivity
-import com.neppplus.gudocin_android.databinding.FragmentMyProfileBinding
-import com.neppplus.gudocin_android.datas.BasicResponse
-import com.neppplus.gudocin_android.datas.GlobalData
-import com.neppplus.gudocin_android.utils.ContextUtil
-import com.neppplus.gudocin_android.utils.URIPathHelper
+import com.neppplus.gudoc_in.activities.SubscriptionHistoryActivity
+import com.neppplus.gudoc_in.activities.EditProfileActivity
+import com.neppplus.gudoc_in.activities.InitialActivity
+import com.neppplus.gudoc_in.R
+import com.neppplus.gudoc_in.databinding.FragmentProfileBinding
+import com.neppplus.gudoc_in.datas.BasicResponse
+import com.neppplus.gudoc_in.datas.GlobalData
+import com.neppplus.gudoc_in.utils.ContextUtil
+import com.neppplus.gudoc_in.utils.URIPathHelper
 import okhttp3.MediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -32,9 +32,9 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.io.File
 
-class MyProfileFragment : BaseFragment() {
+class ProfileFragment : BaseFragment() {
 
-    lateinit var binding: FragmentMyProfileBinding
+    lateinit var binding: FragmentProfileBinding
 
     val REQ_FOR_GALLERY = 1000
 
@@ -43,7 +43,7 @@ class MyProfileFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_my_profile, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false)
         return binding.root
     }
 
@@ -127,12 +127,12 @@ class MyProfileFragment : BaseFragment() {
             alert.show()
         }
 
-        binding.txtEditMyInfo.setOnClickListener {
+        binding.txtEditInfo.setOnClickListener {
             val myIntent = Intent(mContext, EditProfileActivity::class.java)
             startActivity(myIntent)
         }
 
-        binding.txtPurchaseReviewList.setOnClickListener {
+        binding.txtActivitiesHistoryList.setOnClickListener {
             val myIntent = Intent(mContext, SubscriptionHistoryActivity::class.java)
             startActivity(myIntent)
         }
@@ -142,23 +142,23 @@ class MyProfileFragment : BaseFragment() {
     override fun setValues() {
         getMyInfoFromServer()
 
-            when (GlobalData.loginUser!!.provider) {
-                "kakao" -> {
-                    binding.imgProvider.setImageResource(R.drawable.kakao_logo)
-                    binding.imgProvider.visibility = View.VISIBLE
-                }
-                "facebook" -> {
-                    binding.imgProvider.setImageResource(R.drawable.facebook_logo)
-                    binding.imgProvider.visibility = View.VISIBLE
-                }
-                "google" -> {
-                    binding.imgProvider.setImageResource(R.drawable.google_logo)
-                    binding.imgProvider.visibility = View.VISIBLE
-                }
-                else -> {
-                    binding.imgProvider.visibility = View.GONE
-                }
+        when (GlobalData.loginUser!!.provider) {
+            "kakao" -> {
+                binding.imgProvider.setImageResource(R.drawable.kakao_logo)
+                binding.imgProvider.visibility = View.VISIBLE
             }
+            "facebook" -> {
+                binding.imgProvider.setImageResource(R.drawable.facebook_logo)
+                binding.imgProvider.visibility = View.VISIBLE
+            }
+            "google" -> {
+                binding.imgProvider.setImageResource(R.drawable.google_logo)
+                binding.imgProvider.visibility = View.VISIBLE
+            }
+            else -> {
+                binding.imgProvider.visibility = View.GONE
+            }
+        }
     }
 
     fun getMyInfoFromServer() {

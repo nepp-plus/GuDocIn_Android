@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android.fragments
+package com.neppplus.gudoc_in.fragments.categories
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,18 +6,20 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
-import com.neppplus.gudocin_android.MainActivity
-import com.neppplus.gudocin_android.R
-import com.neppplus.gudocin_android.databinding.FragmentCategoryBinding
-import com.neppplus.gudocin_android.datas.BasicResponse
-import com.neppplus.gudocin_android.datas.SmallCategoryData
+import com.neppplus.gudoc_in.activities.MainActivity
+import com.neppplus.gudoc_in.R
+import com.neppplus.gudoc_in.databinding.FragmentCategoryListForMainBinding
+import com.neppplus.gudoc_in.datas.BasicResponse
+import com.neppplus.gudoc_in.datas.SmallCategoryData
+import com.neppplus.gudoc_in.fragments.BaseFragment
+import com.neppplus.gudoc_in.fragments.HomeFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class CategoryFragment : BaseFragment() {
+class CategoryListFragment : BaseFragment() {
 
-    lateinit var binding: FragmentCategoryBinding
+    lateinit var binding: FragmentCategoryListForMainBinding
 
     var mSmallCategoriesList = ArrayList<SmallCategoryData>()
 
@@ -29,7 +31,12 @@ class CategoryFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_category, container, false)
+        binding = DataBindingUtil.inflate(
+            inflater,
+            R.layout.fragment_category_list_for_main,
+            container,
+            false
+        )
         return binding.root
     }
 
@@ -72,10 +79,10 @@ class CategoryFragment : BaseFragment() {
                             mSmallCategoriesList.addAll(br.data.small_categories)
 
 //                        추가한 카테고리 하나하나에 대한 view 생성
-                            binding.smallCategoryList.removeAllViews()
+                            binding.layoutSmallCategoryList.removeAllViews()
                             for (sc in mSmallCategoriesList) {
                                 val view = LayoutInflater.from(mContext)
-                                    .inflate(R.layout.category_list_item, null)
+                                    .inflate(R.layout.category_list_item_for_all, null)
                                 val txtSmallCategory =
                                     view.findViewById<TextView>(R.id.txtSmallCategory)
                                 txtSmallCategory.text = sc.name
@@ -91,7 +98,7 @@ class CategoryFragment : BaseFragment() {
                                         mClickedSmallCategoryNum
                                     )
                                 }
-                                binding.smallCategoryList.addView(view)
+                                binding.layoutSmallCategoryList.addView(view)
                             }
                         }
                     }

@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android.fragments
+package com.neppplus.gudoc_in.fragments.categories
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,29 +7,30 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.neppplus.gudocin_android.R
-import com.neppplus.gudocin_android.adapters.CategoryAdapter
-import com.neppplus.gudocin_android.adapters.ProductRecyclerViewAdapter
-import com.neppplus.gudocin_android.databinding.FragmentEatCategoryBinding
-import com.neppplus.gudocin_android.datas.BasicResponse
-import com.neppplus.gudocin_android.datas.ProductData
-import com.neppplus.gudocin_android.datas.SmallCategoryData
+import com.neppplus.gudoc_in.R
+import com.neppplus.gudoc_in.adapters.categories.CategoryListRecyclerViewAdapterForAll
+import com.neppplus.gudoc_in.adapters.categories.CategoryListRecyclerViewAdapterForExploreProduct
+import com.neppplus.gudoc_in.databinding.FragmentEatCategoryListForExploreProductBinding
+import com.neppplus.gudoc_in.datas.BasicResponse
+import com.neppplus.gudoc_in.datas.ProductData
+import com.neppplus.gudoc_in.datas.SmallCategoryData
+import com.neppplus.gudoc_in.fragments.BaseFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class EatCategoryFragment : BaseFragment() {
+class EatCategoryListFragment : BaseFragment() {
 
-    lateinit var binding: FragmentEatCategoryBinding
+    lateinit var binding: FragmentEatCategoryListForExploreProductBinding
 
     val mSmallCategoryList = ArrayList<SmallCategoryData>()
-    lateinit var mCategoryAdapter: CategoryAdapter
+    lateinit var mCategoryListRecyclerViewAdapterForAll: CategoryListRecyclerViewAdapterForAll
 
     var mLargeCategoryId = 1
     var mClickedSmallCategoryNum = 1
 
     val mProductList = ArrayList<ProductData>()
-    lateinit var mProductRecyclerAdapter: ProductRecyclerViewAdapter
+    lateinit var mCategoryListRecyclerAdapterForExploreProduct: CategoryListRecyclerViewAdapterForExploreProduct
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,7 +38,12 @@ class EatCategoryFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding =
-            DataBindingUtil.inflate(inflater, R.layout.fragment_eat_category, container, false)
+            DataBindingUtil.inflate(
+                inflater,
+                R.layout.fragment_eat_category_list_for_explore_product,
+                container,
+                false
+            )
         return binding.root
     }
 
@@ -52,13 +58,13 @@ class EatCategoryFragment : BaseFragment() {
     }
 
     override fun setValues() {
-        binding.txtSelectedCategory.text = "식품구독"
+        binding.txtSelectedLargeCategory.text = "식품구독"
         getSmallCategoryListFromServer()
-        mCategoryAdapter = CategoryAdapter(mContext, mSmallCategoryList)
+        mCategoryListRecyclerViewAdapterForAll = CategoryListRecyclerViewAdapterForAll(mContext, mSmallCategoryList)
 
         getProductListInSmallCategoryFromServer()
-        mProductRecyclerAdapter = ProductRecyclerViewAdapter(mContext, mProductList)
-        binding.productListRecyclerView.adapter = mProductRecyclerAdapter
+        mCategoryListRecyclerAdapterForExploreProduct = CategoryListRecyclerViewAdapterForExploreProduct(mContext, mProductList)
+        binding.productListRecyclerView.adapter = mCategoryListRecyclerAdapterForExploreProduct
         binding.productListRecyclerView.layoutManager = LinearLayoutManager(mContext)
     }
 
@@ -73,7 +79,7 @@ class EatCategoryFragment : BaseFragment() {
                         val br = response.body()!!
                         mProductList.clear()
                         mProductList.addAll(br.data.products)
-                        mProductRecyclerAdapter.notifyDataSetChanged()
+                        mCategoryListRecyclerAdapterForExploreProduct.notifyDataSetChanged()
                     }
                 }
 
@@ -91,15 +97,15 @@ class EatCategoryFragment : BaseFragment() {
                     response: Response<BasicResponse>
                 ) {
                     if (response.isSuccessful) {
-                        binding.smallCategoryList.removeAllViews()
+                        binding.layoutSmallCategoryList.removeAllViews()
                         val br = response.body()!!
                         mSmallCategoryList.clear()
                         mSmallCategoryList.addAll(br.data.small_categories)
 
-    //                    추가한 카테고리 하나하나에 대한 view 생성
+//                        추가한 카테고리 하나하나에 대한 view 생성
                         for (sc in mSmallCategoryList) {
                             val view = LayoutInflater.from(mContext)
-                                .inflate(R.layout.category_list_item, null)
+                                .inflate(R.layout.category_list_item_for_all, null)
                             val txtSmallCategory =
                                 view.findViewById<TextView>(R.id.txtSmallCategory)
                             txtSmallCategory.text = sc.name
@@ -108,7 +114,7 @@ class EatCategoryFragment : BaseFragment() {
                                 mClickedSmallCategoryNum = sc.id
                                 getProductListInSmallCategoryFromServer()
                             }
-                            binding.smallCategoryList.addView(view)
+                            binding.layoutSmallCategoryList.addView(view)
                         }
                     }
                 }
