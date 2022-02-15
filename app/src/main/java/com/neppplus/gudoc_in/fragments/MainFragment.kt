@@ -10,16 +10,16 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.neppplus.gudoc_in.R
 import com.neppplus.gudoc_in.adapters.reviews.ReviewListRecyclerVewAdapterForMain
-import com.neppplus.gudoc_in.databinding.FragmentHomeBinding
+import com.neppplus.gudoc_in.databinding.FragmentMainBinding
 import com.neppplus.gudoc_in.datas.BasicResponse
 import com.neppplus.gudoc_in.datas.ReviewData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class HomeFragment : BaseFragment() {
+class MainFragment : BaseFragment() {
 
-    lateinit var binding: FragmentHomeBinding
+    lateinit var binding: FragmentMainBinding
 
     val mReviewList = ArrayList<ReviewData>()
 
@@ -32,7 +32,7 @@ class HomeFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_main, container, false)
         return binding.root
     }
 

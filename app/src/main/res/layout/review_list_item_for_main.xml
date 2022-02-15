@@ -54,8 +54,7 @@
             android:layout_marginLeft="5dp"
             android:text="상품명"
             android:textColor="@color/black"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/txtReviewTitle"
