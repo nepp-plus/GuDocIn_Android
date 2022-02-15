@@ -28,7 +28,7 @@
                 android:layout_weight="1"
                 android:background="@color/light_gray_f7"
                 android:padding="10dp"
-                android:text="상호(대표자)"
+                android:text="상호명"
                 android:textColor="@color/dark_gray"
                 android:textSize="14sp" />
 
@@ -38,7 +38,7 @@
                 android:layout_weight="2"
                 android:background="@color/white"
                 android:padding="10dp"
-                android:text="Koolunkle Corp.(김OO)"
+                android:text="Koolunkle Corp."
                 android:textColor="@color/black"
                 android:textSize="14sp" />
 
@@ -68,7 +68,7 @@
                 android:layout_weight="2"
                 android:background="@color/white"
                 android:padding="10dp"
-                android:text="서울시 동대문구 제기동"
+                android:text="경기도 남양주시"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
 
@@ -104,12 +104,12 @@
 
         </LinearLayout>
 
-        <androidx.constraintlayout.utils.widget.ImageFilterView
+        <!-- <androidx.constraintlayout.utils.widget.ImageFilterView
             android:layout_width="match_parent"
             android:layout_height="500dp"
             android:layout_marginTop="30dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/store_content_icon" />
+            android:src="@mipmap/ic_launcher" /> -->
 
     </LinearLayout>
 

@@ -22,7 +22,7 @@
                 <ImageView
                     android:id="@+id/imgProduct"
                     android:layout_width="match_parent"
-                    android:layout_height="500dp"
+                    android:layout_height="400dp"
                     android:scaleType="centerCrop"
                     android:src="@mipmap/ic_launcher" />
 
