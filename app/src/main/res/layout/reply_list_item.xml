@@ -1,43 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:orientation="horizontal"
-    android:padding="10dp"
+    android:layout_height="wrap_content"
     android:gravity="center_vertical"
-    android:layout_height="wrap_content">
+    android:orientation="horizontal"
+    android:padding="10dp">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/imgUserProfile"
-        android:scaleType="centerCrop"
+        android:id="@+id/imgProfile"
         android:layout_width="30dp"
-        android:src="@mipmap/ic_launcher"
-        android:layout_height="30dp"/>
+        android:layout_height="30dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_launcher" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/txtUserNickName"
+            android:id="@+id/txtNickName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="닉네임"/>
+            android:text="닉네임"
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/txtReplyTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="몇시간 전"/>
+            android:text="몇시간 전"
+            android:textColor="@color/black" />
 
     </LinearLayout>
 
     <TextView
-        android:id="@+id/txtReviewReply"
+        android:id="@+id/txtReply"
         android:layout_width="match_parent"
-        android:layout_marginLeft="10dp"
         android:layout_height="wrap_content"
-        android:text="댓글 내용 자리"/>
-
+        android:layout_marginLeft="20dp"
+        android:text="댓글 내용 자리"
+        android:textColor="@color/black" />
 
 </LinearLayout>

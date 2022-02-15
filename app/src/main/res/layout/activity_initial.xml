@@ -2,29 +2,45 @@
 <layout>
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".InitialActivity">
+        tools:context=".activities.InitialActivity">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
             android:gravity="center"
             android:orientation="vertical"
-            android:padding="20dp"
-            tools:context=".InitialActivity">
+            tools:context=".activities.InitialActivity">
 
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/viewPager"
                 android:layout_width="match_parent"
-                android:layout_height="450dp" />
+                android:layout_height="500dp"
+                android:layout_marginTop="50dp" />
+
+            <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+                android:id="@+id/dotsIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                app:dotsColor="@color/dark_gray7"
+                app:dotsCornerRadius="8dp"
+                app:dotsSize="10dp"
+                app:dotsSpacing="4dp"
+                app:dotsWidthFactor="2.5"
+                app:progressMode="false"
+                app:selectedDotColor="@color/dark_gray7" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="40dp"
+                android:layout_margin="30dp"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -33,23 +49,27 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
-                    android:text="로그인 하기" />
+                    android:text="시작하기"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
 
                 <Button
                     android:id="@+id/btnSignUp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
                     android:backgroundTint="@color/white"
-                    android:text="회원가입 하기" />
+                    android:text="가입하기"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/txtMaybeLater"
-                    android:layout_width="wrap_content"
+                <Button
+                    android:id="@+id/btnSeeYou"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
-                    android:text="다음에 할게요"
-                    android:textColor="@color/black" />
+                    android:backgroundTint="@color/white"
+                    android:text="다음에 만나요"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 

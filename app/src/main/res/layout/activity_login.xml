@@ -5,59 +5,67 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".LoginActivity">
+        android:padding="20dp"
+        tools:context=".activities.LoginActivity">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="vertical"
-            android:padding="20dp">
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/title_logo" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="로그인"
+                    android:text="이메일"
                     android:textColor="@color/black"
-                    android:textSize="20sp"
+                    android:textSize="17sp"
                     android:textStyle="bold" />
 
+                <EditText
+                    android:id="@+id/edtEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="이메일을 입력하세요"
+                    android:inputType="textEmailAddress"
+                    android:singleLine="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="비밀번호"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edtPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="비밀번호를 입력하세요"
+                    android:inputType="textPassword"
+                    android:singleLine="true" />
+
             </LinearLayout>
-
-            <EditText
-                android:id="@+id/edtEmail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
-                android:gravity="center"
-                android:hint="아이디를 입력해주세요 (이메일)"
-                android:inputType="textEmailAddress"
-                android:singleLine="true" />
-
-            <EditText
-                android:id="@+id/edtPassword"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:hint="비밀번호를 입력해주세요"
-                android:inputType="textPassword"
-                android:singleLine="true" />
-
-            <Button
-                android:id="@+id/btnLogin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:backgroundTint="@color/white"
-                android:text="로그인 하기"
-                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -71,6 +79,7 @@
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/black"
                     android:text="자동 로그인"
+                    android:textSize="15sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -82,16 +91,25 @@
                     android:id="@+id/txtFindAccount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="아이디/비밀번호 찾기"
+                    android:text="이메일/비밀번호 찾기"
                     android:textColor="@color/black"
+                    android:textSize="15sp"
                     android:textStyle="bold" />
 
             </LinearLayout>
 
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:text="로그인"
+                android:textStyle="bold" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="40dp"
+                android:layout_marginTop="70dp"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -99,9 +117,8 @@
                     android:id="@+id/btnKakaoLogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp"
                     android:backgroundTint="@color/white"
-                    android:text="카카오로 계속"
+                    android:text="카카오 로그인"
                     android:textStyle="bold" />
 
                 <Button
@@ -109,7 +126,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
-                    android:text="페이스북으로 계속"
+                    android:text="페이스북 로그인"
                     android:textStyle="bold" />
 
                 <Button
@@ -117,19 +134,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
-                    android:text="구글로 계속"
+                    android:text="구글 로그인"
                     android:textStyle="bold" />
 
             </LinearLayout>
-
-            <TextView
-                android:id="@+id/txtSignUp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="회원가입하기"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
 
         </LinearLayout>
 
