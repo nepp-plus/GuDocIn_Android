@@ -12,7 +12,7 @@ import com.neppplus.gudoc_in.databinding.FragmentCategoryListForMainBinding
 import com.neppplus.gudoc_in.datas.BasicResponse
 import com.neppplus.gudoc_in.datas.SmallCategoryData
 import com.neppplus.gudoc_in.fragments.BaseFragment
-import com.neppplus.gudoc_in.fragments.HomeFragment
+import com.neppplus.gudoc_in.fragments.MainFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -93,7 +93,7 @@ class CategoryListFragment : BaseFragment() {
                                     val homeFragment =
                                         ((requireContext() as MainActivity).binding.viewPager.adapter as MainActivity.ViewPagerAdapter).getFragment(
                                             0
-                                        ) as HomeFragment
+                                        ) as MainFragment
                                     homeFragment.getReviewListInSmallCategoryFromServer(
                                         mClickedSmallCategoryNum
                                     )
