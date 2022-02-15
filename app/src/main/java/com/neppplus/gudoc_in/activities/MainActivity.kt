@@ -116,7 +116,7 @@ class MainActivity : BaseActivity() {
 
     fun getKeyHash() {
         val info = packageManager.getPackageInfo(
-            "com.neppplus.gudocin_android",
+            "com.neppplus.gudoc_in",
             PackageManager.GET_SIGNATURES
         )
         for (signature in info.signatures) {
