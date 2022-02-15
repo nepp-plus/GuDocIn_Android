@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="75dp"
-            android:text="구독상품 탐색하기"
+            android:text="구독 상품 탐색하기"
             android:textColor="@color/black"
             android:textSize="13sp" />
 
@@ -53,7 +53,7 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_gravity="center"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="35dp"
             android:src="@drawable/explore_icon" />
 
     </LinearLayout>

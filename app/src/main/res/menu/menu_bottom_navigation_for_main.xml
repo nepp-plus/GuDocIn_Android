@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/navHome"
+        android:id="@+id/navMain"
         android:enabled="true"
-        android:icon="@drawable/nav_home"
-        android:title="홈" />
+        android:icon="@drawable/nav_main"
+        android:title="메인" />
     <item
         android:id="@+id/navReview"
         android:icon="@drawable/nav_review"

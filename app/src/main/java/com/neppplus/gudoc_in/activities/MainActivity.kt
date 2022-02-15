@@ -15,9 +15,9 @@ import androidx.viewpager2.widget.ViewPager2
 import com.neppplus.gudoc_in.R
 import com.neppplus.gudoc_in.databinding.ActivityMainBinding
 import com.neppplus.gudoc_in.datas.BasicResponse
-import com.neppplus.gudoc_in.fragments.HomeFragment
-import com.neppplus.gudoc_in.fragments.ProfileFragment
+import com.neppplus.gudoc_in.fragments.MainFragment
 import com.neppplus.gudoc_in.fragments.ProductListFragment
+import com.neppplus.gudoc_in.fragments.ProfileFragment
 import com.neppplus.gudoc_in.utils.ContextUtil
 import retrofit2.Call
 import retrofit2.Callback
@@ -51,7 +51,7 @@ class MainActivity : BaseActivity() {
     override fun setupEvents() {
         binding.bottomNav.setOnNavigationItemSelectedListener {
             when (it.itemId) {
-                R.id.navHome -> binding.viewPager.currentItem = 0
+                R.id.navMain -> binding.viewPager.currentItem = 0
                 R.id.navReview -> binding.viewPager.currentItem = 1
                 else -> binding.viewPager.currentItem = 2
             }
@@ -72,7 +72,7 @@ class MainActivity : BaseActivity() {
                 override fun onPageSelected(position: Int) {
                     super.onPageSelected(position)
                     binding.bottomNav.selectedItemId = when (position) {
-                        0 -> R.id.navHome
+                        0 -> R.id.navMain
                         1 -> R.id.navReview
                         else -> R.id.navProfile
                     }
@@ -86,7 +86,7 @@ class MainActivity : BaseActivity() {
     inner class ViewPagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
         override fun getItemCount() = 3
 
-        val fragmentList = arrayListOf(HomeFragment(), ProductListFragment(), ProfileFragment())
+        val fragmentList = arrayListOf(MainFragment(), ProductListFragment(), ProfileFragment())
 
         override fun createFragment(position: Int): Fragment {
             return fragmentList[position]
