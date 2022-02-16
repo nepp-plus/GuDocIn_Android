@@ -42,7 +42,7 @@ class ReviewListRecyclerViewAdapterForExploreProduct
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReviewViewHolder {
         val row =
             LayoutInflater.from(mContext)
-                .inflate(R.layout.review_list_item_for_explore_product, parent, false)
+                .inflate(R.layout.review_list_item_for_product, parent, false)
         return ReviewViewHolder(row)
     }
 
