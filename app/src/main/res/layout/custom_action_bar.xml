@@ -36,7 +36,7 @@
         android:layout_gravity="bottom"
         android:layout_marginStart="20dp"
         android:layout_marginBottom="7dp"
-        android:background="@drawable/corner_shape_for_explore"
+        android:background="@drawable/corner_shape_for_explore_product"
         android:visibility="invisible">
 
         <TextView
@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="75dp"
-            android:text="구독 상품 탐색하기"
+            android:text="구독상품 탐색하기"
             android:textColor="@color/black"
             android:textSize="13sp" />
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="center|top"
@@ -65,14 +66,25 @@
             android:textColor="@color/black"
             android:textSize="14sp" />
 
-        <TextView
+        <com.willy.ratingbar.BaseRatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:isIndicator="true"
+            android:scaleX="0.5"
+            android:scaleY="0.5"
+            android:transformPivotX="0dp"
+            android:transformPivotY="0dp"
+            app:srb_stepSize="0.5" />
+
+        <!-- <TextView
             android:id="@+id/txtPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:text="가격"
             android:textColor="@color/black"
-            android:textSize="14sp" />
+            android:textSize="14sp" /> -->
 
     </LinearLayout>
 

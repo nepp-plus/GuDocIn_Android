@@ -13,12 +13,13 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
 import com.bumptech.glide.Glide
-import com.neppplus.gudoc_in.activities.MainActivity
 import com.neppplus.gudoc_in.R
+import com.neppplus.gudoc_in.activities.MainActivity
 import com.neppplus.gudoc_in.activities.ReviewActivity
 import com.neppplus.gudoc_in.adapters.MainBannerViewPagerAdapter
 import com.neppplus.gudoc_in.datas.BannerData
 import com.neppplus.gudoc_in.datas.ReviewData
+import com.willy.ratingbar.BaseRatingBar
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -76,7 +77,8 @@ class ReviewListRecyclerVewAdapterForMain
         val imgReviewThumbnail = row.findViewById<ImageView>(R.id.imgReviewThumbnail)
         val txtReviewTitle = row.findViewById<TextView>(R.id.txtReviewTitle)
         val txtProductName = row.findViewById<TextView>(R.id.txtProductName)
-        val txtPrice = row.findViewById<TextView>(R.id.txtPrice)
+        val ratingBar = row.findViewById<BaseRatingBar>(R.id.ratingBar)
+//      val txtPrice = row.findViewById<TextView>(R.id.txtPrice)
 
         val layoutReviewDetail = row.findViewById<LinearLayout>(R.id.layoutReviewDetail)
 
@@ -87,7 +89,8 @@ class ReviewListRecyclerVewAdapterForMain
             Glide.with(mContext).load(data.thumbNailImg).into(imgReviewThumbnail)
             txtReviewTitle.text = data.title
             txtProductName.text = data.product.name
-            txtPrice.text = data.product.getFormattedPrice()
+            ratingBar.rating = data.score.toFloat()
+//          txtPrice.text = data.product.getFormattedPrice()
 
             layoutReviewDetail.setOnClickListener {
                 val myIntent = Intent(mContext, ReviewActivity::class.java)
