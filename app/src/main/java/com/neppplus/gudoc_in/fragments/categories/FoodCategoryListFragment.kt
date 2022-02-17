@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.neppplus.gudoc_in.R
 import com.neppplus.gudoc_in.adapters.categories.CategoryListRecyclerViewAdapterForAll
 import com.neppplus.gudoc_in.adapters.categories.CategoryListRecyclerViewAdapterForExploreProduct
-import com.neppplus.gudoc_in.databinding.FragmentEatCategoryListForExploreProductBinding
+import com.neppplus.gudoc_in.databinding.FragmentFoodCategoryListForExploreProductBinding
 import com.neppplus.gudoc_in.datas.BasicResponse
 import com.neppplus.gudoc_in.datas.ProductData
 import com.neppplus.gudoc_in.datas.SmallCategoryData
@@ -19,9 +19,9 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class EatCategoryListFragment : BaseFragment() {
+class FoodCategoryListFragment : BaseFragment() {
 
-    lateinit var binding: FragmentEatCategoryListForExploreProductBinding
+    lateinit var binding: FragmentFoodCategoryListForExploreProductBinding
 
     val mSmallCategoryList = ArrayList<SmallCategoryData>()
     lateinit var mCategoryListRecyclerViewAdapterForAll: CategoryListRecyclerViewAdapterForAll
@@ -40,7 +40,7 @@ class EatCategoryListFragment : BaseFragment() {
         binding =
             DataBindingUtil.inflate(
                 inflater,
-                R.layout.fragment_eat_category_list_for_explore_product,
+                R.layout.fragment_food_category_list_for_explore_product,
                 container,
                 false
             )
@@ -60,10 +60,12 @@ class EatCategoryListFragment : BaseFragment() {
     override fun setValues() {
         binding.txtSelectedLargeCategory.text = "식품구독"
         getSmallCategoryListFromServer()
-        mCategoryListRecyclerViewAdapterForAll = CategoryListRecyclerViewAdapterForAll(mContext, mSmallCategoryList)
+        mCategoryListRecyclerViewAdapterForAll =
+            CategoryListRecyclerViewAdapterForAll(mContext, mSmallCategoryList)
 
         getProductListInSmallCategoryFromServer()
-        mCategoryListRecyclerAdapterForExploreProduct = CategoryListRecyclerViewAdapterForExploreProduct(mContext, mProductList)
+        mCategoryListRecyclerAdapterForExploreProduct =
+            CategoryListRecyclerViewAdapterForExploreProduct(mContext, mProductList)
         binding.productListRecyclerView.adapter = mCategoryListRecyclerAdapterForExploreProduct
         binding.productListRecyclerView.layoutManager = LinearLayoutManager(mContext)
     }
@@ -106,9 +108,9 @@ class EatCategoryListFragment : BaseFragment() {
                         for (sc in mSmallCategoryList) {
                             val view = LayoutInflater.from(mContext)
                                 .inflate(R.layout.category_list_item_for_all, null)
-                            val txtSmallCategory =
-                                view.findViewById<TextView>(R.id.txtSmallCategory)
-                            txtSmallCategory.text = sc.name
+                            val txtSmallCategoryList =
+                                view.findViewById<TextView>(R.id.txtSmallCategoryList)
+                            txtSmallCategoryList.text = sc.name
 
                             view.setOnClickListener {
                                 mClickedSmallCategoryNum = sc.id

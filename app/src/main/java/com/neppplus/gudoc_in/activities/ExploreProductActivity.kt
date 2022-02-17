@@ -10,9 +10,9 @@ import androidx.viewpager2.widget.ViewPager2
 import com.neppplus.gudoc_in.R
 import com.neppplus.gudoc_in.databinding.ActivityExploreProductBinding
 import com.neppplus.gudoc_in.fragments.*
-import com.neppplus.gudoc_in.fragments.categories.EatCategoryListFragment
+import com.neppplus.gudoc_in.fragments.categories.ClothesCategoryListFragment
+import com.neppplus.gudoc_in.fragments.categories.FoodCategoryListFragment
 import com.neppplus.gudoc_in.fragments.categories.LifeCategoryListFragment
-import com.neppplus.gudoc_in.fragments.categories.WearCategoryListFragment
 
 class ExploreProductActivity : BaseActivity() {
 
@@ -61,7 +61,11 @@ class ExploreProductActivity : BaseActivity() {
         override fun getItemCount() = 3
 
         val fragmentList =
-            arrayListOf(EatCategoryListFragment(), WearCategoryListFragment(), LifeCategoryListFragment())
+            arrayListOf(
+                FoodCategoryListFragment(),
+                ClothesCategoryListFragment(),
+                LifeCategoryListFragment()
+            )
 
         override fun createFragment(position: Int): Fragment {
             return fragmentList[position]
