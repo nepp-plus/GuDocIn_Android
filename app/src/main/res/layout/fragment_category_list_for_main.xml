@@ -14,38 +14,27 @@
             android:gravity="center_horizontal"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/btnEatCategory"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="5dp"
-                android:layout_weight="1"
-                android:backgroundTint="@color/white"
-                android:shadowColor="@color/black"
-                android:text="식품구독"
-                android:textColor="@color/black" />
 
-            <Button
-                android:id="@+id/btnWearCategory"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="5dp"
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imgFoodCategory"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/white"
-                android:shadowColor="@color/black"
-                android:text="의류구독"
-                android:textColor="@color/black" />
+                android:src="@drawable/food_category_icon" />
 
-            <Button
-                android:id="@+id/btnLifeCategory"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="5dp"
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imgClothesCategory"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/white"
-                android:shadowColor="@color/black"
-                android:text="생활구독"
-                android:textColor="@color/black" />
+                android:src="@drawable/clothes_category_icon" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imgLifeCategory"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:src="@drawable/life_category_icon" />
 
         </LinearLayout>
 

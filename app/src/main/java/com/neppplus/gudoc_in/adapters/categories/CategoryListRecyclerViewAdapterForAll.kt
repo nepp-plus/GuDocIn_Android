@@ -14,10 +14,10 @@ class CategoryListRecyclerViewAdapterForAll(
 ) : RecyclerView.Adapter<CategoryListRecyclerViewAdapterForAll.SmallCategoryViewHolder>() {
 
     inner class SmallCategoryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val txtSmallCategory = view.findViewById<TextView>(R.id.txtSmallCategory)
+        val txtSmallCategoryList = view.findViewById<TextView>(R.id.txtSmallCategoryList)
 
         fun bind(data: SmallCategoryData) {
-            txtSmallCategory.text = data.name
+            txtSmallCategoryList.text = data.name
         }
     }
 

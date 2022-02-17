@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.neppplus.gudoc_in.R
 import com.neppplus.gudoc_in.adapters.categories.CategoryListRecyclerViewAdapterForAll
 import com.neppplus.gudoc_in.adapters.categories.CategoryListRecyclerViewAdapterForExploreProduct
-import com.neppplus.gudoc_in.databinding.FragmentWearCategoryListForExploreProductBinding
+import com.neppplus.gudoc_in.databinding.FragmentClothesCategoryListForExploreProductBinding
 import com.neppplus.gudoc_in.datas.BasicResponse
 import com.neppplus.gudoc_in.datas.ProductData
 import com.neppplus.gudoc_in.datas.SmallCategoryData
@@ -19,9 +19,9 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class WearCategoryListFragment : BaseFragment() {
+class ClothesCategoryListFragment : BaseFragment() {
 
-    lateinit var binding: FragmentWearCategoryListForExploreProductBinding
+    lateinit var binding: FragmentClothesCategoryListForExploreProductBinding
 
     val mSmallCategoryList = ArrayList<SmallCategoryData>()
     lateinit var mCategoryListRecyclerViewAdapterForAll: CategoryListRecyclerViewAdapterForAll
@@ -40,7 +40,7 @@ class WearCategoryListFragment : BaseFragment() {
         binding =
             DataBindingUtil.inflate(
                 inflater,
-                R.layout.fragment_wear_category_list_for_explore_product,
+                R.layout.fragment_clothes_category_list_for_explore_product,
                 container,
                 false
             )
@@ -102,9 +102,9 @@ class WearCategoryListFragment : BaseFragment() {
                     for (sc in mSmallCategoryList) {
                         val view = LayoutInflater.from(mContext)
                             .inflate(R.layout.category_list_item_for_all, null)
-                        val txtSmallCategory =
-                            view.findViewById<TextView>(R.id.txtSmallCategory)
-                        txtSmallCategory.text = sc.name
+                        val txtSmallCategoryList =
+                            view.findViewById<TextView>(R.id.txtSmallCategoryList)
+                        txtSmallCategoryList.text = sc.name
 
                         view.setOnClickListener {
                             mClickedSmallCategoryNum = sc.id
