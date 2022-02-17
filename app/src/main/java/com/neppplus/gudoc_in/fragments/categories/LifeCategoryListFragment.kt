@@ -101,9 +101,9 @@ class LifeCategoryListFragment : BaseFragment() {
                     for (sc in mSmallCategoryList) {
                         val view = LayoutInflater.from(mContext)
                             .inflate(R.layout.category_list_item_for_all, null)
-                        val txtSmallCategory =
-                            view.findViewById<TextView>(R.id.txtSmallCategory)
-                        txtSmallCategory.text = sc.name
+                        val txtSmallCategoryList =
+                            view.findViewById<TextView>(R.id.txtSmallCategoryList)
+                        txtSmallCategoryList.text = sc.name
 
                         view.setOnClickListener {
                             mClickedSmallCategoryNum = sc.id

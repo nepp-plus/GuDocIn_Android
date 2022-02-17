@@ -47,15 +47,15 @@ class CategoryListFragment : BaseFragment() {
     }
 
     override fun setupEvents() {
-        binding.btnEatCategory.setOnClickListener {
+        binding.imgFoodCategory.setOnClickListener {
             mLargeCategoryId = 1
             getSmallCategoryListFromServer()
         }
-        binding.btnWearCategory.setOnClickListener {
+        binding.imgClothesCategory.setOnClickListener {
             mLargeCategoryId = 2
             getSmallCategoryListFromServer()
         }
-        binding.btnLifeCategory.setOnClickListener {
+        binding.imgLifeCategory.setOnClickListener {
             mLargeCategoryId = 3
             getSmallCategoryListFromServer()
         }
@@ -83,9 +83,9 @@ class CategoryListFragment : BaseFragment() {
                             for (sc in mSmallCategoriesList) {
                                 val view = LayoutInflater.from(mContext)
                                     .inflate(R.layout.category_list_item_for_all, null)
-                                val txtSmallCategory =
-                                    view.findViewById<TextView>(R.id.txtSmallCategory)
-                                txtSmallCategory.text = sc.name
+                                val txtSmallCategoryList =
+                                    view.findViewById<TextView>(R.id.txtSmallCategoryList)
+                                txtSmallCategoryList.text = sc.name
 
                                 view.setOnClickListener {
                                     mClickedSmallCategoryNum = sc.id
