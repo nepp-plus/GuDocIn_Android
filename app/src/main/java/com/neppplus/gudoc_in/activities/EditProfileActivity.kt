@@ -72,7 +72,7 @@ class EditProfileActivity : BaseActivity() {
                 })
         }
 
-        binding.btnEmailChange.setOnClickListener {
+        /* binding.btnEmailChange.setOnClickListener {
             val inputEmail = binding.edtEmail.text.toString()
             if (inputEmail == "") {
                 Toast.makeText(mContext, "이메일을 입력해 주세요", Toast.LENGTH_SHORT).show()
@@ -106,10 +106,9 @@ class EditProfileActivity : BaseActivity() {
 
                 }
             })
-        }
+        } */
 
         binding.btnPasswordChange.setOnClickListener {
-
             if (!isPasswordLengthOk) {
                 Toast.makeText(mContext, "비밀번호는 8글자 이상이어야 합니다", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
@@ -187,7 +186,7 @@ class EditProfileActivity : BaseActivity() {
         binding.btnNicknameChange.setOnClickListener {
             val inputNickname = binding.edtNickname.text.toString()
             if (inputNickname == "" || !isDuplicatedOk) {
-                Toast.makeText(mContext, "사용가능한 닉네임을 입력해 주세요", Toast.LENGTH_SHORT).show()
+                Toast.makeText(mContext, "사용 가능한 닉네임을 입력해 주세요", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             apiService.patchRequestEditNickname(

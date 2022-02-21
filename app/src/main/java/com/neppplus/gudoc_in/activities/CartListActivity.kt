@@ -36,12 +36,6 @@ class CartListActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
-        /* binding.btnSubscribe.setOnClickListener {
-            val myIntent = Intent(mContext, PaymentActivity::class.java)
-            startActivity(myIntent)
-            finish()
-        } */
-
         binding.btnSubscribe.setOnClickListener {
             val myIntent = Intent(mContext, DummyActivity::class.java)
             startActivity(myIntent)

@@ -1,8 +1,6 @@
 package com.neppplus.gudoc_in.activities
 
 import android.app.Activity
-import android.app.AlertDialog
-import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -20,7 +18,6 @@ import com.neppplus.gudoc_in.R
 import com.neppplus.gudoc_in.databinding.ActivitySignUpBinding
 import com.neppplus.gudoc_in.datas.BasicResponse
 import com.neppplus.gudoc_in.datas.GlobalData
-import com.neppplus.gudoc_in.terms.TermsActivity
 import com.neppplus.gudoc_in.utils.ContextUtil
 import org.json.JSONObject
 import retrofit2.Call
@@ -87,7 +84,7 @@ class SignUpActivity : BaseActivity() {
                             val br = response.body()!!
                             Toast.makeText(
                                 mContext,
-                                "${br.data.user.nickname}님, 환영합니다!",
+                                "${br.data.user.nickname}님, 환영합니다",
                                 Toast.LENGTH_SHORT
                             ).show()
 
@@ -109,12 +106,6 @@ class SignUpActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
-        binding.checkSignUpConfirm.setOnClickListener {
-            if (binding.checkSignUpConfirm.isChecked) {
-                val myIntent = Intent(mContext, TermsActivity::class.java)
-                startActivity(myIntent)
-            }
-        }
         binding.btnKakaoLogin.setOnClickListener {
             if (UserApiClient.instance.isKakaoTalkLoginAvailable(mContext)) {
                 UserApiClient.instance.loginWithKakaoTalk(mContext) { token, error ->
@@ -192,6 +183,15 @@ class SignUpActivity : BaseActivity() {
         }
 
         binding.btnSignUp.setOnClickListener {
+            val email = binding.edtEmail.text.toString()
+            val password = binding.edtPassword.text.toString()
+            val nickname = binding.edtNickname.text.toString()
+            val phone = binding.edtPhone.text.toString()
+
+            if (email == "") {
+                Toast.makeText(mContext, "이메일을 입력해 주세요", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
             if (!isPasswordLengthOk) {
                 Toast.makeText(mContext, "비밀번호는 8글자 이상이어야 합니다", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
@@ -200,19 +200,18 @@ class SignUpActivity : BaseActivity() {
                 Toast.makeText(mContext, "비밀번호가 일치하지 않습니다", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
+            if (phone == "") {
+                Toast.makeText(mContext, "전화번호를 입력해 주세요", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            if (nickname == "") {
+                Toast.makeText(mContext, "닉네임을 입력해 주세요", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
             if (!isDuplicatedOk) {
-                Toast.makeText(mContext, "닉네임 중복확인을 진행해 주세요", Toast.LENGTH_SHORT).show()
+                Toast.makeText(mContext, "닉네임 중복 확인을 진행해 주세요", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            if (!binding.checkSignUpConfirm.isChecked) {
-                Toast.makeText(mContext, "회원약관 동의를 진행해 주세요", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-
-            val email = binding.edtEmail.text.toString()
-            val password = binding.edtPassword.text.toString()
-            val nickname = binding.edtNickname.text.toString()
-            val phone = binding.edtPhone.text.toString()
 
             apiService.putRequestSignUp(email, password, nickname, phone).enqueue(object :
                 Callback<BasicResponse> {
@@ -226,7 +225,7 @@ class SignUpActivity : BaseActivity() {
                         val signUpUserNickname = br.data.user.nickname
                         Toast.makeText(
                             mContext,
-                            "${signUpUserNickname}님 가입을 축하합니다!",
+                            "${signUpUserNickname}님 가입을 축하합니다",
                             Toast.LENGTH_SHORT
                         ).show()
                     }
@@ -239,20 +238,6 @@ class SignUpActivity : BaseActivity() {
 
                 }
             })
-        }
-
-        binding.checkMarketingConfirm.setOnClickListener {
-            if (binding.checkMarketingConfirm.isChecked) {
-                val alert = AlertDialog.Builder(mContext, R.style.MyDialogTheme)
-                alert.setTitle("마케팅 정보 수신 동의")
-                alert.setMessage("신상품 소식과 이벤트 안내 등 다양한 정보를 제공합니다")
-                alert.setPositiveButton(
-                    "확인",
-                    DialogInterface.OnClickListener { dialogInterface, i ->
-                        Toast.makeText(mContext, "마케팅 정보 수신 동의하였습니다", Toast.LENGTH_SHORT).show()
-                    })
-                alert.show()
-            }
         }
     }
 
@@ -294,7 +279,7 @@ class SignUpActivity : BaseActivity() {
                                             val br = response.body()!!
                                             Toast.makeText(
                                                 mContext,
-                                                "${br.data.user.nickname}님, 환영합니다!",
+                                                "${br.data.user.nickname}님, 환영합니다",
                                                 Toast.LENGTH_SHORT
                                             ).show()
 
@@ -354,7 +339,7 @@ class SignUpActivity : BaseActivity() {
                             val br = response.body()!!
                             Toast.makeText(
                                 mContext,
-                                "${br.data.user.nickname}님, 환영합니다!",
+                                "${br.data.user.nickname}님, 환영합니다",
                                 Toast.LENGTH_SHORT
                             ).show()
 

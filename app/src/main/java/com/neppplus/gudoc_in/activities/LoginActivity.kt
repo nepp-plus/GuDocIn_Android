@@ -88,7 +88,7 @@ class LoginActivity : BaseActivity() {
                             val br = response.body()!!
                             Toast.makeText(
                                 mContext,
-                                "${br.data.user.nickname}님, 환영합니다!",
+                                "${br.data.user.nickname}님, 환영합니다",
                                 Toast.LENGTH_SHORT
                             ).show()
 
@@ -115,11 +115,11 @@ class LoginActivity : BaseActivity() {
             ContextUtil.setAutoLogin(mContext, isChecked)
         }
 
-        binding.txtFindAccount.setOnClickListener {
+        /* binding.txtFindAccount.setOnClickListener {
             val myIntent = Intent(mContext, AccountActivity::class.java)
             startActivity(myIntent)
             finish()
-        }
+        } */
 
         binding.btnKakaoLogin.setOnClickListener {
             if (UserApiClient.instance.isKakaoTalkLoginAvailable(mContext)) {
@@ -163,7 +163,7 @@ class LoginActivity : BaseActivity() {
                     if (response.isSuccessful) {
                         val basicResponse = response.body()!!
                         val userNickname = basicResponse.data.user.nickname
-                        Toast.makeText(mContext, "${userNickname}님, 환영합니다!", Toast.LENGTH_SHORT)
+                        Toast.makeText(mContext, "${userNickname}님, 환영합니다", Toast.LENGTH_SHORT)
                             .show()
 
                         ContextUtil.setToken(mContext, basicResponse.data.token)
@@ -215,7 +215,7 @@ class LoginActivity : BaseActivity() {
                                             val br = response.body()!!
                                             Toast.makeText(
                                                 mContext,
-                                                "${br.data.user.nickname}님, 환영합니다!",
+                                                "${br.data.user.nickname}님, 환영합니다",
                                                 Toast.LENGTH_SHORT
                                             ).show()
 
@@ -276,7 +276,7 @@ class LoginActivity : BaseActivity() {
                             val br = response.body()!!
                             Toast.makeText(
                                 mContext,
-                                "${br.data.user.nickname}님, 환영합니다!",
+                                "${br.data.user.nickname}님, 환영합니다",
                                 Toast.LENGTH_SHORT
                             ).show()
 

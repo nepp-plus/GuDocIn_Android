@@ -122,7 +122,7 @@ class WriteReviewActivity : BaseActivity() {
 
             val alert = AlertDialog.Builder(mContext)
             alert.setTitle("리뷰 작성 알림")
-            alert.setMessage("리뷰를 작성하시겠습니까?\n\n※ 키워드를 입력하지 않으면 작성되지 않습니다!")
+            alert.setMessage("리뷰를 작성하시겠습니까?\n(키워드 미입력 시 작성되지 않습니다)")
             alert.setPositiveButton("확인", DialogInterface.OnClickListener { dialog, i ->
 
                 val rating = binding.ratingBar.rating.toDouble()
