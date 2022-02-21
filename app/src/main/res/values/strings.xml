@@ -1,13 +1,7 @@
 <resources>
     <string name="app_name">구독in</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="facebook_app_id">621063819241628</string>
     <string name="fb_login_protocol_scheme">fb621063819241628</string>
     <string name="default_client_id" translatable="false">697567959867-pvmrvhbkqdvd6h5beu2nn804fsh23k2g.apps.googleusercontent.com</string>
-    <string name="title">이용약관</string>
-    <string name="all_agree_text">전체 동의하기</string>
-    <string name="complete_text">완료</string>
-    <string name="terms_title_required_true">(필수) %s</string>
-    <string name="terms_title_required_false">(선택) %s</string>
 </resources>
