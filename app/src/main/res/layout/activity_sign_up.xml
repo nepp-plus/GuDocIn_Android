@@ -140,25 +140,6 @@
                     android:layout_height="wrap_content"
                     android:text="닉네임 중복확인을 진행해야 합니다" />
 
-                <CheckBox
-                    android:id="@+id/checkSignUpConfirm"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:buttonTint="@color/black"
-                    android:checked="false"
-                    android:text="회원약관 동의(필수)"
-                    android:textStyle="bold" />
-
-                <CheckBox
-                    android:id="@+id/checkMarketingConfirm"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:buttonTint="@color/black"
-                    android:checked="false"
-                    android:text="마케팅 정보 수신 동의(선택)"
-                    android:textStyle="bold" />
-
             </LinearLayout>
 
             <Button
@@ -167,13 +148,12 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:backgroundTint="@color/white"
-                android:text="회원가입"
-                android:textStyle="bold" />
+                android:text="회원가입" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="50dp"
                 android:orientation="vertical">
 
                 <Button
@@ -181,24 +161,21 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
-                    android:text="카카오 로그인"
-                    android:textStyle="bold" />
+                    android:text="카카오 로그인" />
 
                 <Button
                     android:id="@+id/btnFacebookLogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
-                    android:text="페이스북 로그인"
-                    android:textStyle="bold" />
+                    android:text="페이스북 로그인" />
 
                 <Button
                     android:id="@+id/btnGoogleLogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
-                    android:text="구글 로그인"
-                    android:textStyle="bold" />
+                    android:text="구글 로그인" />
 
             </LinearLayout>
 

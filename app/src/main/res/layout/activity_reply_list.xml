@@ -48,8 +48,7 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/white"
                 android:text="전송"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
+                android:textColor="@color/black" />
 
         </LinearLayout>
 

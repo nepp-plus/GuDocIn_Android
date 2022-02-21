@@ -15,6 +15,7 @@
             android:id="@+id/txtSelectedLargeCategory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:text="선택한 카테고리"
             android:textColor="@color/black"
             android:textSize="16sp"
@@ -35,16 +36,6 @@
             </LinearLayout>
 
         </HorizontalScrollView>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:text="상품 목록"
-            android:textColor="@color/black"
-            android:textSize="14sp"
-            android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/productListRecyclerView"

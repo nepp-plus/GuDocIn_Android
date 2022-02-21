@@ -61,14 +61,4 @@
 
         </LinearLayout>
 
-        <!--
-            <Button
-                android:id="@+id/btnSubscribe"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:backgroundTint="@color/white"
-                android:text="구독하기" />
-        -->
-
 </LinearLayout>

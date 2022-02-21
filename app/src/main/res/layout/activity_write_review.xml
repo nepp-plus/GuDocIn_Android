@@ -324,7 +324,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:backgroundTint="@color/white"
-                        android:text="작성완료"
+                        android:text="작성취소"
                         android:textSize="17sp" />
 
                     <Button
@@ -334,7 +334,7 @@
                         android:layout_marginStart="30dp"
                         android:layout_weight="1"
                         android:backgroundTint="@color/white"
-                        android:text="작성취소"
+                        android:text="작성완료"
                         android:textSize="17sp" />
 
                 </LinearLayout>
