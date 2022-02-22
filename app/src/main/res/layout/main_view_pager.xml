@@ -13,7 +13,7 @@
 
         <fragment
             android:id="@+id/categoryFragment"
-            class="com.neppplus.gudoc_in.fragments.categories.CategoryListFragment"
+            class="com.neppplus.gudocin_android.fragments.categories.CategoryListFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

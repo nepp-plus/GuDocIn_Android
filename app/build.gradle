@@ -12,7 +12,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.neppplus.gudoc_in"
+        applicationId "com.neppplus.gudocin_android"
         minSdk 21
         targetSdk 31
         versionCode 3
