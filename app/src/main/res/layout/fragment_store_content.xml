@@ -29,8 +29,7 @@
                 android:background="@color/light_gray_f7"
                 android:padding="10dp"
                 android:text="상호명"
-                android:textColor="@color/dark_gray"
-                android:textSize="14sp" />
+                android:textColor="@color/dark_gray" />
 
             <TextView
                 android:layout_width="0dp"
@@ -39,8 +38,7 @@
                 android:background="@color/white"
                 android:padding="10dp"
                 android:text="Koolunkle Corp."
-                android:textColor="@color/black"
-                android:textSize="14sp" />
+                android:textColor="@color/black" />
 
         </LinearLayout>
 
@@ -59,8 +57,7 @@
                 android:background="@color/light_gray_f7"
                 android:padding="10dp"
                 android:text="사업장"
-                android:textColor="@color/dark_gray"
-                android:textSize="14sp" />
+                android:textColor="@color/dark_gray" />
 
             <TextView
                 android:layout_width="0dp"
@@ -69,8 +66,7 @@
                 android:background="@color/white"
                 android:padding="10dp"
                 android:text="경기도 남양주시"
-                android:textColor="@color/black"
-                android:textSize="14sp" />
+                android:textColor="@color/black" />
 
         </LinearLayout>
 
@@ -89,8 +85,7 @@
                 android:background="@color/light_gray_f7"
                 android:padding="10dp"
                 android:text="연락처"
-                android:textColor="@color/dark_gray"
-                android:textSize="14sp" />
+                android:textColor="@color/dark_gray" />
 
             <TextView
                 android:layout_width="0dp"
@@ -99,8 +94,7 @@
                 android:background="@color/white"
                 android:padding="10dp"
                 android:text="010-7394-7394"
-                android:textColor="@color/black"
-                android:textSize="14sp" />
+                android:textColor="@color/black" />
 
         </LinearLayout>
 

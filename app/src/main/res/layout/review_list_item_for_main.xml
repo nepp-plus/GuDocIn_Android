@@ -29,7 +29,6 @@
             android:layout_marginLeft="5dp"
             android:text="닉네임"
             android:textColor="@color/black"
-            android:textSize="14sp"
             android:textStyle="bold" />
 
     </LinearLayout>
@@ -54,8 +53,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:text="상품명"
-            android:textColor="@color/black"
-            android:textSize="14sp" />
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/txtReviewTitle"
@@ -63,8 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:text="리뷰 제목"
-            android:textColor="@color/black"
-            android:textSize="14sp" />
+            android:textColor="@color/black" />
 
         <com.willy.ratingbar.BaseRatingBar
             android:id="@+id/ratingBar"
