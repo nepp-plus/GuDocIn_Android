@@ -1,41 +1,41 @@
 {
   "project_info": {
-    "project_number": "697567959867",
-    "project_id": "gudocin-87ac1",
-    "storage_bucket": "gudocin-87ac1.appspot.com"
+    "project_number": "741873260357",
+    "project_id": "gudocin-android-27f8e",
+    "storage_bucket": "gudocin-android-27f8e.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:697567959867:android:0781882f1a2b3b6032751e",
+        "mobilesdk_app_id": "1:741873260357:android:ada72be18efdddc49a502c",
         "android_client_info": {
-          "package_name": "com.neppplus.gudoc_in"
+          "package_name": "com.neppplus.gudocin_android"
         }
       },
       "oauth_client": [
         {
-          "client_id": "697567959867-4en0nc87ssiugpgoahur1ll8r5df0b78.apps.googleusercontent.com",
+          "client_id": "741873260357-rprelaog6mo7d0ki36chufe660palng6.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.neppplus.gudoc_in",
+            "package_name": "com.neppplus.gudocin_android",
             "certificate_hash": "fb3a7e7c82c3043c43097ea4de621d3a86379fea"
           }
         },
         {
-          "client_id": "697567959867-pvmrvhbkqdvd6h5beu2nn804fsh23k2g.apps.googleusercontent.com",
+          "client_id": "741873260357-k81nj85r84ohs525oc5n1p3sq5ng5178.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC5xUm3hwPpApRZMrUO4fDSzwgbviv1Vn8"
+          "current_key": "AIzaSyAXX6zVHtU_Li2WwnLAGb4I1h5ZiCvOCOU"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "697567959867-pvmrvhbkqdvd6h5beu2nn804fsh23k2g.apps.googleusercontent.com",
+              "client_id": "741873260357-k81nj85r84ohs525oc5n1p3sq5ng5178.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
