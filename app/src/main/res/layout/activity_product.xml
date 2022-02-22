@@ -55,7 +55,6 @@
                         android:layout_height="wrap_content"
                         android:text="가게명"
                         android:textColor="@color/black"
-                        android:textSize="14sp"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -68,7 +67,6 @@
                     android:layout_marginBottom="5dp"
                     android:text="가격"
                     android:textColor="@color/black"
-                    android:textSize="14sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -85,7 +83,6 @@
                     android:layout_marginLeft="10dp"
                     android:text="리뷰 목록"
                     android:textColor="@color/black"
-                    android:textSize="14sp"
                     android:textStyle="bold" />
 
                 <!-- Horizontal RecyclerView -->
