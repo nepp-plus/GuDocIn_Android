@@ -111,7 +111,7 @@
                     app:tabSelectedTextColor="@color/black"
                     app:tabTextColor="@color/dark_gray7" />
 
-                <com.neppplus.gudoc_in.utils.CustomViewPager
+                <com.neppplus.gudocin_android.utils.CustomViewPager
                     android:id="@+id/ProductContentViewPager"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
