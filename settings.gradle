@@ -9,5 +9,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Gudoc_In"
+rootProject.name = "GudocIn_Android"
 include ':app'
