@@ -48,11 +48,11 @@ class ReviewActivity : BaseActivity() {
           mContext.startActivity(myIntent)
       } */
 
-        /* binding.layoutWatchReply.setOnClickListener {
+        binding.layoutWatchReply.setOnClickListener {
             val myIntent = Intent(mContext, ReplyListActivity::class.java)
             myIntent.putExtra("review", mReviewData)
             mContext.startActivity(myIntent)
-        } */
+        }
 
         binding.ratingBar.setOnRatingChangeListener { ratingBar, rating, fromUser ->
             ratingBar.setIsIndicator(true)
