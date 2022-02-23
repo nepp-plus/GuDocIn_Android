@@ -319,7 +319,7 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/btnReviewUpload"
+                        android:id="@+id/btnReviewCancel"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -328,7 +328,7 @@
                         android:textSize="17sp" />
 
                     <Button
-                        android:id="@+id/btnReviewCancel"
+                        android:id="@+id/btnReviewUpload"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="30dp"
