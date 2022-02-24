@@ -111,7 +111,6 @@
             android:layout_weight="1" />
 
         <ImageView
-            android:id="@+id/imgReviewDetail"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:scaleType="centerCrop"

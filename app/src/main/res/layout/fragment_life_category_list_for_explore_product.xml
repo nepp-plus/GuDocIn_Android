@@ -26,17 +26,6 @@
                 android:layout_gravity="center"
                 android:src="@drawable/life_category_icon" />
 
-            <!-- <TextView
-                android:id="@+id/txtSelectedLargeCategory"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:text="선택한 카테고리"
-                android:textColor="@color/black"
-                android:textSize="17sp"
-                android:textStyle="bold" /> -->
-
             <HorizontalScrollView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
