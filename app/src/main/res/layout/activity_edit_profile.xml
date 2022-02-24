@@ -5,6 +5,9 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/white"
+        android:overScrollMode="never"
+        android:scrollbars="none"
         tools:context=".activities.EditProfileActivity">
 
         <LinearLayout
@@ -52,7 +55,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/white"
-                        android:text="수정하기"
+                        android:text="수정"
                         android:textStyle="bold" />
 
                 </LinearLayout> -->
@@ -94,7 +97,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/white"
-                        android:text="수정하기" />
+                        android:text="수정" />
 
                 </LinearLayout>
 
@@ -135,7 +138,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/white"
-                        android:text="수정하기" />
+                        android:text="수정" />
 
                 </LinearLayout>
 
@@ -169,7 +172,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/white"
-                        android:text="중복확인" />
+                        android:text="확인" />
 
                 </LinearLayout>
 
@@ -200,7 +203,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/white"
-                        android:text="수정하기" />
+                        android:text="수정" />
 
                 </LinearLayout>
 

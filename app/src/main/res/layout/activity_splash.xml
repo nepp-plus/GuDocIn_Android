@@ -5,6 +5,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/white"
         android:gravity="center"
         android:orientation="vertical"
         tools:context=".activities.SplashActivity">
@@ -18,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="* 본 프로젝트는 포트폴리오 용도입니다\n넵플러스 IT 아카데미에서 작업중입니다"
+            android:text="* 본 프로젝트는 포트폴리오 용도입니다\n넵플러스 IT 아카데미에서 작업하였습니다"
             android:textColor="@color/black" />
 
     </LinearLayout>

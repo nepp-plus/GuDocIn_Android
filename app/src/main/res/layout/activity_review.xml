@@ -6,6 +6,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/white"
         android:orientation="vertical"
         android:padding="15dp"
         tools:context=".activities.ReviewActivity">
@@ -19,24 +20,13 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingTop="10dp"
-                android:paddingBottom="20dp">
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/txtProductName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="구독 상품"
-                        android:textColor="@color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/txtReviewTitle"
@@ -70,7 +60,6 @@
                             android:id="@+id/txtNickName"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
                             android:layout_marginLeft="5dp"
                             android:text="닉네임"
                             android:textColor="@color/black"
@@ -94,6 +83,7 @@
                             android:id="@+id/txtReviewDate"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
                             android:text="2021.11.26"
                             android:textColor="@color/black"
                             android:textSize="17sp" />
@@ -105,6 +95,16 @@
                         android:layout_height="1dp"
                         android:layout_marginTop="5dp"
                         android:background="@color/black" />
+
+                    <TextView
+                        android:id="@+id/txtProductName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="구독 상품"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
@@ -203,7 +203,6 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
                     android:background="@drawable/review_image_upload_box"
                     android:orientation="vertical">
 
@@ -294,15 +293,14 @@
                     android:id="@+id/layoutWatchReply"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="15dp"
                     android:orientation="horizontal"
                     android:paddingVertical="10dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="리뷰 상품 댓글 보기"
+                        android:text="# 리뷰 상품 댓글"
                         android:textColor="@color/black"
                         android:textSize="17sp" />
 
@@ -314,7 +312,7 @@
                     <ImageView
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:layout_marginTop="3dp"
+                        android:layout_marginTop="2.5dp"
                         android:src="@drawable/right_arrow_icon" />
 
                 </LinearLayout>
@@ -330,7 +328,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
                     android:backgroundTint="@color/white"
-                    android:text="구독하기"
+                    android:text="상품구독"
                     android:textSize="17sp" />
 
             </LinearLayout>
