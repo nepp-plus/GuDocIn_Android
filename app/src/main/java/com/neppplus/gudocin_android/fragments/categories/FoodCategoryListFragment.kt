@@ -58,7 +58,7 @@ class FoodCategoryListFragment : BaseFragment() {
     }
 
     override fun setValues() {
-        binding.txtSelectedLargeCategory.text = "식품구독"
+//      binding.txtSelectedLargeCategory.text = "식품구독"
         getSmallCategoryListFromServer()
         mCategoryListRecyclerViewAdapterForAll =
             CategoryListRecyclerViewAdapterForAll(mContext, mSmallCategoryList)

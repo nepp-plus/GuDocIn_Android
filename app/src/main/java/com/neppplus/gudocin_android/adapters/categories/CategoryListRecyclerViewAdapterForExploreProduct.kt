@@ -10,8 +10,8 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.neppplus.gudocin_android.activities.ProductActivity
 import com.neppplus.gudocin_android.R
+import com.neppplus.gudocin_android.activities.ProductActivity
 import com.neppplus.gudocin_android.activities.ReviewActivity
 import com.neppplus.gudocin_android.datas.ProductData
 
@@ -56,7 +56,7 @@ class CategoryListRecyclerViewAdapterForExploreProduct(
                 txtReviewWriter.text = firstReview.user.nickname
                 firstReview.product = data
 
-                imgReviewDetail.setOnClickListener {
+                layoutReviewItem.setOnClickListener {
                     val myIntent = Intent(mContext, ReviewActivity::class.java)
                     myIntent.putExtra("review", firstReview)
                     mContext.startActivity(myIntent)
