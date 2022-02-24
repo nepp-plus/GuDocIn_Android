@@ -3,7 +3,7 @@
     android:id="@+id/shape_my">
     <stroke
         android:width="2dp"
-        android:color="#000000" />
+        android:color="#EEEEEE" />
     <padding
         android:bottom="10dp"
         android:left="20dp"

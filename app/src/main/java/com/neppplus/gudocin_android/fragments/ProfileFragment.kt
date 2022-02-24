@@ -132,7 +132,7 @@ class ProfileFragment : BaseFragment() {
             startActivity(myIntent)
         }
 
-        binding.txtActivitiesHistoryList.setOnClickListener {
+        binding.txtSubscriptionHistoryList.setOnClickListener {
             val myIntent = Intent(mContext, SubscriptionHistoryActivity::class.java)
             startActivity(myIntent)
         }

@@ -33,7 +33,7 @@ class ReplyListActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
-        binding.btnEditReply.setOnClickListener {
+        binding.btnSubmitReply.setOnClickListener {
             val inputContent = binding.edtReply.text.toString()
             apiService.postRequestReviewReply(mReviewData.id, inputContent)
                 .enqueue(object : Callback<BasicResponse> {

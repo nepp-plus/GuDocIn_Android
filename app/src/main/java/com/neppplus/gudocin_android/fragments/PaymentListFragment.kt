@@ -47,11 +47,11 @@ class PaymentListFragment : BaseFragment() {
     }
 
     override fun setValues() {
-        getpaymentListFromServer()
+        getPaymentListFromServer()
     }
 
-    fun getpaymentListFromServer() {
-        apiService.getRequestUserpaymentList().enqueue(object : Callback<BasicResponse> {
+    fun getPaymentListFromServer() {
+        apiService.getRequestUserPaymentList().enqueue(object : Callback<BasicResponse> {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
                 if (response.isSuccessful) {
                     val br = response.body()!!

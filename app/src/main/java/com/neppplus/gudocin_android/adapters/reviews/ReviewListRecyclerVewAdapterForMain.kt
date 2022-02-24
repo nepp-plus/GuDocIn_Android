@@ -44,8 +44,7 @@ class ReviewListRecyclerVewAdapterForMain
             )
 
             bannerViewPager.adapter = mMainBannerViewPagerAdapter
-//            바인드 할 때마다 페이징 코드가 누적됨
-//            최초 1회만 설정하도록
+//            바인드 할 때마다 페이징 코드가 누적됨 -> 최초 1회만 설정하도록
             if (!isBannerViewPagerInit) {
                 var currentPage = 0
                 val nextPage = {
@@ -73,24 +72,20 @@ class ReviewListRecyclerVewAdapterForMain
 
         val imgReviewerImage = row.findViewById<ImageView>(R.id.imgReviewerImage)
         val txtReviewerNickName = row.findViewById<TextView>(R.id.txtReviewerNickName)
-
         val imgReviewThumbnail = row.findViewById<ImageView>(R.id.imgReviewThumbnail)
         val txtReviewTitle = row.findViewById<TextView>(R.id.txtReviewTitle)
         val txtProductName = row.findViewById<TextView>(R.id.txtProductName)
         val ratingBar = row.findViewById<BaseRatingBar>(R.id.ratingBar)
-//      val txtPrice = row.findViewById<TextView>(R.id.txtPrice)
 
         val layoutReviewDetail = row.findViewById<LinearLayout>(R.id.layoutReviewDetail)
 
         fun bind(data: ReviewData) {
             Glide.with(mContext).load(data.user.profileImageURL).into(imgReviewerImage)
             txtReviewerNickName.text = "${data.user.nickname} 님의 리뷰"
-
             Glide.with(mContext).load(data.thumbNailImg).into(imgReviewThumbnail)
             txtReviewTitle.text = data.title
             txtProductName.text = data.product.name
             ratingBar.rating = data.score.toFloat()
-//          txtPrice.text = data.product.getFormattedPrice()
 
             layoutReviewDetail.setOnClickListener {
                 val myIntent = Intent(mContext, ReviewActivity::class.java)

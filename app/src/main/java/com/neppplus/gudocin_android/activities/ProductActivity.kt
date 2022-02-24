@@ -46,12 +46,6 @@ class ProductActivity : BaseActivity() {
             postAddItemToCartViaServer()
         }
 
-        /* binding.imgCredit.setOnClickListener {
-            val myIntent = Intent(mContext, PaymentActivity::class.java)
-            myIntent.putExtra("product_id", mProductData)
-            startActivity(myIntent)
-        } */
-
         binding.imgCredit.setOnClickListener {
             val myIntent = Intent(mContext, DummyActivity::class.java)
             startActivity(myIntent)

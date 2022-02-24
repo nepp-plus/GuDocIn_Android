@@ -7,9 +7,6 @@ import retrofit2.Call
 import retrofit2.http.*
 
 interface ServerAPIInterface {
-//    필요 API 를 만들어주세요
-//    이 파일은 여러명이 같이 편집하게 될겁니다
-
     // 로그인 기능 명세
     @FormUrlEncoded
     @POST("/user")
@@ -52,10 +49,6 @@ interface ServerAPIInterface {
     @GET("/product")
     fun getRequestProductList(): Call<BasicResponse>
 
-    // 전체 리뷰 목록 가져오기
-    @GET("/review")
-    fun getRequestReviewList(): Call<BasicResponse>
-
     // 리뷰 등록 - Multipart 로 파일도 같이 첨부
     @Multipart
     @POST("/review")
@@ -64,23 +57,11 @@ interface ServerAPIInterface {
         @Part img: MultipartBody.Part
     ): Call<BasicResponse>
 
-    // 리뷰 목록 랭킹순
-    @GET("/review/ranking")
-    fun getRequestRankingList(): Call<BasicResponse>
-
-    // 모든 카테고리 조회
-    @GET("/category")
-    fun getRequestCategory(): Call<BasicResponse>
-
     // 특정 대분류 카테고리(내부의 소분류) 조회
     @GET("/category/{large_category_id}")
     fun getRequestSmallCategoryDependOnLarge(
         @Path("large_category_id") id: Int,
     ): Call<BasicResponse>
-
-    // 모든 소분류 카테고리 조회
-    @GET("/category/small")
-    fun getRequestCategorySmall(): Call<BasicResponse>
 
     // 특정 소분류 카테고리(내부 상품목록) 조회
     @GET("/category/small/{small_category_id}")
@@ -113,7 +94,7 @@ interface ServerAPIInterface {
 
     // 특정 소분류 카테고리(내부 상품목록)의 리뷰 조회
     @GET("/category/small/{small_category_id}/review")
-    fun getRequestSmallCategorysItemReviewList(
+    fun getRequestSmallCategoriesItemReviewList(
         @Path("small_category_id") id: Int,
     ): Call<BasicResponse>
 
@@ -129,14 +110,6 @@ interface ServerAPIInterface {
     fun postRequestReviewReply(
         @Path("review_id") reviewReply: Int,
         @Field("content") content: String,
-    ): Call<BasicResponse>
-
-    // 회원정보 수정 - 이메일
-    @FormUrlEncoded
-    @PATCH("/user")
-    fun patchRequestEditEmail(
-        @Field("field") field: String,
-        @Field("value") value: String,
     ): Call<BasicResponse>
 
     // 회원정보 수정 - 전화번호
@@ -164,21 +137,6 @@ interface ServerAPIInterface {
         @Field("value") value: String,
     ): Call<BasicResponse>
 
-    // 회원 아이디 찾기
-    @GET("/user/find/email")
-    fun getRequestEmail(
-        @Query("nick_name") name: String,
-        @Query("phone") phone: String,
-    ): Call<BasicResponse>
-
-    // 회원 비밀번호 찾기
-    @FormUrlEncoded
-    @POST("/user/find/password")
-    fun postRequestPassword(
-        @Field("email") email: String,
-        @Field("nick_name") name: String,
-    ): Call<BasicResponse>
-
     // 장바구니 조회
     @GET("/cart")
     fun getRequestCartList(): Call<BasicResponse>
@@ -202,41 +160,12 @@ interface ServerAPIInterface {
 
     // 사용자 구독상품 결제 목록
     @GET("/user/payment")
-    fun getRequestUserpaymentList(): Call<BasicResponse>
-
-    // 사용자 마일리지 적립 내역 조회
-    @GET("/user/point")
-    fun getRequestUserPointList(): Call<BasicResponse>
-
-    // 사용자 카드 등록
-    @FormUrlEncoded
-    @POST("/user/card")
-    fun postRequestUserCard(
-        @Field("card_num") num: String,
-        @Field("card_nickname") nickname: String,
-        @Field("mm_yy") validity: String,
-        @Field("birthday") birthDay: String,
-        @Field("password_2digit") password: String,
-    ): Call<BasicResponse>
-
-    // 사용자 카드 목록 조회
-    @GET("/user/card")
-    fun getRequestUserCardLookup(): Call<BasicResponse>
+    fun getRequestUserPaymentList(): Call<BasicResponse>
 
     // 프로필 사진 첨부 -> Field 대신 Multipart 활용
     @Multipart
     @PUT("/user/image")
     fun putRequestProfileImg(
         @Part img: MultipartBody.Part
-    ): Call<BasicResponse>
-
-    // 리뷰 체크 항목
-    @GET("/review/check_list")
-    fun getRequestReviewCheckList(): Call<BasicResponse>
-
-    // 회원탈퇴
-    @DELETE("/user")
-    fun deleteRequestUser(
-        @Query("text") text: String
     ): Call<BasicResponse>
 }

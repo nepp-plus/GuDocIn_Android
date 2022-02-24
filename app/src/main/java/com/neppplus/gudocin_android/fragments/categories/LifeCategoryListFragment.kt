@@ -59,7 +59,6 @@ class LifeCategoryListFragment : BaseFragment() {
     }
 
     override fun setValues() {
-        binding.txtSelectedLargeCategory.text = "생활구독"
         getSmallCategoryListFromServer()
         mCategoryListRecyclerViewAdapterForAll = CategoryListRecyclerViewAdapterForAll(mContext, mSmallCategoryList)
 
