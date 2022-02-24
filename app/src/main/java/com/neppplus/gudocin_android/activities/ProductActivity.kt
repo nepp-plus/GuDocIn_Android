@@ -42,11 +42,11 @@ class ProductActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
-        binding.imgCart.setOnClickListener {
+        binding.layoutCart.setOnClickListener {
             postAddItemToCartViaServer()
         }
 
-        binding.imgCredit.setOnClickListener {
+        binding.layoutCredit.setOnClickListener {
             val myIntent = Intent(mContext, DummyActivity::class.java)
             startActivity(myIntent)
             finish()
