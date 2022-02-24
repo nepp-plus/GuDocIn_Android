@@ -78,7 +78,7 @@ class MainFragment : BaseFragment() {
 
     fun getReviewListInSmallCategoryFromServer(mClickedSmallCategoryNum: Int) {
         if (isInitialized) {
-            apiService.getRequestSmallCategorysItemReviewList(mClickedSmallCategoryNum)
+            apiService.getRequestSmallCategoriesItemReviewList(mClickedSmallCategoryNum)
                 .enqueue(object : Callback<BasicResponse> {
                     override fun onResponse(
                         call: Call<BasicResponse>,
