@@ -15,11 +15,6 @@
         android:theme="@style/Theme.GudocIn"
         android:usesCleartextTraffic="true">
         <activity
-            android:name="com.neppplus.gudocin_android.activities.AccountActivity"
-            android:exported="true"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
-            android:windowSoftInputMode="adjustUnspecified" />
-        <activity
             android:name="com.neppplus.gudocin_android.activities.CartListActivity"
             android:exported="true" />
         <activity
@@ -44,9 +39,6 @@
             android:windowSoftInputMode="adjustUnspecified" />
         <activity
             android:name="com.neppplus.gudocin_android.activities.MainActivity"
-            android:exported="true" />
-        <activity
-            android:name="com.neppplus.gudocin_android.activities.PaymentActivity"
             android:exported="true" />
         <activity
             android:name="com.neppplus.gudocin_android.activities.ProductActivity"
