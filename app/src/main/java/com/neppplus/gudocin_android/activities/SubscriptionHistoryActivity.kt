@@ -39,8 +39,7 @@ class SubscriptionHistoryActivity : BaseActivity() {
         apiService.getRequestMyInfo().enqueue(object : Callback<BasicResponse> {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
                 if (response.isSuccessful) {
-                    val br = response.body()!!
-//                  Glide.with(mContext).load(br.data.user.profileImageURL).into(binding.imgProfile)
+
                 }
             }
 

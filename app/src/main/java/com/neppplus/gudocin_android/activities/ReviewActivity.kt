@@ -29,24 +29,11 @@ class ReviewActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
-        /* binding.btnSubscribe.setOnClickListener {
-            val myIntent = Intent(mContext, PaymentActivity::class.java)
-            myIntent.putExtra("product_id", mReviewData.product)
-            myIntent.putExtra("review", mReviewData)
-            startActivity(myIntent)
-        } */
-
         binding.btnSubscribe.setOnClickListener {
             val myIntent = Intent(mContext, DummyActivity::class.java)
             startActivity(myIntent)
             finish()
         }
-
-        /* binding.btnProductDetail.setOnClickListener {
-          val myIntent = Intent(mContext, ProductActivity::class.java)
-          myIntent.putExtra("product_id", mReviewData.product)
-          mContext.startActivity(myIntent)
-      } */
 
         binding.layoutWatchReply.setOnClickListener {
             val myIntent = Intent(mContext, ReplyListActivity::class.java)

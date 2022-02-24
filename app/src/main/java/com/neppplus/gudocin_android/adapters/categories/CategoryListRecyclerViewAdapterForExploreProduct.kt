@@ -25,24 +25,23 @@ class CategoryListRecyclerViewAdapterForExploreProduct(
 
         val layoutRoot = view.findViewById<LinearLayout>(R.id.layoutRoot)
         val imgProduct = view.findViewById<ImageView>(R.id.imgProduct)
-        val txtStoreName = view.findViewById<TextView>(R.id.txtStoreName)
         val txtProductName = view.findViewById<TextView>(R.id.txtProductName)
+        val txtStoreName = view.findViewById<TextView>(R.id.txtStoreName)
         val txtPrice = view.findViewById<TextView>(R.id.txtPrice)
-        val layoutReviewDetail = view.findViewById<LinearLayout>(R.id.layoutReviewDetail)
         val txtReviewDetail = view.findViewById<TextView>(R.id.txtReviewDetail)
+        val layoutReviewDetail = view.findViewById<LinearLayout>(R.id.layoutReviewDetail)
 
         val layoutReviewItem = view.findViewById<LinearLayout>(R.id.layoutReviewItem)
         val imgReview = view.findViewById<ImageView>(R.id.imgReview)
         val txtReviewTitle = view.findViewById<TextView>(R.id.txtReviewTitle)
         val txtReviewWriter = view.findViewById<TextView>(R.id.txtReviewer)
-        val imgReviewDetail = view.findViewById<ImageView>(R.id.imgReviewDetail)
 
         var isReviewOpen = false
 
         fun bind(data: ProductData) {
             Glide.with(mContext).load(data.imageUrl).into(imgProduct)
-            txtStoreName.text = data.store.name
             txtProductName.text = data.name
+            txtStoreName.text = data.store.name
             txtPrice.text = data.getFormattedPrice()
 
             if (data.reviews.size == 0) {

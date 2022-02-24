@@ -23,7 +23,6 @@ class ReviewListRecyclerViewAdapterForProfile(
         val txtReviewTitle = view.findViewById<TextView>(R.id.txtReviewTitle)
         val txtProductName = view.findViewById<TextView>(R.id.txtProductName)
         val txtReviewDate = view.findViewById<TextView>(R.id.txtReviewDate)
-//      val btnReviewCheck = view.findViewById<Button>(R.id.btnReviewCheck)
 
         fun bind(data: ReviewData) {
             layoutReviewCheck.setOnClickListener {
