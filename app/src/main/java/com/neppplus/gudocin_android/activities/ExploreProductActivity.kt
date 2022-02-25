@@ -34,6 +34,10 @@ class ExploreProductActivity : BaseActivity() {
             }
             true
         }
+        binding.viewPager.setOnTouchListener { v, event ->
+            v.parent.requestDisallowInterceptTouchEvent(true)
+            false
+        }
     }
 
     override fun setValues() {

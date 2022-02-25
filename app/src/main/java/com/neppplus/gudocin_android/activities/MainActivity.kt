@@ -57,6 +57,10 @@ class MainActivity : BaseActivity() {
             }
             true
         }
+        binding.viewPager.setOnTouchListener { v, event ->
+            v.parent.requestDisallowInterceptTouchEvent(true)
+            false
+        }
         getAndSendDeviceToken()
         getKeyHash()
     }
