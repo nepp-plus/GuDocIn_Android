@@ -6,20 +6,20 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
-import com.neppplus.gudocin_android.activities.MainActivity
 import com.neppplus.gudocin_android.R
-import com.neppplus.gudocin_android.databinding.FragmentCategoryListForMainBinding
+import com.neppplus.gudocin_android.activities.MainActivity
+import com.neppplus.gudocin_android.databinding.FragmentHomeCategoryListBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.SmallCategoryData
 import com.neppplus.gudocin_android.fragments.BaseFragment
-import com.neppplus.gudocin_android.fragments.MainFragment
+import com.neppplus.gudocin_android.fragments.HomeFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class CategoryListFragment : BaseFragment() {
+class HomeCategoryListFragment : BaseFragment() {
 
-    lateinit var binding: FragmentCategoryListForMainBinding
+    lateinit var binding: FragmentHomeCategoryListBinding
 
     var mSmallCategoriesList = ArrayList<SmallCategoryData>()
 
@@ -33,7 +33,7 @@ class CategoryListFragment : BaseFragment() {
     ): View? {
         binding = DataBindingUtil.inflate(
             inflater,
-            R.layout.fragment_category_list_for_main,
+            R.layout.fragment_home_category_list,
             container,
             false
         )
@@ -82,7 +82,7 @@ class CategoryListFragment : BaseFragment() {
                             binding.layoutSmallCategoryList.removeAllViews()
                             for (sc in mSmallCategoriesList) {
                                 val view = LayoutInflater.from(mContext)
-                                    .inflate(R.layout.category_list_item_for_all, null)
+                                    .inflate(R.layout.small_category_list_item, null)
                                 val txtSmallCategoryList =
                                     view.findViewById<TextView>(R.id.txtSmallCategoryList)
                                 txtSmallCategoryList.text = sc.name
@@ -93,7 +93,7 @@ class CategoryListFragment : BaseFragment() {
                                     val homeFragment =
                                         ((requireContext() as MainActivity).binding.viewPager.adapter as MainActivity.ViewPagerAdapter).getFragment(
                                             0
-                                        ) as MainFragment
+                                        ) as HomeFragment
                                     homeFragment.getReviewListInSmallCategoryFromServer(
                                         mClickedSmallCategoryNum
                                     )

@@ -92,7 +92,7 @@ class WriteReviewActivity : BaseActivity() {
                 mInputTagList.add(tag)
 
                 val tagBox = LayoutInflater.from(mContext)
-                    .inflate(R.layout.tag_list_item_for_write_review, null)
+                    .inflate(R.layout.write_review_tag_list_item, null)
                 val txtTag = tagBox.findViewById<TextView>(R.id.txtTag)
                 txtTag.text = "#${tag}"
                 binding.tagListLayout.addView(tagBox)

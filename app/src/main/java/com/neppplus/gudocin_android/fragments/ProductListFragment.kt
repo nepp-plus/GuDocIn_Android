@@ -30,7 +30,12 @@ class ProductListFragment : BaseFragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding =
-            DataBindingUtil.inflate(inflater, R.layout.fragment_product_list, container, false)
+            DataBindingUtil.inflate(
+                inflater,
+                R.layout.fragment_product_list,
+                container,
+                false
+            )
         return binding.root
     }
 

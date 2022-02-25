@@ -16,20 +16,20 @@ import com.bumptech.glide.Glide
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.activities.MainActivity
 import com.neppplus.gudocin_android.activities.ReviewActivity
-import com.neppplus.gudocin_android.adapters.MainBannerViewPagerAdapter
+import com.neppplus.gudocin_android.adapters.HomeBannerViewPagerAdapter
 import com.neppplus.gudocin_android.datas.BannerData
 import com.neppplus.gudocin_android.datas.ReviewData
 import com.willy.ratingbar.BaseRatingBar
 import java.util.*
 import kotlin.collections.ArrayList
 
-class ReviewListRecyclerVewAdapterForMain
+class HomeReviewListRecyclerVewAdapter
     (val mContext: Context, val mList: List<ReviewData>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     val mBannerList = ArrayList<BannerData>()
 
-    lateinit var mMainBannerViewPagerAdapter: MainBannerViewPagerAdapter
+    lateinit var mHomeBannerViewPagerAdapter: HomeBannerViewPagerAdapter
 
     var isBannerViewPagerInit = false
 
@@ -38,12 +38,12 @@ class ReviewListRecyclerVewAdapterForMain
         val bannerViewPager = row.findViewById<ViewPager>(R.id.bannerViewPager)
 
         fun bind() {
-            mMainBannerViewPagerAdapter = MainBannerViewPagerAdapter(
+            mHomeBannerViewPagerAdapter = HomeBannerViewPagerAdapter(
                 (mContext as MainActivity).supportFragmentManager,
                 mBannerList
             )
 
-            bannerViewPager.adapter = mMainBannerViewPagerAdapter
+            bannerViewPager.adapter = mHomeBannerViewPagerAdapter
 //            바인드 할 때마다 페이징 코드가 누적됨 -> 최초 1회만 설정하도록
             if (!isBannerViewPagerInit) {
                 var currentPage = 0
@@ -110,13 +110,13 @@ class ReviewListRecyclerVewAdapterForMain
         return when (viewType) {
             HEADER_VIEW_TYPE -> {
                 val row = LayoutInflater.from(mContext)
-                    .inflate(R.layout.main_view_pager, parent, false)
+                    .inflate(R.layout.home_view_pager, parent, false)
                 HeaderViewHolder(row)
             }
             else -> {
 //                리뷰 아이템
                 val row = LayoutInflater.from(mContext)
-                    .inflate(R.layout.review_list_item_for_main, parent, false)
+                    .inflate(R.layout.home_review_list_item, parent, false)
                 ItemViewHolder(row)
             }
         }

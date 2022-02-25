@@ -6,7 +6,7 @@ import androidx.fragment.app.FragmentPagerAdapter
 import com.neppplus.gudocin_android.fragments.PaymentListFragment
 import com.neppplus.gudocin_android.fragments.ReviewListFragment
 
-class SubscriptionHistoryViewPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
+class SubscriptionViewPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
 
     override fun getCount() = 2
 

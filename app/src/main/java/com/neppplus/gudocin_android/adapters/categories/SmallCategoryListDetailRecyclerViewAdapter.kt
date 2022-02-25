@@ -15,11 +15,10 @@ import com.neppplus.gudocin_android.activities.ProductActivity
 import com.neppplus.gudocin_android.activities.ReviewActivity
 import com.neppplus.gudocin_android.datas.ProductData
 
-class CategoryListRecyclerViewAdapterForExploreProduct(
+class SmallCategoryListDetailRecyclerViewAdapter(
     val mContext: Context,
     val mList: List<ProductData>
-) :
-    RecyclerView.Adapter<CategoryListRecyclerViewAdapterForExploreProduct.ProductViewHolder>() {
+) : RecyclerView.Adapter<SmallCategoryListDetailRecyclerViewAdapter.ProductViewHolder>() {
 
     inner class ProductViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
@@ -89,7 +88,7 @@ class CategoryListRecyclerViewAdapterForExploreProduct(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
         val row = LayoutInflater.from(mContext)
-            .inflate(R.layout.category_list_item_for_explore_product, parent, false)
+            .inflate(R.layout.small_category_list_item_detail, parent, false)
         return ProductViewHolder(row)
     }
 

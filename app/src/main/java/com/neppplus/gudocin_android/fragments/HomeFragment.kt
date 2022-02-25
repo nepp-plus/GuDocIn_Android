@@ -9,21 +9,21 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.neppplus.gudocin_android.R
-import com.neppplus.gudocin_android.adapters.reviews.ReviewListRecyclerVewAdapterForMain
-import com.neppplus.gudocin_android.databinding.FragmentMainBinding
+import com.neppplus.gudocin_android.adapters.reviews.HomeReviewListRecyclerVewAdapter
+import com.neppplus.gudocin_android.databinding.FragmentHomeBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.ReviewData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MainFragment : BaseFragment() {
+class HomeFragment : BaseFragment() {
 
-    lateinit var binding: FragmentMainBinding
+    lateinit var binding: FragmentHomeBinding
 
     val mReviewList = ArrayList<ReviewData>()
 
-    lateinit var mMainReviewListRecyclerAdapter: ReviewListRecyclerVewAdapterForMain
+    lateinit var mHomeReviewListRecyclerAdapter: HomeReviewListRecyclerVewAdapter
 
     var mClickedSmallCategoryNum = 1
 
@@ -32,7 +32,8 @@ class MainFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_main, container, false)
+        binding =
+            DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
         return binding.root
     }
 
@@ -51,8 +52,8 @@ class MainFragment : BaseFragment() {
         // CategoryFragment 에서 소분류 클릭한 숫자 받아오기
         getReviewListInSmallCategoryFromServer(mClickedSmallCategoryNum)
 
-        mMainReviewListRecyclerAdapter = ReviewListRecyclerVewAdapterForMain(mContext, mReviewList)
-        binding.reviewListRecyclerView.adapter = mMainReviewListRecyclerAdapter
+        mHomeReviewListRecyclerAdapter = HomeReviewListRecyclerVewAdapter(mContext, mReviewList)
+        binding.reviewListRecyclerView.adapter = mHomeReviewListRecyclerAdapter
         binding.reviewListRecyclerView.layoutManager = LinearLayoutManager(mContext)
 
         binding.reviewListRecyclerView.addOnScrollListener(object :
@@ -88,7 +89,7 @@ class MainFragment : BaseFragment() {
                             var br = response.body()!!
                             mReviewList.clear()
                             mReviewList.addAll(br.data.reviews)
-                            mMainReviewListRecyclerAdapter.notifyDataSetChanged()
+                            mHomeReviewListRecyclerAdapter.notifyDataSetChanged()
                         }
                     }
 
@@ -104,9 +105,9 @@ class MainFragment : BaseFragment() {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
                 if (response.isSuccessful) {
                     val br = response.body()!!
-                    mMainReviewListRecyclerAdapter.mBannerList.clear()
-                    mMainReviewListRecyclerAdapter.mBannerList.addAll(br.data.banners)
-                    mMainReviewListRecyclerAdapter.mMainBannerViewPagerAdapter.notifyDataSetChanged()
+                    mHomeReviewListRecyclerAdapter.mBannerList.clear()
+                    mHomeReviewListRecyclerAdapter.mBannerList.addAll(br.data.banners)
+                    mHomeReviewListRecyclerAdapter.mHomeBannerViewPagerAdapter.notifyDataSetChanged()
                 }
             }
 

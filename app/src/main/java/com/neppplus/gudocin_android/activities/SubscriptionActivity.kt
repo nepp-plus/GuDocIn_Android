@@ -3,22 +3,22 @@ package com.neppplus.gudocin_android.activities
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import com.neppplus.gudocin_android.R
-import com.neppplus.gudocin_android.adapters.SubscriptionHistoryViewPagerAdapter
-import com.neppplus.gudocin_android.databinding.ActivitySubscriptionHistoryBinding
+import com.neppplus.gudocin_android.adapters.SubscriptionViewPagerAdapter
+import com.neppplus.gudocin_android.databinding.ActivitySubscriptionBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class SubscriptionHistoryActivity : BaseActivity() {
+class SubscriptionActivity : BaseActivity() {
 
-    lateinit var binding: ActivitySubscriptionHistoryBinding
+    lateinit var binding: ActivitySubscriptionBinding
 
-    lateinit var mAdapterReview: SubscriptionHistoryViewPagerAdapter
+    lateinit var mAdapterReview: SubscriptionViewPagerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_subscription_history)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_subscription)
         setupEvents()
         setValues()
     }
@@ -28,9 +28,9 @@ class SubscriptionHistoryActivity : BaseActivity() {
     }
 
     override fun setValues() {
-        mAdapterReview = SubscriptionHistoryViewPagerAdapter(supportFragmentManager)
-        binding.activitiesHistoryViewPager.adapter = mAdapterReview
-        binding.activitiesHistoryTabLayout.setupWithViewPager(binding.activitiesHistoryViewPager)
+        mAdapterReview = SubscriptionViewPagerAdapter(supportFragmentManager)
+        binding.subscriptionViewPager.adapter = mAdapterReview
+        binding.subscriptionTabLayout.setupWithViewPager(binding.subscriptionViewPager)
 
         getMyInfoFromServer()
     }

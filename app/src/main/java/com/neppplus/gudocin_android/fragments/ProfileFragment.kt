@@ -18,7 +18,7 @@ import com.gun0912.tedpermission.normal.TedPermission
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.activities.EditProfileActivity
 import com.neppplus.gudocin_android.activities.InitialActivity
-import com.neppplus.gudocin_android.activities.SubscriptionHistoryActivity
+import com.neppplus.gudocin_android.activities.SubscriptionActivity
 import com.neppplus.gudocin_android.databinding.FragmentProfileBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.GlobalData
@@ -43,7 +43,8 @@ class ProfileFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false)
+        binding =
+            DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false)
         return binding.root
     }
 
@@ -133,7 +134,7 @@ class ProfileFragment : BaseFragment() {
         }
 
         binding.txtSubscriptionHistoryList.setOnClickListener {
-            val myIntent = Intent(mContext, SubscriptionHistoryActivity::class.java)
+            val myIntent = Intent(mContext, SubscriptionActivity::class.java)
             startActivity(myIntent)
         }
 

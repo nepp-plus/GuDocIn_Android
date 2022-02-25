@@ -8,9 +8,9 @@ import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.neppplus.gudocin_android.R
-import com.neppplus.gudocin_android.adapters.categories.CategoryListRecyclerViewAdapterForAll
-import com.neppplus.gudocin_android.adapters.categories.CategoryListRecyclerViewAdapterForExploreProduct
-import com.neppplus.gudocin_android.databinding.FragmentFoodCategoryListForExploreProductBinding
+import com.neppplus.gudocin_android.adapters.categories.SmallCategoryListDetailRecyclerViewAdapter
+import com.neppplus.gudocin_android.adapters.categories.SmallCategoryListRecyclerViewAdapter
+import com.neppplus.gudocin_android.databinding.FragmentFoodCategoryListBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.ProductData
 import com.neppplus.gudocin_android.datas.SmallCategoryData
@@ -21,16 +21,16 @@ import retrofit2.Response
 
 class FoodCategoryListFragment : BaseFragment() {
 
-    lateinit var binding: FragmentFoodCategoryListForExploreProductBinding
+    lateinit var binding: FragmentFoodCategoryListBinding
 
     val mSmallCategoryList = ArrayList<SmallCategoryData>()
-    lateinit var mCategoryListRecyclerViewAdapterForAll: CategoryListRecyclerViewAdapterForAll
+    lateinit var mSmallCategoryListRecyclerViewAdapter: SmallCategoryListRecyclerViewAdapter
 
     var mLargeCategoryId = 1
     var mClickedSmallCategoryNum = 1
 
     val mProductList = ArrayList<ProductData>()
-    lateinit var mCategoryListRecyclerAdapterForExploreProduct: CategoryListRecyclerViewAdapterForExploreProduct
+    lateinit var mSmallCategoryListDetailRecyclerAdapter: SmallCategoryListDetailRecyclerViewAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -40,7 +40,7 @@ class FoodCategoryListFragment : BaseFragment() {
         binding =
             DataBindingUtil.inflate(
                 inflater,
-                R.layout.fragment_food_category_list_for_explore_product,
+                R.layout.fragment_food_category_list,
                 container,
                 false
             )
@@ -59,13 +59,13 @@ class FoodCategoryListFragment : BaseFragment() {
 
     override fun setValues() {
         getSmallCategoryListFromServer()
-        mCategoryListRecyclerViewAdapterForAll =
-            CategoryListRecyclerViewAdapterForAll(mContext, mSmallCategoryList)
+        mSmallCategoryListRecyclerViewAdapter =
+            SmallCategoryListRecyclerViewAdapter(mContext, mSmallCategoryList)
 
         getProductListInSmallCategoryFromServer()
-        mCategoryListRecyclerAdapterForExploreProduct =
-            CategoryListRecyclerViewAdapterForExploreProduct(mContext, mProductList)
-        binding.productListRecyclerView.adapter = mCategoryListRecyclerAdapterForExploreProduct
+        mSmallCategoryListDetailRecyclerAdapter =
+            SmallCategoryListDetailRecyclerViewAdapter(mContext, mProductList)
+        binding.productListRecyclerView.adapter = mSmallCategoryListDetailRecyclerAdapter
         binding.productListRecyclerView.layoutManager = LinearLayoutManager(mContext)
     }
 
@@ -80,7 +80,7 @@ class FoodCategoryListFragment : BaseFragment() {
                         val br = response.body()!!
                         mProductList.clear()
                         mProductList.addAll(br.data.products)
-                        mCategoryListRecyclerAdapterForExploreProduct.notifyDataSetChanged()
+                        mSmallCategoryListDetailRecyclerAdapter.notifyDataSetChanged()
                     }
                 }
 
@@ -106,7 +106,7 @@ class FoodCategoryListFragment : BaseFragment() {
 //                        추가한 카테고리 하나하나에 대한 view 생성
                         for (sc in mSmallCategoryList) {
                             val view = LayoutInflater.from(mContext)
-                                .inflate(R.layout.category_list_item_for_all, null)
+                                .inflate(R.layout.small_category_list_item, null)
                             val txtSmallCategoryList =
                                 view.findViewById<TextView>(R.id.txtSmallCategoryList)
                             txtSmallCategoryList.text = sc.name

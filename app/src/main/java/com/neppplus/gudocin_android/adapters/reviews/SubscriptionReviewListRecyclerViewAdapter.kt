@@ -5,44 +5,41 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.activities.ReviewActivity
 import com.neppplus.gudocin_android.datas.ReviewData
 
-class ReviewListRecyclerViewAdapterForExploreProduct
-    (val mContext: Context, val mList: List<ReviewData>) :
-    RecyclerView.Adapter<ReviewListRecyclerViewAdapterForExploreProduct.ReviewViewHolder>() {
+class SubscriptionReviewListRecyclerViewAdapter(
+    val mContext: Context,
+    val mList: ArrayList<ReviewData>
+) : RecyclerView.Adapter<SubscriptionReviewListRecyclerViewAdapter.ReviewViewHolder>() {
 
-    inner class ReviewViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ReviewViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-        val layoutReviewDetail = itemView.findViewById<LinearLayout>(R.id.layoutReviewDetail)
-        val imgReviewer = itemView.findViewById<ImageView>(R.id.imgReviewer)
-        val txtReviewTitle = itemView.findViewById<TextView>(R.id.txtReviewTitle)
-        val txtReviewerName = itemView.findViewById<TextView>(R.id.txtReviewerName)
+        val layoutReviewCheck = view.findViewById<LinearLayout>(R.id.layoutReviewCheck)
+        val txtReviewTitle = view.findViewById<TextView>(R.id.txtReviewTitle)
+        val txtProductName = view.findViewById<TextView>(R.id.txtProductName)
+        val txtReviewDate = view.findViewById<TextView>(R.id.txtReviewDate)
 
         fun bind(data: ReviewData) {
-            txtReviewerName.text = data.user.nickname
-            txtReviewTitle.text = data.title
-            Glide.with(mContext).load(data.user.profileImageURL).into(imgReviewer)
-
-            layoutReviewDetail.setOnClickListener {
+            layoutReviewCheck.setOnClickListener {
                 val myIntent = Intent(mContext, ReviewActivity::class.java)
                 myIntent.putExtra("review", data) // 넘어갈 때 review id 들려 보내야 함
                 mContext.startActivity(myIntent)
             }
+            txtReviewTitle.text = data.title
+            txtProductName.text = data.product.name
+            txtReviewDate.text = data.createdAt
         }
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReviewViewHolder {
-        val row =
-            LayoutInflater.from(mContext)
-                .inflate(R.layout.review_list_item_for_product, parent, false)
+        val row = LayoutInflater.from(mContext)
+            .inflate(R.layout.subscription_review_list_item, parent, false)
         return ReviewViewHolder(row)
     }
 

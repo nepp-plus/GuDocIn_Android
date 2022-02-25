@@ -9,9 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.datas.SmallCategoryData
 
-class CategoryListRecyclerViewAdapterForAll(
+class SmallCategoryListRecyclerViewAdapter(
     val mContext: Context, val mList: List<SmallCategoryData>
-) : RecyclerView.Adapter<CategoryListRecyclerViewAdapterForAll.SmallCategoryViewHolder>() {
+) : RecyclerView.Adapter<SmallCategoryListRecyclerViewAdapter.SmallCategoryViewHolder>() {
 
     inner class SmallCategoryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val txtSmallCategoryList = view.findViewById<TextView>(R.id.txtSmallCategoryList)
@@ -23,7 +23,7 @@ class CategoryListRecyclerViewAdapterForAll(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SmallCategoryViewHolder {
         val row =
-            LayoutInflater.from(mContext).inflate(R.layout.category_list_item_for_all, parent, false)
+            LayoutInflater.from(mContext).inflate(R.layout.small_category_list_item, parent, false)
         return SmallCategoryViewHolder(row)
     }
 

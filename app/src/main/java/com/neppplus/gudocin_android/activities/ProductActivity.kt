@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.adapters.ContentViewPagerAdapter
-import com.neppplus.gudocin_android.adapters.reviews.ReviewListRecyclerViewAdapterForExploreProduct
+import com.neppplus.gudocin_android.adapters.reviews.ProductReviewListRecyclerViewAdapter
 import com.neppplus.gudocin_android.databinding.ActivityProductBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.ProductData
@@ -32,7 +32,7 @@ class ProductActivity : BaseActivity() {
 
     val mReviewList = ArrayList<ReviewData>()
 
-    lateinit var mReviewListRecyclerViewAdapterForExploreProduct: ReviewListRecyclerViewAdapterForExploreProduct
+    lateinit var mProductReviewListRecyclerViewAdapter: ProductReviewListRecyclerViewAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,9 +63,9 @@ class ProductActivity : BaseActivity() {
         binding.ProductContentViewPager.adapter = mContentViewPagerAdapter
         binding.ProductContentTabLayout.setupWithViewPager(binding.ProductContentViewPager)
 
-        mReviewListRecyclerViewAdapterForExploreProduct =
-            ReviewListRecyclerViewAdapterForExploreProduct(mContext, mReviewList)
-        binding.reviewRecyclerView.adapter = mReviewListRecyclerViewAdapterForExploreProduct
+        mProductReviewListRecyclerViewAdapter =
+            ProductReviewListRecyclerViewAdapter(mContext, mReviewList)
+        binding.reviewRecyclerView.adapter = mProductReviewListRecyclerViewAdapter
         binding.reviewRecyclerView.layoutManager = LinearLayoutManager(
             mContext,
             LinearLayoutManager.HORIZONTAL, false
@@ -94,7 +94,7 @@ class ProductActivity : BaseActivity() {
                             }
                             mReviewList.clear()
                             mReviewList.addAll(response.body()!!.data.product.reviews)
-                            mReviewListRecyclerViewAdapterForExploreProduct.notifyDataSetChanged()
+                            mProductReviewListRecyclerViewAdapter.notifyDataSetChanged()
                         }
                     }
                 }
