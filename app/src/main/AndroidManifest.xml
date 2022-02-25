@@ -66,7 +66,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.neppplus.gudocin_android.activities.SubscriptionHistoryActivity"
+            android:name="com.neppplus.gudocin_android.activities.SubscriptionActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity

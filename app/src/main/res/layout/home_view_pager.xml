@@ -13,8 +13,8 @@
             android:layout_height="200dp" />
 
         <fragment
-            android:id="@+id/categoryFragment"
-            class="com.neppplus.gudocin_android.fragments.categories.CategoryListFragment"
+            android:id="@+id/homeCategoryFragment"
+            class="com.neppplus.gudocin_android.fragments.categories.HomeCategoryListFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
