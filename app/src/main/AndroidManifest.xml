@@ -19,7 +19,8 @@
             android:exported="true" />
         <activity
             android:name="com.neppplus.gudocin_android.dummy.DummyActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name="com.neppplus.gudocin_android.activities.EditProfileActivity"
             android:exported="true"
@@ -46,10 +47,12 @@
         <activity
             android:name="com.neppplus.gudocin_android.activities.ReplyListActivity"
             android:exported="true"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
             android:windowSoftInputMode="adjustUnspecified" />
         <activity
             android:name="com.neppplus.gudocin_android.activities.ReviewActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
             android:name="com.neppplus.gudocin_android.activities.SignUpActivity"
             android:exported="true"
@@ -72,6 +75,7 @@
         <activity
             android:name="com.neppplus.gudocin_android.activities.WriteReviewActivity"
             android:exported="true"
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
             android:windowSoftInputMode="adjustUnspecified" />
 
         <activity
