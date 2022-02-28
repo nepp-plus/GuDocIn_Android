@@ -19,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="* 본 프로젝트는 포트폴리오 용도입니다\n넵플러스 IT 아카데미에서 작업하였습니다"
+            android:text="* 본 프로젝트는 포트폴리오 용도이며\n넵플러스 IT 아카데미에서 작업하였습니다"
             android:textColor="@color/black" />
 
     </LinearLayout>

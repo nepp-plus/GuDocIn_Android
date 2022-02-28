@@ -183,7 +183,7 @@ class WriteReviewActivity : BaseActivity() {
             alert.show()
         }
 
-        binding.btnReviewCancel.setOnClickListener {
+        /* binding.btnReviewCancel.setOnClickListener {
             val alert = AlertDialog.Builder(mContext)
             alert.setTitle("리뷰 취소 알림")
             alert.setMessage("리뷰 작성을 취소하시겠습니까?")
@@ -193,7 +193,7 @@ class WriteReviewActivity : BaseActivity() {
             })
             alert.setNegativeButton("취소", null)
             alert.show()
-        }
+        } */
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
