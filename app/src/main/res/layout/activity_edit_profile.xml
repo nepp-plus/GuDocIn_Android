@@ -46,15 +46,11 @@
 
                     <EditText
                         android:id="@+id/edtPassword"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:hint="새로운 비밀번호를 입력하세요"
-                        android:inputType="textPassword" />
-
-                    <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:hint="새로운 비밀번호를 입력하세요"
+                        android:inputType="textPassword" />
 
                     <Button
                         android:id="@+id/btnPasswordChange"
@@ -87,15 +83,11 @@
 
                     <EditText
                         android:id="@+id/edtPhoneNum"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:hint="새로운 전화번호를 입력하세요"
-                        android:inputType="phone" />
-
-                    <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:hint="새로운 전화번호를 입력하세요"
+                        android:inputType="phone" />
 
                     <Button
                         android:id="@+id/btnPhoneNumChange"
@@ -122,8 +114,9 @@
 
                     <EditText
                         android:id="@+id/edtNicknameCheck"
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:hint="닉네임 중복확인" />
 
                     <TextView
@@ -153,14 +146,10 @@
 
                     <EditText
                         android:id="@+id/edtNickname"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:hint="새로운 닉네임을 입력하세요" />
-
-                    <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1" />
+                        android:layout_weight="1"
+                        android:hint="새로운 닉네임을 입력하세요" />
 
                     <Button
                         android:id="@+id/btnNicknameChange"
