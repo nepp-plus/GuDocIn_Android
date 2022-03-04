@@ -61,7 +61,7 @@
                     android:id="@+id/txtPasswordCheckResult1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="비밀번호는 8자리 이상이어야 합니다" />
+                    android:text=" 비밀번호는 8자리 이상이어야 합니다" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -84,7 +84,7 @@
                     android:id="@+id/txtPasswordCheckResult2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="비밀번호는 서로 일치해야 합니다" />
+                    android:text=" 비밀번호는 서로 일치해야 합니다" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -122,7 +122,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:hint="닉네임을 입력하세요"
+                        android:hint="중복 확인 후 닉네임을 입력하세요"
                         android:singleLine="true" />
 
                     <Button
@@ -138,7 +138,7 @@
                     android:id="@+id/txtNicknameCheckResult"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="닉네임 중복확인을 진행해야 합니다" />
+                    android:text=" 닉네임 중복 확인을 진행해야 합니다" />
 
             </LinearLayout>
 

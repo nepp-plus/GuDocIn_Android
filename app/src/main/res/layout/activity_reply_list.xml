@@ -37,8 +37,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_weight="1"
                 android:hint="구독 상품 관련 댓글을 남겨보세요"
-                android:inputType="text"
-                android:singleLine="true" />
+                android:inputType="text" />
 
             <Button
                 android:id="@+id/btnSubmitReply"
