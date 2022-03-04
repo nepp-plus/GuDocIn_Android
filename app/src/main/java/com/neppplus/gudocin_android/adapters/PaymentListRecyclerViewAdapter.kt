@@ -1,17 +1,12 @@
 package com.neppplus.gudocin_android.adapters
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.neppplus.gudocin_android.R
-import com.neppplus.gudocin_android.activities.ReviewActivity
 import com.neppplus.gudocin_android.datas.PaymentData
-import java.text.SimpleDateFormat
 
 class PaymentListRecyclerViewAdapter(
     val mContext: Context,

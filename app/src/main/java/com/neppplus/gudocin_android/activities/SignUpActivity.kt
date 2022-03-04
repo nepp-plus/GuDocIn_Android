@@ -137,10 +137,10 @@ class SignUpActivity : BaseActivity() {
 
         binding.edtPassword.addTextChangedListener {
             if (it.toString().length >= 8) {
-                binding.txtPasswordCheckResult1.text = "사용해도 좋은 비밀번호입니다"
+                binding.txtPasswordCheckResult1.text = " 사용해도 좋은 비밀번호입니다"
                 isPasswordLengthOk = true
             } else {
-                binding.txtPasswordCheckResult1.text = "비밀번호는 8자리 이상이어야 합니다"
+                binding.txtPasswordCheckResult1.text = " 비밀번호는 8자리 이상이어야 합니다"
                 isPasswordLengthOk = false
             }
             isPasswordSame = compareTwoPasswords()
@@ -151,7 +151,7 @@ class SignUpActivity : BaseActivity() {
         }
 
         binding.edtNickname.addTextChangedListener {
-            binding.txtNicknameCheckResult.text = "닉네임 중복확인을 진행해 주세요"
+            binding.txtNicknameCheckResult.text = " 닉네임 중복 확인을 진행해 주세요"
             isDuplicatedOk = false
         }
 
@@ -168,10 +168,10 @@ class SignUpActivity : BaseActivity() {
                         response: Response<BasicResponse>
                     ) {
                         if (response.isSuccessful) {
-                            binding.txtNicknameCheckResult.text = "사용해도 좋은 닉네임입니다"
+                            binding.txtNicknameCheckResult.text = " 사용해도 좋은 닉네임입니다"
                             isDuplicatedOk = true
                         } else {
-                            binding.txtNicknameCheckResult.text = "중복된 닉네임이 존재합니다"
+                            binding.txtNicknameCheckResult.text = " 중복된 닉네임이 존재합니다"
                             isDuplicatedOk = false
                         }
                     }
@@ -246,10 +246,10 @@ class SignUpActivity : BaseActivity() {
         val confirmPassword = binding.edtPasswordConfirm.text.toString()
 
         if (originalPassword == confirmPassword) {
-            binding.txtPasswordCheckResult2.text = "사용해도 좋습니다"
+            binding.txtPasswordCheckResult2.text = " 비밀번호가 일치합니다"
             return true
         } else {
-            binding.txtPasswordCheckResult2.text = "비밀번호가 서로 일치해야 합니다"
+            binding.txtPasswordCheckResult2.text = " 비밀번호가 일치하지 않습니다"
             return false
         }
     }

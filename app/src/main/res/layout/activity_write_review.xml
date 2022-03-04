@@ -174,25 +174,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginTop="50dp"
+                    android:layout_marginTop="95dp"
                     android:gravity="center"
                     android:orientation="vertical">
 
                     <Button
                         android:id="@+id/btnReviewUpload"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:backgroundTint="@color/white"
                         android:text="작성완료"
                         android:textSize="17sp" />
-
-                    <!-- <Button
-                        android:id="@+id/btnReviewCancel"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@color/white"
-                        android:text="작성취소"
-                        android:textSize="17sp" /> -->
 
                 </LinearLayout>
 

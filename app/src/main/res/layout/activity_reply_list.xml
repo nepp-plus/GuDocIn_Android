@@ -32,16 +32,12 @@
 
             <EditText
                 android:id="@+id/edtReply"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:hint="구독 상품 관련 댓글을 남겨보세요"
-                android:inputType="text" />
-
-            <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:hint="구독 상품 관련 댓글을 남겨보세요"
+                android:inputType="text" />
 
             <Button
                 android:id="@+id/btnSubmitReply"
