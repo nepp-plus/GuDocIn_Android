@@ -32,16 +32,16 @@ class EditProfileActivity : BaseActivity() {
 
         binding.edtPassword.addTextChangedListener {
             if (it.toString().length >= 8) {
-                binding.txtPasswordCheck.text = "사용해도 좋은 비밀번호입니다"
+                binding.txtPasswordCheck.text = " 사용해도 좋은 비밀번호입니다"
                 isPasswordLengthOk = true
             } else {
-                binding.txtPasswordCheck.text = "비밀번호는 8글자 이상이어야 합니다"
+                binding.txtPasswordCheck.text = " 비밀번호는 8글자 이상이어야 합니다"
                 isPasswordLengthOk = false
             }
         }
 
         binding.edtNicknameCheck.addTextChangedListener {
-            binding.txtNicknameCheck.text = "닉네임 중복확인을 진행해야 합니다"
+            binding.txtNicknameCheck.text = " 닉네임 중복 확인을 진행해야 합니다"
             isDuplicatedOk = false
         }
 
@@ -58,10 +58,10 @@ class EditProfileActivity : BaseActivity() {
                         response: Response<BasicResponse>
                     ) {
                         if (response.isSuccessful) {
-                            binding.txtNicknameCheck.text = "사용해도 좋은 닉네임입니다"
+                            binding.txtNicknameCheck.text = " 사용해도 좋은 닉네임입니다"
                             isDuplicatedOk = true
                         } else {
-                            binding.txtNicknameCheck.text = "중복된 닉네임이 존재합니다"
+                            binding.txtNicknameCheck.text = " 중복된 닉네임이 존재합니다"
                             isDuplicatedOk = false
                         }
                     }
