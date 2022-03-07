@@ -168,4 +168,20 @@ interface ServerAPIInterface {
     fun putRequestProfileImg(
         @Part img: MultipartBody.Part
     ): Call<BasicResponse>
+
+    // 사용자 카드 등록
+    @FormUrlEncoded
+    @POST("/user/card")
+    fun postRequestCardInfo(
+        @Field("card_num") num: String,
+        @Field("card_nickname") nickname: String,
+        @Field("mm_yy") validity: String,
+        @Field("birthday") birthDay: String,
+        @Field("password_2digit") password: String,
+    ): Call<BasicResponse>
+
+    // 사용자 카드 목록 조회
+    @GET("/user/card")
+    fun getRequestCardInfoList(
+    ): Call<BasicResponse>
 }
