@@ -12,7 +12,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="170dp"
+            android:layout_marginTop="150dp"
             android:text="카드 번호"
             android:textColor="@color/black"
             android:textSize="17sp" />
@@ -21,7 +21,7 @@
             android:id="@+id/edtCardNum"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="카드 번호를 입력해 주세요"
+            android:hint="카드 번호를 입력하세요"
             android:inputType="number" />
 
         <TextView
@@ -36,7 +36,7 @@
             android:id="@+id/edtCardNickname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="카드 닉네임을 입력해 주세요"
+            android:hint="카드 닉네임을 입력하세요"
             android:inputType="text" />
 
         <TextView
@@ -51,7 +51,7 @@
             android:id="@+id/edtCardValid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="카드 유효기간을 입력해 주세요 (ex. 0923)"
+            android:hint="카드 유효기간을 입력하세요 (ex. 0923)"
             android:inputType="number" />
 
         <TextView
@@ -66,7 +66,7 @@
             android:id="@+id/edtCardBirth"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="카드 생년월일을 입력해 주세요 (ex. 881020)"
+            android:hint="카드 생년월일을 입력하세요 (ex. 881020)"
             android:inputType="number" />
 
         <TextView
@@ -81,10 +81,10 @@
             android:id="@+id/edtCardPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="카드 비밀번호 앞 두자리를 입력해 주세요"
+            android:hint="카드 비밀번호 앞 두자리를 입력하세요"
             android:inputType="numberPassword" />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <Button
             android:id="@+id/btnSave"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

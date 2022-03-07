@@ -185,8 +185,9 @@ class SignUpActivity : BaseActivity() {
         binding.btnSignUp.setOnClickListener {
             val email = binding.edtEmail.text.toString()
             val password = binding.edtPassword.text.toString()
-            val nickname = binding.edtNickname.text.toString()
             val phone = binding.edtPhone.text.toString()
+            val address = binding.edtAddress.text.toString()
+            val nickname = binding.edtNickname.text.toString()
 
             if (email.isEmpty()) {
                 Toast.makeText(mContext, "이메일을 입력해 주세요", Toast.LENGTH_SHORT).show()
@@ -202,6 +203,10 @@ class SignUpActivity : BaseActivity() {
             }
             if (phone.isEmpty()) {
                 Toast.makeText(mContext, "전화번호를 입력해 주세요", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            if (address.isEmpty()) {
+                Toast.makeText(mContext, "도로명 주소를 입력해 주세요", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             if (nickname.isEmpty()) {

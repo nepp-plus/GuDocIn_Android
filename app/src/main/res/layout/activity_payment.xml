@@ -15,6 +15,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="70dp"
                 android:orientation="vertical">
 
                 <!-- <LinearLayout
@@ -33,7 +34,7 @@
                         android:textColor="@color/black"
                         android:textSize="17sp" />
 
-                    <androidx.appcompat.widget.AppCompatButton
+                    <Button
                         android:id="@+id/btnAddCardInfo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -47,49 +48,62 @@
                     android:id="@+id/btnCardSelect"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/gray_border_box_for_content"
+                    android:background="@drawable/gray_border_box"
                     android:gravity="center_vertical"
-                    android:orientation="horizontal"
+                    android:orientation="vertical"
                     android:padding="10dp">
 
-                    <LinearLayout
-                        android:layout_width="0dp"
+                    <TextView
+                        android:id="@+id/txtCardNickname"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
+                        android:text="등록된 카드가 없습니다"
+                        android:textColor="@color/black"
+                        android:textSize="17sp" />
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:id="@+id/txtCardNickname"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="등록된 카드가 없습니다"
-                                android:textColor="@color/black"
-                                android:textSize="17sp" />
-
-                        </LinearLayout>
-
-                        <TextView
-                            android:id="@+id/txtCardNum"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="카드 등록"
-                            android:textColor="@color/com_facebook_blue"
-                            android:textSize="17sp" />
-
-                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/txtCardNum"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="카드 등록"
+                        android:textColor="@color/com_facebook_blue"
+                        android:textSize="17sp" />
 
                 </LinearLayout>
+
+                <!-- <LinearLayout
+                   android:id="@+id/btnShipmentSelect"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="10dp"
+                   android:background="@drawable/gray_border_box_for_content"
+                   android:gravity="center_vertical"
+                   android:orientation="vertical"
+                   android:padding="10dp">
+
+                   <TextView
+                       android:id="@+id/txtShipmentNickname"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="등록된 배송지가 없습니다"
+                       android:textColor="@color/black"
+                       android:textSize="17sp" />
+
+                   <TextView
+                       android:id="@+id/txtShipmentAddress"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="배송지 등록"
+                       android:textColor="@color/com_facebook_blue"
+                       android:textSize="17sp" />
+
+               </LinearLayout> -->
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:background="@drawable/gray_border_box_for_content"
+                    android:background="@drawable/gray_border_box"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:padding="10dp">
@@ -136,7 +150,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:background="@drawable/gray_border_box_for_content"
+                    android:background="@drawable/gray_border_box"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
                     android:padding="10dp">
@@ -208,17 +222,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text=" 상기 주문 내용을 확인하였으며, 결제에 동의합니다"
+                    android:text=" 상기 주문 내용을 확인하였으며 결제 진행에 동의합니다"
                     android:textColor="@color/black" />
 
-                <androidx.appcompat.widget.AppCompatButton
+                <Button
                     android:id="@+id/btnPayment"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:backgroundTint="@color/white"
-                    android:text="상품 결제"
-                    android:textSize="17sp" />
+                    android:text="상품 결제" />
 
             </LinearLayout>
 

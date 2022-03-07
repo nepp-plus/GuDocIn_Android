@@ -25,6 +25,10 @@
             android:exported="true"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
+            android:name="com.neppplus.gudocin_android.activities.EditShipmentInfoActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustUnspecified" />
+        <activity
             android:name="com.neppplus.gudocin_android.activities.EditCardInfoActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustUnspecified" />

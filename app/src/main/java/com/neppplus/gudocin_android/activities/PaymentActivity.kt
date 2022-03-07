@@ -27,6 +27,13 @@ class PaymentActivity : BaseActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_payment)
         setupEvents()
         setValues()
+
+        /* if (intent.hasExtra("nickname")) {
+            binding.txtShipmentNickname.text = intent.getStringExtra("nickname")
+        }
+        if (intent.hasExtra("shipment")) {
+            binding.txtShipmentAddress.text = intent.getStringExtra("shipment")
+        } */
     }
 
     override fun setupEvents() {
@@ -71,6 +78,11 @@ class PaymentActivity : BaseActivity() {
             val myIntent = Intent(mContext, CardInfoListActivity::class.java)
             resultLauncher.launch(myIntent)
         }
+
+        /* binding.btnShipmentSelect.setOnClickListener {
+            val myIntent = Intent(mContext, EditShipmentInfoActivity::class.java)
+            startActivity(myIntent)
+        } */
 
         binding.btnPayment.setOnClickListener {
             val myIntent = Intent(mContext, DummyActivity::class.java)
