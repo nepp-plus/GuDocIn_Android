@@ -106,18 +106,18 @@
                     android:text="카카오 로그인" />
 
                 <Button
-                    android:id="@+id/btnFacebookLogin"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/white"
-                    android:text="페이스북 로그인" />
-
-                <Button
                     android:id="@+id/btnGoogleLogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
                     android:text="구글 로그인" />
+
+                <Button
+                    android:id="@+id/btnFacebookLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    android:text="페이스북 로그인" />
 
             </LinearLayout>
 

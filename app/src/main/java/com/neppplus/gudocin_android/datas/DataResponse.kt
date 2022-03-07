@@ -12,5 +12,6 @@ class DataResponse(
     val banners: List<BannerData>,
     val payments: List<PaymentData>,
     val replies: List<ReplyData>,
+    var cards: List<CardData>
 ) {
 }

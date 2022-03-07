@@ -4,6 +4,7 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
@@ -16,7 +17,6 @@ import com.neppplus.gudocin_android.databinding.ActivityProductBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.ProductData
 import com.neppplus.gudocin_android.datas.ReviewData
-import com.neppplus.gudocin_android.dummy.DummyActivity
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -47,9 +47,8 @@ class ProductActivity : BaseActivity() {
         }
 
         binding.layoutCredit.setOnClickListener {
-            val myIntent = Intent(mContext, DummyActivity::class.java)
+            val myIntent = Intent(mContext, PaymentActivity::class.java)
             startActivity(myIntent)
-            finish()
         }
     }
 
@@ -70,6 +69,7 @@ class ProductActivity : BaseActivity() {
             mContext,
             LinearLayoutManager.HORIZONTAL, false
         )
+        btnExplore.visibility = View.GONE
     }
 
     fun getProductItemDetailFromServer() {

@@ -3,13 +3,13 @@ package com.neppplus.gudocin_android.activities
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.ActivityReviewBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.ReviewData
-import com.neppplus.gudocin_android.dummy.DummyActivity
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -29,12 +29,6 @@ class ReviewActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
-        binding.btnSubscribe.setOnClickListener {
-            val myIntent = Intent(mContext, DummyActivity::class.java)
-            startActivity(myIntent)
-            finish()
-        }
-
         binding.layoutWatchReply.setOnClickListener {
             val myIntent = Intent(mContext, ReplyListActivity::class.java)
             myIntent.putExtra("review", mReviewData)
@@ -51,13 +45,15 @@ class ReviewActivity : BaseActivity() {
         setReviewDataToUI()
         getReviewDataFromSever()
         Glide.with(mContext).load(mReviewData.user.profileImageURL).into(binding.imgProfile)
+        btnCart.visibility = View.GONE
+        btnExplore.visibility = View.GONE
     }
 
     fun setReviewDataToUI() {
+        binding.txtProductName.text = mReviewData.product.name
         binding.txtReviewTitle.text = mReviewData.title
         binding.txtNickName.text = mReviewData.user.nickname
         binding.txtReviewDate.text = mReviewData.createdAt
-        binding.txtProductName.text = mReviewData.product.name
         Glide.with(mContext).load(mReviewData.thumbNailImg).into(binding.imgThumbnail)
         binding.txtReviewContent.text = mReviewData.content
 //      binding.txtTag.text = mReviewData.tags.toString()

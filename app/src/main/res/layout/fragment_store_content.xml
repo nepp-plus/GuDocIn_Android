@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:background="@drawable/gray_border_box_for_content"
+            android:background="@drawable/gray_border_box"
             android:orientation="horizontal">
 
             <TextView
@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:background="@drawable/gray_border_box_for_content"
+            android:background="@drawable/gray_border_box"
             android:orientation="horizontal">
 
             <TextView
@@ -76,7 +76,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:background="@drawable/gray_border_box_for_content"
+            android:background="@drawable/gray_border_box"
             android:orientation="horizontal">
 
             <TextView

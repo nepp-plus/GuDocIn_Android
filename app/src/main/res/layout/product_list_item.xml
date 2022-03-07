@@ -50,6 +50,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
         android:backgroundTint="@color/white"
-        android:text="리뷰작성" />
+        android:text="리뷰 작성" />
 
 </LinearLayout>

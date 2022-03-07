@@ -107,6 +107,23 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
+                    android:text="도로명 주소"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/edtAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="도로명 주소를 입력하세요"
+                    android:inputType="textPostalAddress"
+                    android:singleLine="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:text="닉네임"
                     android:textColor="@color/black"
                     android:textSize="17sp"
@@ -119,11 +136,16 @@
 
                     <EditText
                         android:id="@+id/edtNickname"
+                        android:layout_width="260dp"
+                        android:layout_height="wrap_content"
+                        android:hint="중복 확인 후 닉네임을 입력하세요"
+                        android:inputType="text"
+                        android:singleLine="true" />
+
+                    <TextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:hint="중복 확인 후 닉네임을 입력하세요"
-                        android:singleLine="true" />
+                        android:layout_weight="1" />
 
                     <Button
                         android:id="@+id/btnNicknameCheck"

@@ -178,23 +178,30 @@
         <entry key="..\:/Users/Public/GudocIn_Android/app/src/main/res/drawable/corner_shape_for_cart.xml" value="0.38229166666666664" />
         <entry key="..\:/Users/Public/GudocIn_Android/app/src/main/res/drawable/corner_shape_for_explore_product.xml" value="0.38229166666666664" />
         <entry key="..\:/Users/Public/GudocIn_Android/app/src/main/res/drawable/corner_shape_for_review.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/Public/GudocIn_Android/app/src/main/res/drawable/gray_border_box_for_content.xml" value="0.38229166666666664" />
         <entry key="..\:/Users/Public/GudocIn_Android/app/src/main/res/layout/activity_account.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Public/GudocIn_Android/app/src/main/res/layout/activity_card_info_list.xml" value="0.3619791666666667" />
         <entry key="..\:/Users/Public/GudocIn_Android/app/src/main/res/layout/activity_cart_list.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/GudocIn_Android/app/src/main/res/layout/activity_dummy.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Public/GudocIn_Android/app/src/main/res/layout/activity_edit_card_info.xml" value="0.3619791666666667" />
         <entry key="..\:/Users/Public/GudocIn_Android/app/src/main/res/layout/activity_edit_profile.xml" value="0.33" />
+        <entry key="..\:/Users/Public/GudocIn_Android/app/src/main/res/layout/activity_edit_shipment_info.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/GudocIn_Android/app/src/main/res/layout/activity_explore_product.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/GudocIn_Android/app/src/main/res/layout/activity_initial.xml" value="0.33" />
         <entry key="..\:/Users/Public/GudocIn_Android/app/src/main/res/layout/activity_login.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/GudocIn_Android/app/src/main/res/layout/activity_main.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/GudocIn_Android/app/src/main/res/layout/activity_payment.xml" value="0.33" />
         <entry key="..\:/Users/Public/GudocIn_Android/app/src/main/res/layout/activity_product.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Public/GudocIn_Android/app/src/main/res/layout/activity_purchase.xml" value="0.3619791666666667" />
         <entry key="..\:/Users/Public/GudocIn_Android/app/src/main/res/layout/activity_reply_list.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/GudocIn_Android/app/src/main/res/layout/activity_review.xml" value="0.33" />
+        <entry key="..\:/Users/Public/GudocIn_Android/app/src/main/res/layout/activity_shipment_info_list.xml" value="0.3605128205128205" />
         <entry key="..\:/Users/Public/GudocIn_Android/app/src/main/res/layout/activity_sign_up.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/GudocIn_Android/app/src/main/res/layout/activity_splash.xml" value="0.36614583333333334" />
-        <entry key="..\:/Users/Public/GudocIn_Android/app/src/main/res/layout/activity_subscription.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Public/GudocIn_Android/app/src/main/res/layout/activity_subscription.xml" value="0.33" />
         <entry key="..\:/Users/Public/GudocIn_Android/app/src/main/res/layout/activity_subscription_history.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/GudocIn_Android/app/src/main/res/layout/activity_write_review.xml" value="0.33" />
+        <entry key="..\:/Users/Public/GudocIn_Android/app/src/main/res/layout/card_info_list_item.xml" value="0.3619791666666667" />
         <entry key="..\:/Users/Public/GudocIn_Android/app/src/main/res/layout/cart_list_item.xml" value="0.33" />
         <entry key="..\:/Users/Public/GudocIn_Android/app/src/main/res/layout/category_list_item.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/GudocIn_Android/app/src/main/res/layout/category_list_item_for_all.xml" value="0.36614583333333334" />
@@ -233,6 +240,7 @@
         <entry key="..\:/Users/Public/GudocIn_Android/app/src/main/res/layout/review_list_item_for_main.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/GudocIn_Android/app/src/main/res/layout/review_list_item_for_product.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/GudocIn_Android/app/src/main/res/layout/review_list_item_for_profile.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/Public/GudocIn_Android/app/src/main/res/layout/shipment_info_list_item.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/GudocIn_Android/app/src/main/res/layout/small_category_list_item.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/GudocIn_Android/app/src/main/res/layout/small_category_list_item_detail.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/Public/GudocIn_Android/app/src/main/res/layout/subscription_review_list_item.xml" value="0.36614583333333334" />
