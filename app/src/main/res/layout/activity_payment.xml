@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        tools:context=".PaymentActivity">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="70dp"
+                android:orientation="vertical">
+
+                <!-- <LinearLayout
+                    android:id="@+id/cardInfoEmptyLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/gray_border_box_for_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="등록된 카드가 없습니다"
+                        android:textColor="@color/black"
+                        android:textSize="17sp" />
+
+                    <Button
+                        android:id="@+id/btnAddCardInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:backgroundTint="@color/white"
+                        android:text="카드 등록" />
+
+                </LinearLayout> -->
+
+                <LinearLayout
+                    android:id="@+id/btnCardSelect"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/gray_border_box"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/txtCardNickname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="등록된 카드가 없습니다"
+                        android:textColor="@color/black"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        android:id="@+id/txtCardNum"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="카드 등록"
+                        android:textColor="@color/com_facebook_blue"
+                        android:textSize="17sp" />
+
+                </LinearLayout>
+
+                <!-- <LinearLayout
+                   android:id="@+id/btnShipmentSelect"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="10dp"
+                   android:background="@drawable/gray_border_box_for_content"
+                   android:gravity="center_vertical"
+                   android:orientation="vertical"
+                   android:padding="10dp">
+
+                   <TextView
+                       android:id="@+id/txtShipmentNickname"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="등록된 배송지가 없습니다"
+                       android:textColor="@color/black"
+                       android:textSize="17sp" />
+
+                   <TextView
+                       android:id="@+id/txtShipmentAddress"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="배송지 등록"
+                       android:textColor="@color/com_facebook_blue"
+                       android:textSize="17sp" />
+
+               </LinearLayout> -->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/gray_border_box"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="배송 요청사항"
+                                android:textColor="@color/black"
+                                android:textSize="17sp" />
+
+                        </LinearLayout>
+
+                        <Spinner
+                            android:id="@+id/shipmentOptionsSpinner"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:entries="@array/shipment_options" />
+
+                        <EditText
+                            android:id="@+id/edtShipmentOptions"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="배송 요청사항 직접 입력"
+                            android:visibility="gone" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/gray_border_box"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="결제수단"
+                                android:textColor="@color/black"
+                                android:textSize="17sp" />
+
+                        </LinearLayout>
+
+                        <RadioGroup
+                            android:id="@+id/payMethodRadioGroup"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:orientation="vertical">
+
+                            <RadioButton
+                                android:id="@+id/radioCard"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:tag="card"
+                                android:text="신용카드" />
+
+                            <RadioButton
+                                android:id="@+id/radioVBank"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:enabled="false"
+                                android:tag="vbank"
+                                android:text="무통장 입금(가상계좌)" />
+
+                            <RadioButton
+                                android:id="@+id/radioBank"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:tag="trans"
+                                android:text="실시간 계좌이체" />
+
+                            <RadioButton
+                                android:id="@+id/radioPhone"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:enabled="false"
+                                android:tag="phone"
+                                android:text="휴대폰 결제" />
+
+                        </RadioGroup>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text=" 상기 주문 내용을 확인하였으며 결제 진행에 동의합니다"
+                    android:textColor="@color/black" />
+
+                <Button
+                    android:id="@+id/btnPayment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:backgroundTint="@color/white"
+                    android:text="상품 결제" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</layout>

@@ -15,6 +15,9 @@
         android:theme="@style/Theme.GudocIn"
         android:usesCleartextTraffic="true">
         <activity
+            android:name="com.neppplus.gudocin_android.activities.CardInfoListActivity"
+            android:exported="true" />
+        <activity
             android:name="com.neppplus.gudocin_android.activities.CartListActivity"
             android:exported="true" />
         <activity
@@ -22,9 +25,16 @@
             android:exported="true"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
+            android:name="com.neppplus.gudocin_android.activities.EditShipmentInfoActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustUnspecified" />
+        <activity
+            android:name="com.neppplus.gudocin_android.activities.EditCardInfoActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustUnspecified" />
+        <activity
             android:name="com.neppplus.gudocin_android.activities.EditProfileActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
             android:windowSoftInputMode="adjustUnspecified" />
         <activity
             android:name="com.neppplus.gudocin_android.activities.ExploreProductActivity"
@@ -42,17 +52,18 @@
             android:name="com.neppplus.gudocin_android.activities.MainActivity"
             android:exported="true" />
         <activity
+            android:name="com.neppplus.gudocin_android.activities.PaymentActivity"
+            android:exported="true" />
+        <activity
             android:name="com.neppplus.gudocin_android.activities.ProductActivity"
             android:exported="true" />
         <activity
             android:name="com.neppplus.gudocin_android.activities.ReplyListActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
             android:windowSoftInputMode="adjustUnspecified" />
         <activity
             android:name="com.neppplus.gudocin_android.activities.ReviewActivity"
-            android:exported="true"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+            android:exported="true" />
         <activity
             android:name="com.neppplus.gudocin_android.activities.SignUpActivity"
             android:exported="true"
@@ -70,12 +81,10 @@
         </activity>
         <activity
             android:name="com.neppplus.gudocin_android.activities.SubscriptionActivity"
-            android:exported="true"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+            android:exported="true" />
         <activity
             android:name="com.neppplus.gudocin_android.activities.WriteReviewActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
             android:windowSoftInputMode="adjustUnspecified" />
 
         <activity

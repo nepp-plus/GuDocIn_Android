@@ -41,8 +41,7 @@ class ExploreProductActivity : BaseActivity() {
     }
 
     override fun setValues() {
-        btnBack.visibility = View.VISIBLE
-        txtTitleInActionBar.visibility = View.VISIBLE
+        btnExplore.visibility = View.GONE
 
         binding.viewPager.apply {
             adapter = ViewPagerAdapter(this@ExploreProductActivity)

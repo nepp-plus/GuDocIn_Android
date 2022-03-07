@@ -40,7 +40,7 @@ class MainActivity : BaseActivity() {
     override fun onBackPressed() {
         if (System.currentTimeMillis() - backKeyPressedTime >= 1500) {
             backKeyPressedTime = System.currentTimeMillis()
-            Toast.makeText(this, "백버튼을 한번 더 누르시면 종료됩니다", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "백버튼을 한번 더 누르면 종료됩니다", Toast.LENGTH_SHORT).show()
         } else {
             ActivityCompat.finishAffinity(this)
             System.runFinalization()
@@ -66,9 +66,7 @@ class MainActivity : BaseActivity() {
     }
 
     override fun setValues() {
-        btnBack.visibility = View.INVISIBLE
-        txtTitleInActionBar.visibility = View.INVISIBLE
-        exploreBoxInActionBar.visibility = View.VISIBLE
+        btnBack.visibility = View.GONE
 
         binding.viewPager.apply {
             adapter = ViewPagerAdapter(this@MainActivity)

@@ -22,8 +22,9 @@ abstract class BaseActivity : AppCompatActivity() {
 
     lateinit var btnBack: ImageView
     lateinit var btnCart: ImageView
+    lateinit var btnAdd: ImageView
 
-    lateinit var exploreBoxInActionBar: LinearLayout
+    lateinit var btnExplore: ImageView
     lateinit var txtTitleInActionBar: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,7 +57,8 @@ abstract class BaseActivity : AppCompatActivity() {
 //       (액션바의 커스텀뷰에) 추가된 UI 요소들을 멤버변수에 연결
         btnBack = defActionBar.customView.findViewById(R.id.btnBack)
         btnCart = defActionBar.customView.findViewById(R.id.btnCart)
-        exploreBoxInActionBar = defActionBar.customView.findViewById(R.id.exploreBoxInActionBar)
+        btnAdd = defActionBar.customView.findViewById(R.id.btnAdd)
+        btnExplore = defActionBar.customView.findViewById(R.id.btnExplore)
         txtTitleInActionBar =
             defActionBar.customView.findViewById(R.id.txtTitleInActionBar)
 
@@ -69,7 +71,7 @@ abstract class BaseActivity : AppCompatActivity() {
             startActivity(myIntent)
         }
 
-        exploreBoxInActionBar.setOnClickListener {
+        btnExplore.setOnClickListener {
             val myIntent = Intent(mContext, ExploreProductActivity::class.java)
             startActivity(myIntent)
         }

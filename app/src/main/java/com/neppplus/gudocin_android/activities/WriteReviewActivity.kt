@@ -218,6 +218,9 @@ class WriteReviewActivity : BaseActivity() {
         val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
         val date = sdf.format(now.time)
         binding.txtReviewDate.text = date
+
+        btnCart.visibility = View.GONE
+        btnExplore.visibility = View.GONE
     }
 
 }
