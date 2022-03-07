@@ -17,9 +17,18 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtProductName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="구독상품"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <EditText
                     android:id="@+id/edtReviewTitle"
@@ -79,27 +88,17 @@
                     android:layout_marginTop="5dp"
                     android:background="@color/black" />
 
-                <TextView
-                    android:id="@+id/txtProductName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="구독상품"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="15dp"
                     android:gravity="center"
                     android:orientation="vertical">
 
                     <LinearLayout
                         android:id="@+id/layoutSelectImage"
                         android:layout_width="match_parent"
-                        android:layout_height="350dp"
+                        android:layout_height="400dp"
                         android:background="@drawable/review_image_upload_box"
                         android:gravity="center"
                         android:orientation="vertical">
@@ -114,7 +113,7 @@
                     <ImageView
                         android:id="@+id/imgThumbnail"
                         android:layout_width="match_parent"
-                        android:layout_height="350dp"
+                        android:layout_height="400dp"
                         android:scaleType="centerCrop"
                         android:src="@mipmap/ic_launcher"
                         android:visibility="gone" />
@@ -170,23 +169,14 @@
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginTop="95dp"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
                     <Button
                         android:id="@+id/btnReviewUpload"
                         android:layout_width="match_parent"
+                        android:layout_marginTop="10dp"
                         android:layout_height="match_parent"
                         android:backgroundTint="@color/white"
                         android:text="작성완료"
                         android:textSize="17sp" />
-
-                </LinearLayout>
 
             </LinearLayout>
 

@@ -10,7 +10,6 @@ import com.neppplus.gudocin_android.adapters.CartListRecyclerViewAdapter
 import com.neppplus.gudocin_android.databinding.ActivityCartListBinding
 import com.neppplus.gudocin_android.datas.BasicResponse
 import com.neppplus.gudocin_android.datas.CartData
-import com.neppplus.gudocin_android.dummy.DummyActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -37,9 +36,8 @@ class CartListActivity : BaseActivity() {
 
     override fun setupEvents() {
         binding.btnSubscribe.setOnClickListener {
-            val myIntent = Intent(mContext, DummyActivity::class.java)
+            val myIntent = Intent(mContext, PaymentActivity::class.java)
             startActivity(myIntent)
-            finish()
         }
 
         binding.swipeRefresh.setOnRefreshListener {
@@ -67,6 +65,7 @@ class CartListActivity : BaseActivity() {
         binding.cartListRecyclerView.adapter = mCartListRecyclerViewAdapter
         binding.cartListRecyclerView.layoutManager = LinearLayoutManager(mContext)
 
+        btnExplore.visibility = View.GONE
         btnCart.visibility = View.GONE
     }
 

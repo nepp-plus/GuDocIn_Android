@@ -91,7 +91,6 @@ class ProfileFragment : BaseFragment() {
     }
 
     override fun setupEvents() {
-
         binding.imgProfile.setOnClickListener {
 //            실제 파일 경로를 읽는 권한 필요 (업로드 가능해짐)
             val pl = object : PermissionListener {
@@ -137,7 +136,6 @@ class ProfileFragment : BaseFragment() {
             val myIntent = Intent(mContext, SubscriptionActivity::class.java)
             startActivity(myIntent)
         }
-
     }
 
     override fun setValues() {

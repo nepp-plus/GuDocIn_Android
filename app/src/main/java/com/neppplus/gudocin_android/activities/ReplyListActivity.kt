@@ -1,6 +1,7 @@
 package com.neppplus.gudocin_android.activities
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
@@ -65,6 +66,9 @@ class ReplyListActivity : BaseActivity() {
         mReplyListAdapter = ReplyListAdapter(mContext, R.layout.reply_list_item, mReplyList)
         binding.replyListView.adapter = mReplyListAdapter
         getReplyListFromServer()
+
+        btnExplore.visibility = View.GONE
+        btnCart.visibility = View.GONE
     }
 
     fun getReplyListFromServer() {

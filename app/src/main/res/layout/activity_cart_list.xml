@@ -59,7 +59,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:backgroundTint="@color/white"
-                    android:text="상품구독" />
+                    android:text="상품 구독" />
 
             </LinearLayout>
 
