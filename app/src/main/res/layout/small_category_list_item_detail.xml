@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:background="@color/white"
     android:orientation="vertical"
-    android:padding="5dp">
+    android:padding="7dp">
 
     <LinearLayout
         android:id="@+id/layoutRoot"
@@ -93,9 +93,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
-            android:text="리뷰제목"
+            android:text="리뷰 제목"
             android:textColor="@color/black"
-            android:textSize="17sp" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/txtReviewer"

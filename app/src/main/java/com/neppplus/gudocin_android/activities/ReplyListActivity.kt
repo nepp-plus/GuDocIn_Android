@@ -47,7 +47,7 @@ class ReplyListActivity : BaseActivity() {
                             getReplyListFromServer()
                             binding.edtReply.setText("")
                         } else {
-                            Toast.makeText(mContext, "댓글 작성 실패: 관리자에게 문의해주세요", Toast.LENGTH_SHORT)
+                            Toast.makeText(mContext, "댓글 작성 실패: 관리자에게 문의해 주세요", Toast.LENGTH_SHORT)
                                 .show()
                         }
                     }

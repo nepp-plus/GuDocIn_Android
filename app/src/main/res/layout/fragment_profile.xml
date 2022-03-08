@@ -42,7 +42,7 @@
                     android:layout_marginStart="5dp"
                     android:text="koolunkle"
                     android:textColor="@color/black"
-                    android:textSize="17dp" />
+                    android:textSize="17sp" />
 
             </LinearLayout>
 
