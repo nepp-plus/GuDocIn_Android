@@ -32,7 +32,7 @@
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
-                <EditText
+                <com.neppplus.gudocin_android.utils.CustomEditText
                     android:id="@+id/edtEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -49,7 +49,7 @@
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
-                <EditText
+                <com.neppplus.gudocin_android.utils.CustomEditText
                     android:id="@+id/edtPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -72,7 +72,7 @@
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
-                <EditText
+                <com.neppplus.gudocin_android.utils.CustomEditText
                     android:id="@+id/edtPasswordConfirm"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -95,7 +95,7 @@
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
-                <EditText
+                <com.neppplus.gudocin_android.utils.CustomEditText
                     android:id="@+id/edtPhone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -112,7 +112,7 @@
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
-                <EditText
+                <com.neppplus.gudocin_android.utils.CustomEditText
                     android:id="@+id/edtAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -134,7 +134,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <EditText
+                    <com.neppplus.gudocin_android.utils.CustomEditText
                         android:id="@+id/edtNickname"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
