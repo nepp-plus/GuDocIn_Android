@@ -41,7 +41,7 @@
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
-                <EditText
+                <com.neppplus.gudocin_android.utils.CustomEditText
                     android:id="@+id/edtEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -58,7 +58,7 @@
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
-                <EditText
+                <com.neppplus.gudocin_android.utils.CustomEditText
                     android:id="@+id/edtPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

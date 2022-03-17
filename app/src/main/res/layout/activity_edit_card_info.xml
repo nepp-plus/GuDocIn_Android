@@ -17,7 +17,7 @@
             android:textColor="@color/black"
             android:textSize="17sp" />
 
-        <EditText
+        <com.neppplus.gudocin_android.utils.CustomEditText
             android:id="@+id/edtCardNum"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
             android:textColor="@color/black"
             android:textSize="17sp" />
 
-        <EditText
+        <com.neppplus.gudocin_android.utils.CustomEditText
             android:id="@+id/edtCardNickname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
             android:textColor="@color/black"
             android:textSize="17sp" />
 
-        <EditText
+        <com.neppplus.gudocin_android.utils.CustomEditText
             android:id="@+id/edtCardValid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
             android:textColor="@color/black"
             android:textSize="17sp" />
 
-        <EditText
+        <com.neppplus.gudocin_android.utils.CustomEditText
             android:id="@+id/edtCardBirth"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -77,7 +77,7 @@
             android:textColor="@color/black"
             android:textSize="17sp" />
 
-        <EditText
+        <com.neppplus.gudocin_android.utils.CustomEditText
             android:id="@+id/edtCardPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

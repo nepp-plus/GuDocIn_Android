@@ -68,7 +68,7 @@
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
-                <EditText
+                <com.neppplus.gudocin_android.utils.CustomEditText
                     android:id="@+id/edtCurrentPassword"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -80,7 +80,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <EditText
+                    <com.neppplus.gudocin_android.utils.CustomEditText
                         android:id="@+id/edtPassword"
                         android:layout_width="240dp"
                         android:layout_height="wrap_content"
@@ -121,7 +121,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <EditText
+                    <com.neppplus.gudocin_android.utils.CustomEditText
                         android:id="@+id/edtPhoneNum"
                         android:layout_width="240dp"
                         android:layout_height="wrap_content"
@@ -156,7 +156,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <EditText
+                    <com.neppplus.gudocin_android.utils.CustomEditText
                         android:id="@+id/edtNicknameCheck"
                         android:layout_width="135dp"
                         android:layout_height="wrap_content"
@@ -187,7 +187,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <EditText
+                    <com.neppplus.gudocin_android.utils.CustomEditText
                         android:id="@+id/edtNickname"
                         android:layout_width="225dp"
                         android:layout_height="wrap_content"
