@@ -49,7 +49,7 @@ class CustomEditText : AppCompatEditText, TextWatcher, View.OnTouchListener,
         clearDrawable.setBounds(0, 0, clearDrawable.intrinsicWidth, clearDrawable.intrinsicHeight)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             clearDrawable.colorFilter =
-                PorterDuffColorFilter(context.getColor(R.color.teal_200), PorterDuff.Mode.SRC_IN)
+                PorterDuffColorFilter(context.getColor(R.color.teal_700), PorterDuff.Mode.SRC_IN)
         }
         setClearIconVisible(false)
         super.setOnTouchListener(this)
@@ -90,7 +90,7 @@ class CustomEditText : AppCompatEditText, TextWatcher, View.OnTouchListener,
                 if (event.action == MotionEvent.ACTION_UP) {
                     error = null
                     text = null
-                    Toast.makeText(context, "메모 삭제", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "텍스트 삭제", Toast.LENGTH_SHORT).show()
                 }
                 return true
             }

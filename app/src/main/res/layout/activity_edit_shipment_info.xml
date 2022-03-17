@@ -17,7 +17,7 @@
             android:textColor="@color/black"
             android:textSize="17sp" />
 
-        <EditText
+        <com.neppplus.gudocin_android.utils.CustomEditText
             android:id="@+id/edtShipmentNickname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
             android:textColor="@color/black"
             android:textSize="17sp" />
 
-        <EditText
+        <com.neppplus.gudocin_android.utils.CustomEditText
             android:id="@+id/edtShipmentAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

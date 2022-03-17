@@ -30,7 +30,7 @@
                 android:layout_height="30dp"
                 android:src="@mipmap/ic_launcher" />
 
-            <EditText
+            <com.neppplus.gudocin_android.utils.CustomEditText
                 android:id="@+id/edtReply"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"

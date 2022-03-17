@@ -135,7 +135,7 @@
                             android:layout_marginTop="10dp"
                             android:entries="@array/shipment_options" />
 
-                        <EditText
+                        <com.neppplus.gudocin_android.utils.CustomEditText
                             android:id="@+id/edtShipmentOptions"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
