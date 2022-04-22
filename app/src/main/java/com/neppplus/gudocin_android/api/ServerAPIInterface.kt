@@ -158,7 +158,7 @@ interface ServerAPIInterface {
     @GET("/user/review")
     fun getRequestUserReview(): Call<BasicResponse>
 
-    // 사용자 구독상품 결제 목록
+    // 사용자 구독상품 구독 목록
     @GET("/user/payment")
     fun getRequestUserPayment(): Call<BasicResponse>
 

@@ -171,7 +171,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="상품결제"
+                    android:text="상품구독"
                     android:textColor="@color/black"
                     android:textSize="12sp"
                     android:textStyle="bold" />

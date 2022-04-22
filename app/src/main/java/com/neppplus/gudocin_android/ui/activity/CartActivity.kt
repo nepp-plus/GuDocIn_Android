@@ -6,10 +6,10 @@ import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.neppplus.gudocin_android.R
-import com.neppplus.gudocin_android.ui.adapter.CartRecyclerViewAdapter
 import com.neppplus.gudocin_android.databinding.ActivityCartBinding
 import com.neppplus.gudocin_android.model.BasicResponse
 import com.neppplus.gudocin_android.model.CartData
+import com.neppplus.gudocin_android.ui.adapter.CartRecyclerViewAdapter
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -60,10 +60,9 @@ class CartActivity : BaseActivity() {
 
     override fun setValues() {
         getCartFromServer()
-
         mCartRecyclerViewAdapter = CartRecyclerViewAdapter(mContext, mCartList)
-        binding.cartListRecyclerView.adapter = mCartRecyclerViewAdapter
-        binding.cartListRecyclerView.layoutManager = LinearLayoutManager(mContext)
+        binding.rvCart.adapter = mCartRecyclerViewAdapter
+        binding.rvCart.layoutManager = LinearLayoutManager(mContext)
 
         btnShopping.visibility = View.GONE
         btnCart.visibility = View.GONE
@@ -77,14 +76,7 @@ class CartActivity : BaseActivity() {
                     mCartList.clear()
                     mCartList.addAll(br.data.carts)
                     mCartRecyclerViewAdapter.notifyDataSetChanged()
-
-                    for (data in mCartList) {
-                        if (data.product.price != null) {
-                            total += data.product.price!!
-                        }
-                    }
-                    var KRW = "${NumberFormat.getInstance(Locale.KOREA).format(total)}원"
-                    binding.txtTotalPrice.text = KRW
+                    calculator()
                 }
             }
 
@@ -92,6 +84,16 @@ class CartActivity : BaseActivity() {
 
             }
         })
+    }
+
+    fun calculator() {
+        for (data in mCartList) {
+            if (data.product.price != null) {
+                total += data.product.price!!
+            }
+        }
+        var KRW = "${NumberFormat.getInstance(Locale.KOREA).format(total)}원"
+        binding.txtPrice.text = KRW
     }
 
 }

@@ -26,22 +26,22 @@ class CartRecyclerViewAdapter(
 ) : RecyclerView.Adapter<CartRecyclerViewAdapter.CartViewHolder>() {
 
     inner class CartViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        lateinit var apiService : ServerAPIInterface
+        lateinit var apiService: ServerAPIInterface
         val retrofit = ServerAPI.getRetrofit(mContext)
 
         val imgProduct = view.findViewById<ImageView>(R.id.imgProduct)
-        val txtProductName = view.findViewById<TextView>(R.id.txtProductName)
+        val txtProduct = view.findViewById<TextView>(R.id.txtProduct)
         val txtPrice = view.findViewById<TextView>(R.id.txtPrice)
-        val imgDeleteSubscribe = view.findViewById<ImageView>(R.id.imgDelete)
+        val imgDelete = view.findViewById<ImageView>(R.id.imgDelete)
 
         fun bind(data: CartData) {
-            txtProductName.text = data.product.name
+            apiService = retrofit.create(ServerAPIInterface::class.java)
+
+            txtProduct.text = data.product.name
             txtPrice.text = data.product.getFormattedPrice()
             Glide.with(mContext).load(data.product.imageUrl).into(imgProduct)
 
-            apiService = retrofit.create(ServerAPIInterface::class.java)
-
-            imgDeleteSubscribe.setOnClickListener {
+            imgDelete.setOnClickListener {
                 apiService.deleteRequestCart(data.product.id)
                     .enqueue(object : Callback<BasicResponse> {
                         override fun onResponse(
