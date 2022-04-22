@@ -20,7 +20,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/txtStoreName"
+            android:id="@+id/txtStore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="가게명"
@@ -29,7 +29,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/txtProductName"
+        android:id="@+id/txtProduct"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"

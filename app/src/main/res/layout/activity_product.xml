@@ -3,12 +3,10 @@
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
-        android:orientation="vertical"
-        tools:context=".activities.ProductActivity">
+        android:orientation="vertical">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -37,7 +35,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/txtProductName"
+                        android:id="@+id/txtProduct"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="상품명 "
@@ -87,9 +85,8 @@
                     android:textColor="@color/black"
                     android:textStyle="bold" />
 
-                <!-- Horizontal RecyclerView -->
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/reviewRecyclerView"
+                    android:id="@+id/rvReview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
@@ -101,7 +98,7 @@
                     android:background="@color/black" />
 
                 <com.google.android.material.tabs.TabLayout
-                    android:id="@+id/ProductContentTabLayout"
+                    android:id="@+id/tlContent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:tabGravity="start"
@@ -111,7 +108,7 @@
                     app:tabTextColor="@color/dark_gray7" />
 
                 <com.neppplus.gudocin_android.utils.CustomViewPager
-                    android:id="@+id/ProductContentViewPager"
+                    android:id="@+id/vpContent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
@@ -129,7 +126,7 @@
             android:shadowRadius="3">
 
             <LinearLayout
-                android:id="@+id/layoutCart"
+                android:id="@+id/llCart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -158,7 +155,7 @@
                 android:layout_weight="1" />
 
             <LinearLayout
-                android:id="@+id/layoutCredit"
+                android:id="@+id/llCredit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="20dp"

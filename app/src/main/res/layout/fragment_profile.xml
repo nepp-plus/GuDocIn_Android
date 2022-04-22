@@ -98,7 +98,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/txtSubscriptionHistoryList"
+                    android:id="@+id/txtHistory"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"

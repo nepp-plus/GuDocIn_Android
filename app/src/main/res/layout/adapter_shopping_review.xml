@@ -5,11 +5,11 @@
     android:background="@color/white">
 
     <LinearLayout
-        android:id="@+id/layoutReviewDetail"
+        android:id="@+id/llDetailReview"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_margin="10dp"
-        android:background="@drawable/corner_shape_for_review"
+        android:background="@drawable/corner_shape_review"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:outlineSpotShadowColor="@color/black"
@@ -28,7 +28,7 @@
             android:layout_weight="1" />
 
         <TextView
-            android:id="@+id/txtReviewTitle"
+            android:id="@+id/txtTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="리뷰제목"
@@ -41,7 +41,7 @@
             android:layout_weight="1" />
 
         <TextView
-            android:id="@+id/txtReviewerName"
+            android:id="@+id/txtReviewer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="작성자"

@@ -29,14 +29,14 @@
         android:textSize="18sp" />
 
     <ImageView
-        android:id="@+id/btnExplore"
+        android:id="@+id/btnShopping"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_margin="2dp"
-        android:src="@drawable/explore_icon" />
+        android:src="@drawable/shopping_icon" />
 
     <!-- <LinearLayout
-        android:id="@+id/exploreBoxInActionBar"
+        android:id="@+id/shoppingBoxInActionBar"
         android:layout_width="250dp"
         android:layout_height="30dp"
         android:layout_gravity="bottom"
@@ -45,8 +45,8 @@
         android:background="@drawable/corner_shape_for_explore_product"
         android:visibility="invisible">
 
-l        <TextView
-            android:id="@+id/txtExplore"
+         <TextView
+            android:id="@+id/txtShopping"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

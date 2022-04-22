@@ -7,7 +7,7 @@
     android:padding="7dp">
 
     <LinearLayout
-        android:id="@+id/layoutRoot"
+        android:id="@+id/llRoot"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="bottom"
@@ -29,14 +29,14 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/txtStoreName"
+                android:id="@+id/txtStore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="가게명"
                 android:textColor="@color/black" />
 
             <TextView
-                android:id="@+id/txtProductName"
+                android:id="@+id/txtProduct"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="상품명"
@@ -54,13 +54,13 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/layoutReviewDetail"
+        android:id="@+id/llDetailReview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp">
 
         <TextView
-            android:id="@+id/txtReviewDetail"
+            android:id="@+id/txtDetailReview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="리뷰 더보기"
@@ -69,12 +69,12 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/layoutReviewItem"
+        android:id="@+id/llReviewItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:background="@drawable/corner_shape_for_review"
+        android:background="@drawable/corner_shape_review"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:outlineSpotShadowColor="@color/black"
@@ -82,14 +82,14 @@
         android:visibility="visible">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/imgReview"
+            android:id="@+id/imgProfile"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:scaleType="centerCrop"
             android:src="@mipmap/ic_launcher" />
 
         <TextView
-            android:id="@+id/txtReviewTitle"
+            android:id="@+id/txtTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"

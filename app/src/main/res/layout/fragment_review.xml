@@ -7,12 +7,10 @@
         android:background="@color/white"
         android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/imgHomeBanner"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvReview"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:scaleType="centerCrop"
-            android:src="@mipmap/ic_launcher" />
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 

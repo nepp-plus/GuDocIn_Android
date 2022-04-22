@@ -16,7 +16,6 @@
             android:gravity="center_horizontal"
             android:orientation="horizontal">
 
-
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/imgFoodCategory"
                 android:layout_width="100dp"
@@ -47,7 +46,7 @@
             android:scrollbars="none">
 
             <LinearLayout
-                android:id="@+id/layoutSmallCategoryList"
+                android:id="@+id/llCategory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">

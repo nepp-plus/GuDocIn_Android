@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/navEat"
+        android:id="@+id/navFood"
         android:enabled="true"
-        android:icon="@drawable/nav_eat"
+        android:icon="@drawable/nav_food"
         android:title="식품" />
     <item
-        android:id="@+id/navWear"
-        android:icon="@drawable/nav_wear"
+        android:id="@+id/navClothes"
+        android:icon="@drawable/nav_clothes"
         android:title="의류" />
     <item
         android:id="@+id/navLife"

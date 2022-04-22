@@ -13,7 +13,7 @@
             android:orientation="vertical">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/reviewListRecyclerView"
+                android:id="@+id/rvReview"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 

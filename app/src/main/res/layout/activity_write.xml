@@ -3,11 +3,9 @@
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
-        tools:context=".activities.WriteReviewActivity">
+        android:background="@color/white">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -17,12 +15,12 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txtProductName"
+                    android:id="@+id/txtProduct"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="구독상품"
@@ -31,7 +29,7 @@
                     android:textStyle="bold" />
 
                 <com.neppplus.gudocin_android.utils.CustomEditText
-                    android:id="@+id/edtReviewTitle"
+                    android:id="@+id/edtTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -74,7 +72,7 @@
                         android:textSize="17sp" />
 
                     <TextView
-                        android:id="@+id/txtReviewDate"
+                        android:id="@+id/txtDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="2021.11.26"
@@ -97,10 +95,10 @@
                     android:orientation="vertical">
 
                     <LinearLayout
-                        android:id="@+id/layoutSelectImage"
+                        android:id="@+id/llSelectImage"
                         android:layout_width="match_parent"
                         android:layout_height="400dp"
-                        android:background="@drawable/review_image_upload_box"
+                        android:background="@drawable/image_upload_box_review"
                         android:gravity="center"
                         android:orientation="vertical">
 
@@ -126,22 +124,20 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="5dp"
                     android:isIndicator="false"
                     app:srb_stepSize="0.5" />
 
                 <com.neppplus.gudocin_android.utils.CustomEditText
-                    android:id="@+id/edtReviewContent"
+                    android:id="@+id/edtContent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:hint="리뷰 내용을 작성해주세요"
-                    android:textSize="20sp" />
+                    android:textSize="17sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -161,7 +157,7 @@
                         android:textSize="17sp" />
 
                     <com.nex3z.flowlayout.FlowLayout
-                        android:id="@+id/tagListLayout"
+                        android:id="@+id/flTag"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:flRowSpacing="5dp">
@@ -171,10 +167,9 @@
                 </LinearLayout>
 
                 <Button
-                    android:id="@+id/btnReviewUpload"
+                    android:id="@+id/btnUpload"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="10dp"
                     android:backgroundTint="@color/white"
                     android:text="작성완료" />
 

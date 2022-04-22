@@ -8,13 +8,13 @@
         android:orientation="vertical">
 
         <androidx.viewpager.widget.ViewPager
-            android:id="@+id/bannerViewPager"
+            android:id="@+id/vpBanner"
             android:layout_width="match_parent"
             android:layout_height="200dp" />
 
         <fragment
-            android:id="@+id/homeCategoryFragment"
-            class="com.neppplus.gudocin_android.fragments.categories.HomeCategoryListFragment"
+            android:id="@+id/fragmentCategory"
+            class="com.neppplus.gudocin_android.ui.fragment.categories.CategoryFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

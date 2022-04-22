@@ -20,10 +20,10 @@
                 android:layout_width="200dp"
                 android:layout_height="200dp"
                 android:layout_gravity="center"
-                android:src="@drawable/life_category_icon" />
+                android:src="@drawable/food_category_icon" />
 
             <LinearLayout
-                android:id="@+id/layoutSmallCategoryList"
+                android:id="@+id/llCategory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -32,7 +32,7 @@
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/productListRecyclerView"
+                android:id="@+id/rvProduct"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
