@@ -12,7 +12,6 @@ import java.util.*
 class ServerAPI {
 
     companion object {
-
         private var BASE_URL = "https://api.gudoc.in"
         private var retrofit: Retrofit? = null
 
@@ -46,7 +45,6 @@ class ServerAPI {
             }
             return retrofit!!
         }
-
     }
 
 }

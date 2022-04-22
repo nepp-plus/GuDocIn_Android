@@ -41,9 +41,6 @@
             android:name="com.neppplus.gudocin_android.ui.activity.MainActivity"
             android:exported="true" />
         <activity
-            android:name="com.neppplus.gudocin_android.ui.activity.PaymentActivity"
-            android:exported="true" />
-        <activity
             android:name="com.neppplus.gudocin_android.ui.activity.ProductActivity"
             android:exported="true" />
         <activity
