@@ -51,12 +51,12 @@ class SignUpActivity : BaseActivity() {
         setupEvents()
         setValues()
 
-        binding.btnGoogleLogin.setOnClickListener {
+       /* binding.btnGoogleLogin.setOnClickListener {
             startActivityForResult(googleSignInIntent, LoginActivity.RESULT_CODE)
-        }
+        }*/
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+   /* override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         callbackManager.onActivityResult(requestCode, resultCode, data)
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK && requestCode == LoginActivity.RESULT_CODE) {
@@ -102,7 +102,7 @@ class SignUpActivity : BaseActivity() {
                 })
             }
         }
-    }
+    }*/
 
     override fun setupEvents() {
         binding.btnKakaoLogin.setOnClickListener {
