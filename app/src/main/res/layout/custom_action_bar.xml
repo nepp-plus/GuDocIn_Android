@@ -42,7 +42,7 @@
         android:layout_gravity="bottom"
         android:layout_marginStart="20dp"
         android:layout_marginBottom="7dp"
-        android:background="@drawable/corner_shape_for_explore_product"
+        android:background="@drawable/corner_shape"
         android:visibility="invisible">
 
          <TextView
@@ -72,16 +72,6 @@
             android:layout_marginStart="10dp"
             android:scaleType="centerCrop"
             android:src="@drawable/cart_icon" />
-
-        <ImageView
-            android:id="@+id/btnAdd"
-            android:layout_width="30dp"
-            android:layout_height="33dp"
-            android:layout_gravity="right"
-            android:layout_marginStart="10dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/add_icon"
-            android:visibility="gone" />
 
     </LinearLayout>
 
