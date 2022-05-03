@@ -19,81 +19,96 @@ import kotlin.collections.ArrayList
 
 class CartActivity : BaseActivity() {
 
-    lateinit var binding: ActivityCartBinding
+  lateinit var binding: ActivityCartBinding
 
-    val mCartList = ArrayList<CartData>()
+  lateinit var mCartRecyclerViewAdapter: CartRecyclerViewAdapter
 
-    lateinit var mCartRecyclerViewAdapter: CartRecyclerViewAdapter
+  val mCartList = ArrayList<CartData>()
 
-    var total = 0
+  var total = 0
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_cart)
-        setupEvents()
-        setValues()
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    binding = DataBindingUtil.setContentView(this, R.layout.activity_cart)
+    binding.cart = this
+    setupEvents()
+    setValues()
+  }
+
+  override fun setupEvents() {
+    binding.swipeRefresh.setOnRefreshListener {
+      try {
+        val intent = intent
+        finish() // 현재 액티비티 종료 실시
+        overridePendingTransition(0, 0) // 인텐트 애니메이션 없애기
+        startActivity(intent) // 현재 액티비티 재실행 실시
+        overridePendingTransition(0, 0) // 인텐트 애니메이션 없애기
+      } catch (e: Exception) {
+        e.printStackTrace()
+      }
+      binding.swipeRefresh.isRefreshing = false
     }
+  }
 
-    override fun setupEvents() {
-        binding.btnSubscribe.setOnClickListener {
-            val myIntent = Intent(mContext, DummyActivity::class.java)
-            startActivity(myIntent)
+  override fun setValues() {
+    getCartFromServer()
+
+    mCartRecyclerViewAdapter = CartRecyclerViewAdapter(mContext, mCartList)
+    binding.rvCart.adapter = mCartRecyclerViewAdapter
+    binding.rvCart.layoutManager = LinearLayoutManager(mContext)
+
+    btnShopping.visibility = View.GONE
+    btnCart.visibility = View.GONE
+  }
+
+  private fun getCartFromServer() {
+    apiService.getRequestCart().enqueue(object : Callback<BasicResponse> {
+      override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
+        if (response.isSuccessful) {
+          val br = response.body()!!
+          mCartList.clear()
+          mCartList.addAll(br.data.carts)
+          mCartRecyclerViewAdapter.notifyDataSetChanged()
+          calculator()
         }
+      }
 
-        binding.swipeRefresh.setOnRefreshListener {
-            try {
-                val intent = intent
-                finish() // 현재 액티비티 종료 실시
-                overridePendingTransition(0, 0) // 인텐트 애니메이션 없애기
-                startActivity(intent) // 현재 액티비티 재실행 실시
-                overridePendingTransition(0, 0) // 인텐트 애니메이션 없애기
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
-            binding.swipeRefresh.isRefreshing = false
-        }
+      override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
 
-        /* binding.layoutScroll.viewTreeObserver.addOnScrollChangedListener {
-            binding.swipeRefresh.isEnabled = (binding.layoutScroll.scrollY == 0)
-        } */
+      }
+    })
+  }
+
+  fun swipeRefresh(view: View) {
+    try {
+      val intent = intent
+      finish() // 현재 액티비티 종료 실시
+      overridePendingTransition(0, 0) // 인텐트 애니메이션 없애기
+      startActivity(intent) // 현재 액티비티 재실행 실시
+      overridePendingTransition(0, 0) // 인텐트 애니메이션 없애기
+    } catch (e: Exception) {
+      e.printStackTrace()
     }
+    binding.swipeRefresh.isRefreshing = false
 
-    override fun setValues() {
-        getCartFromServer()
-        mCartRecyclerViewAdapter = CartRecyclerViewAdapter(mContext, mCartList)
-        binding.rvCart.adapter = mCartRecyclerViewAdapter
-        binding.rvCart.layoutManager = LinearLayoutManager(mContext)
+    /* binding.layoutScroll.viewTreeObserver.addOnScrollChangedListener {
+        binding.swipeRefresh.isEnabled = (binding.layoutScroll.scrollY == 0)
+    } */
+  }
 
-        btnShopping.visibility = View.GONE
-        btnCart.visibility = View.GONE
+  fun startDummy(view: View) {
+    val myIntent = Intent(mContext, DummyActivity::class.java)
+    startActivity(myIntent)
+  }
+
+  private fun calculator() {
+    for (data in mCartList) {
+      if (data.product.price != null) {
+        total += data.product.price!!
+      }
     }
-
-    fun getCartFromServer() {
-        apiService.getRequestCart().enqueue(object : Callback<BasicResponse> {
-            override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
-                if (response.isSuccessful) {
-                    val br = response.body()!!
-                    mCartList.clear()
-                    mCartList.addAll(br.data.carts)
-                    mCartRecyclerViewAdapter.notifyDataSetChanged()
-                    calculator()
-                }
-            }
-
-            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-
-            }
-        })
-    }
-
-    fun calculator() {
-        for (data in mCartList) {
-            if (data.product.price != null) {
-                total += data.product.price!!
-            }
-        }
-        var KRW = "${NumberFormat.getInstance(Locale.KOREA).format(total)}원"
-        binding.txtPrice.text = KRW
-    }
+    var won = "${NumberFormat.getInstance(Locale.KOREA).format(total)}원"
+    binding.txtPrice.text = won
+  }
 
 }
