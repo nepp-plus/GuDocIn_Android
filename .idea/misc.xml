@@ -3,6 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android Project/GudocIn_Android/app/src/main/res/layout/activity_cart.xml" value="0.2957427536231884" />
+        <entry key="..\:/Android Project/GudocIn_Android/app/src/main/res/layout/activity_dummy.xml" value="0.3500905797101449" />
+        <entry key="..\:/Android Project/GudocIn_Android/app/src/main/res/layout/activity_login.xml" value="0.17806484295845998" />
+        <entry key="..\:/Android Project/GudocIn_Android/app/src/main/res/layout/activity_write.xml" value="0.3500905797101449" />
+        <entry key="..\:/Android Project/GudocIn_Android/app/src/main/res/layout/adapter_category.xml" value="0.3500905797101449" />
+        <entry key="..\:/Android Project/GudocIn_Android/app/src/main/res/layout/adapter_detail_category.xml" value="0.3500905797101449" />
+        <entry key="..\:/Android Project/GudocIn_Android/app/src/main/res/layout/custom_action_bar.xml" value="0.3500905797101449" />
+        <entry key="..\:/Android Project/GudocIn_Android/app/src/main/res/layout/fragment_home.xml" value="0.3500905797101449" />
         <entry key="..\:/GuDocIn_Android_1/app/src/main/res/layout/activity_login.xml" value="0.25364583333333335" />
         <entry key="..\:/GuDocIn_Android_1/app/src/main/res/layout/activity_review.xml" value="0.25364583333333335" />
         <entry key="..\:/GuDocIn_Android_1/app/src/main/res/layout/fragment_home.xml" value="0.1296875" />

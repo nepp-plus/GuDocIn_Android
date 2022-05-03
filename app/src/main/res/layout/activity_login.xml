@@ -1,127 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+  <data>
+
+    <variable
+      name="login"
+      type="com.neppplus.gudocin_android.ui.activity.LoginActivity" />
+  </data>
+
+  <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:gravity="center"
+      android:orientation="vertical"
+      android:padding="20dp">
+
+      <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="20dp">
+        <ImageView
+          android:layout_width="match_parent"
+          android:layout_height="300dp"
+          android:layout_gravity="center"
+          android:src="@drawable/title_logo" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+      </LinearLayout>
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="300dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/title_logo" />
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-            </LinearLayout>
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="이메일"
+          android:textColor="@color/black"
+          android:textSize="17sp"
+          android:textStyle="bold" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+        <com.neppplus.gudocin_android.utils.CustomEditText
+          android:id="@+id/edtEmail"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:hint="이메일을 입력하세요"
+          android:inputType="textEmailAddress"
+          android:singleLine="true" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="이메일"
-                    android:textColor="@color/black"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="5dp"
+          android:text="비밀번호"
+          android:textColor="@color/black"
+          android:textSize="17sp"
+          android:textStyle="bold" />
 
-                <com.neppplus.gudocin_android.utils.CustomEditText
-                    android:id="@+id/edtEmail"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="이메일을 입력하세요"
-                    android:inputType="textEmailAddress"
-                    android:singleLine="true" />
+        <com.neppplus.gudocin_android.utils.CustomEditText
+          android:id="@+id/edtPassword"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:hint="비밀번호를 입력하세요"
+          android:inputType="textPassword"
+          android:singleLine="true" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="비밀번호"
-                    android:textColor="@color/black"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
+      </LinearLayout>
 
-                <com.neppplus.gudocin_android.utils.CustomEditText
-                    android:id="@+id/edtPassword"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="비밀번호를 입력하세요"
-                    android:inputType="textPassword"
-                    android:singleLine="true" />
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
-            </LinearLayout>
+        <CheckBox
+          android:id="@+id/checkAutoLogin"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:buttonTint="@color/black"
+          android:onCheckedChanged="@{login.setAutoLogin}"
+          android:text="자동 로그인"
+          android:textSize="15sp" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
+      </LinearLayout>
 
-                <CheckBox
-                    android:id="@+id/checkAutoLogin"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:buttonTint="@color/black"
-                    android:text="자동 로그인"
-                    android:textSize="15sp" />
+      <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:onClick="@{login::generalLogin}"
+        android:text="로그인" />
 
-            </LinearLayout>
+      <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:gravity="center"
+        android:orientation="vertical">
 
-            <Button
-                android:id="@+id/btnLogin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/white"
-                android:text="로그인" />
+        <Button
+          android:id="@+id/btnKakaoLogin"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:backgroundTint="@color/white"
+          android:onClick="@{login::kakaoLogin}"
+          android:text="카카오 로그인" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="70dp"
-                android:gravity="center"
-                android:orientation="vertical">
+        <Button
+          android:id="@+id/btnGoogleLogin"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:backgroundTint="@color/white"
+          android:onClick="@{login::googleLogin}"
+          android:text="구글 로그인" />
 
-                <Button
-                    android:id="@+id/btnKakaoLogin"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/white"
-                    android:text="카카오 로그인" />
+        <Button
+          android:id="@+id/btnFacebookLogin"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:backgroundTint="@color/white"
+          android:onClick="@{login::facebookLogin}"
+          android:text="페이스북 로그인" />
 
-                <Button
-                    android:id="@+id/btnGoogleLogin"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/white"
-                    android:text="구글 로그인" />
+      </LinearLayout>
 
-                <Button
-                    android:id="@+id/btnFacebookLogin"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/white"
-                    android:text="페이스북 로그인" />
+    </LinearLayout>
 
-            </LinearLayout>
-
-        </LinearLayout>
-
-    </ScrollView>
+  </ScrollView>
 
 </layout>
 

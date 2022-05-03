@@ -110,7 +110,6 @@ class StartActivity : BaseActivity() {
                     myIntent = Intent(mContext, LoginActivity::class.java)
                 }
                 startActivity(myIntent)
-                finish()
             }, 1000)
         }
 
