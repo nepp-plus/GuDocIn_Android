@@ -1,214 +1,227 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout>
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+  <data>
+
+    <variable
+      name="profile"
+      type="com.neppplus.gudocin_android.ui.activity.ProfileActivity" />
+  </data>
+
+  <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:padding="20dp">
+
+      <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <LinearLayout
-            android:layout_width="match_parent"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_margin="20dp"
+          android:gravity="center"
+          android:orientation="vertical">
+
+          <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imgProfile"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:onClick="@{profile::profileChange}"
+            android:src="@mipmap/ic_launcher"
+            app:civ_border_width="2dp" />
+
+          <LinearLayout
+            android:id="@+id/btnEditNickname"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="20dp">
+            android:layout_marginTop="3dp"
+            android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+            <ImageView
+              android:id="@+id/imgProvider"
+              android:layout_width="20dp"
+              android:layout_height="20dp"
+              android:layout_marginTop="3dp"
+              android:src="@drawable/kakao_logo" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
-                    android:gravity="center"
-                    android:orientation="vertical">
+            <TextView
+              android:id="@+id/txtNickname"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginStart="5dp"
+              android:text="koolunkle"
+              android:textColor="@color/black"
+              android:textSize="17sp" />
 
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/imgProfile"
-                        android:layout_width="200dp"
-                        android:layout_height="200dp"
-                        android:src="@mipmap/ic_launcher"
-                        app:civ_border_width="2dp" />
-
-                    <LinearLayout
-                        android:id="@+id/btnEditNickname"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="3dp"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:id="@+id/imgProvider"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_marginTop="3dp"
-                            android:src="@drawable/kakao_logo" />
-
-                        <TextView
-                            android:id="@+id/txtNickname"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="5dp"
-                            android:text="koolunkle"
-                            android:textColor="@color/black"
-                            android:textSize="17sp" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:text="비밀번호 수정"
-                    android:textColor="@color/black"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
-
-                <com.neppplus.gudocin_android.utils.CustomEditText
-                    android:id="@+id/edtPassword"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="현재 비밀번호를 입력하세요"
-                    android:inputType="textPassword" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <com.neppplus.gudocin_android.utils.CustomEditText
-                        android:id="@+id/edtNewPassword"
-                        android:layout_width="240dp"
-                        android:layout_height="wrap_content"
-                        android:hint="새로운 비밀번호를 입력하세요"
-                        android:inputType="textPassword" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
-
-                    <Button
-                        android:id="@+id/btnPasswordChange"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@color/white"
-                        android:text="수정" />
-
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/txtPasswordCheck"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=" 비밀번호는 8자리 이상이어야 합니다" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="전화번호 수정"
-                    android:textColor="@color/black"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <com.neppplus.gudocin_android.utils.CustomEditText
-                        android:id="@+id/edtPhoneNum"
-                        android:layout_width="240dp"
-                        android:layout_height="wrap_content"
-                        android:hint="새로운 전화번호를 입력하세요"
-                        android:inputType="phone" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
-
-                    <Button
-                        android:id="@+id/btnPhoneNumChange"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@color/white"
-                        android:text="수정" />
-
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="닉네임 수정"
-                    android:textColor="@color/black"
-                    android:textSize="17sp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <com.neppplus.gudocin_android.utils.CustomEditText
-                        android:id="@+id/edtNicknameCheck"
-                        android:layout_width="135dp"
-                        android:layout_height="wrap_content"
-                        android:hint="닉네임 중복 확인" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
-
-                    <Button
-                        android:id="@+id/btnNicknameCheck"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@color/white"
-                        android:text="확인" />
-
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/txtNicknameCheck"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text=" 닉네임 중복 확인을 진행해야 합니다" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <com.neppplus.gudocin_android.utils.CustomEditText
-                        android:id="@+id/edtNickname"
-                        android:layout_width="225dp"
-                        android:layout_height="wrap_content"
-                        android:hint="새로운 닉네임을 입력하세요" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
-
-                    <Button
-                        android:id="@+id/btnNicknameChange"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:backgroundTint="@color/white"
-                        android:text="수정" />
-
-                </LinearLayout>
-
-            </LinearLayout>
+          </LinearLayout>
 
         </LinearLayout>
 
-    </ScrollView>
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="30dp"
+          android:text="비밀번호 수정"
+          android:textColor="@color/black"
+          android:textSize="17sp"
+          android:textStyle="bold" />
+
+        <com.neppplus.gudocin_android.utils.CustomEditText
+          android:id="@+id/edtPassword"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:hint="현재 비밀번호를 입력하세요"
+          android:inputType="textPassword" />
+
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal">
+
+          <com.neppplus.gudocin_android.utils.CustomEditText
+            android:id="@+id/edtNewPassword"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:hint="새로운 비밀번호를 입력하세요"
+            android:inputType="textPassword" />
+
+          <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+          <Button
+            android:id="@+id/btnPasswordChange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:onClick="@{profile::passwordChange}"
+            android:text="수정" />
+
+        </LinearLayout>
+
+        <TextView
+          android:id="@+id/txtPasswordCheck"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text=" 비밀번호는 8자리 이상이어야 합니다" />
+
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="10dp"
+          android:text="전화번호 수정"
+          android:textColor="@color/black"
+          android:textSize="17sp"
+          android:textStyle="bold" />
+
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal">
+
+          <com.neppplus.gudocin_android.utils.CustomEditText
+            android:id="@+id/edtPhoneNum"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:hint="새로운 전화번호를 입력하세요"
+            android:inputType="phone" />
+
+          <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+          <Button
+            android:id="@+id/btnPhoneNumChange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:onClick="@{profile::phoneNumChange}"
+            android:text="수정" />
+
+        </LinearLayout>
+
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="10dp"
+          android:text="닉네임 수정"
+          android:textColor="@color/black"
+          android:textSize="17sp"
+          android:textStyle="bold" />
+
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal">
+
+          <com.neppplus.gudocin_android.utils.CustomEditText
+            android:id="@+id/edtNicknameCheck"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
+            android:hint="닉네임 중복 확인" />
+
+          <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+          <Button
+            android:id="@+id/btnNicknameCheck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:onClick="@{profile::nicknameCheck}"
+            android:text="확인" />
+
+        </LinearLayout>
+
+        <TextView
+          android:id="@+id/txtNicknameCheck"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text=" 닉네임 중복 확인을 진행해야 합니다" />
+
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal">
+
+          <com.neppplus.gudocin_android.utils.CustomEditText
+            android:id="@+id/edtNickname"
+            android:layout_width="225dp"
+            android:layout_height="wrap_content"
+            android:hint="새로운 닉네임을 입력하세요" />
+
+          <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+          <Button
+            android:id="@+id/btnNicknameChange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:onClick="@{profile::nicknameChange}"
+            android:text="수정" />
+
+        </LinearLayout>
+
+      </LinearLayout>
+
+    </LinearLayout>
+
+  </ScrollView>
 
 </layout>
