@@ -34,7 +34,8 @@
       app:layout_constraintHorizontal_bias="0.0"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/viewPager"
-      app:menu="@menu/bottom_navigation_main" />
+      app:menu="@menu/bottom_navigation_main"
+      app:onItemSelectedListener="@{main::navigation}" />
 
   </androidx.constraintlayout.widget.ConstraintLayout>
 

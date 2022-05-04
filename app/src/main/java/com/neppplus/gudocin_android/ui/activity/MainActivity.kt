@@ -35,24 +35,18 @@ class MainActivity : BaseActivity() {
 
   var backKeyPressedTime: Long = 0
 
+  @RequiresApi(Build.VERSION_CODES.P)
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+    binding.main = this
     setupEvents()
     setValues()
   }
 
-  override fun setupEvents() {
-    binding.bottomNav.setOnItemSelectedListener {
-      when (it.itemId) {
-        R.id.navHome -> binding.viewPager.currentItem = 0
-        R.id.navReview -> binding.viewPager.currentItem = 1
-        else -> binding.viewPager.currentItem = 2
-      }
-      true
-    }
-  }
+  override fun setupEvents() {}
 
+  @RequiresApi(Build.VERSION_CODES.P)
   override fun setValues() {
     getDeviceToken()
     getKeyHash()
@@ -103,13 +97,13 @@ class MainActivity : BaseActivity() {
     false // setOnTouchListener
   }
 
-  fun navigation(item: MenuItem) {
+  fun navigation(item: MenuItem): Boolean {
     when (item.itemId) {
       R.id.navHome -> binding.viewPager.currentItem = 0
       R.id.navReview -> binding.viewPager.currentItem = 1
       else -> binding.viewPager.currentItem = 2
     }
-    true // setOnItemSelectedListener
+    return true // setOnItemSelectedListener
   }
 
   private fun getDeviceToken() {
