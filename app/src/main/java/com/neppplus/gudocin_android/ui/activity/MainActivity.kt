@@ -50,7 +50,10 @@ class MainActivity : BaseActivity() {
   override fun setValues() {
     getDeviceToken()
     getKeyHash()
+    viewpagerAdapter()
+  }
 
+  private fun viewpagerAdapter() {
     binding.viewPager.apply {
       adapter = ViewPagerAdapter(this@MainActivity)
       registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
@@ -112,13 +115,9 @@ class MainActivity : BaseActivity() {
         "android_device_token",
         ContextUtil.getDeviceToken(mContext)
       ).enqueue(object : Callback<BasicResponse> {
-        override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
+        override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {}
 
-        }
-
-        override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-
-        }
+        override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
       })
     }
   }

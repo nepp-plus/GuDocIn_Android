@@ -87,9 +87,7 @@ class LoginActivity : BaseActivity() {
         }
       }
 
-      override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-
-      }
+      override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
     })
   }
 
@@ -152,9 +150,7 @@ class LoginActivity : BaseActivity() {
             }
           }
 
-          override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-
-          }
+          override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
         })
       }
     }
@@ -190,9 +186,7 @@ class LoginActivity : BaseActivity() {
               }
             }
 
-            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-
-            }
+            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
           })
         }
       }
@@ -226,11 +220,7 @@ class LoginActivity : BaseActivity() {
                 }
               }
 
-              override fun onFailure(
-                call: Call<BasicResponse>,
-                t: Throwable
-              ) {
-              }
+              override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
             })
         }
         graphApiRequest.executeAsync()
@@ -240,9 +230,7 @@ class LoginActivity : BaseActivity() {
 
       }
 
-      override fun onError(error: FacebookException?) {
-
-      }
+      override fun onError(error: FacebookException?) {}
     })
   }
 

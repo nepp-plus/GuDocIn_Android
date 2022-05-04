@@ -39,11 +39,7 @@ class CartActivity : BaseActivity() {
 
   override fun setValues() {
     getCartFromServer()
-
-    mCartRecyclerViewAdapter = CartRecyclerViewAdapter(mContext, mCartList)
-    binding.rvCart.adapter = mCartRecyclerViewAdapter
-    binding.rvCart.layoutManager = LinearLayoutManager(mContext)
-
+    recyclerviewAdapter()
     btnShopping.visibility = View.GONE
     btnCart.visibility = View.GONE
   }
@@ -60,9 +56,7 @@ class CartActivity : BaseActivity() {
         }
       }
 
-      override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-
-      }
+      override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
     })
   }
 
@@ -86,6 +80,12 @@ class CartActivity : BaseActivity() {
   fun startDummy(view: View) {
     val myIntent = Intent(mContext, DummyActivity::class.java)
     startActivity(myIntent)
+  }
+
+  fun recyclerviewAdapter() {
+    mCartRecyclerViewAdapter = CartRecyclerViewAdapter(mContext, mCartList)
+    binding.rvCart.adapter = mCartRecyclerViewAdapter
+    binding.rvCart.layoutManager = LinearLayoutManager(mContext)
   }
 
   private fun calculator() {
