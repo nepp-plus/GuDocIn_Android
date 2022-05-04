@@ -1,52 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+  <data>
+
+    <variable
+      name="product"
+      type="com.neppplus.gudocin_android.ui.activity.ProductActivity" />
+  </data>
+
+  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <ScrollView
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_weight="1">
+
+      <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
+        <ImageView
+          android:id="@+id/imgProduct"
+          android:layout_width="match_parent"
+          android:layout_height="400dp"
+          android:scaleType="centerCrop"
+          android:src="@mipmap/ic_launcher" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+        <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="10dp"
+          android:layout_marginTop="5dp"
+          android:layout_marginRight="10dp"
+          android:gravity="center_vertical"
+          android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/imgProduct"
-                    android:layout_width="match_parent"
-                    android:layout_height="400dp"
-                    android:scaleType="centerCrop"
-                    android:src="@mipmap/ic_launcher" />
+          <TextView
+            android:id="@+id/txtProduct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="상품명"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:textStyle="bold" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="10dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/txtProduct"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="상품명 "
-                        android:textColor="@color/black"
-                        android:textSize="17sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1" />
+          <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
 
                     <TextView
                         android:id="@+id/txtStoreName"
@@ -56,130 +63,132 @@
                         android:textColor="@color/black"
                         android:textStyle="bold" />
 
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/txtPrice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginBottom="5dp"
-                    android:text="가격"
-                    android:textColor="@color/black"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:background="@color/black" />
-
-                <TextView
-                    android:id="@+id/txtReviewList"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
-                    android:text="리뷰 목록"
-                    android:textColor="@color/black"
-                    android:textStyle="bold" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvReview"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="5dp"
-                    android:background="@color/black" />
-
-                <com.google.android.material.tabs.TabLayout
-                    android:id="@+id/tlContent"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:tabGravity="start"
-                    app:tabIndicatorColor="@color/black"
-                    app:tabIndicatorHeight="1dp"
-                    app:tabSelectedTextColor="@color/black"
-                    app:tabTextColor="@color/dark_gray7" />
-
-                <com.neppplus.gudocin_android.utils.CustomViewPager
-                    android:id="@+id/vpContent"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-            </LinearLayout>
-
-        </ScrollView>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:shadowColor="@color/black"
-            android:shadowDy="2"
-            android:shadowRadius="3">
-
-            <LinearLayout
-                android:id="@+id/llCart"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/cart_icon" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="장바구니"
-                    android:textColor="@color/black"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <LinearLayout
-                android:id="@+id/llCredit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="20dp"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/credit_icon" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="상품구독"
-                    android:textColor="@color/black"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
-
         </LinearLayout>
 
+        <TextView
+          android:id="@+id/txtPrice"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="10dp"
+          android:layout_marginBottom="5dp"
+          android:text="가격"
+          android:textColor="@color/black"
+          android:textStyle="bold" />
+
+        <TextView
+          android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:layout_marginTop="5dp"
+          android:layout_marginBottom="5dp"
+          android:background="@color/black" />
+
+        <TextView
+          android:id="@+id/txtReviewList"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginLeft="10dp"
+          android:layout_marginTop="5dp"
+          android:text="리뷰 목록"
+          android:textColor="@color/black"
+          android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+          android:id="@+id/rvReview"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content" />
+
+        <TextView
+          android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:layout_marginTop="10dp"
+          android:layout_marginBottom="5dp"
+          android:background="@color/black" />
+
+        <com.google.android.material.tabs.TabLayout
+          android:id="@+id/tlContent"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          app:tabGravity="start"
+          app:tabIndicatorColor="@color/black"
+          app:tabIndicatorHeight="1dp"
+          app:tabSelectedTextColor="@color/black"
+          app:tabTextColor="@color/dark_gray7" />
+
+        <com.neppplus.gudocin_android.utils.CustomViewPager
+          android:id="@+id/vpContent"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content" />
+
+      </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:gravity="center"
+      android:orientation="horizontal"
+      android:shadowColor="@color/black"
+      android:shadowDy="2"
+      android:shadowRadius="3">
+
+      <LinearLayout
+        android:id="@+id/llCart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:gravity="center_horizontal"
+        android:onClick="@{product::addCartItem}"
+        android:orientation="vertical">
+
+        <ImageView
+          android:layout_width="25dp"
+          android:layout_height="25dp"
+          android:scaleType="centerCrop"
+          android:src="@drawable/cart_icon" />
+
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="장바구니"
+          android:textColor="@color/black"
+          android:textSize="12sp"
+          android:textStyle="bold" />
+
+      </LinearLayout>
+
+      <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+      <LinearLayout
+        android:id="@+id/llCredit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:gravity="center_horizontal"
+        android:onClick="@{product::startDummy}"
+        android:orientation="vertical">
+
+        <ImageView
+          android:layout_width="25dp"
+          android:layout_height="25dp"
+          android:scaleType="centerCrop"
+          android:src="@drawable/credit_icon" />
+
+        <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="상품구독"
+          android:textColor="@color/black"
+          android:textSize="12sp"
+          android:textStyle="bold" />
+
+      </LinearLayout>
+
     </LinearLayout>
+
+  </LinearLayout>
 
 </layout>
