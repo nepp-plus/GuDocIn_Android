@@ -1,15 +1,12 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
     id 'com.google.gms.google-services'
 }
 
 android {
     compileSdk 31
-
-    buildFeatures {
-        dataBinding = true
-    }
 
     defaultConfig {
         applicationId "com.neppplus.gudocin_android"
@@ -33,6 +30,10 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        dataBinding = true
     }
 }
 

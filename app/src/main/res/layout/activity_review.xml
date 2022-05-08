@@ -3,11 +3,9 @@
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
-        tools:context=".activities.ReviewActivity">
+        android:background="@color/white">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -17,12 +15,12 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/txtProductName"
+                    android:id="@+id/txtProduct"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="구독 상품"
@@ -31,7 +29,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/txtReviewTitle"
+                    android:id="@+id/txtTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
@@ -82,7 +80,7 @@
                         android:textSize="17sp" />
 
                     <TextView
-                        android:id="@+id/txtReviewDate"
+                        android:id="@+id/txtDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
@@ -119,11 +117,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:background="@drawable/review_image_upload_box"
+                    android:background="@drawable/image_upload_box_review"
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/txtReviewContent"
+                        android:id="@+id/txtContent"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:minLines="3"
@@ -135,10 +133,10 @@
                 </LinearLayout>
 
                 <Button
-                    android:id="@+id/layoutWatchReply"
+                    android:id="@+id/btnConfirm"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
+                    android:layout_marginTop="5dp"
                     android:backgroundTint="@color/white"
                     android:text="댓글 확인" />
 
