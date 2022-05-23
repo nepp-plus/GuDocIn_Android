@@ -35,7 +35,7 @@
             android:id="@+id/imgProfile"
             android:layout_width="200dp"
             android:layout_height="200dp"
-            android:onClick="@{profile::profileChange}"
+            android:onClickListener="@{profile::checkPermission}"
             android:src="@mipmap/ic_launcher"
             app:civ_border_width="2dp" />
 

@@ -64,16 +64,17 @@ class ProfileActivity : BaseActivity() {
 
   override fun setValues() {
     getInfoFromServer()
+    profileChange()
     loginUserProvider()
     btnShopping.visibility = View.GONE
     btnCart.visibility = View.GONE
   }
 
-  private fun getProfile() {
-//    실제 파일 경로를 읽는 권한 필요 (업로드 가능해짐)
-    val pl = object : PermissionListener {
+  // 실제 파일 경로를 읽는 권한 필요 (업로드 가능해짐)
+  fun checkPermission(view: View) {
+    var permissionListener: PermissionListener = object : PermissionListener {
       override fun onPermissionGranted() {
-//    갤러리(안드로이드 제공)로 이동 (왕복 이동)
+        // (안드로이드 제공) 갤러리로 왕복 이동
         val myIntent = Intent()
         myIntent.action = Intent.ACTION_PICK
         myIntent.type = android.provider.MediaStore.Images.Media.CONTENT_TYPE
@@ -85,12 +86,14 @@ class ProfileActivity : BaseActivity() {
       }
     }
     TedPermission.create()
-      .setPermissionListener(pl)
-      .setPermissions(Manifest.permission.READ_EXTERNAL_STORAGE)
+      .setPermissionListener(permissionListener)
+      .setRationaleMessage("앱의 기능을 사용하기 위해서는 권한이 필요합니다")
+      .setDeniedMessage("[설정] > [애플리케이션] > [권한] 에서 확인할 수 있습니다")
+      .setPermissions(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
       .check()
   }
 
-  fun profileChange(view: View) {
+  private fun profileChange() {
     resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
       if (it.resultCode == RESULT_OK) {
         val selectedImageUri = it.data?.data!!
@@ -113,7 +116,9 @@ class ProfileActivity : BaseActivity() {
             }
           }
 
-          override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
+          override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+            TODO()
+          }
         })
       }
     }
@@ -126,6 +131,7 @@ class ProfileActivity : BaseActivity() {
     }
     val password = binding.edtPassword.text.toString()
     val newPassword = binding.edtNewPassword.text.toString()
+
     apiService.patchRequestPassword("password", password, newPassword).enqueue(object : Callback<BasicResponse> {
       override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
         if (response.isSuccessful) {
@@ -138,7 +144,9 @@ class ProfileActivity : BaseActivity() {
         }
       }
 
-      override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
+      override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+        TODO()
+      }
     })
   }
 
@@ -148,6 +156,7 @@ class ProfileActivity : BaseActivity() {
       Toast.makeText(mContext, "전화번호를 입력해 주세요", Toast.LENGTH_SHORT).show()
       return
     }
+
     apiService.patchRequestPhoneNumber("phone", inputPhoneNumber).enqueue(object : Callback<BasicResponse> {
       override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
         if (response.isSuccessful) {
@@ -160,7 +169,9 @@ class ProfileActivity : BaseActivity() {
         }
       }
 
-      override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
+      override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+        TODO()
+      }
     })
   }
 
@@ -170,6 +181,7 @@ class ProfileActivity : BaseActivity() {
       Toast.makeText(mContext, "닉네임을 입력해 주세요", Toast.LENGTH_SHORT).show()
       return
     }
+
     apiService.getRequestDuplicatedCheck("NICK_NAME", nickname).enqueue(object : Callback<BasicResponse> {
       override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
         if (response.isSuccessful) {
@@ -181,7 +193,9 @@ class ProfileActivity : BaseActivity() {
         }
       }
 
-      override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
+      override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+        TODO()
+      }
     })
   }
 
@@ -191,6 +205,7 @@ class ProfileActivity : BaseActivity() {
       Toast.makeText(mContext, "사용 가능한 닉네임을 입력해 주세요", Toast.LENGTH_SHORT).show()
       return
     }
+
     apiService.patchRequestNickname("nickname", inputNickname).enqueue(object : Callback<BasicResponse> {
       override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
         if (response.isSuccessful) {
@@ -203,7 +218,9 @@ class ProfileActivity : BaseActivity() {
         }
       }
 
-      override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
+      override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+        TODO()
+      }
     })
   }
 
@@ -217,7 +234,9 @@ class ProfileActivity : BaseActivity() {
         }
       }
 
-      override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
+      override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+        TODO()
+      }
     })
   }
 
