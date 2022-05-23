@@ -57,7 +57,6 @@ class LoginActivity : BaseActivity() {
   override fun setupEvents() {}
 
   override fun setValues() {
-    getKakao()
     getGoogle()
     getFacebook()
   }
@@ -87,7 +86,9 @@ class LoginActivity : BaseActivity() {
         }
       }
 
-      override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
+      override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+        TODO()
+      }
     })
   }
 
@@ -99,6 +100,7 @@ class LoginActivity : BaseActivity() {
         } else if (token != null) {
           Log.e("카카오톡 로그인", "로그인 성공")
           Log.e("카카오톡 로그인", token.accessToken)
+          getKakao()
         }
       }
     } else {
@@ -108,6 +110,7 @@ class LoginActivity : BaseActivity() {
         } else if (token != null) {
           Log.e("카카오톡 로그인", "로그인 성공")
           Log.e("카카오톡 로그인", token.accessToken)
+          getKakao()
         }
       }
     }
@@ -128,30 +131,29 @@ class LoginActivity : BaseActivity() {
       } else if (user != null) {
         Log.i(
           "카카오톡 로그인", "사용자 정보 요청 성공" +
-            "\n회원번호: ${user.id}" +
-            "\n이메일: ${user.kakaoAccount?.email}" +
-            "\n닉네임: ${user.kakaoAccount?.profile?.nickname}"
+              "\n회원번호: ${user.id}" +
+              "\n이메일: ${user.kakaoAccount?.email}" +
+              "\n닉네임: ${user.kakaoAccount?.profile?.nickname}"
         )
-        apiService.postRequestSocialLogin(
-          "kakao",
-          user.id.toString(),
-          user.kakaoAccount?.profile?.nickname!!
-        ).enqueue(object : Callback<BasicResponse> {
-          override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
-            if (response.isSuccessful) {
-              val br = response.body()!!
-              Toast.makeText(mContext, "${br.data.user.nickname}님, 환영합니다", Toast.LENGTH_SHORT).show()
+        apiService.postRequestSocialLogin("kakao", user.id.toString(), user.kakaoAccount?.profile?.nickname!!)
+          .enqueue(object : Callback<BasicResponse> {
+            override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
+              if (response.isSuccessful) {
+                val br = response.body()!!
+                Toast.makeText(mContext, "${br.data.user.nickname}님, 환영합니다", Toast.LENGTH_SHORT).show()
 
-              ContextUtil.setToken(mContext, br.data.token)
-              GlobalData.loginUser = br.data.user
+                ContextUtil.setToken(mContext, br.data.token)
+                GlobalData.loginUser = br.data.user
 
-              getAutoLogin()
-              startMain()
+                getAutoLogin()
+                startMain()
+              }
             }
-          }
 
-          override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
-        })
+            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+              TODO()
+            }
+          })
       }
     }
   }
@@ -168,44 +170,7 @@ class LoginActivity : BaseActivity() {
           } else
             Log.e("Value", "error") // 에러 처리
 
-          apiService.postRequestSocialLogin(
-            "google",
-            it.signInAccount.id.toString(),
-            it.signInAccount.displayName
-          ).enqueue(object : Callback<BasicResponse> {
-            override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
-              if (response.isSuccessful) {
-                val br = response.body()!!
-                Toast.makeText(mContext, "${br.data.user.nickname}님, 환영합니다", Toast.LENGTH_SHORT).show()
-
-                ContextUtil.setToken(mContext, br.data.token)
-                GlobalData.loginUser = br.data.user
-
-                getAutoLogin()
-                startMain()
-              }
-            }
-
-            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
-          })
-        }
-      }
-    }
-  }
-
-  private fun getFacebook() {
-    callbackManager = CallbackManager.Factory.create()
-    LoginManager.getInstance().registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
-      override fun onSuccess(result: LoginResult?) {
-        Log.d("페이스북 로그인", result!!.accessToken.token)
-
-        val graphApiRequest = GraphRequest.newMeRequest(result.accessToken) { jsonObj, _ ->
-          Log.d("내 정보 요청", jsonObj.toString())
-
-          val name = jsonObj!!.getString("name")
-          val id = jsonObj.getString("id")
-
-          apiService.postRequestSocialLogin("facebook", id, name)
+          apiService.postRequestSocialLogin("google", it.signInAccount.id.toString(), it.signInAccount.displayName)
             .enqueue(object : Callback<BasicResponse> {
               override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
                 if (response.isSuccessful) {
@@ -220,17 +185,64 @@ class LoginActivity : BaseActivity() {
                 }
               }
 
-              override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
+              override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+                TODO()
+              }
             })
+        }
+      }
+    }
+  }
+
+  private fun getFacebook() {
+    callbackManager = CallbackManager.Factory.create()
+    LoginManager.getInstance().registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
+      override fun onSuccess(result: LoginResult?) {
+        Log.d("페이스북 로그인", result!!.accessToken.token)
+
+        // Before Convert to Lambda
+        /* val graphApiRequest = GraphRequest.newMeRequest(result.accessToken, object : GraphRequest.GraphJSONObjectCallback {
+        override fun onCompleted(`object`: JSONObject?, response: GraphResponse?) {
+          TODO()
+        }
+      }) */
+
+        // After Convert to Lambda
+        val graphApiRequest = GraphRequest.newMeRequest(result.accessToken) { jsonObj, _ ->
+          Log.d("내 정보 요청", jsonObj.toString())
+
+          val name = jsonObj!!.getString("name")
+          val id = jsonObj.getString("id")
+
+          apiService.postRequestSocialLogin("facebook", id, name).enqueue(object : Callback<BasicResponse> {
+            override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
+              if (response.isSuccessful) {
+                val br = response.body()!!
+                Toast.makeText(mContext, "${br.data.user.nickname}님, 환영합니다", Toast.LENGTH_SHORT).show()
+
+                ContextUtil.setToken(mContext, br.data.token)
+                GlobalData.loginUser = br.data.user
+
+                getAutoLogin()
+                startMain()
+              }
+            }
+
+            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+              TODO()
+            }
+          })
         }
         graphApiRequest.executeAsync()
       }
 
       override fun onCancel() {
-
+        TODO()
       }
 
-      override fun onError(error: FacebookException?) {}
+      override fun onError(error: FacebookException?) {
+        TODO()
+      }
     })
   }
 
