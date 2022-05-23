@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android Project/GudocIn/app/src/main/res/layout/activity_login.xml" value="0.2957427536231884" />
+        <entry key="..\:/Android Project/GudocIn/app/src/main/res/layout/activity_profile.xml" value="0.2046875" />
+        <entry key="..\:/Android Project/GudocIn/app/src/main/res/layout/activity_subscription.xml" value="0.2046875" />
+        <entry key="..\:/Android Project/GudocIn/app/src/main/res/layout/activity_write.xml" value="0.2957427536231884" />
+        <entry key="..\:/Android Project/GudocIn/app/src/main/res/layout/fragment_profile.xml" value="0.24094202898550723" />
         <entry key="..\:/Android Project/GudocIn_Android/app/src/main/res/drawable/corner_shape.xml" value="0.38229166666666664" />
         <entry key="..\:/Android Project/GudocIn_Android/app/src/main/res/drawable/corner_shape_cart.xml" value="0.38229166666666664" />
         <entry key="..\:/Android Project/GudocIn_Android/app/src/main/res/drawable/corner_shape_review.xml" value="0.38229166666666664" />
