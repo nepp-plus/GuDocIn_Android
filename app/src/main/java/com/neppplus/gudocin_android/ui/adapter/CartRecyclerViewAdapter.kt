@@ -22,17 +22,17 @@ import retrofit2.Response
 
 class CartRecyclerViewAdapter(
     val mContext: Context,
-    val mList: List<CartData>
+    private val mList: List<CartData>
 ) : RecyclerView.Adapter<CartRecyclerViewAdapter.CartViewHolder>() {
 
     inner class CartViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         lateinit var apiService: ServerAPIInterface
-        val retrofit = ServerAPI.getRetrofit(mContext)
+        private val retrofit = ServerAPI.getRetrofit(mContext)
 
-        val imgProduct = view.findViewById<ImageView>(R.id.imgProduct)
-        val txtProduct = view.findViewById<TextView>(R.id.txtProduct)
-        val txtPrice = view.findViewById<TextView>(R.id.txtPrice)
-        val imgDelete = view.findViewById<ImageView>(R.id.imgDelete)
+        private val imgProduct: ImageView = view.findViewById<ImageView>(R.id.imgProduct)
+        val txtProduct: TextView = view.findViewById<TextView>(R.id.txtProduct)
+        val txtPrice: TextView = view.findViewById<TextView>(R.id.txtPrice)
+        private val imgDelete: ImageView = view.findViewById<ImageView>(R.id.imgDelete)
 
         fun bind(data: CartData) {
             apiService = retrofit.create(ServerAPIInterface::class.java)
