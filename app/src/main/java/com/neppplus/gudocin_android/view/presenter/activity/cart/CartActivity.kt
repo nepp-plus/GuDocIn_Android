@@ -1,63 +1,67 @@
 package com.neppplus.gudocin_android.view.presenter.activity.cart
 
 import android.content.Intent
-import android.os.Bundle
 import android.view.View
-import androidx.databinding.DataBindingUtil
+import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.neppplus.gudocin_android.BaseActivity
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.ActivityCartBinding
-import com.neppplus.gudocin_android.model.BasicResponse
-import com.neppplus.gudocin_android.model.cart.CartData
 import com.neppplus.gudocin_android.view.adapter.cart.CartRecyclerViewAdapter
 import com.neppplus.gudocin_android.view.presenter.activity.dummy.DummyActivity
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import java.text.NumberFormat
 import java.util.*
 
-class CartActivity : com.neppplus.gudocin_android.view.presenter.activity.BaseActivity() {
+class CartActivity : BaseActivity<ActivityCartBinding, CartViewModel>(R.layout.activity_cart) {
 
-  lateinit var binding: ActivityCartBinding
+  private val cartViewModel: CartViewModel by viewModels()
+
+  override val getViewModel: CartViewModel
+    get() = cartViewModel
 
   lateinit var mCartRecyclerViewAdapter: CartRecyclerViewAdapter
 
-  val mCartList = ArrayList<CartData>()
+  private var total = 0
 
-  var total = 0
-
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    binding = DataBindingUtil.setContentView(this, R.layout.activity_cart)
-    binding.view = this
-    setupEvents()
-    setValues()
+  override fun initView() {
+    binding { view = this@CartActivity }
+    initRecyclerView()
+    observe()
+    toolbar()
   }
 
-  override fun setupEvents() {}
+  override fun observe() {
+    super.observe()
+    cartViewModel.getLiveDataObserver().observe(this, androidx.lifecycle.Observer {
+      if (it != null) {
+        mCartRecyclerViewAdapter.setDataList(it)
+        mCartRecyclerViewAdapter.notifyDataSetChanged()
 
-  override fun setValues() {
-    getCartFromServer()
-    recyclerviewAdapter()
-    btnShopping.visibility = View.GONE
-    btnCart.visibility = View.GONE
-  }
-
-  private fun getCartFromServer() {
-    apiService.getRequestCart().enqueue(object : Callback<BasicResponse> {
-      override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
-        if (response.isSuccessful) {
-          val br = response.body()!!
-          mCartList.clear()
-          mCartList.addAll(br.data.carts)
-          mCartRecyclerViewAdapter.notifyDataSetChanged()
-          calculator()
+        for (data in it) {
+          if (data.product.price != null) {
+            total += data.product.price!!
+          }
         }
-      }
 
-      override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
+        val won = "${NumberFormat.getInstance(Locale.KOREA).format(total)}원"
+        binding.txtPrice.text = won
+      } else {
+        Toast.makeText(this, resources.getString(R.string.data_loading_failed), Toast.LENGTH_SHORT).show()
+      }
     })
+    cartViewModel.loadDataList()
+  }
+
+  private fun initRecyclerView() {
+    mCartRecyclerViewAdapter = CartRecyclerViewAdapter()
+    binding.rvCart.adapter = mCartRecyclerViewAdapter
+    binding.rvCart.layoutManager = LinearLayoutManager(this)
+  }
+
+  private fun toolbar() {
+    shopping.visibility = View.GONE
+    cart.visibility = View.GONE
   }
 
   fun swipeRefresh() {
@@ -78,24 +82,8 @@ class CartActivity : com.neppplus.gudocin_android.view.presenter.activity.BaseAc
   }
 
   fun startDummy(view: View) {
-    val myIntent = Intent(mContext, DummyActivity::class.java)
+    val myIntent = Intent(this, DummyActivity::class.java)
     startActivity(myIntent)
-  }
-
-  private fun recyclerviewAdapter() {
-    mCartRecyclerViewAdapter = CartRecyclerViewAdapter(mContext, mCartList)
-    binding.rvCart.adapter = mCartRecyclerViewAdapter
-    binding.rvCart.layoutManager = LinearLayoutManager(mContext)
-  }
-
-  private fun calculator() {
-    for (data in mCartList) {
-      if (data.product.price != null) {
-        total += data.product.price!!
-      }
-    }
-    var won = "${NumberFormat.getInstance(Locale.KOREA).format(total)}원"
-    binding.txtPrice.text = won
   }
 
 }

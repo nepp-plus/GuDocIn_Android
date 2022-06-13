@@ -1,6 +1,7 @@
 package com.neppplus.gudocin_android.network
 
 import com.neppplus.gudocin_android.model.BasicResponse
+import com.neppplus.gudocin_android.model.cart.CartData
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call
@@ -139,7 +140,7 @@ interface RetrofitServiceInstance {
 
   // 장바구니 내역 조회
   @GET("/cart")
-  fun getRequestCart(): Call<BasicResponse>
+  fun getRequestCart(): Call<List<CartData>>
 
   // 장바구니 상품 등록
   @FormUrlEncoded

@@ -6,6 +6,10 @@
     <variable
       name="view"
       type="com.neppplus.gudocin_android.view.presenter.activity.cart.CartActivity" />
+
+    <variable
+      name="viewModel"
+      type="com.neppplus.gudocin_android.view.presenter.activity.cart.CartViewModel" />
   </data>
 
   <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"

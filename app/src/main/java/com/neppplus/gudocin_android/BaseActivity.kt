@@ -12,21 +12,21 @@ import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import com.neppplus.gudocin_android.presentation.activity.CartActivity
-import com.neppplus.gudocin_android.presentation.activity.ShoppingActivity
+import com.neppplus.gudocin_android.view.presenter.activity.cart.CartActivity
+import com.neppplus.gudocin_android.view.presenter.activity.shopping.ShoppingActivity
 
 abstract class BaseActivity<T : ViewDataBinding, U : BaseViewModel>(@LayoutRes private val layoutRes: Int) : AppCompatActivity(layoutRes) {
-  lateinit var mContext: Context
   lateinit var binding: T
   abstract val getViewModel: U
 
   /**
    * ActionBar Contents
    */
-  private lateinit var back: ImageView
-  private lateinit var title: TextView
-  private lateinit var shopping: ImageView
-  private lateinit var cart: ImageView
+  lateinit var mContext: Context
+  lateinit var back: ImageView
+  lateinit var title: TextView
+  lateinit var shopping: ImageView
+  lateinit var cart: ImageView
 
   abstract fun initView()
   open fun observe() = Unit
@@ -37,7 +37,16 @@ abstract class BaseActivity<T : ViewDataBinding, U : BaseViewModel>(@LayoutRes p
     binding = DataBindingUtil.setContentView(this, layoutRes)
     binding.apply {
       lifecycleOwner = this@BaseActivity
-      setVariable(BR.viewModel, getViewModel)
+      /**
+       * 구체적인 Type 의존 없이 setVariable() 통해 variable set 가능
+       * binding.xxx = "yyy" / binding.setVariable(BR.xxx, "yyy") 둘다 동일한 행위
+       * BR = Binding Resource
+       */
+//      setVariable(BR.viewModel, getViewModel)
+      /**
+       * 즉각적인 바인딩: 변수 또는 Observable 변경 시 바인딩은 다음 프레임 전에 변경되도록 예약
+       * 바인딩을 즉시 실행해야 할 경우 executePendingBindings() 메소드 사용
+       */
       executePendingBindings()
     }
 
