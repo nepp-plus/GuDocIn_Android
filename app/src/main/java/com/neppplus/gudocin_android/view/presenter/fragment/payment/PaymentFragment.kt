@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android.ui.fragment
+package com.neppplus.gudocin_android.view.presenter.fragment.payment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,10 +7,11 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.neppplus.gudocin_android.R
-import com.neppplus.gudocin_android.ui.adapter.PaymentRecyclerViewAdapter
+import com.neppplus.gudocin_android.view.adapter.payment.PaymentRecyclerViewAdapter
 import com.neppplus.gudocin_android.databinding.FragmentPaymentBinding
 import com.neppplus.gudocin_android.model.BasicResponse
-import com.neppplus.gudocin_android.model.PaymentData
+import com.neppplus.gudocin_android.model.payment.PaymentData
+import com.neppplus.gudocin_android.view.presenter.fragment.BaseFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -28,8 +29,7 @@ class PaymentFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding =
-            DataBindingUtil.inflate(inflater, R.layout.fragment_payment, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_payment, container, false)
         return binding.root
     }
 
@@ -40,8 +40,7 @@ class PaymentFragment : BaseFragment() {
     }
 
     override fun setupEvents() {
-        mPaymentRecyclerViewAdapter =
-            PaymentRecyclerViewAdapter(mContext, mPaymentList)
+        mPaymentRecyclerViewAdapter = PaymentRecyclerViewAdapter(mContext, mPaymentList)
         binding.rvPayment.adapter = mPaymentRecyclerViewAdapter
         binding.rvPayment.layoutManager = LinearLayoutManager(mContext)
     }
@@ -50,7 +49,7 @@ class PaymentFragment : BaseFragment() {
         getPaymentFromServer()
     }
 
-    fun getPaymentFromServer() {
+    private fun getPaymentFromServer() {
         apiService.getRequestUserPayment().enqueue(object : Callback<BasicResponse> {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
                 if (response.isSuccessful) {
@@ -61,9 +60,7 @@ class PaymentFragment : BaseFragment() {
                 }
             }
 
-            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-
-            }
+            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
         })
     }
 

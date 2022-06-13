@@ -1,16 +1,16 @@
-package com.neppplus.gudocin_android.ui.fragment
+package com.neppplus.gudocin_android.view.presenter.fragment
 
 import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import com.neppplus.gudocin_android.api.ServerAPI
-import com.neppplus.gudocin_android.api.ServerAPIInterface
+import com.neppplus.gudocin_android.network.RetrofitService
+import com.neppplus.gudocin_android.network.RetrofitServiceInstance
 
 abstract class BaseFragment : Fragment() {
 
     lateinit var mContext: Context
 
-    lateinit var apiService: ServerAPIInterface
+    lateinit var apiService: RetrofitServiceInstance
 
     val isInitialized get() = this::apiService.isInitialized
 
@@ -18,8 +18,8 @@ abstract class BaseFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         mContext = requireContext()
 
-        val retrofit = ServerAPI.getRetrofit(mContext)
-        apiService = retrofit.create(ServerAPIInterface::class.java)
+        val retrofit = RetrofitService.getRetrofit(mContext)
+        apiService = retrofit.create(RetrofitServiceInstance::class.java)
     }
 
     abstract fun setupEvents()

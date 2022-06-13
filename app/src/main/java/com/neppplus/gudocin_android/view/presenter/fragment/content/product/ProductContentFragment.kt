@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android.ui.fragment.contents
+package com.neppplus.gudocin_android.view.presenter.fragment.content.product
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.FragmentProductContentBinding
-import com.neppplus.gudocin_android.model.ProductData
-import com.neppplus.gudocin_android.ui.fragment.BaseFragment
+import com.neppplus.gudocin_android.model.product.ProductData
+import com.neppplus.gudocin_android.view.presenter.fragment.BaseFragment
 
 class ProductContentFragment(val mProductData: ProductData) : BaseFragment() {
 
@@ -19,8 +19,7 @@ class ProductContentFragment(val mProductData: ProductData) : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding =
-            DataBindingUtil.inflate(inflater, R.layout.fragment_product_content, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_product_content, container, false)
         return binding.root
     }
 
@@ -30,12 +29,8 @@ class ProductContentFragment(val mProductData: ProductData) : BaseFragment() {
         setValues()
     }
 
-    override fun setupEvents() {
+    override fun setupEvents() {}
 
-    }
-
-    override fun setValues() {
-
-    }
+    override fun setValues() {}
 
 }

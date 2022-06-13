@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android.ui.fragment
+package com.neppplus.gudocin_android.view.presenter.fragment.review
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,10 +7,11 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.neppplus.gudocin_android.R
-import com.neppplus.gudocin_android.ui.adapter.reviews.SubscriptionRecyclerViewAdapter
+import com.neppplus.gudocin_android.view.adapter.review.subscription.SubscriptionRecyclerViewAdapter
 import com.neppplus.gudocin_android.databinding.FragmentReviewBinding
 import com.neppplus.gudocin_android.model.BasicResponse
-import com.neppplus.gudocin_android.model.ReviewData
+import com.neppplus.gudocin_android.model.review.ReviewData
+import com.neppplus.gudocin_android.view.presenter.fragment.BaseFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -28,8 +29,7 @@ class ReviewFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding =
-            DataBindingUtil.inflate(inflater, R.layout.fragment_review, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_review, container, false)
         return binding.root
     }
 
@@ -40,8 +40,7 @@ class ReviewFragment : BaseFragment() {
     }
 
     override fun setupEvents() {
-        mSubscriptionRecyclerViewAdapter =
-            SubscriptionRecyclerViewAdapter(mContext, mReviewList)
+        mSubscriptionRecyclerViewAdapter = SubscriptionRecyclerViewAdapter(mContext, mReviewList)
         binding.rvReview.adapter = mSubscriptionRecyclerViewAdapter
         binding.rvReview.layoutManager = LinearLayoutManager(mContext)
     }
@@ -50,7 +49,7 @@ class ReviewFragment : BaseFragment() {
         getReviewFromServer()
     }
 
-    fun getReviewFromServer() {
+    private fun getReviewFromServer() {
         apiService.getRequestUserReview().enqueue(object : Callback<BasicResponse> {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
                 if (response.isSuccessful) {
@@ -61,9 +60,7 @@ class ReviewFragment : BaseFragment() {
                 }
             }
 
-            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-
-            }
+            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
         })
     }
 

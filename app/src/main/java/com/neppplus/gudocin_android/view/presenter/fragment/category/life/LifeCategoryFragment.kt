@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android.ui.fragment.categories
+package com.neppplus.gudocin_android.view.presenter.fragment.category.life
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,13 +8,13 @@ import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.neppplus.gudocin_android.R
-import com.neppplus.gudocin_android.ui.adapter.categories.CategoryRecyclerViewAdapter
-import com.neppplus.gudocin_android.ui.adapter.categories.DetailCategoryRecyclerViewAdapter
+import com.neppplus.gudocin_android.view.adapter.category.CategoryRecyclerViewAdapter
+import com.neppplus.gudocin_android.view.adapter.category.DetailCategoryRecyclerViewAdapter
 import com.neppplus.gudocin_android.databinding.FragmentLifeCategoryBinding
 import com.neppplus.gudocin_android.model.BasicResponse
-import com.neppplus.gudocin_android.model.ProductData
-import com.neppplus.gudocin_android.model.SmallCategoryData
-import com.neppplus.gudocin_android.ui.fragment.BaseFragment
+import com.neppplus.gudocin_android.model.product.ProductData
+import com.neppplus.gudocin_android.model.category.SmallCategoryData
+import com.neppplus.gudocin_android.view.presenter.fragment.BaseFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

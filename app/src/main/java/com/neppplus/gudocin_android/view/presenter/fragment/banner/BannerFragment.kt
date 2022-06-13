@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android.ui.fragment
+package com.neppplus.gudocin_android.view.presenter.fragment.banner
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,8 @@ import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.FragmentBannerBinding
-import com.neppplus.gudocin_android.model.BannerData
+import com.neppplus.gudocin_android.model.banner.BannerData
+import com.neppplus.gudocin_android.view.presenter.fragment.BaseFragment
 
 class BannerFragment(private val mBannerData: BannerData? = null) : BaseFragment() {
 
