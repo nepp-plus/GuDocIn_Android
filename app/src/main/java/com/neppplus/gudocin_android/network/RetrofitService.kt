@@ -1,16 +1,16 @@
-package com.neppplus.gudocin_android.api
+package com.neppplus.gudocin_android.network
 
 import android.content.Context
 import com.google.gson.GsonBuilder
-import com.neppplus.gudocin_android.utils.ContextUtil
+import com.neppplus.gudocin_android.util.context.ContextUtil
+import com.neppplus.gudocin_android.util.date.DateDeserializer
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.*
 
-class ServerAPI {
-
+class RetrofitService {
     companion object {
         private var BASE_URL = "https://api.gudoc.in"
         private var retrofit: Retrofit? = null
