@@ -3,10 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android Project/GudocIn/app/src/main/res/layout/activity_cart.xml" value="0.35688405797101447" />
+        <entry key="..\:/Android Project/GudocIn/app/src/main/res/layout/activity_dummy.xml" value="0.35688405797101447" />
         <entry key="..\:/Android Project/GudocIn/app/src/main/res/layout/activity_login.xml" value="0.2957427536231884" />
+        <entry key="..\:/Android Project/GudocIn/app/src/main/res/layout/activity_main.xml" value="0.35688405797101447" />
+        <entry key="..\:/Android Project/GudocIn/app/src/main/res/layout/activity_product.xml" value="0.35688405797101447" />
         <entry key="..\:/Android Project/GudocIn/app/src/main/res/layout/activity_profile.xml" value="0.2046875" />
         <entry key="..\:/Android Project/GudocIn/app/src/main/res/layout/activity_subscription.xml" value="0.2046875" />
         <entry key="..\:/Android Project/GudocIn/app/src/main/res/layout/activity_write.xml" value="0.2957427536231884" />
+        <entry key="..\:/Android Project/GudocIn/app/src/main/res/layout/adapter_cart.xml" value="0.35688405797101447" />
+        <entry key="..\:/Android Project/GudocIn/app/src/main/res/layout/custom_action_bar.xml" value="0.3770833333333333" />
         <entry key="..\:/Android Project/GudocIn/app/src/main/res/layout/fragment_profile.xml" value="0.24094202898550723" />
         <entry key="..\:/Android Project/GudocIn_Android/app/src/main/res/drawable/corner_shape.xml" value="0.38229166666666664" />
         <entry key="..\:/Android Project/GudocIn_Android/app/src/main/res/drawable/corner_shape_cart.xml" value="0.38229166666666664" />
@@ -22,6 +28,14 @@
         <entry key="..\:/Android Project/GudocIn_Android/app/src/main/res/layout/adapter_detail_category.xml" value="0.3500905797101449" />
         <entry key="..\:/Android Project/GudocIn_Android/app/src/main/res/layout/custom_action_bar.xml" value="0.3500905797101449" />
         <entry key="..\:/Android Project/GudocIn_Android/app/src/main/res/layout/fragment_home.xml" value="0.3500905797101449" />
+        <entry key="..\:/Android Project/GudocIn_origin/app/src/main/res/layout/activity_cart.xml" value="0.35688405797101447" />
+        <entry key="..\:/Android Project/GudocIn_origin/app/src/main/res/layout/activity_dummy.xml" value="0.35688405797101447" />
+        <entry key="..\:/Android Project/GudocIn_origin/app/src/main/res/layout/activity_init.xml" value="0.35688405797101447" />
+        <entry key="..\:/Android Project/GudocIn_origin/app/src/main/res/layout/activity_login.xml" value="0.35688405797101447" />
+        <entry key="..\:/Android Project/GudocIn_origin/app/src/main/res/layout/activity_main.xml" value="0.35688405797101447" />
+        <entry key="..\:/Android Project/GudocIn_origin/app/src/main/res/layout/activity_product.xml" value="0.35688405797101447" />
+        <entry key="..\:/Android Project/GudocIn_origin/app/src/main/res/layout/activity_profile.xml" value="0.35688405797101447" />
+        <entry key="..\:/Android Project/GudocIn_origin/app/src/main/res/layout/activity_reply.xml" value="0.35688405797101447" />
         <entry key="..\:/GuDocIn_Android_1/app/src/main/res/layout/activity_login.xml" value="0.25364583333333335" />
         <entry key="..\:/GuDocIn_Android_1/app/src/main/res/layout/activity_review.xml" value="0.25364583333333335" />
         <entry key="..\:/GuDocIn_Android_1/app/src/main/res/layout/fragment_home.xml" value="0.1296875" />

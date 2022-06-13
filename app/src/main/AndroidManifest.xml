@@ -1,115 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.neppplus.gudocin_android">
+  package="com.neppplus.gudocin_android">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-    <application
-        android:name="com.neppplus.gudocin_android.application.GlobalApplication"
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_logo"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_logo_round"
-        android:supportsRtl="true"
-        android:theme="@style/Theme.GudocIn"
-        android:usesCleartextTraffic="true">
-        <activity
-            android:name="com.neppplus.gudocin_android.ui.activity.CartActivity"
-            android:exported="true" />
-        <activity
-            android:name="com.neppplus.gudocin_android.ui.activity.DummyActivity"
-            android:exported="true"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
-        <activity
-            android:name="com.neppplus.gudocin_android.ui.activity.ProfileActivity"
-            android:exported="true"
-            android:windowSoftInputMode="adjustUnspecified" />
-        <activity
-            android:name="com.neppplus.gudocin_android.ui.activity.ShoppingActivity"
-            android:exported="true" />
-        <activity
-            android:name="com.neppplus.gudocin_android.ui.activity.StartActivity"
-            android:exported="true"
-            android:theme="@style/Theme.GudocIn.NoActionBar" />
-        <activity
-            android:name="com.neppplus.gudocin_android.ui.activity.LoginActivity"
-            android:exported="true"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
-            android:windowSoftInputMode="adjustUnspecified" />
-        <activity
-            android:name="com.neppplus.gudocin_android.ui.activity.MainActivity"
-            android:exported="true" />
-        <activity
-            android:name="com.neppplus.gudocin_android.ui.activity.ProductActivity"
-            android:exported="true" />
-        <activity
-            android:name="com.neppplus.gudocin_android.ui.activity.ReplyActivity"
-            android:exported="true"
-            android:windowSoftInputMode="adjustUnspecified" />
-        <activity
-            android:name="com.neppplus.gudocin_android.ui.activity.ReviewActivity"
-            android:exported="true" />
-        <activity
-            android:name="com.neppplus.gudocin_android.ui.activity.SignUpActivity"
-            android:exported="true"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
-            android:windowSoftInputMode="adjustUnspecified" />
-        <activity
-            android:name="com.neppplus.gudocin_android.ui.activity.SplashActivity"
-            android:exported="true"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+  <application
+    android:name=".di.GlobalApplication"
+    android:allowBackup="true"
+    android:icon="@mipmap/ic_logo"
+    android:label="@string/app_name"
+    android:roundIcon="@mipmap/ic_logo_round"
+    android:supportsRtl="true"
+    android:theme="@style/Theme.GudocIn"
+    android:usesCleartextTraffic="true">
+    <activity
+      android:name="com.neppplus.gudocin_android.view.presenter.activity.cart.CartActivity"
+      android:exported="true" />
+    <activity
+      android:name="com.neppplus.gudocin_android.view.presenter.activity.dummy.DummyActivity"
+      android:exported="true"
+      android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+    <activity
+      android:name="com.neppplus.gudocin_android.view.presenter.activity.profile.ProfileActivity"
+      android:exported="true"
+      android:windowSoftInputMode="adjustUnspecified" />
+    <activity
+      android:name="com.neppplus.gudocin_android.view.presenter.activity.shopping.ShoppingActivity"
+      android:exported="true" />
+    <activity
+      android:name="com.neppplus.gudocin_android.view.presenter.activity.init.InitActivity"
+      android:exported="true"
+      android:theme="@style/Theme.GudocIn.NoActionBar" />
+    <activity
+      android:name="com.neppplus.gudocin_android.view.presenter.activity.login.LoginActivity"
+      android:exported="true"
+      android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+      android:windowSoftInputMode="adjustUnspecified" />
+    <activity
+      android:name="com.neppplus.gudocin_android.view.presenter.activity.main.MainActivity"
+      android:exported="true" />
+    <activity
+      android:name="com.neppplus.gudocin_android.view.presenter.activity.product.ProductActivity"
+      android:exported="true" />
+    <activity
+      android:name="com.neppplus.gudocin_android.view.presenter.activity.reply.ReplyActivity"
+      android:exported="true"
+      android:windowSoftInputMode="adjustUnspecified" />
+    <activity
+      android:name="com.neppplus.gudocin_android.view.presenter.activity.review.ReviewActivity"
+      android:exported="true" />
+    <activity
+      android:name="com.neppplus.gudocin_android.view.presenter.activity.signup.SignUpActivity"
+      android:exported="true"
+      android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
+      android:windowSoftInputMode="adjustUnspecified" />
+    <activity
+      android:name="com.neppplus.gudocin_android.view.presenter.activity.splash.SplashActivity"
+      android:exported="true"
+      android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="com.neppplus.gudocin_android.ui.activity.SubscriptionActivity"
-            android:exported="true" />
-        <activity
-            android:name="com.neppplus.gudocin_android.ui.activity.WriteActivity"
-            android:exported="true"
-            android:windowSoftInputMode="adjustUnspecified" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+    </activity>
+    <activity
+      android:name="com.neppplus.gudocin_android.view.presenter.activity.subscription.SubscriptionActivity"
+      android:exported="true" />
+    <activity
+      android:name="com.neppplus.gudocin_android.view.presenter.activity.write.WriteActivity"
+      android:exported="true"
+      android:windowSoftInputMode="adjustUnspecified" />
 
-        <activity
-            android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
+    <activity
+      android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
+      android:exported="true">
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
 
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
 
-                <!-- Redirect URI: "kakao{NATIVE_APP_KEY}://oauth" -->
-                <data
-                    android:host="oauth"
-                    android:scheme="kakaoc53922b4fc7f54934a3bca77009f4a04" />
-            </intent-filter>
-        </activity>
+        <!-- Redirect URI: "kakao{NATIVE_APP_KEY}://oauth" -->
+        <data
+          android:host="oauth"
+          android:scheme="kakaoc53922b4fc7f54934a3bca77009f4a04" />
+      </intent-filter>
+    </activity>
 
-        <meta-data
-            android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id" />
+    <meta-data
+      android:name="com.facebook.sdk.ApplicationId"
+      android:value="@string/facebook_app_id" />
 
-        <activity
-            android:name="com.facebook.FacebookActivity"
-            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-            android:label="@string/app_name" />
-        <activity
-            android:name="com.facebook.CustomTabActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
+    <activity
+      android:name="com.facebook.FacebookActivity"
+      android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+      android:label="@string/app_name" />
+    <activity
+      android:name="com.facebook.CustomTabActivity"
+      android:exported="true">
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
 
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="@string/fb_login_protocol_scheme" />
-            </intent-filter>
-        </activity>
-    </application>
+        <data android:scheme="@string/facebook_login_protocol_scheme" />
+      </intent-filter>
+    </activity>
+  </application>
 
 </manifest>
