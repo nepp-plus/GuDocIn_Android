@@ -1,34 +1,28 @@
 package com.neppplus.gudocin_android.view.adapter.category
 
-import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.neppplus.gudocin_android.R
+import com.neppplus.gudocin_android.databinding.AdapterCategoryBinding
 import com.neppplus.gudocin_android.model.category.SmallCategoryData
 
 class CategoryRecyclerViewAdapter(
-  val mContext: Context, private val mList: List<SmallCategoryData>
+  private val mList: List<SmallCategoryData>
 ) : RecyclerView.Adapter<CategoryRecyclerViewAdapter.SmallCategoryViewHolder>() {
 
-  inner class SmallCategoryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-    private val smallCategoryList: TextView = view.findViewById(R.id.txtCategory)
-
+  inner class SmallCategoryViewHolder(private val binding: AdapterCategoryBinding) : RecyclerView.ViewHolder(binding.root) {
     fun bind(data: SmallCategoryData) {
-      smallCategoryList.text = data.name
+      binding.txtCategory.text = data.name
     }
   }
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SmallCategoryViewHolder {
-    val row = LayoutInflater.from(mContext).inflate(R.layout.adapter_category, parent, false)
-    return SmallCategoryViewHolder(row)
+    val binding = AdapterCategoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+    return SmallCategoryViewHolder(binding)
   }
 
   override fun onBindViewHolder(holder: SmallCategoryViewHolder, position: Int) {
-    val data = mList[position]
-    holder.bind(data)
+    holder.bind(mList[position])
   }
 
   override fun getItemCount() = mList.size
