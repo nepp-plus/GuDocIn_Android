@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android.ui.activity
+package com.neppplus.gudocin_android.view.presenter.activity.profile
 
 import android.Manifest
 import android.content.Intent
@@ -17,8 +17,10 @@ import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.ActivityProfileBinding
 import com.neppplus.gudocin_android.model.BasicResponse
 import com.neppplus.gudocin_android.model.GlobalData
-import com.neppplus.gudocin_android.utils.ContextUtil
-import com.neppplus.gudocin_android.utils.URIPathHelper
+import com.neppplus.gudocin_android.util.context.ContextUtil
+import com.neppplus.gudocin_android.util.uri.URIPathHelper
+import com.neppplus.gudocin_android.view.presenter.activity.BaseActivity
+import com.neppplus.gudocin_android.view.presenter.activity.main.MainActivity
 import okhttp3.MediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -40,7 +42,7 @@ class ProfileActivity : BaseActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     binding = DataBindingUtil.setContentView(this, R.layout.activity_profile)
-    binding.profile = this
+    binding.view = this
     setupEvents()
     setValues()
   }
@@ -48,16 +50,16 @@ class ProfileActivity : BaseActivity() {
   override fun setupEvents() {
     binding.edtPassword.addTextChangedListener {
       if (it.toString().length >= 8) {
-        binding.txtPasswordCheck.text = " 사용해도 좋은 비밀번호입니다"
+        binding.txtPasswordCheck.text = resources.getString(R.string.password_pass)
         isPasswordLengthOk = true
       } else {
-        binding.txtPasswordCheck.text = " 비밀번호는 8글자 이상이어야 합니다"
+        binding.txtPasswordCheck.text = resources.getString(R.string.password_length)
         isPasswordLengthOk = false
       }
     }
 
     binding.edtNicknameCheck.addTextChangedListener {
-      binding.txtNicknameCheck.text = " 닉네임 중복 확인을 진행해야 합니다"
+      binding.txtNicknameCheck.text = resources.getString(R.string.nickname_duplicated)
       isDuplicatedOk = false
     }
   }
@@ -82,13 +84,13 @@ class ProfileActivity : BaseActivity() {
       }
 
       override fun onPermissionDenied(deniedPermissions: MutableList<String>?) {
-        Toast.makeText(mContext, "갤러리 조회 권한이 없습니다", Toast.LENGTH_SHORT).show()
+        Toast.makeText(mContext, resources.getString(R.string.gallery_permission_nothing), Toast.LENGTH_SHORT).show()
       }
     }
     TedPermission.create()
       .setPermissionListener(permissionListener)
-      .setRationaleMessage("앱의 기능을 사용하기 위해서는 권한이 필요합니다")
-      .setDeniedMessage("[설정] > [애플리케이션] > [권한] 에서 확인할 수 있습니다")
+      .setRationaleMessage(resources.getString(R.string.gallery_permission_need))
+      .setDeniedMessage(resources.getString(R.string.gallery_permission_process))
       .setPermissions(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
       .check()
   }
@@ -97,7 +99,7 @@ class ProfileActivity : BaseActivity() {
     resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
       if (it.resultCode == RESULT_OK) {
         val selectedImageUri = it.data?.data!!
-        Log.d("selectedImageUri", selectedImageUri.toString())
+        Log.d("Selected Image Uri", selectedImageUri.toString())
 //        Uri -> 실제 첨부 가능한 파일로 변환 -> 실제 경로를 추출해서 Retrofit 에 첨부할 수 있게 됨
         val file = File(URIPathHelper().getPath(mContext, selectedImageUri))
 //        파일을 Retrofit 에 첨부 가능한 RequestBody 형태로 가공
@@ -108,17 +110,15 @@ class ProfileActivity : BaseActivity() {
         apiService.putRequestProfile(body).enqueue(object : Callback<BasicResponse> {
           override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
             if (response.isSuccessful) {
-              Toast.makeText(mContext, "프로필 사진이 변경되었습니다", Toast.LENGTH_SHORT).show()
+              Toast.makeText(mContext, resources.getString(R.string.profile_change_success), Toast.LENGTH_SHORT).show()
 //                사용자가 선택한 사진(selectedImageUri)을 프로필 ImageView 에 반영
               Glide.with(mContext).load(selectedImageUri).into(binding.imgProfile)
             } else {
-              Toast.makeText(mContext, "프로필 사진 변경에 실패하였습니다", Toast.LENGTH_SHORT).show()
+              Toast.makeText(mContext, resources.getString(R.string.profile_change_failed), Toast.LENGTH_SHORT).show()
             }
           }
 
-          override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-            TODO()
-          }
+          override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
         })
       }
     }
@@ -126,7 +126,7 @@ class ProfileActivity : BaseActivity() {
 
   fun passwordChange(view: View) {
     if (!isPasswordLengthOk) {
-      Toast.makeText(mContext, "비밀번호는 8글자 이상이어야 합니다", Toast.LENGTH_SHORT).show()
+      Toast.makeText(mContext, resources.getString(R.string.password_length), Toast.LENGTH_SHORT).show()
       return
     }
     val password = binding.edtPassword.text.toString()
@@ -136,7 +136,7 @@ class ProfileActivity : BaseActivity() {
       override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
         if (response.isSuccessful) {
           val br = response.body()!!
-          Toast.makeText(mContext, "비밀번호가 수정되었습니다", Toast.LENGTH_SHORT).show()
+          Toast.makeText(mContext, resources.getString(R.string.password_change), Toast.LENGTH_SHORT).show()
 
           ContextUtil.setToken(mContext, br.data.token)
           GlobalData.loginUser = br.data.user
@@ -144,16 +144,14 @@ class ProfileActivity : BaseActivity() {
         }
       }
 
-      override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-        TODO()
-      }
+      override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
     })
   }
 
   fun phoneNumChange(view: View) {
     val inputPhoneNumber = binding.edtPhoneNum.text.toString()
     if (inputPhoneNumber.isEmpty()) {
-      Toast.makeText(mContext, "전화번호를 입력해 주세요", Toast.LENGTH_SHORT).show()
+      Toast.makeText(mContext, resources.getString(R.string.phone_num_input), Toast.LENGTH_SHORT).show()
       return
     }
 
@@ -161,48 +159,43 @@ class ProfileActivity : BaseActivity() {
       override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
         if (response.isSuccessful) {
           val br = response.body()!!
-          Toast.makeText(mContext, "전화번호가 수정되었습니다", Toast.LENGTH_SHORT).show()
-
+          Toast.makeText(mContext, resources.getString(R.string.phone_num_change), Toast.LENGTH_SHORT).show()
           ContextUtil.setToken(mContext, br.data.token)
           GlobalData.loginUser = br.data.user
           startMain()
         }
       }
 
-      override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-        TODO()
-      }
+      override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
     })
   }
 
   fun nicknameCheck(view: View) {
     val nickname = binding.edtNicknameCheck.text.toString()
     if (nickname.isEmpty()) {
-      Toast.makeText(mContext, "닉네임을 입력해 주세요", Toast.LENGTH_SHORT).show()
+      Toast.makeText(mContext, resources.getString(R.string.nickname_input), Toast.LENGTH_SHORT).show()
       return
     }
 
     apiService.getRequestDuplicatedCheck("NICK_NAME", nickname).enqueue(object : Callback<BasicResponse> {
       override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
         if (response.isSuccessful) {
-          binding.txtNicknameCheck.text = " 사용해도 좋은 닉네임입니다"
+          binding.txtNicknameCheck.text = resources.getString(R.string.nickname_pass)
           isDuplicatedOk = true
         } else {
-          binding.txtNicknameCheck.text = " 중복된 닉네임이 존재합니다"
+          binding.txtNicknameCheck.text = resources.getString(R.string.nickname_exist)
           isDuplicatedOk = false
         }
       }
 
-      override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-        TODO()
-      }
+      override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
     })
   }
 
   fun nicknameChange(view: View) {
     val inputNickname = binding.edtNickname.text.toString()
     if (inputNickname.isEmpty() || !isDuplicatedOk) {
-      Toast.makeText(mContext, "사용 가능한 닉네임을 입력해 주세요", Toast.LENGTH_SHORT).show()
+      Toast.makeText(mContext, resources.getString(R.string.nickname_usable), Toast.LENGTH_SHORT).show()
       return
     }
 
@@ -210,17 +203,14 @@ class ProfileActivity : BaseActivity() {
       override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
         if (response.isSuccessful) {
           val br = response.body()!!
-          Toast.makeText(mContext, "닉네임이 수정되었습니다", Toast.LENGTH_SHORT).show()
-
+          Toast.makeText(mContext, resources.getString(R.string.nickname_change), Toast.LENGTH_SHORT).show()
           ContextUtil.setToken(mContext, br.data.token)
           GlobalData.loginUser = br.data.user
           startMain()
         }
       }
 
-      override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-        TODO()
-      }
+      override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
     })
   }
 
@@ -234,9 +224,7 @@ class ProfileActivity : BaseActivity() {
         }
       }
 
-      override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-        TODO()
-      }
+      override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
     })
   }
 

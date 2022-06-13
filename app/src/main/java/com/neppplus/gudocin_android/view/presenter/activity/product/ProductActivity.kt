@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android.ui.activity
+package com.neppplus.gudocin_android.view.presenter.activity.product
 
 import android.content.DialogInterface
 import android.content.Intent
@@ -13,10 +13,13 @@ import com.bumptech.glide.Glide
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.ActivityProductBinding
 import com.neppplus.gudocin_android.model.BasicResponse
-import com.neppplus.gudocin_android.model.ProductData
-import com.neppplus.gudocin_android.model.ReviewData
-import com.neppplus.gudocin_android.ui.adapter.ContentViewPagerAdapter
-import com.neppplus.gudocin_android.ui.adapter.reviews.ShoppingReviewRecyclerViewAdapter
+import com.neppplus.gudocin_android.model.product.ProductData
+import com.neppplus.gudocin_android.model.review.ReviewData
+import com.neppplus.gudocin_android.view.adapter.content.ContentViewPagerAdapter
+import com.neppplus.gudocin_android.view.adapter.review.shopping.ShoppingReviewRecyclerViewAdapter
+import com.neppplus.gudocin_android.view.presenter.activity.BaseActivity
+import com.neppplus.gudocin_android.view.presenter.activity.cart.CartActivity
+import com.neppplus.gudocin_android.view.presenter.activity.dummy.DummyActivity
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -37,7 +40,7 @@ class ProductActivity : BaseActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     binding = DataBindingUtil.setContentView(this, R.layout.activity_product)
-    binding.product = this
+    binding.view = this
     setupEvents()
     setValues()
   }
@@ -65,7 +68,7 @@ class ProductActivity : BaseActivity() {
             binding.txtPrice.text = br.data.product.getFormattedPrice()
 
             if (mProductData.reviews.isEmpty()) {
-              binding.txtReviewList.text = "아직 등록된 리뷰가 없습니다"
+              binding.txtReviewList.text = resources.getString(R.string.review_empty)
             } else {
               for (review in response.body()!!.data.product.reviews) {
                 review.product = mProductData
@@ -87,11 +90,11 @@ class ProductActivity : BaseActivity() {
         override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
           if (response.isSuccessful) {
             val br = response.body()!!
-            Log.d("성공", br.message)
+            Log.d(resources.getString(R.string.success), br.message)
             alertDialog()
           } else {
             val errorJson = JSONObject(response.errorBody()!!.string())
-            Log.d("에러경우", errorJson.toString())
+            Log.d(resources.getString(R.string.error_case), errorJson.toString())
 
             val message = errorJson.getString("message")
             Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show()
@@ -116,15 +119,15 @@ class ProductActivity : BaseActivity() {
 
   fun alertDialog() {
     val alert = AlertDialog.Builder(mContext)
-    alert.setTitle("장바구니 등록 완료")
-    alert.setMessage("장바구니로 이동하시겠습니까?")
+    alert.setTitle(resources.getString(R.string.cart_registration_success))
+    alert.setMessage(resources.getString(R.string.move_cart_list))
 
-    alert.setPositiveButton("확인", DialogInterface.OnClickListener { _, _ ->
+    alert.setPositiveButton(resources.getString(R.string.confirm), DialogInterface.OnClickListener { _, _ ->
       val myIntent = Intent(mContext, CartActivity::class.java)
       startActivity(myIntent)
     })
 
-    alert.setNegativeButton("취소", DialogInterface.OnClickListener { _, _ -> })
+    alert.setNegativeButton(resources.getString(R.string.cancel), DialogInterface.OnClickListener { _, _ -> })
     alert.show()
   }
 

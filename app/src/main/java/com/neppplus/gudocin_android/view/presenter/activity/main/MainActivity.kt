@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android.ui.activity
+package com.neppplus.gudocin_android.view.presenter.activity.main
 
 import android.content.pm.PackageManager
 import android.os.Build
@@ -18,10 +18,11 @@ import androidx.viewpager2.widget.ViewPager2
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.ActivityMainBinding
 import com.neppplus.gudocin_android.model.BasicResponse
-import com.neppplus.gudocin_android.ui.fragment.HomeFragment
-import com.neppplus.gudocin_android.ui.fragment.ProductFragment
-import com.neppplus.gudocin_android.ui.fragment.ProfileFragment
-import com.neppplus.gudocin_android.utils.ContextUtil
+import com.neppplus.gudocin_android.util.context.ContextUtil
+import com.neppplus.gudocin_android.view.presenter.activity.BaseActivity
+import com.neppplus.gudocin_android.view.presenter.fragment.home.HomeFragment
+import com.neppplus.gudocin_android.view.presenter.fragment.product.ProductFragment
+import com.neppplus.gudocin_android.view.presenter.fragment.profile.ProfileFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -39,7 +40,7 @@ class MainActivity : BaseActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-    binding.main = this
+    binding.view = this
     setupEvents()
     setValues()
   }
@@ -75,7 +76,7 @@ class MainActivity : BaseActivity() {
   override fun onBackPressed() {
     if (System.currentTimeMillis() - backKeyPressedTime >= 1500) {
       backKeyPressedTime = System.currentTimeMillis()
-      Toast.makeText(this, "백버튼을 한번 더 누르면 종료됩니다", Toast.LENGTH_SHORT).show()
+      Toast.makeText(this, resources.getString(R.string.back_button_pressed), Toast.LENGTH_SHORT).show()
     } else {
       ActivityCompat.finishAffinity(this)
       System.runFinalization()

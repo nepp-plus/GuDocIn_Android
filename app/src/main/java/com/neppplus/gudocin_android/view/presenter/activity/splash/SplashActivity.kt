@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android.ui.activity
+package com.neppplus.gudocin_android.view.presenter.activity.splash
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,8 @@ import android.os.Looper
 import androidx.databinding.DataBindingUtil
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.ActivitySplashBinding
+import com.neppplus.gudocin_android.view.presenter.activity.BaseActivity
+import com.neppplus.gudocin_android.view.presenter.activity.init.InitActivity
 
 class SplashActivity : BaseActivity() {
 
@@ -19,14 +21,12 @@ class SplashActivity : BaseActivity() {
         setValues()
     }
 
-    override fun setupEvents() {
-
-    }
+    override fun setupEvents() {}
 
     override fun setValues() {
         val myHandler = Handler(Looper.getMainLooper())
         myHandler.postDelayed({
-            val myIntent = Intent(mContext, StartActivity::class.java)
+            val myIntent = Intent(mContext, InitActivity::class.java)
             startActivity(myIntent)
             finish()
         }, 2500)

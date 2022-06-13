@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android.ui.activity
+package com.neppplus.gudocin_android.view.presenter.activity.subscription
 
 import android.Manifest
 import android.content.Intent
@@ -16,8 +16,9 @@ import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.ActivitySubscriptionBinding
 import com.neppplus.gudocin_android.model.BasicResponse
 import com.neppplus.gudocin_android.model.GlobalData
-import com.neppplus.gudocin_android.ui.adapter.SubscriptionViewPagerAdapter
-import com.neppplus.gudocin_android.utils.URIPathHelper
+import com.neppplus.gudocin_android.util.uri.URIPathHelper
+import com.neppplus.gudocin_android.view.adapter.review.subscription.SubscriptionViewPagerAdapter
+import com.neppplus.gudocin_android.view.presenter.activity.BaseActivity
 import okhttp3.MediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -92,14 +93,14 @@ class SubscriptionActivity : BaseActivity() {
         }
 
         override fun onPermissionDenied(deniedPermissions: MutableList<String>?) {
-          Toast.makeText(mContext, "갤러리 조회 권한이 없습니다", Toast.LENGTH_SHORT).show()
+          Toast.makeText(mContext, resources.getString(R.string.gallery_permission_nothing), Toast.LENGTH_SHORT).show()
         }
       }
 
       TedPermission.create()
         .setPermissionListener(permissionListener)
-        .setRationaleMessage("앱의 기능을 사용하기 위해서는 권한이 필요합니다")
-        .setDeniedMessage("[설정] > [애플리케이션] > [권한] 에서 확인할 수 있습니다")
+        .setRationaleMessage(resources.getString(R.string.gallery_permission_need))
+        .setDeniedMessage(resources.getString(R.string.gallery_permission_process))
         .setPermissions(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
         .check()
     }
@@ -115,9 +116,7 @@ class SubscriptionActivity : BaseActivity() {
         }
       }
 
-      override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-        TODO()
-      }
+      override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
     })
   }
 
@@ -125,7 +124,7 @@ class SubscriptionActivity : BaseActivity() {
     resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
       if (it.resultCode == RESULT_OK) {
         val selectedImageUri = it.data?.data!!
-        Log.d("selectedImageUri", selectedImageUri.toString())
+        Log.d("Selected Image Uri", selectedImageUri.toString())
 //        Uri -> 실제 첨부 가능한 파일로 변환 -> 실제 경로를 추출해서 Retrofit 에 첨부할 수 있게 됨
         val file = File(URIPathHelper().getPath(mContext, selectedImageUri))
 //        파일을 Retrofit 에 첨부 가능한 RequestBody 형태로 가공
@@ -136,17 +135,15 @@ class SubscriptionActivity : BaseActivity() {
         apiService.putRequestProfile(body).enqueue(object : Callback<BasicResponse> {
           override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
             if (response.isSuccessful) {
-              Toast.makeText(mContext, "프로필 사진이 변경되었습니다", Toast.LENGTH_SHORT).show()
+              Toast.makeText(mContext, resources.getString(R.string.profile_change_success), Toast.LENGTH_SHORT).show()
 //                사용자가 선택한 사진(selectedImageUri)을 프로필 ImageView 에 반영
               Glide.with(mContext).load(selectedImageUri).into(binding.imgProfile)
             } else {
-              Toast.makeText(mContext, "프로필 사진 변경에 실패하였습니다", Toast.LENGTH_SHORT).show()
+              Toast.makeText(mContext, resources.getString(R.string.profile_change_failed), Toast.LENGTH_SHORT).show()
             }
           }
 
-          override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-            TODO()
-          }
+          override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
         })
       }
     }

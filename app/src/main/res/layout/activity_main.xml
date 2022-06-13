@@ -4,8 +4,8 @@
   <data>
 
     <variable
-      name="main"
-      type="com.neppplus.gudocin_android.ui.activity.MainActivity" />
+      name="view"
+      type="com.neppplus.gudocin_android.view.presenter.activity.main.MainActivity" />
   </data>
 
   <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -18,7 +18,7 @@
       android:id="@+id/viewPager"
       android:layout_width="0dp"
       android:layout_height="0dp"
-      android:onClick="@{main::viewpager}"
+      android:onClick="@{view::viewpager}"
       app:layout_constraintBottom_toTopOf="@+id/bottomNav"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
@@ -35,7 +35,7 @@
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/viewPager"
       app:menu="@menu/bottom_navigation_main"
-      app:onItemSelectedListener="@{main::navigation}" />
+      app:onItemSelectedListener="@{view::navigation}" />
 
   </androidx.constraintlayout.widget.ConstraintLayout>
 

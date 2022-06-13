@@ -1,9 +1,10 @@
-package com.neppplus.gudocin_android.ui.activity
+package com.neppplus.gudocin_android.view.presenter.activity.dummy
 
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.ActivityDummyBinding
+import com.neppplus.gudocin_android.view.presenter.activity.BaseActivity
 
 class DummyActivity : BaseActivity() {
 

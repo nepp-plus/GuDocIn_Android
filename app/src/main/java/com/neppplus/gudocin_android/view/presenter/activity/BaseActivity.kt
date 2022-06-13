@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android.ui.activity
+package com.neppplus.gudocin_android.view.presenter.activity
 
 import android.content.Context
 import android.content.Intent
@@ -10,12 +10,14 @@ import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.neppplus.gudocin_android.R
-import com.neppplus.gudocin_android.api.ServerAPI
-import com.neppplus.gudocin_android.api.ServerAPIInterface
+import com.neppplus.gudocin_android.network.RetrofitService
+import com.neppplus.gudocin_android.network.RetrofitServiceInstance
+import com.neppplus.gudocin_android.view.presenter.activity.cart.CartActivity
+import com.neppplus.gudocin_android.view.presenter.activity.shopping.ShoppingActivity
 
 abstract class BaseActivity : AppCompatActivity() {
   lateinit var mContext: Context
-  lateinit var apiService: ServerAPIInterface
+  lateinit var apiService: RetrofitServiceInstance
 
   lateinit var btnBack: ImageView
   lateinit var txtTitleInActionBar: TextView
@@ -26,8 +28,8 @@ abstract class BaseActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     mContext = this
 
-    val retrofit = ServerAPI.getRetrofit(mContext)
-    apiService = retrofit.create(ServerAPIInterface::class.java)
+    val retrofit = RetrofitService.getRetrofit(mContext)
+    apiService = retrofit.create(RetrofitServiceInstance::class.java)
 
     supportActionBar?.let {
       setCustomActionBar()

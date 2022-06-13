@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android.ui.activity
+package com.neppplus.gudocin_android.view.presenter.activity.login
 
 import android.content.Intent
 import android.os.Bundle
@@ -23,7 +23,9 @@ import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.ActivityLoginBinding
 import com.neppplus.gudocin_android.model.BasicResponse
 import com.neppplus.gudocin_android.model.GlobalData
-import com.neppplus.gudocin_android.utils.ContextUtil
+import com.neppplus.gudocin_android.util.context.ContextUtil
+import com.neppplus.gudocin_android.view.presenter.activity.BaseActivity
+import com.neppplus.gudocin_android.view.presenter.activity.main.MainActivity
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -40,7 +42,7 @@ class LoginActivity : BaseActivity() {
   private val googleSignInIntent by lazy {
     val gso =
       GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-        .requestIdToken(getString(R.string.default_client_id))
+        .requestIdToken(getString(R.string.google_default_client_id))
         .requestEmail()
         .build()
     GoogleSignIn.getClient(this, gso).signInIntent
@@ -49,7 +51,7 @@ class LoginActivity : BaseActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
-    binding.login = this
+    binding.view = this
     setupEvents()
     setValues()
   }
@@ -70,7 +72,7 @@ class LoginActivity : BaseActivity() {
         if (response.isSuccessful) {
           val basicResponse = response.body()!!
           val userNickname = basicResponse.data.user.nickname
-          Toast.makeText(mContext, "${userNickname}님, 환영합니다", Toast.LENGTH_SHORT).show()
+          Toast.makeText(mContext, resources.getString(R.string.welcome_user).replace("{user}", userNickname), Toast.LENGTH_SHORT).show()
 
           ContextUtil.setToken(mContext, basicResponse.data.token)
           GlobalData.loginUser = basicResponse.data.user
@@ -79,16 +81,14 @@ class LoginActivity : BaseActivity() {
           startMain()
         } else {
           val errorJson = JSONObject(response.errorBody()!!.string())
-          Log.d("에러경우", errorJson.toString())
+          Log.d(resources.getString(R.string.error_case), errorJson.toString())
 
           val message = errorJson.getString("message")
           Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show()
         }
       }
 
-      override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-        TODO()
-      }
+      override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
     })
   }
 
@@ -96,20 +96,20 @@ class LoginActivity : BaseActivity() {
     if (UserApiClient.instance.isKakaoTalkLoginAvailable(mContext)) {
       UserApiClient.instance.loginWithKakaoTalk(mContext) { token, error ->
         if (error != null) {
-          Log.e("카카오톡 로그인", "로그인 실패")
+          Log.e(resources.getString(R.string.kakao_login), resources.getString(R.string.kakao_login_failed))
         } else if (token != null) {
-          Log.e("카카오톡 로그인", "로그인 성공")
-          Log.e("카카오톡 로그인", token.accessToken)
+          Log.e(resources.getString(R.string.kakao_login), resources.getString(R.string.kakao_login_success))
+          Log.e(resources.getString(R.string.kakao_login), token.accessToken)
           getKakao()
         }
       }
     } else {
       UserApiClient.instance.loginWithKakaoAccount(mContext) { token, error ->
         if (error != null) {
-          Log.e("카카오톡 로그인", "로그인 실패")
+          Log.e(resources.getString(R.string.kakao_login), resources.getString(R.string.kakao_login_failed))
         } else if (token != null) {
-          Log.e("카카오톡 로그인", "로그인 성공")
-          Log.e("카카오톡 로그인", token.accessToken)
+          Log.e(resources.getString(R.string.kakao_login), resources.getString(R.string.kakao_login_success))
+          Log.e(resources.getString(R.string.kakao_login), token.accessToken)
           getKakao()
         }
       }
@@ -127,10 +127,10 @@ class LoginActivity : BaseActivity() {
   private fun getKakao() {
     UserApiClient.instance.me { user, error ->
       if (error != null) {
-        Log.e("카카오톡 로그인", "사용자 정보 요청 실패", error)
+        Log.e(resources.getString(R.string.kakao_login), resources.getString(R.string.kakao_request_failed), error)
       } else if (user != null) {
         Log.i(
-          "카카오톡 로그인", "사용자 정보 요청 성공" +
+          resources.getString(R.string.kakao_login), resources.getString(R.string.kakao_request_success) +
               "\n회원번호: ${user.id}" +
               "\n이메일: ${user.kakaoAccount?.email}" +
               "\n닉네임: ${user.kakaoAccount?.profile?.nickname}"
@@ -140,7 +140,8 @@ class LoginActivity : BaseActivity() {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
               if (response.isSuccessful) {
                 val br = response.body()!!
-                Toast.makeText(mContext, "${br.data.user.nickname}님, 환영합니다", Toast.LENGTH_SHORT).show()
+                Toast.makeText(mContext, resources.getString(R.string.welcome_user).replace("{user}", br.data.user.nickname), Toast.LENGTH_SHORT)
+                  .show()
 
                 ContextUtil.setToken(mContext, br.data.token)
                 GlobalData.loginUser = br.data.user
@@ -150,9 +151,7 @@ class LoginActivity : BaseActivity() {
               }
             }
 
-            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-              TODO()
-            }
+            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
           })
       }
     }
@@ -175,7 +174,8 @@ class LoginActivity : BaseActivity() {
               override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
                 if (response.isSuccessful) {
                   val br = response.body()!!
-                  Toast.makeText(mContext, "${br.data.user.nickname}님, 환영합니다", Toast.LENGTH_SHORT).show()
+                  Toast.makeText(mContext, resources.getString(R.string.welcome_user).replace("{user}", br.data.user.nickname), Toast.LENGTH_SHORT)
+                    .show()
 
                   ContextUtil.setToken(mContext, br.data.token)
                   GlobalData.loginUser = br.data.user
@@ -185,9 +185,7 @@ class LoginActivity : BaseActivity() {
                 }
               }
 
-              override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-                TODO()
-              }
+              override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
             })
         }
       }
@@ -198,18 +196,16 @@ class LoginActivity : BaseActivity() {
     callbackManager = CallbackManager.Factory.create()
     LoginManager.getInstance().registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
       override fun onSuccess(result: LoginResult?) {
-        Log.d("페이스북 로그인", result!!.accessToken.token)
-
+        Log.d(resources.getString(R.string.facebook_login), result!!.accessToken.token)
         // Before Convert to Lambda
         /* val graphApiRequest = GraphRequest.newMeRequest(result.accessToken, object : GraphRequest.GraphJSONObjectCallback {
         override fun onCompleted(`object`: JSONObject?, response: GraphResponse?) {
-          TODO()
         }
       }) */
 
         // After Convert to Lambda
         val graphApiRequest = GraphRequest.newMeRequest(result.accessToken) { jsonObj, _ ->
-          Log.d("내 정보 요청", jsonObj.toString())
+          Log.d(resources.getString(R.string.info_request), jsonObj.toString())
 
           val name = jsonObj!!.getString("name")
           val id = jsonObj.getString("id")
@@ -218,7 +214,8 @@ class LoginActivity : BaseActivity() {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
               if (response.isSuccessful) {
                 val br = response.body()!!
-                Toast.makeText(mContext, "${br.data.user.nickname}님, 환영합니다", Toast.LENGTH_SHORT).show()
+                Toast.makeText(mContext, resources.getString(R.string.welcome_user).replace("{user}", br.data.user.nickname), Toast.LENGTH_SHORT)
+                  .show()
 
                 ContextUtil.setToken(mContext, br.data.token)
                 GlobalData.loginUser = br.data.user
@@ -228,21 +225,15 @@ class LoginActivity : BaseActivity() {
               }
             }
 
-            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-              TODO()
-            }
+            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
           })
         }
         graphApiRequest.executeAsync()
       }
 
-      override fun onCancel() {
-        TODO()
-      }
+      override fun onCancel() {}
 
-      override fun onError(error: FacebookException?) {
-        TODO()
-      }
+      override fun onError(error: FacebookException?) {}
     })
   }
 
@@ -257,7 +248,7 @@ class LoginActivity : BaseActivity() {
   }
 
   fun setAutoLogin(buttonView: CompoundButton?, isChecked: Boolean) {
-    Log.d("체크박스 변경", isChecked.toString())
+    Log.d(resources.getString(R.string.checkbox_change), isChecked.toString())
     ContextUtil.setAutoLogin(mContext, isChecked)
   }
 

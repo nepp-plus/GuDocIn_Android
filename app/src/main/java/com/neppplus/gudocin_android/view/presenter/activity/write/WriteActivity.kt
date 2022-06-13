@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android.ui.activity
+package com.neppplus.gudocin_android.view.presenter.activity.write
 
 import android.Manifest
 import android.content.DialogInterface
@@ -22,8 +22,9 @@ import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.ActivityWriteBinding
 import com.neppplus.gudocin_android.model.BasicResponse
 import com.neppplus.gudocin_android.model.GlobalData
-import com.neppplus.gudocin_android.model.ProductData
-import com.neppplus.gudocin_android.utils.URIPathHelper
+import com.neppplus.gudocin_android.model.product.ProductData
+import com.neppplus.gudocin_android.util.uri.URIPathHelper
+import com.neppplus.gudocin_android.view.presenter.activity.BaseActivity
 import okhttp3.MediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -34,8 +35,6 @@ import retrofit2.Response
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.ArrayList
-import kotlin.collections.HashMap
 
 class WriteActivity : BaseActivity() {
 
@@ -61,14 +60,14 @@ class WriteActivity : BaseActivity() {
       }
 
       override fun onPermissionDenied(deniedPermissions: MutableList<String>?) {
-        Toast.makeText(mContext, "갤러리 조회 권한이 없습니다", Toast.LENGTH_SHORT).show()
+        Toast.makeText(mContext, resources.getString(R.string.gallery_permission_nothing), Toast.LENGTH_SHORT).show()
       }
     }
 
     TedPermission.create()
       .setPermissionListener(permissionListener)
-      .setRationaleMessage("앱의 기능을 사용하기 위해서는 권한이 필요합니다")
-      .setDeniedMessage("[설정] > [애플리케이션] > [권한] 에서 확인할 수 있습니다")
+      .setRationaleMessage(resources.getString(R.string.gallery_permission_need))
+      .setDeniedMessage(resources.getString(R.string.gallery_permission_process))
       .setPermissions(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
       .check()
   }
@@ -82,7 +81,6 @@ class WriteActivity : BaseActivity() {
 
   override fun setupEvents() {
     binding.llSelectImage.setOnClickListener(ocl)
-
     binding.imgThumbnail.setOnClickListener(ocl)
 
     binding.edtKeyword.addTextChangedListener {
@@ -90,11 +88,11 @@ class WriteActivity : BaseActivity() {
       if (nowText == "") {
         return@addTextChangedListener
       }
-      Log.d("입력값", nowText)
+      Log.d(resources.getString(R.string.input_data), nowText)
 
       // 입력한 값이 스페이스바가 들어오게 되면 태그가 되게 하는 함수
       if (nowText.last() == ' ') {
-        Log.d("입력값", "스페이스바가 들어옴")
+        Log.d(resources.getString(R.string.input_data), resources.getString(R.string.input_space_bar))
 
         val tag = nowText.replace(" ", "")
         mInputTagList.add(tag)
@@ -116,35 +114,35 @@ class WriteActivity : BaseActivity() {
 
       // 제목이 입력되지 않으면 버튼이 눌리지 않도록
       if (inputTitle.isEmpty()) {
-        Toast.makeText(mContext, "제목을 입력해 주세요", Toast.LENGTH_SHORT).show()
+        Toast.makeText(mContext, resources.getString(R.string.input_title), Toast.LENGTH_SHORT).show()
         return@setOnClickListener
       }
       // 대표 사진이 첨부되지 않으면 버튼이 눌리지 않도록
       if (mSelectedThumbnailUri == null) {
-        Toast.makeText(mContext, "대표 사진을 첨부해 주세요", Toast.LENGTH_SHORT).show()
+        Toast.makeText(mContext, resources.getString(R.string.input_represent_photo), Toast.LENGTH_SHORT).show()
         return@setOnClickListener
       }
       // 리뷰 내용이 입력되지 않으면 버튼이 눌리지 않도록
       if (inputContent.isEmpty()) {
-        Toast.makeText(mContext, "리뷰 내용을 입력해 주세요", Toast.LENGTH_SHORT).show()
+        Toast.makeText(mContext, resources.getString(R.string.input_review), Toast.LENGTH_SHORT).show()
         return@setOnClickListener
       }
 
       val alert = AlertDialog.Builder(mContext)
-      alert.setTitle("리뷰 작성 알림")
-      alert.setMessage("리뷰를 작성하시겠습니까?\n(키워드 미입력 시 작성되지 않습니다)")
-      alert.setPositiveButton("확인", DialogInterface.OnClickListener { _, _ ->
+      alert.setTitle(resources.getString(R.string.notice_review))
+      alert.setMessage(resources.getString(R.string.review_registration))
+      alert.setPositiveButton(resources.getString(R.string.confirm), DialogInterface.OnClickListener { _, _ ->
         val rating = binding.ratingBar.rating.toDouble()
         var tagStr = ""
 
         for (tag in mInputTagList) {
-          Log.d("첨부할 태그", tag)
+          Log.d(resources.getString(R.string.attach_tag), tag)
           tagStr += tag
           tagStr += ","
         }
 
         tagStr = tagStr.substring(0, tagStr.length - 1)
-        Log.d("완성된 String", tagStr)
+        Log.d(resources.getString(R.string.completed_tag), tagStr)
 
         val productIdBody =
           RequestBody.create(MediaType.parse("text/plain"), mProductData.id.toString())
@@ -177,20 +175,18 @@ class WriteActivity : BaseActivity() {
         apiService.postRequestReviewContent(param, thumbNailImageBody).enqueue(object : Callback<BasicResponse> {
           override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
             if (response.isSuccessful) {
-              Toast.makeText(mContext, "리뷰가 작성되었습니다", Toast.LENGTH_SHORT).show()
+              Toast.makeText(mContext, resources.getString(R.string.review_upload), Toast.LENGTH_SHORT).show()
               finish()
             } else {
               val jsonObj = JSONObject(response.errorBody()!!.string())
-              Log.d("리뷰 작성 실패", jsonObj.toString())
+              Log.d(resources.getString(R.string.review_upload_failed), jsonObj.toString())
             }
           }
 
-          override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-            TODO()
-          }
+          override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
         })
       })
-      alert.setNegativeButton("취소", null)
+      alert.setNegativeButton(resources.getString(R.string.cancel), null)
       alert.show()
     }
   }

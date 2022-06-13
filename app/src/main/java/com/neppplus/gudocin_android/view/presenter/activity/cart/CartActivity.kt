@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android.ui.activity
+package com.neppplus.gudocin_android.view.presenter.activity.cart
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,16 +8,16 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.ActivityCartBinding
 import com.neppplus.gudocin_android.model.BasicResponse
-import com.neppplus.gudocin_android.model.CartData
-import com.neppplus.gudocin_android.ui.adapter.CartRecyclerViewAdapter
+import com.neppplus.gudocin_android.model.cart.CartData
+import com.neppplus.gudocin_android.view.adapter.cart.CartRecyclerViewAdapter
+import com.neppplus.gudocin_android.view.presenter.activity.dummy.DummyActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.text.NumberFormat
 import java.util.*
-import kotlin.collections.ArrayList
 
-class CartActivity : BaseActivity() {
+class CartActivity : com.neppplus.gudocin_android.view.presenter.activity.BaseActivity() {
 
   lateinit var binding: ActivityCartBinding
 
@@ -30,7 +30,7 @@ class CartActivity : BaseActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     binding = DataBindingUtil.setContentView(this, R.layout.activity_cart)
-    binding.cart = this
+    binding.view = this
     setupEvents()
     setValues()
   }
@@ -82,7 +82,7 @@ class CartActivity : BaseActivity() {
     startActivity(myIntent)
   }
 
-  fun recyclerviewAdapter() {
+  private fun recyclerviewAdapter() {
     mCartRecyclerViewAdapter = CartRecyclerViewAdapter(mContext, mCartList)
     binding.rvCart.adapter = mCartRecyclerViewAdapter
     binding.rvCart.layoutManager = LinearLayoutManager(mContext)

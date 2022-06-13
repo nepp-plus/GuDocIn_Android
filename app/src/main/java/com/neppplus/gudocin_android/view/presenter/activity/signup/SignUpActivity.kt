@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android.ui.activity
+package com.neppplus.gudocin_android.view.presenter.activity.signup
 
 import android.content.Intent
 import android.os.Bundle
@@ -22,7 +22,9 @@ import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.ActivitySignUpBinding
 import com.neppplus.gudocin_android.model.BasicResponse
 import com.neppplus.gudocin_android.model.GlobalData
-import com.neppplus.gudocin_android.utils.ContextUtil
+import com.neppplus.gudocin_android.util.context.ContextUtil
+import com.neppplus.gudocin_android.view.presenter.activity.BaseActivity
+import com.neppplus.gudocin_android.view.presenter.activity.main.MainActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -43,7 +45,7 @@ class SignUpActivity : BaseActivity() {
 
   private val googleSignInIntent by lazy {
     val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-      .requestIdToken(getString(R.string.default_client_id)).requestEmail().build()
+      .requestIdToken(getString(R.string.google_default_client_id)).requestEmail().build()
     GoogleSignIn.getClient(this, gso).signInIntent
   }
 
@@ -59,20 +61,20 @@ class SignUpActivity : BaseActivity() {
       if (UserApiClient.instance.isKakaoTalkLoginAvailable(mContext)) {
         UserApiClient.instance.loginWithKakaoTalk(mContext) { token, error ->
           if (error != null) {
-            Log.e("카카오톡 로그인", "로그인 실패")
+            Log.e(resources.getString(R.string.kakao_login), resources.getString(R.string.kakao_login_failed))
           } else if (token != null) {
-            Log.e("카카오톡 로그인", "로그인 성공")
-            Log.e("카카오톡 로그인", token.accessToken)
+            Log.e(resources.getString(R.string.kakao_login), resources.getString(R.string.kakao_login_success))
+            Log.e(resources.getString(R.string.kakao_login), token.accessToken)
             getInfoFromKakao()
           }
         }
       } else {
         UserApiClient.instance.loginWithKakaoAccount(mContext) { token, error ->
           if (error != null) {
-            Log.e("카카오톡 로그인", "로그인 실패")
+            Log.e(resources.getString(R.string.kakao_login), resources.getString(R.string.kakao_login_failed))
           } else if (token != null) {
-            Log.e("카카오톡 로그인", "로그인 성공")
-            Log.e("카카오톡 로그인", token.accessToken)
+            Log.e(resources.getString(R.string.kakao_login), resources.getString(R.string.kakao_login_success))
+            Log.e(resources.getString(R.string.kakao_login), token.accessToken)
             getInfoFromKakao()
           }
         }
@@ -90,10 +92,10 @@ class SignUpActivity : BaseActivity() {
 
     binding.edtPassword.addTextChangedListener {
       if (it.toString().length >= 8) {
-        binding.txtCheckPassword1.text = " 사용해도 좋은 비밀번호입니다"
+        binding.txtCheckPassword1.text = resources.getString(R.string.password_pass)
         isPasswordLengthOk = true
       } else {
-        binding.txtCheckPassword2.text = " 비밀번호는 8자리 이상이어야 합니다"
+        binding.txtCheckPassword2.text = resources.getString(R.string.password_length)
         isPasswordLengthOk = false
       }
       isPasswordSame = comparePasswords()
@@ -104,31 +106,29 @@ class SignUpActivity : BaseActivity() {
     }
 
     binding.edtNickname.addTextChangedListener {
-      binding.txtCheckNickname.text = " 닉네임 중복 확인을 진행해 주세요"
+      binding.txtCheckNickname.text = resources.getString(R.string.nickname_duplicated)
       isDuplicatedOk = false
     }
 
     binding.btnCheckNickname.setOnClickListener {
       val nickname = binding.edtNickname.text.toString()
       if (nickname.isEmpty()) {
-        Toast.makeText(mContext, "닉네임을 입력해 주세요", Toast.LENGTH_SHORT).show()
+        Toast.makeText(mContext, resources.getString(R.string.nickname_input), Toast.LENGTH_SHORT).show()
         return@setOnClickListener
       }
 
       apiService.getRequestDuplicatedCheck("NICK_NAME", nickname).enqueue(object : Callback<BasicResponse> {
         override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
           if (response.isSuccessful) {
-            binding.txtCheckNickname.text = " 사용해도 좋은 닉네임입니다"
+            binding.txtCheckNickname.text = resources.getString(R.string.nickname_pass)
             isDuplicatedOk = true
           } else {
-            binding.txtCheckNickname.text = " 중복된 닉네임이 존재합니다"
+            binding.txtCheckNickname.text = resources.getString(R.string.nickname_exist)
             isDuplicatedOk = false
           }
         }
 
-        override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-          TODO()
-        }
+        override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
       })
     }
 
@@ -139,27 +139,27 @@ class SignUpActivity : BaseActivity() {
       val nickname = binding.edtNickname.text.toString()
 
       if (email.isEmpty()) {
-        Toast.makeText(mContext, "이메일을 입력해 주세요", Toast.LENGTH_SHORT).show()
+        Toast.makeText(mContext, resources.getString(R.string.email_input), Toast.LENGTH_SHORT).show()
         return@setOnClickListener
       }
       if (!isPasswordLengthOk) {
-        Toast.makeText(mContext, "비밀번호는 8글자 이상이어야 합니다", Toast.LENGTH_SHORT).show()
+        Toast.makeText(mContext, resources.getString(R.string.password_length), Toast.LENGTH_SHORT).show()
         return@setOnClickListener
       }
       if (!isPasswordSame) {
-        Toast.makeText(mContext, "비밀번호가 일치하지 않습니다", Toast.LENGTH_SHORT).show()
+        Toast.makeText(mContext, resources.getString(R.string.password_incorrect), Toast.LENGTH_SHORT).show()
         return@setOnClickListener
       }
       if (phone.isEmpty()) {
-        Toast.makeText(mContext, "전화번호를 입력해 주세요", Toast.LENGTH_SHORT).show()
+        Toast.makeText(mContext, resources.getString(R.string.phone_num_input), Toast.LENGTH_SHORT).show()
         return@setOnClickListener
       }
       if (nickname.isEmpty()) {
-        Toast.makeText(mContext, "닉네임을 입력해 주세요", Toast.LENGTH_SHORT).show()
+        Toast.makeText(mContext, resources.getString(R.string.nickname_input), Toast.LENGTH_SHORT).show()
         return@setOnClickListener
       }
       if (!isDuplicatedOk) {
-        Toast.makeText(mContext, "닉네임 중복 확인을 진행해 주세요", Toast.LENGTH_SHORT).show()
+        Toast.makeText(mContext, resources.getString(R.string.nickname_duplicated), Toast.LENGTH_SHORT).show()
         return@setOnClickListener
       }
 
@@ -167,10 +167,11 @@ class SignUpActivity : BaseActivity() {
         override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
           if (response.isSuccessful) {
             val br = response.body()!!
-            Log.d("가입한 사람 토큰", br.data.token)
+            Log.d(resources.getString(R.string.fcm_token), br.data.token)
 
             val signUpUserNickname = br.data.user.nickname
-            Toast.makeText(mContext, "${signUpUserNickname}님 가입을 축하합니다", Toast.LENGTH_SHORT).show()
+            Toast.makeText(mContext, resources.getString(R.string.congratulation_user).replace("{user}", signUpUserNickname), Toast.LENGTH_SHORT)
+              .show()
           }
 
           val myIntent = Intent(mContext, MainActivity::class.java)
@@ -178,9 +179,7 @@ class SignUpActivity : BaseActivity() {
           finish()
         }
 
-        override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-          TODO()
-        }
+        override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
       })
     }
   }
@@ -190,10 +189,10 @@ class SignUpActivity : BaseActivity() {
     val confirmPassword = binding.edtConfirmPassword.text.toString()
 
     return if (password == confirmPassword) {
-      binding.txtCheckPassword2.text = " 비밀번호가 일치합니다"
+      binding.txtCheckPassword2.text = resources.getString(R.string.password_correct)
       true
     } else {
-      binding.txtCheckPassword2.text = " 비밀번호가 일치하지 않습니다"
+      binding.txtCheckPassword2.text = resources.getString(R.string.password_incorrect)
       false
     }
   }
@@ -206,10 +205,10 @@ class SignUpActivity : BaseActivity() {
   private fun getInfoFromKakao() {
     UserApiClient.instance.me { user, error ->
       if (error != null) {
-        Log.e("카카오톡 로그인", "사용자 정보 요청 실패", error)
+        Log.e(resources.getString(R.string.kakao_login), resources.getString(R.string.kakao_request_failed), error)
       } else if (user != null) {
         Log.i(
-          "카카오톡 로그인", "사용자 정보 요청 성공" +
+          resources.getString(R.string.kakao_login), resources.getString(R.string.kakao_request_success) +
               "\n회원번호: ${user.id}" +
               "\n이메일: ${user.kakaoAccount?.email}" +
               "\n닉네임: ${user.kakaoAccount?.profile?.nickname}"
@@ -220,7 +219,8 @@ class SignUpActivity : BaseActivity() {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
               if (response.isSuccessful) {
                 val br = response.body()!!
-                Toast.makeText(mContext, "${br.data.user.nickname}님, 환영합니다", Toast.LENGTH_SHORT).show()
+                Toast.makeText(mContext, resources.getString(R.string.welcome_user).replace("{user}", br.data.user.nickname), Toast.LENGTH_SHORT)
+                  .show()
 
                 ContextUtil.setToken(mContext, br.data.token)
                 GlobalData.loginUser = br.data.user
@@ -231,9 +231,7 @@ class SignUpActivity : BaseActivity() {
               }
             }
 
-            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-              TODO()
-            }
+            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
           })
       }
     }
@@ -256,7 +254,8 @@ class SignUpActivity : BaseActivity() {
               override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
                 if (response.isSuccessful) {
                   val br = response.body()!!
-                  Toast.makeText(mContext, "${br.data.user.nickname}님, 환영합니다", Toast.LENGTH_SHORT).show()
+                  Toast.makeText(mContext, resources.getString(R.string.welcome_user).replace("{user}", br.data.user.nickname), Toast.LENGTH_SHORT)
+                    .show()
 
                   ContextUtil.setToken(mContext, br.data.token)
                   GlobalData.loginUser = br.data.user
@@ -267,9 +266,7 @@ class SignUpActivity : BaseActivity() {
                 }
               }
 
-              override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-                TODO()
-              }
+              override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
             })
         }
       }
@@ -280,18 +277,16 @@ class SignUpActivity : BaseActivity() {
     callbackManager = CallbackManager.Factory.create()
     LoginManager.getInstance().registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
       override fun onSuccess(result: LoginResult?) {
-        Log.d("페이스북 로그인", result!!.accessToken.token)
-
+        Log.d(resources.getString(R.string.facebook_login), result!!.accessToken.token)
         // Before Convert to Lambda
         /* val graphApiRequest = GraphRequest.newMeRequest(result.accessToken, object : GraphRequest.GraphJSONObjectCallback {
           override fun onCompleted(`object`: JSONObject?, response: GraphResponse?) {
-            TODO()
           }
         }) */
 
         // After Convert to Lambda
         val graphApiRequest = GraphRequest.newMeRequest(result.accessToken) { jsonObj, _ ->
-          Log.d("내 정보 요청", jsonObj.toString())
+          Log.d(resources.getString(R.string.info_request), jsonObj.toString())
 
           val name = jsonObj!!.getString("name")
           val id = jsonObj.getString("id")
@@ -300,7 +295,8 @@ class SignUpActivity : BaseActivity() {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
               if (response.isSuccessful) {
                 val br = response.body()!!
-                Toast.makeText(mContext, "${br.data.user.nickname}님, 환영합니다", Toast.LENGTH_SHORT).show()
+                Toast.makeText(mContext, resources.getString(R.string.welcome_user).replace("{user}", br.data.user.nickname), Toast.LENGTH_SHORT)
+                  .show()
 
                 ContextUtil.setToken(mContext, br.data.token)
                 GlobalData.loginUser = br.data.user
@@ -312,21 +308,15 @@ class SignUpActivity : BaseActivity() {
               }
             }
 
-            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-              TODO()
-            }
+            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
           })
         }
         graphApiRequest.executeAsync()
       }
 
-      override fun onCancel() {
-        TODO()
-      }
+      override fun onCancel() {}
 
-      override fun onError(error: FacebookException?) {
-        TODO()
-      }
+      override fun onError(error: FacebookException?) {}
     })
   }
 

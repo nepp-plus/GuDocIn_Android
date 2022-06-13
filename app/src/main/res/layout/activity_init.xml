@@ -14,7 +14,7 @@
             android:layout_marginTop="50dp"
             android:gravity="center"
             android:orientation="vertical"
-            tools:context=".ui.activity.StartActivity">
+            tools:context=".view.presenter.activity.init.InitActivity">
 
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/viewPager"

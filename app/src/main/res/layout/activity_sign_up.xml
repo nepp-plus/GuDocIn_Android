@@ -30,7 +30,7 @@
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
-                <com.neppplus.gudocin_android.utils.CustomEditText
+                <com.neppplus.gudocin_android.util.custom.CustomEditText
                     android:id="@+id/edtEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
-                <com.neppplus.gudocin_android.utils.CustomEditText
+                <com.neppplus.gudocin_android.util.custom.CustomEditText
                     android:id="@+id/edtPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
-                <com.neppplus.gudocin_android.utils.CustomEditText
+                <com.neppplus.gudocin_android.util.custom.CustomEditText
                     android:id="@+id/edtConfirmPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -93,7 +93,7 @@
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
-                <com.neppplus.gudocin_android.utils.CustomEditText
+                <com.neppplus.gudocin_android.util.custom.CustomEditText
                     android:id="@+id/edtPhoneNum"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -115,7 +115,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <com.neppplus.gudocin_android.utils.CustomEditText
+                    <com.neppplus.gudocin_android.util.custom.CustomEditText
                         android:id="@+id/edtNickname"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
