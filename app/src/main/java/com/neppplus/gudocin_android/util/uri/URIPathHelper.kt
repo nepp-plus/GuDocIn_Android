@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android.utils
+package com.neppplus.gudocin_android.util.uri
 
 import android.content.ContentUris
 import android.content.Context
@@ -11,7 +11,6 @@ import android.provider.MediaStore
 import androidx.annotation.RequiresApi
 
 class URIPathHelper {
-
     @RequiresApi(Build.VERSION_CODES.KITKAT)
     fun getPath(context: Context, uri: Uri): String? {
         val isKitKatorAbove = Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT
@@ -37,12 +36,16 @@ class URIPathHelper {
                 val split = docId.split(":".toRegex()).toTypedArray()
                 val type = split[0]
                 var contentUri: Uri? = null
-                if ("image" == type) {
-                    contentUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-                } else if ("video" == type) {
-                    contentUri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI
-                } else if ("audio" == type) {
-                    contentUri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI
+                when (type) {
+                  "image" -> {
+                      contentUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+                  }
+                  "video" -> {
+                      contentUri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI
+                  }
+                  "audio" -> {
+                      contentUri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI
+                  }
                 }
                 val selection = "_id=?"
                 val selectionArgs = arrayOf(split[1])
@@ -56,7 +59,7 @@ class URIPathHelper {
         return null
     }
 
-    fun getDataColumn(
+    private fun getDataColumn(
         context: Context,
         uri: Uri,
         selection: String?,
@@ -67,26 +70,26 @@ class URIPathHelper {
         val projection = arrayOf(column)
         try {
             cursor =
-                context.getContentResolver().query(uri, projection, selection, selectionArgs, null)
+                context.contentResolver.query(uri, projection, selection, selectionArgs, null)
             if (cursor != null && cursor.moveToFirst()) {
-                val column_index: Int = cursor.getColumnIndexOrThrow(column)
-                return cursor.getString(column_index)
+                val columnIndex: Int = cursor.getColumnIndexOrThrow(column)
+                return cursor.getString(columnIndex)
             }
         } finally {
-            if (cursor != null) cursor.close()
+            cursor?.close()
         }
         return null
     }
 
-    fun isExternalStorageDocument(uri: Uri): Boolean {
+    private fun isExternalStorageDocument(uri: Uri): Boolean {
         return "com.android.externalstorage.documents" == uri.authority
     }
 
-    fun isDownloadsDocument(uri: Uri): Boolean {
+    private fun isDownloadsDocument(uri: Uri): Boolean {
         return "com.android.providers.downloads.documents" == uri.authority
     }
 
-    fun isMediaDocument(uri: Uri): Boolean {
+    private fun isMediaDocument(uri: Uri): Boolean {
         return "com.android.providers.media.documents" == uri.authority
     }
 

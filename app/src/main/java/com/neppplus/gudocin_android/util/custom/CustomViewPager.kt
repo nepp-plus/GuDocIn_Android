@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android.utils
+package com.neppplus.gudocin_android.util.custom
 
 import android.content.Context
 import android.util.AttributeSet

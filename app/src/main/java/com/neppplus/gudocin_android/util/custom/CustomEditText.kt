@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android.utils
+package com.neppplus.gudocin_android.util.custom
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -11,7 +11,6 @@ import android.text.TextWatcher
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.drawable.DrawableCompat
@@ -71,17 +70,13 @@ class CustomEditText : AppCompatEditText, TextWatcher, View.OnTouchListener,
         onTouchListener = l
     }
 
-    override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
-    }
+    override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
     override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
         if (isFocused) setClearIconVisible(text!!.isNotEmpty())
     }
 
-    override fun afterTextChanged(s: Editable?) {
-
-    }
+    override fun afterTextChanged(s: Editable?) {}
 
     override fun onTouch(v: View?, event: MotionEvent): Boolean {
         try {

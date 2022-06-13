@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android.utils
+package com.neppplus.gudocin_android.util.context
 
 import android.content.Context
 
@@ -7,12 +7,12 @@ class ContextUtil {
     companion object {
 
         // 어떤 파일? 파일명
-        private val prefName = "GuDocInPref"
+        private const val prefName = "GuDocInPref"
 
         // 어떤 데이터 항목?  항목명
-        private val TOKEN = "TOKEN"
-        private val DEVICE_TOKEN = "DEVICE_TOKEN"
-        private val AUTO_LOGIN = "AUTO_LOGIN"
+        private const val TOKEN = "TOKEN"
+        private const val DEVICE_TOKEN = "DEVICE_TOKEN"
+        private const val AUTO_LOGIN = "AUTO_LOGIN"
 
         // 저장 함수 (setter) / 조회 함수 (getter)
         fun setToken(context: Context, token: String) {
