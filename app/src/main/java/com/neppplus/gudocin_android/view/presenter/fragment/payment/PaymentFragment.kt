@@ -40,7 +40,7 @@ class PaymentFragment : BaseFragment() {
     }
 
     override fun setupEvents() {
-        mPaymentRecyclerViewAdapter = PaymentRecyclerViewAdapter(mContext, mPaymentList)
+        mPaymentRecyclerViewAdapter = PaymentRecyclerViewAdapter(mPaymentList)
         binding.rvPayment.adapter = mPaymentRecyclerViewAdapter
         binding.rvPayment.layoutManager = LinearLayoutManager(mContext)
     }

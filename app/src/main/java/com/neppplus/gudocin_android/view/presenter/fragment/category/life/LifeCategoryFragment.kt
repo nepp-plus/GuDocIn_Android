@@ -64,12 +64,12 @@ class LifeCategoryFragment : BaseFragment() {
         getCategoryFromServer()
 
         mCategoryRecyclerViewAdapter =
-            CategoryRecyclerViewAdapter(mContext, mSmallCategoryList)
+            CategoryRecyclerViewAdapter(mSmallCategoryList)
 
         getProductFromServer()
 
         mDetailCategoryRecyclerAdapter =
-            DetailCategoryRecyclerViewAdapter(mContext, mProductList)
+            DetailCategoryRecyclerViewAdapter(mProductList)
         binding.rvProduct.adapter = mDetailCategoryRecyclerAdapter
         binding.rvProduct.layoutManager = LinearLayoutManager(mContext)
     }

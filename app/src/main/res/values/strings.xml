@@ -56,6 +56,7 @@
   <!--Welcome User-->
   <string name="welcome_user">{user}님 환영합니다</string>
   <string name="congratulation_user">{user}님 가입을 축하합니다</string>
+  <string name="review_user">{user}님의 리뷰</string>
 
   <!--KakaoTalk Login-->
   <string name="kakao_login">카카오톡 로그인</string>

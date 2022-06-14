@@ -47,7 +47,7 @@ class SubscriptionActivity : BaseActivity() {
   }
 
   override fun setValues() {
-    mSubscriptionViewPagerAdapter = SubscriptionViewPagerAdapter(supportFragmentManager)
+    mSubscriptionViewPagerAdapter = SubscriptionViewPagerAdapter(supportFragmentManager, mContext)
     binding.vpSubscription.adapter = mSubscriptionViewPagerAdapter
     binding.tlSubscription.setupWithViewPager(binding.vpSubscription)
 //  TabLayoutMediator(binding.tlSubscription, binding.vpSubscription) { _, _ -> }.attach()

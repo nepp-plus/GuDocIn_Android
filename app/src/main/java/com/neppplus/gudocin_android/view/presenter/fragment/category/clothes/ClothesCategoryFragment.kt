@@ -60,10 +60,10 @@ class ClothesCategoryFragment : BaseFragment() {
 
   override fun setValues() {
     getCategoryFromServer()
-    mCategoryRecyclerViewAdapter = CategoryRecyclerViewAdapter(mContext, mSmallCategoryList)
+    mCategoryRecyclerViewAdapter = CategoryRecyclerViewAdapter(mSmallCategoryList)
 
     getProductFromServer()
-    mDetailCategoryRecyclerAdapter = DetailCategoryRecyclerViewAdapter(mContext, mProductList)
+    mDetailCategoryRecyclerAdapter = DetailCategoryRecyclerViewAdapter(mProductList)
     binding.rvProduct.adapter = mDetailCategoryRecyclerAdapter
     binding.rvProduct.layoutManager = LinearLayoutManager(mContext)
   }

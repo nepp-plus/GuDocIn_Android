@@ -9,10 +9,7 @@ import com.neppplus.gudocin_android.model.product.ProductData
 import com.neppplus.gudocin_android.view.presenter.fragment.content.product.ProductContentFragment
 import com.neppplus.gudocin_android.view.presenter.fragment.content.store.StoreContentFragment
 
-class ContentViewPagerAdapter(fm: FragmentManager, private val mProductData: ProductData) :
-  FragmentPagerAdapter(fm) {
-
-  lateinit var mContext: Context
+class ContentViewPagerAdapter(fm: FragmentManager, val mContext: Context, private val mProductData: ProductData) : FragmentPagerAdapter(fm) {
 
   override fun getCount() = 2
 

@@ -45,7 +45,7 @@ class ProductFragment : BaseFragment() {
   override fun setValues() {
     getProductFromServer()
 
-    mProductRecyclerViewAdapter = ProductRecyclerViewAdapter(mContext, mProductList)
+    mProductRecyclerViewAdapter = ProductRecyclerViewAdapter(mProductList)
     binding.rvProduct.adapter = mProductRecyclerViewAdapter
     binding.rvProduct.layoutManager = StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
   }

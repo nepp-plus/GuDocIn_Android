@@ -106,7 +106,7 @@ class ProductActivity : BaseActivity() {
   }
 
   fun viewpager() {
-    mContentViewPagerAdapter = ContentViewPagerAdapter(supportFragmentManager, mProductData)
+    mContentViewPagerAdapter = ContentViewPagerAdapter(supportFragmentManager, mContext, mProductData)
     binding.vpContent.adapter = mContentViewPagerAdapter
     binding.tlContent.setupWithViewPager(binding.vpContent)
   }
