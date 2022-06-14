@@ -36,6 +36,15 @@
         <entry key="..\:/Android Project/GudocIn_origin/app/src/main/res/layout/activity_product.xml" value="0.35688405797101447" />
         <entry key="..\:/Android Project/GudocIn_origin/app/src/main/res/layout/activity_profile.xml" value="0.35688405797101447" />
         <entry key="..\:/Android Project/GudocIn_origin/app/src/main/res/layout/activity_reply.xml" value="0.35688405797101447" />
+        <entry key="..\:/Android Project/GudocIn_origin/app/src/main/res/layout/adapter_category.xml" value="0.35688405797101447" />
+        <entry key="..\:/Android Project/GudocIn_origin/app/src/main/res/layout/adapter_detail_category.xml" value="0.35688405797101447" />
+        <entry key="..\:/Android Project/GudocIn_origin/app/src/main/res/layout/adapter_main_review.xml" value="0.35688405797101447" />
+        <entry key="..\:/Android Project/GudocIn_origin/app/src/main/res/layout/adapter_payment.xml" value="0.35688405797101447" />
+        <entry key="..\:/Android Project/GudocIn_origin/app/src/main/res/layout/adapter_product.xml" value="0.35688405797101447" />
+        <entry key="..\:/Android Project/GudocIn_origin/app/src/main/res/layout/adapter_reply.xml" value="0.35688405797101447" />
+        <entry key="..\:/Android Project/GudocIn_origin/app/src/main/res/layout/adapter_shopping_review.xml" value="0.35688405797101447" />
+        <entry key="..\:/Android Project/GudocIn_origin/app/src/main/res/layout/adapter_subscription.xml" value="0.35688405797101447" />
+        <entry key="..\:/Android Project/GudocIn_origin/app/src/main/res/layout/viewpager_home.xml" value="0.35688405797101447" />
         <entry key="..\:/GuDocIn_Android_1/app/src/main/res/layout/activity_login.xml" value="0.25364583333333335" />
         <entry key="..\:/GuDocIn_Android_1/app/src/main/res/layout/activity_review.xml" value="0.25364583333333335" />
         <entry key="..\:/GuDocIn_Android_1/app/src/main/res/layout/fragment_home.xml" value="0.1296875" />
