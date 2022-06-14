@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toolbar
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
@@ -42,7 +41,7 @@ abstract class BaseActivity<T : ViewDataBinding, U : BaseViewModel>(@LayoutRes p
        * binding.xxx = "yyy" / binding.setVariable(BR.xxx, "yyy") 둘다 동일한 행위
        * BR = Binding Resource
        */
-//      setVariable(BR.viewModel, getViewModel)
+      setVariable(BR.viewModel, getViewModel)
       /**
        * 즉각적인 바인딩: 변수 또는 Observable 변경 시 바인딩은 다음 프레임 전에 변경되도록 예약
        * 바인딩을 즉시 실행해야 할 경우 executePendingBindings() 메소드 사용
@@ -65,7 +64,7 @@ abstract class BaseActivity<T : ViewDataBinding, U : BaseViewModel>(@LayoutRes p
     defActionBar.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
     defActionBar.setCustomView(R.layout.custom_action_bar)
 
-    val toolbar = defActionBar.customView.parent as Toolbar
+    val toolbar = defActionBar.customView.parent as androidx.appcompat.widget.Toolbar
     toolbar.setContentInsetsAbsolute(0, 0)
 
     back = defActionBar.customView.findViewById(R.id.btnBack)

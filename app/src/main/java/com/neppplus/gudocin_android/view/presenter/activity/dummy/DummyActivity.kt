@@ -1,24 +1,19 @@
 package com.neppplus.gudocin_android.view.presenter.activity.dummy
 
-import android.os.Bundle
-import androidx.databinding.DataBindingUtil
+import androidx.activity.viewModels
+import com.neppplus.gudocin_android.BaseActivity
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.ActivityDummyBinding
-import com.neppplus.gudocin_android.view.presenter.activity.BaseActivity
+import dagger.hilt.android.AndroidEntryPoint
 
-class DummyActivity : BaseActivity() {
+@AndroidEntryPoint
+class DummyActivity() : BaseActivity<ActivityDummyBinding, DummyViewModel>(R.layout.activity_dummy) {
 
-  lateinit var binding: ActivityDummyBinding
+  private val dummyViewModel: DummyViewModel by viewModels()
 
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    binding = DataBindingUtil.setContentView(this, R.layout.activity_dummy)
-    setupEvents()
-    setValues()
-  }
+  override val getViewModel: DummyViewModel
+    get() = dummyViewModel
 
-  override fun setupEvents() {}
-
-  override fun setValues() {}
+  override fun initView() {}
 
 }
