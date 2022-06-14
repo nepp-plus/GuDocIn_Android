@@ -11,6 +11,8 @@ import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import com.neppplus.gudocin_android.network.RetrofitService
+import com.neppplus.gudocin_android.network.RetrofitServiceInstance
 import com.neppplus.gudocin_android.view.presenter.activity.cart.CartActivity
 import com.neppplus.gudocin_android.view.presenter.activity.shopping.ShoppingActivity
 
@@ -18,10 +20,12 @@ abstract class BaseActivity<T : ViewDataBinding, U : BaseViewModel>(@LayoutRes p
   lateinit var binding: T
   abstract val getViewModel: U
 
+  lateinit var mContext: Context
+  lateinit var retrofitService: RetrofitServiceInstance
+
   /**
    * ActionBar Contents
    */
-  lateinit var mContext: Context
   lateinit var back: ImageView
   lateinit var title: TextView
   lateinit var shopping: ImageView
@@ -48,6 +52,10 @@ abstract class BaseActivity<T : ViewDataBinding, U : BaseViewModel>(@LayoutRes p
        */
       executePendingBindings()
     }
+    mContext = this
+
+    val retrofit = RetrofitService.getRetrofit(mContext)
+    retrofitService = retrofit.create(RetrofitServiceInstance::class.java)
 
     supportActionBar?.let {
       setCustomActionBar()

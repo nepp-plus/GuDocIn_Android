@@ -17,13 +17,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class CartRecyclerViewAdapter() : RecyclerView.Adapter<CartRecyclerViewAdapter.CartViewHolder>() {
-
-  private var dataList: List<CartData>? = null
-
-  fun setDataList(dataList: List<CartData>?) {
-    this.dataList = dataList
-  }
+class CartRecyclerViewAdapter(private val mCartList: ArrayList<CartData>) : RecyclerView.Adapter<CartRecyclerViewAdapter.CartViewHolder>() {
 
   inner class CartViewHolder(private val binding: AdapterCartBinding) : RecyclerView.ViewHolder(binding.root) {
     lateinit var apiService: RetrofitServiceInstance
@@ -63,9 +57,9 @@ class CartRecyclerViewAdapter() : RecyclerView.Adapter<CartRecyclerViewAdapter.C
   }
 
   override fun onBindViewHolder(holder: CartViewHolder, position: Int) {
-    holder.bind(dataList?.get(position)!!)
+    holder.bind(mCartList[position])
   }
 
-  override fun getItemCount() = dataList?.size!!
+  override fun getItemCount() = mCartList.size
 
 }

@@ -2,12 +2,15 @@ package com.neppplus.gudocin_android.view.presenter.activity.cart
 
 import androidx.lifecycle.MutableLiveData
 import com.neppplus.gudocin_android.BaseViewModel
-import com.neppplus.gudocin_android.model.cart.CartData
+import com.neppplus.gudocin_android.model.BasicResponse
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class CartViewModel constructor(private val repository: CartRepository) : BaseViewModel() {
-  var liveDataList: MutableLiveData<List<CartData>> = MutableLiveData()
+@HiltViewModel
+class CartViewModel @Inject constructor(private val repository: CartRepository) : BaseViewModel() {
+  var liveDataList: MutableLiveData<BasicResponse> = MutableLiveData()
 
-  fun getLiveDataObserver(): MutableLiveData<List<CartData>> {
+  fun getLiveDataObserver(): MutableLiveData<BasicResponse> {
     return liveDataList
   }
 

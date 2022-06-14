@@ -140,7 +140,7 @@ interface RetrofitServiceInstance {
 
   // 장바구니 내역 조회
   @GET("/cart")
-  fun getRequestCart(): Call<List<CartData>>
+  fun getRequestCart(): Call<BasicResponse>
 
   // 장바구니 상품 등록
   @FormUrlEncoded

@@ -2,17 +2,23 @@ package com.neppplus.gudocin_android.view.presenter.activity.cart
 
 import android.content.Intent
 import android.view.View
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.neppplus.gudocin_android.BaseActivity
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.ActivityCartBinding
+import com.neppplus.gudocin_android.model.BasicResponse
+import com.neppplus.gudocin_android.model.cart.CartData
 import com.neppplus.gudocin_android.view.adapter.cart.CartRecyclerViewAdapter
 import com.neppplus.gudocin_android.view.presenter.activity.dummy.DummyActivity
+import dagger.hilt.android.AndroidEntryPoint
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.text.NumberFormat
 import java.util.*
 
+@AndroidEntryPoint
 class CartActivity : BaseActivity<ActivityCartBinding, CartViewModel>(R.layout.activity_cart) {
 
   private val cartViewModel: CartViewModel by viewModels()
@@ -22,41 +28,52 @@ class CartActivity : BaseActivity<ActivityCartBinding, CartViewModel>(R.layout.a
 
   lateinit var mCartRecyclerViewAdapter: CartRecyclerViewAdapter
 
+  private val mCartList = ArrayList<CartData>()
+
   private var total = 0
 
   override fun initView() {
     binding { view = this@CartActivity }
     initRecyclerView()
-    observe()
+    getCartFromServer()
     toolbar()
   }
 
-  override fun observe() {
-    super.observe()
-    cartViewModel.getLiveDataObserver().observe(this, androidx.lifecycle.Observer {
-      if (it != null) {
-        mCartRecyclerViewAdapter.setDataList(it)
-        mCartRecyclerViewAdapter.notifyDataSetChanged()
-
-        for (data in it) {
-          if (data.product.price != null) {
-            total += data.product.price!!
+  private fun getCartFromServer() {
+    retrofitService.getRequestCart().enqueue(object : Callback<BasicResponse> {
+      override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
+        if (response.isSuccessful) {
+          val basicResponse = response.body()!!
+          mCartList.apply {
+            clear()
+            addAll(basicResponse.data.carts)
           }
+          mCartRecyclerViewAdapter.notifyDataSetChanged()
+          calculator()
         }
-
-        val won = "${NumberFormat.getInstance(Locale.KOREA).format(total)}원"
-        binding.txtPrice.text = won
-      } else {
-        Toast.makeText(this, resources.getString(R.string.data_loading_failed), Toast.LENGTH_SHORT).show()
       }
+
+      override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
     })
-    cartViewModel.loadDataList()
   }
 
   private fun initRecyclerView() {
-    mCartRecyclerViewAdapter = CartRecyclerViewAdapter()
-    binding.rvCart.adapter = mCartRecyclerViewAdapter
-    binding.rvCart.layoutManager = LinearLayoutManager(this)
+    mCartRecyclerViewAdapter = CartRecyclerViewAdapter(mCartList)
+
+    binding.rvCart.apply {
+      adapter = mCartRecyclerViewAdapter
+      layoutManager = LinearLayoutManager(this@CartActivity)
+    }
+  }
+
+  private fun calculator() {
+    for (data in mCartList) {
+      if (data.product.price != null) {
+        total += data.product.price!!
+      }
+    }
+    var won = "${NumberFormat.getInstance(Locale.KOREA).format(total)}원"
+    binding.txtPrice.text = won
   }
 
   private fun toolbar() {
@@ -76,8 +93,9 @@ class CartActivity : BaseActivity<ActivityCartBinding, CartViewModel>(R.layout.a
     }
     binding.swipeRefresh.isRefreshing = false
 
+    // Scroll 시 SwipeRefreshLayout Refresh 동작 방지
     /* binding.layoutScroll.viewTreeObserver.addOnScrollChangedListener {
-        binding.swipeRefresh.isEnabled = (binding.layoutScroll.scrollY == 0)
+      binding.swipeRefresh.isEnabled = (binding.layoutScroll.scrollY == 0)
     } */
   }
 
