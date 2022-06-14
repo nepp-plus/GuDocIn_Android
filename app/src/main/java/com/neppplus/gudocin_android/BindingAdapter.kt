@@ -9,14 +9,14 @@ object BindingAdapter {
   //  MainActivity
   @JvmStatic
   @BindingAdapter("onItemSelectedListener")
-  fun bindOnItemSelectedListener(view: BottomNavigationView, listener: NavigationBarView.OnItemSelectedListener) {
+  fun bindOnItemSelectedListener(view: BottomNavigationView, listener: NavigationBarView.OnItemSelectedListener?) {
     view.setOnItemSelectedListener(listener)
   }
 
   //  CartActivity
   @JvmStatic
   @BindingAdapter("onRefreshListener")
-  fun bindOnRefreshListener(view: SwipeRefreshLayout, listener: SwipeRefreshLayout.OnRefreshListener) {
+  fun bindOnRefreshListener(view: SwipeRefreshLayout, listener: SwipeRefreshLayout.OnRefreshListener?) {
     view.setOnRefreshListener(listener)
   }
 }
