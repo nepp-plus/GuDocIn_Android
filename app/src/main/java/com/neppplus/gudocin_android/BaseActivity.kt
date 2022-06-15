@@ -9,11 +9,8 @@ import android.widget.TextView
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import com.neppplus.gudocin_android.network.RetrofitService
-import com.neppplus.gudocin_android.network.RetrofitServiceInstance
 import com.neppplus.gudocin_android.view.activity.cart.CartActivity
 import com.neppplus.gudocin_android.view.activity.shopping.ShoppingActivity
 
@@ -24,7 +21,7 @@ abstract class BaseActivity<T : ViewDataBinding, U : BaseViewModel>(@LayoutRes p
   /**
    * ActionBar Contents
    */
-  private lateinit var back: ImageView
+  lateinit var back: ImageView
   lateinit var title: TextView
   lateinit var shopping: ImageView
   lateinit var cart: ImageView
@@ -49,7 +46,7 @@ abstract class BaseActivity<T : ViewDataBinding, U : BaseViewModel>(@LayoutRes p
        */
       executePendingBindings()
     }
-    supportActionBar.let {
+    supportActionBar?.let {
       setCustomActionBar()
       actionBarListener()
     }
@@ -57,15 +54,19 @@ abstract class BaseActivity<T : ViewDataBinding, U : BaseViewModel>(@LayoutRes p
     observe()
   }
 
+  inline fun binding(block: T.() -> Unit) {
+    binding.apply(block)
+  }
+
   private fun setCustomActionBar() {
-    val defActionBar = supportActionBar!!
+    val defActionBar = supportActionBar
     Log.d("ActionBar", "Into the Setting")
 
-    defActionBar.apply {
+    defActionBar?.apply {
       displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
       setCustomView(R.layout.custom_action_bar)
 
-      val toolbar = customView.parent as Toolbar
+      val toolbar = customView.parent as androidx.appcompat.widget.Toolbar
       toolbar.setContentInsetsAbsolute(0, 0)
 
       back = customView.findViewById(R.id.btnBack)
@@ -75,21 +76,16 @@ abstract class BaseActivity<T : ViewDataBinding, U : BaseViewModel>(@LayoutRes p
     }
   }
 
-  private val onClickListener = View.OnClickListener { view ->
-    when (view) {
-      back -> finish()
-      shopping -> startActivity(Intent(this, ShoppingActivity::class.java))
-      cart -> startActivity(Intent(this, CartActivity::class.java))
-    }
-  }
-
   private fun actionBarListener() {
+    val onClickListener = View.OnClickListener { view ->
+      when (view) {
+        back -> finish()
+        shopping -> startActivity(Intent(this, ShoppingActivity::class.java))
+        cart -> startActivity(Intent(this, CartActivity::class.java))
+      }
+    }
     back.setOnClickListener(onClickListener)
     shopping.setOnClickListener(onClickListener)
     cart.setOnClickListener(onClickListener)
-  }
-
-  inline fun binding(block: T.() -> Unit) {
-    binding.apply(block)
   }
 }

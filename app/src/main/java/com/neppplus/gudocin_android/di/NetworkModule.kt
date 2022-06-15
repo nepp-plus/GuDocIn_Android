@@ -19,7 +19,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object AppModule {
+object NetworkModule {
   private const val BASE_URL = "https://api.gudoc.in"
   private var retrofit: Retrofit? = null
 

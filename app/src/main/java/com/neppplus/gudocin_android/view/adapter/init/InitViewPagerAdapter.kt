@@ -10,9 +10,7 @@ import androidx.viewpager.widget.ViewPager
 import com.neppplus.gudocin_android.R
 
 class InitViewPagerAdapter(private val context: Context) : PagerAdapter() {
-
   private var layoutInflater: LayoutInflater? = null
-
   private val bannerImage = arrayOf(
     R.drawable.banner_spring,
     R.drawable.banner_summer,
@@ -30,8 +28,10 @@ class InitViewPagerAdapter(private val context: Context) : PagerAdapter() {
 
   override fun instantiateItem(container: ViewGroup, position: Int): Any {
     layoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-    val view = layoutInflater!!.inflate(R.layout.adapter_init, null)
-    val image = view.findViewById<View>(R.id.imageView) as ImageView
+
+    val view = layoutInflater?.inflate(R.layout.adapter_init, null)
+
+    val image = view?.findViewById<View>(R.id.imageView) as ImageView
     image.setImageResource(bannerImage[position])
 
     val viewPager = container as ViewPager
@@ -45,5 +45,4 @@ class InitViewPagerAdapter(private val context: Context) : PagerAdapter() {
     val view = `object` as View
     viewPager.removeView(view)
   }
-
 }
