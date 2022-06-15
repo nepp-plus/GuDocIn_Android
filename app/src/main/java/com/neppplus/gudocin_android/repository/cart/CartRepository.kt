@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android.view.presenter.activity.cart
+package com.neppplus.gudocin_android.repository.cart
 
 import androidx.lifecycle.MutableLiveData
 import com.neppplus.gudocin_android.model.BasicResponse
@@ -9,7 +9,6 @@ import retrofit2.Response
 import javax.inject.Inject
 
 class CartRepository @Inject constructor(private val retrofitServiceInstance: RetrofitServiceInstance) {
-
   fun apiCall(liveDataList: MutableLiveData<BasicResponse>) {
     val call: Call<BasicResponse> = retrofitServiceInstance.getRequestCart()
     call.enqueue(object : Callback<BasicResponse> {

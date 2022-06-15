@@ -1,20 +1,17 @@
-package com.neppplus.gudocin_android.view.presenter.activity.cart
+package com.neppplus.gudocin_android.view.activity.cart
 
 import android.content.Intent
 import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.neppplus.gudocin_android.BaseActivity
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.ActivityCartBinding
-import com.neppplus.gudocin_android.model.BasicResponse
-import com.neppplus.gudocin_android.model.cart.CartData
+import com.neppplus.gudocin_android.view.activity.dummy.DummyActivity
 import com.neppplus.gudocin_android.view.adapter.cart.CartRecyclerViewAdapter
-import com.neppplus.gudocin_android.view.presenter.activity.dummy.DummyActivity
+import com.neppplus.gudocin_android.viewmodel.cart.CartViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import java.text.NumberFormat
 import java.util.*
 
@@ -26,54 +23,43 @@ class CartActivity : BaseActivity<ActivityCartBinding, CartViewModel>(R.layout.a
   override val getViewModel: CartViewModel
     get() = cartViewModel
 
-  lateinit var mCartRecyclerViewAdapter: CartRecyclerViewAdapter
-
-  private val mCartList = ArrayList<CartData>()
+  private lateinit var mCartRecyclerViewAdapter: CartRecyclerViewAdapter
 
   private var total = 0
 
   override fun initView() {
     binding { view = this@CartActivity }
     initRecyclerView()
-    getCartFromServer()
+    observe()
     toolbar()
   }
 
-  private fun getCartFromServer() {
-    retrofitService.getRequestCart().enqueue(object : Callback<BasicResponse> {
-      override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
-        if (response.isSuccessful) {
-          val basicResponse = response.body()!!
-          mCartList.apply {
-            clear()
-            addAll(basicResponse.data.carts)
+  override fun observe() {
+    super.observe()
+    cartViewModel.liveDataList.observe(this) {
+      if (it != null) {
+        mCartRecyclerViewAdapter.setListData(it.data.carts)
+        mCartRecyclerViewAdapter.notifyDataSetChanged()
+        for (data in it.data.carts) {
+          if (data.product.price != null) {
+            total += data.product.price
           }
-          mCartRecyclerViewAdapter.notifyDataSetChanged()
-          calculator()
         }
+        val koreanWon = "${NumberFormat.getInstance(Locale.KOREA).format(total)}원"
+        binding.txtPrice.text = koreanWon
+      } else {
+        Toast.makeText(this, resources.getString(R.string.data_loading_failed), Toast.LENGTH_SHORT).show()
       }
-
-      override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
-    })
+    }
+    cartViewModel.loadDataList()
   }
 
   private fun initRecyclerView() {
-    mCartRecyclerViewAdapter = CartRecyclerViewAdapter(mCartList)
-
+    mCartRecyclerViewAdapter = CartRecyclerViewAdapter()
     binding.rvCart.apply {
       adapter = mCartRecyclerViewAdapter
       layoutManager = LinearLayoutManager(this@CartActivity)
     }
-  }
-
-  private fun calculator() {
-    for (data in mCartList) {
-      if (data.product.price != null) {
-        total += data.product.price!!
-      }
-    }
-    var won = "${NumberFormat.getInstance(Locale.KOREA).format(total)}원"
-    binding.txtPrice.text = won
   }
 
   private fun toolbar() {
@@ -93,13 +79,15 @@ class CartActivity : BaseActivity<ActivityCartBinding, CartViewModel>(R.layout.a
     }
     binding.swipeRefresh.isRefreshing = false
 
-    // Scroll 시 SwipeRefreshLayout Refresh 동작 방지
-    /* binding.layoutScroll.viewTreeObserver.addOnScrollChangedListener {
-      binding.swipeRefresh.isEnabled = (binding.layoutScroll.scrollY == 0)
-    } */
+    /**
+     * Scroll 시 SwipeRefreshLayout Refresh 동작 방지
+     * binding.layoutScroll.viewTreeObserver.addOnScrollChangedListener {
+     * binding.swipeRefresh.isEnabled = (binding.layoutScroll.scrollY == 0)
+     * }
+     */
   }
 
-  fun startDummy(view: View) {
+  fun dummyIntent() {
     val myIntent = Intent(this, DummyActivity::class.java)
     startActivity(myIntent)
   }

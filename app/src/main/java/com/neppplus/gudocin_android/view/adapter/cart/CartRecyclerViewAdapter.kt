@@ -17,24 +17,29 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class CartRecyclerViewAdapter(private val mCartList: ArrayList<CartData>) : RecyclerView.Adapter<CartRecyclerViewAdapter.CartViewHolder>() {
+class CartRecyclerViewAdapter() : RecyclerView.Adapter<CartRecyclerViewAdapter.CartViewHolder>() {
+
+  private var listData: List<CartData>? = null
+
+  fun setListData(listData: List<CartData>) {
+    this.listData = listData
+  }
 
   inner class CartViewHolder(private val binding: AdapterCartBinding) : RecyclerView.ViewHolder(binding.root) {
-    lateinit var apiService: RetrofitServiceInstance
+    lateinit var retrofitService: RetrofitServiceInstance
     private val retrofit = RetrofitService.getRetrofit(itemView.context)
 
     fun bind(data: CartData) {
-      apiService = retrofit.create(RetrofitServiceInstance::class.java)
+      retrofitService = retrofit.create(RetrofitServiceInstance::class.java)
 
       binding.txtProduct.text = data.product.name
       binding.txtPrice.text = data.product.getFormattedPrice()
       Glide.with(itemView.context).load(data.product.imageUrl).into(binding.imgProduct)
 
       binding.imgDelete.setOnClickListener {
-        apiService.deleteRequestCart(data.product.id).enqueue(object : Callback<BasicResponse> {
+        retrofitService.deleteRequestCart(data.product.id).enqueue(object : Callback<BasicResponse> {
           override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
             if (response.isSuccessful) {
-              notifyDataSetChanged()
               Toast.makeText(itemView.context, itemView.context.getString(R.string.cart_list_delete), Toast.LENGTH_SHORT).show()
             } else {
               val errorJson = JSONObject(response.errorBody()!!.string())
@@ -57,9 +62,12 @@ class CartRecyclerViewAdapter(private val mCartList: ArrayList<CartData>) : Recy
   }
 
   override fun onBindViewHolder(holder: CartViewHolder, position: Int) {
-    holder.bind(mCartList[position])
+    listData?.let { holder.bind(it[position]) }
   }
 
-  override fun getItemCount() = mCartList.size
+  override fun getItemCount(): Int {
+    if (listData == null) return 0
+    return listData!!.size
+  }
 
 }

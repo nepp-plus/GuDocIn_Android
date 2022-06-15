@@ -34,7 +34,6 @@ abstract class BaseActivity<T : ViewDataBinding, U : BaseViewModel>(@LayoutRes p
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    // 초기화 된 layoutRes 로 dataBinding 객체 생성
     binding = DataBindingUtil.setContentView(this@BaseActivity, layoutRes)
     binding.apply {
       lifecycleOwner = this@BaseActivity
