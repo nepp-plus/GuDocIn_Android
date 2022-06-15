@@ -6,14 +6,21 @@ import java.io.Serializable
 import java.util.*
 
 data class ReplyData(
-  var id: Int,
+  @SerializedName("id")
+  val id: Int,
+
   @SerializedName("user_id")
-  var userId: Int,
+  val userId: Int,
+
   @SerializedName("review_id")
-  var reviewId: Int,
-  var content: String,
+  val reviewId: Int,
+
+  @SerializedName("content")
+  val content: String,
+
   @SerializedName("created_at")
-  var createdAt: Date,
+  val createdAt: Date,
+
+  @SerializedName("user")
   val user: UserData
-) : Serializable {
-}
+) : Serializable

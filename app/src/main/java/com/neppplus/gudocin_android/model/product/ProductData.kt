@@ -8,15 +8,24 @@ import java.text.NumberFormat
 import java.util.*
 
 data class ProductData(
-  var id: Int,
-  var name: String,
-  var price: Int,
-  @SerializedName("image_url")
-  var imageUrl: String,
-  var store: StoreData,
-  var reviews: List<ReviewData>,
-) : Serializable {
+  @SerializedName("id")
+  val id: Int,
 
+  @SerializedName("name")
+  val name: String,
+
+  @SerializedName("price")
+  val price: Int,
+
+  @SerializedName("image_url")
+  val imageUrl: String,
+
+  @SerializedName("store")
+  val store: StoreData,
+
+  @SerializedName("reviews")
+  val reviews: List<ReviewData>,
+) : Serializable {
   fun getFormattedPrice(): String {
     return "${NumberFormat.getInstance(Locale.KOREA).format(this.price)}원"
   }

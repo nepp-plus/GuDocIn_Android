@@ -1,9 +1,13 @@
 package com.neppplus.gudocin_android.model.cart
 
+import com.google.gson.annotations.SerializedName
 import com.neppplus.gudocin_android.model.product.ProductData
 
 data class CartData(
-  var id: Int,
-  var product: ProductData,
+  @SerializedName("id")
+  val id: Int,
+
+  @SerializedName("product")
+  val product: ProductData,
 ) {
 }

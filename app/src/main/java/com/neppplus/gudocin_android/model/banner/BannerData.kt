@@ -4,10 +4,12 @@ import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 data class BannerData(
-  var id: Int,
+  @SerializedName("id")
+  val id: Int,
+
   @SerializedName("img_url")
-  var displayImageUrl: String,
+  val displayImageUrl: String,
+
   @SerializedName("click_url")
-  var clickUrl: String
-) : Serializable {
-}
+  val clickUrl: String
+) : Serializable

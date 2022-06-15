@@ -6,15 +6,21 @@ import java.io.Serializable
 import java.util.*
 
 data class SubscriptionData(
-  var id: Int,
+  @SerializedName("id")
+  val id: Int,
+
   @SerializedName("user_id")
-  var userId: Int,
+  val userId: Int,
+
   @SerializedName("product_id")
-  var productId: Int,
+  val productId: Int,
+
   @SerializedName("created_at")
-  var createdAt: Date,
+  val createdAt: Date,
+
   @SerializedName("stopped_at")
-  var stoppedAt: Date?,
-  var product: ProductData,
-) : Serializable {
-}
+  val stoppedAt: Date?,
+
+  @SerializedName("product")
+  val product: ProductData,
+) : Serializable

@@ -8,25 +8,45 @@ import com.neppplus.gudocin_android.model.product.ProductData
 import java.io.Serializable
 
 data class ReviewData(
-  var id: Int,
-  var title: String,
-  var content: String,
-  var score: Double,
+  @SerializedName("id")
+  val id: Int,
+
+  @SerializedName("title")
+  val title: String,
+
+  @SerializedName("content")
+  val content: String,
+
+  @SerializedName("score")
+  val score: Double,
+
   @SerializedName("review_count")
-  var reviewCount: Int,
+  val reviewCount: Int,
+
   @SerializedName("user_id")
-  var userId: Int,
+  val userId: Int,
+
   @SerializedName("product_id")
-  var productId: Int,
+  val productId: Int,
+
   @SerializedName("thumbnail_img")
-  var thumbNailImg: String,
+  val thumbNailImg: String,
+
   @SerializedName("created_at")
-  var createdAt: String,
+  val createdAt: String,
+
   @SerializedName("tag_list")
-  var tagList: String,
+  val tagList: String,
+
+  @SerializedName("product")
   var product: ProductData,
-  var user: UserData,
-  var images: List<ImageData>,
-  var tags: List<TagData>,
-) : Serializable {
-}
+
+  @SerializedName("user")
+  val user: UserData,
+
+  @SerializedName("images")
+  val images: List<ImageData>,
+
+  @SerializedName("tags")
+  val tags: List<TagData>,
+) : Serializable

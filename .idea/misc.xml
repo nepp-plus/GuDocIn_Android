@@ -5,10 +5,12 @@
       <map>
         <entry key="..\:/Android Project/GudocIn/app/src/main/res/layout/activity_cart.xml" value="0.35688405797101447" />
         <entry key="..\:/Android Project/GudocIn/app/src/main/res/layout/activity_dummy.xml" value="0.35688405797101447" />
+        <entry key="..\:/Android Project/GudocIn/app/src/main/res/layout/activity_init.xml" value="0.1875" />
         <entry key="..\:/Android Project/GudocIn/app/src/main/res/layout/activity_login.xml" value="0.2957427536231884" />
         <entry key="..\:/Android Project/GudocIn/app/src/main/res/layout/activity_main.xml" value="0.35688405797101447" />
         <entry key="..\:/Android Project/GudocIn/app/src/main/res/layout/activity_product.xml" value="0.35688405797101447" />
         <entry key="..\:/Android Project/GudocIn/app/src/main/res/layout/activity_profile.xml" value="0.2046875" />
+        <entry key="..\:/Android Project/GudocIn/app/src/main/res/layout/activity_reply.xml" value="0.20652173913043478" />
         <entry key="..\:/Android Project/GudocIn/app/src/main/res/layout/activity_subscription.xml" value="0.2046875" />
         <entry key="..\:/Android Project/GudocIn/app/src/main/res/layout/activity_write.xml" value="0.2957427536231884" />
         <entry key="..\:/Android Project/GudocIn/app/src/main/res/layout/adapter_cart.xml" value="0.35688405797101447" />

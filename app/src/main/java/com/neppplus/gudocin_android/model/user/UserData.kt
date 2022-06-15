@@ -4,17 +4,30 @@ import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 data class UserData(
-  var id: Int,
-  var email: String,
-  var provider: String,
-  var uid: String?,
+  @SerializedName("id")
+  val id: Int,
+
+  @SerializedName("email")
+  val email: String,
+
+  @SerializedName("provider")
+  val provider: String,
+
+  @SerializedName("uid")
+  val uid: String?,
+
   @SerializedName("nick_name")
-  var nickname: String,
+  val nickname: String,
+
   @SerializedName("profile_img")
-  var profileImageURL: String,
+  val profileImageURL: String,
+
   @SerializedName("receive_email")
-  var receiveEmail: String,
-  var phone: String,
-  var point: Int,
-) : Serializable {
-}
+  val receiveEmail: String,
+
+  @SerializedName("phone")
+  val phone: String,
+
+  @SerializedName("point")
+  val point: Int,
+) : Serializable

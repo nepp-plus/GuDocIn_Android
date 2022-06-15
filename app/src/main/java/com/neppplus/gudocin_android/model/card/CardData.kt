@@ -5,14 +5,17 @@ import java.io.Serializable
 
 data class CardData(
   @SerializedName("card_num")
-  var cardNum: String,
+  val cardNum: String,
+
   @SerializedName("card_nickname")
-  var cardNickname: String,
+  val cardNickname: String,
+
   @SerializedName("mm_yy")
-  var cardValid: String,
+  val cardValid: String,
+
   @SerializedName("birthday")
-  var cardBirth: String,
+  val cardBirth: String,
+
   @SerializedName("password_2digit")
-  var cardPW: String
-) : Serializable {
-}
+  val cardPW: String
+) : Serializable

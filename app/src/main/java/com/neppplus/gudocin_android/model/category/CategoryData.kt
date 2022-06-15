@@ -4,9 +4,13 @@ import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 data class CategoryData(
-  var id: Int,
-  var name: String,
+  @SerializedName("id")
+  val id: Int,
+
+  @SerializedName("name")
+  val name: String,
+
   @SerializedName("small_categories")
-  var smallCategory: SmallCategoryData,
+  val smallCategory: SmallCategoryData,
 ) : Serializable {
 }

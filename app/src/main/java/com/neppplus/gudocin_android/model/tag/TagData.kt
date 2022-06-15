@@ -4,9 +4,12 @@ import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 data class TagData(
-  var id: Int,
-  var tag: String,
+  @SerializedName("id")
+  val id: Int,
+
+  @SerializedName("tag")
+  val tag: String,
+
   @SerializedName("review_id")
-  var reviewId: Int,
-) : Serializable {
-}
+  val reviewId: Int,
+) : Serializable

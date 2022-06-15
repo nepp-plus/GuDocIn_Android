@@ -4,9 +4,12 @@ import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 data class StoreData(
-  var id: Int,
-  var name: String,
+  @SerializedName("id")
+  val id: Int,
+
+  @SerializedName("name")
+  val name: String,
+
   @SerializedName("logo_url")
-  var logoUrl: String,
-) : Serializable {
-}
+  val logoUrl: String,
+) : Serializable

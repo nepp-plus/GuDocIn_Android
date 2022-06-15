@@ -6,10 +6,16 @@ import java.io.Serializable
 import java.util.*
 
 data class PaymentData(
-  var id: Int,
-  var amount: Int,
+  @SerializedName("id")
+  val id: Int,
+
+  @SerializedName("amount")
+  val amount: Int,
+
   @SerializedName("created_at")
-  var createdAt: Date,
-  var subscription: SubscriptionData,
+  val createdAt: Date,
+
+  @SerializedName("subscription")
+  val subscription: SubscriptionData,
 ) : Serializable {
 }
