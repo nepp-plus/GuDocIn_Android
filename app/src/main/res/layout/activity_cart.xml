@@ -5,11 +5,11 @@
 
     <variable
       name="view"
-      type="com.neppplus.gudocin_android.view.presenter.activity.cart.CartActivity" />
+      type="com.neppplus.gudocin_android.view.activity.cart.CartActivity" />
 
     <variable
       name="viewModel"
-      type="com.neppplus.gudocin_android.view.presenter.activity.cart.CartViewModel" />
+      type="com.neppplus.gudocin_android.viewmodel.cart.CartViewModel" />
   </data>
 
   <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
@@ -70,7 +70,7 @@
           android:layout_height="wrap_content"
           android:layout_margin="10dp"
           android:backgroundTint="@color/white"
-          android:onClick="@{view::startDummy}"
+          android:onClick="@{() -> view.dummyIntent()}"
           android:text="상품 구독" />
 
       </androidx.appcompat.widget.LinearLayoutCompat>

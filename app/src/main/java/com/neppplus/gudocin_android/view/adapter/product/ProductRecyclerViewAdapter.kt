@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.neppplus.gudocin_android.databinding.AdapterProductBinding
 import com.neppplus.gudocin_android.model.product.ProductData
-import com.neppplus.gudocin_android.view.presenter.activity.write.WriteActivity
+import com.neppplus.gudocin_android.view.activity.write.WriteActivity
 
 class ProductRecyclerViewAdapter(private val mList: List<ProductData>) :
   RecyclerView.Adapter<ProductRecyclerViewAdapter.ProductViewHolder>() {

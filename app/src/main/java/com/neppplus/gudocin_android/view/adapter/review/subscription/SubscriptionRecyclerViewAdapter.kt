@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.neppplus.gudocin_android.databinding.AdapterSubscriptionBinding
 import com.neppplus.gudocin_android.model.review.ReviewData
-import com.neppplus.gudocin_android.view.presenter.activity.review.ReviewActivity
+import com.neppplus.gudocin_android.view.activity.review.ReviewActivity
 
 class SubscriptionRecyclerViewAdapter(
   val mContext: Context,

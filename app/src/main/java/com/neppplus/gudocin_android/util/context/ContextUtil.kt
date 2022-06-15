@@ -3,9 +3,7 @@ package com.neppplus.gudocin_android.util.context
 import android.content.Context
 
 class ContextUtil {
-
     companion object {
-
         // 어떤 파일? 파일명
         private const val prefName = "GuDocInPref"
 
@@ -44,7 +42,5 @@ class ContextUtil {
             val pref = context.getSharedPreferences(prefName, Context.MODE_PRIVATE)
             return pref.getBoolean(AUTO_LOGIN, false)
         }
-
     }
-
 }

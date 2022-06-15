@@ -9,8 +9,8 @@ import com.bumptech.glide.Glide
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.AdapterDetailCategoryBinding
 import com.neppplus.gudocin_android.model.product.ProductData
-import com.neppplus.gudocin_android.view.presenter.activity.product.ProductActivity
-import com.neppplus.gudocin_android.view.presenter.activity.review.ReviewActivity
+import com.neppplus.gudocin_android.view.activity.product.ProductActivity
+import com.neppplus.gudocin_android.view.activity.review.ReviewActivity
 
 class DetailCategoryRecyclerViewAdapter(
   private val mList: List<ProductData>

@@ -5,7 +5,7 @@
 
     <variable
       name="view"
-      type="com.neppplus.gudocin_android.view.presenter.activity.profile.ProfileActivity" />
+      type="com.neppplus.gudocin_android.view.activity.profile.ProfileActivity" />
   </data>
 
   <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"

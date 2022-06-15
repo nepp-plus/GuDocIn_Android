@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.neppplus.gudocin_android.databinding.AdapterShoppingReviewBinding
 import com.neppplus.gudocin_android.model.review.ReviewData
-import com.neppplus.gudocin_android.view.presenter.activity.review.ReviewActivity
+import com.neppplus.gudocin_android.view.activity.review.ReviewActivity
 
 class ShoppingReviewRecyclerViewAdapter
   (val mContext: Context, private val mList: List<ReviewData>) :

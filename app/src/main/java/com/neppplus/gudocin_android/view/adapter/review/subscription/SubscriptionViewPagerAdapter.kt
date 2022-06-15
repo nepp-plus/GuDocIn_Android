@@ -5,8 +5,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.neppplus.gudocin_android.R
-import com.neppplus.gudocin_android.view.presenter.fragment.payment.PaymentFragment
-import com.neppplus.gudocin_android.view.presenter.fragment.review.ReviewFragment
+import com.neppplus.gudocin_android.view.fragment.payment.PaymentFragment
+import com.neppplus.gudocin_android.view.fragment.review.ReviewFragment
 
 class SubscriptionViewPagerAdapter(fm: FragmentManager, val mContext: Context) : FragmentPagerAdapter(fm) {
 

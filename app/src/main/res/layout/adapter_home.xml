@@ -14,7 +14,7 @@
 
     <fragment
       android:id="@+id/fragmentCategory"
-      class="com.neppplus.gudocin_android.view.presenter.fragment.category.CategoryFragment"
+      class="com.neppplus.gudocin_android.view.fragment.category.CategoryFragment"
       android:layout_width="match_parent"
       android:layout_height="wrap_content" />
 

@@ -14,8 +14,8 @@ import com.neppplus.gudocin_android.databinding.AdapterMainReviewBinding
 import com.neppplus.gudocin_android.model.banner.BannerData
 import com.neppplus.gudocin_android.model.review.ReviewData
 import com.neppplus.gudocin_android.view.adapter.banner.BannerViewPagerAdapter
-import com.neppplus.gudocin_android.view.presenter.activity.main.MainActivity
-import com.neppplus.gudocin_android.view.presenter.activity.review.ReviewActivity
+import com.neppplus.gudocin_android.view.activity.main.MainActivity
+import com.neppplus.gudocin_android.view.activity.review.ReviewActivity
 import java.util.*
 
 class MainReviewRecyclerVewAdapter(val mContext: Context, private val mList: List<ReviewData>) :

@@ -14,14 +14,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import com.neppplus.gudocin_android.network.RetrofitService
 import com.neppplus.gudocin_android.network.RetrofitServiceInstance
-import com.neppplus.gudocin_android.view.presenter.activity.cart.CartActivity
-import com.neppplus.gudocin_android.view.presenter.activity.shopping.ShoppingActivity
+import com.neppplus.gudocin_android.view.activity.cart.CartActivity
+import com.neppplus.gudocin_android.view.activity.shopping.ShoppingActivity
 
 abstract class BaseActivity<T : ViewDataBinding, U : BaseViewModel>(@LayoutRes private val layoutRes: Int) : AppCompatActivity(layoutRes) {
   lateinit var binding: T
   abstract val getViewModel: U
-
-  lateinit var retrofitService: RetrofitServiceInstance
 
   /**
    * ActionBar Contents
@@ -52,15 +50,10 @@ abstract class BaseActivity<T : ViewDataBinding, U : BaseViewModel>(@LayoutRes p
        */
       executePendingBindings()
     }
-
-    val retrofit = RetrofitService.getRetrofit(this@BaseActivity)
-    retrofitService = retrofit.create(RetrofitServiceInstance::class.java)
-
     supportActionBar.let {
       setCustomActionBar()
       actionBarListener()
     }
-
     initView()
     observe()
   }
@@ -83,7 +76,7 @@ abstract class BaseActivity<T : ViewDataBinding, U : BaseViewModel>(@LayoutRes p
     }
   }
 
-  val onClickListener = View.OnClickListener { view ->
+  private val onClickListener = View.OnClickListener { view ->
     when (view) {
       back -> finish()
       shopping -> startActivity(Intent(this, ShoppingActivity::class.java))
