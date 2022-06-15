@@ -1,14 +1,15 @@
 package com.neppplus.gudocin_android
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import com.neppplus.gudocin_android.network.RetrofitService
@@ -20,13 +21,12 @@ abstract class BaseActivity<T : ViewDataBinding, U : BaseViewModel>(@LayoutRes p
   lateinit var binding: T
   abstract val getViewModel: U
 
-  lateinit var mContext: Context
   lateinit var retrofitService: RetrofitServiceInstance
 
   /**
    * ActionBar Contents
    */
-  lateinit var back: ImageView
+  private lateinit var back: ImageView
   lateinit var title: TextView
   lateinit var shopping: ImageView
   lateinit var cart: ImageView
@@ -37,7 +37,7 @@ abstract class BaseActivity<T : ViewDataBinding, U : BaseViewModel>(@LayoutRes p
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     // 초기화 된 layoutRes 로 dataBinding 객체 생성
-    binding = DataBindingUtil.setContentView(this, layoutRes)
+    binding = DataBindingUtil.setContentView(this@BaseActivity, layoutRes)
     binding.apply {
       lifecycleOwner = this@BaseActivity
       /**
@@ -52,13 +52,13 @@ abstract class BaseActivity<T : ViewDataBinding, U : BaseViewModel>(@LayoutRes p
        */
       executePendingBindings()
     }
-    mContext = this
 
-    val retrofit = RetrofitService.getRetrofit(mContext)
+    val retrofit = RetrofitService.getRetrofit(this@BaseActivity)
     retrofitService = retrofit.create(RetrofitServiceInstance::class.java)
 
-    supportActionBar?.let {
+    supportActionBar.let {
       setCustomActionBar()
+      actionBarListener()
     }
 
     initView()
@@ -67,34 +67,34 @@ abstract class BaseActivity<T : ViewDataBinding, U : BaseViewModel>(@LayoutRes p
 
   private fun setCustomActionBar() {
     val defActionBar = supportActionBar!!
-    Log.d("액션바", "설정으로 들어옴")
+    Log.d("ActionBar", "Into the Setting")
 
-    defActionBar.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
-    defActionBar.setCustomView(R.layout.custom_action_bar)
+    defActionBar.apply {
+      displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
+      setCustomView(R.layout.custom_action_bar)
 
-    val toolbar = defActionBar.customView.parent as androidx.appcompat.widget.Toolbar
-    toolbar.setContentInsetsAbsolute(0, 0)
+      val toolbar = customView.parent as Toolbar
+      toolbar.setContentInsetsAbsolute(0, 0)
 
-    back = defActionBar.customView.findViewById(R.id.btnBack)
-    title = defActionBar.customView.findViewById(R.id.txtTitleInActionBar)
-    shopping = defActionBar.customView.findViewById(R.id.btnShopping)
-    cart = defActionBar.customView.findViewById(R.id.btnCart)
-
-    startActivity()
+      back = customView.findViewById(R.id.btnBack)
+      title = customView.findViewById<TextView>(R.id.txtTitle).toString()
+      shopping = customView.findViewById(R.id.btnShopping)
+      cart = customView.findViewById(R.id.btnCart)
+    }
   }
 
-  private fun startActivity() {
-    back.setOnClickListener {
-      finish()
+  val onClickListener = View.OnClickListener { view ->
+    when (view) {
+      back -> finish()
+      shopping -> startActivity(Intent(this, ShoppingActivity::class.java))
+      cart -> startActivity(Intent(this, CartActivity::class.java))
     }
+  }
 
-    shopping.setOnClickListener {
-      startActivity(Intent(mContext, ShoppingActivity::class.java))
-    }
-
-    cart.setOnClickListener {
-      startActivity(Intent(mContext, CartActivity::class.java))
-    }
+  private fun actionBarListener() {
+    back.setOnClickListener(onClickListener)
+    shopping.setOnClickListener(onClickListener)
+    cart.setOnClickListener(onClickListener)
   }
 
   inline fun binding(block: T.() -> Unit) {

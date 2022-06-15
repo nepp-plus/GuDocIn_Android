@@ -53,7 +53,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
 //       (액션바의 커스텀뷰에) 추가된 UI 요소들을 멤버변수에 연결
     btnBack = defActionBar.customView.findViewById(R.id.btnBack)
-    txtTitleInActionBar = defActionBar.customView.findViewById(R.id.txtTitleInActionBar)
+    txtTitleInActionBar = defActionBar.customView.findViewById(R.id.txtTitle)
     btnShopping = defActionBar.customView.findViewById(R.id.btnShopping)
     btnCart = defActionBar.customView.findViewById(R.id.btnCart)
 

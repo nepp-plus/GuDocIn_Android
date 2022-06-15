@@ -1,6 +1,9 @@
 <resources>
   <string name="app_name">구독in</string>
 
+  <!--Title Name-->
+  <string name="title_name">gudocin</string>
+
   <!--Social Login -->
   <string name="kakao_app_key">c53922b4fc7f54934a3bca77009f4a04</string>
   <string name="facebook_app_id">621063819241628</string>
