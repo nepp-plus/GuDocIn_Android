@@ -34,10 +34,12 @@ class InitActivity : com.neppplus.gudocin_android.BaseActivity<ActivityInitBindi
   var currentPosition = 0
 
   override fun initView() {
-    initViewPager()
+    binding {
+      initViewPager()
+      listenerTrigger()
+    }
     observe()
     setFirebaseToken()
-    listenerTrigger()
   }
 
   override fun observe() {
@@ -79,14 +81,14 @@ class InitActivity : com.neppplus.gudocin_android.BaseActivity<ActivityInitBindi
     }
   }
 
-  private fun initViewPager() {
-    val adapter = InitViewPagerAdapter(this)
-    binding.viewPager.adapter = adapter
+  private fun ActivityInitBinding.initViewPager() {
+    val adapter = InitViewPagerAdapter(this@InitActivity)
+    viewPager.adapter = adapter
 
     val thread = Thread(PagerRunnable())
     thread.start()
 
-    binding.dotsIndicator.setViewPager(binding.viewPager)
+    dotsIndicator.setViewPager(viewPager)
   }
 
   private fun setFirebaseToken() {
@@ -99,25 +101,19 @@ class InitActivity : com.neppplus.gudocin_android.BaseActivity<ActivityInitBindi
     }
   }
 
-  private fun listenerTrigger() {
+  private fun ActivityInitBinding.listenerTrigger() {
     val onClickListener = View.OnClickListener {
       when (it) {
-        binding.btnLogin -> {
-          loginListener()
-        }
-        binding.btnSignUp -> {
-          startActivity(Intent(this, SignUpActivity::class.java))
-        }
-        binding.btnExit -> {
-          exitListener()
-        }
+        btnLogin -> loginListener()
+
+        btnSignUp -> startActivity(Intent(this@InitActivity, SignUpActivity::class.java))
+
+        btnExit -> exitListener()
       }
     }
-    binding.apply {
-      btnLogin.setOnClickListener(onClickListener)
-      btnSignUp.setOnClickListener(onClickListener)
-      btnExit.setOnClickListener(onClickListener)
-    }
+    btnLogin.setOnClickListener(onClickListener)
+    btnSignUp.setOnClickListener(onClickListener)
+    btnExit.setOnClickListener(onClickListener)
   }
 
   private fun loginListener() {
