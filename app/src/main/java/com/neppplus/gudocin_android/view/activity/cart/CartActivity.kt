@@ -17,7 +17,6 @@ import java.util.*
 
 @AndroidEntryPoint
 class CartActivity : BaseActivity<ActivityCartBinding, CartViewModel>(R.layout.activity_cart) {
-
   private val cartViewModel: CartViewModel by viewModels()
 
   override val getViewModel: CartViewModel
@@ -41,9 +40,7 @@ class CartActivity : BaseActivity<ActivityCartBinding, CartViewModel>(R.layout.a
         mCartRecyclerViewAdapter.setListData(it.data.carts)
         mCartRecyclerViewAdapter.notifyDataSetChanged()
         for (data in it.data.carts) {
-          if (data.product.price != null) {
-            totalPrice += data.product.price
-          }
+          totalPrice += data.product.price
         }
         val koreanWon = "${NumberFormat.getInstance(Locale.KOREA).format(totalPrice)}원"
         binding.txtPrice.text = koreanWon
@@ -51,11 +48,16 @@ class CartActivity : BaseActivity<ActivityCartBinding, CartViewModel>(R.layout.a
         Toast.makeText(this, resources.getString(R.string.data_loading_failed), Toast.LENGTH_SHORT).show()
       }
     }
-    cartViewModel.loadDataList()
+    cartViewModel.getCart()
   }
 
   private fun initRecyclerView() {
     mCartRecyclerViewAdapter = CartRecyclerViewAdapter()
+    mCartRecyclerViewAdapter.setOnItemClickListener(object : CartRecyclerViewAdapter.OnItemClickListener {
+      override fun onItemClick(position: Int) {
+        cartViewModel.deleteCart()
+      }
+    })
     binding.rvCart.apply {
       adapter = mCartRecyclerViewAdapter
       layoutManager = LinearLayoutManager(this@CartActivity)
@@ -78,7 +80,6 @@ class CartActivity : BaseActivity<ActivityCartBinding, CartViewModel>(R.layout.a
       e.printStackTrace()
     }
     binding.swipeRefresh.isRefreshing = false
-
     /**
      * Scroll 시 SwipeRefreshLayout Refresh 동작 방지
      * binding.layoutScroll.viewTreeObserver.addOnScrollChangedListener {
@@ -91,5 +92,4 @@ class CartActivity : BaseActivity<ActivityCartBinding, CartViewModel>(R.layout.a
     val myIntent = Intent(this, DummyActivity::class.java)
     startActivity(myIntent)
   }
-
 }
