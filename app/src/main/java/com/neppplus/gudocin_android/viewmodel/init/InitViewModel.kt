@@ -19,8 +19,4 @@ class InitViewModel @Inject constructor(private val repository: InitRepository) 
   fun getRequestInfo() = viewModelScope.launch {
     repository.getRequestInfo(_liveDataList)
   }
-
-  fun patchRequestUpdateUserInfo() = viewModelScope.launch {
-    repository.patchRequestUpdateUserInfo(_liveDataList)
-  }
 }

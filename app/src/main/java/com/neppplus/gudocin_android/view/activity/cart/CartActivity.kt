@@ -25,7 +25,7 @@ class CartActivity : BaseActivity<ActivityCartBinding, CartViewModel>(R.layout.a
 
   private lateinit var mCartRecyclerViewAdapter: CartRecyclerViewAdapter
 
-  private var total = 0
+  private var totalPrice = 0
 
   override fun initView() {
     binding { view = this@CartActivity }
@@ -42,10 +42,10 @@ class CartActivity : BaseActivity<ActivityCartBinding, CartViewModel>(R.layout.a
         mCartRecyclerViewAdapter.notifyDataSetChanged()
         for (data in it.data.carts) {
           if (data.product.price != null) {
-            total += data.product.price
+            totalPrice += data.product.price
           }
         }
-        val koreanWon = "${NumberFormat.getInstance(Locale.KOREA).format(total)}원"
+        val koreanWon = "${NumberFormat.getInstance(Locale.KOREA).format(totalPrice)}원"
         binding.txtPrice.text = koreanWon
       } else {
         Toast.makeText(this, resources.getString(R.string.data_loading_failed), Toast.LENGTH_SHORT).show()

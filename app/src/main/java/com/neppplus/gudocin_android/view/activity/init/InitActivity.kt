@@ -1,7 +1,6 @@
 package com.neppplus.gudocin_android.view.activity.init
 
 import android.app.AlertDialog
-import android.content.DialogInterface
 import android.content.Intent
 import android.os.Handler
 import android.os.Looper
@@ -13,7 +12,6 @@ import androidx.core.app.ActivityCompat
 import com.google.firebase.messaging.FirebaseMessaging
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.ActivityInitBinding
-import com.neppplus.gudocin_android.model.GlobalData
 import com.neppplus.gudocin_android.util.context.ContextUtil
 import com.neppplus.gudocin_android.view.activity.login.LoginActivity
 import com.neppplus.gudocin_android.view.activity.main.MainActivity
@@ -42,6 +40,14 @@ class InitActivity : com.neppplus.gudocin_android.BaseActivity<ActivityInitBindi
     listenerTrigger()
   }
 
+  override fun observe() {
+    super.observe()
+    initViewModel.liveDataList.observe(this) {
+      Log.d("Observe", it.toString())
+    }
+    initViewModel.getRequestInfo()
+  }
+
   override fun onBackPressed() {
     if (System.currentTimeMillis() - backKeyPressedTime >= 1500) {
       backKeyPressedTime = System.currentTimeMillis()
@@ -53,16 +59,16 @@ class InitActivity : com.neppplus.gudocin_android.BaseActivity<ActivityInitBindi
     }
   }
 
-  private fun setPage() {
-    if (currentPosition == 4) currentPosition = 0
-    binding.viewPager.setCurrentItem(currentPosition, true)
-    currentPosition += 1
-  }
-
   inner class PagerRunnable : Runnable {
     private val handler = Handler(Looper.getMainLooper()) {
       setPage()
       true
+    }
+
+    private fun setPage() {
+      if (currentPosition == 4) currentPosition = 0
+      binding.viewPager.setCurrentItem(currentPosition, true)
+      currentPosition += 1
     }
 
     override fun run() {
@@ -89,18 +95,8 @@ class InitActivity : com.neppplus.gudocin_android.BaseActivity<ActivityInitBindi
         val deviceToken = it.result
         Log.d(this.getString(R.string.fcm_token), deviceToken!!)
         ContextUtil.setDeviceToken(this, deviceToken)
-
-        GlobalData.loginUser.let {
-          initViewModel.patchRequestUpdateUserInfo()
-          // apiService.patchRequestUpdateUserInfo("android_device_token", ContextUtil.getDeviceToken(this))
-        }
       }
     }
-  }
-
-  override fun observe() {
-    super.observe()
-    initViewModel.getRequestInfo()
   }
 
   private fun listenerTrigger() {
@@ -140,9 +136,9 @@ class InitActivity : com.neppplus.gudocin_android.BaseActivity<ActivityInitBindi
     val alert = AlertDialog.Builder(this, R.style.DialogTheme)
     alert.setTitle(this.getString(R.string.exit_confirm))
     alert.setMessage(this.getString(R.string.do_you_wanna_exit))
-    alert.setPositiveButton(resources.getString(R.string.confirm), DialogInterface.OnClickListener { _, _ ->
+    alert.setPositiveButton(resources.getString(R.string.confirm)) { _, _ ->
       finish()
-    })
+    }
     alert.setNegativeButton(resources.getString(R.string.cancel), null)
     alert.show()
   }
