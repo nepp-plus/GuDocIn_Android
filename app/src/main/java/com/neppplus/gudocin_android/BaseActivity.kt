@@ -11,8 +11,9 @@ import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import com.neppplus.gudocin_android.view.activity.cart.CartActivity
-import com.neppplus.gudocin_android.view.activity.shopping.ShoppingActivity
+import com.neppplus.gudocin_android.ui.base.BaseViewModel
+import com.neppplus.gudocin_android.ui.cart.CartActivity
+import com.neppplus.gudocin_android.ui.shopping.ShoppingActivity
 
 abstract class BaseActivity<T : ViewDataBinding, U : BaseViewModel>(@LayoutRes private val layoutRes: Int) : AppCompatActivity(layoutRes) {
   lateinit var binding: T
@@ -21,7 +22,7 @@ abstract class BaseActivity<T : ViewDataBinding, U : BaseViewModel>(@LayoutRes p
   /**
    * ActionBar Contents
    */
-  lateinit var back: ImageView
+  private lateinit var back: ImageView
   lateinit var title: TextView
   lateinit var shopping: ImageView
   lateinit var cart: ImageView
@@ -64,7 +65,7 @@ abstract class BaseActivity<T : ViewDataBinding, U : BaseViewModel>(@LayoutRes p
 
     defActionBar?.apply {
       displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
-      setCustomView(R.layout.custom_action_bar)
+      setCustomView(R.layout.layout_header)
 
       val toolbar = customView.parent as androidx.appcompat.widget.Toolbar
       toolbar.setContentInsetsAbsolute(0, 0)

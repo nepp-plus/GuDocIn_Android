@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navHome"
+        android:enabled="true"
+        android:icon="@drawable/nav_home"
+        android:title="@string/nav_home" />
+    <item
+        android:id="@+id/navReview"
+        android:icon="@drawable/nav_review"
+        android:title="@string/nav_review" />
+    <item
+        android:id="@+id/navProfile"
+        android:enabled="true"
+        android:icon="@drawable/nav_profile"
+        android:title="@string/nav_profile" />
+</menu>

@@ -1,82 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-  <data>
+    <data>
 
-    <variable
-      name="view"
-      type="com.neppplus.gudocin_android.view.activity.cart.CartActivity" />
+        <variable
+            name="activity"
+            type="com.neppplus.gudocin_android.ui.cart.CartActivity" />
 
-    <variable
-      name="viewModel"
-      type="com.neppplus.gudocin_android.viewmodel.cart.CartViewModel" />
-  </data>
+        <variable
+            name="viewModel"
+            type="com.neppplus.gudocin_android.ui.cart.CartViewModel" />
+    </data>
 
-  <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white"
-    android:gravity="center"
-    android:orientation="vertical">
-
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-      android:id="@+id/swipeRefresh"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      app:onRefreshListener="@{view::swipeRefresh}">
-
-      <androidx.appcompat.widget.LinearLayoutCompat
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:gravity="center"
         android:orientation="vertical">
 
-        <androidx.recyclerview.widget.RecyclerView
-          android:id="@+id/rvCart"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_margin="10dp"
-          android:layout_weight="1" />
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:onRefreshListener="@{activity::swipeRefresh}">
 
-        <androidx.appcompat.widget.LinearLayoutCompat
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_margin="10dp"
-          android:background="@drawable/corner_shape"
-          android:orientation="vertical">
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-          <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="전체 상품 가격"
-            android:textColor="@color/black"
-            android:textStyle="bold" />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvCart"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1" />
 
-          <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/txtPrice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:text=""
-            android:textColor="@color/black" />
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/radius_7_stroke_000000"
+                    android:orientation="vertical">
 
-        </androidx.appcompat.widget.LinearLayoutCompat>
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/total_cart_price"
+                        android:textColor="@color/black"
+                        android:textStyle="bold" />
 
-        <androidx.appcompat.widget.AppCompatButton
-          android:id="@+id/btnSubscribe"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_margin="10dp"
-          android:backgroundTint="@color/white"
-          android:onClick="@{() -> view.dummyIntent()}"
-          android:text="상품 구독" />
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/txtPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:text=""
+                        android:textColor="@color/black" />
 
-      </androidx.appcompat.widget.LinearLayoutCompat>
+                </androidx.appcompat.widget.LinearLayoutCompat>
 
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnSubscribe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:backgroundTint="@color/white"
+                    android:onClick="@{() -> activity.dummyIntent()}"
+                    android:text="@string/cart_subscribe" />
 
-  </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
 </layout>

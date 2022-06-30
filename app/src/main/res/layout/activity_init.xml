@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white">
@@ -14,7 +14,7 @@
             android:layout_marginTop="50dp"
             android:gravity="center"
             android:orientation="vertical"
-            tools:context=".view.activity.init.InitActivity">
+            tools:context=".ui.init.InitActivity">
 
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/viewPager"
@@ -28,13 +28,13 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
-                app:dotsColor="@color/dark_gray7"
+                app:dotsColor="@color/color_737373"
                 app:dotsCornerRadius="8dp"
                 app:dotsSize="10dp"
                 app:dotsSpacing="4dp"
                 app:dotsWidthFactor="2.5"
                 app:progressMode="false"
-                app:selectedDotColor="@color/dark_gray7" />
+                app:selectedDotColor="@color/color_737373" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -48,7 +48,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
-                    android:text="로그인"
+                    android:text="@string/init_login"
                     android:textColor="@color/black" />
 
                 <Button
@@ -56,7 +56,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
-                    android:text="회원가입"
+                    android:text="@string/init_signup"
                     android:textColor="@color/black" />
 
                 <Button
@@ -64,7 +64,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
-                    android:text="다음에 만나요"
+                    android:text="@string/init_later"
                     android:textColor="@color/black" />
 
             </LinearLayout>

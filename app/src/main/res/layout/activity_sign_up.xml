@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white">
@@ -15,6 +15,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
+                android:contentDescription="@null"
                 android:src="@drawable/title_logo" />
 
             <LinearLayout
@@ -25,16 +26,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="이메일"
+                    android:text="@string/signup_email"
                     android:textColor="@color/black"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
-                <com.neppplus.gudocin_android.util.custom.CustomEditText
+                <com.neppplus.gudocin_android.util.CustomEditText
                     android:id="@+id/edtEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="이메일을 입력하세요"
+                    android:hint="@string/signup_input_email"
                     android:inputType="textEmailAddress"
                     android:singleLine="true" />
 
@@ -42,16 +43,16 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="비밀번호"
+                    android:text="@string/signup_password"
                     android:textColor="@color/black"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
-                <com.neppplus.gudocin_android.util.custom.CustomEditText
+                <com.neppplus.gudocin_android.util.CustomEditText
                     android:id="@+id/edtPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="비밀번호를 입력하세요"
+                    android:hint="@string/signup_input_password"
                     android:inputType="textPassword"
                     android:singleLine="true" />
 
@@ -59,22 +60,22 @@
                     android:id="@+id/txtCheckPassword1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=" 비밀번호는 8자리 이상이어야 합니다" />
+                    android:text="@string/signup_password_length" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="비밀번호 확인"
+                    android:text="@string/signup_password_confirm"
                     android:textColor="@color/black"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
-                <com.neppplus.gudocin_android.util.custom.CustomEditText
+                <com.neppplus.gudocin_android.util.CustomEditText
                     android:id="@+id/edtConfirmPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="비밀번호를 다시 입력하세요"
+                    android:hint="@string/signup_password_retry"
                     android:inputType="textPassword"
                     android:singleLine="true" />
 
@@ -82,22 +83,22 @@
                     android:id="@+id/txtCheckPassword2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=" 비밀번호는 서로 일치해야 합니다" />
+                    android:text="@string/signup_password_accord" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="전화번호"
+                    android:text="@string/signup_phone"
                     android:textColor="@color/black"
                     android:textSize="17sp"
                     android:textStyle="bold" />
 
-                <com.neppplus.gudocin_android.util.custom.CustomEditText
+                <com.neppplus.gudocin_android.util.CustomEditText
                     android:id="@+id/edtPhoneNum"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="전화번호를 입력하세요"
+                    android:hint="@string/signup_input_phone"
                     android:inputType="phone"
                     android:singleLine="true" />
 
@@ -105,7 +106,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="닉네임"
+                    android:text="@string/signup_nickname"
                     android:textColor="@color/black"
                     android:textSize="17sp"
                     android:textStyle="bold" />
@@ -115,13 +116,14 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <com.neppplus.gudocin_android.util.custom.CustomEditText
+                    <com.neppplus.gudocin_android.util.CustomEditText
                         android:id="@+id/edtNickname"
                         android:layout_width="260dp"
                         android:layout_height="wrap_content"
-                        android:hint="중복 확인 후 닉네임을 입력하세요"
+                        android:hint="@string/nickname_duplicated"
                         android:inputType="text"
-                        android:singleLine="true" />
+                        android:singleLine="true"
+                        android:textSize="17sp" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -133,7 +135,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/white"
-                        android:text="확인" />
+                        android:text="@string/signup_nickname_check" />
 
                 </LinearLayout>
 
@@ -141,7 +143,7 @@
                     android:id="@+id/txtCheckNickname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=" 닉네임 중복 확인을 진행해야 합니다" />
+                    android:text="@string/signup_nickname_confirm" />
 
             </LinearLayout>
 
@@ -151,7 +153,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="9dp"
                 android:backgroundTint="@color/white"
-                android:text="회원가입" />
+                android:text="@string/signup" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -164,21 +166,21 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
-                    android:text="카카오 로그인" />
-
-                <Button
-                    android:id="@+id/btnFacebookLogin"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/white"
-                    android:text="페이스북 로그인" />
+                    android:text="@string/login_kakao" />
 
                 <Button
                     android:id="@+id/btnGoogleLogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
-                    android:text="구글 로그인" />
+                    android:text="@string/login_google" />
+
+                <Button
+                    android:id="@+id/btnFacebookLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    android:text="@string/login_facebook" />
 
             </LinearLayout>
 

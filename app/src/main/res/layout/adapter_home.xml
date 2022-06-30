@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/white"
-    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
 
-    <androidx.viewpager.widget.ViewPager
-      android:id="@+id/vpBanner"
-      android:layout_width="match_parent"
-      android:layout_height="200dp" />
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/vpBanner"
+            android:layout_width="match_parent"
+            android:layout_height="200dp" />
 
-    <fragment
-      android:id="@+id/fragmentCategory"
-      class="com.neppplus.gudocin_android.view.fragment.category.CategoryFragment"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content" />
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragmentCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-  </LinearLayout>
+    </LinearLayout>
 
 </layout>
