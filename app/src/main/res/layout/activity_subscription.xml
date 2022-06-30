@@ -3,12 +3,10 @@
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
-        android:orientation="vertical"
-        tools:context=".activities.SubscriptionActivity">
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -53,13 +51,13 @@
         </LinearLayout>
 
         <com.google.android.material.tabs.TabLayout
-            android:id="@+id/subscriptionTabLayout"
+            android:id="@+id/tlSubscription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:tabMode="fixed" />
 
         <androidx.viewpager.widget.ViewPager
-            android:id="@+id/subscriptionViewPager"
+            android:id="@+id/vpSubscription"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

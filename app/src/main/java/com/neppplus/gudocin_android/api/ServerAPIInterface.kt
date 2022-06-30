@@ -1,13 +1,13 @@
 package com.neppplus.gudocin_android.api
 
-import com.neppplus.gudocin_android.datas.BasicResponse
+import com.neppplus.gudocin_android.model.BasicResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.*
 
 interface ServerAPIInterface {
-    // 로그인 기능 명세
+    // 로그인 기능
     @FormUrlEncoded
     @POST("/user")
     fun postRequestLogin(
@@ -43,11 +43,11 @@ interface ServerAPIInterface {
 
     // 내 정보 조회 - GET / 토큰값 (임시방안)
     @GET("/user")
-    fun getRequestMyInfo(): Call<BasicResponse>
+    fun getRequestInfo(): Call<BasicResponse>
 
     // 상품목록 받아오기
     @GET("/product")
-    fun getRequestProductList(): Call<BasicResponse>
+    fun getRequestProduct(): Call<BasicResponse>
 
     // 리뷰 등록 - Multipart 로 파일도 같이 첨부
     @Multipart
@@ -63,9 +63,9 @@ interface ServerAPIInterface {
         @Path("large_category_id") id: Int,
     ): Call<BasicResponse>
 
-    // 특정 소분류 카테고리(내부 상품목록) 조회
+    // 특정 소분류 카테고리(내부 상품 목록) 조회
     @GET("/category/small/{small_category_id}")
-    fun getRequestSmallCategoriesItemList(
+    fun getRequestSmallCategoriesProduct(
         @Path("small_category_id") id: Int,
     ): Call<BasicResponse>
 
@@ -82,32 +82,32 @@ interface ServerAPIInterface {
 
     // 특정 리뷰 상세보기
     @GET("/review/{review_id}")
-    fun getRequestReviewDetail(
+    fun getRequestDetailReview(
         @Path("review_id") reviewId: Int,
     ): Call<BasicResponse>
 
     // 특정 상품 상세보기
     @GET("/product/{product_id}")
-    fun getRequestProductDetail(
+    fun getRequestDetailProduct(
         @Path("product_id") reviewId: Int,
     ): Call<BasicResponse>
 
     // 특정 소분류 카테고리(내부 상품목록)의 리뷰 조회
     @GET("/category/small/{small_category_id}/review")
-    fun getRequestSmallCategoriesItemReviewList(
+    fun getRequestSmallCategoriesReview(
         @Path("small_category_id") id: Int,
     ): Call<BasicResponse>
 
     // 특정 리뷰의 댓글 모아보기
     @GET("review/{review_id}/reply")
-    fun getRequestReviewReply(
+    fun getRequestReply(
         @Path("review_id") reveiwReply: Int,
     ): Call<BasicResponse>
 
     // 리뷰에 댓글 작성
     @FormUrlEncoded
     @POST("review/{review_id}/reply")
-    fun postRequestReviewReply(
+    fun postRequestReply(
         @Path("review_id") reviewReply: Int,
         @Field("content") content: String,
     ): Call<BasicResponse>
@@ -115,7 +115,7 @@ interface ServerAPIInterface {
     // 회원정보 수정 - 전화번호
     @FormUrlEncoded
     @PATCH("/user")
-    fun patchRequestEditPhoneNumber(
+    fun patchRequestPhoneNumber(
         @Field("field") field: String,
         @Field("value") value: String,
     ): Call<BasicResponse>
@@ -123,7 +123,7 @@ interface ServerAPIInterface {
     // 회원정보 수정- 비밀번호
     @FormUrlEncoded
     @PATCH("/user")
-    fun patchRequestEditPassword(
+    fun patchRequestPassword(
         @Field("field") field: String,
         @Field("value") value: String,
         @Field("current_password") password: String,
@@ -132,56 +132,40 @@ interface ServerAPIInterface {
     // 회원정보 수정- 닉네임
     @FormUrlEncoded
     @PATCH("/user")
-    fun patchRequestEditNickname(
+    fun patchRequestNickname(
         @Field("field") field: String,
         @Field("value") value: String,
     ): Call<BasicResponse>
 
-    // 장바구니 조회
+    // 장바구니 내역 조회
     @GET("/cart")
-    fun getRequestCartList(): Call<BasicResponse>
+    fun getRequestCart(): Call<BasicResponse>
 
-    // 장바구니에 상품 등록
+    // 장바구니 상품 등록
     @FormUrlEncoded
     @POST("/cart")
-    fun postRequestAddItemToCart(
+    fun postRequestCart(
         @Field("product_id") productId: Int,
     ): Call<BasicResponse>
 
     // 장바구니 상품 삭제
     @DELETE("/cart")
-    fun deleteRequestProduct(
+    fun deleteRequestCart(
         @Query("product_id") id: Int
     ): Call<BasicResponse>
 
     // 사용자 작성 리뷰 목록
     @GET("/user/review")
-    fun getRequestUserReviewList(): Call<BasicResponse>
+    fun getRequestUserReview(): Call<BasicResponse>
 
-    // 사용자 구독상품 결제 목록
+    // 사용자 구독상품 구독 목록
     @GET("/user/payment")
-    fun getRequestUserPaymentList(): Call<BasicResponse>
+    fun getRequestUserPayment(): Call<BasicResponse>
 
     // 프로필 사진 첨부 -> Field 대신 Multipart 활용
     @Multipart
     @PUT("/user/image")
-    fun putRequestProfileImg(
+    fun putRequestProfile(
         @Part img: MultipartBody.Part
-    ): Call<BasicResponse>
-
-    // 사용자 카드 등록
-    @FormUrlEncoded
-    @POST("/user/card")
-    fun postRequestCardInfo(
-        @Field("card_num") num: String,
-        @Field("card_nickname") nickname: String,
-        @Field("mm_yy") validity: String,
-        @Field("birthday") birthDay: String,
-        @Field("password_2digit") password: String,
-    ): Call<BasicResponse>
-
-    // 사용자 카드 목록 조회
-    @GET("/user/card")
-    fun getRequestCardInfoList(
     ): Call<BasicResponse>
 }

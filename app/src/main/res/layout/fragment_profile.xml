@@ -98,11 +98,11 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/txtSubscriptionHistoryList"
+                    android:id="@+id/txtHistory"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="리뷰 및 결제 내역"
+                    android:text="리뷰 및 구독 내역"
                     android:textColor="@color/black"
                     android:textSize="15sp" />
 

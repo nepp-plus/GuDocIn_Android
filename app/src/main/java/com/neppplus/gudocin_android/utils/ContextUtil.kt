@@ -6,10 +6,10 @@ class ContextUtil {
 
     companion object {
 
-        // 어떤 파일? 파일 명
+        // 어떤 파일? 파일명
         private val prefName = "GuDocInPref"
 
-        // 어떤 데이터 항목?  항목 명
+        // 어떤 데이터 항목?  항목명
         private val TOKEN = "TOKEN"
         private val DEVICE_TOKEN = "DEVICE_TOKEN"
         private val AUTO_LOGIN = "AUTO_LOGIN"
