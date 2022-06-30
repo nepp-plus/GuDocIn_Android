@@ -1,62 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout>
+
+  <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
     android:background="@color/white"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <androidx.appcompat.widget.LinearLayoutCompat
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:background="@drawable/corner_shape_cart"
+      android:orientation="horizontal">
+
+      <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/corner_shape_cart"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+        <de.hdodenhof.circleimageview.CircleImageView
+          android:id="@+id/imgProduct"
+          android:layout_width="100dp"
+          android:layout_height="100dp"
+          android:layout_marginTop="5dp"
+          android:src="@mipmap/ic_launcher" />
 
-            <ImageView
-                android:id="@+id/imgProduct"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginTop="5dp"
-                android:src="@mipmap/ic_launcher" />
+      </androidx.appcompat.widget.LinearLayoutCompat>
 
-        </LinearLayout>
+      <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="5dp"
-            android:orientation="vertical">
+        <androidx.appcompat.widget.AppCompatImageView
+          android:id="@+id/imgDelete"
+          android:layout_width="30dp"
+          android:layout_height="30dp"
+          android:layout_marginStart="100dp"
+          android:src="@drawable/delete_icon" />
 
-            <ImageView
-                android:id="@+id/imgDelete"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginStart="100dp"
-                android:src="@drawable/delete_icon" />
+        <androidx.appcompat.widget.AppCompatTextView
+          android:id="@+id/txtProduct"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="상품명"
+          android:textColor="@color/black" />
 
-            <TextView
-                android:id="@+id/txtProduct"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="상품명"
-                android:textColor="@color/black" />
+        <androidx.appcompat.widget.AppCompatTextView
+          android:id="@+id/txtPrice"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="5dp"
+          android:text="가격"
+          android:textColor="@color/black" />
 
-            <TextView
-                android:id="@+id/txtPrice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="가격"
-                android:textColor="@color/black" />
+      </androidx.appcompat.widget.LinearLayoutCompat>
 
-        </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
-    </LinearLayout>
+  </androidx.appcompat.widget.LinearLayoutCompat>
 
-</LinearLayout>
+</layout>

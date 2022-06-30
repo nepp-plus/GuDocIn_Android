@@ -1,7 +1,135 @@
 <resources>
-    <string name="app_name">구독in</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="facebook_app_id">621063819241628</string>
-    <string name="fb_login_protocol_scheme">fb621063819241628</string>
-    <string name="default_client_id" translatable="false">741873260357-k81nj85r84ohs525oc5n1p3sq5ng5178.apps.googleusercontent.com</string>
+  <string name="app_name">구독in</string>
+
+  <!--Title Name-->
+  <string name="title_name">gudocin</string>
+
+  <!--Social Login -->
+  <string name="kakao_app_key">c53922b4fc7f54934a3bca77009f4a04</string>
+  <string name="facebook_app_id">621063819241628</string>
+  <string name="facebook_login_protocol_scheme">fb621063819241628</string>
+  <string name="google_default_client_id" translatable="false">741873260357-k81nj85r84ohs525oc5n1p3sq5ng5178.apps.googleusercontent.com</string>
+
+  <!--Data Loading Failed  -->
+  <string name="data_loading_failed">데이터를 가져오는데 실패하였습니다</string>
+
+  <!--About Cart-->
+  <string name="cart_registration_success">장바구니 등록 완료</string>
+  <string name="cart_list_delete">장바구니 목록이 삭제되었습니다</string>
+  <string name="move_cart_list">장바구니로 이동하시겠습니까?</string>
+
+  <!--Error Case-->
+  <string name="error_case">에러 경우</string>
+
+  <!--About Review-->
+  <string name="review_view_more">리뷰 더보기</string>
+  <string name="review_close">리뷰 닫기</string>
+  <string name="review_empty">아직 등록된 리뷰가 없습니다</string>
+
+  <!--Product Info-->
+  <string name="product_info">상품 정보</string>
+  <string name="product_review">상품 리뷰 내역</string>
+  <string name="product_subscribe">상품 구독 내역</string>
+
+  <!--Vendor Info-->
+  <string name="vendor_info">판매자 정보</string>
+
+  <!--Back Pressed-->
+  <string name="back_pressed">"뒤로" 버튼을 한번 더 누르면 종료됩니다</string>
+  <string name="back_button_pressed">백버튼을 한번 더 누르면 종료됩니다</string>
+
+  <!--FCM Token-->
+  <string name="fcm_token">FCM 토큰</string>
+
+  <!--Exit Confirm-->
+  <string name="exit_confirm">나가기 확인</string>
+  <string name="do_you_wanna_exit">정말 나가시겠습니까?</string>
+
+  <!--Confirm-->
+  <string name="confirm">확인</string>
+  <string name="success">성공</string>
+
+  <!--Cancel-->
+  <string name="cancel">취소</string>
+
+  <!--Input Data-->
+  <string name="input_data">입력값</string>
+  <string name="input_space_bar">Space Bar</string>
+
+  <!--Welcome User-->
+  <string name="welcome_user">{user}님 환영합니다</string>
+  <string name="congratulation_user">{user}님 가입을 축하합니다</string>
+  <string name="review_user">{user}님의 리뷰</string>
+
+  <!--KakaoTalk Login-->
+  <string name="kakao_login">카카오톡 로그인</string>
+  <string name="kakao_login_success">로그인 성공</string>
+  <string name="kakao_login_failed">로그인 실패</string>
+  <string name="kakao_request_success">사용자 정보 요청 성공</string>
+  <string name="kakao_request_failed">사용자 정보 요청 실패</string>
+
+  <!--KakaoTalk User Info-->
+  <string name="kakao_user_id">아이디</string>
+  <string name="kakao_user_email">이메일</string>
+  <string name="kakao_user_nickname">닉네임</string>
+
+  <!--Facebook Login-->
+  <string name="facebook_login">페이스북 로그인</string>
+
+  <!--Info Request-->
+  <string name="info_request">내 정보 요청</string>
+
+  <!--CheckBox Change-->
+  <string name="checkbox_change">체크박스 변경</string>
+
+  <!--About Account-->
+  <string name="email_input">이메일을 입력해 주세요</string>
+
+  <string name="password_pass">사용해도 좋은 비밀번호입니다</string>
+  <string name="password_length">비밀번호는 8글자 이상이어야 합니다</string>
+  <string name="password_change">비밀번호가 수정되었습니다</string>
+  <string name="password_correct">비밀번호가 일치합니다</string>
+  <string name="password_incorrect">비밀번호가 일치하지 않습니다</string>
+
+  <string name="nickname_input">닉네임을 입력해 주세요</string>
+  <string name="nickname_pass">사용해도 좋은 닉네임입니다</string>
+  <string name="nickname_usable">사용 가능한 닉네임을 입력해 주세요</string>
+  <string name="nickname_duplicated">닉네임 중복 확인을 진행해야 합니다</string>
+  <string name="nickname_exist">중복된 닉네임이 존재합니다</string>
+  <string name="nickname_change">닉네임이 수정되었습니다</string>
+
+  <string name="phone_num_input">전화번호를 입력해 주세요</string>
+  <string name="phone_num_change">전화번호가 수정되었습니다</string>
+
+  <string name="logout_confirm">로그아웃 확인</string>
+  <string name="do_you_wanna_logout">정말 로그아웃 하시겠습니까?</string>
+
+  <!--About Gallery-->
+  <string name="gallery_permission_nothing">갤러리 조회 권한이 없습니다</string>
+  <string name="gallery_permission_need">앱의 기능을 사용하기 위해서는 권한이 필요합니다</string>
+  <string name="gallery_permission_process">[설정] > [애플리케이션] > [권한] 에서 확인할 수 있습니다</string>
+
+  <!--About Profile-->
+  <string name="profile_change_success">프로필 사진이 변경되었습니다</string>
+  <string name="profile_change_failed">프로필 사진 변경에 실패하였습니다</string>
+
+  <!--About Reply-->
+  <string name="reply_success">댓글이 작성되었습니다</string>
+  <string name="reply_failed">댓글 작성 실패: 관리자에게 문의해주세요</string>
+
+  <!--About Review-->
+  <string name="input_title">제목을 입력해 주세요</string>
+  <string name="input_represent_photo">대표 사진을 첨부해 주세요</string>
+
+  <string name="input_review">리뷰 내용을 입력해 주세요</string>
+  <string name="notice_review">리뷰 작성 알림</string>
+  <string name="review_registration">리뷰를 작성하시겠습니까?\n(키워드 미입력 시 작성되지 않습니다)</string>
+  <string name="review_upload">리뷰가 작성되었습니다</string>
+  <string name="review_upload_failed">리뷰 작성 실패</string>
+  <string name="review_load_success">리뷰 불러오기 성공</string>
+  <string name="review_load_failed">리뷰 불러오기 실패</string>
+
+  <!--TAG-->
+  <string name="attach_tag">첨부할 태그</string>
+  <string name="completed_tag">완성된 태그</string>
 </resources>

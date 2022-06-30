@@ -4,11 +4,15 @@
   <data>
 
     <variable
-      name="cart"
-      type="com.neppplus.gudocin_android.ui.activity.CartActivity" />
+      name="view"
+      type="com.neppplus.gudocin_android.view.activity.cart.CartActivity" />
+
+    <variable
+      name="viewModel"
+      type="com.neppplus.gudocin_android.viewmodel.cart.CartViewModel" />
   </data>
 
-  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -20,9 +24,9 @@
       android:id="@+id/swipeRefresh"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      app:onRefreshListener="@{cart::swipeRefresh}">
+      app:onRefreshListener="@{view::swipeRefresh}">
 
-      <LinearLayout
+      <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -31,17 +35,17 @@
           android:id="@+id/rvCart"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:layout_margin="12dp"
+          android:layout_margin="10dp"
           android:layout_weight="1" />
 
-        <LinearLayout
+        <androidx.appcompat.widget.LinearLayoutCompat
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_margin="10dp"
           android:background="@drawable/corner_shape"
           android:orientation="vertical">
 
-          <TextView
+          <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
@@ -49,7 +53,7 @@
             android:textColor="@color/black"
             android:textStyle="bold" />
 
-          <TextView
+          <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/txtPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -58,21 +62,21 @@
             android:text=""
             android:textColor="@color/black" />
 
-        </LinearLayout>
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
           android:id="@+id/btnSubscribe"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_margin="10dp"
           android:backgroundTint="@color/white"
-          android:onClick="@{cart::startDummy}"
+          android:onClick="@{() -> view.dummyIntent()}"
           android:text="상품 구독" />
 
-      </LinearLayout>
+      </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-  </LinearLayout>
+  </androidx.appcompat.widget.LinearLayoutCompat>
 
 </layout>

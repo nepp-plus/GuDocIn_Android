@@ -28,7 +28,7 @@
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
-                <com.neppplus.gudocin_android.utils.CustomEditText
+                <com.neppplus.gudocin_android.util.custom.CustomEditText
                     android:id="@+id/edtTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -127,7 +127,7 @@
                     android:isIndicator="false"
                     app:srb_stepSize="0.5" />
 
-                <com.neppplus.gudocin_android.utils.CustomEditText
+                <com.neppplus.gudocin_android.util.custom.CustomEditText
                     android:id="@+id/edtContent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -147,7 +147,7 @@
                         android:textColor="@color/black"
                         android:textSize="17sp" />
 
-                    <com.neppplus.gudocin_android.utils.CustomEditText
+                    <com.neppplus.gudocin_android.util.custom.CustomEditText
                         android:id="@+id/edtKeyword"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

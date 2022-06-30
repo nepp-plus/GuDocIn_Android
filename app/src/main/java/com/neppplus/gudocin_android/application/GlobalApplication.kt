@@ -2,10 +2,11 @@ package com.neppplus.gudocin_android.application
 
 import android.app.Application
 import com.kakao.sdk.common.KakaoSdk
+import com.neppplus.gudocin_android.R
 
 class GlobalApplication : Application() {
-    override fun onCreate() {
-        super.onCreate()
-        KakaoSdk.init(this, "c53922b4fc7f54934a3bca77009f4a04")
-    }
+  override fun onCreate() {
+    super.onCreate()
+    KakaoSdk.init(this, getString(R.string.kakao_app_key))
+  }
 }

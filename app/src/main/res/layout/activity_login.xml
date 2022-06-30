@@ -4,8 +4,8 @@
   <data>
 
     <variable
-      name="login"
-      type="com.neppplus.gudocin_android.ui.activity.LoginActivity" />
+      name="view"
+      type="com.neppplus.gudocin_android.view.activity.login.LoginActivity" />
   </data>
 
   <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -46,7 +46,7 @@
           android:textSize="17sp"
           android:textStyle="bold" />
 
-        <com.neppplus.gudocin_android.utils.CustomEditText
+        <com.neppplus.gudocin_android.util.custom.CustomEditText
           android:id="@+id/edtEmail"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
           android:textSize="17sp"
           android:textStyle="bold" />
 
-        <com.neppplus.gudocin_android.utils.CustomEditText
+        <com.neppplus.gudocin_android.util.custom.CustomEditText
           android:id="@+id/edtPassword"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
@@ -84,7 +84,7 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:buttonTint="@color/black"
-          android:onCheckedChanged="@{login.setAutoLogin}"
+          android:onCheckedChanged="@{view.setAutoLogin}"
           android:text="자동 로그인"
           android:textSize="15sp" />
 
@@ -95,7 +95,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
-        android:onClick="@{login::generalLogin}"
+        android:onClick="@{view::generalLogin}"
         android:text="로그인" />
 
       <LinearLayout
@@ -110,7 +110,7 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:backgroundTint="@color/white"
-          android:onClick="@{login::kakaoLogin}"
+          android:onClick="@{view::kakaoLogin}"
           android:text="카카오 로그인" />
 
         <Button
@@ -118,7 +118,7 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:backgroundTint="@color/white"
-          android:onClick="@{login::googleLogin}"
+          android:onClick="@{view::googleLogin}"
           android:text="구글 로그인" />
 
         <Button
@@ -126,7 +126,7 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:backgroundTint="@color/white"
-          android:onClick="@{login::facebookLogin}"
+          android:onClick="@{view::facebookLogin}"
           android:text="페이스북 로그인" />
 
       </LinearLayout>

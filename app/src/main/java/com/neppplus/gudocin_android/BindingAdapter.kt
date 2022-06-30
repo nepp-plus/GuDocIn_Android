@@ -6,17 +6,25 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationBarView
 
 object BindingAdapter {
-  //  MainActivity
+  /**
+   * Parameter specified as non-null is null 주의
+   */
+
+  /**
+   * Where to use: MainActivity
+   */
   @JvmStatic
   @BindingAdapter("onItemSelectedListener")
-  fun bindOnItemSelectedListener(view: BottomNavigationView, listener: NavigationBarView.OnItemSelectedListener) {
+  fun bindOnItemSelectedListener(view: BottomNavigationView, listener: NavigationBarView.OnItemSelectedListener?) {
     view.setOnItemSelectedListener(listener)
   }
 
-  //  CartActivity
+  /**
+   * Where to use: CartActivity
+   */
   @JvmStatic
   @BindingAdapter("onRefreshListener")
-  fun bindOnRefreshListener(view: SwipeRefreshLayout, listener: SwipeRefreshLayout.OnRefreshListener) {
+  fun bindOnRefreshListener(view: SwipeRefreshLayout, listener: SwipeRefreshLayout.OnRefreshListener?) {
     view.setOnRefreshListener(listener)
   }
 }
