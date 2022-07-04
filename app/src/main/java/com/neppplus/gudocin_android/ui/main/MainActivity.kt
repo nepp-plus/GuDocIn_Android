@@ -18,7 +18,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.ActivityMainBinding
 import com.neppplus.gudocin_android.model.BasicResponse
-import com.neppplus.gudocin_android.util.Context
+import com.neppplus.gudocin_android.util.ContextUtil
 import com.neppplus.gudocin_android.ui.base.BaseActivity
 import com.neppplus.gudocin_android.ui.home.HomeFragment
 import com.neppplus.gudocin_android.ui.product.ProductFragment
@@ -40,7 +40,7 @@ class MainActivity : BaseActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-    binding.view = this
+    binding.activity = this@MainActivity
     setupEvents()
     setValues()
   }
@@ -111,10 +111,10 @@ class MainActivity : BaseActivity() {
   }
 
   private fun getDeviceToken() {
-    if (Context.getDeviceToken(mContext) != "") {
+    if (ContextUtil.getDeviceToken(mContext) != "") {
       apiService.patchRequestUpdateUserInfo(
         "android_device_token",
-        Context.getDeviceToken(mContext)
+        ContextUtil.getDeviceToken(mContext)
       ).enqueue(object : Callback<BasicResponse> {
         override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {}
 

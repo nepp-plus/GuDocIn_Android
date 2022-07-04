@@ -12,7 +12,8 @@ import androidx.core.app.ActivityCompat
 import com.google.firebase.messaging.FirebaseMessaging
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.ActivityInitBinding
-import com.neppplus.gudocin_android.util.Context
+import com.neppplus.gudocin_android.ui.base.activity.BaseActivity
+import com.neppplus.gudocin_android.util.ContextUtil
 import com.neppplus.gudocin_android.ui.login.LoginActivity
 import com.neppplus.gudocin_android.ui.main.MainActivity
 import com.neppplus.gudocin_android.ui.signup.SignUpActivity
@@ -20,7 +21,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlin.system.exitProcess
 
 @AndroidEntryPoint
-class InitActivity : com.neppplus.gudocin_android.BaseActivity<ActivityInitBinding, InitViewModel>(R.layout.activity_init) {
+class InitActivity : BaseActivity<ActivityInitBinding, InitViewModel>(R.layout.activity_init) {
 
   private val initViewModel: InitViewModel by viewModels()
 
@@ -94,7 +95,7 @@ class InitActivity : com.neppplus.gudocin_android.BaseActivity<ActivityInitBindi
       if (it.isSuccessful) {
         val deviceToken = it.result
         Log.d(this.getString(R.string.fcm_token), deviceToken!!)
-        Context.setDeviceToken(this, deviceToken)
+        ContextUtil.setDeviceToken(this, deviceToken)
       }
     }
   }
@@ -117,7 +118,7 @@ class InitActivity : com.neppplus.gudocin_android.BaseActivity<ActivityInitBindi
   private fun loginListener() {
     val handler = Handler(Looper.getMainLooper())
     handler.postDelayed({
-      val myIntent: Intent = if (Context.getAutoLogin(this) && Context.getToken(this) != "") {
+      val myIntent: Intent = if (ContextUtil.getAutoLogin(this) && ContextUtil.getToken(this) != "") {
         Intent(this, MainActivity::class.java)
       } else {
         Intent(this, LoginActivity::class.java)

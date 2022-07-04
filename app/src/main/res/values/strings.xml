@@ -51,7 +51,7 @@
     <string name="vendor_workplace">사업장</string>
     <string name="vendor_dummy_workplace">경기도 남양주시</string>
     <string name="vendor_phone">연락처</string>
-    <string name="vendor_dummy_phone">010-7394-7394</string>
+    <string name="vendor_dummy_phone">010–7394–7394</string>
 
     <!--Back Pressed-->
     <string name="back_pressed">"뒤로" 버튼을 한번 더 누르면 종료됩니다</string>
@@ -201,9 +201,9 @@
     <string name="product_manufacturer">제조자(수입자)</string>
     <string name="product_dummy_manufacturer">Koolunkle Corp.</string>
     <string name="product_country">제조국</string>
-    <string name="product_dummy_contry">대한민국</string>
+    <string name="product_dummy_country">대한민국</string>
     <string name="product_customer_center">고객센터</string>
-    <string name="product_dummy_customer_center">010-7153-7153</string>
+    <string name="product_dummy_customer_center">010–7153–7153</string>
 
     <!--Profile-->
     <string name="profile_nickname">koolunkle</string>

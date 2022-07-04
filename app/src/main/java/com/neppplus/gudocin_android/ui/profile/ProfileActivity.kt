@@ -17,7 +17,7 @@ import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.ActivityProfileBinding
 import com.neppplus.gudocin_android.model.BasicResponse
 import com.neppplus.gudocin_android.model.user.GlobalData
-import com.neppplus.gudocin_android.util.Context
+import com.neppplus.gudocin_android.util.ContextUtil
 import com.neppplus.gudocin_android.util.URIPathHelper
 import com.neppplus.gudocin_android.ui.base.BaseActivity
 import com.neppplus.gudocin_android.ui.main.MainActivity
@@ -42,7 +42,7 @@ class ProfileActivity : BaseActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     binding = DataBindingUtil.setContentView(this, R.layout.activity_profile)
-    binding.view = this
+    binding.activity = this@ProfileActivity
     setupEvents()
     setValues()
   }
@@ -138,7 +138,7 @@ class ProfileActivity : BaseActivity() {
           val br = response.body()!!
           Toast.makeText(mContext, resources.getString(R.string.password_change), Toast.LENGTH_SHORT).show()
 
-          Context.setToken(mContext, br.data.token)
+          ContextUtil.setToken(mContext, br.data.token)
           GlobalData.loginUser = br.data.user
           startMain()
         }
@@ -160,7 +160,7 @@ class ProfileActivity : BaseActivity() {
         if (response.isSuccessful) {
           val br = response.body()!!
           Toast.makeText(mContext, resources.getString(R.string.phone_num_change), Toast.LENGTH_SHORT).show()
-          Context.setToken(mContext, br.data.token)
+          ContextUtil.setToken(mContext, br.data.token)
           GlobalData.loginUser = br.data.user
           startMain()
         }
@@ -204,7 +204,7 @@ class ProfileActivity : BaseActivity() {
         if (response.isSuccessful) {
           val br = response.body()!!
           Toast.makeText(mContext, resources.getString(R.string.nickname_change), Toast.LENGTH_SHORT).show()
-          Context.setToken(mContext, br.data.token)
+          ContextUtil.setToken(mContext, br.data.token)
           GlobalData.loginUser = br.data.user
           startMain()
         }

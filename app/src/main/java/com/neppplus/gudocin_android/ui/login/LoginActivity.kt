@@ -23,7 +23,7 @@ import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.ActivityLoginBinding
 import com.neppplus.gudocin_android.model.BasicResponse
 import com.neppplus.gudocin_android.model.user.GlobalData
-import com.neppplus.gudocin_android.util.Context
+import com.neppplus.gudocin_android.util.ContextUtil
 import com.neppplus.gudocin_android.ui.base.BaseActivity
 import com.neppplus.gudocin_android.ui.main.MainActivity
 import org.json.JSONObject
@@ -51,7 +51,7 @@ class LoginActivity : BaseActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
-    binding.activity = this
+    binding.activity = this@LoginActivity
     setupEvents()
     setValues()
   }
@@ -74,7 +74,7 @@ class LoginActivity : BaseActivity() {
           val userNickname = basicResponse.data.user.nickname
           Toast.makeText(mContext, resources.getString(R.string.welcome_user).replace("{user}", userNickname), Toast.LENGTH_SHORT).show()
 
-          Context.setToken(mContext, basicResponse.data.token)
+          ContextUtil.setToken(mContext, basicResponse.data.token)
           GlobalData.loginUser = basicResponse.data.user
 
           getAutoLogin()
@@ -143,7 +143,7 @@ class LoginActivity : BaseActivity() {
                 Toast.makeText(mContext, resources.getString(R.string.welcome_user).replace("{user}", br.data.user.nickname), Toast.LENGTH_SHORT)
                   .show()
 
-                Context.setToken(mContext, br.data.token)
+                ContextUtil.setToken(mContext, br.data.token)
                 GlobalData.loginUser = br.data.user
 
                 getAutoLogin()
@@ -160,8 +160,8 @@ class LoginActivity : BaseActivity() {
   private fun getGoogle() {
     resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
       if (result.resultCode == RESULT_OK) {
-        val result = Auth.GoogleSignInApi.getSignInResultFromIntent(result.data)
-        result?.let {
+        val signInGoogle = Auth.GoogleSignInApi.getSignInResultFromIntent(result.data!!)
+        signInGoogle?.let {
           if (it.isSuccess) {
             it.signInAccount?.displayName
             it.signInAccount?.email
@@ -169,7 +169,7 @@ class LoginActivity : BaseActivity() {
           } else
             Log.e("Value", "error") // 에러 처리
 
-          apiService.postRequestSocialLogin("google", it.signInAccount.id.toString(), it.signInAccount.displayName)
+          apiService.postRequestSocialLogin("google", it.signInAccount?.id.toString(), it.signInAccount?.displayName.toString())
             .enqueue(object : Callback<BasicResponse> {
               override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
                 if (response.isSuccessful) {
@@ -177,7 +177,7 @@ class LoginActivity : BaseActivity() {
                   Toast.makeText(mContext, resources.getString(R.string.welcome_user).replace("{user}", br.data.user.nickname), Toast.LENGTH_SHORT)
                     .show()
 
-                  Context.setToken(mContext, br.data.token)
+                  ContextUtil.setToken(mContext, br.data.token)
                   GlobalData.loginUser = br.data.user
 
                   getAutoLogin()
@@ -217,7 +217,7 @@ class LoginActivity : BaseActivity() {
                 Toast.makeText(mContext, resources.getString(R.string.welcome_user).replace("{user}", br.data.user.nickname), Toast.LENGTH_SHORT)
                   .show()
 
-                Context.setToken(mContext, br.data.token)
+                ContextUtil.setToken(mContext, br.data.token)
                 GlobalData.loginUser = br.data.user
 
                 getAutoLogin()
@@ -244,12 +244,12 @@ class LoginActivity : BaseActivity() {
   }
 
   fun getAutoLogin() {
-    binding.checkAutoLogin.isChecked = Context.getAutoLogin(mContext)
+    binding.checkAutoLogin.isChecked = ContextUtil.getAutoLogin(mContext)
   }
 
   fun setAutoLogin(buttonView: CompoundButton?, isChecked: Boolean) {
     Log.d(resources.getString(R.string.checkbox_change), isChecked.toString())
-    Context.setAutoLogin(mContext, isChecked)
+    ContextUtil.setAutoLogin(mContext, isChecked)
   }
 
 }

@@ -16,7 +16,7 @@ import com.neppplus.gudocin_android.model.BasicResponse
 import com.neppplus.gudocin_android.model.product.ProductData
 import com.neppplus.gudocin_android.model.review.ReviewData
 import com.neppplus.gudocin_android.ui.content.ContentViewPagerAdapter
-import com.neppplus.gudocin_android.ui.review.shopping.ShoppingReviewRecyclerViewAdapter
+import com.neppplus.gudocin_android.ui.review.shopping.ShoppingRecyclerViewAdapter
 import com.neppplus.gudocin_android.ui.base.BaseActivity
 import com.neppplus.gudocin_android.ui.cart.CartActivity
 import com.neppplus.gudocin_android.ui.dummy.DummyActivity
@@ -31,7 +31,7 @@ class ProductActivity : BaseActivity() {
 
   lateinit var mContentViewPagerAdapter: ContentViewPagerAdapter
 
-  lateinit var mShoppingReviewRecyclerViewAdapter: ShoppingReviewRecyclerViewAdapter
+  lateinit var mShoppingRecyclerViewAdapter: ShoppingRecyclerViewAdapter
 
   lateinit var mProductData: ProductData
 
@@ -40,7 +40,7 @@ class ProductActivity : BaseActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     binding = DataBindingUtil.setContentView(this, R.layout.activity_product)
-    binding.activity = this
+    binding.activity = this@ProductActivity
     setupEvents()
     setValues()
   }
@@ -75,7 +75,7 @@ class ProductActivity : BaseActivity() {
               }
               mReviewList.clear()
               mReviewList.addAll(response.body()!!.data.product.reviews)
-              mShoppingReviewRecyclerViewAdapter.notifyDataSetChanged()
+              mShoppingRecyclerViewAdapter.notifyDataSetChanged()
             }
           }
         }
@@ -112,8 +112,8 @@ class ProductActivity : BaseActivity() {
   }
 
   private fun recyclerviewAdapter() {
-    mShoppingReviewRecyclerViewAdapter = ShoppingReviewRecyclerViewAdapter(mContext, mReviewList)
-    binding.rvReview.adapter = mShoppingReviewRecyclerViewAdapter
+    mShoppingRecyclerViewAdapter = ShoppingRecyclerViewAdapter(mContext, mReviewList)
+    binding.rvReview.adapter = mShoppingRecyclerViewAdapter
     binding.rvReview.layoutManager = LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false)
   }
 

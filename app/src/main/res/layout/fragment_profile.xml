@@ -17,23 +17,35 @@
             android:src="@mipmap/ic_launcher"
             app:civ_border_width="2dp" />
 
-        <ImageView
-            android:id="@+id/imgProvider"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="5dp"
-            android:contentDescription="@null"
-            android:src="@drawable/kakao_logo" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/txtNickname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/profile_nickname"
-            android:textColor="@color/black"
-            android:textSize="17sp" />
+            <ImageView
+                android:id="@+id/imgProvider"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="10dp"
+                android:contentDescription="@null"
+                android:src="@drawable/kakao_logo"
+                app:layout_constraintBottom_toBottomOf="@id/txtNickname"
+                app:layout_constraintEnd_toStartOf="@id/txtNickname"
+                app:layout_constraintTop_toTopOf="@id/txtNickname" />
+
+            <TextView
+                android:id="@+id/txtNickname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:text="@string/profile_nickname"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
             android:layout_width="match_parent"

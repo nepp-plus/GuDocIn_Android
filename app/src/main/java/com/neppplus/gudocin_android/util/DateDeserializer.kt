@@ -13,10 +13,10 @@ class DateDeserializer : JsonDeserializer<Date> {
         typeOfT: Type?,
         context: JsonDeserializationContext?
     ): Date {
-        // 시간 파싱 (여기서 수정 X -> 사용할 곳에 맞게 가져다가 수정)
+        // 시간 파싱 (각 쓰임새에 맞게 활용)
         val dateStr = json?.asString
         val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
-        val date = sdf.parse(dateStr)!!
+        val date = dateStr?.let { sdf.parse(it) }!!
         val now = Calendar.getInstance()
         date.time += now.timeZone.rawOffset
 

@@ -9,5 +9,4 @@ data class CartData(
 
   @SerializedName("product")
   val product: ProductData,
-) {
-}
+)

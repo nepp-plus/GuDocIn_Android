@@ -68,7 +68,7 @@ class CategoryFragment : BaseFragment() {
           if (response.isSuccessful) {
             val br = response.body()!!
             mSmallCategoriesList.clear()
-            mSmallCategoriesList.addAll(br.data.small_categories)
+            mSmallCategoriesList.addAll(br.data.smallCategories)
 
             // 추가한 카테고리 하나하나에 대한 view 생성
             binding.llCategory.removeAllViews()

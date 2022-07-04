@@ -22,7 +22,7 @@ import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.ActivitySignUpBinding
 import com.neppplus.gudocin_android.model.BasicResponse
 import com.neppplus.gudocin_android.model.user.GlobalData
-import com.neppplus.gudocin_android.util.Context
+import com.neppplus.gudocin_android.util.ContextUtil
 import com.neppplus.gudocin_android.ui.base.BaseActivity
 import com.neppplus.gudocin_android.ui.main.MainActivity
 import retrofit2.Call
@@ -33,13 +33,13 @@ class SignUpActivity : BaseActivity() {
 
   lateinit var binding: ActivitySignUpBinding
 
-  lateinit var callbackManager: CallbackManager
+  private lateinit var callbackManager: CallbackManager
 
   private lateinit var resultLauncher: ActivityResultLauncher<Intent>
 
   private var isPasswordLengthOk = false
 
-  var isPasswordSame = false
+  private var isPasswordSame = false
 
   var isDuplicatedOk = false
 
@@ -222,7 +222,7 @@ class SignUpActivity : BaseActivity() {
                 Toast.makeText(mContext, resources.getString(R.string.welcome_user).replace("{user}", br.data.user.nickname), Toast.LENGTH_SHORT)
                   .show()
 
-                Context.setToken(mContext, br.data.token)
+                ContextUtil.setToken(mContext, br.data.token)
                 GlobalData.loginUser = br.data.user
 
                 val myIntent = Intent(mContext, MainActivity::class.java)
@@ -240,8 +240,8 @@ class SignUpActivity : BaseActivity() {
   private fun getGoogle() {
     resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
       if (result.resultCode == RESULT_OK) {
-        val result = Auth.GoogleSignInApi.getSignInResultFromIntent(result.data)
-        result?.let {
+        val signInGoogle = Auth.GoogleSignInApi.getSignInResultFromIntent(result.data!!)
+        signInGoogle?.let {
           if (it.isSuccess) {
             it.signInAccount?.displayName
             it.signInAccount?.email
@@ -249,7 +249,7 @@ class SignUpActivity : BaseActivity() {
           } else
             Log.e("Value", "error") // 에러 처리
 
-          apiService.postRequestSocialLogin("google", it.signInAccount.id.toString(), it.signInAccount.displayName)
+          apiService.postRequestSocialLogin("google", it.signInAccount?.id.toString(), it.signInAccount?.displayName.toString())
             .enqueue(object : Callback<BasicResponse> {
               override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
                 if (response.isSuccessful) {
@@ -257,7 +257,7 @@ class SignUpActivity : BaseActivity() {
                   Toast.makeText(mContext, resources.getString(R.string.welcome_user).replace("{user}", br.data.user.nickname), Toast.LENGTH_SHORT)
                     .show()
 
-                  Context.setToken(mContext, br.data.token)
+                  ContextUtil.setToken(mContext, br.data.token)
                   GlobalData.loginUser = br.data.user
 
                   val myIntent = Intent(mContext, MainActivity::class.java)
@@ -298,7 +298,7 @@ class SignUpActivity : BaseActivity() {
                 Toast.makeText(mContext, resources.getString(R.string.welcome_user).replace("{user}", br.data.user.nickname), Toast.LENGTH_SHORT)
                   .show()
 
-                Context.setToken(mContext, br.data.token)
+                ContextUtil.setToken(mContext, br.data.token)
                 GlobalData.loginUser = br.data.user
 
                 val myIntent =

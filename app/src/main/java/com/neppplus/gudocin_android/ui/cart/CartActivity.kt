@@ -5,7 +5,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.neppplus.gudocin_android.BaseActivity
+import com.neppplus.gudocin_android.ui.base.activity.BaseActivity
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.ActivityCartBinding
 import com.neppplus.gudocin_android.ui.dummy.DummyActivity
@@ -25,7 +25,7 @@ class CartActivity : BaseActivity<ActivityCartBinding, CartViewModel>(R.layout.a
   private var totalPrice = 0
 
   override fun initView() {
-    binding { view = this@CartActivity }
+    binding { activity = this@CartActivity }
     initRecyclerView()
     observe()
     toolbar()

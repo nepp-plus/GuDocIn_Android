@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android
+package com.neppplus.gudocin_android.ui.base.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,6 +11,8 @@ import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
+import com.neppplus.gudocin_android.BR
+import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.ui.base.BaseViewModel
 import com.neppplus.gudocin_android.ui.cart.CartActivity
 import com.neppplus.gudocin_android.ui.shopping.ShoppingActivity

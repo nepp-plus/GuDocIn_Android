@@ -100,7 +100,7 @@ class LifeCategoryFragment : BaseFragment() {
                     binding.llCategory.removeAllViews()
                     val br = response.body()!!
                     mSmallCategoryList.clear()
-                    mSmallCategoryList.addAll(br.data.small_categories)
+                    mSmallCategoryList.addAll(br.data.smallCategories)
 
 //                    추가한 카테고리 하나하나에 대한 view 생성
                     for (sc in mSmallCategoryList) {

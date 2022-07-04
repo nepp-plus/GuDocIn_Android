@@ -12,5 +12,4 @@ data class SmallCategoryData(
 
   @SerializedName("large_category_id")
   val largeCategoryId: Int,
-) : Serializable {
-}
+) : Serializable

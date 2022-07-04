@@ -17,5 +17,4 @@ data class PaymentData(
 
   @SerializedName("subscription")
   val subscription: SubscriptionData,
-) : Serializable {
-}
+) : Serializable

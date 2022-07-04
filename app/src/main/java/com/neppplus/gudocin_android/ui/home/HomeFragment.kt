@@ -12,7 +12,7 @@ import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.FragmentHomeBinding
 import com.neppplus.gudocin_android.model.BasicResponse
 import com.neppplus.gudocin_android.model.review.ReviewData
-import com.neppplus.gudocin_android.ui.review.main.MainReviewRecyclerVewAdapter
+import com.neppplus.gudocin_android.ui.review.main.MainRecyclerVewAdapter
 import com.neppplus.gudocin_android.ui.base.BaseFragment
 import retrofit2.Call
 import retrofit2.Callback
@@ -24,7 +24,7 @@ class HomeFragment : BaseFragment() {
 
   val mReviewList = ArrayList<ReviewData>()
 
-  lateinit var mMainReviewRecyclerAdapter: MainReviewRecyclerVewAdapter
+  lateinit var mMainReviewRecyclerAdapter: MainRecyclerVewAdapter
 
   var mClickedSmallCategoryNum = 1
 
@@ -49,7 +49,7 @@ class HomeFragment : BaseFragment() {
     getBannerFromServer()
     getReviewFromServer(mClickedSmallCategoryNum)
 
-    mMainReviewRecyclerAdapter = MainReviewRecyclerVewAdapter(mContext, mReviewList)
+    mMainReviewRecyclerAdapter = MainRecyclerVewAdapter(mContext, mReviewList)
     binding.rvReview.adapter = mMainReviewRecyclerAdapter
     binding.rvReview.layoutManager = LinearLayoutManager(mContext)
 

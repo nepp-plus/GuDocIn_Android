@@ -19,7 +19,7 @@ import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.FragmentProfileBinding
 import com.neppplus.gudocin_android.model.BasicResponse
 import com.neppplus.gudocin_android.model.user.GlobalData
-import com.neppplus.gudocin_android.util.Context
+import com.neppplus.gudocin_android.util.ContextUtil
 import com.neppplus.gudocin_android.util.URIPathHelper
 import com.neppplus.gudocin_android.ui.init.InitActivity
 import com.neppplus.gudocin_android.ui.subscription.SubscriptionActivity
@@ -111,7 +111,7 @@ class ProfileFragment : BaseFragment() {
       alert.setTitle(resources.getString(R.string.logout_confirm))
       alert.setMessage(resources.getString(R.string.do_you_wanna_logout))
       alert.setPositiveButton(resources.getString(R.string.confirm), DialogInterface.OnClickListener { _, _ ->
-        Context.setToken(mContext, "")
+        ContextUtil.setToken(mContext, "")
 
         val myIntent = Intent(mContext, InitActivity::class.java)
         myIntent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
