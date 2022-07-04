@@ -3,7 +3,7 @@
     <style name="Theme.GudocIn" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/black</item>
-        <item name="colorPrimaryVariant">@color/main_blue_light</item>
+        <item name="colorPrimaryVariant">@color/color_5578f0</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@android:color/holo_blue_light</item>
@@ -17,7 +17,7 @@
     <style name="Theme.GudocIn.NoActionBar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/black</item>
-        <item name="colorPrimaryVariant">@color/main_blue_light</item>
+        <item name="colorPrimaryVariant">@color/color_5578f0</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@android:color/holo_blue_light</item>
@@ -34,6 +34,6 @@
     </style>
     <!-- Dialog theme. -->
     <style name="DialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
-        <item name="android:background">#FFFAFA</item>
+        <item name="android:background">@color/color_fffafa</item>
     </style>
 </resources>

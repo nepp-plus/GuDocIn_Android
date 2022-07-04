@@ -24,5 +24,4 @@ data class DataResponse(
   val payments: List<PaymentData>,
   val replies: List<ReplyData>,
   val cards: List<CardData>
-) {
-}
+)

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
@@ -23,30 +23,21 @@
                 android:src="@mipmap/ic_launcher"
                 app:civ_border_width="2dp" />
 
-            <LinearLayout
-                android:id="@+id/btnEditNickname"
+            <ImageView
+                android:id="@+id/imgProvider"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="5dp"
+                android:contentDescription="@null"
+                android:src="@drawable/kakao_logo" />
+
+            <TextView
+                android:id="@+id/txtNickname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/imgProvider"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_marginTop="3dp"
-                    android:src="@drawable/kakao_logo" />
-
-                <TextView
-                    android:id="@+id/txtNickname"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:text="koolunkle"
-                    android:textColor="@color/black"
-                    android:textSize="17sp" />
-
-            </LinearLayout>
+                android:text="@string/profile_nickname"
+                android:textColor="@color/black"
+                android:textSize="17sp" />
 
         </LinearLayout>
 

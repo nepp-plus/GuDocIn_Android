@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navFood"
+        android:enabled="true"
+        android:icon="@drawable/nav_food"
+        android:title="@string/nav_food" />
+    <item
+        android:id="@+id/navClothes"
+        android:icon="@drawable/nav_clothes"
+        android:title="@string/nav_clothes" />
+    <item
+        android:id="@+id/navLife"
+        android:enabled="true"
+        android:icon="@drawable/nav_life"
+        android:title="@string/nav_life" />
+</menu>

@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-  <data>
+    <data>
 
-    <variable
-      name="view"
-      type="com.neppplus.gudocin_android.view.activity.dummy.DummyActivity" />
+        <variable
+            name="view"
+            type="com.neppplus.gudocin_android.ui.activity.dummy.DummyActivity" />
 
-    <variable
-      name="viewModel"
-      type="com.neppplus.gudocin_android.BaseViewModel" />
-  </data>
+        <variable
+            name="viewModel"
+            type="com.neppplus.gudocin_android.ui.base.BaseViewModel" />
+    </data>
 
-  <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white"
-    android:gravity="center"
-    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="vertical">
 
-    <androidx.appcompat.widget.AppCompatImageView
-      android:layout_width="match_parent"
-      android:layout_height="450dp"
-      android:src="@drawable/splash_logo" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="450dp"
+            android:src="@drawable/splash_logo" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:gravity="center"
-      android:text="다음 기회에 만나요 :)"
-      android:textColor="@color/black"
-      android:textSize="17sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/dummy_later"
+            android:textColor="@color/black"
+            android:textSize="17sp" />
 
-  </androidx.appcompat.widget.LinearLayoutCompat>
+    </LinearLayout>
 
 </layout>

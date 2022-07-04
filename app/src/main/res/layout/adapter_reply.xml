@@ -1,51 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
-
-  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/white"
-    android:gravity="center_vertical"
-    android:orientation="horizontal"
-    android:padding="10dp">
-
-    <de.hdodenhof.circleimageview.CircleImageView
-      android:id="@+id/imgProfile"
-      android:layout_width="30dp"
-      android:layout_height="30dp"
-      android:scaleType="centerCrop"
-      android:src="@mipmap/ic_launcher" />
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <LinearLayout
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginLeft="5dp"
-      android:orientation="vertical">
-
-      <TextView
-        android:id="@+id/txtNickName"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="닉네임"
-        android:textColor="@color/black" />
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="10dp">
 
-      <TextView
-        android:id="@+id/txtTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="몇시간 전"
-        android:textColor="@color/black" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imgProfile"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtNickName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/reply_nickname"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/txtTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/reply_date"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtReply"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="@string/reply_content"
+            android:textColor="@color/black" />
 
     </LinearLayout>
-
-    <TextView
-      android:id="@+id/txtReply"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_marginLeft="20dp"
-      android:text="댓글 내용 자리"
-      android:textColor="@color/black" />
-
-  </LinearLayout>
 
 </layout>

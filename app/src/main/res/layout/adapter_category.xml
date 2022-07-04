@@ -1,37 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
-
-  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/llCategory"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="5dp"
-    android:background="@color/white"
-    android:orientation="horizontal"
-    android:padding="10dp">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <LinearLayout
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginLeft="3dp"
-      android:gravity="center_horizontal"
-      android:orientation="vertical">
-
-      <TextView
-        android:id="@+id/txtDummy"
-        android:layout_width="50dp"
-        android:layout_height="10dp"
-        android:visibility="invisible" />
-
-      <TextView
-        android:id="@+id/txtCategory"
+        android:id="@+id/llCategory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="카테고리"
-        android:textColor="@color/black" />
+        android:layout_marginTop="5dp"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/txtDummy"
+            android:layout_width="50dp"
+            android:layout_height="10dp"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/txtCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/category"
+            android:textColor="@color/black" />
 
     </LinearLayout>
-
-  </LinearLayout>
 
 </layout>

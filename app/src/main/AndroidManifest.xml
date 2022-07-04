@@ -16,48 +16,48 @@
     android:theme="@style/Theme.GudocIn"
     android:usesCleartextTraffic="true">
     <activity
-      android:name="com.neppplus.gudocin_android.view.activity.cart.CartActivity"
+      android:name="com.neppplus.gudocin_android.ui.cart.CartActivity"
       android:exported="true" />
     <activity
-      android:name="com.neppplus.gudocin_android.view.activity.dummy.DummyActivity"
+      android:name="com.neppplus.gudocin_android.ui.dummy.DummyActivity"
       android:exported="true"
       android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
     <activity
-      android:name="com.neppplus.gudocin_android.view.activity.profile.ProfileActivity"
+      android:name="com.neppplus.gudocin_android.ui.profile.ProfileActivity"
       android:exported="true"
       android:windowSoftInputMode="adjustUnspecified" />
     <activity
-      android:name="com.neppplus.gudocin_android.view.activity.shopping.ShoppingActivity"
+      android:name="com.neppplus.gudocin_android.ui.shopping.ShoppingActivity"
       android:exported="true" />
     <activity
-      android:name="com.neppplus.gudocin_android.view.activity.init.InitActivity"
+      android:name="com.neppplus.gudocin_android.ui.init.InitActivity"
       android:exported="true"
       android:theme="@style/Theme.GudocIn.NoActionBar" />
     <activity
-      android:name="com.neppplus.gudocin_android.view.activity.login.LoginActivity"
+      android:name="com.neppplus.gudocin_android.ui.login.LoginActivity"
       android:exported="true"
       android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
       android:windowSoftInputMode="adjustUnspecified" />
     <activity
-      android:name="com.neppplus.gudocin_android.view.activity.main.MainActivity"
+      android:name="com.neppplus.gudocin_android.ui.main.MainActivity"
       android:exported="true" />
     <activity
-      android:name="com.neppplus.gudocin_android.view.activity.product.ProductActivity"
+      android:name="com.neppplus.gudocin_android.ui.product.ProductActivity"
       android:exported="true" />
     <activity
-      android:name="com.neppplus.gudocin_android.view.activity.reply.ReplyActivity"
+      android:name="com.neppplus.gudocin_android.ui.reply.ReplyActivity"
       android:exported="true"
       android:windowSoftInputMode="adjustUnspecified" />
     <activity
-      android:name="com.neppplus.gudocin_android.view.activity.review.ReviewActivity"
+      android:name="com.neppplus.gudocin_android.ui.review.ReviewActivity"
       android:exported="true" />
     <activity
-      android:name="com.neppplus.gudocin_android.view.activity.signup.SignUpActivity"
+      android:name="com.neppplus.gudocin_android.ui.signup.SignUpActivity"
       android:exported="true"
       android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
       android:windowSoftInputMode="adjustUnspecified" />
     <activity
-      android:name="com.neppplus.gudocin_android.view.activity.splash.SplashActivity"
+      android:name="com.neppplus.gudocin_android.ui.splash.SplashActivity"
       android:exported="true"
       android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
       <intent-filter>
@@ -67,10 +67,10 @@
       </intent-filter>
     </activity>
     <activity
-      android:name="com.neppplus.gudocin_android.view.activity.subscription.SubscriptionActivity"
+      android:name="com.neppplus.gudocin_android.ui.subscription.SubscriptionActivity"
       android:exported="true" />
     <activity
-      android:name="com.neppplus.gudocin_android.view.activity.write.WriteActivity"
+      android:name="com.neppplus.gudocin_android.ui.compose.ComposeActivity"
       android:exported="true"
       android:windowSoftInputMode="adjustUnspecified" />
 

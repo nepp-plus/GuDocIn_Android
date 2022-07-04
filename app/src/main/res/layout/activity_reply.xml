@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="400dp"
         android:layout_height="match_parent"
         android:background="@color/white"
@@ -28,13 +28,13 @@
                 android:layout_height="30dp"
                 android:src="@mipmap/ic_launcher" />
 
-            <com.neppplus.gudocin_android.util.custom.CustomEditText
+            <com.neppplus.gudocin_android.util.CustomEditText
                 android:id="@+id/edtReply"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
+                android:layout_marginStart="5dp"
                 android:layout_weight="1"
-                android:hint="구독 상품 관련 댓글을 남겨보세요"
+                android:hint="@string/reply_comment"
                 android:inputType="text" />
 
             <Button
@@ -42,7 +42,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/white"
-                android:text="전송"
+                android:text="@string/reply_transfer"
                 android:textColor="@color/black" />
 
         </LinearLayout>
