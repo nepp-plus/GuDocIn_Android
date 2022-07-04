@@ -1,6 +1,7 @@
 package com.neppplus.gudocin_android.ui.category.food
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,97 +13,115 @@ import com.neppplus.gudocin_android.databinding.FragmentFoodCategoryBinding
 import com.neppplus.gudocin_android.model.BasicResponse
 import com.neppplus.gudocin_android.model.category.SmallCategoryData
 import com.neppplus.gudocin_android.model.product.ProductData
+import com.neppplus.gudocin_android.ui.base.BaseFragment
 import com.neppplus.gudocin_android.ui.category.CategoryRecyclerViewAdapter
 import com.neppplus.gudocin_android.ui.category.ParticularCategoryRecyclerViewAdapter
-import com.neppplus.gudocin_android.ui.base.BaseFragment
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class FoodCategoryFragment : BaseFragment() {
 
-  lateinit var binding: FragmentFoodCategoryBinding
+    lateinit var binding: FragmentFoodCategoryBinding
 
-  val mSmallCategoryList = ArrayList<SmallCategoryData>()
+    val mSmallCategoryList = ArrayList<SmallCategoryData>()
 
-  val mProductList = ArrayList<ProductData>()
+    val mProductList = ArrayList<ProductData>()
 
-  lateinit var mCategoryRecyclerViewAdapter: CategoryRecyclerViewAdapter
+    private lateinit var mCategoryRecyclerViewAdapter: CategoryRecyclerViewAdapter
 
-  lateinit var mParticularCategoryRecyclerAdapter: ParticularCategoryRecyclerViewAdapter
+    lateinit var mParticularCategoryRecyclerAdapter: ParticularCategoryRecyclerViewAdapter
 
-  var mLargeCategoryId = 1
+    private var mLargeCategoryId = 1
 
-  var mClickedSmallCategoryNum = 1
+    var mClickedSmallCategoryNum = 1
 
-  override fun onCreateView(
-    inflater: LayoutInflater,
-    container: ViewGroup?,
-    savedInstanceState: Bundle?
-  ): View? {
-    binding = DataBindingUtil.inflate(inflater, R.layout.fragment_food_category, container, false)
-    return binding.root
-  }
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        binding =
+            DataBindingUtil.inflate(inflater, R.layout.fragment_food_category, container, false)
+        return binding.root
+    }
 
-  override fun onActivityCreated(savedInstanceState: Bundle?) {
-    super.onActivityCreated(savedInstanceState)
-    setupEvents()
-    setValues()
-  }
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        setupEvents()
+        setValues()
+    }
 
-  override fun setupEvents() {}
+    override fun setupEvents() {}
 
-  override fun setValues() {
-    getCategoryFromServer()
-    mCategoryRecyclerViewAdapter = CategoryRecyclerViewAdapter(mSmallCategoryList)
+    override fun setValues() {
+        getCategoryFromServer()
+        mCategoryRecyclerViewAdapter = CategoryRecyclerViewAdapter(mSmallCategoryList)
 
-    getProductFromServer()
-    mParticularCategoryRecyclerAdapter = ParticularCategoryRecyclerViewAdapter(mProductList)
-    binding.rvProduct.adapter = mParticularCategoryRecyclerAdapter
-    binding.rvProduct.layoutManager = LinearLayoutManager(mContext)
-  }
+        getProductFromServer()
+        mParticularCategoryRecyclerAdapter = ParticularCategoryRecyclerViewAdapter(mProductList)
 
-  fun getProductFromServer() {
-    apiService.getRequestSmallCategoriesProduct(mClickedSmallCategoryNum).enqueue(object : Callback<BasicResponse> {
-      override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
-        if (response.isSuccessful) {
-          val br = response.body()!!
-          mProductList.clear()
-          mProductList.addAll(br.data.products)
-          mParticularCategoryRecyclerAdapter.notifyDataSetChanged()
+        binding.rvProduct.apply {
+            adapter = mParticularCategoryRecyclerAdapter
+            layoutManager = LinearLayoutManager(mContext)
         }
-      }
+    }
 
-      override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
-    })
-  }
+    fun getProductFromServer() {
+        apiService.getRequestSmallCategory(mClickedSmallCategoryNum)
+            .enqueue(object : Callback<BasicResponse> {
+                override fun onResponse(
+                    call: Call<BasicResponse>,
+                    response: Response<BasicResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        val basicResponse = response.body()!!
+                        mProductList.clear()
+                        mProductList.addAll(basicResponse.data.products)
+                        mParticularCategoryRecyclerAdapter.notifyDataSetChanged()
+                    }
+                }
 
-  private fun getCategoryFromServer() {
-    apiService.getRequestSmallCategoryDependOnLarge(mLargeCategoryId).enqueue(object : Callback<BasicResponse> {
-      override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
-        if (response.isSuccessful) {
-          binding.llCategory.removeAllViews()
-          val br = response.body()!!
-          mSmallCategoryList.clear()
-          mSmallCategoryList.addAll(br.data.smallCategories)
+                override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+                    Log.d("onFailure", resources.getString(R.string.data_loading_failed))
+                }
+            })
+    }
 
-          // 추가한 카테고리 하나하나에 대한 view 생성
-          for (sc in mSmallCategoryList) {
-            val view = LayoutInflater.from(mContext).inflate(R.layout.adapter_category, null)
-            val txtSmallCategoryList = view.findViewById<TextView>(R.id.txtCategory)
-            txtSmallCategoryList.text = sc.name
+    private fun getCategoryFromServer() {
+        apiService.getRequestLargeCategory(mLargeCategoryId)
+            .enqueue(object : Callback<BasicResponse> {
+                override fun onResponse(
+                    call: Call<BasicResponse>,
+                    response: Response<BasicResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        val basicResponse = response.body()!!
+                        mSmallCategoryList.clear()
+                        mSmallCategoryList.addAll(basicResponse.data.smallCategories)
+                        binding.llCategory.removeAllViews()
 
-            view.setOnClickListener {
-              mClickedSmallCategoryNum = sc.id
-              getProductFromServer()
-            }
-            binding.llCategory.addView(view)
-          }
-        }
-      }
+                        for (smallCategory in mSmallCategoryList) {
+                            val view = LayoutInflater.from(mContext)
+                                .inflate(R.layout.adapter_category, null)
 
-      override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
-    })
-  }
+                            val txtSmallCategoryList = view.findViewById<TextView>(R.id.txtCategory)
+                            txtSmallCategoryList.text = smallCategory.name
+
+                            view.setOnClickListener {
+                                mClickedSmallCategoryNum = smallCategory.id
+                                getProductFromServer()
+                            }
+
+                            binding.llCategory.addView(view)
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+                    Log.d("onFailure", resources.getString(R.string.data_loading_failed))
+                }
+            })
+    }
 
 }

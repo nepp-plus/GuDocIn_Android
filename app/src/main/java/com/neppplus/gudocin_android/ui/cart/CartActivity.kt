@@ -5,7 +5,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.neppplus.gudocin_android.ui.base.activity.BaseActivity
+import com.neppplus.gudocin_android.ui.base.renew.BaseActivity
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.ActivityCartBinding
 import com.neppplus.gudocin_android.ui.dummy.DummyActivity

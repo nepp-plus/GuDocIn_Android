@@ -1,4 +1,4 @@
-package com.neppplus.gudocin_android.ui.base.activity
+package com.neppplus.gudocin_android.ui.base.renew
 
 import android.content.Intent
 import android.os.Bundle

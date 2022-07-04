@@ -1,6 +1,7 @@
 package com.neppplus.gudocin_android.ui.category.life
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,11 +28,11 @@ class LifeCategoryFragment : BaseFragment() {
 
     val mProductList = ArrayList<ProductData>()
 
-    lateinit var mCategoryRecyclerViewAdapter: CategoryRecyclerViewAdapter
+    private lateinit var mCategoryRecyclerViewAdapter: CategoryRecyclerViewAdapter
 
     lateinit var mParticularCategoryRecyclerAdapter: ParticularCategoryRecyclerViewAdapter
 
-    var mLargeCategoryId = 3
+    private var mLargeCategoryId = 3
 
     var mClickedSmallCategoryNum = 11
 
@@ -39,7 +40,7 @@ class LifeCategoryFragment : BaseFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding =
             DataBindingUtil.inflate(
                 inflater,
@@ -56,71 +57,69 @@ class LifeCategoryFragment : BaseFragment() {
         setValues()
     }
 
-    override fun setupEvents() {
-
-    }
+    override fun setupEvents() {}
 
     override fun setValues() {
         getCategoryFromServer()
-
-        mCategoryRecyclerViewAdapter =
-            CategoryRecyclerViewAdapter(mSmallCategoryList)
+        mCategoryRecyclerViewAdapter = CategoryRecyclerViewAdapter(mSmallCategoryList)
 
         getProductFromServer()
+        mParticularCategoryRecyclerAdapter = ParticularCategoryRecyclerViewAdapter(mProductList)
 
-        mParticularCategoryRecyclerAdapter =
-            ParticularCategoryRecyclerViewAdapter(mProductList)
-        binding.rvProduct.adapter = mParticularCategoryRecyclerAdapter
-        binding.rvProduct.layoutManager = LinearLayoutManager(mContext)
+        binding.rvProduct.apply {
+            adapter = mParticularCategoryRecyclerAdapter
+            layoutManager = LinearLayoutManager(mContext)
+        }
     }
 
     fun getProductFromServer() {
-        apiService.getRequestSmallCategoriesProduct(mClickedSmallCategoryNum).enqueue(object :
+        apiService.getRequestSmallCategory(mClickedSmallCategoryNum).enqueue(object :
             Callback<BasicResponse> {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
                 if (response.isSuccessful) {
-                    val br = response.body()!!
+                    val basicResponse = response.body()!!
                     mProductList.clear()
-                    mProductList.addAll(br.data.products)
+                    mProductList.addAll(basicResponse.data.products)
                     mParticularCategoryRecyclerAdapter.notifyDataSetChanged()
                 }
             }
 
             override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-
+                Log.d("onFailure", resources.getString(R.string.data_loading_failed))
             }
         })
     }
 
     private fun getCategoryFromServer() {
-        apiService.getRequestSmallCategoryDependOnLarge(mLargeCategoryId).enqueue(object :
+        apiService.getRequestLargeCategory(mLargeCategoryId).enqueue(object :
             Callback<BasicResponse> {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
                 if (response.isSuccessful) {
                     binding.llCategory.removeAllViews()
-                    val br = response.body()!!
+                    val basicResponse = response.body()!!
                     mSmallCategoryList.clear()
-                    mSmallCategoryList.addAll(br.data.smallCategories)
+                    mSmallCategoryList.addAll(basicResponse.data.smallCategories)
 
-//                    추가한 카테고리 하나하나에 대한 view 생성
-                    for (sc in mSmallCategoryList) {
+                    for (smallCategory in mSmallCategoryList) {
                         val view = LayoutInflater.from(mContext)
                             .inflate(R.layout.adapter_category, null)
+
                         val txtSmallCategoryList =
                             view.findViewById<TextView>(R.id.txtCategory)
-                        txtSmallCategoryList.text = sc.name
+                        txtSmallCategoryList.text = smallCategory.name
 
                         view.setOnClickListener {
-                            mClickedSmallCategoryNum = sc.id
+                            mClickedSmallCategoryNum = smallCategory.id
                             getProductFromServer()
                         }
+
                         binding.llCategory.addView(view)
                     }
                 }
             }
 
             override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-
+                Log.d("onFailure", resources.getString(R.string.data_loading_failed))
             }
         })
     }

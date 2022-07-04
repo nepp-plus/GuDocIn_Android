@@ -177,7 +177,7 @@ class ProfileActivity : BaseActivity() {
       return
     }
 
-    apiService.getRequestDuplicatedCheck("NICK_NAME", nickname).enqueue(object : Callback<BasicResponse> {
+    apiService.getRequestDuplicateCheck("NICK_NAME", nickname).enqueue(object : Callback<BasicResponse> {
       override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
         if (response.isSuccessful) {
           binding.txtNicknameCheck.text = resources.getString(R.string.nickname_pass)

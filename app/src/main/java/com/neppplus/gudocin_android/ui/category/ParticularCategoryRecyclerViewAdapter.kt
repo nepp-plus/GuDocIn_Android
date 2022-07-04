@@ -13,17 +13,17 @@ import com.neppplus.gudocin_android.ui.product.ProductActivity
 import com.neppplus.gudocin_android.ui.review.ReviewActivity
 
 class ParticularCategoryRecyclerViewAdapter(
-  private val mList: List<ProductData>
+  private val mProductList: List<ProductData>
 ) : RecyclerView.Adapter<ParticularCategoryRecyclerViewAdapter.ParticularCategoryViewHolder>() {
 
   inner class ParticularCategoryViewHolder(private val binding: AdapterParticularCategoryBinding) : RecyclerView.ViewHolder(binding.root) {
     private var isReviewOpen = false
 
     fun bind(data: ProductData) {
-      Glide.with(itemView.context).load(data.imageUrl).into(binding.imgProduct)
       binding.txtProduct.text = data.name
       binding.txtStore.text = data.store.name
       binding.txtPrice.text = data.getFormattedPrice()
+      Glide.with(itemView.context).load(data.imageUrl).into(binding.imgProduct)
 
       if (data.reviews.isEmpty()) {
         binding.llParticularReview.visibility = View.GONE
@@ -32,15 +32,15 @@ class ParticularCategoryRecyclerViewAdapter(
         binding.llParticularReview.visibility = View.VISIBLE
 
         val firstReview = data.reviews[0]
-        Glide.with(itemView.context).load(firstReview.user.profileImageURL).into(binding.imgProfile)
         binding.txtTitle.text = firstReview.title
         binding.txtReviewer.text = firstReview.user.nickname
+        Glide.with(itemView.context).load(firstReview.user.profileImageURL).into(binding.imgProfile)
         firstReview.product = data
 
         binding.llReviewItem.setOnClickListener {
-          val myIntent = Intent(itemView.context, ReviewActivity::class.java)
-          myIntent.putExtra("review", firstReview)
-          itemView.context.startActivity(myIntent)
+          val intent = Intent(itemView.context, ReviewActivity::class.java)
+          intent.putExtra("review", firstReview)
+          itemView.context.startActivity(intent)
         }
 
         if (!isReviewOpen) {
@@ -61,9 +61,9 @@ class ParticularCategoryRecyclerViewAdapter(
       }
 
       binding.llRoot.setOnClickListener {
-        val myIntent = Intent(itemView.context, ProductActivity::class.java)
-        myIntent.putExtra("product_id", data)
-        itemView.context.startActivity(myIntent)
+        val intent = Intent(itemView.context, ProductActivity::class.java)
+        intent.putExtra("product_id", data)
+        itemView.context.startActivity(intent)
       }
     }
 
@@ -75,9 +75,9 @@ class ParticularCategoryRecyclerViewAdapter(
   }
 
   override fun onBindViewHolder(holder: ParticularCategoryViewHolder, position: Int) {
-    holder.bind(mList[position])
+    holder.bind(mProductList[position])
   }
 
-  override fun getItemCount() = mList.size
+  override fun getItemCount() = mProductList.size
 
 }

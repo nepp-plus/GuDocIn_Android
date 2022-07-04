@@ -12,7 +12,7 @@ import androidx.core.app.ActivityCompat
 import com.google.firebase.messaging.FirebaseMessaging
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.ActivityInitBinding
-import com.neppplus.gudocin_android.ui.base.activity.BaseActivity
+import com.neppplus.gudocin_android.ui.base.renew.BaseActivity
 import com.neppplus.gudocin_android.util.ContextUtil
 import com.neppplus.gudocin_android.ui.login.LoginActivity
 import com.neppplus.gudocin_android.ui.main.MainActivity

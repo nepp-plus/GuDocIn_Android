@@ -3,15 +3,15 @@ package com.neppplus.gudocin_android.ui.init
 import androidx.lifecycle.MutableLiveData
 import com.neppplus.gudocin_android.model.BasicResponse
 import com.neppplus.gudocin_android.model.user.GlobalData
-import com.neppplus.gudocin_android.network.RetrofitServiceInstance
+import com.neppplus.gudocin_android.network.RetrofitService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import javax.inject.Inject
 
-class InitRepository @Inject constructor(private val retrofitServiceInstance: RetrofitServiceInstance) {
+class InitRepository @Inject constructor(private val retrofitService: RetrofitService) {
   fun getRequestInfo(liveDataList: MutableLiveData<BasicResponse>) {
-    val call: Call<BasicResponse> = retrofitServiceInstance.getRequestInfo()
+    val call: Call<BasicResponse> = retrofitService.getRequestInfo()
     call.enqueue(object : Callback<BasicResponse> {
       override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
         if (response.isSuccessful) {

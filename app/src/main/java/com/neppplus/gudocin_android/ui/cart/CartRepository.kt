@@ -3,15 +3,15 @@ package com.neppplus.gudocin_android.ui.cart
 import androidx.lifecycle.MutableLiveData
 import com.neppplus.gudocin_android.model.BasicResponse
 import com.neppplus.gudocin_android.model.cart.CartData
-import com.neppplus.gudocin_android.network.RetrofitServiceInstance
+import com.neppplus.gudocin_android.network.RetrofitService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import javax.inject.Inject
 
-class CartRepository @Inject constructor(private val retrofitServiceInstance: RetrofitServiceInstance) {
+class CartRepository @Inject constructor(private val retrofitService: RetrofitService) {
   fun getRequestCart(liveDataList: MutableLiveData<BasicResponse>) {
-    val call: Call<BasicResponse> = retrofitServiceInstance.getRequestCart()
+    val call: Call<BasicResponse> = retrofitService.getRequestCart()
     call.enqueue(object : Callback<BasicResponse> {
       override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
         liveDataList.postValue(response.body())
@@ -25,7 +25,7 @@ class CartRepository @Inject constructor(private val retrofitServiceInstance: Re
 
 
   fun deleteRequestCart(liveDataList: MutableLiveData<BasicResponse>, mCartData: CartData) {
-    val call: Call<BasicResponse> = retrofitServiceInstance.deleteRequestCart(mCartData.product.id)
+    val call: Call<BasicResponse> = retrofitService.deleteRequestCart(mCartData.product.id)
     call.enqueue(object : Callback<BasicResponse> {
       override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
         liveDataList.postValue(response.body())

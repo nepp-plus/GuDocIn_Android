@@ -112,7 +112,7 @@ class MainActivity : BaseActivity() {
 
   private fun getDeviceToken() {
     if (ContextUtil.getDeviceToken(mContext) != "") {
-      apiService.patchRequestUpdateUserInfo(
+      apiService.patchRequestUpdateUser(
         "android_device_token",
         ContextUtil.getDeviceToken(mContext)
       ).enqueue(object : Callback<BasicResponse> {

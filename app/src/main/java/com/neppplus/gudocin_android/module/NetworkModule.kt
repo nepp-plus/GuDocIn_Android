@@ -2,7 +2,7 @@ package com.neppplus.gudocin_android.module
 
 import android.content.Context
 import com.google.gson.GsonBuilder
-import com.neppplus.gudocin_android.network.RetrofitServiceInstance
+import com.neppplus.gudocin_android.network.RetrofitService
 import com.neppplus.gudocin_android.util.ContextUtil
 import com.neppplus.gudocin_android.util.DateDeserializer
 import dagger.Module
@@ -20,13 +20,14 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
+
     private const val BASE_URL = "https://api.gudoc.in"
     private var retrofit: Retrofit? = null
 
     @Singleton
     @Provides
-    fun retrofitService(retrofit: Retrofit): RetrofitServiceInstance {
-        return retrofit.create(RetrofitServiceInstance::class.java)
+    fun retrofitService(retrofit: Retrofit): RetrofitService {
+        return retrofit.create(RetrofitService::class.java)
     }
 
     @Singleton
@@ -59,4 +60,5 @@ object NetworkModule {
         }
         return retrofit!!
     }
+
 }

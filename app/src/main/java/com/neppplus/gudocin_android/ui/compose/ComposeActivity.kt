@@ -204,7 +204,7 @@ class ComposeActivity : BaseActivity() {
                     param["tag_list"] = tagStrBody
                     param["thumbnail_img"] = fileReqBody
 
-                    apiService.postRequestReviewContent(param, thumbNailImageBody)
+                    apiService.postRequestReview(param, thumbNailImageBody)
                         .enqueue(object : Callback<BasicResponse> {
                             override fun onResponse(
                                 call: Call<BasicResponse>,
