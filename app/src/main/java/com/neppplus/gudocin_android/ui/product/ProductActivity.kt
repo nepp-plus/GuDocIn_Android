@@ -1,6 +1,5 @@
 package com.neppplus.gudocin_android.ui.product
 
-import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -15,11 +14,13 @@ import com.neppplus.gudocin_android.databinding.ActivityProductBinding
 import com.neppplus.gudocin_android.model.BasicResponse
 import com.neppplus.gudocin_android.model.product.ProductData
 import com.neppplus.gudocin_android.model.review.ReviewData
-import com.neppplus.gudocin_android.ui.content.ContentViewPagerAdapter
-import com.neppplus.gudocin_android.ui.review.shopping.ShoppingReviewRecyclerViewAdapter
+import com.neppplus.gudocin_android.network.Retrofit
+import com.neppplus.gudocin_android.network.RetrofitService
 import com.neppplus.gudocin_android.ui.base.BaseActivity
 import com.neppplus.gudocin_android.ui.cart.CartActivity
+import com.neppplus.gudocin_android.ui.content.ContentViewPagerAdapter
 import com.neppplus.gudocin_android.ui.dummy.DummyActivity
+import com.neppplus.gudocin_android.ui.review.shopping.ShoppingRecyclerViewAdapter
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -27,117 +28,132 @@ import retrofit2.Response
 
 class ProductActivity : BaseActivity() {
 
-  lateinit var binding: ActivityProductBinding
+    lateinit var binding: ActivityProductBinding
 
-  lateinit var mContentViewPagerAdapter: ContentViewPagerAdapter
+    lateinit var retrofitService: RetrofitService
 
-  lateinit var mShoppingReviewRecyclerViewAdapter: ShoppingReviewRecyclerViewAdapter
+    private lateinit var mContentViewPagerAdapter: ContentViewPagerAdapter
 
-  lateinit var mProductData: ProductData
+    lateinit var mShoppingRecyclerViewAdapter: ShoppingRecyclerViewAdapter
 
-  val mReviewList = ArrayList<ReviewData>()
+    lateinit var mProductData: ProductData
 
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    binding = DataBindingUtil.setContentView(this, R.layout.activity_product)
-    binding.activity = this
-    setupEvents()
-    setValues()
-  }
+    val mReviewList = ArrayList<ReviewData>()
 
-  override fun setupEvents() {}
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_product)
+        binding.apply {
+            activity = this@ProductActivity
+            retrofitService = Retrofit.getRetrofit(this@ProductActivity).create(RetrofitService::class.java)
+            initView()
+        }
+    }
 
-  override fun setValues() {
-    btnShopping.visibility = View.GONE
-    mProductData = intent.getSerializableExtra("product_id") as ProductData
+    private fun ActivityProductBinding.initView() {
+        mProductData = intent.getSerializableExtra("product_id") as ProductData
+        actionBarVisibility()
+        getRequestDetailProduct()
+        setViewpager()
+        recyclerviewAdapter()
+    }
 
-    getProductDetailItem()
-    viewpager()
-    recyclerviewAdapter()
-  }
+    private fun actionBarVisibility() {
+        shopping.visibility = View.GONE
+    }
 
-  private fun getProductDetailItem() {
-    apiService.getRequestDetailProduct(mProductData.id)
-      .enqueue(object : Callback<BasicResponse> {
-        override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
-          if (response.isSuccessful) {
-            val br = response.body()!!
-            Glide.with(mContext).load(br.data.product.imageUrl).into(binding.imgProduct)
-            binding.txtProduct.text = br.data.product.name
-            binding.txtStoreName.text = br.data.product.store.name
-            binding.txtPrice.text = br.data.product.getFormattedPrice()
+    private fun ActivityProductBinding.getRequestDetailProduct() {
+        retrofitService.getRequestDetailProduct(mProductData.id)
+            .enqueue(object : Callback<BasicResponse> {
+                override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
+                    if (response.isSuccessful) {
+                        val basicResponse = response.body()!!
+                        Glide.with(this@ProductActivity).load(basicResponse.data.product.imageUrl).into(imgProduct)
+                        txtProduct.text = basicResponse.data.product.name
+                        txtStoreName.text = basicResponse.data.product.store.name
+                        txtPrice.text = basicResponse.data.product.getFormattedPrice()
 
-            if (mProductData.reviews.isEmpty()) {
-              binding.txtReviewList.text = resources.getString(R.string.review_empty)
-            } else {
-              for (review in response.body()!!.data.product.reviews) {
-                review.product = mProductData
-              }
-              mReviewList.clear()
-              mReviewList.addAll(response.body()!!.data.product.reviews)
-              mShoppingReviewRecyclerViewAdapter.notifyDataSetChanged()
+                        if (mProductData.reviews.isEmpty()) {
+                            txtReviewList.text = resources.getString(R.string.review_empty)
+                        } else {
+                            for (review in response.body()!!.data.product.reviews) {
+                                review.product = mProductData
+                            }
+
+                            mReviewList.apply {
+                                clear()
+                                addAll(response.body()!!.data.product.reviews)
+                            }
+
+                            mShoppingRecyclerViewAdapter.notifyDataSetChanged()
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+                    Log.d("onFailure", resources.getString(R.string.data_loading_failed))
+                }
+            })
+    }
+
+    private fun postRequestCart() {
+        retrofitService.postRequestCart(mProductData.id).enqueue(object : Callback<BasicResponse> {
+            override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
+                if (response.isSuccessful) {
+                    val basicResponse = response.body()!!
+                    Log.d(resources.getString(R.string.success), basicResponse.message)
+                    alertDialog()
+                } else {
+                    val errorJson = JSONObject(response.errorBody()!!.string())
+                    Log.d(resources.getString(R.string.error_case), errorJson.toString())
+
+                    val message = errorJson.getString("message")
+                    Toast.makeText(this@ProductActivity, message, Toast.LENGTH_SHORT).show()
+                }
             }
-          }
+
+            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+                Log.d("onFailure", resources.getString(R.string.data_loading_failed))
+            }
+        })
+    }
+
+    private fun ActivityProductBinding.setViewpager() {
+        mContentViewPagerAdapter = ContentViewPagerAdapter(supportFragmentManager, this@ProductActivity)
+        vpContent.adapter = mContentViewPagerAdapter
+        tlContent.setupWithViewPager(binding.vpContent)
+    }
+
+    private fun ActivityProductBinding.recyclerviewAdapter() {
+        mShoppingRecyclerViewAdapter = ShoppingRecyclerViewAdapter(mReviewList)
+        rvReview.apply {
+            adapter = mShoppingRecyclerViewAdapter
+            layoutManager =
+                LinearLayoutManager(this@ProductActivity, LinearLayoutManager.HORIZONTAL, false)
+        }
+    }
+
+    fun alertDialog() {
+        val alert = AlertDialog.Builder(this)
+        alert.setTitle(resources.getString(R.string.cart_registration_success))
+        alert.setMessage(resources.getString(R.string.move_cart_list))
+
+        alert.setPositiveButton(
+            resources.getString(R.string.confirm)
+        ) { _, _ ->
+            startActivity(Intent(this, CartActivity::class.java))
         }
 
-        override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
-      })
-  }
+        alert.setNegativeButton(resources.getString(R.string.cancel)) { _, _ -> }
+        alert.show()
+    }
 
-  private fun postAddCartItem() {
-    apiService.postRequestCart(mProductData.id)
-      .enqueue(object : Callback<BasicResponse> {
-        override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
-          if (response.isSuccessful) {
-            val br = response.body()!!
-            Log.d(resources.getString(R.string.success), br.message)
-            alertDialog()
-          } else {
-            val errorJson = JSONObject(response.errorBody()!!.string())
-            Log.d(resources.getString(R.string.error_case), errorJson.toString())
+    fun addCartItem() {
+        postRequestCart()
+    }
 
-            val message = errorJson.getString("message")
-            Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show()
-          }
-        }
-
-        override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
-      })
-  }
-
-  fun viewpager() {
-    mContentViewPagerAdapter = ContentViewPagerAdapter(supportFragmentManager, mContext, mProductData)
-    binding.vpContent.adapter = mContentViewPagerAdapter
-    binding.tlContent.setupWithViewPager(binding.vpContent)
-  }
-
-  private fun recyclerviewAdapter() {
-    mShoppingReviewRecyclerViewAdapter = ShoppingReviewRecyclerViewAdapter(mContext, mReviewList)
-    binding.rvReview.adapter = mShoppingReviewRecyclerViewAdapter
-    binding.rvReview.layoutManager = LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false)
-  }
-
-  fun alertDialog() {
-    val alert = AlertDialog.Builder(mContext)
-    alert.setTitle(resources.getString(R.string.cart_registration_success))
-    alert.setMessage(resources.getString(R.string.move_cart_list))
-
-    alert.setPositiveButton(resources.getString(R.string.confirm), DialogInterface.OnClickListener { _, _ ->
-      val myIntent = Intent(mContext, CartActivity::class.java)
-      startActivity(myIntent)
-    })
-
-    alert.setNegativeButton(resources.getString(R.string.cancel), DialogInterface.OnClickListener { _, _ -> })
-    alert.show()
-  }
-
-  fun addCartItem(view: View) {
-    postAddCartItem()
-  }
-
-  fun startDummy(view: View) {
-    val myIntent = Intent(mContext, DummyActivity::class.java)
-    startActivity(myIntent)
-  }
+    fun startDummy() {
+        startActivity(Intent(this, DummyActivity::class.java))
+    }
 
 }

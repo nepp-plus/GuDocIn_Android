@@ -1,6 +1,5 @@
 package com.neppplus.gudocin_android.ui.reply
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -10,13 +9,12 @@ import com.neppplus.gudocin_android.model.reply.ReplyData
 import com.neppplus.gudocin_android.util.TimeAgo
 
 class ReplyRecyclerViewAdapter(
-  val mContext: Context,
-  private val mList: List<ReplyData>
+  private val mReplyList: List<ReplyData>
 ) : RecyclerView.Adapter<ReplyRecyclerViewAdapter.ReplyViewHolder>() {
 
   inner class ReplyViewHolder(private val binding: AdapterReplyBinding) : RecyclerView.ViewHolder(binding.root) {
     fun bind(data: ReplyData) {
-      Glide.with(mContext).load(data.user.profileImageURL).into(binding.imgProfile)
+      Glide.with(itemView.context).load(data.user.profileImageURL).into(binding.imgProfile)
       binding.txtNickName.text = data.user.nickname
       binding.txtTime.text = TimeAgo.getTimeAgoString(data.createdAt)
       binding.txtReply.text = data.content
@@ -24,14 +22,14 @@ class ReplyRecyclerViewAdapter(
   }
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReplyViewHolder {
-    val binding = AdapterReplyBinding.inflate(LayoutInflater.from(mContext), parent, false)
+    val binding = AdapterReplyBinding.inflate(LayoutInflater.from(parent.context), parent, false)
     return ReplyViewHolder(binding)
   }
 
   override fun onBindViewHolder(holder: ReplyViewHolder, position: Int) {
-    holder.bind(mList[position])
+    holder.bind(mReplyList[position])
   }
 
-  override fun getItemCount() = mList.size
+  override fun getItemCount() = mReplyList.size
 
 }

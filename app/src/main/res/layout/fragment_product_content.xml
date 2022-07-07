@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <data>
+
+        <variable
+            name="fragment"
+            type="com.neppplus.gudocin_android.ui.content.product.ProductContentFragment" />
+    </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -66,7 +73,7 @@
                 android:layout_weight="2"
                 android:background="@color/white"
                 android:padding="10dp"
-                android:text="@string/product_dummy_contry"
+                android:text="@string/product_dummy_country"
                 android:textColor="@color/black" />
 
         </LinearLayout>

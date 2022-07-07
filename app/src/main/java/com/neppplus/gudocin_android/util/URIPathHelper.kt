@@ -5,7 +5,6 @@ import android.content.Context
 import android.database.Cursor
 import android.net.Uri
 import android.os.Build
-import android.os.Environment
 import android.provider.DocumentsContract
 import android.provider.MediaStore
 import androidx.annotation.RequiresApi
@@ -16,13 +15,13 @@ class URIPathHelper {
         val isKitKatorAbove = Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT
         // DocumentProvider
         if (isKitKatorAbove && DocumentsContract.isDocumentUri(context, uri)) {
-            // ExternalStorageProvider
+            // ExternalStorageProvider -> ExternalFilesDir
             if (isExternalStorageDocument(uri)) {
                 val docId = DocumentsContract.getDocumentId(uri)
                 val split = docId.split(":".toRegex()).toTypedArray()
                 val type = split[0]
                 if ("primary".equals(type, ignoreCase = true)) {
-                    return Environment.getExternalStorageDirectory().toString() + "/" + split[1]
+                    return context.getExternalFilesDir(null).toString() + "/" + split[1]
                 }
             } else if (isDownloadsDocument(uri)) {
                 val id = DocumentsContract.getDocumentId(uri)

@@ -7,7 +7,7 @@ import com.neppplus.gudocin_android.databinding.AdapterCategoryBinding
 import com.neppplus.gudocin_android.model.category.SmallCategoryData
 
 class CategoryRecyclerViewAdapter(
-  private val mList: List<SmallCategoryData>
+  private val mSmallCategoryList: List<SmallCategoryData>
 ) : RecyclerView.Adapter<CategoryRecyclerViewAdapter.SmallCategoryViewHolder>() {
 
   inner class SmallCategoryViewHolder(private val binding: AdapterCategoryBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -22,9 +22,9 @@ class CategoryRecyclerViewAdapter(
   }
 
   override fun onBindViewHolder(holder: SmallCategoryViewHolder, position: Int) {
-    holder.bind(mList[position])
+    holder.bind(mSmallCategoryList[position])
   }
 
-  override fun getItemCount() = mList.size
+  override fun getItemCount() = mSmallCategoryList.size
 
 }

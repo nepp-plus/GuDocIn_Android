@@ -15,5 +15,4 @@ data class ImageData(
 
   @SerializedName("review_id")
   val reviewId: Int,
-) : Serializable {
-}
+) : Serializable

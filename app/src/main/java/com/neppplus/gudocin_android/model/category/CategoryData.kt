@@ -10,7 +10,6 @@ data class CategoryData(
   @SerializedName("name")
   val name: String,
 
-  @SerializedName("small_categories")
+  @SerializedName("smallCategories")
   val smallCategory: SmallCategoryData,
-) : Serializable {
-}
+) : Serializable

@@ -9,7 +9,7 @@ import com.neppplus.gudocin_android.databinding.AdapterProductBinding
 import com.neppplus.gudocin_android.model.product.ProductData
 import com.neppplus.gudocin_android.ui.compose.ComposeActivity
 
-class ProductRecyclerViewAdapter(private val mList: List<ProductData>) :
+class ProductRecyclerViewAdapter(private val mProductList: List<ProductData>) :
   RecyclerView.Adapter<ProductRecyclerViewAdapter.ProductViewHolder>() {
 
   inner class ProductViewHolder(private val binding: AdapterProductBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -20,9 +20,9 @@ class ProductRecyclerViewAdapter(private val mList: List<ProductData>) :
       binding.txtPrice.text = data.getFormattedPrice()
 
       binding.btnWriteReview.setOnClickListener {
-        val myIntent = Intent(itemView.context, ComposeActivity::class.java)
-        myIntent.putExtra("product", data)
-        itemView.context.startActivity(myIntent)
+        val intent = Intent(itemView.context, ComposeActivity::class.java)
+        intent.putExtra("product", data)
+        itemView.context.startActivity(intent)
       }
     }
   }
@@ -33,9 +33,9 @@ class ProductRecyclerViewAdapter(private val mList: List<ProductData>) :
   }
 
   override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
-    holder.bind(mList[position])
+    holder.bind(mProductList[position])
   }
 
-  override fun getItemCount() = mList.size
+  override fun getItemCount() = mProductList.size
 
 }

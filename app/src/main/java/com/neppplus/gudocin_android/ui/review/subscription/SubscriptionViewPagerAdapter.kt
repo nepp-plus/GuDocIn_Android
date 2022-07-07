@@ -8,7 +8,7 @@ import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.ui.payment.PaymentFragment
 import com.neppplus.gudocin_android.ui.review.ReviewFragment
 
-class SubscriptionViewPagerAdapter(fm: FragmentManager, val mContext: Context) : FragmentPagerAdapter(fm) {
+class SubscriptionViewPagerAdapter(fm: FragmentManager, private val mContext: Context) : FragmentPagerAdapter(fm) {
 
   override fun getCount() = 2
 

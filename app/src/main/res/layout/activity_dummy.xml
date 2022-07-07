@@ -4,8 +4,8 @@
     <data>
 
         <variable
-            name="view"
-            type="com.neppplus.gudocin_android.ui.activity.dummy.DummyActivity" />
+            name="activity"
+            type="com.neppplus.gudocin_android.ui.dummy.DummyActivity" />
 
         <variable
             name="viewModel"
@@ -22,6 +22,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="450dp"
+            android:contentDescription="@null"
             android:src="@drawable/splash_logo" />
 
         <TextView

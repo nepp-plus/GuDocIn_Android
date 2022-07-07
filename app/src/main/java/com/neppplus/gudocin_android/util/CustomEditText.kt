@@ -16,10 +16,9 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.drawable.DrawableCompat
 import com.neppplus.gudocin_android.R
 
-class CustomEditText : AppCompatEditText, TextWatcher, View.OnTouchListener,
-    View.OnFocusChangeListener {
+class CustomEditText : AppCompatEditText, TextWatcher, View.OnTouchListener, View.OnFocusChangeListener {
     private lateinit var clearDrawable: Drawable
-    private lateinit var onfocuschangelistener: OnFocusChangeListener
+    private lateinit var onFocusChangedListener: OnFocusChangeListener
     private lateinit var onTouchListener: OnTouchListener
     private var count: Int = 0
 
@@ -42,14 +41,17 @@ class CustomEditText : AppCompatEditText, TextWatcher, View.OnTouchListener,
     @SuppressLint("ClickableViewAccessibility")
     private fun init() {
         clearDrawable = DrawableCompat.wrap(
-            (ResourcesCompat.getDrawable(resources, R.drawable.ic_clear, null) as Drawable)
+            (ResourcesCompat.getDrawable(resources, R.drawable.delete_icon, null) as Drawable)
         )
+
         DrawableCompat.setTintList(clearDrawable, hintTextColors)
         clearDrawable.setBounds(0, 0, clearDrawable.intrinsicWidth, clearDrawable.intrinsicHeight)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+
+         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             clearDrawable.colorFilter =
                 PorterDuffColorFilter(context.getColor(R.color.teal_700), PorterDuff.Mode.SRC_IN)
         }
+
         setClearIconVisible(false)
         super.setOnTouchListener(this)
         super.setOnFocusChangeListener(this)
@@ -62,7 +64,7 @@ class CustomEditText : AppCompatEditText, TextWatcher, View.OnTouchListener,
     }
 
     override fun setOnFocusChangeListener(l: OnFocusChangeListener) {
-        onfocuschangelistener = l
+        onFocusChangedListener = l
         count = 1
     }
 
@@ -85,7 +87,7 @@ class CustomEditText : AppCompatEditText, TextWatcher, View.OnTouchListener,
                 if (event.action == MotionEvent.ACTION_UP) {
                     error = null
                     text = null
-//                  Toast.makeText(context, "텍스트 삭제", Toast.LENGTH_SHORT).show()
+                 // Toast.makeText(context, resources.getString(R.string.text_delete), Toast.LENGTH_SHORT).show()
                 }
                 return true
             }
@@ -98,6 +100,7 @@ class CustomEditText : AppCompatEditText, TextWatcher, View.OnTouchListener,
     override fun onFocusChange(v: View?, hasFocus: Boolean) {
         if (hasFocus && text != null) setClearIconVisible(text!!.isNotEmpty())
         else setClearIconVisible(false)
-        if (count == 1) onfocuschangelistener.onFocusChange(v, hasFocus)
+        if (count == 1) onFocusChangedListener.onFocusChange(v, hasFocus)
     }
+
 }
