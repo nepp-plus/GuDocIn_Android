@@ -10,6 +10,7 @@ import androidx.viewpager.widget.ViewPager
 import com.neppplus.gudocin_android.R
 
 class InitViewPagerAdapter(private val context: Context) : PagerAdapter() {
+
   private var layoutInflater: LayoutInflater? = null
   private val bannerImage = arrayOf(
     R.drawable.banner_spring,
@@ -45,4 +46,5 @@ class InitViewPagerAdapter(private val context: Context) : PagerAdapter() {
     val view = `object` as View
     viewPager.removeView(view)
   }
+
 }

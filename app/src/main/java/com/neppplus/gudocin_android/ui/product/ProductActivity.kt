@@ -48,7 +48,7 @@ class ProductActivity : BaseActivity() {
   override fun setupEvents() {}
 
   override fun setValues() {
-    btnShopping.visibility = View.GONE
+    shopping.visibility = View.GONE
     mProductData = intent.getSerializableExtra("product_id") as ProductData
 
     getProductDetailItem()
@@ -106,13 +106,13 @@ class ProductActivity : BaseActivity() {
   }
 
   fun viewpager() {
-    mContentViewPagerAdapter = ContentViewPagerAdapter(supportFragmentManager, mContext, mProductData)
+    mContentViewPagerAdapter = ContentViewPagerAdapter(supportFragmentManager, mContext)
     binding.vpContent.adapter = mContentViewPagerAdapter
     binding.tlContent.setupWithViewPager(binding.vpContent)
   }
 
   private fun recyclerviewAdapter() {
-    mShoppingRecyclerViewAdapter = ShoppingRecyclerViewAdapter(mContext, mReviewList)
+    mShoppingRecyclerViewAdapter = ShoppingRecyclerViewAdapter(mReviewList)
     binding.rvReview.adapter = mShoppingRecyclerViewAdapter
     binding.rvReview.layoutManager = LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false)
   }

@@ -10,9 +10,11 @@ import retrofit2.Response
 import javax.inject.Inject
 
 class InitRepository @Inject constructor(private val retrofitService: RetrofitService) {
+
   fun getRequestInfo(liveDataList: MutableLiveData<BasicResponse>) {
-    val call: Call<BasicResponse> = retrofitService.getRequestInfo()
-    call.enqueue(object : Callback<BasicResponse> {
+    val apiCall: Call<BasicResponse> = retrofitService.getRequestInfo()
+    apiCall.enqueue(object : Callback<BasicResponse> {
+
       override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
         if (response.isSuccessful) {
           val basicResponse = response.body()!!
@@ -26,4 +28,5 @@ class InitRepository @Inject constructor(private val retrofitService: RetrofitSe
       }
     })
   }
+
 }

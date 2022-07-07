@@ -20,9 +20,9 @@ class ProductRecyclerViewAdapter(private val mList: List<ProductData>) :
       binding.txtPrice.text = data.getFormattedPrice()
 
       binding.btnWriteReview.setOnClickListener {
-        val myIntent = Intent(itemView.context, ComposeActivity::class.java)
-        myIntent.putExtra("product", data)
-        itemView.context.startActivity(myIntent)
+        val intent = Intent(itemView.context, ComposeActivity::class.java)
+        intent.putExtra("product", data)
+        itemView.context.startActivity(intent)
       }
     }
   }

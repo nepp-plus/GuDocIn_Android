@@ -1,6 +1,5 @@
 package com.neppplus.gudocin_android.ui.review.shopping
 
-import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -10,8 +9,9 @@ import com.neppplus.gudocin_android.databinding.AdapterShoppingBinding
 import com.neppplus.gudocin_android.model.review.ReviewData
 import com.neppplus.gudocin_android.ui.review.ReviewActivity
 
-class ShoppingRecyclerViewAdapter
-    (val mContext: Context, private val mList: List<ReviewData>) :
+class ShoppingRecyclerViewAdapter(
+    private val mList: List<ReviewData>
+) :
     RecyclerView.Adapter<ShoppingRecyclerViewAdapter.ReviewViewHolder>() {
 
     inner class ReviewViewHolder(private val binding: AdapterShoppingBinding) :
@@ -19,18 +19,19 @@ class ShoppingRecyclerViewAdapter
         fun bind(data: ReviewData) {
             binding.txtReviewer.text = data.user.nickname
             binding.txtTitle.text = data.title
-            Glide.with(mContext).load(data.user.profileImageURL).into(binding.imgReviewer)
+            Glide.with(itemView.context).load(data.user.profileImageURL).into(binding.imgReviewer)
 
             binding.llDetailReview.setOnClickListener {
-                val intent = Intent(mContext, ReviewActivity::class.java)
+                val intent = Intent(itemView.context, ReviewActivity::class.java)
                 intent.putExtra("review", data) // 넘어갈 때 review id 첨부 필요
-                mContext.startActivity(intent)
+                itemView.context.startActivity(intent)
             }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReviewViewHolder {
-        val binding = AdapterShoppingBinding.inflate(LayoutInflater.from(mContext), parent, false)
+        val binding =
+            AdapterShoppingBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ReviewViewHolder(binding)
     }
 

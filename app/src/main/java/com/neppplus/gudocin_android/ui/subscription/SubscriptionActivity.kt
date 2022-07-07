@@ -56,8 +56,8 @@ class SubscriptionActivity : BaseActivity() {
     profileChange()
     loginUserProvider()
 
-    btnShopping.visibility = View.GONE
-    btnCart.visibility = View.GONE
+    shopping.visibility = View.GONE
+    cart.visibility = View.GONE
   }
 
   private fun loginUserProvider() {

@@ -46,8 +46,8 @@ class ReviewActivity : BaseActivity() {
     setReviewUI()
     getReviewFromSever()
     Glide.with(mContext).load(mReviewData.user.profileImageURL).into(binding.imgProfile)
-    btnCart.visibility = View.GONE
-    btnShopping.visibility = View.GONE
+    cart.visibility = View.GONE
+    shopping.visibility = View.GONE
   }
 
   private fun setReviewUI() {

@@ -41,7 +41,7 @@ class ShoppingActivity : BaseActivity() {
   }
 
   override fun setValues() {
-    btnShopping.visibility = View.GONE
+    shopping.visibility = View.GONE
 
     binding.viewPager.apply {
       adapter = ViewPagerAdapter(this@ShoppingActivity)

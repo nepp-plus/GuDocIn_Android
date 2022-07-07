@@ -68,8 +68,8 @@ class ProfileActivity : BaseActivity() {
     getInfoFromServer()
     profileChange()
     loginUserProvider()
-    btnShopping.visibility = View.GONE
-    btnCart.visibility = View.GONE
+    shopping.visibility = View.GONE
+    cart.visibility = View.GONE
   }
 
   // 실제 파일 경로를 읽는 권한 필요 (업로드 가능해짐)

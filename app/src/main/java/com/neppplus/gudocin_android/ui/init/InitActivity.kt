@@ -28,7 +28,7 @@ class InitActivity : BaseActivity<ActivityInitBinding, InitViewModel>(R.layout.a
   override val getViewModel: InitViewModel
     get() = initViewModel
 
-  var backKeyPressedTime: Long = 0
+  private var backKeyPressedTime: Long = 0
 
   var currentPosition = 0
 

@@ -3,16 +3,16 @@ package com.neppplus.gudocin_android.ui.category.food
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.FragmentFoodCategoryBinding
 import com.neppplus.gudocin_android.model.BasicResponse
 import com.neppplus.gudocin_android.model.category.SmallCategoryData
 import com.neppplus.gudocin_android.model.product.ProductData
+import com.neppplus.gudocin_android.network.Retrofit
+import com.neppplus.gudocin_android.network.RetrofitService
 import com.neppplus.gudocin_android.ui.base.BaseFragment
 import com.neppplus.gudocin_android.ui.category.CategoryRecyclerViewAdapter
 import com.neppplus.gudocin_android.ui.category.ParticularCategoryRecyclerViewAdapter
@@ -22,7 +22,7 @@ import retrofit2.Response
 
 class FoodCategoryFragment : BaseFragment() {
 
-    lateinit var binding: FragmentFoodCategoryBinding
+    lateinit var retrofitService: RetrofitService
 
     val mSmallCategoryList = ArrayList<SmallCategoryData>()
 
@@ -32,43 +32,39 @@ class FoodCategoryFragment : BaseFragment() {
 
     lateinit var mParticularCategoryRecyclerAdapter: ParticularCategoryRecyclerViewAdapter
 
-    private var mLargeCategoryId = 1
+    private val mLargeCategoryId = 1
 
-    var mClickedSmallCategoryNum = 1
+    private var mSmallCategoryNum = 1
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        binding =
-            DataBindingUtil.inflate(inflater, R.layout.fragment_food_category, container, false)
-        return binding.root
-    }
+    ) = binding<FragmentFoodCategoryBinding>(
+        inflater,
+        R.layout.fragment_food_category,
+        container
+    ).apply {
+        fragment = this@FoodCategoryFragment
+        retrofitService = Retrofit.getRetrofit(requireContext()).create(RetrofitService::class.java)
+        initView()
+    }.root
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        setupEvents()
-        setValues()
-    }
-
-    override fun setupEvents() {}
-
-    override fun setValues() {
-        getCategoryFromServer()
+    private fun FragmentFoodCategoryBinding.initView() {
+        getRequestLargeCategory()
         mCategoryRecyclerViewAdapter = CategoryRecyclerViewAdapter(mSmallCategoryList)
 
-        getProductFromServer()
+        getRequestSmallCategory()
         mParticularCategoryRecyclerAdapter = ParticularCategoryRecyclerViewAdapter(mProductList)
 
-        binding.rvProduct.apply {
+        rvProduct.apply {
             adapter = mParticularCategoryRecyclerAdapter
-            layoutManager = LinearLayoutManager(mContext)
+            layoutManager = LinearLayoutManager(requireContext())
         }
     }
 
-    fun getProductFromServer() {
-        apiService.getRequestSmallCategory(mClickedSmallCategoryNum)
+    private fun getRequestSmallCategory() {
+        retrofitService.getRequestSmallCategory(mSmallCategoryNum)
             .enqueue(object : Callback<BasicResponse> {
                 override fun onResponse(
                     call: Call<BasicResponse>,
@@ -76,8 +72,10 @@ class FoodCategoryFragment : BaseFragment() {
                 ) {
                     if (response.isSuccessful) {
                         val basicResponse = response.body()!!
-                        mProductList.clear()
-                        mProductList.addAll(basicResponse.data.products)
+                        mProductList.apply {
+                            clear()
+                            addAll(basicResponse.data.products)
+                        }
                         mParticularCategoryRecyclerAdapter.notifyDataSetChanged()
                     }
                 }
@@ -88,8 +86,25 @@ class FoodCategoryFragment : BaseFragment() {
             })
     }
 
-    private fun getCategoryFromServer() {
-        apiService.getRequestLargeCategory(mLargeCategoryId)
+    private fun FragmentFoodCategoryBinding.getCategoryLayout() {
+        llCategory.removeAllViews()
+        for (category in mSmallCategoryList) {
+            val view =
+                LayoutInflater.from(requireContext()).inflate(R.layout.adapter_category, null)
+
+            val txtSmallCategory = view.findViewById<TextView>(R.id.txtCategory)
+            txtSmallCategory.text = category.name
+
+            view.setOnClickListener {
+                mSmallCategoryNum = category.id
+                getRequestSmallCategory()
+            }
+            llCategory.addView(view)
+        }
+    }
+
+    private fun FragmentFoodCategoryBinding.getRequestLargeCategory() {
+        retrofitService.getRequestLargeCategory(mLargeCategoryId)
             .enqueue(object : Callback<BasicResponse> {
                 override fun onResponse(
                     call: Call<BasicResponse>,
@@ -97,24 +112,11 @@ class FoodCategoryFragment : BaseFragment() {
                 ) {
                     if (response.isSuccessful) {
                         val basicResponse = response.body()!!
-                        mSmallCategoryList.clear()
-                        mSmallCategoryList.addAll(basicResponse.data.smallCategories)
-                        binding.llCategory.removeAllViews()
-
-                        for (smallCategory in mSmallCategoryList) {
-                            val view = LayoutInflater.from(mContext)
-                                .inflate(R.layout.adapter_category, null)
-
-                            val txtSmallCategoryList = view.findViewById<TextView>(R.id.txtCategory)
-                            txtSmallCategoryList.text = smallCategory.name
-
-                            view.setOnClickListener {
-                                mClickedSmallCategoryNum = smallCategory.id
-                                getProductFromServer()
-                            }
-
-                            binding.llCategory.addView(view)
+                        mSmallCategoryList.apply {
+                            clear()
+                            addAll(basicResponse.data.smallCategories)
                         }
+                        getCategoryLayout()
                     }
                 }
 

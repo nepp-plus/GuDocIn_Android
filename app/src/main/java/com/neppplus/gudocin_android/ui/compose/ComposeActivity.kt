@@ -241,8 +241,8 @@ class ComposeActivity : BaseActivity() {
         binding.txtProduct.text = mProductData.name
         customDate()
         uploadImage()
-        btnCart.visibility = View.GONE
-        btnShopping.visibility = View.GONE
+        cart.visibility = View.GONE
+        shopping.visibility = View.GONE
     }
 
     private fun uploadImage() {

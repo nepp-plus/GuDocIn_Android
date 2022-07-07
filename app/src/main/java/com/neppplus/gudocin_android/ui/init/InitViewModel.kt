@@ -11,6 +11,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class InitViewModel @Inject constructor(private val repository: InitRepository) : BaseViewModel() {
+
   private val _liveDataList = SingleLiveData<BasicResponse>()
   val liveDataList: LiveData<BasicResponse>
     get() = _liveDataList
@@ -18,4 +19,5 @@ class InitViewModel @Inject constructor(private val repository: InitRepository) 
   fun getRequestInfo() = viewModelScope.launch {
     repository.getRequestInfo(_liveDataList)
   }
+
 }

@@ -63,8 +63,8 @@ class ReplyActivity : BaseActivity() {
     binding.rvReply.layoutManager = LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false)
     getReplyFromServer()
 
-    btnShopping.visibility = View.GONE
-    btnCart.visibility = View.GONE
+    shopping.visibility = View.GONE
+    cart.visibility = View.GONE
   }
 
   fun getReplyFromServer() {
