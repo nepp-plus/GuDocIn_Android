@@ -8,7 +8,7 @@ import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.model.payment.PaymentData
 
 class PaymentRecyclerViewAdapter(
-    private val mList: ArrayList<PaymentData>
+    private val mPaymentList: ArrayList<PaymentData>
 ) : RecyclerView.Adapter<PaymentRecyclerViewAdapter.PaymentViewHolder>() {
 
     inner class PaymentViewHolder(view: View) : RecyclerView.ViewHolder(view)
@@ -20,9 +20,9 @@ class PaymentRecyclerViewAdapter(
     }
 
     override fun onBindViewHolder(holder: PaymentViewHolder, position: Int) {
-        mList[position]
+        mPaymentList[position]
     }
 
-    override fun getItemCount() = mList.size
+    override fun getItemCount() = mPaymentList.size
 
 }

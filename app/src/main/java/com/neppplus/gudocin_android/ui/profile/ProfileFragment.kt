@@ -1,6 +1,5 @@
 package com.neppplus.gudocin_android.ui.profile
 
-import android.Manifest
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
@@ -8,13 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
-import com.gun0912.tedpermission.PermissionListener
-import com.gun0912.tedpermission.normal.TedPermission
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.FragmentProfileBinding
 import com.neppplus.gudocin_android.model.BasicResponse
@@ -25,22 +18,15 @@ import com.neppplus.gudocin_android.ui.base.BaseFragment
 import com.neppplus.gudocin_android.ui.init.InitActivity
 import com.neppplus.gudocin_android.ui.subscription.SubscriptionActivity
 import com.neppplus.gudocin_android.util.ContextUtil
-import com.neppplus.gudocin_android.util.URIPathHelper
-import okhttp3.MediaType
-import okhttp3.MultipartBody
-import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.io.File
 
 class ProfileFragment : BaseFragment() {
 
     lateinit var binding: FragmentProfileBinding
 
     lateinit var retrofitService: RetrofitService
-
-    private lateinit var resultLauncher: ActivityResultLauncher<Intent>
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -54,95 +40,9 @@ class ProfileFragment : BaseFragment() {
     }.root
 
     private fun FragmentProfileBinding.initView() {
-        profileChange()
         profileInfoListener()
         loginUserProvider()
         getRequestInfo()
-    }
-
-    private fun FragmentProfileBinding.profileChange() {
-        resultLauncher =
-            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-                if (it.resultCode == AppCompatActivity.RESULT_OK) {
-                    val selectedImageUri = it.data?.data!!
-                    Log.d("Selected Image Uri", selectedImageUri.toString())
-
-                    // Uri -> 실제 첨부 가능 파일 변환 -> 실제 경로 추출 통해 Retrofit 첨부 가능
-                    val file = File(
-                        URIPathHelper().getPath(requireContext(), selectedImageUri).toString()
-                    )
-
-                    // Retrofit 첨부 가능한 RequestBody 형태 가공
-                    val fileReqBody = RequestBody.create(MediaType.get("image/*"), file)
-
-                    // 실제 첨부 데이터 변경
-                    val body = MultipartBody.Part.createFormData(
-                        "profile_image",
-                        "myFile.jpg",
-                        fileReqBody
-                    )
-
-                    retrofitService.putRequestProfile(body)
-                        .enqueue(object : Callback<BasicResponse> {
-                            override fun onResponse(
-                                call: Call<BasicResponse>,
-                                response: Response<BasicResponse>
-                            ) {
-                                if (response.isSuccessful) {
-                                    Toast.makeText(
-                                        requireContext(),
-                                        resources.getString(R.string.profile_change_success),
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-
-                                    // 사용자 선택 사진 (selectedImageUri) 프로필 반영
-                                    Glide.with(requireContext()).load(selectedImageUri)
-                                        .into(imgProfile)
-                                } else {
-                                    Toast.makeText(
-                                        requireContext(),
-                                        resources.getString(R.string.profile_change_failed),
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                }
-                            }
-
-                            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
-                                Log.d(
-                                    "onFailure",
-                                    resources.getString(R.string.data_loading_failed)
-                                )
-                            }
-                        })
-                }
-            }
-    }
-
-    // 실제 파일 경로 읽는 권한 필요 (업로드 가능)
-    fun checkPermission() {
-        val permissionListener: PermissionListener = object : PermissionListener {
-            override fun onPermissionGranted() {
-                // 갤러리 왕복 이동
-                val intent = Intent()
-                intent.action = Intent.ACTION_PICK
-                intent.type = android.provider.MediaStore.Images.Media.CONTENT_TYPE
-                resultLauncher.launch(intent)
-            }
-
-            override fun onPermissionDenied(deniedPermissions: MutableList<String>?) {
-                Toast.makeText(
-                    requireContext(),
-                    resources.getString(R.string.gallery_permission_nothing),
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-        }
-        TedPermission.create()
-            .setPermissionListener(permissionListener)
-            .setRationaleMessage(resources.getString(R.string.gallery_permission_need))
-            .setDeniedMessage(resources.getString(R.string.gallery_permission_process))
-            .setPermissions(Manifest.permission.READ_EXTERNAL_STORAGE)
-            .check()
     }
 
     private fun FragmentProfileBinding.profileInfoListener() {

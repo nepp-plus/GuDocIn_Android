@@ -28,6 +28,7 @@
                     android:id="@+id/imgProfile"
                     android:layout_width="200dp"
                     android:layout_height="200dp"
+                    android:onClick="@{() -> activity.checkPermission()}"
                     android:src="@mipmap/ic_launcher"
                     app:civ_border_width="2dp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -98,7 +99,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
-                    android:onClick="@{activity::passwordChange}"
+                    android:onClick="@{() -> activity.passwordChange()}"
                     android:text="@string/profile_change" />
 
             </LinearLayout>
@@ -140,7 +141,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
-                    android:onClick="@{activity::phoneNumChange}"
+                    android:onClick="@{() -> activity.phoneNumChange()}"
                     android:text="@string/profile_change" />
 
             </LinearLayout>
@@ -175,7 +176,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
-                    android:onClick="@{activity::nicknameCheck}"
+                    android:onClick="@{() -> activity.nicknameCheck()}"
                     android:text="@string/profile_confirm" />
 
             </LinearLayout>
@@ -207,7 +208,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
-                    android:onClick="@{activity::nicknameChange}"
+                    android:onClick="@{() -> activity.nicknameChange()}"
                     android:text="@string/profile_change" />
 
             </LinearLayout>

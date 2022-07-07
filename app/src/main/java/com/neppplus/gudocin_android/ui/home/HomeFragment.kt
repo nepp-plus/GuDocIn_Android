@@ -61,7 +61,6 @@ class HomeFragment : BaseFragment() {
                 super.onScrolled(recyclerView, dx, dy)
                 if (!rvReview.canScrollVertically(1)) {
                     Log.d("SCROLL", "끝났음")
-                    pageUpListener(rvReview)
                     imgPageUp.visibility = View.VISIBLE
                 } else
                     imgPageUp.visibility = View.GONE
@@ -69,10 +68,8 @@ class HomeFragment : BaseFragment() {
         })
     }
 
-    private fun FragmentHomeBinding.pageUpListener(view: RecyclerView?) {
-        imgPageUp.setOnClickListener {
+    fun pageUpListener(view: RecyclerView?) {
             view?.smoothScrollToPosition(0)
-        }
     }
 
     fun getRequestSmallCategoryReview(mSmallCategoryNum: Int) {

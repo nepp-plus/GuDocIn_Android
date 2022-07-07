@@ -1,7 +1,6 @@
 package com.neppplus.gudocin_android.ui.compose
 
 import android.Manifest
-import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -23,6 +22,8 @@ import com.neppplus.gudocin_android.databinding.ActivityComposeBinding
 import com.neppplus.gudocin_android.model.BasicResponse
 import com.neppplus.gudocin_android.model.product.ProductData
 import com.neppplus.gudocin_android.model.user.GlobalData
+import com.neppplus.gudocin_android.network.Retrofit
+import com.neppplus.gudocin_android.network.RetrofitService
 import com.neppplus.gudocin_android.ui.base.BaseActivity
 import com.neppplus.gudocin_android.util.URIPathHelper
 import okhttp3.MediaType
@@ -40,228 +41,233 @@ class ComposeActivity : BaseActivity() {
 
     lateinit var binding: ActivityComposeBinding
 
-    lateinit var mProductData: ProductData
+    lateinit var retrofitService: RetrofitService
 
-    var mSelectedThumbnailUri: Uri? = null
+    private lateinit var mProductData: ProductData
 
     private val mInputTagList = ArrayList<String>()
 
+    private var mThumbnailUri: Uri? = null
+
     private lateinit var resultLauncher: ActivityResultLauncher<Intent>
-
-    // 실제 파일 경로를 읽는 권한 필요 (업로드 가능해짐)
-    private val ocl = View.OnClickListener {
-        val permissionListener: PermissionListener = object : PermissionListener {
-            override fun onPermissionGranted() {
-                // (안드로이드 제공) 갤러리로 왕복 이동
-                val myIntent = Intent()
-                myIntent.action = Intent.ACTION_PICK
-                myIntent.type = android.provider.MediaStore.Images.Media.CONTENT_TYPE
-                resultLauncher.launch(myIntent)
-            }
-
-            override fun onPermissionDenied(deniedPermissions: MutableList<String>?) {
-                Toast.makeText(
-                    mContext,
-                    resources.getString(R.string.gallery_permission_nothing),
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-        }
-
-        TedPermission.create()
-            .setPermissionListener(permissionListener)
-            .setRationaleMessage(resources.getString(R.string.gallery_permission_need))
-            .setDeniedMessage(resources.getString(R.string.gallery_permission_process))
-            .setPermissions(
-                Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE
-            )
-            .check()
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_compose)
-        setupEvents()
-        setValues()
+        binding.apply {
+            activity = this@ComposeActivity
+            retrofitService = Retrofit.getRetrofit(this@ComposeActivity).create(RetrofitService::class.java)
+            initView()
+            permissionListener()
+            inputTagListener()
+            reviewUploadListener()
+        }
     }
 
-    override fun setupEvents() {
-        binding.llSelectImage.setOnClickListener(ocl)
-        binding.imgThumbnail.setOnClickListener(ocl)
+    private fun ActivityComposeBinding.permissionListener() {
+        // 실제 파일 경로 읽는 권한 필요 (업로드 가능)
+        val ocl = View.OnClickListener {
+            val permissionListener: PermissionListener = object : PermissionListener {
+                override fun onPermissionGranted() {
+                    // 갤러리 왕복 이동
+                    val intent = Intent()
+                    intent.action = Intent.ACTION_PICK
+                    intent.type = android.provider.MediaStore.Images.Media.CONTENT_TYPE
+                    resultLauncher.launch(intent)
+                }
 
-        binding.edtKeyword.addTextChangedListener {
+                override fun onPermissionDenied(deniedPermissions: MutableList<String>?) {
+                    Toast.makeText(this@ComposeActivity, resources.getString(R.string.gallery_permission_nothing),
+                        Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            TedPermission.create()
+                .setPermissionListener(permissionListener)
+                .setRationaleMessage(resources.getString(R.string.gallery_permission_need))
+                .setDeniedMessage(resources.getString(R.string.gallery_permission_process))
+                .setPermissions(Manifest.permission.READ_EXTERNAL_STORAGE)
+                .check()
+        }
+
+        llSelectImage.setOnClickListener(ocl)
+        imgThumbnail.setOnClickListener(ocl)
+    }
+
+    private fun ActivityComposeBinding.inputTagListener() {
+        edtKeyword.addTextChangedListener {
             val nowText = it.toString()
+
             if (nowText == "") {
                 return@addTextChangedListener
             }
+
             Log.d(resources.getString(R.string.input_data), nowText)
 
-            // 입력한 값이 스페이스바가 들어오게 되면 태그가 되게 하는 함수
+            // 스페이스바 적용 시 태그 입력
             if (nowText.last() == ' ') {
-                Log.d(
-                    resources.getString(R.string.input_data),
-                    resources.getString(R.string.input_space_bar)
-                )
+                Log.d(resources.getString(R.string.input_data), resources.getString(R.string.input_space_bar))
 
                 val tag = nowText.replace(" ", "")
                 mInputTagList.add(tag)
 
-                val tagBox = LayoutInflater.from(mContext)
+                val tagBox = LayoutInflater.from(this@ComposeActivity)
                     .inflate(R.layout.adapter_compose, null)
 
                 val txtTag = tagBox.findViewById<TextView>(R.id.txtTag)
                 txtTag.text = "#${tag}"
 
-                binding.flTag.addView(tagBox)
-                binding.edtKeyword.setText("")
+                flTag.addView(tagBox)
+                edtKeyword.setText("")
             }
         }
+    }
 
-        binding.btnUpload.setOnClickListener {
-            val inputTitle = binding.edtTitle.text.toString()
-            val inputContent = binding.edtContent.text.toString()
+    private fun ActivityComposeBinding.reviewUploadListener() {
+        btnUpload.setOnClickListener {
+            val inputTitle = edtTitle.text.toString()
+            val inputContent = edtContent.text.toString()
 
-            // 제목이 입력되지 않으면 버튼이 눌리지 않도록
+            // 제목 미입력 시 진행 불가
             if (inputTitle.isEmpty()) {
-                Toast.makeText(
-                    mContext,
-                    resources.getString(R.string.input_title),
-                    Toast.LENGTH_SHORT
-                ).show()
-                return@setOnClickListener
-            }
-            // 대표 사진이 첨부되지 않으면 버튼이 눌리지 않도록
-            if (mSelectedThumbnailUri == null) {
-                Toast.makeText(
-                    mContext,
-                    resources.getString(R.string.input_represent_photo),
-                    Toast.LENGTH_SHORT
-                ).show()
-                return@setOnClickListener
-            }
-            // 리뷰 내용이 입력되지 않으면 버튼이 눌리지 않도록
-            if (inputContent.isEmpty()) {
-                Toast.makeText(
-                    mContext,
-                    resources.getString(R.string.input_review),
-                    Toast.LENGTH_SHORT
-                ).show()
+                Toast.makeText(this@ComposeActivity, resources.getString(R.string.input_title),
+                    Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            val alert = AlertDialog.Builder(mContext)
+            // 대표 사진 미첨부 시 진행 불가
+            if (mThumbnailUri == null) {
+                Toast.makeText(this@ComposeActivity, resources.getString(R.string.input_represent_photo),
+                    Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            // 리뷰 내용 미입력 시 진행 불가
+            if (inputContent.isEmpty()) {
+                Toast.makeText(this@ComposeActivity, resources.getString(R.string.input_review),
+                    Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            val alert = AlertDialog.Builder(this@ComposeActivity)
             alert.setTitle(resources.getString(R.string.notice_review))
             alert.setMessage(resources.getString(R.string.review_registration))
             alert.setPositiveButton(
-                resources.getString(R.string.confirm),
-                DialogInterface.OnClickListener { _, _ ->
-                    val rating = binding.ratingBar.rating.toDouble()
-                    var tagStr = ""
+                resources.getString(R.string.confirm)
+            ) { _, _ ->
+                val rating = ratingBar.rating.toDouble()
+                var tagStr = ""
 
-                    for (tag in mInputTagList) {
-                        Log.d(resources.getString(R.string.attach_tag), tag)
-                        tagStr += tag
-                        tagStr += ","
+                for (tag in mInputTagList) {
+                    Log.d(resources.getString(R.string.attach_tag), tag)
+                    tagStr += tag
+                    tagStr += ","
+                }
+
+                tagStr = tagStr.substring(0, tagStr.length - 1)
+                Log.d(resources.getString(R.string.completed_tag), tagStr)
+
+                val productIdBody =
+                    RequestBody.create(
+                        MediaType.parse(resources.getString(R.string.text_plain)),
+                        mProductData.id.toString()
+                    )
+
+                val inputContentBody =
+                    RequestBody.create(
+                        MediaType.parse(resources.getString(R.string.text_plain)),
+                        inputContent
+                    )
+
+                val inputTitleBody =
+                    RequestBody.create(
+                        MediaType.parse(resources.getString(R.string.text_plain)),
+                        inputTitle
+                    )
+
+                val ratingBody =
+                    RequestBody.create(
+                        MediaType.parse(resources.getString(R.string.text_plain)),
+                        rating.toString()
+                    )
+
+                val tagStrBody = RequestBody.create(
+                    MediaType.parse(resources.getString(R.string.text_plain)),
+                    tagStr
+                )
+
+                val file = File(URIPathHelper().getPath(this@ComposeActivity, mThumbnailUri!!)!!)
+
+                val fileReqBody = RequestBody.create(MediaType.get("image/*"), file)
+
+                val thumbNailImageBody =
+                    MultipartBody.Part.createFormData("thumbnail_img", "thumbnail.jpg", fileReqBody)
+
+                val param = HashMap<String, RequestBody>()
+                param["product_id"] = productIdBody
+                param["content"] = inputContentBody
+                param["title"] = inputTitleBody
+                param["score"] = ratingBody
+                param["tag_list"] = tagStrBody
+                param["thumbnail_img"] = fileReqBody
+
+                retrofitService.postRequestReview(param, thumbNailImageBody).enqueue(object : Callback<BasicResponse> {
+                    override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
+                        if (response.isSuccessful) {
+                            Toast.makeText(this@ComposeActivity, resources.getString(R.string.review_upload), Toast.LENGTH_SHORT).show()
+                            finish()
+                        } else {
+                            val jsonObj = JSONObject(response.errorBody()!!.string())
+                            Log.d(resources.getString(R.string.review_upload_failed), jsonObj.toString())
+                        }
                     }
 
-                    tagStr = tagStr.substring(0, tagStr.length - 1)
-                    Log.d(resources.getString(R.string.completed_tag), tagStr)
-
-                    val productIdBody =
-                        RequestBody.create(
-                            MediaType.parse("text/plain"),
-                            mProductData.id.toString()
-                        )
-
-                    val inputContentBody =
-                        RequestBody.create(MediaType.parse("text/plain"), inputContent)
-
-                    val inputTitleBody =
-                        RequestBody.create(MediaType.parse("text/plain"), inputTitle)
-
-                    val ratingBody =
-                        RequestBody.create(MediaType.parse("text/plain"), rating.toString())
-
-                    val tagStrBody = RequestBody.create(MediaType.parse("text/plain"), tagStr)
-
-                    val file = File(URIPathHelper().getPath(mContext, mSelectedThumbnailUri!!))
-
-                    val fileReqBody = RequestBody.create(MediaType.get("image/*"), file)
-
-                    val thumbNailImageBody =
-                        MultipartBody.Part.createFormData(
-                            "thumbnail_img",
-                            "thumbnail.jpg",
-                            fileReqBody
-                        )
-
-                    val param = HashMap<String, RequestBody>()
-                    param["product_id"] = productIdBody
-                    param["content"] = inputContentBody
-                    param["title"] = inputTitleBody
-                    param["score"] = ratingBody
-                    param["tag_list"] = tagStrBody
-                    param["thumbnail_img"] = fileReqBody
-
-                    apiService.postRequestReview(param, thumbNailImageBody)
-                        .enqueue(object : Callback<BasicResponse> {
-                            override fun onResponse(
-                                call: Call<BasicResponse>,
-                                response: Response<BasicResponse>
-                            ) {
-                                if (response.isSuccessful) {
-                                    Toast.makeText(
-                                        mContext,
-                                        resources.getString(R.string.review_upload),
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                    finish()
-                                } else {
-                                    val jsonObj = JSONObject(response.errorBody()!!.string())
-                                    Log.d(
-                                        resources.getString(R.string.review_upload_failed),
-                                        jsonObj.toString()
-                                    )
-                                }
-                            }
-
-                            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
-                        })
+                    override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+                        Log.d("onFailure", resources.getString(R.string.data_loading_failed))
+                    }
                 })
+            }
             alert.setNegativeButton(resources.getString(R.string.cancel), null)
             alert.show()
         }
     }
 
-    override fun setValues() {
-        Glide.with(mContext).load(GlobalData.loginUser!!.profileImageURL).into(binding.imgProfile)
-        mProductData = intent.getSerializableExtra("product") as ProductData
-        binding.txtNickName.text = GlobalData.loginUser!!.nickname
-        binding.txtProduct.text = mProductData.name
-        customDate()
+    private fun ActivityComposeBinding.initView() {
+        viewData()
         uploadImage()
-        cart.visibility = View.GONE
-        shopping.visibility = View.GONE
+        customDate()
+        actionBarVisibility()
     }
 
-    private fun uploadImage() {
+    private fun ActivityComposeBinding.viewData() {
+        mProductData = intent.getSerializableExtra("product") as ProductData
+        txtProduct.text = mProductData.name
+        txtNickName.text = GlobalData.loginUser!!.nickname
+        Glide.with(this@ComposeActivity).load(GlobalData.loginUser!!.profileImageURL).into(imgProfile)
+    }
+
+    private fun ActivityComposeBinding.uploadImage() {
         resultLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
                 if (it.resultCode == RESULT_OK) {
-                    mSelectedThumbnailUri = it.data!!.data
-                    Glide.with(mContext).load(mSelectedThumbnailUri).into(binding.imgThumbnail)
-                    binding.llSelectImage.visibility = View.GONE
-                    binding.imgThumbnail.visibility = View.VISIBLE
+                    mThumbnailUri = it.data!!.data
+                    llSelectImage.visibility = View.GONE
+                    imgThumbnail.visibility = View.VISIBLE
+                    Glide.with(this@ComposeActivity).load(mThumbnailUri).into(imgThumbnail)
                 }
             }
     }
 
-    private fun customDate() {
+    private fun ActivityComposeBinding.customDate() {
         val now = Calendar.getInstance()
         val sdf = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
         val date = sdf.format(now.time)
-        binding.txtDate.text = date
+        txtDate.text = date
+    }
+
+    private fun actionBarVisibility() {
+        cart.visibility = View.GONE
+        shopping.visibility = View.GONE
     }
 
 }

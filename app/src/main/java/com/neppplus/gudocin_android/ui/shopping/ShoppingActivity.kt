@@ -1,6 +1,7 @@
 package com.neppplus.gudocin_android.ui.shopping
 
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -21,46 +22,52 @@ class ShoppingActivity : BaseActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     binding = DataBindingUtil.setContentView(this, R.layout.activity_shopping)
-    setupEvents()
-    setValues()
-  }
-
-  override fun setupEvents() {
-    binding.bottomNav.setOnNavigationItemSelectedListener {
-      when (it.itemId) {
-        R.id.navFood -> binding.viewPager.currentItem = 0
-        R.id.navClothes -> binding.viewPager.currentItem = 1
-        else -> binding.viewPager.currentItem = 2
-      }
-      true
-    }
-    binding.viewPager.setOnTouchListener { viewPager, _ ->
-      viewPager.parent.requestDisallowInterceptTouchEvent(true)
-      false
+    binding.apply {
+      activity = this@ShoppingActivity
+      initView()
     }
   }
 
-  override fun setValues() {
+  private fun ActivityShoppingBinding.initView() {
+    actionBarVisibility()
+    viewPagerAdapter()
+  }
+
+  fun navigation(item: MenuItem): Boolean {
+    when (item.itemId) {
+      R.id.navFood -> binding.viewPager.currentItem = 0
+      R.id.navClothes -> binding.viewPager.currentItem = 1
+      else -> binding.viewPager.currentItem = 2
+    }
+    return true
+  }
+
+  fun viewPager(view: View) {
+    view.parent.requestDisallowInterceptTouchEvent(true)
+  }
+
+  private fun actionBarVisibility() {
     shopping.visibility = View.GONE
+  }
 
-    binding.viewPager.apply {
+  private fun ActivityShoppingBinding.viewPagerAdapter() {
+    viewPager.apply {
       adapter = ViewPagerAdapter(this@ShoppingActivity)
       registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
         override fun onPageSelected(position: Int) {
           super.onPageSelected(position)
-          binding.bottomNav.selectedItemId = when (position) {
+          bottomNav.selectedItemId = when (position) {
             0 -> R.id.navFood
             1 -> R.id.navClothes
             else -> R.id.navLife
           }
         }
       })
+      offscreenPageLimit = 3 // 3장 화면 계속 유지
     }
-//        3장의 화면을 계속 유지하도록
-    binding.viewPager.offscreenPageLimit = 3
   }
 
-  inner class ViewPagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
+  inner class ViewPagerAdapter(activity: FragmentActivity) : FragmentStateAdapter(activity) {
     override fun getItemCount() = 3
 
     private val fragmentList =

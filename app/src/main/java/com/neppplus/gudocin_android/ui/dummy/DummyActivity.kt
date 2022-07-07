@@ -1,19 +1,14 @@
 package com.neppplus.gudocin_android.ui.dummy
 
-import androidx.activity.viewModels
-import com.neppplus.gudocin_android.ui.base.renew.BaseActivity
+import android.os.Bundle
 import com.neppplus.gudocin_android.R
-import com.neppplus.gudocin_android.databinding.ActivityDummyBinding
-import dagger.hilt.android.AndroidEntryPoint
+import com.neppplus.gudocin_android.ui.base.BaseActivity
 
-@AndroidEntryPoint
-class DummyActivity() : BaseActivity<ActivityDummyBinding, DummyViewModel>(R.layout.activity_dummy) {
+class DummyActivity : BaseActivity() {
 
-  private val dummyViewModel: DummyViewModel by viewModels()
-
-  override val getViewModel: DummyViewModel
-    get() = dummyViewModel
-
-  override fun initView() {}
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_dummy)
+    }
 
 }

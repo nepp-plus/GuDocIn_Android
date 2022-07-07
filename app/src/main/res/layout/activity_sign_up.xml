@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <data>
+
+        <variable
+            name="activity"
+            type="com.neppplus.gudocin_android.ui.signup.SignUpActivity" />
+    </data>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -135,6 +142,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/white"
+                        android:onClick="@{() -> activity.getRequestDuplicateCheck()}"
                         android:text="@string/signup_nickname_check" />
 
                 </LinearLayout>
@@ -153,6 +161,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="9dp"
                 android:backgroundTint="@color/white"
+                android:onClick="@{() -> activity.putRequestSignUp()}"
                 android:text="@string/signup" />
 
             <LinearLayout
@@ -166,6 +175,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
+                    android:onClick="@{() -> activity.kakaoLogin()}"
                     android:text="@string/login_kakao" />
 
                 <Button
@@ -173,6 +183,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
+                    android:onClick="@{() -> activity.googleLogin()}"
                     android:text="@string/login_google" />
 
                 <Button
@@ -180,6 +191,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
+                    android:onClick="@{() -> activity.facebookLogin()}"
                     android:text="@string/login_facebook" />
 
             </LinearLayout>

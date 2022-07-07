@@ -9,7 +9,7 @@ import com.neppplus.gudocin_android.model.review.ReviewData
 import com.neppplus.gudocin_android.ui.review.ReviewActivity
 
 class SubscriptionRecyclerViewAdapter(
-    private val mList: ArrayList<ReviewData>
+    private val mReviewList: ArrayList<ReviewData>
 ) : RecyclerView.Adapter<SubscriptionRecyclerViewAdapter.ReviewViewHolder>() {
 
     inner class ReviewViewHolder(private val binding: AdapterSubscriptionBinding) :
@@ -34,9 +34,9 @@ class SubscriptionRecyclerViewAdapter(
     }
 
     override fun onBindViewHolder(holder: ReviewViewHolder, position: Int) {
-        holder.bind(mList[position])
+        holder.bind(mReviewList[position])
     }
 
-    override fun getItemCount() = mList.size
+    override fun getItemCount() = mReviewList.size
 
 }

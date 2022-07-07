@@ -18,7 +18,7 @@ import com.neppplus.gudocin_android.ui.review.ReviewActivity
 import java.util.*
 
 class MainRecyclerVewAdapter(
-    private val mList: List<ReviewData>
+    private val mReviewList: List<ReviewData>
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -75,6 +75,7 @@ class MainRecyclerVewAdapter(
             binding.txtProduct.text = data.product.name
 
             binding.ratingBar.rating = data.score.toFloat()
+            binding.ratingBar.setIsIndicator(true)
 
             binding.llDetailReview.setOnClickListener {
                 val intent = Intent(itemView.context, ReviewActivity::class.java)
@@ -117,11 +118,11 @@ class MainRecyclerVewAdapter(
             }
 
             is ItemViewHolder -> {
-                holder.bind(mList[position - 1])
+                holder.bind(mReviewList[position - 1])
             }
         }
     }
 
-    override fun getItemCount() = mList.size + 1
+    override fun getItemCount() = mReviewList.size + 1
 
 }

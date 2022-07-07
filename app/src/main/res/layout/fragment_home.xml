@@ -33,6 +33,7 @@
             android:layout_gravity="bottom|end"
             android:layout_margin="10dp"
             android:contentDescription="@null"
+            android:onClick="@{() -> fragment.pageUpListener(rvReview)}"
             android:src="@drawable/upward_arrow_icon"
             android:visibility="gone" />
 

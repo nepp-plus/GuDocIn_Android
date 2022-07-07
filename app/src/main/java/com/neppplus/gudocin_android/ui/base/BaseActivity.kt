@@ -1,6 +1,5 @@
 package com.neppplus.gudocin_android.ui.base
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -9,15 +8,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import com.neppplus.gudocin_android.R
-import com.neppplus.gudocin_android.network.Retrofit
-import com.neppplus.gudocin_android.network.RetrofitService
 import com.neppplus.gudocin_android.ui.cart.CartActivity
 import com.neppplus.gudocin_android.ui.shopping.ShoppingActivity
 
 abstract class BaseActivity : AppCompatActivity() {
-    lateinit var mContext: Context
-    lateinit var apiService: RetrofitService
 
     lateinit var back: ImageView
     lateinit var title: TextView
@@ -26,11 +22,6 @@ abstract class BaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        mContext = this
-
-        val retrofit = Retrofit.getRetrofit(mContext)
-        apiService = retrofit.create(RetrofitService::class.java)
-
         supportActionBar?.let {
             setCustomActionBar()
             actionBarListener()
@@ -38,20 +29,21 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     private fun setCustomActionBar() {
-        val defActionBar = supportActionBar
         Log.d("ActionBar", "Into the Setting")
 
-        defActionBar?.apply {
+        supportActionBar?.apply {
             displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
             setCustomView(R.layout.layout_header)
 
-            val toolbar = customView.parent as androidx.appcompat.widget.Toolbar
-            toolbar.setContentInsetsAbsolute(0, 0)
+            customView.apply {
+                back = findViewById(R.id.btnBack)
+                title = findViewById<TextView>(R.id.txtTitle).toString()
+                shopping = findViewById(R.id.btnShopping)
+                cart = findViewById(R.id.btnCart)
+            }
 
-            back = customView.findViewById(R.id.btnBack)
-            title = customView.findViewById<TextView>(R.id.txtTitle).toString()
-            shopping = customView.findViewById(R.id.btnShopping)
-            cart = customView.findViewById(R.id.btnCart)
+            val toolbar = customView.parent as Toolbar
+            toolbar.setContentInsetsAbsolute(0, 0)
         }
     }
 
@@ -67,8 +59,5 @@ abstract class BaseActivity : AppCompatActivity() {
         shopping.setOnClickListener(onClickListener)
         cart.setOnClickListener(onClickListener)
     }
-
-    abstract fun setupEvents()
-    abstract fun setValues()
 
 }

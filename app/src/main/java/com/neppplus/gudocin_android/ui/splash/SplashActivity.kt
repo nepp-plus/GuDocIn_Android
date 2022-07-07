@@ -17,17 +17,13 @@ class SplashActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_splash)
-        setupEvents()
-        setValues()
+        initView()
     }
 
-    override fun setupEvents() {}
-
-    override fun setValues() {
-        val myHandler = Handler(Looper.getMainLooper())
-        myHandler.postDelayed({
-            val myIntent = Intent(mContext, InitActivity::class.java)
-            startActivity(myIntent)
+    private fun initView() {
+        val handler = Handler(Looper.getMainLooper())
+        handler.postDelayed({
+            startActivity(Intent(this@SplashActivity, InitActivity::class.java))
             finish()
         }, 2500)
     }

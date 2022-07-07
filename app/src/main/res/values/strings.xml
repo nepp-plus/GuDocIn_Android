@@ -10,9 +10,6 @@
     <string name="facebook_login_protocol_scheme">fb621063819241628</string>
     <string name="google_default_client_id" translatable="false">741873260357-k81nj85r84ohs525oc5n1p3sq5ng5178.apps.googleusercontent.com</string>
 
-    <!--Data Loading Failed  -->
-    <string name="data_loading_failed">데이터를 가져오는데 실패하였습니다</string>
-
     <!--Cart-->
     <string name="cart_registration_success">장바구니 등록 완료</string>
     <string name="cart_list_delete">장바구니 목록이 삭제되었습니다</string>
@@ -23,9 +20,6 @@
 
     <string name="cart_name">상품명</string>
     <string name="cart_price">가격</string>
-
-    <!--Error Case-->
-    <string name="error_case">에러 경우</string>
 
     <!--Review-->
     <string name="review_view_more">리뷰 더보기</string>
@@ -79,6 +73,7 @@
     <string name="welcome_user">{user}님 환영합니다</string>
     <string name="congratulation_user">{user}님 가입을 축하합니다</string>
     <string name="review_user">{user}님의 리뷰</string>
+    <string name="user">{user}</string>
 
     <!--KakaoTalk Login-->
     <string name="kakao_login">카카오톡 로그인</string>
@@ -281,4 +276,14 @@
     <!--dummy-->
     <string name="dummy_later">다음 기회에 만나요 :)</string>
     <string name="dummy_description">* 본 프로젝트는 포트폴리오 용도이며\n넵플러스 IT 아카데미에서 작업하였습니다</string>
+
+    <!--Data Loading-->
+    <string name="data_loading_succeed">데이터를 가져오는데 성공하였습니다</string>
+    <string name="data_loading_failed">데이터를 가져오는데 실패하였습니다</string>
+
+    <!--Error Case-->
+    <string name="error_case">통신 오류</string>
+
+    <!--Text Plain-->
+    <string name="text_plain">text/plain</string>
 </resources>
