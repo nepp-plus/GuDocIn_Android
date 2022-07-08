@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
+import com.google.android.material.tabs.TabLayoutMediator
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.ActivitySubscriptionBinding
 import com.neppplus.gudocin_android.model.BasicResponse
@@ -30,28 +31,37 @@ class SubscriptionActivity : BaseActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_subscription)
         binding.apply {
             activity = this@SubscriptionActivity
-            retrofitService =
-                Retrofit.getRetrofit(this@SubscriptionActivity).create(RetrofitService::class.java)
+            retrofitService = Retrofit
+                .getRetrofit(this@SubscriptionActivity)
+                .create(RetrofitService::class.java)
             initView()
         }
     }
 
     private fun ActivitySubscriptionBinding.initView() {
-        mSubscriptionViewPagerAdapter =
-            SubscriptionViewPagerAdapter(supportFragmentManager, this@SubscriptionActivity)
-
-        vpSubscription.adapter = mSubscriptionViewPagerAdapter
-        tlSubscription.setupWithViewPager(binding.vpSubscription)
-
         getRequestInfo()
         loginUserProvider()
-
+        setSubscriptionViewpager()
         actionBarVisibility()
     }
 
     private fun actionBarVisibility() {
         shopping.visibility = View.GONE
         cart.visibility = View.GONE
+    }
+
+    private fun ActivitySubscriptionBinding.setSubscriptionViewpager() {
+        mSubscriptionViewPagerAdapter = SubscriptionViewPagerAdapter(this@SubscriptionActivity)
+        vpSubscription.adapter = mSubscriptionViewPagerAdapter
+
+        val tabTitleArray = arrayOf(
+            resources.getString(R.string.product_review),
+            resources.getString(R.string.product_subscribe)
+        )
+
+        TabLayoutMediator(tlSubscription, vpSubscription) { tab, position ->
+            tab.text = tabTitleArray[position]
+        }.attach()
     }
 
     private fun ActivitySubscriptionBinding.loginUserProvider() {

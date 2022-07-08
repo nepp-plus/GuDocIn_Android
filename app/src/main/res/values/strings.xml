@@ -6,8 +6,9 @@
 
     <!--Social Login -->
     <string name="kakao_app_key">c53922b4fc7f54934a3bca77009f4a04</string>
-    <string name="facebook_app_id">621063819241628</string>
+    <string name="kakao_login_protocol_scheme">kakaoc53922b4fc7f54934a3bca77009f4a04</string>
     <string name="facebook_login_protocol_scheme">fb621063819241628</string>
+    <string name="facebook_app_id">621063819241628</string>
     <string name="google_default_client_id" translatable="false">741873260357-k81nj85r84ohs525oc5n1p3sq5ng5178.apps.googleusercontent.com</string>
 
     <!--Cart-->

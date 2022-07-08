@@ -14,7 +14,6 @@ import com.neppplus.gudocin_android.model.product.ProductData
 import com.neppplus.gudocin_android.network.Retrofit
 import com.neppplus.gudocin_android.network.RetrofitService
 import com.neppplus.gudocin_android.ui.base.BaseFragment
-import com.neppplus.gudocin_android.ui.category.CategoryRecyclerViewAdapter
 import com.neppplus.gudocin_android.ui.category.ParticularCategoryRecyclerViewAdapter
 import retrofit2.Call
 import retrofit2.Callback
@@ -27,8 +26,6 @@ class LifeCategoryFragment : BaseFragment() {
     val mSmallCategoryList = ArrayList<SmallCategoryData>()
 
     val mProductList = ArrayList<ProductData>()
-
-    private lateinit var mCategoryRecyclerViewAdapter: CategoryRecyclerViewAdapter
 
     lateinit var mParticularCategoryRecyclerAdapter: ParticularCategoryRecyclerViewAdapter
 
@@ -52,9 +49,11 @@ class LifeCategoryFragment : BaseFragment() {
 
     private fun FragmentLifeCategoryBinding.initView() {
         getRequestLargeCategory()
-        mCategoryRecyclerViewAdapter = CategoryRecyclerViewAdapter(mSmallCategoryList)
-
+        setParticularCategoryRecyclerView()
         getRequestSmallCategory()
+    }
+
+    private fun FragmentLifeCategoryBinding.setParticularCategoryRecyclerView() {
         mParticularCategoryRecyclerAdapter = ParticularCategoryRecyclerViewAdapter(mProductList)
 
         rvProduct.apply {

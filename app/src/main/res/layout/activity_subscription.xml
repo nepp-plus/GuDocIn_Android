@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             app:tabMode="fixed" />
 
-        <androidx.viewpager.widget.ViewPager
+        <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/vpSubscription"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
