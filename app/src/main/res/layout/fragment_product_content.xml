@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <data>
+
+        <variable
+            name="fragment"
+            type="com.neppplus.gudocin_android.ui.content.product.ProductContentFragment" />
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
@@ -11,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="상품 정보"
+            android:text="@string/product_info"
             android:textColor="@color/black"
             android:textSize="17sp" />
 
@@ -20,17 +27,17 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:background="@drawable/gray_border_box"
+            android:background="@drawable/border_box"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@color/light_gray_f7"
+                android:background="@color/color_f7f7f7"
                 android:padding="10dp"
-                android:text="제조자(수입자)"
-                android:textColor="@color/dark_gray" />
+                android:text="@string/product_manufacturer"
+                android:textColor="@color/color_a0a0a0" />
 
             <TextView
                 android:layout_width="0dp"
@@ -38,7 +45,7 @@
                 android:layout_weight="2"
                 android:background="@color/white"
                 android:padding="10dp"
-                android:text="Koolunkle Corp."
+                android:text="@string/product_dummy_manufacturer"
                 android:textColor="@color/black" />
 
         </LinearLayout>
@@ -48,17 +55,17 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:background="@drawable/gray_border_box"
+            android:background="@drawable/border_box"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@color/light_gray_f7"
+                android:background="@color/color_f7f7f7"
                 android:padding="10dp"
-                android:text="제조국"
-                android:textColor="@color/dark_gray" />
+                android:text="@string/product_country"
+                android:textColor="@color/color_a0a0a0" />
 
             <TextView
                 android:layout_width="0dp"
@@ -66,7 +73,7 @@
                 android:layout_weight="2"
                 android:background="@color/white"
                 android:padding="10dp"
-                android:text="대한민국"
+                android:text="@string/product_dummy_country"
                 android:textColor="@color/black" />
 
         </LinearLayout>
@@ -76,17 +83,17 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:background="@drawable/gray_border_box"
+            android:background="@drawable/border_box"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="@color/light_gray_f7"
+                android:background="@color/color_f7f7f7"
                 android:padding="10dp"
-                android:text="고객센터"
-                android:textColor="@color/dark_gray" />
+                android:text="@string/product_customer_center"
+                android:textColor="@color/color_a0a0a0" />
 
             <TextView
                 android:layout_width="0dp"
@@ -94,7 +101,7 @@
                 android:layout_weight="2"
                 android:background="@color/white"
                 android:padding="10dp"
-                android:text="010-7153-7153"
+                android:text="@string/product_dummy_customer_center"
                 android:textColor="@color/black" />
 
         </LinearLayout>

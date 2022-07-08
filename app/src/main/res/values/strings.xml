@@ -1,7 +1,290 @@
 <resources>
     <string name="app_name">구독in</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
+    <!--Title Name-->
+    <string name="title_name">gudocin</string>
+
+    <!--Social Login -->
+    <string name="kakao_app_key">c53922b4fc7f54934a3bca77009f4a04</string>
+    <string name="kakao_login_protocol_scheme">kakaoc53922b4fc7f54934a3bca77009f4a04</string>
+    <string name="facebook_login_protocol_scheme">fb621063819241628</string>
     <string name="facebook_app_id">621063819241628</string>
-    <string name="fb_login_protocol_scheme">fb621063819241628</string>
-    <string name="default_client_id" translatable="false">741873260357-k81nj85r84ohs525oc5n1p3sq5ng5178.apps.googleusercontent.com</string>
+    <string name="google_default_client_id" translatable="false">741873260357-k81nj85r84ohs525oc5n1p3sq5ng5178.apps.googleusercontent.com</string>
+
+    <!--Cart-->
+    <string name="cart_registration_success">장바구니 등록 완료</string>
+    <string name="cart_list_delete">장바구니 목록이 삭제되었습니다</string>
+    <string name="move_cart_list">장바구니로 이동하시겠습니까?</string>
+
+    <string name="total_cart_price">전체 상품 가격</string>
+    <string name="cart_subscribe">상품 구독</string>
+
+    <string name="cart_name">상품명</string>
+    <string name="cart_price">가격</string>
+
+    <!--Review-->
+    <string name="review_view_more">리뷰 더보기</string>
+    <string name="review_close">리뷰 닫기</string>
+    <string name="review_empty">아직 등록된 리뷰가 없습니다</string>
+    <string name="review_nickname">닉네임</string>
+    <string name="review_product_name">상품명</string>
+    <string name="review_wrote_title">리뷰 제목</string>
+
+    <string name="review_product">구독 상품</string>
+    <string name="review_title">리뷰 제목</string>
+    <string name="reviewer_nickname">닉네임</string>
+    <string name="review_date">작성일시:</string>
+    <string name="review_dummy_date">2021.11.26</string>
+    <string name="review_content">리뷰 내용</string>
+    <string name="review_confirm">댓글 확인</string>
+    <string name="reviewer">작성자</string>
+
+    <!--Vendor Info-->
+    <string name="vendor_info">판매자 정보</string>
+    <string name="vendor_business_name">상호명</string>
+    <string name="vendor_dummy_business_name">Koolunkle Corp.</string>
+    <string name="vendor_workplace">사업장</string>
+    <string name="vendor_dummy_workplace">경기도 남양주시</string>
+    <string name="vendor_phone">연락처</string>
+    <string name="vendor_dummy_phone">010–7394–7394</string>
+
+    <!--Back Pressed-->
+    <string name="back_pressed">"뒤로" 버튼을 한번 더 누르면 종료됩니다</string>
+    <string name="back_button_pressed">백버튼을 한번 더 누르면 종료됩니다</string>
+
+    <!--FCM Token-->
+    <string name="fcm_token">FCM 토큰</string>
+
+    <!--Exit Confirm-->
+    <string name="exit_confirm">나가기 확인</string>
+    <string name="do_you_wanna_exit">정말 나가시겠습니까?</string>
+
+    <!--Confirm-->
+    <string name="confirm">확인</string>
+    <string name="success">성공</string>
+
+    <!--Cancel-->
+    <string name="cancel">취소</string>
+
+    <!--Input Data-->
+    <string name="input_data">입력값</string>
+    <string name="input_space_bar">Space Bar</string>
+
+    <!--Welcome User-->
+    <string name="welcome_user">{user}님 환영합니다</string>
+    <string name="congratulation_user">{user}님 가입을 축하합니다</string>
+    <string name="review_user">{user}님의 리뷰</string>
+    <string name="user">{user}</string>
+
+    <!--KakaoTalk Login-->
+    <string name="kakao_login">카카오톡 로그인</string>
+    <string name="kakao_login_success">로그인 성공</string>
+    <string name="kakao_login_failed">로그인 실패</string>
+    <string name="kakao_request_success">사용자 정보 요청 성공</string>
+    <string name="kakao_request_failed">사용자 정보 요청 실패</string>
+
+    <!--KakaoTalk User Info-->
+    <string name="kakao_user_id">아이디</string>
+    <string name="kakao_user_email">이메일</string>
+    <string name="kakao_user_nickname">닉네임</string>
+
+    <!--Facebook Login-->
+    <string name="facebook_login">페이스북 로그인</string>
+
+    <!--Info Request-->
+    <string name="info_request">내 정보 요청</string>
+
+    <!--CheckBox Change-->
+    <string name="checkbox_change">체크박스 변경</string>
+
+    <!--Account-->
+    <string name="email_input">이메일을 입력해 주세요</string>
+
+    <string name="password_pass">사용해도 좋은 비밀번호입니다</string>
+    <string name="password_length">비밀번호는 8글자 이상이어야 합니다</string>
+    <string name="password_change">비밀번호가 수정되었습니다</string>
+    <string name="password_correct">비밀번호가 일치합니다</string>
+    <string name="password_incorrect">비밀번호가 일치하지 않습니다</string>
+
+    <string name="nickname_input">닉네임을 입력해 주세요</string>
+    <string name="nickname_pass">사용해도 좋은 닉네임입니다</string>
+    <string name="nickname_usable">사용 가능한 닉네임을 입력해 주세요</string>
+    <string name="nickname_duplicated">닉네임 중복 확인을 진행해야 합니다</string>
+    <string name="nickname_exist">중복된 닉네임이 존재합니다</string>
+    <string name="nickname_change">닉네임이 수정되었습니다</string>
+
+    <string name="phone_num_input">전화번호를 입력해 주세요</string>
+    <string name="phone_num_change">전화번호가 수정되었습니다</string>
+
+    <string name="logout_confirm">로그아웃 확인</string>
+    <string name="do_you_wanna_logout">정말 로그아웃 하시겠습니까?</string>
+
+    <!--Gallery-->
+    <string name="gallery_permission_nothing">갤러리 조회 권한이 없습니다</string>
+    <string name="gallery_permission_need">앱의 기능을 사용하기 위해서는 권한이 필요합니다</string>
+    <string name="gallery_permission_process">[설정] > [애플리케이션] > [권한] 에서 확인할 수 있습니다</string>
+
+    <!--Profile-->
+    <string name="profile_change_success">프로필 사진이 변경되었습니다</string>
+    <string name="profile_change_failed">프로필 사진 변경에 실패하였습니다</string>
+
+    <!--Reply-->
+    <string name="reply_success">댓글이 작성되었습니다</string>
+    <string name="reply_failed">댓글 작성 실패: 관리자에게 문의해주세요</string>
+    <string name="reply_comment">구독 상품 관련 댓글을 남겨보세요</string>
+    <string name="reply_transfer">전송</string>
+    <string name="reply_nickname">닉네임</string>
+    <string name="reply_date">몇시간 전</string>
+    <string name="reply_content">댓글 내용 자리</string>
+
+    <!--Review-->
+    <string name="input_title">제목을 입력해 주세요</string>
+    <string name="input_represent_photo">대표 사진을 첨부해 주세요</string>
+
+    <string name="input_review">리뷰 내용을 입력해 주세요</string>
+    <string name="notice_review">리뷰 작성 알림</string>
+    <string name="review_registration">리뷰를 작성하시겠습니까?\n(키워드 미입력 시 작성되지 않습니다)</string>
+    <string name="review_upload">리뷰가 작성되었습니다</string>
+    <string name="review_upload_failed">리뷰 작성 실패</string>
+    <string name="review_load_success">리뷰 불러오기 성공</string>
+    <string name="review_load_failed">리뷰 불러오기 실패</string>
+
+    <!--TAG-->
+    <string name="attach_tag">첨부할 태그</string>
+    <string name="completed_tag">완성된 태그</string>
+    <string name="tag_content">태그 내용</string>
+
+    <!--Bottom Navigation-->
+    <string name="nav_home">홈</string>
+    <string name="nav_review">리뷰</string>
+    <string name="nav_profile">프로필</string>
+
+    <string name="nav_food">식품</string>
+    <string name="nav_clothes">의류</string>
+    <string name="nav_life">생활</string>
+
+    <!--Init-->
+    <string name="init_login">로그인</string>
+    <string name="init_signup">회원가입</string>
+    <string name="init_later">다음에 만나요</string>
+
+    <!--Login-->
+    <string name="login_email">이메일</string>
+    <string name="login_input_email">이메일을 입력하세요</string>
+    <string name="login_password">비밀번호</string>
+    <string name="login_input_password">비밀번호를 입력하세요</string>
+
+    <string name="login_auto">자동 로그인</string>
+    <string name="login">로그인</string>
+    <string name="login_kakao">카카오 로그인</string>
+    <string name="login_google">구글 로그인</string>
+    <string name="login_facebook">페이스북 로그인</string>
+
+    <!--Product-->
+    <string name="product_name">상품명</string>
+    <string name="product_store_name">가게명</string>
+    <string name="product_price">가격</string>
+    <string name="product_review_list">리뷰 목록</string>
+    <string name="product_cart">장바구니</string>
+    <string name="product_subscription">상품구독</string>
+    <string name="product_write_review">리뷰 작성</string>
+
+    <!--Product Info-->
+    <string name="product_info">상품 정보</string>
+    <string name="product_review">상품 리뷰 내역</string>
+    <string name="product_subscribe">상품 구독 내역</string>
+
+    <string name="product_manufacturer">제조자(수입자)</string>
+    <string name="product_dummy_manufacturer">Koolunkle Corp.</string>
+    <string name="product_country">제조국</string>
+    <string name="product_dummy_country">대한민국</string>
+    <string name="product_customer_center">고객센터</string>
+    <string name="product_dummy_customer_center">010–7153–7153</string>
+
+    <!--Profile-->
+    <string name="profile_nickname">koolunkle</string>
+    <string name="profile_change">수정</string>
+    <string name="profile_confirm">확인</string>
+
+    <string name="profile_password_change">비밀번호 수정</string>
+    <string name="profile_input_password">현재 비밀번호를 입력하세요</string>
+    <string name="profile_new_password">새로운 비밀번호를 입력하세요</string>
+    <string name="profile_password_length">비밀번호는 8자리 이상이어야 합니다</string>
+
+    <string name="profile_phone_change">전화번호 수정</string>
+    <string name="profile_new_phone">새로운 전화번호를 입력하세요</string>
+
+    <string name="profile_nickname_change">닉네임 수정</string>
+    <string name="profile_new_nickname">새로운 닉네임을 입력하세요</string>
+    <string name="profile_duplicated_nickname">닉네임 중복 확인</string>
+    <string name="profile_nickname_confirm">닉네임 중복 확인을 진행해야 합니다</string>
+
+    <string name="profile_user_info">회원정보</string>
+    <string name="profile_user_info_change">개인정보수정</string>
+    <string name="profile_user_logout">로그아웃</string>
+
+    <string name="profile_subscription">정기구독</string>
+    <string name="profile_content">리뷰 및 구독 내역</string>
+
+    <!--Sign Up-->
+    <string name="signup_email">이메일</string>
+    <string name="signup_input_email">이메일을 입력하세요</string>
+
+    <string name="signup_password">비밀번호</string>
+    <string name="signup_input_password">비밀번호를 입력하세요</string>
+    <string name="signup_password_length">비밀번호는 8자리 이상이어야 합니다</string>
+    <string name="signup_password_confirm">비밀번호 확인</string>
+    <string name="signup_password_retry">비밀번호를 다시 입력하세요</string>
+    <string name="signup_password_accord">비밀번호는 서로 일치해야 합니다</string>
+
+    <string name="signup_phone">전화번호</string>
+    <string name="signup_input_phone">전화번호를 입력하세요</string>
+
+    <string name="signup_nickname">닉네임</string>
+    <string name="signup_duplicated_nickname">중복 확인 후 닉네임을 입력하세요</string>
+    <string name="signup_nickname_confirm">닉네임 중복 확인을 진행해야 합니다</string>
+    <string name="signup_nickname_check">확인</string>
+
+    <string name="signup">회원가입</string>
+
+    <!--Compose-->
+    <string name="write_product">구독 상품</string>
+    <string name="write_title">리뷰 제목을 작성해 주세요</string>
+    <string name="write_nickname">닉네임</string>
+    <string name="write_date">작성일시:</string>
+    <string name="write_dummy_date">2021.11.26</string>
+    <string name="write_attach_photo">해당 박스를 클릭하여 대표 사진을 첨부해 주세요</string>
+    <string name="write_content">리뷰 내용을 작성해주세요</string>
+    <string name="write_keyword"># 키워드 입력</string>
+    <string name="write_input_keyword">스페이스바 입력 시 하나의 키워드가 완성됩니다</string>
+    <string name="write_complete">작성완료</string>
+
+    <!--Category-->
+    <string name="category">카테고리</string>
+    <string name="category_store_name">가게명</string>
+    <string name="category_product_name">상품명</string>
+    <string name="category_product_price">가격</string>
+
+    <string name="category_review">리뷰 더보기</string>
+    <string name="category_review_title">리뷰 제목</string>
+    <string name="category_reviewer">작성자</string>
+
+    <!--Subscription-->
+    <string name="subscription_product_name">상품명</string>
+    <string name="subscription_review_title">리뷰 제목</string>
+    <string name="subscription_review_date">작성일자</string>
+
+    <!--dummy-->
+    <string name="dummy_later">다음 기회에 만나요 :)</string>
+    <string name="dummy_description">* 본 프로젝트는 포트폴리오 용도이며\n넵플러스 IT 아카데미에서 작업하였습니다</string>
+
+    <!--Data Loading-->
+    <string name="data_loading_succeed">데이터를 가져오는데 성공하였습니다</string>
+    <string name="data_loading_failed">데이터를 가져오는데 실패하였습니다</string>
+
+    <!--Error Case-->
+    <string name="error_case">통신 오류</string>
+
+    <!--Text Plain-->
+    <string name="text_plain">text/plain</string>
 </resources>
