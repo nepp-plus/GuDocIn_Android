@@ -19,8 +19,7 @@ import java.util.*
 
 class MainRecyclerVewAdapter(
     private val mReviewList: List<ReviewData>
-) :
-    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     val mBannerList = ArrayList<BannerData>()
 
@@ -32,13 +31,12 @@ class MainRecyclerVewAdapter(
         RecyclerView.ViewHolder(binding.root) {
 
         fun onBind() {
-            mBannerViewPagerAdapter = BannerViewPagerAdapter(
-                (itemView.context as MainActivity)
-                    .supportFragmentManager, mBannerList
-            )
+            mBannerViewPagerAdapter =
+                BannerViewPagerAdapter((itemView.context as MainActivity), mBannerList)
 
             // 바인드 시 페이징 코드 누적 -> 최초 1회만 설정
             binding.vpBanner.adapter = mBannerViewPagerAdapter
+
             if (!isBannerViewPagerInit) {
                 var currentPage = 0
 
@@ -61,6 +59,7 @@ class MainRecyclerVewAdapter(
                 isBannerViewPagerInit = true
             }
         }
+
     }
 
     inner class ItemViewHolder(private val binding: AdapterReviewBinding) :

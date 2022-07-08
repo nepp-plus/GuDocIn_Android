@@ -9,6 +9,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
+import com.google.android.material.tabs.TabLayoutMediator
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.ActivityProductBinding
 import com.neppplus.gudocin_android.model.BasicResponse
@@ -32,11 +33,11 @@ class ProductActivity : BaseActivity() {
 
     lateinit var retrofitService: RetrofitService
 
+    lateinit var mProductData: ProductData
+
     private lateinit var mContentViewPagerAdapter: ContentViewPagerAdapter
 
     lateinit var mShoppingRecyclerViewAdapter: ShoppingRecyclerViewAdapter
-
-    lateinit var mProductData: ProductData
 
     val mReviewList = ArrayList<ReviewData>()
 
@@ -45,7 +46,9 @@ class ProductActivity : BaseActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_product)
         binding.apply {
             activity = this@ProductActivity
-            retrofitService = Retrofit.getRetrofit(this@ProductActivity).create(RetrofitService::class.java)
+            retrofitService = Retrofit
+                .getRetrofit(this@ProductActivity)
+                .create(RetrofitService::class.java)
             initView()
         }
     }
@@ -54,8 +57,8 @@ class ProductActivity : BaseActivity() {
         mProductData = intent.getSerializableExtra("product_id") as ProductData
         actionBarVisibility()
         getRequestDetailProduct()
-        setViewpager()
-        recyclerviewAdapter()
+        setContentViewpager()
+        shoppingRecyclerviewAdapter()
     }
 
     private fun actionBarVisibility() {
@@ -65,10 +68,14 @@ class ProductActivity : BaseActivity() {
     private fun ActivityProductBinding.getRequestDetailProduct() {
         retrofitService.getRequestDetailProduct(mProductData.id)
             .enqueue(object : Callback<BasicResponse> {
-                override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
+                override fun onResponse(
+                    call: Call<BasicResponse>,
+                    response: Response<BasicResponse>
+                ) {
                     if (response.isSuccessful) {
                         val basicResponse = response.body()!!
-                        Glide.with(this@ProductActivity).load(basicResponse.data.product.imageUrl).into(imgProduct)
+                        Glide.with(this@ProductActivity).load(basicResponse.data.product.imageUrl)
+                            .into(imgProduct)
                         txtProduct.text = basicResponse.data.product.name
                         txtStoreName.text = basicResponse.data.product.store.name
                         txtPrice.text = basicResponse.data.product.getFormattedPrice()
@@ -118,14 +125,23 @@ class ProductActivity : BaseActivity() {
         })
     }
 
-    private fun ActivityProductBinding.setViewpager() {
-        mContentViewPagerAdapter = ContentViewPagerAdapter(supportFragmentManager, this@ProductActivity)
+    private fun ActivityProductBinding.setContentViewpager() {
+        mContentViewPagerAdapter = ContentViewPagerAdapter(this@ProductActivity)
         vpContent.adapter = mContentViewPagerAdapter
-        tlContent.setupWithViewPager(binding.vpContent)
+
+        val tabTitleArray = arrayOf(
+            resources.getString(R.string.product_info),
+            resources.getString(R.string.vendor_info)
+        )
+
+        TabLayoutMediator(tlContent, vpContent) { tab, position ->
+            tab.text = tabTitleArray[position]
+        }.attach()
     }
 
-    private fun ActivityProductBinding.recyclerviewAdapter() {
+    private fun ActivityProductBinding.shoppingRecyclerviewAdapter() {
         mShoppingRecyclerViewAdapter = ShoppingRecyclerViewAdapter(mReviewList)
+
         rvReview.apply {
             adapter = mShoppingRecyclerViewAdapter
             layoutManager =
@@ -138,9 +154,7 @@ class ProductActivity : BaseActivity() {
         alert.setTitle(resources.getString(R.string.cart_registration_success))
         alert.setMessage(resources.getString(R.string.move_cart_list))
 
-        alert.setPositiveButton(
-            resources.getString(R.string.confirm)
-        ) { _, _ ->
+        alert.setPositiveButton(resources.getString(R.string.confirm)) { _, _ ->
             startActivity(Intent(this, CartActivity::class.java))
         }
 

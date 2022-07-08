@@ -32,16 +32,21 @@ class ProductFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ) = binding<FragmentProductBinding>(inflater, R.layout.fragment_product, container).apply {
-        retrofitService =
-            Retrofit.getRetrofit(requireContext()).create(RetrofitService::class.java)
         fragment = this@ProductFragment
+        retrofitService = Retrofit
+            .getRetrofit(requireContext())
+            .create(RetrofitService::class.java)
         initView()
     }.root
 
     private fun FragmentProductBinding.initView() {
         getRequestProduct()
+        setProductRecyclerView()
+    }
 
+    private fun FragmentProductBinding.setProductRecyclerView() {
         mProductRecyclerViewAdapter = ProductRecyclerViewAdapter(mProductList)
+
         rvProduct.apply {
             adapter = mProductRecyclerViewAdapter
             layoutManager = StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)

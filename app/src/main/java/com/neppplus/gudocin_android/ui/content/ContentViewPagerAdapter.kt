@@ -1,29 +1,22 @@
 package com.neppplus.gudocin_android.ui.content
 
-import android.content.Context
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentPagerAdapter
-import com.neppplus.gudocin_android.R
+import androidx.fragment.app.FragmentActivity
+import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.neppplus.gudocin_android.ui.content.product.ProductContentFragment
 import com.neppplus.gudocin_android.ui.content.store.StoreContentFragment
 
-class ContentViewPagerAdapter(fm: FragmentManager, private val mContext: Context) :
-    FragmentPagerAdapter(fm) {
+class ContentViewPagerAdapter(activity: FragmentActivity) : FragmentStateAdapter(activity) {
 
-    override fun getCount() = 2
+    private val itemCount: Int = 2
 
-    override fun getItem(position: Int): Fragment {
+    override fun getItemCount() = itemCount
+
+    override fun createFragment(position: Int): Fragment {
         return when (position) {
             0 -> ProductContentFragment()
             else -> StoreContentFragment()
         }
     }
 
-    override fun getPageTitle(position: Int): CharSequence? {
-        return when (position) {
-            0 -> mContext.getString(R.string.product_info)
-            else -> mContext.getString(R.string.vendor_info)
-        }
-    }
 }

@@ -11,8 +11,7 @@ import com.neppplus.gudocin_android.ui.review.ReviewActivity
 
 class ShoppingRecyclerViewAdapter(
     private val mReviewList: List<ReviewData>
-) :
-    RecyclerView.Adapter<ShoppingRecyclerViewAdapter.ReviewViewHolder>() {
+) : RecyclerView.Adapter<ShoppingRecyclerViewAdapter.ReviewViewHolder>() {
 
     inner class ReviewViewHolder(private val binding: AdapterShoppingBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -30,8 +29,7 @@ class ShoppingRecyclerViewAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ReviewViewHolder {
-        val binding =
-            AdapterShoppingBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = AdapterShoppingBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ReviewViewHolder(binding)
     }
 
