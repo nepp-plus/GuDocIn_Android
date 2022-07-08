@@ -5,15 +5,14 @@
         android:id="@+id/llCategory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:background="@color/white"
         android:orientation="vertical"
         android:padding="10dp">
 
         <TextView
             android:id="@+id/txtDummy"
-            android:layout_width="50dp"
-            android:layout_height="10dp"
+            android:layout_width="60dp"
+            android:layout_height="20dp"
             android:visibility="invisible" />
 
         <TextView

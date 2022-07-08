@@ -115,7 +115,7 @@
                     app:tabSelectedTextColor="@color/black"
                     app:tabTextColor="@color/color_737373" />
 
-                <com.neppplus.gudocin_android.util.CustomViewPager
+                <androidx.viewpager2.widget.ViewPager2
                     android:id="@+id/vpContent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -139,7 +139,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:gravity="center_horizontal"
-                android:onClick="@{activity::addCartItem}"
+                android:onClick="@{() -> activity.addCartItem()}"
                 android:orientation="vertical">
 
                 <ImageView
@@ -170,7 +170,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="20dp"
                 android:gravity="center_horizontal"
-                android:onClick="@{activity::startDummy}"
+                android:onClick="@{() -> activity.startDummy()}"
                 android:orientation="vertical">
 
                 <ImageView

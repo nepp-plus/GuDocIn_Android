@@ -12,7 +12,7 @@ class TimeAgo {
             // 현재 시간 추출 -> Local TimeZone 설정되어있음
             val now = Calendar.getInstance()
 
-            // 재료로 들어오는 date -> DateDeserializer 클래스를 통해 시차 보정 되어있음
+            // 재료로 들어오는 date -> DateDeserializer 클래스 통해 시차 보정되어있음
             val timeDiff = now.timeInMillis - date.time
 
             // 5초 이내에 작성된 글인 경우

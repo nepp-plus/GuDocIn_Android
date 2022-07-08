@@ -7,13 +7,14 @@
         android:background="@color/white"
         android:orientation="vertical">
 
-        <androidx.viewpager.widget.ViewPager
+        <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/vpBanner"
             android:layout_width="match_parent"
             android:layout_height="200dp" />
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragmentCategory"
+            android:name="com.neppplus.gudocin_android.ui.category.CategoryFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

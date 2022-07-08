@@ -2,12 +2,12 @@ package com.neppplus.gudocin_android.util
 
 import android.content.Context
 
-class Context {
+class ContextUtil {
     companion object {
         // 어떤 파일? 파일명
         private const val prefName = "GuDocInPref"
 
-        // 어떤 데이터 항목?  항목명
+        // 어떤 데이터 항목? 항목명
         private const val TOKEN = "TOKEN"
         private const val DEVICE_TOKEN = "DEVICE_TOKEN"
         private const val AUTO_LOGIN = "AUTO_LOGIN"

@@ -7,7 +7,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import java.util.concurrent.atomic.AtomicBoolean
 
-open class SingleLiveEvent<T> : MutableLiveData<T>() {
+open class SingleLiveData<T> : MutableLiveData<T>() {
   /**
    * AtomicBoolean: Multi-Thread 환경에서 동시성 보장
    */
@@ -26,12 +26,11 @@ open class SingleLiveEvent<T> : MutableLiveData<T>() {
      * CompareAndSet: mPending 변수가 true 일 시 if문 내 로직 처리 후 false 업데이트
      * setValue 통해서만 mPending 값이 바뀌기 때문에 Configuration Changed 가 일어나도 데이터를 전달하지 않음
      */
-    // Observer the internal MutableLiveData
-    super.observe(owner, Observer { t ->
+    super.observe(owner) { t ->
       if (mPending.compareAndSet(true, false)) {
         observer.onChanged(t)
       }
-    })
+    }
   }
 
   /**
@@ -50,6 +49,7 @@ open class SingleLiveEvent<T> : MutableLiveData<T>() {
   }
 
   companion object {
-    private const val TAG = "SingleLiveEvent"
+    private const val TAG = "SingleLiveData"
   }
+
 }

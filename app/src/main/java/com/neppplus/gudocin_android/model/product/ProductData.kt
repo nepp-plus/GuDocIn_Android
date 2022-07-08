@@ -26,7 +26,9 @@ data class ProductData(
   @SerializedName("reviews")
   val reviews: List<ReviewData>,
 ) : Serializable {
+
   fun getFormattedPrice(): String {
     return "${NumberFormat.getInstance(Locale.KOREA).format(this.price)}원"
   }
+
 }

@@ -10,11 +10,10 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationBarView
 import com.neppplus.gudocin_android.R
 
+/**
+ * Parameter specified as non-null is null 주의
+ */
 object BindingAdapter {
-    /**
-     * Parameter specified as non-null is null 주의
-     */
-
     /**
      * Where to use: MainActivity
      */

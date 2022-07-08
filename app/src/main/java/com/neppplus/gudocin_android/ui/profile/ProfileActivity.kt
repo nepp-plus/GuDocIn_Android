@@ -17,7 +17,9 @@ import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.ActivityProfileBinding
 import com.neppplus.gudocin_android.model.BasicResponse
 import com.neppplus.gudocin_android.model.user.GlobalData
-import com.neppplus.gudocin_android.util.Context
+import com.neppplus.gudocin_android.network.Retrofit
+import com.neppplus.gudocin_android.network.RetrofitService
+import com.neppplus.gudocin_android.util.ContextUtil
 import com.neppplus.gudocin_android.util.URIPathHelper
 import com.neppplus.gudocin_android.ui.base.BaseActivity
 import com.neppplus.gudocin_android.ui.main.MainActivity
@@ -33,7 +35,9 @@ class ProfileActivity : BaseActivity() {
 
   lateinit var binding: ActivityProfileBinding
 
-  var isPasswordLengthOk = false
+  lateinit var retrofitService: RetrofitService
+
+  private var isPasswordLengthOk = false
 
   var isDuplicatedOk = false
 
@@ -42,215 +46,267 @@ class ProfileActivity : BaseActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     binding = DataBindingUtil.setContentView(this, R.layout.activity_profile)
-    binding.view = this
-    setupEvents()
-    setValues()
+    binding.apply {
+      retrofitService = Retrofit.getRetrofit(this@ProfileActivity).create(RetrofitService::class.java)
+      activity = this@ProfileActivity
+      initView()
+    }
   }
 
-  override fun setupEvents() {
-    binding.edtPassword.addTextChangedListener {
+  private fun ActivityProfileBinding.initView() {
+    passwordChangedListener()
+    nicknameChangedListener()
+    getRequestInfo()
+    profileChange()
+    loginUserProvider()
+    actionBarVisibility()
+  }
+
+  private fun ActivityProfileBinding.passwordChangedListener() {
+    edtPassword.addTextChangedListener {
       if (it.toString().length >= 8) {
-        binding.txtPasswordCheck.text = resources.getString(R.string.password_pass)
+        txtPasswordCheck.text = resources.getString(R.string.password_pass)
         isPasswordLengthOk = true
       } else {
-        binding.txtPasswordCheck.text = resources.getString(R.string.password_length)
+        txtPasswordCheck.text = resources.getString(R.string.password_length)
         isPasswordLengthOk = false
       }
     }
+  }
 
-    binding.edtNicknameCheck.addTextChangedListener {
-      binding.txtNicknameCheck.text = resources.getString(R.string.nickname_duplicated)
+  private fun ActivityProfileBinding.nicknameChangedListener() {
+    edtNicknameCheck.addTextChangedListener {
+      txtNicknameCheck.text = resources.getString(R.string.nickname_duplicated)
       isDuplicatedOk = false
     }
   }
 
-  override fun setValues() {
-    getInfoFromServer()
-    profileChange()
-    loginUserProvider()
-    btnShopping.visibility = View.GONE
-    btnCart.visibility = View.GONE
+  private fun actionBarVisibility() {
+    shopping.visibility = View.GONE
+    cart.visibility = View.GONE
   }
 
-  // 실제 파일 경로를 읽는 권한 필요 (업로드 가능해짐)
-  fun checkPermission(view: View) {
-    var permissionListener: PermissionListener = object : PermissionListener {
+  // 실제 파일 경로 읽는 권한 필요 (업로드 가능)
+  fun checkPermission() {
+    val permissionListener: PermissionListener = object : PermissionListener {
       override fun onPermissionGranted() {
-        // (안드로이드 제공) 갤러리로 왕복 이동
-        val myIntent = Intent()
-        myIntent.action = Intent.ACTION_PICK
-        myIntent.type = android.provider.MediaStore.Images.Media.CONTENT_TYPE
-        resultLauncher.launch(myIntent)
+        // 갤러리 왕복 이동
+        val intent = Intent()
+        intent.action = Intent.ACTION_PICK
+        intent.type = android.provider.MediaStore.Images.Media.CONTENT_TYPE
+        resultLauncher.launch(intent)
       }
 
       override fun onPermissionDenied(deniedPermissions: MutableList<String>?) {
-        Toast.makeText(mContext, resources.getString(R.string.gallery_permission_nothing), Toast.LENGTH_SHORT).show()
+        Toast.makeText(this@ProfileActivity, resources.getString(R.string.gallery_permission_nothing), Toast.LENGTH_SHORT).show()
       }
     }
+
     TedPermission.create()
       .setPermissionListener(permissionListener)
       .setRationaleMessage(resources.getString(R.string.gallery_permission_need))
       .setDeniedMessage(resources.getString(R.string.gallery_permission_process))
-      .setPermissions(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+      .setPermissions(Manifest.permission.READ_EXTERNAL_STORAGE)
       .check()
   }
 
-  private fun profileChange() {
-    resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-      if (it.resultCode == RESULT_OK) {
-        val selectedImageUri = it.data?.data!!
-        Log.d("Selected Image Uri", selectedImageUri.toString())
-//        Uri -> 실제 첨부 가능한 파일로 변환 -> 실제 경로를 추출해서 Retrofit 에 첨부할 수 있게 됨
-        val file = File(URIPathHelper().getPath(mContext, selectedImageUri))
-//        파일을 Retrofit 에 첨부 가능한 RequestBody 형태로 가공
-        val fileReqBody = RequestBody.create(MediaType.get("image/*"), file)
-//        실제 첨부 데이터로 변경
-        val body = MultipartBody.Part.createFormData("profile_image", "myFile.jpg", fileReqBody)
+  private fun ActivityProfileBinding.profileChange() {
+    resultLauncher =
+      registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        if (it.resultCode == RESULT_OK) {
+          val selectedImageUri = it.data?.data!!
+          Log.d("Selected Image Uri", selectedImageUri.toString())
 
-        apiService.putRequestProfile(body).enqueue(object : Callback<BasicResponse> {
-          override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
-            if (response.isSuccessful) {
-              Toast.makeText(mContext, resources.getString(R.string.profile_change_success), Toast.LENGTH_SHORT).show()
-//                사용자가 선택한 사진(selectedImageUri)을 프로필 ImageView 에 반영
-              Glide.with(mContext).load(selectedImageUri).into(binding.imgProfile)
-            } else {
-              Toast.makeText(mContext, resources.getString(R.string.profile_change_failed), Toast.LENGTH_SHORT).show()
+          // Uri -> 실제 첨부 가능 파일 변환 -> 실제 경로 추출 통해 Retrofit 첨부 가능
+          val file = File(
+            URIPathHelper().getPath(this@ProfileActivity, selectedImageUri).toString()
+          )
+
+          // Retrofit 첨부 가능한 RequestBody 형태 가공
+          val fileReqBody = RequestBody.create(MediaType.get("image/*"), file)
+
+          // 실제 첨부 데이터 변경
+          val body = MultipartBody.Part.createFormData(
+            "profile_image",
+            "myFile.jpg",
+            fileReqBody
+          )
+
+          retrofitService.putRequestProfile(body).enqueue(object : Callback<BasicResponse> {
+            override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
+              if (response.isSuccessful) {
+                Toast.makeText(this@ProfileActivity, resources.getString(R.string.profile_change_success), Toast.LENGTH_SHORT).show()
+
+                // 사용자 선택 사진 (selectedImageUri) 프로필 반영
+                Glide.with(this@ProfileActivity).load(selectedImageUri).into(imgProfile)
+              } else {
+                Toast.makeText(this@ProfileActivity, resources.getString(R.string.profile_change_failed), Toast.LENGTH_SHORT).show()
+              }
             }
-          }
 
-          override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
-        })
+            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+              Log.d("onFailure", resources.getString(R.string.data_loading_failed))
+            }
+          })
+        }
       }
-    }
   }
 
-  fun passwordChange(view: View) {
+  fun passwordChange() {
     if (!isPasswordLengthOk) {
-      Toast.makeText(mContext, resources.getString(R.string.password_length), Toast.LENGTH_SHORT).show()
+      Toast.makeText(this@ProfileActivity, resources.getString(R.string.password_length), Toast.LENGTH_SHORT).show()
       return
     }
     val password = binding.edtPassword.text.toString()
     val newPassword = binding.edtNewPassword.text.toString()
 
-    apiService.patchRequestPassword("password", password, newPassword).enqueue(object : Callback<BasicResponse> {
-      override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
-        if (response.isSuccessful) {
-          val br = response.body()!!
-          Toast.makeText(mContext, resources.getString(R.string.password_change), Toast.LENGTH_SHORT).show()
+    retrofitService.patchRequestPassword("password", password, newPassword)
+      .enqueue(object : Callback<BasicResponse> {
+        override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
+          if (response.isSuccessful) {
+            val basicResponse = response.body()!!
+            Toast.makeText(this@ProfileActivity, resources.getString(R.string.password_change), Toast.LENGTH_SHORT).show()
 
-          Context.setToken(mContext, br.data.token)
-          GlobalData.loginUser = br.data.user
-          startMain()
+            ContextUtil.setToken(this@ProfileActivity, basicResponse.data.token)
+            GlobalData.loginUser = basicResponse.data.user
+
+            startMain()
+          }
         }
-      }
 
-      override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
-    })
+        override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+          Log.d("onFailure", resources.getString(R.string.data_loading_failed))
+        }
+      })
   }
 
-  fun phoneNumChange(view: View) {
+  fun phoneNumChange() {
     val inputPhoneNumber = binding.edtPhoneNum.text.toString()
     if (inputPhoneNumber.isEmpty()) {
-      Toast.makeText(mContext, resources.getString(R.string.phone_num_input), Toast.LENGTH_SHORT).show()
+      Toast.makeText(this@ProfileActivity, resources.getString(R.string.phone_num_input), Toast.LENGTH_SHORT).show()
       return
     }
 
-    apiService.patchRequestPhoneNumber("phone", inputPhoneNumber).enqueue(object : Callback<BasicResponse> {
-      override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
-        if (response.isSuccessful) {
-          val br = response.body()!!
-          Toast.makeText(mContext, resources.getString(R.string.phone_num_change), Toast.LENGTH_SHORT).show()
-          Context.setToken(mContext, br.data.token)
-          GlobalData.loginUser = br.data.user
-          startMain()
-        }
-      }
+    retrofitService.patchRequestPhoneNumber("phone", inputPhoneNumber)
+      .enqueue(object : Callback<BasicResponse> {
+        override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
+          if (response.isSuccessful) {
+            val basicResponse = response.body()!!
+            Toast.makeText(this@ProfileActivity, resources.getString(R.string.phone_num_change), Toast.LENGTH_SHORT).show()
 
-      override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
-    })
+            ContextUtil.setToken(this@ProfileActivity, basicResponse.data.token)
+            GlobalData.loginUser = basicResponse.data.user
+
+            startMain()
+          }
+        }
+
+        override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+          Log.d("onFailure", resources.getString(R.string.data_loading_failed))
+        }
+      })
   }
 
-  fun nicknameCheck(view: View) {
+  fun nicknameCheck() {
     val nickname = binding.edtNicknameCheck.text.toString()
     if (nickname.isEmpty()) {
-      Toast.makeText(mContext, resources.getString(R.string.nickname_input), Toast.LENGTH_SHORT).show()
+      Toast.makeText(this@ProfileActivity, resources.getString(R.string.nickname_input), Toast.LENGTH_SHORT).show()
       return
     }
 
-    apiService.getRequestDuplicatedCheck("NICK_NAME", nickname).enqueue(object : Callback<BasicResponse> {
-      override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
-        if (response.isSuccessful) {
-          binding.txtNicknameCheck.text = resources.getString(R.string.nickname_pass)
-          isDuplicatedOk = true
-        } else {
-          binding.txtNicknameCheck.text = resources.getString(R.string.nickname_exist)
-          isDuplicatedOk = false
+    retrofitService.getRequestDuplicateCheck("NICK_NAME", nickname)
+      .enqueue(object : Callback<BasicResponse> {
+        override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
+          if (response.isSuccessful) {
+            binding.txtNicknameCheck.text = resources.getString(R.string.nickname_pass)
+            isDuplicatedOk = true
+          } else {
+            binding.txtNicknameCheck.text = resources.getString(R.string.nickname_exist)
+            isDuplicatedOk = false
+          }
         }
-      }
 
-      override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
-    })
+        override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+          Log.d("onFailure", resources.getString(R.string.data_loading_failed))
+        }
+      })
   }
 
-  fun nicknameChange(view: View) {
+  fun nicknameChange() {
     val inputNickname = binding.edtNickname.text.toString()
     if (inputNickname.isEmpty() || !isDuplicatedOk) {
-      Toast.makeText(mContext, resources.getString(R.string.nickname_usable), Toast.LENGTH_SHORT).show()
+      Toast.makeText(this@ProfileActivity, resources.getString(R.string.nickname_usable),
+        Toast.LENGTH_SHORT).show()
       return
     }
 
-    apiService.patchRequestNickname("nickname", inputNickname).enqueue(object : Callback<BasicResponse> {
+    retrofitService.patchRequestNickname("nickname", inputNickname)
+      .enqueue(object : Callback<BasicResponse> {
+        override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
+          if (response.isSuccessful) {
+            val basicResponse = response.body()!!
+            Toast.makeText(this@ProfileActivity, resources.getString(R.string.nickname_change), Toast.LENGTH_SHORT).show()
+
+            ContextUtil.setToken(this@ProfileActivity, basicResponse.data.token)
+            GlobalData.loginUser = basicResponse.data.user
+
+            startMain()
+          }
+        }
+
+        override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+          Log.d("onFailure", resources.getString(R.string.data_loading_failed))
+        }
+      })
+  }
+
+  private fun ActivityProfileBinding.getRequestInfo() {
+    retrofitService.getRequestInfo().enqueue(object : Callback<BasicResponse> {
       override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
         if (response.isSuccessful) {
-          val br = response.body()!!
-          Toast.makeText(mContext, resources.getString(R.string.nickname_change), Toast.LENGTH_SHORT).show()
-          Context.setToken(mContext, br.data.token)
-          GlobalData.loginUser = br.data.user
-          startMain()
+          val basicResponse = response.body()!!
+          Glide.with(this@ProfileActivity).load(basicResponse.data.user.profileImageURL).into(imgProfile)
+          txtNickname.text = basicResponse.data.user.nickname
         }
       }
 
-      override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
-    })
-  }
-
-  private fun getInfoFromServer() {
-    apiService.getRequestInfo().enqueue(object : Callback<BasicResponse> {
-      override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
-        if (response.isSuccessful) {
-          val br = response.body()!!
-          Glide.with(mContext).load(br.data.user.profileImageURL).into(binding.imgProfile)
-          binding.txtNickname.text = br.data.user.nickname
-        }
+      override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+        Log.d("onFailure", resources.getString(R.string.data_loading_failed))
       }
-
-      override fun onFailure(call: Call<BasicResponse>, t: Throwable) {}
     })
   }
 
-  private fun loginUserProvider() {
+  private fun ActivityProfileBinding.loginUserProvider() {
     when (GlobalData.loginUser!!.provider) {
       "kakao" -> {
-        binding.imgProvider.setImageResource(R.drawable.kakao_logo)
-        binding.imgProvider.visibility = View.VISIBLE
+        imgProvider.apply {
+          setImageResource(R.drawable.kakao_logo)
+          visibility = View.VISIBLE
+        }
       }
+
       "facebook" -> {
-        binding.imgProvider.setImageResource(R.drawable.facebook_logo)
-        binding.imgProvider.visibility = View.VISIBLE
+        imgProvider.apply {
+          setImageResource(R.drawable.facebook_logo)
+          visibility = View.VISIBLE
+        }
       }
+
       "google" -> {
-        binding.imgProvider.setImageResource(R.drawable.google_logo)
-        binding.imgProvider.visibility = View.VISIBLE
+        imgProvider.apply {
+          setImageResource(R.drawable.google_logo)
+          visibility = View.VISIBLE
+        }
       }
+
       else -> {
-        binding.imgProvider.visibility = View.GONE
+        imgProvider.visibility = View.GONE
       }
     }
   }
 
   fun startMain() {
-    val myIntent = Intent(mContext, MainActivity::class.java)
-    startActivity(myIntent)
+    startActivity(Intent(this, MainActivity::class.java))
     finish()
   }
 

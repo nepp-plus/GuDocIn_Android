@@ -4,33 +4,24 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.FragmentProductContentBinding
-import com.neppplus.gudocin_android.model.product.ProductData
 import com.neppplus.gudocin_android.ui.base.BaseFragment
 
-class ProductContentFragment(val mProductData: ProductData) : BaseFragment() {
-
-    lateinit var binding: FragmentProductContentBinding
+class ProductContentFragment : BaseFragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_product_content, container, false)
-        return binding.root
+    ): View {
+        return binding<FragmentProductContentBinding>(
+            inflater,
+            R.layout.fragment_product_content,
+            container
+        ).apply {
+            fragment = this@ProductContentFragment
+        }.root
     }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        setupEvents()
-        setValues()
-    }
-
-    override fun setupEvents() {}
-
-    override fun setValues() {}
 
 }

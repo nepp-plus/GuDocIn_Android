@@ -1,93 +1,110 @@
 package com.neppplus.gudocin_android.ui.cart
 
 import android.content.Intent
+import android.os.Bundle
+import android.util.Log
 import android.view.View
-import android.widget.Toast
-import androidx.activity.viewModels
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.neppplus.gudocin_android.BaseActivity
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.ActivityCartBinding
+import com.neppplus.gudocin_android.model.BasicResponse
+import com.neppplus.gudocin_android.model.cart.CartData
+import com.neppplus.gudocin_android.network.Retrofit
+import com.neppplus.gudocin_android.network.RetrofitService
+import com.neppplus.gudocin_android.ui.base.BaseActivity
 import com.neppplus.gudocin_android.ui.dummy.DummyActivity
-import dagger.hilt.android.AndroidEntryPoint
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.text.NumberFormat
 import java.util.*
 
-@AndroidEntryPoint
-class CartActivity : BaseActivity<ActivityCartBinding, CartViewModel>(R.layout.activity_cart) {
-  private val cartViewModel: CartViewModel by viewModels()
+class CartActivity : BaseActivity() {
 
-  override val getViewModel: CartViewModel
-    get() = cartViewModel
+    lateinit var binding: ActivityCartBinding
 
-  private lateinit var mCartRecyclerViewAdapter: CartRecyclerViewAdapter
+    lateinit var retrofitService: RetrofitService
 
-  private var totalPrice = 0
+    private lateinit var mCartRecyclerViewAdapter: CartRecyclerViewAdapter
 
-  override fun initView() {
-    binding { view = this@CartActivity }
-    initRecyclerView()
-    observe()
-    toolbar()
-  }
+    private val mCartList = ArrayList<CartData>()
 
-  override fun observe() {
-    super.observe()
-    cartViewModel.liveDataList.observe(this) {
-      if (it != null) {
-        mCartRecyclerViewAdapter.setListData(it.data.carts)
-        mCartRecyclerViewAdapter.notifyDataSetChanged()
-        for (data in it.data.carts) {
-          totalPrice += data.product.price
+    private var totalPrice = 0
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_cart)
+        binding.apply {
+            activity = this@CartActivity
+            retrofitService =
+                Retrofit.getRetrofit(this@CartActivity).create(RetrofitService::class.java)
+            initView()
         }
+    }
+
+    private fun ActivityCartBinding.initView() {
+        initRecyclerView()
+        getRequestCart()
+        actionBarVisibility()
+    }
+
+    private fun ActivityCartBinding.getRequestCart() {
+        retrofitService.getRequestCart().enqueue(object : Callback<BasicResponse> {
+            override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
+                if (response.isSuccessful) {
+                    val basicResponse = response.body()!!
+                    mCartList.apply {
+                        clear()
+                        addAll(basicResponse.data.carts)
+                    }
+                    mCartRecyclerViewAdapter.notifyDataSetChanged()
+                    calculator()
+                }
+            }
+
+            override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+                Log.d("onFailure", resources.getString(R.string.data_loading_failed))
+            }
+        })
+    }
+
+    private fun ActivityCartBinding.initRecyclerView() {
+        mCartRecyclerViewAdapter = CartRecyclerViewAdapter(mCartList)
+        rvCart.apply {
+            adapter = mCartRecyclerViewAdapter
+            layoutManager = LinearLayoutManager(this@CartActivity)
+        }
+    }
+
+    private fun actionBarVisibility() {
+        shopping.visibility = View.GONE
+        cart.visibility = View.GONE
+    }
+
+    private fun ActivityCartBinding.calculator() {
+        for (data in mCartList)
+            totalPrice += data.product.price
+
         val koreanWon = "${NumberFormat.getInstance(Locale.KOREA).format(totalPrice)}원"
-        binding.txtPrice.text = koreanWon
-      } else {
-        Toast.makeText(this, resources.getString(R.string.data_loading_failed), Toast.LENGTH_SHORT).show()
-      }
+        txtPrice.text = koreanWon
     }
-    cartViewModel.getCart()
-  }
 
-  private fun initRecyclerView() {
-    mCartRecyclerViewAdapter = CartRecyclerViewAdapter()
-    mCartRecyclerViewAdapter.setOnItemClickListener(object : CartRecyclerViewAdapter.OnItemClickListener {
-      override fun onItemClick(position: Int) {
-        cartViewModel.deleteCart()
-      }
-    })
-    binding.rvCart.apply {
-      adapter = mCartRecyclerViewAdapter
-      layoutManager = LinearLayoutManager(this@CartActivity)
+    fun swipeRefresh() {
+        try {
+            val intent = intent
+            finish() // 현재 액티비티 종료
+            overridePendingTransition(0, 0) // 인텐트 애니메이션 제거
+            startActivity(intent) // 현재 액티비티 재실행
+            overridePendingTransition(0, 0) // 인텐트 애니메이션 제거
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        binding.swipeRefresh.isRefreshing = false
     }
-  }
 
-  private fun toolbar() {
-    shopping.visibility = View.GONE
-    cart.visibility = View.GONE
-  }
-
-  fun swipeRefresh() {
-    try {
-      val intent = intent
-      finish() // 현재 액티비티 종료 실시
-      overridePendingTransition(0, 0) // 인텐트 애니메이션 없애기
-      startActivity(intent) // 현재 액티비티 재실행 실시
-      overridePendingTransition(0, 0) // 인텐트 애니메이션 없애기
-    } catch (e: Exception) {
-      e.printStackTrace()
+    fun dummyIntent() {
+        startActivity(Intent(this, DummyActivity::class.java))
     }
-    binding.swipeRefresh.isRefreshing = false
-    /**
-     * Scroll 시 SwipeRefreshLayout Refresh 동작 방지
-     * binding.layoutScroll.viewTreeObserver.addOnScrollChangedListener {
-     * binding.swipeRefresh.isEnabled = (binding.layoutScroll.scrollY == 0)
-     * }
-     */
-  }
 
-  fun dummyIntent() {
-    val myIntent = Intent(this, DummyActivity::class.java)
-    startActivity(myIntent)
-  }
 }

@@ -85,7 +85,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:buttonTint="@color/black"
-                    android:onCheckedChanged="@{activity::setAutoLogin}"
+                    android:onCheckedChanged="@{() -> activity.setAutoLogin(true)}"
                     android:text="@string/login_auto"
                     android:textSize="15sp" />
 
@@ -96,7 +96,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/white"
-                android:onClick="@{activity::generalLogin}"
+                android:onClick="@{() -> activity.generalLogin()}"
                 android:text="@string/login" />
 
             <LinearLayout
@@ -111,7 +111,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
-                    android:onClick="@{activity::kakaoLogin}"
+                    android:onClick="@{() -> activity.kakaoLogin()}"
                     android:text="@string/login_kakao" />
 
                 <Button
@@ -119,7 +119,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
-                    android:onClick="@{activity::googleLogin}"
+                    android:onClick="@{() -> activity.googleLogin()}"
                     android:text="@string/login_google" />
 
                 <Button
@@ -127,7 +127,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
-                    android:onClick="@{activity::facebookLogin}"
+                    android:onClick="@{() -> activity.facebookLogin()}"
                     android:text="@string/login_facebook" />
 
             </LinearLayout>
@@ -137,4 +137,3 @@
     </ScrollView>
 
 </layout>
-
