@@ -47,8 +47,8 @@ class ProfileActivity : BaseActivity() {
     super.onCreate(savedInstanceState)
     binding = DataBindingUtil.setContentView(this, R.layout.activity_profile)
     binding.apply {
-      retrofitService = Retrofit.getRetrofit(this@ProfileActivity).create(RetrofitService::class.java)
       activity = this@ProfileActivity
+      retrofitService = Retrofit.getRetrofit(this@ProfileActivity).create(RetrofitService::class.java)
       initView()
     }
   }
@@ -135,10 +135,9 @@ class ProfileActivity : BaseActivity() {
           retrofitService.putRequestProfile(body).enqueue(object : Callback<BasicResponse> {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
               if (response.isSuccessful) {
-                Toast.makeText(this@ProfileActivity, resources.getString(R.string.profile_change_success), Toast.LENGTH_SHORT).show()
-
                 // 사용자 선택 사진 (selectedImageUri) 프로필 반영
                 Glide.with(this@ProfileActivity).load(selectedImageUri).into(imgProfile)
+                Toast.makeText(this@ProfileActivity, resources.getString(R.string.profile_change_success), Toast.LENGTH_SHORT).show()
               } else {
                 Toast.makeText(this@ProfileActivity, resources.getString(R.string.profile_change_failed), Toast.LENGTH_SHORT).show()
               }

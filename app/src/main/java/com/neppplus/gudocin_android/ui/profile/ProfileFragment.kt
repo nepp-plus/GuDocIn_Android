@@ -33,16 +33,21 @@ class ProfileFragment : BaseFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ) = binding<FragmentProfileBinding>(inflater, R.layout.fragment_profile, container).apply {
-        retrofitService =
-            Retrofit.getRetrofit(requireContext()).create(RetrofitService::class.java)
         fragment = this@ProfileFragment
+        binding = this
+        retrofitService = Retrofit.getRetrofit(requireContext()).create(RetrofitService::class.java)
         initView()
     }.root
 
-    private fun FragmentProfileBinding.initView() {
-        profileInfoListener()
-        loginUserProvider()
+    override fun onResume() {
+        super.onResume()
         getRequestInfo()
+    }
+
+    private fun FragmentProfileBinding.initView() {
+        getRequestInfo()
+        loginUserProvider()
+        profileInfoListener()
     }
 
     private fun FragmentProfileBinding.profileInfoListener() {
@@ -68,9 +73,7 @@ class ProfileFragment : BaseFragment() {
 
                 txtEditInfo -> startActivity(Intent(requireContext(), ProfileActivity::class.java))
 
-                txtHistory -> startActivity(
-                    Intent(requireContext(), SubscriptionActivity::class.java)
-                )
+                txtHistory -> startActivity(Intent(requireContext(), SubscriptionActivity::class.java))
             }
         }
         txtLogOut.setOnClickListener(onClickListener)
@@ -107,14 +110,13 @@ class ProfileFragment : BaseFragment() {
         }
     }
 
-    private fun FragmentProfileBinding.getRequestInfo() {
+    private fun getRequestInfo() {
         retrofitService.getRequestInfo().enqueue(object : Callback<BasicResponse> {
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
                 if (response.isSuccessful) {
                     val basicResponse = response.body()!!
-                    txtNickname.text = basicResponse.data.user.nickname
-                    Glide.with(requireContext()).load(basicResponse.data.user.profileImageURL)
-                        .into(imgProfile)
+                    binding.txtNickname.text = basicResponse.data.user.nickname
+                    Glide.with(requireContext()).load(basicResponse.data.user.profileImageURL).into(binding.imgProfile)
                 }
             }
 
