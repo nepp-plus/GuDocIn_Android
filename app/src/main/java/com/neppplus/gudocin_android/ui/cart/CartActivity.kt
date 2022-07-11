@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.neppplus.gudocin_android.R
@@ -14,6 +15,7 @@ import com.neppplus.gudocin_android.network.Retrofit
 import com.neppplus.gudocin_android.network.RetrofitService
 import com.neppplus.gudocin_android.ui.base.BaseActivity
 import com.neppplus.gudocin_android.ui.dummy.DummyActivity
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -37,8 +39,7 @@ class CartActivity : BaseActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_cart)
         binding.apply {
             activity = this@CartActivity
-            retrofitService =
-                Retrofit.getRetrofit(this@CartActivity).create(RetrofitService::class.java)
+            retrofitService = Retrofit.getRetrofit(this@CartActivity).create(RetrofitService::class.java)
             initView()
         }
     }
@@ -46,6 +47,7 @@ class CartActivity : BaseActivity() {
     private fun ActivityCartBinding.initView() {
         initRecyclerView()
         getRequestCart()
+        deleteRequestCart()
         actionBarVisibility()
     }
 
@@ -65,6 +67,33 @@ class CartActivity : BaseActivity() {
 
             override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
                 Log.d("onFailure", resources.getString(R.string.data_loading_failed))
+            }
+        })
+    }
+
+    private fun deleteRequestCart() {
+        mCartRecyclerViewAdapter.setOnItemClickListener(object :
+            CartRecyclerViewAdapter.OnItemClickListener {
+            override fun onItemClick(view: View, data: CartData, position: Int) {
+                retrofitService.deleteRequestCart(data.product.id).enqueue(object : Callback<BasicResponse> {
+                    override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
+                        if (response.isSuccessful) {
+                            setCartListRefresh()
+                            Toast.makeText(this@CartActivity, resources.getString(R.string.cart_list_delete),
+                                Toast.LENGTH_SHORT).show()
+                        } else {
+                            val errorJson = JSONObject(response.errorBody()!!.string())
+                            Log.d(resources.getString(R.string.error_case), errorJson.toString())
+
+                            val message = errorJson.getString("message")
+                            Toast.makeText(this@CartActivity, message, Toast.LENGTH_SHORT).show()
+                        }
+                    }
+
+                    override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+                        Log.d("onFailure", resources.getString(R.string.data_loading_failed))
+                    }
+                })
             }
         })
     }
@@ -90,7 +119,7 @@ class CartActivity : BaseActivity() {
         txtPrice.text = koreanWon
     }
 
-    fun swipeRefresh() {
+    private fun setCartListRefresh() {
         try {
             val intent = intent
             finish() // 현재 액티비티 종료
@@ -100,7 +129,6 @@ class CartActivity : BaseActivity() {
         } catch (e: Exception) {
             e.printStackTrace()
         }
-        binding.swipeRefresh.isRefreshing = false
     }
 
     fun dummyIntent() {
