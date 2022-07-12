@@ -46,8 +46,7 @@ class MainActivity : BaseActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.apply {
             activity = this@MainActivity
-            retrofitService =
-                Retrofit.getRetrofit(this@MainActivity).create(RetrofitService::class.java)
+            retrofitService = Retrofit.getRetrofit(this@MainActivity).create(RetrofitService::class.java)
             initView()
         }
     }
@@ -85,8 +84,7 @@ class MainActivity : BaseActivity() {
         if (System.currentTimeMillis() - backKeyPressedTime >= 1500) {
             backKeyPressedTime = System.currentTimeMillis()
             Toast.makeText(
-                this,
-                resources.getString(R.string.back_button_pressed),
+                this, resources.getString(R.string.back_button_pressed),
                 Toast.LENGTH_SHORT
             ).show()
         } else {
@@ -118,20 +116,14 @@ class MainActivity : BaseActivity() {
             R.id.navReview -> binding.viewPager.currentItem = 1
             else -> binding.viewPager.currentItem = 2
         }
-        return true // setOnItemSelectedListener
+        return true
     }
 
     private fun getDeviceToken() {
         if (ContextUtil.getDeviceToken(this) != "") {
-            retrofitService.patchRequestUpdateUser(
-                "android_device_token",
-                ContextUtil.getDeviceToken(this)
-            )
+            retrofitService.patchRequestUpdateUser("android_device_token", ContextUtil.getDeviceToken(this))
                 .enqueue(object : Callback<BasicResponse> {
-                    override fun onResponse(
-                        call: Call<BasicResponse>,
-                        response: Response<BasicResponse>
-                    ) {
+                    override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
                         Log.d("onResponse", resources.getString(R.string.data_loading_succeed))
                     }
 

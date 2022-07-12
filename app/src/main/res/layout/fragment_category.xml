@@ -28,21 +28,21 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_weight="1"
-                android:src="@drawable/food_category_icon" />
+                android:src="@mipmap/ic_launcher" />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/imgClothesCategory"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_weight="1"
-                android:src="@drawable/clothes_category_icon" />
+                android:src="@mipmap/ic_launcher" />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/imgLifeCategory"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_weight="1"
-                android:src="@drawable/life_category_icon" />
+                android:src="@mipmap/ic_launcher" />
 
         </LinearLayout>
 
