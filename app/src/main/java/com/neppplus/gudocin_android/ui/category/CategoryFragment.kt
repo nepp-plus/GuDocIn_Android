@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import com.neppplus.gudocin_android.R
 import com.neppplus.gudocin_android.databinding.FragmentCategoryBinding
 import com.neppplus.gudocin_android.model.BasicResponse
@@ -64,8 +65,15 @@ class CategoryFragment : BaseFragment() {
         imgLifeCategory.setOnClickListener(onClickListener)
     }
 
+    private fun FragmentCategoryBinding.setCategoryImage() {
+        Glide.with(requireContext()).load(R.drawable.food_category_icon).into(imgFoodCategory)
+        Glide.with(requireContext()).load(R.drawable.clothes_category_icon).into(imgClothesCategory)
+        Glide.with(requireContext()).load(R.drawable.life_category_icon).into(imgLifeCategory)
+    }
+
     private fun FragmentCategoryBinding.initView() {
         getRequestLargeCategory()
+        setCategoryImage()
     }
 
     private fun FragmentCategoryBinding.getCategoryLayout() {
@@ -93,10 +101,7 @@ class CategoryFragment : BaseFragment() {
     private fun FragmentCategoryBinding.getRequestLargeCategory() {
         retrofitService.getRequestLargeCategory(mLargeCategoryId)
             .enqueue(object : Callback<BasicResponse> {
-                override fun onResponse(
-                    call: Call<BasicResponse>,
-                    response: Response<BasicResponse>
-                ) {
+                override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
                     if (response.isSuccessful) {
                         val basicResponse = response.body()!!
                         mSmallCategoryList.apply {
