@@ -45,7 +45,6 @@ class InitActivity : BaseActivity() {
     private fun ActivityInitBinding.initView() {
         initViewPager()
         listenerTrigger()
-
         observe()
         setFirebaseToken()
     }
@@ -126,13 +125,13 @@ class InitActivity : BaseActivity() {
     private fun loginListener() {
         val handler = Handler(Looper.getMainLooper())
         handler.postDelayed({
-            val myIntent: Intent =
+            val intent: Intent =
                 if (ContextUtil.getAutoLogin(this) && ContextUtil.getToken(this) != "") {
                     Intent(this, MainActivity::class.java)
                 } else {
                     Intent(this, LoginActivity::class.java)
                 }
-            startActivity(myIntent)
+            startActivity(intent)
         }, 1000)
     }
 
