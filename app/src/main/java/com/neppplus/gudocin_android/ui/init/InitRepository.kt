@@ -26,6 +26,7 @@ class InitRepository @Inject constructor(private val retrofitService: RetrofitSe
       override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
         liveDataList.postValue(null)
       }
+
     })
   }
 
