@@ -1,8 +1,29 @@
-## 구독in - 세상의 모든 구독
+# 🔍 GudocIn - All subscriptions in the world
 
-효율적인 구독 상품 관리 서비스 플랫폼
+Summary
+-------------
+```
+Improving search cost through product classification
+Enhancing customer satisfaction through review activation
+```
 
-```
-다양한 상품 세분화를 통해 고객 탐색 비용 및 편의성 개선
-리뷰 활성화를 통해 고객 신뢰성 및 만족도 제고
-```
+|Program|Created|
+|---|------------------|
+|Android|💺Splash/Entry Screen 💻Login/Sign-Up 🛍Product 🔒Privacy 🛒Cart|
+
+
+Development Environment
+-------------
+|Type|Contents|
+|---|------------------|
+|OS|Windows 10 Home|
+|Language|Kotlin|
+|Editor|Android Studio Arctic Fox(2020.3.1)|
+
+
+Show the Development
+-------------
+|Type|Link|
+|---|------------------|
+|Github|https://github.com/koolunkle/TeamProject_GudocIn|
+|Notion|https://heliotrope-expansion-446.notion.site/in-c1f31566501a4fb2a30ae8cd1b10bd61|
