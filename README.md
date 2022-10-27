@@ -25,5 +25,5 @@ Show the Development
 -------------
 |Type|Link|
 |---|------------------|
-|Github|https://github.com/koolunkle/TeamProject_GudocIn|
+|Github|https://github.com/nepp-plus/GuDocIn_Android|
 |Notion|https://heliotrope-expansion-446.notion.site/in-c1f31566501a4fb2a30ae8cd1b10bd61|
